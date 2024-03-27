@@ -59,6 +59,8 @@ Once the Microsoft Defender XDR integration is connected, the connectors for all
 
 - To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft Defender XDR-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Microsoft Entra ID Protection) when connecting Microsoft Defender XDR. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft Defender XDR incident integration.
 
+- Incident creation rules aren't supported in workspaces onboarded to the unified SOC platform. For more information, see [After onboarding to the unified SOC platform](automation.md#after-onboarding-to-the-unified-soc-platform).
+
 ## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 
 Microsoft Defender XDR incidents will appear in the Microsoft Sentinel incidents queue with the product name **Microsoft Defender XDR**, and with similar details and functionality to any other Sentinel incidents. Each incident contains a link back to the parallel incident in the Microsoft Defender Portal.

@@ -1,10 +1,13 @@
 ---
 title: Use triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
 description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
-author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Use triggers and actions in Microsoft Sentinel playbooks
@@ -196,11 +199,11 @@ You can supply the following JSON code to generate the schema. The code shows th
 
     This will create a **For each** loop, since an incident contains an array of alerts.
 
-1. Click on the **Use sample payload to generate schema** link.
+1. Select on the **Use sample payload to generate schema** link.
 
     ![Select 'use sample payload to generate schema' link](./media/playbook-triggers-actions/generate-schema-link.png)
 
-1. Supply a sample payload. You can find a sample payload by looking in Log Analytics (the **Logs** blade) for another instance of this alert, and copying the custom details object (under **Extended Properties**). In the screenshot below, we used the JSON code shown above.
+1. Supply a sample payload. You can find a sample payload by looking in Log Analytics for another instance of this alert, and copying the custom details object (under **Extended Properties**). Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
 
     ![Enter sample JSON payload.](./media/playbook-triggers-actions/sample-payload.png)
 
