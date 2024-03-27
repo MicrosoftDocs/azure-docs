@@ -23,13 +23,13 @@ As a first step, review your options for reducing the amount of storage used by 
 
 | Approach | Why use this option |
 |----------|---------------------|
-| Assign smaller primitive data types, such as `Float16`, `Int16`, or `Int8`, to vector fields in a search index. | Narrow data types consume less space in memory and on disk. This option is viable if your embedding model outputs vectors in a narrow data format. Or, if you have custom quantization logic that outputs small data. A more common use case is recasting the native `Float32` embeddings produced by most models to `Float16`. |
+| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, and `Int8`, consume less space in memory and on disk. This option is viable if your embedding model outputs vectors in a narrow data format. Or, if you have custom quantization logic that outputs small data. A more common use case is recasting the native `Float32` embeddings produced by most models to `Float16`. |
 | Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field storage by up to 50 percent. |
-| Add vector compression | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage with no degradation of query performance. Smaller data types like `Int8` result produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss in a smaller vector index, built-in  compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are features of built-in vector compression of `Float32` fields and can't be used on embeddings that undergo custom quantization. |
+| Add vector compression | Use built-in scalar quantization to compress native embeddings to `Int8`. This option reduces storage with no degradation of query performance. Smaller data types like `Int8` produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss, built-in  compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are features of built-in vector compression of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
 
-Data type assignments, storage settings, and vector compression are defined on an empty index. 
+All of these options are defined on an empty index. 
 
-To implement any of these options, use the Azure portal, [2024-03-01-preview REST APIs](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package.
+To implement any of them, use the Azure portal, [2024-03-01-preview REST APIs](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package.
 
 ## Option 1: Assign narrow data types to vector fields
 
@@ -121,9 +121,9 @@ Vector compression reduces memory and disk storage requirements, and it can be a
 
 To use vector compression:
 
-+ Add a `vectorSearch.compressions` section to a search index. The compression algorithm supported in this preview is scalar quantization.
-+ Add a `vectorSearch.profiles.compression` setting to a vector profile.
-+ Set optional properties to mitigate the effects of lossy indexing. The `rerankWithOriginalVectors` property and oversampling mitigate the loss in detail by providing optimizations during query execution.
++ Add `vectorSearch.compressions` to a search index. The compression algorithm supported in this preview is scalar quantization.
++ Add `vectorSearch.profiles.compression` to a vector profile.
++ Set optional properties to mitigate the effects of lossy indexing. `rerankWithOriginalVectors` and `defaultOversampling` mitigate provide optimizations during query execution.
 
 ### Add compression settings and set optional properties
 
