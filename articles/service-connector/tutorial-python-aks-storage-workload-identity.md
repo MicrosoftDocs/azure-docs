@@ -131,7 +131,7 @@ Run the following Azure CLI command to create a service connection to the Azure 
 
 ```azurecli
 az aks connection create storage-blob \
-    --user-identity client-id=<MyIdentity-ClientId> subs-id=<MyIdentity-SubscriptionId>
+    --workload-identity <user-identity-resource-id>
 ```
 
 Provide the following information as prompted:
