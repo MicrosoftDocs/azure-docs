@@ -88,7 +88,7 @@ If you aren't sure what your search service limits are, here are two ways to get
 1. Now that you know the age of your search service, review the vector quota limits based on service creation:
 
    + [Before July 1, 2023](search-limits-quotas-capacity.md#services-created-before-july-1-2023)
-   + [After July 1, 2023](search-limits-quotas-capacity.md#services-created-after-july-1-2023-in-supported-regions)
+   + [Between July 1, 2023 and August 3, 2024](search-limits-quotas-capacity.md#services-created-between-july-1-2023-and-august-3-2024)
    + [After April 3, 2024](search-limits-quotas-capacity.md#services-created-after-april-3-2024-in-supported-regions)
 
 ## How to get vector index size

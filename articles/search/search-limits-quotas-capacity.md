@@ -102,7 +102,7 @@ For more information, see [choose a region for your search service](search-creat
 
 L1 and L2 currently have the same quota as services created after July 1, 2023.
 
-### Services created between July 1, 2023 and before April 3, 2024
+### Services created between July 1, 2023 and April 3, 2024
 
 Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
