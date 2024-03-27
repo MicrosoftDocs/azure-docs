@@ -125,7 +125,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 - West US 2
 - Sweden Central
 
-Private preview features, such as Prompt Shields and protected material detection, are available in the following Azure regions:
+Public preview features, such as Prompt Shields and protected material detection, are available in the following Azure regions:
 - East US
 - West Europe
 
