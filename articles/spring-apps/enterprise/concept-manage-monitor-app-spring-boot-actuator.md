@@ -43,7 +43,7 @@ To add the actuator to a Maven-based project, add the following dependency:
 </dependencies>
 ```
 
-This configuration works any Spring Boot version because versions are covered in the Spring Boot Bill of Materials (BOM).
+This configuration works with any Spring Boot version because versions are covered in the Spring Boot Bill of Materials (BOM).
 
 ### Configure actuator endpoint
 
@@ -62,7 +62,7 @@ You can now go back to the app **Overview** pane and wait until the Provisioning
 
 To view all the endpoints built-in and related configurations, see the [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) section of [Spring Boot Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html).
 
-## Secure actuator endpoint
+### Secure actuator endpoint
 
 When you open the app to the public, these actuator endpoints are exposed to the public as well. We recommend that you hide all endpoints by setting `management.endpoints.web.exposure.exclude=*`, because the `exclude` property takes precedence over the `include` property. Be aware that this action blocks Application Live View in the Enterprise plan and other apps or tools that rely on the actuator HTTP endpoint.
 

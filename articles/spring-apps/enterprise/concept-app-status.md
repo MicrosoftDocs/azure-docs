@@ -76,7 +76,7 @@ The instance status is reported as one of the following values:
 |-------------|------------|
 | Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file might fail because the jar can't run properly. Azure Spring Apps restarts the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
 | Running     | The instance works. The instance can serve requests from inside Azure Spring Apps. |
-| Failed      | The app instance failed to start the user's binary after several retries. The app instance might be in one of the following states:<br/>- The app might stay in the *Starting* status and never be ready for serving requests.<br/>- The app might boot up but crashed in a few seconds. |
+| Failed      | The app instance failed to start the user's binary after several retries. The app instance might be in one of the following states:<br/>- The app might stay in the *Starting* status and never be ready for serving requests.<br/>- The app might boot up but crash in a few seconds. |
 | Terminating | The app instance is shutting down. The app might not serve requests and the app instance is removed. |
 
 ### App discovery status
