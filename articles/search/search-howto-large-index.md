@@ -21,7 +21,7 @@ This article assumes familiarity with the [two basic approaches for importing da
 
 This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
 
-We recommend using a newer search service, created after April 3, 2024, for [maximum storage per partition](search-limits-quotas-capacity.md#service-limits).
+We recommend using a newer search service, created after April 3, 2024, for [higher storage per partition](search-limits-quotas-capacity.md#service-limits).
 
 > [!NOTE]
 > The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure AI Search](/samples/azure-samples/azure-search-dotnet-scale/multiple-data-sources/) for a recommended approach.

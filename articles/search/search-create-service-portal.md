@@ -29,7 +29,7 @@ The following service properties are fixed for the lifetime of the service. Cons
 
 + Service name becomes part of the URL endpoint ([review tips for helpful service names](#name-the-service)).
 + [Tier](search-sku-tier.md) (Free, Basic, Standard, and so forth) determines the underlying physical hardware and billing. Some features are tier-constrained.
-+ [Service region](#choose-a-region) can determine the availability of certain scenarios and higher storage limits. If you need high availability or [AI enrichment](cognitive-search-concept-intro.md) or more storage, create the resource in a region that provides the feature. 
++ [Service region](#choose-a-region) can determine the availability of certain scenarios and higher storage limits. If you need availability zones or [AI enrichment](cognitive-search-concept-intro.md) or more storage, create the resource in a region that provides the feature. 
 
 ## Subscribe (free or paid)
 

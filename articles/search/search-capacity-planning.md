@@ -212,7 +212,7 @@ On search services created before April 3, 2024: Basic can have exactly one part
 
 On search services created after April 3, 2024 in [supported regions](search-create-service-portal.md#choose-a-region): Basic can have up to three partitions and three replicas. The maximum SU limit is nine to support a full complement of partitions and replicas.
 
-For any Basic service regardless of creation date, you need a minimum of two replicas for high availability SLA.
+For search services on any billable tier, regardless of creation date, you need a minimum of two replicas for high availability on queries.
 
 All Standard and Storage Optimized search services can assume the following combinations of replicas and partitions, subject to the 36-SU limit allowed for these tiers. 
 

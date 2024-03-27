@@ -19,7 +19,9 @@ This article describes vector compression and other techniques for minimizing ve
 
 ## Evaluate the options
 
-As a first step, review your options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive so you can use multiple options together.
+As a first step, review your options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive so you can use multiple options together. 
+
+We recommend vector compression because it's the most  effective option for most scenarios. Narrow types (except for `Float16`) require a special effort into making them, and `stored` saves storage, which isn't as expensive as memory.
 
 | Approach | Why use this option |
 |----------|---------------------|
@@ -81,7 +83,7 @@ The `stored` property is a new boolean on a vector field definition that determi
 
 Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, such as passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing storage.
 
-The following example shows the fields collection of a search index. Set `stored` to override the default (true) for vector fields.
+The following example shows the fields collection of a search index. Set `stored` to false to permanently remove retrievable storage for the vector field.
 
    ```http
    PUT https://[service-name].search.windows.net/indexes/[index-name]?api-version=2024-03-01-preview  
@@ -109,7 +111,7 @@ The following example shows the fields collection of a search index. Set `stored
 
 + Affects storage on disk, not memory, and it has no effect on queries. Query execution uses a separate vector index that's unaffected by the `stored` property.
 
-+ The `stored` property is set during index creation on vector fields and is irreversible. 
++ The `stored` property is set during index creation on vector fields and is irreversible. If you want retrievable content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
 
 + Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. When `stored` is true, you can toggle `retrievable` between true and false at any time without having to rebuild an index. When `stored` is false, `retrievable` must be false and can't be changed.
 
@@ -117,15 +119,16 @@ The following example shows the fields collection of a search index. Set `stored
 
 Vector compression reduces memory and disk storage requirements, and it can be applied to vector fields containing `Float32` or `Float16` data.
 
-To use vector compression:
+To use built-in vector compression:
 
 + Add `vectorSearch.compressions` to a search index. The compression algorithm supported in this preview is scalar quantization.
-+ Add `vectorSearch.profiles.compression` to a vector profile.
-+ Set optional properties to mitigate the effects of lossy indexing. `rerankWithOriginalVectors` and `defaultOversampling` provide optimizations during query execution.
++ In `vectorSearch.compressions`, set optional properties to mitigate the effects of lossy indexing. Both `rerankWithOriginalVectors` and `defaultOversampling` provide optimizations during query execution.
++ Add `vectorSearch.profiles.compression` to a new vector profile.
++ Assign the new vector profile to a new vector field.
 
 ### Add compression settings and set optional properties
 
-In an index definition created using 2024-03-01-preview REST API, add a `compressions` section. Use the following JSON as a template.
+In an index definition created using [2024-03-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), add a `compressions` section. Use the following JSON as a template.
 
 ```json
 "compressions": [
@@ -146,17 +149,17 @@ In an index definition created using 2024-03-01-preview REST API, add a `compres
 
 + `kind` must be set to `scalarQantization`. This is the only quantization method supported at this time.
 
-+ Reranking uses the original, uncompressed vectors to recalculate similarity and rerank the top results returned by the initial search query. The uncompressed vectors exist in the search index even if `stored` is false.
++ `rerankWithOriginalVectors` uses the original, uncompressed vectors to recalculate similarity and rerank the top results returned by the initial search query. The uncompressed vectors exist in the search index even if `stored` is false. This property is optional. Default is true.
 
-+ Oversampling considers a broader set of potential results to offset the reduction in information from quantization. The formula for potential results consists of the `k` in the query, with an oversampling multiplier. For example, if the query specifies a `k` of 5, and oversampling is 20, then the query effectively requests 100 documents for use in reranking, using the original uncompressed vector for that purpose. Only the top `k` reranked results are returned.
++ `defaultOversampling` considers a broader set of potential results to offset the reduction in information from quantization. The formula for potential results consists of the `k` in the query, with an oversampling multiplier. For example, if the query specifies a `k` of 5, and oversampling is 20, then the query effectively requests 100 documents for use in reranking, using the original uncompressed vector for that purpose. Only the top `k` reranked results are returned. This property is optional. Default is 4.
 
-+ `quantizedDataType` must be set to `int8`. This is the only primitive data type supported at this time.
++ `quantizedDataType` must be set to `int8`. This is the only primitive data type supported at this time. This property is optinal. Default is `int8`.
 
 ### Add a compression setting to a vector profile
 
-A vector compression configuration is added to a vector profile. Vector fields acquire compression settings through the vector profile assignment. An existing field or existing profile that's being used can't add compression because compression involves building compressed indexes in memory.
+A vector compression configuration is added to a vector profile. Vector fields acquire compression settings through the vector profile assignment. You can't use an existing field or existing profile for compression because compression involves building compressed indexes in memory.
 
-1. Add a compression configuration to a vector profile. 
+1. Create a new vector profile andd add a compression property.
 
    ```json
    "profiles": [
@@ -169,7 +172,9 @@ A vector compression configuration is added to a vector profile. Vector fields a
     ]
    ```
 
-1. Assign a vector profile to a vector field. Vector compression reduces content to `Int8`, so start with a `Float32` or `Collection(Edm.Single)` type.
+1. Assign a vector profile to a new vector field. Vector compression reduces content to `Int8`, so start with a `Float32` or `Float16` types. You can't assign the vector profile to an existing vector field. The field must be new in the index.
+
+   The data type of the vector field must be either `Collection(Edm.Single)` or `Collection(Edm.Half)`, which are the Entity Data Model (EDM) equivalents of `Float32` and `Float16` types. 
 
    ```json
    {
@@ -181,6 +186,8 @@ A vector compression configuration is added to a vector profile. Vector fields a
       "vectorSearchProfile": "my-vector-profile"
    }
    ```
+
+1. [Load the index](search-what-is-data-import.md) using indexers for pull model indexing, or APIs for push model indexing.
 
 ### How scalar quantization works in Azure AI Search
 
@@ -371,9 +378,7 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
 
 This query syntax applies to vector fields using the built-in vector compression. On the query, you can override the oversampling default value. For example, if `defaultOversampling` is 10.0, you can change it to something else in the query request.
 
-You can set the oversampling parameter even if the index doesn't explicitly have a `rerankWithOriginalVectors` or `defaultOversampling` definition.
-
-Oversampling has a dependency on `rerankWithOriginalVectors`. If you set `rerankWithOriginalVectors` to null or false in the search index, but you provide an oversampling override in the query, the search engine temporarily sets `rerankWithOriginalVectors` to true just for that query.
+You can set the oversampling parameter even if the index doesn't explicitly have a `rerankWithOriginalVectors` or `defaultOversampling` definition. Providing `oversampling` at query time overrides the index settings for that query and executes the query with an effective `rerankWithOriginalVectors` as true.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-03-01-Preview   
