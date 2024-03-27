@@ -110,5 +110,5 @@ For more information on price and quota, use the following articles:
 Create an AI hub using one of the following methods:
 
 - [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
-- [Azure portal](../how-to/create-azure-ai-resource.md#create-a-secure-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
+- [Azure portal](../how-to/create-secure-ai-hub.md): Create an AI hub with your own networking.
 - [Bicep template](../how-to/create-azure-ai-hub-template.md).

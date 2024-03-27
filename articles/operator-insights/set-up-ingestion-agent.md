@@ -35,7 +35,7 @@ The VM used for the ingestion agent should be set up following best practice for
 - Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. We recommend that you restrict the following.
   - Admin access to the VM (for example, to stop/start/install the ingestion agent).
   - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
-  - Access to the certificate and private key for the service principal that you create during this procedure.
+  - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
   - Access to the directory for secrets that you create on the VM during this procedure.
 
 ## Download the RPM for the agent
@@ -44,50 +44,92 @@ Download the RPM for the ingestion agent using the details you received as part 
 
 Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
+### Verify the authenticity of the ingestion agent RPM (optional)
+
+Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
+
+To do this, perform the following steps:
+
+1. Download the RPM.
+1. Download the provided public key
+    ```
+    wget https://packages.microsoft.com/keys/microsoft.asc
+    ```
+1. Import the public key to the GPG keyring
+    ```
+    gpg --import microsoft.asc
+    ```
+1. Verify the RPM signature matches the public key
+    ```
+    rpm --checksig <path-to-rpm>
+    ```
+
+The output of the final command should be `<path-to-rpm>: digests signatures OK`
+
 ## Set up authentication to Azure
 
-You must have a service principal with a certificate credential that can access the Azure Key Vault created by the Data Product to retrieve storage credentials. Each agent must also have a copy of a valid certificate and private key for the service principal stored on this virtual machine.
+The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
-### Create a service principal
+- Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
+- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It does not require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
+### Use a managed identity for authentication
+
+If the ingestion agent is running in Azure, we recommend managed identities. For more detailed information, see the [overview of managed identities](managed-identity.md#overview-of-managed-identities).
+
+> [!NOTE]
+> Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
+
+1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
+1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
+1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
+
+You can now [grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
+
+### Use a service principal for authentication
+
+If the ingestion agent is running outside of Azure, such as an on-premises network then you **cannot use managed identities** and must instead  authenticate to the Data Product Key Vault using a service principal with a certificate credential. Each agent must also have a copy of the certificate stored on the virtual machine.
+
+#### Create a service principal
+
 1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
-### Prepare certificates
+#### Prepare certificates for the service principal
 
-The ingestion agent only supports certificate-based authentication for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each. Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
+The ingestion agent only supports certificate credentials for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each. Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
-1. Obtain one or more certificates. We strongly recommend using trusted certificates from a certificate authority.
-2. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-3. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault. Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
-    - This Azure Key Vault must be a different instance, either one you already control, or a new one. You can't use the Data Product's Azure Key Vault.
+1. Obtain one or more certificates. We strongly recommend using trusted certificates from a certificate authority. Certificates can be generated from Azure Key Vault: see [Set and retrieve a certificate from Key Vault using Azure portal](../key-vault/certificates/quick-create-portal.md). Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire. Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data. For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md). If you choose to use Azure Key Vault then:
+    - This Azure Key Vault must be a different instance to the Data Product Key Vault, either one you already control, or a new one.
     - You need the 'Key Vault Certificates Officer' role on this Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
-
-4. Ensure the certificates are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl.
+2. Add the certificate or certificates as credentials to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+3. Ensure the certificates are available in PKCS#12 (P12) format, with no passphrase protecting them. 
+    - If the certificate is stored in an Azure Key Vault, download the certificate in the PFX format. PFX is identical to P12.
+    - On Linux, you can convert a certificate and private key using OpenSSL. When prompted for an export password, press <kbd>Enter</kbd> to supply an empty passphrase. This can then be stored in an Azure Key Vault as outlined in step 1.
     ```
-    openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>
+    openssl pkcs12 -nodes -export -in <certificate.pem> -inkey <key.pem> -out <certificate.p12>
     ```
 
 > [!IMPORTANT]
-> The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
+> The P12 file must not be protected with a passphrase.
 
-5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key.
+4. Validate your P12 file. This displays information about the P12 file including the certificate and private key.
     ```
-    openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info
+    openssl pkcs12 -nodes -in <certificate.p12> -info
     ```
 
-6. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the `base64` command.
+5. Ensure the P12 file is base64 encoded. On Linux, you can base64 encode a P12 certificate by using the `base64` command.
     ```
-    base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>
+    base64 -w 0 <certificate.p12> > <base64-encoded-certificate.p12>
     ```
 
 ### Grant permissions for the Data Product Key Vault
 
 1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *`<data-product-name>-HostedResources-<unique-id>`*.
-1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. Grant your managed identity or service principal the 'Key Vault Secrets User' role on this Key Vault. You need Owner level permissions on your Azure subscription. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
 ## Prepare the SFTP server
@@ -118,7 +160,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     sudo dnf install systemd logrotate zip
     ```
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
+1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)
@@ -142,6 +184,14 @@ Repeat these steps for each VM onto which you want to install the agent.
     Verify that the VM has the following ports open. These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
+
+    You can configure the inbound rule with:
+    ```
+    sudo firewall-cmd --permanent --new-service=mcc-connection 
+    sudo firewall-cmd --permanent --service=mcc-connection --add-port=36001/tcp 
+    sudo firewall-cmd --add-service=mcc-connection --permanent 
+    sudo firewall-cmd --reload
+    ```
 
     ---
 
@@ -187,14 +237,12 @@ The configuration you need is specific to the type of source and your Data Produ
     -  A secret provider of type `file_system`, which specifies a directory on the VM for storing credentials for connecting to an SFTP server.
     
     1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
-        - `provider.vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
-        - `provider.auth`, containing:
-            - `tenant_id`: your Microsoft Entra ID tenant.
-            - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-            - `cert_path`: the file path of the base64-encoded pcks12 certificate for the service principal to authenticate with. This can be any path on the agent VM.
-
+        - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
+        - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
+            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Use a managed identity for authentication](#use-a-managed-identity-for-authentication).
+            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields.
-        - `provider.auth.secrets_directory`: the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
+        - `secrets_directory` to the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
     
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret providers.
 
@@ -202,11 +250,11 @@ The configuration you need is specific to the type of source and your Data Produ
     
     Configure a secret provider with type `key_vault` and name `data_product_keyvault`, setting the following fields.
 
-    1. `provider.vault_name`: the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
-    1. `provider.auth`, containing:
-        - `tenant_id`: your Microsoft Entra ID tenant.
-        - `identity_name`: the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
-        - `cert_path`: the file path of the base64-encoded pcks12 certificate for the service principal to authenticate with. This can be any path on the agent VM.
+    1. For the secret provider with type `key_vault` and name `data_product_keyvault`, set the following fields.
+        - `vault_name` must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
+        - Depending on the type of authentication you chose in [Set up authentication to Azure](#set-up-authentication-to-azure), set either `managed_identity` or `service_principal`.
+            - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Use a managed identity for authentication](#use-a-managed-identity-for-authentication).
+            - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
 
     You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
 
@@ -225,7 +273,9 @@ The configuration you need is specific to the type of source and your Data Produ
         - `filtering.base_path`: the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
         - `known_hosts_file`: the path on the VM to the global known_hosts file, located at `/etc/ssh/ssh_known_hosts`. This file should contain the public SSH keys of the SFTP host server as outlined in [Prepare the VMs](#prepare-the-vms). 
         - `user`: the name of the user on the SFTP server that the agent should use to connect.
-        - In `auth`, the `type` (`password` or `key`) you chose in [Prepare the VMs](#prepare-the-vms). For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the key is protected with a passphrase, set `passphrase_secret_name`.
+        - Depending on the method of authentication you chose in [Prepare the VMs](#prepare-the-vms), set either `password` or `private_key`.
+            - For password authentication, set `secret_name` to the name of the file containing the password in the `secrets_directory` folder. 
+            - For SSH key authentication, set `key_secret` to the name of the file containing the SSH key in the `secrets_directory` folder. If the private key is protected with a passphrase, set `passphrase_secret_name` to the name of the file containing the passphrase in the `secrets_directory` folder.
         
         For required or recommended values for other fields, refer to the documentation for your Data Product.
 
@@ -245,7 +295,7 @@ The configuration you need is specific to the type of source and your Data Produ
 
         ---
     - `sink`. Sink configuration controls uploading data to the Data Product's input storage account.
-        - In the `auth` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `type` and `secret_name` unchanged.
+        - In the `sas_token` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave and `secret_name` unchanged.
         - Refer to your Data Product's documentation for information on required values for other parameters.
             > [!IMPORTANT]
             > The `container_name` field must be set exactly as specified by your Data Product's documentation.

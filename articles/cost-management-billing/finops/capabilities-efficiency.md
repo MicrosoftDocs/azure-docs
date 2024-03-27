@@ -3,7 +3,7 @@ title: Resource utilization and efficiency
 description: This article helps you understand the resource utilization and efficiency capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: finops

@@ -4,6 +4,7 @@ description: Learn how to connect a Spring Cloud Config Server to your container
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 03/13/2024
 ms.author: cshoe
@@ -20,7 +21,7 @@ In this tutorial, you learn to:
 > [!div class="checklist"]
 > * Create a Spring Cloud Config Server Java component
 > * Bind the Spring Cloud Config Server to your container app
-> * Observe configuration values before an after connecting the config server to your application
+> * Observe configuration values before and after connecting the config server to your application
 > * Encrypt and decrypt configuration values with a symmetric key
 
 > [!IMPORTANT]
