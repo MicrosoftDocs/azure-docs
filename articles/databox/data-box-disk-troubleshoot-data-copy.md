@@ -6,6 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: shaas

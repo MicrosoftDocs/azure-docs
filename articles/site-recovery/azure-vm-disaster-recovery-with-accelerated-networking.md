@@ -8,8 +8,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/07/2024
 ms.author: ankitadutta
-ms.custom: engagement-fy23
-
+ms.custom: engagement-fy23, linux-related-content
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
 
