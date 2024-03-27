@@ -44,9 +44,21 @@ Attack disruption is supported by the new **/MSFTSEN/SENTINEL_RESPONDER** SAP ro
 
 1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
 
-Alternately, manually assign the additional authorizations included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector.
+Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector.
 
-For more information, see [Required ABAP authorizations for attack disruption](preparing-sap.md#attack-disrupt).
+These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
+
+| Authorization object | Field | Value |
+| -------------------- | ----- | ----- |
+|S_RFC	|RFC_TYPE	|Function Module |
+|S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
+|S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
+|S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+|S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+|S_USER_GRP	|ACTVT	|03 |
+|S_USER_GRP	|ACTVT	|05 |
+
+For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
 ## Related content
 
