@@ -47,7 +47,7 @@ An admin can install agents for multiple machines from the Azure portal if the m
 2. Select all the machines and choose the **Enable in Azure** option.
 3. Select **Enable guest management** checkbox to install Arc agents on the selected machine.
 4. If you want to connect the Arc agent via proxy, provide the proxy server details.
-5. If you want to connect Arc agent via private endpoint, follow these [steps](../servers/private-link-security.md) to set up Azure Private Link. 
+5. If you want to connect Arc agent via private endpoint, follow these [steps](../servers/private-link-security.md) to set up Azure private link. 
 
       >[!Note]
       > Private endpoint connectivity is only available for Arc agent to Azure communications. For Arc resource bridge to Azure connectivity, Azure Private link isn't supported.
