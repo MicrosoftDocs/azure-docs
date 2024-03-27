@@ -400,15 +400,14 @@ conceptualContent:
           itemType: concept
           text: UK PASF
 
-
 additionalContent:
 #  Maximum of 3 sections
   sections:
 
 #  Section 1
     - title: More compliance resources
-      summary: To access a resource, you may need to be signed into your cloud service 
-      items.:
+      summary: To access a resource, you may need to be signed into your cloud service. 
+      items:
 
         - title: Privacy and GDPR
           links:
