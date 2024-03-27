@@ -31,12 +31,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 ## Configure the alert rule conditions
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
+1. On the **Condition** tab, when you select the **Signal name** field, select **Custom log search**, or select **See all signals** if you want to choose a different signal for the condition.
 
 1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
-    - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
+    - **Signal type**: Select **Log search**.
     - **Signal source**: The service that sends the "Custom log search" and "Log (saved query)" signals.
     Select the **Signal name** and **Apply**.
 

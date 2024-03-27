@@ -5,8 +5,7 @@ author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, linux-related-content
 ms.topic: conceptual
 ms.date: 11/15/2023
 ---
