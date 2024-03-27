@@ -35,56 +35,9 @@ One of the first steps to take as you look for issues with your container app is
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
 1. Under *Resources* section, select your container app's name.
-1. In the navigation bar, expand **Monitoring** and select **Log stream**.
+1. In the navigation bar, expand **Monitoring** and select **Log stream** (not **Logs**).
 1. If the *Log stream* page says *This revision is scaled to zero.*, select the **Go to Revision Management** button. Deploy a new revision scaled to a minimum replica count of 1. For more information, see [Scaling in Azure Container Apps](./scale-app.md).
 1. In the *Log stream* page, set *Logs* to either **Console** or **System**.
-
-### Query console logs
-
-Your container app's console log captures the app's `stdout` and `stderr` streams. Use the following steps to query the console logs:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** bar, enter your container app's name.
-1. Under *Resources* section, select your container app's name.
-1. Under *Application*, select **Revisions**.
-1. Ensure the **Active revisions** tab is selected and select the revision that has the logs you want to view.
-1. In the *Revision details* window, next to *Console logs*, select **View details** to open a query editor.
-1. Select the **Run** button to execute the default query.
-1. In the results window, make sure **Results** is selected.
-
-    By default, the results are sorted by time in descending order. The time range defaults to *Last 24 hours*.
-1. Examine the `Log_s` column, which shows the console log output from your container app revision.
-1. If you want to download the log messages in to Excel or Power BI, you can select the **Export** button to initiate an export.
-
-You can also narrow your query to view `stdout` or `stderr`.
-
-#### View stdout and stderr messages
-
-To view `stdout` or `stderr` messages, add the `Stream_s` parameter and set it to either `stdout` or `stderr`.
-
-For instance, to view `stdout` messages your query looks like this:
-
-### Query system logs
-
-Container Apps generates [system logs](./logging.md#system-logs) for service level events. Use the following steps to query the system logs:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Search** bar, enter your container app's name.
-1. Under **Resources** section, select your container app's name.
-1. Under *Application*, select **Revisions**.
-1.  Ensure the **Active revisions** tab is selected and select the revision that has the logs you want to view.
-1. In the *Revision details* window, next to *System logs*, select the **View details** link.
-1. The **View details** link takes you to the *Logs* page, with the following query.
-    ```
-    ContainerAppSystemLogs_CL
-    | where RevisionName_s == "<YOUR_REVISION_NAME>"
-    ```
-1. In the results window, make sure **Results** is selected.
-
-    By default, the results are sorted by time in descending order. The time range defaults to **Last 24 hours**.
-1. Examine the contents of the `Error_s`, `Log_s`, `Type_s`, `Reason_s`, and `EventSource_s` columns.
-
-For more information, see [Observability in Azure Container Apps](./observability.md).
 
 ## Use the diagnose and solve problems tool
 
@@ -105,15 +58,19 @@ If you receive an error message when you try to deploy a new revision, verify th
 - If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
 - If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image isn't publicly accessible, so this section doesn't apply.
 
-For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
-
-Before you run the following command, replace placeholders surrounded by `<>` with your values.
+For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt. Before you run this command, replace placeholders surrounded by `<>` with your values.
 
 ```
 docker run --rm <YOUR_CONTAINER_IMAGE>
 ```
 
-Docker should be able to pull your image and run it without error. If you're running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
+Verify that Docker runs your image without reporting any errors. If you're running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
+
+If your image is not publicly accessibile, you might receive the following error.
+
+```
+docker: Error response from daemon: pull access denied for <YOUR_CONTAINER_IMAGE>, repository does not exist or may require 'docker login': denied: requested access to the resource is denied. See 'docker run --help'.
+```
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
