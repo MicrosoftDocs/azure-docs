@@ -20,7 +20,8 @@ It leverages OpenTelemetry Collector as a foundation that enables an extensibili
 
 Azure Monitor Pipeline will be deployed on an Arc-enabled K8s cluster in the customers’ environment.  
 
-- 
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-overview/.png" lightbox="media/edge-pipeline/edge-pipeline-overview/.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
 
 
 ## Data plane

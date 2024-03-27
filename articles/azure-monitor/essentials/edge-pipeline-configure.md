@@ -127,7 +127,7 @@ kubectl logs -l component=collector -n <namespace> -f --tail 1000
 ```
 
 ## Client configuration
-Once your 
+Once your edge pipeline extension and instance are installed, then you need to configure your clients to send data to the pipeline.
 
 ### Retrieve ingress endpoint
 Each client requires the external IP address of the pipeline. Use the following command to retrieve this address:
@@ -183,3 +183,19 @@ $WorkDirectory /var/spool/syslog
 ### OTLP
 The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/).
 
+
+## Cache configuration
+Edge devices in some environments may experience intermittent connectivity due to various factors such as network congestion, signal interference, power outage, or mobility. In these environments, you can configure the Azure Monitor edge pipeline to cache data to persistent disk and configure the queue to backfill cached data using a strategy most applicable to your environment.
+
+
+During disconnected periods, the edge pipeline will write collected data as files in the persistent volume.
+
+
+
+### Data synchronization
+
+
+| Setting | Description |
+|:---|:---|
+| Expiration | Length of time that data remains in the cache before it's removed.  |
+| Persistent volume limit |  |
