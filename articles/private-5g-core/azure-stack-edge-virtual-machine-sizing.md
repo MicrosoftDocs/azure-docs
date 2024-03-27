@@ -18,9 +18,9 @@ The following table lists the maximum supported limits for a range of parameters
 
 | Element                | Maximum supported |
 |------------------------|-------------------|
-| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio. |
+| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
 | Bandwidth              | Over 25 Gbps per ASE |
-| RAN nodes (eNB/gNB)    | 200 per ASE |
+| RAN nodes (eNB/gNB)    | 200 per packet core |
 | UEs                    | 10,000 per deployment (all sites) |
 | SIMs                   | 1000 per ASE |
 | SIM provisioning       | 1000 per API call |
