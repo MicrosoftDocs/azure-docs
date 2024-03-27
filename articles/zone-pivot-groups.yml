@@ -3115,3 +3115,12 @@ groups:
     title: Portal 
   - id: development-environment-azure-cli
     title: CLI
+# Owner: hhunter-ms
+- id: aks-dapr-ext-deploy-methods
+  title: Deployment method
+  prompt: Select how you want to create and deploy the Dapr extension
+  pivots:
+  - id: aks-dapr-ext-cli
+    title: Azure CLI 
+  - id: aks-dapr-ext-bicep
+    title: Azure Resource Manager/Bicep

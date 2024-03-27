@@ -21,6 +21,12 @@ Dapr is incrementally adoptable. You can use any of the API building blocks as n
 
 ## Capabilities and features
 
+[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
+- Downloading Dapr tooling
+- Manually installing and managing the runtime on your AKS cluster
+
+Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
+
 Dapr provides the following set of capabilities to help with your microservice development on AKS:
 
 - Easy provisioning of Dapr on AKS through [cluster extensions][cluster-extensions].
@@ -31,6 +37,68 @@ Dapr provides the following set of capabilities to help with your microservice d
 - Works independent of language, while also offering language specific SDKs
 - Integration with VS Code through the Dapr extension
 - [More APIs for solving distributed application challenges][dapr-blocks]
+
+## Currently supported
+
+### Dapr versions
+
+The Dapr extension support varies depending on how you manage the runtime. 
+
+**Self-managed**  
+For self-managed runtime, the Dapr extension supports:
+- [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
+- Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
+
+Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
+
+**Auto-upgrade**  
+Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
+
+### Components
+
+Azure + open source components are supported. Alpha and beta components are supported via best effort.
+
+### Clouds/regions
+
+Global Azure cloud is supported with Arc support on the following regions:
+
+| Region | AKS support | Arc for Kubernetes support |
+| ------ | ----------- | -------------------------- |
+| `australiaeast` | :heavy_check_mark: | :heavy_check_mark: |
+| `australiasoutheast` | :heavy_check_mark: | :x: |
+| `brazilsouth` | :heavy_check_mark: | :x: |
+| `canadacentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `canadaeast` | :heavy_check_mark: | :heavy_check_mark: |
+| `centralindia` | :heavy_check_mark: | :heavy_check_mark: |
+| `centralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastasia` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus2` | :heavy_check_mark: | :heavy_check_mark: |
+| `eastus2euap` | :x: | :heavy_check_mark: |
+| `francecentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `francesouth` | :heavy_check_mark: | :x: |
+| `germanywestcentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `japaneast` | :heavy_check_mark: | :heavy_check_mark: |
+| `japanwest` | :heavy_check_mark: | :x: |
+| `koreacentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `koreasouth` | :heavy_check_mark: | :x: |
+| `northcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `northeurope` | :heavy_check_mark: | :heavy_check_mark: |
+| `norwayeast` | :heavy_check_mark: | :x: |
+| `southafricanorth` | :heavy_check_mark: | :x: |
+| `southcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `southeastasia` | :heavy_check_mark: | :heavy_check_mark: |
+| `southindia` | :heavy_check_mark: | :x: |
+| `swedencentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
+| `uaenorth` | :heavy_check_mark: | :x: |
+| `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
+| `ukwest` | :heavy_check_mark: | :x: |
+| `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
+| `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus2` | :heavy_check_mark: | :heavy_check_mark: |
+| `westus3` | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Frequently asked questions
 

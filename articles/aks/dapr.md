@@ -7,6 +7,7 @@ ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 03/06/2023
 ms.custom: devx-track-azurecli, references_regions
+zone_pivot_groups: aks-dapr-ext-deploy-methods
 ---
 
 # Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
@@ -16,18 +17,24 @@ ms.custom: devx-track-azurecli, references_regions
 - Building event-driven apps with pub/sub
 - Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
 
-[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
-- Downloading Dapr tooling
-- Manually installing and managing the runtime on your AKS cluster
-
-Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
 
 > [!NOTE]
 > If you plan on installing Dapr in a Kubernetes production environment, see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
 
 ## How it works
 
+::: zone pivot="aks-dapr-ext-cli"
+
 The Dapr extension uses the Azure CLI to provision the Dapr control plane on your AKS or Arc-enabled Kubernetes cluster, creating the following Dapr services:
+
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+The Dapr extension uses a Bicep template to provision the Dapr control plane on your AKS or Arc-enabled Kubernetes cluster, creating the following Dapr services:
+
+::: zone-end  
+
 
 | Dapr service | Description |
 | ------------ | ----------- | 
@@ -41,75 +48,14 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 > [!WARNING]
 > If you install Dapr through the AKS or Arc-enabled Kubernetes extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Currently supported
-
-### Dapr versions
-
-The Dapr extension support varies depending on how you manage the runtime. 
-
-**Self-managed**  
-For self-managed runtime, the Dapr extension supports:
-- [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
-- Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
-
-Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
-
-**Auto-upgrade**  
-Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
-
-### Components
-
-Azure + open source components are supported. Alpha and beta components are supported via best effort.
-
-### Clouds/regions
-
-Global Azure cloud is supported with Arc support on the following regions:
-
-| Region | AKS support | Arc for Kubernetes support |
-| ------ | ----------- | -------------------------- |
-| `australiaeast` | :heavy_check_mark: | :heavy_check_mark: |
-| `australiasoutheast` | :heavy_check_mark: | :x: |
-| `brazilsouth` | :heavy_check_mark: | :x: |
-| `canadacentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `canadaeast` | :heavy_check_mark: | :heavy_check_mark: |
-| `centralindia` | :heavy_check_mark: | :heavy_check_mark: |
-| `centralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastasia` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus2` | :heavy_check_mark: | :heavy_check_mark: |
-| `eastus2euap` | :x: | :heavy_check_mark: |
-| `francecentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `francesouth` | :heavy_check_mark: | :x: |
-| `germanywestcentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `japaneast` | :heavy_check_mark: | :heavy_check_mark: |
-| `japanwest` | :heavy_check_mark: | :x: |
-| `koreacentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `koreasouth` | :heavy_check_mark: | :x: |
-| `northcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `northeurope` | :heavy_check_mark: | :heavy_check_mark: |
-| `norwayeast` | :heavy_check_mark: | :x: |
-| `southafricanorth` | :heavy_check_mark: | :x: |
-| `southcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `southeastasia` | :heavy_check_mark: | :heavy_check_mark: |
-| `southindia` | :heavy_check_mark: | :x: |
-| `swedencentral` | :heavy_check_mark: | :heavy_check_mark: |
-| `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
-| `uaenorth` | :heavy_check_mark: | :x: |
-| `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
-| `ukwest` | :heavy_check_mark: | :x: |
-| `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
-| `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus2` | :heavy_check_mark: | :heavy_check_mark: |
-| `westus3` | :heavy_check_mark: | :heavy_check_mark: |
-
-
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
 - Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
+
+::: zone pivot="aks-dapr-ext-cli"
 
 ### Set up the Azure CLI extension for cluster extensions
 
@@ -125,9 +71,11 @@ If the `k8s-extension` extension is already installed, you can update it to the 
 az extension update --name k8s-extension
 ```
 
-### Register the `KubernetesConfiguration` service provider
+::: zone-end  
 
-If you haven't previously used cluster extensions, you may need to register the service provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+### Register the `KubernetesConfiguration` resource provider
+
+If you haven't previously used cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
@@ -146,6 +94,8 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 ```azurecli-interactive
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
+
+::: zone pivot="aks-dapr-ext-cli"
 
 ## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
 
@@ -169,12 +119,91 @@ az k8s-extension create --cluster-type managedClusters \
 --auto-upgrade-minor-version false
 ```
 
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+## Deploy the Dapr extension on your AKS or Arc-enabled Kubernetes cluster
+
+Create a Bicep template similar to the following example to deploy the Dapr extension to your existing cluster. 
+
+```bicep
+@description('The name of the Managed Cluster resource.')
+param clusterName string
+
+resource existingManagedClusters 'Microsoft.ContainerService/managedClusters@2023-05-02-preview' existing = {
+  name: clusterName
+}
+
+resource daprExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' = {
+  name: 'dapr'
+  scope: existingManagedClusters
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    autoUpgradeMinorVersion: true
+    configurationProtectedSettings: {}
+    configurationSettings: {
+      'global.clusterType': 'managedclusters'
+    }
+    extensionType: 'microsoft.dapr'
+    releaseTrain: 'stable'
+    scope: {
+      cluster: {
+        releaseNamespace: 'dapr-system'
+      }
+    }
+    version: '1.11.2'
+  }
+}
+```
+
+::: zone-end  
+
+### Configuring automatic updates to Dapr control plane
+
+> [!WARNING]
+> You can enable automatic updates to the Dapr control plane only in dev or test environments. Auto-upgrade is not suitable for production environments.
+
+::: zone pivot="aks-dapr-ext-cli"
+
+If you install Dapr without specifying a version, `--auto-upgrade-minor-version` *is automatically enabled*, configuring the Dapr control plane to automatically update its minor version on new releases.
+
+You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
+
+[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
+
+```azurecli
+--auto-upgrade-minor-version true
+```
+
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+If you deploy Dapr without specifying a version, `autoUpgradeMinorVersion` *is automatically enabled*, configuring the Dapr control plane to automatically update its minor version on new releases.
+
+You can disable auto-update by specifying the `autoUpgradeMinorVersion` parameter and setting the value to `false`. 
+
+[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
+
+```bicep
+properties {
+  autoUpgradeMinorVersion: true
+}
+```
+
+::: zone-end  
+
 ### Targeting a specific Dapr version
 
 > [!NOTE]
 > Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
 
-The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr X.X.X:
+::: zone pivot="aks-dapr-ext-cli"
+
+The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr 1.11.2:
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
@@ -183,26 +212,28 @@ az k8s-extension create --cluster-type managedClusters \
 --name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
---version X.X.X
+--version 1.11.2
+```
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+Set `autoUpgradeMinorVersion` to `false` and `version` to the version of Dapr you wish to install. If the `autoUpgradeMinorVersion` parameter is set to `true`, and `version` parameter is omitted, the extension installs the latest version of Dapr. 
+
+For example, to use Dapr 1.11.2:
+
+```bicep
+properties: {
+  autoUpgradeMinorVersion: false
+  version: '1.11.2'
+}
 ```
 
-### Configuring automatic updates to Dapr control plane
-
-> [!WARNING]
-> You can enable automatic updates to the Dapr control plane only in dev or test environments. Auto-upgrade is not suitable for production environments.
-
-If you install Dapr without specifying a version, `--auto-upgrade-minor-version` *is automatically enabled*, configuring the Dapr control plane to automatically update its minor version on new releases.
-You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
-[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
-
-```azurecli
---auto-upgrade-minor-version true
-```
-
+::: zone-end  
 
 ### Choosing a release train
 
-When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
+When configuring the extension, you can choose to install Dapr from a particular release train. Specify one of the two release train values:
 
 | Value    | Description                               |
 | -------- | ----------------------------------------- |
@@ -211,9 +242,22 @@ When configuring the extension, you can choose to install Dapr from a particular
 
 For example:
 
+::: zone pivot="aks-dapr-ext-cli"
+
 ```azurecli
 --release-train stable
 ```
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+```bicep
+properties: {
+  releaseTrain: 'stable'
+}
+```
+
+::: zone-end  
 
 ## Troubleshooting extension errors
 
@@ -225,11 +269,21 @@ Troubleshoot Dapr errors via the [common Dapr issues and solutions guide][dapr-t
 
 ## Delete the extension
 
+::: zone pivot="aks-dapr-ext-cli"
+
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
 ```azurecli
 az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name dapr
 ```
+
+::: zone-end  
+
+::: zone pivot="aks-dapr-ext-bicep"
+
+If you need to delete the extension and remove Dapr from  your AKS cluster, simply remove the Bicep template.
+
+::: zone-end  
 
 ## Next Steps
 
