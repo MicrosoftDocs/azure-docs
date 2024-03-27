@@ -11,57 +11,38 @@ ms.custom:
   - sql-migration-content
 ---
 
-# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup
+# MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Snapshot
 
-MySQL Consistent Backup is a new feature that allows users to take a Consistent Backup of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature.
+MySQL Consistent Snapshot is a new feature that allows users to take a Consistent Snapshot of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature. Moreover, there are multiple data consistency options presented to the user - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks (Preview), Make Source Server Read only and None. Selecting the 'None' option entails no extra measures are taken to ensure data consistency. We highly recommend selecting option 'Enable Consistent Snapshot without locks' to maintain transactional consistency.
 
-## Current implementation
+## Enable Consistent Snapshot without locks (Preview)
 
-In the current implementation, users can enable the **Make Source Server Read Only** option during offline migration. Selecting this option maintains the data integrity of the target database as the source is migrated by preventing Write/Delete operations on the source server during migration. When you make the source server read only as part of the migration process, the selection applies to all the source server’s databases, regardless of whether they are selected for migration.
+When you enable this option, a reconciliation phase will occur after initial load to ensure that teh data written to your target will be transactionally consistent with the source server from a specific position in the binary log.
 
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-mysql-make-source-read-only.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Read Only" lightbox="media/migrate-azure-mysql-consistent-backup/dms-mysql-make-source-read-only.png":::
+With this feature, we do not take a read lock on the server and instead read tables at different point in time, while keeping track of the tables' binlog positions to be able to reconcile them towards the end of the initial load by performing replication in catchup mode to get a consistent snapshot.
 
-## Disadvantages
-
-Making the source server read only prevents users from modifying the data, rendering the database unavailable for any update operations. However, if this option is not enabled, there is a possibility for data updates to occur during migration. As a result, migrated data could be inconsistent because the database snapshots would be read at different points in time.
-
-## Consistent Backup
-
-Consistent Backup allows data migration to proceed and maintains data consistency regardless of whether the source server is set as read only. To enable Consistent Backup, select the **[Preview] Enable Transactional Consistency** option.  
+Key features of Consistent Snapshot without locks :
+    *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
+    *Resilient in completing migrations even in the event of failures caused by transient network/server blips that result in loss of all the pre-created connections.
+    *Ability to resume migrations upon DMS agent upgrades or restarts.
 
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-mysql-enable-tranactional-consistency.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency" lightbox="media/migrate-azure-mysql-consistent-backup/dms-mysql-enable-tranactional-consistency.png":::
 
-With the **Enable Transactional Consistency** selected, you can maintain data consistency at the target even as traffic continues to the source server.
+### Enable Consistent Snapshot with read lock (GA)
 
-### The Undo log
+When you enable this option, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This flushing is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you are not migrating all databases in a server, they are locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock and spawning several connections for the migration. After the creation of all connections used for the migration, the locks on the table are released.
 
-The undo log makes repeatable reads possible and helps generate the snapshot that is required for the migration. The undo log is a collection of undo log records associated with a single read-write transaction. An undo log record contains information about how to undo the latest change by a transaction to a clustered index record. If another transaction needs to see the original data as part of a consistent read operation, the unmodified data is retrieved from undo log records. Transactional consistency is achieved through an isolation level of repeatable reads along with the undo log. On executing the Select query (for migration), the source server inspects the current contents of a table, compares it to the Undo log and then rolls back all the changes from the point in time the migration was started, before returning the results to the client. The undo log is not user controlled, is enabled by default, and does not offer any APIs for control by the user.
+Repeatable reads are enabled to keep the undo logs accessible during the migration, which increase the storage required on the source because of long running connections. A long running migration with multiple table changes leads to an extensive undo log history that needs to be replayed and could also increase the compute requirements and load on the source server.
 
-### How Consistent Backup works
+### Make the Source Server Read Only
 
-When you initiate a migration, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This flushing is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you are not migrating all databases in a server, they are locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock and spawning several connections for the migration. After the creation of all connections used for the migration, the locks on the table are released.
+ Selecting this option maintains the data integrity of the target database as the source is migrated by preventing Write/Delete operations on the source server during migration. When you make the source server read only as part of the migration process, the selection applies to all the source server’s databases, regardless of whether they are selected for migration.
 
-The migration threads are used to perform the migration with repeatable read enabled for all transactions and the source server hides all new changes from the offline migration. Clicking on the specific database in the Azure Database Migration Service (DMS) Portal UI during the migration displays the migration status of all the tables - completed or in progress - in the migration. If there are connection issues, the status of the database changes to **Retrying** and the error information is displayed if the migration fails.
+Making the source server read only prevents users from modifying the data, rendering the database unavailable for any update operations. However, if this option is not enabled, there is a possibility for data updates to occur during migration. As a result, migrated data could be inconsistent because the database snapshots would be read at different points in time.
 
-Repeatable reads are enabled to keep the undo logs accessible during the migration, which increase the storage required on the source because of long running connections. It is important to note that the longer a migration runs the more table changes that occur, the undo log's history of changes become more extensive. The longer a migration, the more slowly it runs as the undo logs to retrieve the unmodified data becomes longer. This could also increase the compute requirements and load on the source server.
+## Prerequisites for Enable Consistent Snapshot with read lock
 
-### The binary log
-
-The [binary log (or binlog)](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) is an artifact that is reported to the user after the offline migration is complete. As the service spawns threads for migration during read lock, the migration service records the initial binlog position because the binlog position could change after the server is unlocked. While the migration service attempts to obtain the locks and set up the migration, the bin log position displays the status **Waiting for data movement to start...**.
-
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-wait-for-binlog-status.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Waiting for data movement to start" lightbox="media/migrate-azure-mysql-consistent-backup/dms-wait-for-binlog-status.png":::
-
-The binlog keeps a record of all the CRUD operations in the source server. The DMS portal UI shows the binary log filename and position aligned to the time the locks were obtained on the source for the consistent snapshot and it does not impact the outcome of the offline migration. The binlog position is updated on the UI as soon as it is available, and the user does not have to wait for the migration to conclude.
-
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-binlog-status-display.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Migration complete display binlog status" lightbox="media/migrate-azure-mysql-consistent-backup/dms-binlog-status-display.png":::
-
-This binlog position can be used in conjunction with [Data-in replication](../mysql/concepts-data-in-replication.md) or third-party tools (such as Striim or Attunity) that provide for replaying binlog changes to a different server, if required.
-
-The binary log is deleted periodically, so the user must take necessary precautions if Change Data Capture (CDC) is used later to migrate the post-migration updates at the source. Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlogs are not purged before the replica commits the changes. If non-zero, binary logs are purged after **binlog_expire_logs_seconds** seconds. Post successful cut-over, you can reset the value. Users need to leverage the changes in the binlog to carry out the online migration. Users can take advantage of DMS to provide the initial seeding of the data and then stitch that together with the CDC solution of their choice to implement a minimal downtime migration.
-
-## Prerequisites
-
-To complete the migration successfully with Consistent Backup enabled to:
+To complete the migration successfully with Consistent Snapshot with read lock enabled :
 
 - Ensure that the user who is attempting to flush tables with a **read lock** has the RELOAD or FLUSH permission.
 
@@ -72,7 +53,7 @@ To complete the migration successfully with Consistent Backup enabled to:
 
 - Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files are not purged before the replica commits the changes. Post successful cutover, the value can be reset.
 
-## Known issues and limitations
+## Known issues and limitations for Enable Consistent Snapshot with read lock
 
 The known issues and limitations associated with Consistent Backup fall broadly into two categories: locks and retries.
 
