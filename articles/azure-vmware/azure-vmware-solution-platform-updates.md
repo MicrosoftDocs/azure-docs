@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 3/27/2024
 ---
 
 # What's new in Azure VMware Solution
@@ -15,6 +15,8 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
 
+VMware vCenter Server 7.0 U3o and VMware ESXi 7.0 U3o are being rolled out. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
 ## February 2024
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](architecture-private-clouds.md#vmware-software-versions)
@@ -23,7 +25,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX 
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by Q2 2024.
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by H2 2024.
 
 **AV64 SKU**
 
