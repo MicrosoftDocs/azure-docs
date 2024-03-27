@@ -196,7 +196,7 @@ To create a geo-replica of the database:
 
 ## Disable zone-redundancy
 
-To disable zone-redundancy, you can use the portal or ARM API. For Hyperscale service tier, you can simply reverse the steps document in [Redeployment (Hyperscale)](#redeployment-hyperscale).
+To disable zone-redundancy, you can use the portal or ARM API. For Hyperscale service tier, you can simply reverse the steps documented in [Redeployment (Hyperscale)](#redeployment-hyperscale).
 
 
 **To disable zone-redundancy with Azure portal:**
@@ -210,9 +210,7 @@ To disable zone-redundancy, you can use the portal or ARM API. For Hyperscale se
 1. Select **Save**.
 
 
-**To disable zone-redundancy with ARM:**
-
-
+**To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 
 
 ## Next steps
