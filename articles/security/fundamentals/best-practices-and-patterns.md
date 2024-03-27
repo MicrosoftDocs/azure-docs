@@ -17,7 +17,7 @@ This article contains security best practices to use when you're designing, depl
 
 ## Best practices
 
-These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+These best practices are intended to be a resource for IT pros. IT pros include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 * [Best practices for protecting secrets](secrets-best-practices.md)
 * [Azure database security best practices](/azure/azure-sql/database/security-best-practice)
@@ -36,4 +36,4 @@ These best practices are intended to be a resource for IT pros. This might inclu
 
 ## Next steps
 
-Microsoft has found that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
+Microsoft finds that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations to help secure the services you use in Azure.
