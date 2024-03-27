@@ -800,7 +800,7 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 ### [Disable direct internet access for Amazon SageMaker notebook instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0991c64b-ccf5-4408-aee9-2ef03d460020)
 
-**Description**: Direct internet access should be disabled for an SageMaker notebook instance.
+**Description**: Direct internet access should be disabled for a SageMaker notebook instance.
  This checks whether the 'DirectInternetAccess' field is disabled for the notebook instance.
  Your instance should be configured with a VPC and the default setting should be Disable - Access the internet through a VPC.
  In order to enable internet access to train or host models from a notebook, make sure that your VPC has a NAT gateway and your security group allows outbound connections. Ensure access to your SageMaker configuration is limited to only authorized users, and restrict users' IAM permissions to modify SageMaker settings and resources.
