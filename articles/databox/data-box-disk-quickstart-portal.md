@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 03/10/2024
+ms.date: 03/26/2024
 ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
@@ -16,17 +16,17 @@ ms.custom: mode-ui, devx-track-azurecli
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
+This quickstart describes the process of deploying Azure Data Box Disk using the Azure portal. Follow the steps in this article to create an order; receive, unpack, and connect disks; and copy data to the device for upload to Azure.
 
-For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+For detailed step-by-step deployment and tracking instructions, refer to the [Order Azure Data Box Disk](data-box-disk-deploy-ordered.md) tutorial. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-This guide walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
+This guide describes the process of deploying Azure Data Box Disk using the Azure portal, and helps answer the following questions.
 
 ::: zone-end
 
@@ -36,7 +36,7 @@ This guide walks you through the steps of using the Azure Data Box Disk in the A
 
 Before you begin:
 
-- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](https://aka.ms/azuredataboxfromdiskdocs).
+- Ensure that your subscription is enabled for Azure Data Box service. If necessary, [sign up for the service](https://aka.ms/azuredataboxfromdiskdocs) to enable it on our subscription.
 
 ## Sign in to Azure
 
@@ -63,9 +63,9 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ### [Portal](#tab/azure-portal)
 
-This step takes roughly 5 minutes.
+This step takes approximately 5 minutes.
 
-1. Create a new Azure Data Box resource in the Azure portal. 
+1. Create a new **Azure Data Box** resource in the Azure portal.
 2. Select a subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
@@ -166,7 +166,7 @@ This step takes roughly 5 minutes.
 
 The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers. 
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers.
 
     Drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy any VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
