@@ -4,7 +4,9 @@ description: This article shows you how to update an already existing SAP data c
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/27/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent
@@ -14,6 +16,8 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
 Note that the automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

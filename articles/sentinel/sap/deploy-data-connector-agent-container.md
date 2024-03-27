@@ -274,7 +274,7 @@ Now that you've created a VM and a Key Vault, your next step is to create a new 
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
-# [Azure portal (Preview)](#tab/azure-portal/managed-identity)
+# [Azure portal (Preview)](#tab/portal-managed-identity)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -321,7 +321,7 @@ Create a new agent through the Azure portal, authenticating with a managed ident
        
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
-    - To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected. You must have the managed identity set up ahead of time, as mentioned in the  [prerequisites](#prerequisites).
+    - To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected. You must have the managed identity set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
@@ -345,7 +345,7 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
 ### Connect to a new SAP system
 
-Anyone adding a new connection to an SAP system must have write permission to the [Key Vault where the SAP credentials are stored](#create-key-vault). See [Prerequisites](#prerequisites).
+Anyone adding a new connection to an SAP system must have write permission to the [key vault where the SAP credentials are stored](#create-a-key-vault). For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
@@ -371,7 +371,7 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal (Preview)](#tab/azure-portal/registered-application)
+# [Azure portal (Preview)](#tab/portal-registered-application)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -418,7 +418,7 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
        
         Learn more about [deploying the connector over a SNC connection](configure-snc.md).
 
-    - To authenticate to your key vault using a registered application, select **Application Identity**. You must have the registered application (application identity) set up ahead of time, as mentioned in the [prerequisites](#prerequisites).
+    - To authenticate to your key vault using a registered application, select **Application Identity**. You must have the registered application (application identity) set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
@@ -442,7 +442,7 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 ### Connect to a new SAP system
 
-Anyone adding a new connection to an SAP system must have write permission to the [Key Vault where the SAP credentials are stored](#create-key-vault). See [Prerequisites](#prerequisites).
+Anyone adding a new connection to an SAP system must have write permission to the [key vault where the SAP credentials are stored](#create-a-key-vault). For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
@@ -468,13 +468,13 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal (Preview)](#tab/azure-portal/config-file)
+# [Azure portal (Preview)](#tab/portal-config-file)
 
 **The Azure portal can only be used with Azure Key Vault.**
 
 To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 
-# [Command line script](#tab/command-line/managed-identity)
+# [Command line script](#tab/command-line-managed-identity)
 
 Create a new agent using the command line, authenticating with a managed identity:
 
@@ -508,7 +508,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line script](#tab/command-line/registered-application)
+# [Command line script](#tab/command-line-registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
@@ -543,7 +543,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line script](#tab/command-line/config-file)
+# [Command line script](#tab/command-line-config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 

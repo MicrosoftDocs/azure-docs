@@ -21,6 +21,8 @@ Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cl
 > [!NOTE]
 > [Update an existing Microsoft Sentinel for SAP data connector](update-sap-data-connector.md) to the latest version.
 
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+
 ## What is the Microsoft Sentinel solution for SAP applications?
 
 The Microsoft Sentinel solution for SAP applications is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems. Use the solution to detect sophisticated threats throughout the business logic and application layers of your SAP applications. The solution includes the following components:

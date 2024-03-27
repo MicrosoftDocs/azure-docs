@@ -8,6 +8,7 @@ ms.date: 03/21/2024
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 ---
+
 # Prerequisites for deploying Microsoft Sentinel solution for SAP® applications
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP® applications.

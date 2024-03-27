@@ -5,8 +5,11 @@ description: This article shows you how to deploy the SAP Change Requests (CRs) 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/27/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
+
 # Deploy SAP Change Requests and configure authorization
 
 This article shows you how to deploy SAP Change Requests (CRs), which prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
@@ -14,6 +17,8 @@ This article shows you how to deploy SAP Change Requests (CRs), which prepare th
 > [!IMPORTANT]
 > - This article presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
 > - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below. <!--update cr number to the new one?-->
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Required and optional CRs
 
@@ -243,7 +248,7 @@ In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_RESPON
 
 ### Required ABAP authorizations
 
-This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](aka.ms/attack-disrupt-defender).
+This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
 
 The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel and the attack disruption response actions you want to apply.
 

@@ -4,7 +4,9 @@ description: This article introduces Microsoft Sentinel solution for SAP® appli
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 03/27/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Microsoft Sentinel solution for SAP® applications overview
@@ -14,6 +16,8 @@ SAP systems pose a unique security challenge. SAP systems handle extremely sensi
 Security operations teams have traditionally had very little visibility into SAP systems. An SAP system breach could result in stolen files, exposed data, or disrupted supply chain. Once an attacker is in the system, there are few controls to detect exfiltration or other bad acts. SAP activity needs to be correlated with other data across the organization for effective threat detection.
 
 To help close this gap, Microsoft Sentinel offers the Microsoft Sentinel solution for SAP® applications. This comprehensive solution uses components at every level of Microsoft Sentinel to offer end-to-end detection, analysis, investigation, and response to threats in your SAP environment.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## What the Microsoft Sentinel solution for SAP® applications does
 
