@@ -4,6 +4,7 @@ description: Learn how to configure a Spring Cloud Config Server component for y
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/13/2024
 ms.author: cshoe

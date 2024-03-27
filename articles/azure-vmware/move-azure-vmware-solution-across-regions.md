@@ -75,13 +75,13 @@ Azure VMware Solution supports all backup solutions. You need CloudAdmin privile
 
 - VM workload backup using the Commvault solution:
 
-   - [Create a VMware client](https://documentation.commvault.com/commvault/v11_sp20/article?p=119380.htm) from the Command center for Azure VMware Solution vCenter.
+   - [Create a VMware client](https://documentation.commvault.com/11.20/guided_setup_for_vmware.html) from the Command center for Azure VMware Solution vCenter.
 
-   - [Create a VM group](https://documentation.commvault.com/commvault/v11_sp20/article?p=121182.htm) with the required VMs for backups.
+   - [Create a VM group](https://documentation.commvault.com/11.20/adding_vm_group_for_vmware.html) with the required VMs for backups.
 
-   - [Run backups on VM groups](https://documentation.commvault.com/commvault/v11_sp20/article?p=121657.htm).
+   - [Run backups on VM groups](https://documentation.commvault.com/11.20/performing_backups_for_vmware_vm_or_vm_group.html).
 
-   - [Restore VMs](https://documentation.commvault.com/commvault/v11_sp20/article?p=87275.htm).
+   - [Restore VMs](https://documentation.commvault.com/11.20/restoring_full_virtual_machines_for_vmware.html).
 
 - VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
@@ -232,7 +232,7 @@ In this step, copy the source vSphere configuration and move it to the target en
 
 1. From the source vCenter Server, use the same resource pool configuration and [create the same resource pool configuration](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D.html#example-creating-resource-pools-4) on the target's vCenter Server.
 
-2. From the source's vCenter Server, use the same VM folder name and [create the same VM folder](https://docs.vmware.com/en/VMware-Validated-Design/6.1/sddc-deployment-of-cloud-operations-and-automation-in-the-first-region/GUID-9D935BBC-1228-4F9D-A61D-B86C504E469C.html) on the target's vCenter Server under **Folders**.
+2. From the source's vCenter Server, use the same VM folder name and [create the same VM folder](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-031BDB12-D3B2-4E2D-80E6-604F304B4D0C.html?hWord=N4IghgNiBcIMYCcCmYAuSAEA3AthgZgPYQAmSCIAvkA) on the target's vCenter Server under **Folders**.
 
 3. Use VMware HCX to migrate all VM templates from the source's vCenter Server to the target's vCenter Server.
 

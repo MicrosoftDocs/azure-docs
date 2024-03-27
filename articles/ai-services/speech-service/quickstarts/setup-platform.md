@@ -8,15 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 02/02/2024
 ms.author: eur
-ms.custom:
-  - devx-track-python
-  - devx-track-js
-  - devx-track-csharp
-  - mode-other
-  - devx-track-dotnet
-  - devx-track-extended-java
-  - devx-track-go
-  - ignite-2023
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go, ignite-2023, linux-related-content
 zone_pivot_groups: programming-languages-ai-services
 #customer intent: As a developer, I want to install the Speech SDK for the language of my choice to implement Speech AI in applications.
 ---

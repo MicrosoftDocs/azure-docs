@@ -15,6 +15,9 @@ items:
       href: quickstart-create-and-configure-devcenter.md
     - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
+    - name: Create dev center and project (Azure Resource Manager)
+      href: quickstart-create-dev-center-project-azure-resource-manager.md
+      displayName: Azure Deployment Environments, ADE, environments, quickstart
     - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
@@ -75,9 +78,17 @@ items:
       href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-- name: Automate with GitHub Actions (CI/CD)
-  href: tutorial-deploy-environments-in-cicd-github.md       
+- name: Automate with CI/CD
+  expanded: false
+  items:       
+    - name: Automate with GitHub Actions (CI/CD)
+      displayName: cicd, GitHub repo
+      href: tutorial-deploy-environments-in-cicd-github.md
+    - name: Automate with Azure Pipelines (CI/CD)
+      displayName: cicd, Azure DevOps, Azure Repos
+      href: tutorial-deploy-environments-in-cicd-azure-devops.md
 - name: Reference
+  expanded: false
   items:
     - name: Install Azure CLI extension
       href: how-to-install-devcenter-cli-extension.md  
@@ -86,6 +97,7 @@ items:
     - name: REST API
       href: /rest/api/devcenter/
 - name: Resources
+  expanded: false
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
