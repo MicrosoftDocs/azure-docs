@@ -198,6 +198,6 @@ In this article, you enabled API server authorized IP ranges. This approach is o
 [egress-outboundtype]: egress-outboundtype.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
-[route-tables]: ../virtual-network/manage-route-table.md
+[route-tables]: ../virtual-network/manage-route-table.yml
 [standard-sku-lb]: load-balancer-standard.md
 [azure-devops-allowed-network-cfg]: /azure/devops/organizations/security/allow-list-ip-url

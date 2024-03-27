@@ -1218,7 +1218,7 @@
       href: availability-set-overview.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/change-availability-set.md
+      href: ./windows/change-availability-set.yml
 - name: Disks
   items:
   - name: Overview
@@ -1643,7 +1643,7 @@
     - name: Azure CLI
       href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?toc=/azure/virtual-machines/toc.json
     - name: Add or remove network interfaces
-      href: ../virtual-network/virtual-network-network-interface-vm.md?toc=/azure/virtual-machines/toc.json
+      href: ../virtual-network/virtual-network-network-interface-vm.yml?toc=/azure/virtual-machines/toc.json
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell

@@ -201,7 +201,7 @@
     - name: Integration catalog
       href: integrate-overview.md
     - name: Stream cloud alerts to a partner SIEM
-      href: integrations/send-cloud-data-to-partners.md
+      href: integrations/send-cloud-data-to-partners.yml
       displayName: Splunk
     - name: Aruba ClearPass
       href: tutorial-clearpass.md

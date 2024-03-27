@@ -1855,7 +1855,7 @@ The initial access alerts now have improved accuracy and more data to support in
 
 Threat actors use various techniques in the initial access to gain a foothold within a network. Two of the [Microsoft Defender for Storage](defender-for-storage-introduction.md) alerts that detect behavioral anomalies in this stage now have improved detection logic and additional data to support investigations.
 
-If you've [configured automations](workflow-automation.md) or defined [alert suppression rules](alerts-suppression-rules.md) for these alerts in the past, update them in accordance with these changes.
+If you've [configured automations](workflow-automation.yml) or defined [alert suppression rules](alerts-suppression-rules.md) for these alerts in the past, update them in accordance with these changes.
 
 #### Detecting access from a Tor exit node
 
@@ -2454,7 +2454,7 @@ In February 2021, we added a **preview** third data type to the trigger options 
 
 With this update, this trigger option is released for general availability (GA).
 
-Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.yml).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -3008,7 +3008,7 @@ There are two updates to the features of these policies:
 
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Learn more about how to [Automate responses to Security Center triggers](workflow-automation.md).
+Learn more about how to [Automate responses to Security Center triggers](workflow-automation.yml).
 
 ### Two legacy recommendations no longer write data directly to Azure activity log
 
@@ -3112,7 +3112,7 @@ For a full list of all security controls in Security Center, together with their
 
 We've added a third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments.
 
-Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.yml).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -4208,7 +4208,7 @@ Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage
 
 Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
-To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
+To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.yml) procedures:
 
 The policy definitions can be found in Azure Policy:
 
@@ -4221,7 +4221,7 @@ The policy definitions can be found in Azure Policy:
 
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.yml) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
 
 ### New recommendation for using NSGs to protect non-internet-facing virtual machines
 
@@ -4430,7 +4430,7 @@ The workflow automation feature of Azure Security Center is now generally availa
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead and can improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
-For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
+For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.yml).
 
 Learn more about [creating Logic Apps](../logic-apps/logic-apps-overview.md).
 
@@ -4539,7 +4539,7 @@ Organizations with centrally managed security and IT/operations implement intern
 
 Today we are introducing a new capability in Security Center that allows customers to create automation configurations leveraging Azure Logic Apps and to create policies that will automatically trigger them based on specific ASC findings such as Recommendations or Alerts. Azure Logic App can be configured to do any custom action supported by the vast community of Logic App connectors, or use one of the templates provided by Security Center such as sending an email or opening a ServiceNow&trade; ticket.
 
-For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
+For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.yml).
 
 To learn about creating Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 

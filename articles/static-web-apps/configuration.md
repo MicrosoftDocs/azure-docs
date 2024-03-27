@@ -618,5 +618,5 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 ## Related articles
 
-- [Set application-level settings and environment variables used by backend APIs](application-settings.md)
+- [Set application-level settings and environment variables used by backend APIs](application-settings.yml)
 - [Define settings that control the build process](./build-configuration.md)
