@@ -22,7 +22,6 @@ To check your engine version, run `SELECT VERSION();` command at the MySQL promp
 - Support for Azure Defender for Azure DB for MySQL Flexible Server
 
 ## Improvement
-- [Support for Long-term retention of backups in Azure Database for MySQL Flexible Server (Preview)](../concepts-backup-restore.md#long-term-retention-preview)
 - Expose old_alter_table for 8.0.x.
 
 ## Known Issues Fix
