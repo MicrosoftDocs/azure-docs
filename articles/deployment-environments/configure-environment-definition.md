@@ -7,7 +7,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 03/27/2024
 ms.custom: devdivchpfy22, build-2023
 ---
 
@@ -43,11 +43,11 @@ In this article, you learn how to:
 
 ## Add an environment definition
 
-To add an environment definition to a catalog in Azure Deployment Environments, you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
+To add an environment definition to a catalog in Azure Deployment Environments (ADE), you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
 
 To add an environment definition:
 
-1. In your repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com), create a subfolder in the repository folder path.
+1. In your [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com) repository, create a subfolder in the repository folder path.
 
 1. Add two files to the new repository subfolder:
 
@@ -88,6 +88,25 @@ To add an environment definition:
 
 The service scans the repository to find new environment definitions. After you sync the repository, new environment definitions are available to all projects in the dev center.
 
+### Specify a runner for a Terraform custom image
+
+The ADE extensibility model enables you to use your own custom container image. The ADE team provides a sample Terraform template accessible through the Microsoft Artifact Registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). 
+
+When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. 
+
+You can edit the runner property to specify that you're using the Terraform image from the Microsoft Artifact Registry, as shown in the following example:
+
+```yaml
+runner: Terraform
+```
+
+If you created your own Terraform image and are storing it in a different registry, you can edit the runner property to specify the location that image, as shown in the following example:
+
+```yaml
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
+```
+
+
 ### Specify parameters for an environment definition
 
 You can specify parameters for your environment definitions to allow developers to customize their environments. 
@@ -121,7 +140,7 @@ To learn more about the parameters and their data types that you can use in *env
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
-:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
+:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the developer portal showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
 
 Developers can also supply values for specific parameters for their environments through the CLI.
 
