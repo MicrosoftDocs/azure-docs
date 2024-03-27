@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: article
 ms.date: 03/28/2024
-ms.reviewer: eur
+ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt
 ---
