@@ -9,7 +9,7 @@ ms.date: 03/27/2024
 
 ## Authentication types
 
-You need to select how you want to authenticate the connection from Azure OpenAI to Azure AI Search. You can choose *System assigned managed identity* or *API key*. By selecting *API key* as the authentication type, the system will auto populate the API key for you to connect with your Azure AI Search resource. By selecting *System assigned managed identity*, the authentication will be based on the [role assignment](../how-to/use-your-data-securely.md#role-assignments) you have. *System assigned managed identity* is selected by default.
+You need to select how you want to authenticate the connection from Azure OpenAI to Azure AI Search. You can choose *System assigned managed identity* or *API key*. By selecting *API key* as the authentication type, the system will automatically populate the API key for you to connect with your Azure AI Search resource. By selecting *System assigned managed identity*, the authentication will be based on the [role assignment](../how-to/use-your-data-securely.md#role-assignments) you have. *System assigned managed identity* is selected by default.
  
 If you want to use *System assigned managed identity*, make sure:
 
@@ -21,4 +21,4 @@ If you want to use *System assigned managed identity*, make sure:
 
     :::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="A screenshot showing the system assigned managed identity option in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
 
-1. You've added [role assignments](../how-to/use-your-data-securely.md#role-assignments) correctly using azure portal or azure CLI
+1. You've added [role assignments](../how-to/use-your-data-securely.md#role-assignments) correctly using Azure portal or Azure CLI
