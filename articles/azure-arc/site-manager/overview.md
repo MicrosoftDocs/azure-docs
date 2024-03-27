@@ -19,7 +19,7 @@ Azure Arc site manager (preview) allows you to manage and monitor your on-premis
  
 ## Setting an Arc site scope
 
-Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by create one site for a subscription and more sites for the resource groups within the subscription.
+Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
 
 An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
 
@@ -62,4 +62,4 @@ The suggested state for Azure Arc site manager managed sites is to have the stat
 :::image type="content" source="./media/overview/site-suggested-state.jpeg" alt-text="Screenshot that shows Site manager green and suggested state.":::
 
 ## What does it cost to use Azure Arc site manager?
-Site manager doesn't have any fee, so feel free to create and use as many sites as desired. However, the Azure services that integrated with sites and site manager might have a fee. Additionally, alerts used with site manager via monitor might have fees as well.
+Site manager doesn't have any fee, so feel free to create and use as many sites as desired. However, the Azure services that integrate with sites and site manager might have a fee. Additionally, alerts used with site manager via monitor might have fees as well.

@@ -49,7 +49,7 @@ Create a site to manage geographically related resources.
    | **Site name** | Custom name for site. |
    | **Display name** | Custom display name for site. |
    | **Subscription** | Subscription for the site to be created under. |
-   | **Address** | Physical address for a site. |
+   | **Address** | Physical address for a site. Currently this is required. |
 
 1. Once these details are provided, select **Review + create**.
 
