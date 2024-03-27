@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/23/2024
+ms.date: 03/27/2024
 recommendations: false
 ---
 
@@ -47,10 +47,23 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 
 ### Updating the web app
 
-We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
-
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
+
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. 
+
+
+Additionally, the web app must be synchronized every time the API version being used is [retired](../concepts/model-retirements.md). To synchronize the web app:
+1. Navigate to your web app in the [Azure portal](https://portal.azure.com/).
+1. Select **Deployment center** in the navigation menu, under **Deployment**.
+1. Select **Sync** at the top of the screen, and confirm that the app will be redeployed. 
+
+    :::image type="content" source="../media/quickstarts/sync-app.png" alt-text="A screenshot of sync web app button on the Azure portal." lightbox="../media/quickstarts/sync-app.png":::
+
+
+
+Once this update is done, all new apps will start using the newest API version. Older apps will need to trigger a Sync from the web app source code (from the App Services Deployment Center in the Azure Portal), or if the customer has modified the web app code, they will need to merge with the latest and redeploy their app.
+
 
 ## Chat history
 
