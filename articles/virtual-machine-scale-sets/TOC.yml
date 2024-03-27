@@ -80,6 +80,8 @@
   - name: Predictive autoscale
     href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
+  - name: Autoscale using guest metrics
+    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
@@ -125,22 +127,32 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
-  - name: Manage Upgrade Policies
-    href: virtual-machine-scale-sets-upgrade-policy.md
+  - name: Modify a scale set
+    href: virtual-machine-scale-sets-upgrade-scale-set.md
+  - name: Upgrade Policies
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-upgrade-policy.md
+    - name: Setting the upgrade policy
+      href: virtual-machine-scale-sets-set-upgrade-policy.md
+    - name: Changing the upgrade policy
+      href: virtual-machine-scale-sets-change-upgrade-policy.md
+    - name: Configure rolling upgrade policy
+      href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
+    - name: Performing manual upgrades
+      href: virtual-machine-scale-sets-perform-manual-upgrades.md
+    - name: Reimage a virtual machine
+      href: virtual-machine-scale-sets-reimage-virtual-machine.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
       href: virtual-machine-scale-sets-manage-cli.md
     - name: Use Azure PowerShell
       href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Modify a scale set
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
     - name: Scale set templates
       href: virtual-machine-scale-sets-mvss-start.md
-    - name: Autoscale using guest metrics
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Deploy your application
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Custom image templates
