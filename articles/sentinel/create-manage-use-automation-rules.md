@@ -4,7 +4,7 @@ description: This article explains how to create and use automation rules in Mic
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 03/27/2024
 ---
 
 # Create and use Microsoft Sentinel automation rules to manage response
@@ -46,9 +46,9 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
-| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
+| **When incident is created** | <li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
+| **When incident is updated**<br> | <li>An incident's status is changed (closed/reopened/triaged).<li>An incident's owner is assigned or changed.<li>An incident's severity is raised or lowered.<li>Alerts are added to an incident.<li>Comments, tags, or tactics are added to an incident. |
+| **When alert is created**<br> | <li>An alert is created by a scheduled analytics rule.
 
 ## Create your automation rule
 
@@ -106,9 +106,10 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
 
     | Property | Operator set |
     | -------- | -------- |
-    | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
-    | - Severity<br>- Status<br>- Incident provider<br>- Custom details key (Preview) | - Equals/Does not equal |
-    | - Tactics<br>- Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
+    | <ul><li>Title<li>Description<li>All listed entity properties | <ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with |
+    | <ul><li>Severity<li>Status<li>Incident provider<li>Custom details key (Preview) | <ul><li>Equals/Does not equal |
+    | <ul><li>Tactics<li>Alert product names<li>Custom details value (Preview) | <ul><li>Contains/Does not contain |
+    | <ul><li>Tag<br>(See [Items vs. collections](automate-incident-handling-with-automation-rules.md#items-vs-collections)) | Any individual tag:<ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with</ul><br>Collection of all tags:<ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with |
 
     ##### Conditions available with the update trigger
 
