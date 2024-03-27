@@ -35,6 +35,7 @@ devtunnel create --allow-anonymous
 devtunnel port create -p 8080
 devtunnel host
 ```
+Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels?view=aspnetcore-7.0#create-a-tunnel)
 
 ## Update your application configuration
 
@@ -216,9 +217,9 @@ To run the application with VS Code, open a Terminal window and run the followin
 ```bash
 dotnet run
 ```
-
+Open `http://localhost:8080/swagger/index.html` or your dev tunnel url in browser. The tunnel URL looks like: `https://0pbvlk3m-7032.usw2.devtunnels.ms/swagger/index.html`
 # [Visual Studio](#tab/visual-studio)
 
-Press Ctrl+F5 to run without the debugger.
+Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. The tunnel URL looks like: `https://0pbvlk3m-7032.usw2.devtunnels.ms/swagger/index.html`
 
 
