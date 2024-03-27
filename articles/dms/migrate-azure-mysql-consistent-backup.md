@@ -15,18 +15,20 @@ ms.custom:
 
 MySQL Consistent Snapshot is a new feature that allows users to take a Consistent Snapshot of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature. Moreover, there are multiple data consistency options presented to the user - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks (Preview), Make Source Server Read only and None. Selecting the 'None' option entails no extra measures are taken to ensure data consistency. We highly recommend selecting option 'Enable Consistent Snapshot without locks' to maintain transactional consistency.
 
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency" lightbox="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png":::
+
 ## Enable Consistent Snapshot without locks (Preview)
 
 When you enable this option, a reconciliation phase will occur after initial load to ensure that teh data written to your target will be transactionally consistent with the source server from a specific position in the binary log.
 
 With this feature, we do not take a read lock on the server and instead read tables at different point in time, while keeping track of the tables' binlog positions to be able to reconcile them towards the end of the initial load by performing replication in catchup mode to get a consistent snapshot.
 
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress" lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation.png":::
+
 Key features of Consistent Snapshot without locks :
     *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
     *Resilient in completing migrations even in the event of failures caused by transient network/server blips that result in loss of all the pre-created connections.
     *Ability to resume migrations upon DMS agent upgrades or restarts.
-
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-mysql-enable-tranactional-consistency.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency" lightbox="media/migrate-azure-mysql-consistent-backup/dms-mysql-enable-tranactional-consistency.png":::
 
 ### Enable Consistent Snapshot with read lock (GA)
 
