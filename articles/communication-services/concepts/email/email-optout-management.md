@@ -10,7 +10,7 @@ ms.date: 04/01/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 # Overview
 This article provides the Email delivery best practices and how to use the Azure Communication Services Email suppression list feature that allows customers to manage opt-out capabilities for email communications. It also provides information on the features that are important for emails opt out management that helps you improve email complaint management, promote better email practices, and increase your email delivery success, boosting the likelihood of getting to recipients' inboxes efficiently.
 
