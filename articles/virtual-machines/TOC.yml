@@ -371,7 +371,7 @@
       - name: Ncv3 Nc24rs Retirement
         href: ncv3-nc24rs-retirement.md
       - name: Ncv3 NC6s NC12s NC24s Retirement
-        href: ncv3-nc6s-nc24s-retirement.md
+        href: ncv3-nc6s-nc12s-nc24s-retirement.md
       - name: ND-series retirement
         href: nd-series-retirement.md
       - name: GPU compute migration guide
