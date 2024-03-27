@@ -6,7 +6,7 @@ ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
 ms.custom: service-connector
-ms.date: 3/15/2024
+ms.date: 03/27/2024
 # CustomerIntent: As a Confluent developer, I want learn about the quickest way to connect a Confluent organization to other Azure services.
 ---
 
@@ -28,27 +28,36 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 Follow these steps to connection an app to Apache Kafka & Apache Flink on Confluent Cloud.
 
-1. Open your App Service, Container Apps, or Azure Spring Apps resource. To connect an app deployed to Azure Spring Apps, you then need to open the **Apps** menu and select your app.
+1. Open your App Service, Container Apps, or Azure Spring Apps resource. To connect an app deployed to Azure Spring Apps, open the **Apps** menu and select your app.
 
 1. Open **Service Connector** from the left menu and select **Create**.
 
-1. Follow the appropriate tab below for instructions to connect to an Azure marketplace Confluent resource or to connect to an Azure non-marketplace Confluent resource. 
+1. Enter the following or select the following information.
+
+    | Setting             | Example                                          | Description                                                                                                                                                                                                                                                                                              |
+    |---------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Service type**    | *Apache Kafka on Confluent Cloud*                | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent. organization.                                                                                                                                                                                                        |
+    | **Connection name** | *Confluent_d0fcp*                                | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
+    | **Source**          | *Azure marketplace Confluent resource (preview)* | Select **Azure marketplace Confluent resource**.                                                                                                                                                                                                                                                         |
+
+1. Follow the appropriate tab below for instructions to connect to an Azure marketplace Confluent resource or to connect to an Azure non-marketplace Confluent resource.
 
     ### [Azure marketplace Confluent resource](#tab/marketplace-confluent)
 
     If your Confluent resource is deployed through Azure Marketplace, select or enter the following settings.
 
-    | Setting                        | Example                                | Description                                                                                                                                                                                                                                                                                             |
-    |--------------------------------|----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**               | *Apache Kafka on Confluent Cloud*      | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent. organization.                                                                                                                                                                                                        |
-    | **Connection name**            | *Confluent_d0fcp*                      | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
-    | **Source**                     | *Azure marketplace Confluent resource* | Select **Azure marketplace Confluent resource**.                                                                                                                                                                                                                                                        |
-    | **Subscription**               | *My subscription*                      | Select the subscription that holds your Confluent organization.                                                                                                                                                                                                                                         |
-    | **Environment**                | *TBD*                                  | Select your Confluent organization environment.                                                                                                                                                                                                                                                         |
-    | **Cluster**                    | *TBD*                                  | Select your Confluent organization cluster.                                                                                                                                                                                                                                                             |
-    | **Client type**                | *JavaScript*                           | Select the app stack that's on your compute service instance.                                                                                                                                                                                                                                           |
+    | Setting               | Example                                          | Description                                                                                                                                                                                                                                                                                              |
+    |-----------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Service type**      | *Apache Kafka on Confluent Cloud*                | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent. organization.                                                                                                                                                                                                        |
+    | **Connection name**   | *Confluent_d0fcp*                                | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
+    | **Source**            | *Azure marketplace Confluent resource (preview)* | Select **Azure marketplace Confluent resource**.                                                                                                                                                                                                                                                         |
+    | **Subscription**      | *My subscription*                                | Select the subscription that holds your Confluent organization.                                                                                                                                                                                                                                          |
+    | **Confluent Service** | *confluent-service*                              | Select the subscription that holds your Confluent organization.                                                                                                                                                                                                                                          |    
+    | **Environment**       | *my-environment*                                 | Select your Confluent organization environment.                                                                                                                                                                                                                                                          |
+    | **Cluster**           | *my-cluster*                                     | Select your Confluent organization cluster.                                                                                                                                                                                                                                                              |
+    | **Client type**       | *JavaScript*                                     | Select the app stack that's on your compute service instance.                                                                                                                                                                                                                                            |
 
-    1. Optionally check the box **Enable Schema registry** to use a schema registry.
+    1. Optionally check the box **Enable Schema registry** to use a schema registry, and enter the schema registry URL, API key and API secret.
 
     1. Select **Next: Authentication** to set up authentication.
         1. For **API keys**, choose **Select existing** to use an existing API key. Enter an API key and secret under **kafka API-key (Key)** and **kafka API key (Secret)**. If you don't have an API key, create a new one by selecting **Create new**.
@@ -62,19 +71,14 @@ Follow these steps to connection an app to Apache Kafka & Apache Flink on Conflu
 
     If your Confluent resource is deployed directly through Azure services, select or enter the following settings.
 
-    | Setting                        | Example                                    | Description                                                                                                                                                                                                                                                                                             |
-    |--------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**               | *Apache Kafka on Confluent Cloud*          | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent organization.                                                                                                                                                                                                        |
-    | **Connection name**            | *Confluent_d0fcp*                          | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_") |
-    | **Source**                     | *Azure non-marketplace Confluent resource* | Select **Azure non-marketplace Confluent resource**.                                                                                                                                                                                                                                                    |
-
-    1. Optionally check the box **Enable Schema registry** to use a schema registry.
-
+    1. Enter the Kafka bootstrap server URL. For example: *xxxx.eastus.azure.confluent.cloud:9092                                                                                                                                                                                                                                                                    |
+    1. Optionally check the box **Enable Schema registry** to use a schema registry, and enter the schema registry URL, API key and API secret.
+    1. Select the client type. The client type corresponds to the app stack that's on your compute service instance.
     1. Select **Next: Authentication** to set up authentication.
 
         1. Enter an API key and secret under **kafka API-key (Key)** and **kafka API-key (Secret)**.
         1. Under **Client type**, select the app stack that's on your compute service instance.
-        1. If you selected **Enable Schema registry** in the previous step, enter the Kafka bootstrap server URL for **Kafka bootstrap server URL**. If your environment doesn't contain any schema registry, you can create one by selecting **Create new**.
+        1. If you selected **Enable Schema registry** in the previous step, e If your environment doesn't contain any schema registry, you can create one by selecting **Create new**.
 
     1. Select **Next: Networking** to configure the network access to your Confluent organization and select **Configure firewall rules to enable access to your target service**.
 
