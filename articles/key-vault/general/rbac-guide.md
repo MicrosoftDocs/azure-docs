@@ -16,7 +16,7 @@ ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
 > [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificates User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
 
@@ -29,12 +29,11 @@ For more information, see [Azure role-based access control (Azure RBAC)](../../r
 ## Best Practices for individual keys, secrets, and certificates role assignments
 
 Our recommendation is to use a vault per application per environment
-(Development, Pre-Production, and Production).
+(Development, Pre-Production, and Production) with roles assigned at Key Vault scope.
 
-Individual keys, secrets, and certificates permissions should be used
-only for specific scenarios:
+Assigning roles on individual keys, secrets and certificates should be avoided. Exceptions to general guidance:
 
-- Sharing individual secrets between multiple applications, for example, one application needs to access data from the other application
+- Scenarios where individual secrets must be shared between multiple applications, for example, one application needs to access data from the other application
 
 More about Azure Key Vault management guidelines, see:
 

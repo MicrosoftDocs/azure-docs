@@ -13,7 +13,7 @@ ms.date: 08/01/2023
 # Replicate virtual machines running in a proximity placement group to another region
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 

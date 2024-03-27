@@ -24,7 +24,7 @@ Learn how to access Azure Blob Storage for a web app (not a signed-in user) runn
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Set up your initial environment
 

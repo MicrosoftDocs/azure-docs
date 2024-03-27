@@ -5,6 +5,7 @@ ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: linux-related-content
 services: service-fabric
 ms.date: 03/03/2023
 ---
