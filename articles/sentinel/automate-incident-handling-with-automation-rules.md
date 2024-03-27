@@ -119,9 +119,12 @@ An incident property's value was
 
 #### Items vs. collections
 
-For incident properties that are collections of items, such as tags&mdash;an incident can have multiple tags applied to it&mdash;you can define conditions that check **each item in the collection separately**, and conditions that check **the entire collection as a unit**.
+For incident properties that are collections of items, such as tags&mdash;an incident can have multiple tags applied to it&mdash;you can define conditions that check **each item in the collection individually**, and conditions that check **the entire collection as a unit**.
 
-This distinction matters when your condition is a negative (does not equal, does not contain, and so on), and some items in the collection fulfill the condition and others don't.
+- **Any individual item** operators check the condition against every item in the collection. The evaluation is *true* when *at least one item* satisfies the condition.
+- **Collection of all items** operators check the condition against the collection of items as a single unit. The evaluation is *true* only if *the collection as a whole* satisfies the condition.
+
+This distinction matters when your condition is a negative (does not equal, does not contain, and so on), and some items in the collection satisfy the condition and others don't.
 
 Let's look at an example where your condition is, **Tag does not contain "2024"**, and you have two incidents, each with two tags:
 
@@ -132,7 +135,7 @@ Let's look at an example where your condition is, **Tag does not contain "2024"*
 
 In this example, in *Incident 1*: 
 - If the condition checks each tag individually, then since there's at least one tag that *fulfills the condition* (that *doesn't* contain "2024"), the overall condition is **true**.
-- If the condition checks the entire collection as a unit, then since there's at least one tag that *doesn't fulfill the condition* (that *does* contain "2024"), the overall condition is **false**.
+- If the condition checks all the tags in the incident as a single unit, then since there's at least one tag that *doesn't fulfill the condition* (that *does* contain "2024"), the overall condition is **false**.
 
 In *Incident 2*, the outcome will be the same, regardless of which type of condition is defined.
 
