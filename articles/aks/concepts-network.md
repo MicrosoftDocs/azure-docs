@@ -207,10 +207,10 @@ The *LoadBalancer* only works at layer 4. At layer 4, the Service is unaware of 
 
 The following table lists the feature differences between the different ingress controller options:
 
-| Feature | Application Routing addon | Azure Application Gateway Ingress Controller | Istio |
+| Feature | Application Routing addon | Application Gateway for Containers | Azure Service Mesh/Istio-based service mesh |
 |---------|---------------------------|---------------------------------------------|-------|
 | **Ingress/Gateway controller** | NGINX ingress controller | Azure Application Gateway for Containers | Istio Ingress Gateway |
-| **API** | Ingress API | Ingress API/Gateway API | Gateway API |
+| **API** | Ingress API | Ingress API and Gateway API | Gateway API |
 | **Hosting** | In-cluster | Azure hosted | In-cluster |
 | **Scaling** | Autoscaling | Autoscaling | Autoscaling |
 | **Load balancing** | Internal/External | External | Internal/External |
