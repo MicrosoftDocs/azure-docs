@@ -73,32 +73,66 @@ The following table lists requirements that could influence your Microsoft Dev B
 
 ## Microsoft Dev Box deployment plan
 
+After you've defined your requirements for Microsoft Dev Box within your organization, you can start the deployment. To set up Microsoft Dev Box to give developers self-service access to dev boxes, follow these steps.
+
+### Step 1: Configure Azure subscription
+Needs to be same tenant as Intune
+https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
+
+### Step x: Configure network
+- vnets, vnet peering
+- firewalls
+- NSGs
+- gateways
+- expressroute
+- VPN
+
+### Step x: Configure security groups for role-based access control
+- project admins
+- dev box users
+
+### Step x: Create dev center
 
 
-Describe for each design area what the considerations are and, optionally, the recommendations. For complex areas, we might refer to a separate conceptual article, such as Intune configuration or networking.
+### Step x: Configure network connections
+- Azure networking connections
+- Hosted networking connections
 
-1. Azure subscription
-1. Dev center
-    - Considerations
-    - Recommendations
-1. Networking
-    - Considerations
-    - Recommendations
-1. Compute galleries
-    - Considerations
-    - Recommendations
-1. Dev box definitions
-    - Considerations
-    - Recommendations
-1. Projects
-    - Considerations
-    - Recommendations
-1. Dev box access (browser vs RDP client)
-    - Considerations
-    - Recommendations
-1. Intune configuration
-    - Considerations
-    - Recommendations
+### Step x: Create compute galleries
+- Marketplace vs compute gallery
+- create galleries
+- create custom images
+- consider base image and apply customizations
+
+### Step x: Attach catalog
+- create repo
+- add customization tasks
+
+### Step x: Create dev box definitions
+- align with dev team leads
+- shared among all projects
+- link compute resources  & VM image
+- GPU vs CPU needs
+- Consider pricing
+
+### Step x: Create projects
+- Assign security group for Project admins
+- Assign security group for dev box users
+- consider limitations of dev boxes per developer
+
+### Step x: Create dev box pools
+- Owner: Project admin
+- links dev box definition & network connection
+- Consider location of developers
+- Consider auto-stop
+
+### Step x: Configure dev box access
+RDP vs browser
+
+### Step x: Configure Microsoft Intune
+- device configuration
+- licenses
+- conditional access policies
 
 ## Related content
 
