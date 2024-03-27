@@ -51,6 +51,12 @@ You  need to create a new HDInsight on AKS cluster in your existing cluster pool
 
 As part of the best practices, we recommend you to keep your clusters updated on regular basis.HDInsight on AKS release happens every 30 to 60 days. It's always good to move to the latest releases as early as possible. The recommended maximum duration for cluster upgrades is less than three months.
 
+## Lifecycle and supportability
+
+| Runtime name | Release date | Release stage | End of Support announcement date | End of Support effective date |
+| --- | --- | --- | --- | --- |
+| [Azure HDInsight on AKS] | Oct 10, 2023 | Public Preview | | |
+
 ### Sample Scenarios 
 
 In the below sample, we illustrate a lifecycle of version change with HDInsight on AKS. As an example, a cluster running on cluster Pool version 2.0, cluster version 2.3.6 is considered. This is a sample, and all version updates will be available on release notes on an ongoing basis.
