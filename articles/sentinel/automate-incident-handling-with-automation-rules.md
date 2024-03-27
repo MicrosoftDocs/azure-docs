@@ -134,8 +134,8 @@ Let's look at an example where your condition is, **Tag does not contain "2024"*
 | **Collection of all tags<br>does not contain "2024"** | ***FALSE*** | TRUE                       |
 
 In this example, in *Incident 1*: 
-- If the condition checks each tag individually, then since there's at least one tag that *fulfills the condition* (that *doesn't* contain "2024"), the overall condition is **true**.
-- If the condition checks all the tags in the incident as a single unit, then since there's at least one tag that *doesn't fulfill the condition* (that *does* contain "2024"), the overall condition is **false**.
+- If the condition checks each tag individually, then since there's at least one tag that *satisfies the condition* (that *doesn't* contain "2024"), the overall condition is **true**.
+- If the condition checks all the tags in the incident as a single unit, then since there's at least one tag that *doesn't satisfy the condition* (that *does* contain "2024"), the overall condition is **false**.
 
 In *Incident 2*, the outcome will be the same, regardless of which type of condition is defined.
 
