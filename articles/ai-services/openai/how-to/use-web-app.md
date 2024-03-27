@@ -61,10 +61,6 @@ Additionally, the web app must be synchronized every time the API version being 
     :::image type="content" source="../media/use-your-data/sync-app.png" alt-text="A screenshot of web app synchronization button on the Azure portal." lightbox="../media/use-your-data/sync-app.png":::
 
 
-
-Once this update is done, all new apps will start using the newest API version. Older apps will need to trigger a Sync from the web app source code (from the App Services Deployment Center in the Azure Portal), or if the customer has modified the web app code, they will need to merge with the latest and redeploy their app.
-
-
 ## Chat history
 
 You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
