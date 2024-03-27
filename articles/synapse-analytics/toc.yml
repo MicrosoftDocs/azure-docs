@@ -165,8 +165,10 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Azure Monitor metrics, alerts, and logs
-        href: monitoring/how-to-monitor-using-azure-monitor.md
+      - name: Monitor
+        href: monitor-synapse-analytics.md
+      - name: Monitoring data reference
+        href: monitor-synapse-analytics-reference.md
     - name: Secure
       items:
       - name: Manage access control 

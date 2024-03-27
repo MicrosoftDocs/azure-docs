@@ -5,6 +5,7 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: yelevin
+appliesto: Microsoft Sentinel
 ---
 
 # Set up Microsoft Sentinel customer-managed key
