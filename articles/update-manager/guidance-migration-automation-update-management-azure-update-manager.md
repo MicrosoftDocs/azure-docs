@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 03/24/2024
+ms.date: 03/28/2024
 ms.author: sudhirsneha
 ---
 
