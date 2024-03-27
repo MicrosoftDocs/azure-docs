@@ -120,4 +120,3 @@ Set up disaster recovery. If you're replicating multiple VMs, plan capacity.
 
 - [Set up disaster recovery to Azure for VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md)
 - [Perform capacity planning](site-recovery-deployment-planner.md).
-- [Learn about disaster recovery scenarios](site-recovery-overview.md#disaster-recovery-scenarios).
