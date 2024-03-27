@@ -26,7 +26,7 @@ Text Translation is a cloud-based feature of the Azure AI Translator service and
 | [**dictionary/examples**](v3-0-dictionary-examples.md) | **POST** | Returns how a term is used in context. |
 
 > [!div class="nextstepaction"]
-> [Create a Translator resource in the Azure portal.](../create-translator-resource.md)
+> [Create a Translator resource in the Azure portal.](../create-translator-resource.yml)
 
 > [!div class="nextstepaction"]
 > [Quickstart: REST API and your programming language](../quickstart-text-rest-api.md)
