@@ -15,19 +15,27 @@ ms.date: 04/03/2024
 > [!IMPORTANT]
 > These features are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-03-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) provides the new data types, vector compression properties, and the `stored` property.
 
-This article describes vector compression and techniques for minimizing vector storage. You can use these capabilities together or individually.
+This article describes vector compression and other techniques for minimizing vector storage.
 
-+ Assign smaller data types for reduced storage
-+ Eliminate optional storage of retrievable vectors, reducing storage by up to 50%
-+ Apply scalar quantization to compress vectors in memory and on disk
+## Evaluate the options
 
-Compression and storage configuration occur during index creation. You can Use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package to configure compression and storage.
+As a first step, review your options for reducing the amount of storage used by vector fields.
 
-## Assign small data types to vector fields
+| Approach | Why use this option |
+|----------|---------------------|
+| Assign smaller primitive data types, such as `Float16`, `Int16`, or `Int8`, to vector fields in a search index. | Smaller data types consume less space in memory and on disk. This option is viable if your embedding model outputs vectors in a small data format. Or, if you have custom quantization logic that outputs small data. A more common use case is recasting the native `Float32` embeddings produced by most models to `Float16`. |
+| Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field storage by up to 50 percent. |
+| Add vector compression | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage with no degradation of query performance. Smaller data types like `Int8` result produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss in a small index, built-in vector compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are features of built-in vector compression of `Float32` fields and can't be used on embeddings that undergo custom quantization. |
 
-Vector fields store an array of embeddings. The data type tells the search engine that the field is a *vector field*, and it helps determine how much storage is allocated for field content.
+Data type assignments, storage settings, and vector compression are defined on an empty index. 
 
-Using preview APIs, you can assign smaller data types to reduce the storage requirements of vector fields. 
+To implement any of these options, use the Azure portal, [2024-03-01-preview REST APIs](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package.
+
+## Option 1: Assign small data types to vector fields
+
+The data type tells the search engine that the field is a *vector field*, and it helps determine how much storage is allocated for field content.
+
+Using preview APIs, you can assign smaller primitive data types to reduce the storage requirements of vector fields. 
 
 1. Review the [data types for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
 
@@ -36,9 +44,12 @@ Using preview APIs, you can assign smaller data types to reduce the storage requ
    + `Collection(Edm.Int16)` 16-bit signed integer
    + `Collection(Edm.SByte)` 8-bit signed integer
 
-1. Choose a data type that's valid for your embedding model's output, or for vectors that have undergone quantization.
+   > [!NOTE]
+   > Binary data types aren't currently supported.
 
-   Most embedding models output 32-bit floating point numbers, but if you apply custom quantization processing, your output might be `Int16` or `Int8`. You can now define vector fields that accept the smaller format.
+1. Choose a data type that's valid for your embedding model's output, or for vectors that undergo custom quantization.
+
+   Most embedding models output 32-bit floating point numbers, but if you apply custom quantization, your output might be `Int16` or `Int8`. You can now define vector fields that accept the smaller format.
 
    Text embedding models have a native output format of `Float32`, which maps to `Collection(Edm.Single)` in Azure AI Search. You can't map that output to `Int8` because casting from float to `int` primitives is prohibited, but you can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`).
 
@@ -51,33 +62,26 @@ Using preview APIs, you can assign smaller data types to reduce the storage requ
    | [text-embedding-3-large](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
    | [Cohere V3 embedding models with int8 embedding_type](https://docs.cohere.com/reference/embed) | `Int8` | `Collection(Edm.SByte)` |
 
-   > [!NOTE]
-   > Links for the text embedding models resolve to Azure OpenAI, but you could also use [OpenAI's models](https://platform.openai.com/docs/guides/embeddings/embedding-models).
-   >
-   > Binary data types aren't currently supported.
-   >
-   > Use cases for integer data types include support for custom quantization, and support for emerging embedding models that emit output in the small integer formats.
+1. Make sure you understand the tradeoffs of a smaller type. `Collection(Edm.Half)` has less information, so if your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time. There's no built-in mitigations for lossy indexes if you
 
-1. Make sure you understand the tradeoffs of a smaller type. `Collection(Edm.Half)` has less information, so if your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time.
+1. Build the vector index, creating fields and assigning data types. You can use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package for this step.
 
-1. Use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package to assign these data types.
+1. Check the results. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true) to verify the field content matches the data type. Be sure to use the correct `2024-03-01-preview` API version for the query, otherwise the new properties aren't shown.
 
-1. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true) to verify the field content matches the data type. Make sure to use the correct `2024-03-01-preview` API version for the query, otherwise the new properties aren't shown.
+   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over.
 
-   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is field that's indexed as an array of zeros.
+   To check vector index size, use the Azure portal or the [2024-03-01-preview](/rest/api/searchservice/indexes/get-statistics?view=rest-searchservice-2024-03-01-preview&preserve-view=true)
 
 > [!NOTE]
 > The field's data type is used to create the physical data structure. If you want to change a data type later, either drop and rebuild the index, or create a second field with the new definition.
 
-## Set the `stored` property to remove retrievable storage
+## Option 2: Set the `stored` property to remove retrievable storage
 
-The `stored` property is a new boolean that determines whether storage is allocated for retrievable vector field content. The default is true. If you set `stored` to false, the search engine performs indexing and storage of vector content that's used for query execution, but skips storage for retrievable content, reducing overall storage requirements by up to 50 percent. 
+The `stored` property is a new boolean that determines whether storage is allocated for retrievable vector field content. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
 
-Vectors aren't human readable, so setting `stored` to false is useful if the query response is rendered on a search page. If vectors in the query response are used in downstream processing, choose another technique for minimizing storage.
+Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing storage.
 
-The property is set during index creation on vector fields and is irreversible. Even if you set `retrievable` to true, a vector field that doesn't have a retrievable copy can't provide content in a query response. In the `2024-03-01-preview`, if `stored` is false, then `retrievable` must also be false.
-
-In the fields collection of a search index, set stored to override the default (true) for vector fields.
+The following example shows the fields collection of a search index. Set `stored` to override the default (true) for vector fields.
 
    ```http
    PUT https://[service-name].search.windows.net/indexes/[index-name]?api-version=2024-03-01-preview  
@@ -99,23 +103,29 @@ In the fields collection of a search index, set stored to override the default (
         } 
    ```
 
-The `stored` property affects storage on disk, not memory, and it has no effect on queries.
+**Key points**:
 
-> [!NOTE]
-> In `2024-03-01-preview` REST API and in Azure SDK packages that target `2024-03-01-preview`, the `retrievable` property defaults to false for all vector fields and `source` is set to true. In a default configuration, storage is allocated for the retrievable copy, but results aren't returned unless you `retrievable` to true. You can toggle `retrievable` at any time without incurring an index rebuild.
++ Applies to [vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) only.
 
-## Configure vector compression
++ Affects storage on disk, not memory, and it has no effect on queries. Query execution uses a separate vector index that's unaffected by the `stored` property.
+
++ The `stored` property is set during index creation on vector fields and is irreversible. 
+
++ Defaults are `stored` set to true and `retrievable` set to false. A retrievable copy is stored, but it's not automatically returned in results. You can toggle `retrievable` at any time without having to rebuild an index. 
+
++ If by using multiple API versions you end up with a vector field having `stored` is set to false and `retrievable` set to true, `retrievable` is ignored and no vector data is returned in the response.
+
+## Option 3: Configure vector compression
 
 Vector compression reduces memory and disk storage requirements, and it applies to vector fields containing `Float32` data.
 
 To use vector compression:
 
-+ Add a `vectorSearch.compressions` section to a search index.
++ Add a `vectorSearch.compressions` section to a search index. The compression algorithm supported in this preview is scalar quantization.
 + Add a `vectorSearch.profiles.compression` setting to a vector profile.
++ Set optional properties to mitigate the effects of lossy indexing. The `rerankWithOriginalVectors` property and oversampling mitigate the loss in detail by providing optimizations during query execution.
 
-In this preview, Azure AI Search adds support for scalar quantization.
-
-### Add compression settings to a search index
+### Add compression settings and set optional properties
 
 In an index definition created using 2024-03-01-preview REST API, add a `compressions` section. Use the following JSON as a template.
 
@@ -140,7 +150,7 @@ In an index definition created using 2024-03-01-preview REST API, add a `compres
 
 + Reranking uses the original, uncompressed vectors to reevaluate and adjust the ranking of the top results returned by the initial search query. The uncompressed vectors exist in the search index even if `stored` is false.
 
-+ Oversampling considers a broader set of potential results. The formula for potential results consists of the `k` in the query, with an oversampling multiplier. For example, if the query specifies a `k` of 5, and oversampling is 20, then the query effectively requests 100 documents for use in reranking, using the original uncompressed vector for that purpose.
++ Oversampling considers a broader set of potential results. The formula for potential results consists of the `k` value in the query, with an oversampling multiplier. For example, if the query specifies a `k` of 5, and oversampling is 20, then the query effectively requests 100 documents for use in reranking, using the original uncompressed vectors for that purpose.
 
 + `quantizedDataType` must be set to `int8` or `int16`.
 
@@ -182,7 +192,7 @@ Each component of the vector is mapped to the closest representative value withi
 
 ## Example index with vectorCompression, data types, and stored property
 
-Here's a JSON example of a search index that specifies `vectorCompression` that used on `Float32` field, a `Float16` data type on second vector field, and a `stored` property set to false. It's a composite of the vector compression and storage features in this preview.
+Here's a JSON example of a search index that specifies `vectorCompression` on `Float32` field, a `Float16` data type on second vector field, and a `stored` property set to false. It's a composite of the vector compression and storage features in this preview.
 
 ```json
 ### Create a new index
@@ -219,7 +229,7 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
             "retrievable": false,
             "dimensions": 1536,
             "stored": false,
-            "vectorSearchProfile": "my-vector-profile"
+            "vectorSearchProfile": "my-vector-profile-no-compression"
         },
         {
             "name": "Description", 
@@ -237,7 +247,7 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
             "searchable": true,
             "retrievable": true,
             "dimensions": 1536,
-            "vectorSearchProfile": "my-vector-profile"
+            "vectorSearchProfile": "my-vector-profile-with-compression"
         },
         {
             "name": "Category", 
@@ -325,9 +335,15 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
         ],
         "profiles": [      
             {
-                "name": "my-vector-profile",
+                "name": "my-vector-profile-with-compression",
                 "compression": "my-scalar-quantization", 
                 "algorithm": "my-hnsw-vector-config-1",
+                "vectorizer": null
+            },
+            {
+                "name": "my-vector-profile-no-compression",
+                "compression": null, 
+                "algorithm": "my-eknn-vector-config",
                 "vectorizer": null
             }
       ]
@@ -355,9 +371,11 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
 
 ## Query a compressed vector field using oversampling
 
-This query syntax applies to vector fields using the built-in compression algorithm. On the query, you can override the oversampling default value. 
+This query syntax applies to vector fields using the built-in vector compression. On the query, you can override the oversampling default value. For example, if `defaultOversampling` is 10.0, you can change it to something else in the query request.
 
-Oversampling has a dependency on `rerankWithOriginalVectors`. If `rerankWithOriginalVectors` is false in the search index, but you provide an oversampling override in the query, the search engine sets `rerankWithOriginalVectors` to true just for that query.
+You can set the oversampling parameter even if the index doesn't explicitly have a `rerankWithOriginalVectors` or `defaultOversampling` definition.
+
+Oversampling has a dependency on `rerankWithOriginalVectors`. If you set `rerankWithOriginalVectors` to null or false in the search index, but you provide an oversampling override in the query, the search engine temporarily sets `rerankWithOriginalVectors` to true just for that query.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-03-01-Preview   
@@ -376,6 +394,12 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
       ]    
     }
 ```
+
+**Key points**:
+
++ Applies to vector fields that undergo vector compression, per the vector profile assignment.
+
++ Overrides the `defaultOversampling` value or introduces oversampling at query time, even if the index doesn't specifically allow for it.
 
 ## See also
 
