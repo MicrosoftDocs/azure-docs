@@ -28,9 +28,9 @@ VM host and guest data is useful in different scenarios:
 |-|-|-|-|
 | **VM host data** | Understand the performance of the physical host on which the VM is running.<br> (Optional) [Scale up or scale down](/azure/azure-monitor/autoscale/autoscale-overview) based on the load on your application.| Available by default without any additional setup. |[Performance metrics](#azure-monitor-platform-metrics)<br>[Activity logs](#azure-activity-log)<br>[Boot diagnostics](#boot-diagnostics) |
 | **VM guest data** | Analyze and troubleshoot performance and operational efficiency of workloads running in your Azure environment. | Install [Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) on the VM and set up a [data collection rule](#data-collection-rules). ||
-||**Basic VM guest monitoring** |[VM Insights](#vm-insights) is a quick and easy way to start monitoring your VM clients. VM Insights is especially useful for exploring overall VM usage and performance when you don't yet know the metric of primary interest.|||
-||**VM operating system monitoring (recommended)**||[Windows events and performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)<br>[Syslog events](/azure/azure-monitor/agents/data-collection-syslog) |||
-||**Advanced/custom VM monitoring**||For information about collecting IIS logs, custom logs from text and JSON files, and other VM monitoring scenarios, see [VM data sources](/azure/azure-monitor/data-sources#virtual-machines).|||
+||**Basic VM guest monitoring** |[VM Insights](#vm-insights) is a quick and easy way to start monitoring your VM clients. VM Insights is especially useful for exploring overall VM usage and performance when you don't yet know the metric of primary interest.||
+||**VM operating system monitoring (recommended)**||[Windows events and performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)<br>[Syslog events](/azure/azure-monitor/agents/data-collection-syslog) |
+||**Advanced/custom VM monitoring**||For information about collecting IIS logs, custom logs from text and JSON files, and other VM monitoring scenarios, see [VM data sources](/azure/azure-monitor/data-sources#virtual-machines).|
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -64,11 +64,6 @@ Metrics for the *guest OS* that runs in a VM must be collected through one or mo
 For detailed information about how the Azure Monitor agent collects VM monitoring data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
 
 For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#metrics).
-
-- Install the [InfluxData Telegraf agent](/azure/azure-monitor/essentials/collect-custom-metrics-linux-telegraf) on your Azure Linux VM, and send metrics by using the Azure Monitor output plug-in.
-- Send custom metrics [directly to the Azure Monitor REST API](/azure/azure-monitor/essentials/metrics-store-custom-rest-api).
-
-For more information about custom metrics, see [Custom metrics in Azure Monitor (preview)](/azure/azure-monitor/essentials/metrics-custom-overview). To retrieve metrics like CPU usage for a Linux VM by using the Azure REST API, see [Get Virtual Machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
