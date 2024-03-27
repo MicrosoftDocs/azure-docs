@@ -2,8 +2,8 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 03/26/2024
+ms.author: jsaurezlee
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
