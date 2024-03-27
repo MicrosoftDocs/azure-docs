@@ -37,8 +37,6 @@ landingContent:
         links:
           - text: 'Create & configure a dev center'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create & configure a project'
-            url: quickstart-create-and-configure-projects.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
       - linkListType: how-to-guide

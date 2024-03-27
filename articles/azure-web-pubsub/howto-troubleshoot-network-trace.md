@@ -4,6 +4,7 @@ description: Learn how to get the network trace to help troubleshooting
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
+ms.custom: linux-related-content
 ms.topic: how-to 
 ms.date: 11/08/2021
 ---

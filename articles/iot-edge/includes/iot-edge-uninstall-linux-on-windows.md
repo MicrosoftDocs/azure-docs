@@ -4,6 +4,7 @@ ms.date: 02/10/2022
 author: fcabrera
 ms.author: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
