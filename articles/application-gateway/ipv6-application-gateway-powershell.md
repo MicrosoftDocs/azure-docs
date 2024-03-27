@@ -49,6 +49,7 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
 * Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
 * Existing IPv4 Application Gateways can't be upgraded to dual stack Application Gateways
+* WAF custom rules with IPv6 match condition are not currently supported
 
 
 
