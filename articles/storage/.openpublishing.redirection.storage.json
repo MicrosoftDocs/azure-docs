@@ -8,7 +8,7 @@
 
         {
             "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
+            "redirect_url": "/articles/defender-for-cloud/defender-for-storage-introduction",
             "redirect_document_id": false
         },
         
