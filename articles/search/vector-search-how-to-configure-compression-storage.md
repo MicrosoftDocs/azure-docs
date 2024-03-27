@@ -123,7 +123,7 @@ To use vector compression:
 
 + Add `vectorSearch.compressions` to a search index. The compression algorithm supported in this preview is scalar quantization.
 + Add `vectorSearch.profiles.compression` to a vector profile.
-+ Set optional properties to mitigate the effects of lossy indexing. `rerankWithOriginalVectors` and `defaultOversampling` mitigate provide optimizations during query execution.
++ Set optional properties to mitigate the effects of lossy indexing. `rerankWithOriginalVectors` and `defaultOversampling` provide optimizations during query execution.
 
 ### Add compression settings and set optional properties
 
