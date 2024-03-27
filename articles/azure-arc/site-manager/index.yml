@@ -30,7 +30,7 @@ landingContent:
         links:
           - text: How do I get started with Azure Arc site manager?
             url: quickstart.md
-          - text: Frequently Asked Questions
+          - text: Frequently asked questions.
             url: faq.md
   - title: Using Azure Arc site manager
     linkLists:
