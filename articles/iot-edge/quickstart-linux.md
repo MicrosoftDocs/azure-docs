@@ -248,7 +248,7 @@ View the messages being sent from the temperature sensor module:
 
    :::image type="content" source="./media/quickstart-linux/iot-edge-logs.png" alt-text="Screenshot that shows data from your module in the output console." lightbox="./media/quickstart-linux/iot-edge-logs.png":::
 
-If you had issues deploying modules, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md) for tips.
+If you had issues deploying modules, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## Clean up resources
 
