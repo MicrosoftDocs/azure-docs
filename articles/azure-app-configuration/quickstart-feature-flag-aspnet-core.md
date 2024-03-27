@@ -19,7 +19,8 @@ The feature management support extends the dynamic configuration feature in App 
 
 ## Prerequisites
 
-Follow the documents to create an ASP.NET Core app with dynamic configuration.
+The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the following tutorials to create an ASP.NET Core app with dynamic configuration first.
+
 - [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
 - [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
 
@@ -165,7 +166,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page will show with updated content.
 
     ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 

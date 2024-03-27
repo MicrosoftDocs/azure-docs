@@ -15,11 +15,12 @@ ms.author: zhiyuanliang
 ---
 # Quickstart: Add feature flags to a .NET background service
 
-In this quickstart, you incorporate Azure App Configuration into a .NET background service to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
+In this quickstart, you incorporate the feature management capability from Azure App Configuration into a .NET background service. You use the App Configuration service to centrally store and manage your feature flags.
 
 ## Prerequisites
 
-Follow the documents to create a .NET background service with dynamic configuration.
+The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the .NET background service app introduced in the dynamic configuration tutorial. Before you continue, finish the following tutorial to create a .NET background service app with dynamic configuration first.
+
 - [Tutorial: Use dynamic configuration in a .NET background service](./enable-dynamic-configuration-dotnet-background-service.md)
 
 ## Add a feature flag
@@ -31,19 +32,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Use the feature flag
 
-1. Add references to the `Microsoft.FeatureManagement` NuGet package by running the following commands.
+1. Add references to the `Microsoft.FeatureManagement` NuGet package by running the following command:
 
     ```dotnetcli
     dotnet add package Microsoft.FeatureManagement
     ```
 
-1. Run the following command to restore packages for your project.
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-1. Open *Program.cs* and add the following statements.
+1. Open *Program.cs* and add the following statement:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -62,7 +63,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
         // Use feature flags
         options.UseFeatureFlags();
 
-        // Register the refresher so that the Worker service can consume it through DI
+        // Register the refresher so that the Worker service can consume it through dependency injection
         builder.Services.AddSingleton(options.GetRefresher());
     });
 
@@ -84,13 +85,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     > });
     > ```
 
-1. Open *Worker.cs* and add a reference to the .NET Feature Management library.
+1. Open *Worker.cs* and add the following statement:
 
     ```csharp
     using Microsoft.FeatureManagement;
     ```
 
-1. Inject `IConfigurationRefresher` and `IFeatureManager` to the `Worker` service and log the feature flag state.
+1. Update the constructor of the `Worker` service to obtain instances of `IConfigurationRefresher` and `IFeatureManager` through dependency injection.
 
     ```csharp
     public class Worker : BackgroundService
@@ -106,78 +107,46 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             _featureManager = featureManager ?? throw new ArgumentNullException(nameof(featureManager));
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                // Intentionally not await TryRefreshAsync to avoid blocking the execution.
-                _refresher.TryRefreshAsync(stoppingToken);
+        // ... ...
+    }
+    ```
 
-                if (_logger.IsEnabled(LogLevel.Information))
+1. Update the `ExecuteAsync` method to log a message depending on the state of the feature flag. The `TryRefreshAsync` method is called at the beginning of every iteration of the task execution to refresh the feature flag. It will be a no-op if the refresh interval time window isn't reached. The `await` operator is not used so that the feature flags are refreshed without blocking the current iteration of the task execution. In that case, later iterations of the task execution will get updated value.
+
+    ```csharp
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            // Intentionally not await TryRefreshAsync to avoid blocking the execution.
+            _refresher.TryRefreshAsync(stoppingToken);
+
+            if (_logger.IsEnabled(LogLevel.Information))
+            {
+                if (await _featureManager.IsEnabledAsync("Beta"))
                 {
-                    if (await _featureManager.IsEnabledAsync("Beta"))
-                    {
-                        _logger.LogInformation("[{time}]: Worker is running with Beta feature.", DateTimeOffset.Now);
-                    }
-                    else
-                    {
-                        _logger.LogInformation("[{time}]: Worker is running.", DateTimeOffset.Now);
-                    }
+                    _logger.LogInformation("[{time}]: Worker is running with Beta feature.", DateTimeOffset.Now);
                 }
-                
-                await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+                else
+                {
+                    _logger.LogInformation("[{time}]: Worker is running.", DateTimeOffset.Now);
+                }
             }
+            
+            await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
         }
     }
     ```
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command.
-
-    ### [Windows command prompt](#tab/windowscommandprompt)
-
-    To build and run the app locally using the Windows command prompt, run the following command.
-
-    ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command.
-
-    ```azurepowershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-
-    ### [macOS](#tab/unix)
-
-    If you use macOS, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
-    ### [Linux](#tab/linux)
-
-    If you use Linux, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
-    ---
-
-1. Run the following command to build the console app.
+1. Run the following command to build the app:
 
     ```dotnetcli
     dotnet build
     ```
 
-1. After the build successfully completes, run the following command to run the app locally.
+1. After the build successfully completes, run the following command to run the app locally:
 
 
     ```dotnetcli
@@ -192,7 +161,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. Wait for about 30 seconds. You should see the service mode has changed.
+1. Wait a few moments for the refresh interval time window to pass. You will see the updated log message.
 
     ![Background service with feature flag enabled](./media/quickstarts/dotnet-background-service-feature-flag.png)
 
