@@ -222,18 +222,18 @@ If needed, you can [remove the user role and the optional CR installed on your A
 
 ## Deploy optional CRs
 
-This section presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's intended for SOC engineers or implementers who may not necessarily be SAP experts.
+This section presents a step-by-step guide to deploying extra, optional CRs. It's intended for SOC engineers or implementers who may not necessarily be SAP experts.
 
-Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them.
+Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them.
 
 We strongly recommend that deployment of SAP CRs be carried out by an experienced SAP system administrator.
 
-This section discusses the installation of the following optional CRs:
+The following table describes the optional CRs available to deploy:
 
 |CR |Description |
 |---------|---------|
-|NPLK900271  |This CR creates and configures a sample role with basic authorizations. Alternatively, you can load the authorizations directly from a file or manually define the role according to the information in the [Required ABAP authorizations](#required-abap-authorizations) section below. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
-|NPLK900201 or NPLK900202  |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
+|**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations) and [Create and configure a role (required)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required). |
+|**NPLK900201** or **NPLK900202**  |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
 ### Prerequisites for deploying CRs
 
@@ -245,8 +245,8 @@ This section discusses the installation of the following optional CRs:
     - **Client number:** `001`
     - **IP address:** `192.168.136.4`
     - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
-1. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) to determine which CRs to install.
-1. If you installed the NPLK900202 [optional CR](#required-and-optional-crs) used to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
+1. Make sure you know which [CR you want to deploy](#deploy-optional-crs).
+1. If you're deploying the NPLK900202 CR to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
 
 ### Set up the files
 
