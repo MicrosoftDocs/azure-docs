@@ -481,7 +481,7 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
 Select one of the following tabs, depending on the type of identity you're using to access your key vault:
 
-# [Deploy with a managed identity (CLI)](#tab/deploy-cli-managed-identity)
+# [Deploy with a managed identity](#tab/deploy-cli-managed-identity)
 
 Create a new agent using the command line, authenticating with a managed identity:
 
@@ -515,7 +515,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Deploy with a registered application (CLI)](#tab/deploy-cli-registered-application)
+# [Deploy with a registered application](#tab/deploy-cli-registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
@@ -550,7 +550,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Deploy with a configuration file (CLI)](#tab/deploy-cli-config-file)
+# [Deploy with a configuration file](#tab/deploy-cli-config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
