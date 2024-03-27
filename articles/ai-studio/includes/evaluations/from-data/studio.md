@@ -146,7 +146,7 @@ For guidance on the specific data mapping requirements for each metric, refer to
 | Violent content            | Required: list |
 | Sexual content             | Required: list |
 
-Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../concept/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
+Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../../../concept/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
 
 #### Review and finish
 

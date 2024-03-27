@@ -28,7 +28,7 @@ We currently offer support for these scenarios:
 - **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
 - **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
 
-For more in-depth information on each metric definition and how it's calculated, learn more [here](../../../concepts/evaluation-metrics-built-in.md).
+For more in-depth information on each metric definition and how it's calculated,see [Evaluation and monitoring metrics](../../../concepts/evaluation-metrics-built-in.md).
 
 | Scenario           | Default metrics                          | Performance and quality metrics                                   | Risk and safety metrics                                                                |
 |--------------------|------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ When using AI-assisted performance and quality metrics, you must specify a GPT m
 When using AI-assisted risk and safety metrics, you do not need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms. 
 
 > [!NOTE]
-> Currently AI-assisted risk and safety metrics are only available in the following regions: East US 2, France Central, UK South, Sweden Central. Groundedness measurement leveraging Azure AI Content Safety Groundedness Detection is only supported following regions: East US 2 and Sweden Central. Read more about the [supported metrics](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/evaluation-metrics-built-in#metrics-for-single-turn-question-answering-without-retrieval-non-rag) and when to use which metric.
+> Currently AI-assisted risk and safety metrics are only available in the following regions: East US 2, France Central, UK South, Sweden Central. Groundedness measurement leveraging Azure AI Content Safety Groundedness Detection is only supported following regions: East US 2 and Sweden Central. Read more about the [supported metrics](../concepts/evaluation-metrics-built-in.md#metrics-for-single-turn-question-answering-without-retrieval-non-rag) and when to use which metric.
 
 ### Supported input data format for question answering
 
@@ -203,7 +203,7 @@ result = evaluate(
 
 #### Evaluating jailbreak vulnerability
 
-Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can do this with functionality and attack datasets from the [adversarial simulator](../how-to/simulator-interaction-data.md). Then you can evaluate jailbreak vulnerability by comparing content risk evaluations between the two test dataset's content risk defect rates. 
+Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can do this with functionality and attack datasets from the [adversarial simulator](../../../how-to/simulator-interaction-data.md). Then you can evaluate jailbreak vulnerability by comparing content risk evaluations between the two test dataset's content risk defect rates. 
 
 #### Evaluation result 
 
@@ -244,7 +244,7 @@ The contents of `eval_results.jsonl` looks like this:
 The outputs of your risk and safety metrics will provide the following:
 
 - `{metric_name}_defect_rate` which measures % of instances which surpassed the severity threshold (set to default 4) and is the aggregate metric over the whole dataset.
-- `{metric_name}_score` with a range between 0 and 7 severity for each data point. You can read more about the descriptions of each [content risk and severity scale](../concepts/evaluation-metrics-built-in.md).
+- `{metric_name}_score` with a range between 0 and 7 severity for each data point. You can read more about the descriptions of each [content risk and severity scale](../../../concepts/evaluation-metrics-built-in.md).
 - `{metric_name}_reasoning` with a text reasoning for why a certain severity score was given for each data point.
 
 You can download your `EvaluationResult()` with `download_evaluation_artifacts()` to a local folder path. 

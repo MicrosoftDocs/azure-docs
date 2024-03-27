@@ -33,4 +33,4 @@ Learn more about how to evaluate your generative AI applications:
 
 Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
 
-[Transparency Note for Azure AI Studio safety evaluations](safety-evaluations-transparency-note.md).
+[Transparency Note for Azure AI Studio safety evaluations](../concepts/safety-evaluations-transparency-note.md)

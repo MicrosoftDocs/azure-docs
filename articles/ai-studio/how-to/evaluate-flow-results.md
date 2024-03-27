@@ -71,15 +71,15 @@ And here are some examples of the metrics results for the conversation scenario:
 
 For risk and safety metrics, the evaluation provides a severity score and reasoning for each score. Here are some examples of risk and safety metrics results for the question answering scenario:
 
-:::image type="content" source="../media/evaluations/view-results/risk-safety-metric-example.png" alt-text="Screenshot of risk and safety metrics results for question answering scenario." lightbox="../media/evaluations/view-results/risk-safety-metric-example.png:::
+:::image type="content" source="../media/evaluations/view-results/risk-safety-metric-example.png" alt-text="Screenshot of risk and safety metrics results for question answering scenario." lightbox="../media/evaluations/view-results/risk-safety-metric-example.png":::
 
 Evaluation results may have different meanings for different audiences. For example, safety evaluations may generate a label for “Low” severity of violent content that may not align to a human reviewer’s definition of how severe that specific violent content might be. We provide a **human feedback** column with thumbs up and thumbs down when reviewing your evaluation results to surface which instances were approved or flagged as incorrect by a human reviewer.  
 
-:::image type="content" source="../media/evaluations/view-results/risk-safety-metric-human-feedback.png" alt-text="Screenshot of risk and safety metrics results with human feedback." lightbox="../media/evaluations/view-results/risk-safety-metric-human-feedback.png:::
+:::image type="content" source="../media/evaluations/view-results/risk-safety-metric-human-feedback.png" alt-text="Screenshot of risk and safety metrics results with human feedback." lightbox="../media/evaluations/view-results/risk-safety-metric-human-feedback.png":::
 
 When understanding each content risk metric, you can easily view each metric definition and severity scale by selecting the metric name above the chart to see a detailed explanation in a pop-up.
 
-:::image type="content" source="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png" alt-text="Screenshot of risk and safety metrics detailed explanation pop-up." lightbox="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png:::
+:::image type="content" source="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png" alt-text="Screenshot of risk and safety metrics detailed explanation pop-up." lightbox="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png":::
 
 If there's something wrong with the run, you can also debug your evaluation run with the log and trace. 
 

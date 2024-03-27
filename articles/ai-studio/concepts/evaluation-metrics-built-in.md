@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 3/38/2024
+ms.date: 03/28/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
