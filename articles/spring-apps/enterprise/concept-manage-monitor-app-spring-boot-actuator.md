@@ -66,7 +66,7 @@ To view all the endpoints built-in and related configurations, see the [Exposing
 
 When you open the app to public, these actuator endpoints are exposed to public as well. To hide all endpoints, set `management.endpoints.web.exposure.exclude=*`, because `exclude` property takes precedence over the `include` property. This action might block Application Live View in Enterprise plan, or other apps or tools relying on the actuator HTTP endpoint.
 
-In the Enterprise plan, you can disable public endpoint of apps and configure VMware Spring Cloud Gateway to disable actuator access from public. For more informarion, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) 
+In the Enterprise plan, you can disable public endpoint of apps and configure VMware Spring Cloud Gateway to disable actuator access from public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) 
 
 ## Next steps
 
