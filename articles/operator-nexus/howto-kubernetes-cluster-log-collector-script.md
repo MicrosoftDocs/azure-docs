@@ -21,13 +21,13 @@ Furthermore, the script does network connectivity tests by pinging the default g
 
 ## Prerequisite
 
-Before proceeding, ensure that you have [access to the Nexus Kubernetes cluster node](./howto-kubernetes-cluster-connect.md#azure-arc-for-servers).
+Before proceeding, ensure that you have [SSH access to the Nexus Kubernetes cluster node](./howto-kubernetes-cluster-connect.md#azure-arc-for-servers).
 
 
-## Execution Steps
+## Execution steps
 
-- Navigate to any working directory.
-- Run the log collector script `sudo /opt/log-collector/collect.sh`.
+- Connect to the Nexus Kubernetes cluster node using SSH.
+- Run the log collector script by executing the command `sudo /opt/log-collector/collect.sh`.
 
 Upon execution, you observe an output similar to:
 
@@ -44,16 +44,14 @@ Trying to collect SELinux status...
 Trying to archive gathered information... 
 Finishing up...
 
-        Done... your bundled logs are located in /var/log/node_name_date_time_2024-03-11_1942-UTC.tar.gz
+        Done... your bundled logs are located in /var/log/<node_name_date_time-UTC>.tar.gz
 ```
 
-## How to Download the Log File
-Once the tar file is generated, exit your cluster and use the following command to download the generated log file from your cluster to local machine.
+## How to download the log file
 
-> [!NOTE]
-> The following command will work only on Linux
+Once the log file is generated, you can download the generated log file from your cluster node to your local machine using various methods, including SCP, SFTP or Azure CLI. However, it is important to note that SCP or SFTP are only possible if you have direct IP reachability to the cluster node. If you do not have direct IP reachability, you can use Azure CLI to download the log file.
 
-This command is familiar—it’s the same one you’ve used before to access the Nexus Kubernetes cluster node. Now, all you need to do is run it again to copy files from the node to your local machine, just by adding the cat command at the end.
+This command should look familiar to you, as it is the same command used to SSH into the Nexus Kubernetes cluster node. To download the generated log file from the node to your local machine, simply use this command again, with the addition of the `cat` command at the end to copy the file.
 
 ```azurecli
 az ssh arc --subscription $SUBSCRIPTION_ID \
@@ -64,7 +62,7 @@ az ssh arc --subscription $SUBSCRIPTION_ID \
     'sudo cat /var/log/node_name_date_time-UTC.tar.gz' > <Local machine path>/node_name_date_time-UTC.tar.gz
 ```
 
-In the preceding command, replace `node_name_date_time-UTC.tar.gz` with the name of the log file created in your cluster, and `<Local machine path>` with the location on your local machine where you want to save the file.
+In the preceding command, replace `node_name_date_time-UTC.tar.gz` with the name of the log file created in your cluster node, and `<Local machine path>` with the location on your local machine where you want to save the file.
 
 ## Next steps
 
