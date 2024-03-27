@@ -1,5 +1,5 @@
 ---
-title: NFS 3.0 recommendations for performance benchmark in Azure Blob Storage
+title: NFS 3.0 (Network File System Version 3) recommendations for performance benchmark in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Recommendations for executing performance benchmark for NFS 3.0 on Azure Blob Storage
 author: dukicn
@@ -23,7 +23,7 @@ Storage performance testing is done to evaluate and compare different storage se
 
 No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Ideally, in these tests we can use a RAM disk. Same applies for network throughput, CPU utilization, etc.
 
-**Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results must be carefully analyzed since they are impacted by many aspects, not only storage performance. Two commands that are typically used:
+**Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results must be carefully analyzed since many aspects have impact on them, not only storage performance. Two commands that are typically used:
 - testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
 - second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
 
