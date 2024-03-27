@@ -234,11 +234,14 @@ from azure.ai.ml.constants import (
 )
 from azure.ai.ml.entities import (
     AlertNotification,
+    BaselineDataRange,
     DataDriftSignal,
     DataQualitySignal,
     PredictionDriftSignal,
     DataDriftMetricThreshold,
     DataQualityMetricThreshold,
+    FeatureAttributionDriftMetricThreshold,
+    FeatureAttributionDriftSignal,
     PredictionDriftMetricThreshold,
     NumericalDriftMetrics,
     CategoricalDriftMetrics,
@@ -251,7 +254,8 @@ from azure.ai.ml.entities import (
     RecurrencePattern,
     RecurrenceTrigger,
     ServerlessSparkCompute,
-    ReferenceData
+    ReferenceData,
+    ProductionData
 )
 
 # get a handle to the workspace
@@ -274,13 +278,27 @@ monitoring_target = MonitoringTarget(
     endpoint_deployment_id="azureml:credit-default:main"
 )
 
+# specify a lookback window size and offset, or omit this to use the defaults, which are specified in the documentation
+data_window = BaselineDataRange(lookback_window_size="P1D", lookback_window_offset="P0D")
+
+production_data = ProductionData(
+    input_data=Input(
+        type="uri_folder",
+        path="azureml:credit-default-main-model_inputs:1"
+    ),
+    data_window=data_window,
+    data_context=MonitorDatasetContext.MODEL_INPUTS,
+)
+
 # training data to be used as reference dataset
 reference_data_training = ReferenceData(
     input_data=Input(
         type="mltable",
         path="azureml:credit-default-reference:1"
     ),
-    target_column_name="DEFAULT_NEXT_MONTH",
+    data_column_names={
+        "target_column":"DEFAULT_NEXT_MONTH"
+    },
     data_context=MonitorDatasetContext.TRAINING,
 )
 
@@ -333,10 +351,20 @@ advanced_data_quality = DataQualitySignal(
     alert_enabled=False
 )
 
+# create feature attribution drift signal
+metric_thresholds = FeatureAttributionDriftMetricThreshold(normalized_discounted_cumulative_gain=0.9)
+
+feature_attribution_drift = FeatureAttributionDriftSignal(
+    reference_data=reference_data_training,
+    metric_thresholds=metric_thresholds,
+    alert_enabled=False
+)
+
 # put all monitoring signals in a dictionary
 monitoring_signals = {
     'data_drift_advanced':advanced_data_drift,
-    'data_quality_advanced':advanced_data_quality
+    'data_quality_advanced':advanced_data_quality,
+    'feature_attribution_drift':feature_attribution_drift,
 }
 
 # create alert notification object
@@ -564,9 +592,9 @@ from azure.ai.ml.entities import (
 # get a handle to the workspace
 ml_client = MLClient(
     DefaultAzureCredential(),
-    subscription_id="79a1ba0c-35bb-436b-bff2-3074d5ff1f89",
-    resource_group_name="rg-bozhlinmomoignite",
-    workspace_name="momo-demo-ws",
+    subscription_id="subscription_id",
+    resource_group_name="resource_group_name",
+    workspace_name="workspace_name",
 )
 
 # create your compute
