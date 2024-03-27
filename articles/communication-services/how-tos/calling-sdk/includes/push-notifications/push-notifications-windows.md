@@ -22,17 +22,10 @@ The following sections describe how to register for, handle, and show a Windows 
 ```C#
 // App.xaml.cs
 
-protected override async void OnActivated(IActivatedEventArgs e)
-{
-    await InitNotificationsAsync();
-
-    ...
-}
-
 protected override async void OnLaunched(LaunchActivatedEventArgs e)
 {
     await InitNotificationsAsync();
-
+    
     ...
 }
 
@@ -48,7 +41,7 @@ private async Task InitNotificationsAsync()
     
         if (result.ChannelUri != null)
         {
-            PNHChannelUri = result.ChannelUri.ToString();
+            PNHChannelUri = new Uri(result.ChannelUri);
         }
         else
         {
@@ -64,8 +57,8 @@ private async Task InitNotificationsAsync()
 
 private void Channel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
 {
-  switch (args.NotificationType)
-  {
+    switch (args.NotificationType)
+    {
       case PushNotificationType.Toast:
       case PushNotificationType.Tile:
       case PushNotificationType.TileFlyout:
@@ -75,11 +68,11 @@ private void Channel_PushNotificationReceived(PushNotificationChannel sender, Pu
           var frame = (Frame)Window.Current.Content;
           if (frame.Content is MainPage)
           {
-              var mainPage = (MainPage)frame.Content;
+              var mainPage = frame.Content as MainPage;
               await mainPage.HandlePushNotificationIncomingCallAsync(args.RawNotification.Content);
           }
           break;
-  }
+    }
 }
 ```
 
@@ -93,9 +86,9 @@ Registration for push notifications needs to happen after successful initializat
 
 this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
                 
-if ((Application.Current as App).PNHChannelUri != String.Empty)
+if ((Application.Current as App).PNHChannelUri != null)
 {
-    await this.callAgent.RegisterForPushNotificationAsync((Application.Current as App).PNHChannelUri);
+    await this.callAgent.RegisterForPushNotificationAsync((Application.Current as App).PNHChannelUri.ToString());
 }
 
 this.callAgent.CallsUpdated += OnCallsUpdatedAsync;
@@ -110,11 +103,11 @@ To receive push notifications for incoming calls, call `handlePushNotification()
 
 public async Task HandlePushNotificationIncomingCallAsync(string notificationContent)
 {
-  PushNotificationDetails pnDetails = PushNotificationDetails.Parse(notificationContent);
-  if (this.callAgent != null)
-  {
-      await callAgent.HandlePushNotificationAsync(pnDetails);
-  }
+    if (this.callAgent != null)
+    {
+        PushNotificationDetails pnDetails = PushNotificationDetails.Parse(notificationContent);
+        await callAgent.HandlePushNotificationAsync(pnDetails);
+    }
 }
 ```
 
@@ -125,8 +118,8 @@ This triggers an incoming call event on CallAgent that shows the incoming call n
 
 private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventArgs args)
 {
-  incomingCall = args.IncomingCall;
-  (Application.Current as App).ShowIncomingCallNotification(incomingCall);
+    incomingCall = args.IncomingCall;
+    (Application.Current as App).ShowIncomingCallNotification(incomingCall);
 }
 ```
 
@@ -135,12 +128,12 @@ private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventA
 
 public void ShowIncomingCallNotification(IncomingCall incomingCall)
 {
-  string incomingCallType = incomingCall.IsVideoEnabled ? "Video" : "Audio";
-  string caller = incomingCall.CallerDetails.DisplayName != "" ? incomingCall.CallerDetails.DisplayName : incomingCall.CallerDetails.Identifier.RawId;
-  new ToastContentBuilder()
-  .SetToastScenario(ToastScenario.IncomingCall)
-  .AddText(caller + " is calling you.")
-  .AddText("New Incoming " + incomingCallType + " Call")
+    string incomingCallType = incomingCall.IsVideoEnabled ? "Video" : "Audio";
+    string caller = incomingCall.CallerDetails.DisplayName != "" ? incomingCall.CallerDetails.DisplayName : incomingCall.CallerDetails.Identifier.RawId;
+    new ToastContentBuilder()
+    .SetToastScenario(ToastScenario.IncomingCall)
+    .AddText(caller + " is calling you.")
+    .AddText("New Incoming " + incomingCallType + " Call")
       .AddButton(new ToastButton()
           .SetContent("Decline")
           .AddArgument("action", "decline"))
@@ -157,25 +150,23 @@ Add the code to handle the button press for the notification in the OnActivated 
 // App.xaml.cs
 
 protected override async void OnActivated(IActivatedEventArgs e)
-{
-    ...
-    
-  // Handle notification activation
-  if (e is ToastNotificationActivatedEventArgs toastActivationArgs)
-  {
+{   
+    // Handle notification activation
+    if (e is ToastNotificationActivatedEventArgs toastActivationArgs)
+    {
       ToastArguments args = ToastArguments.Parse(toastActivationArgs.Argument);
       string action = args?.Get("action");
-  
+    
       if (!string.IsNullOrEmpty(action))
       {
-          var frame = (Frame)Window.Current.Content;
+          var frame = Window.Current.Content as Frame;
           if (frame.Content is MainPage)
           {
-              var mainPage = (MainPage)frame.Content;
+              var mainPage = frame.Content as MainPage;
               await mainPage.AnswerIncomingCall(action);
           }
       }
-  }
+    }
 }
 ```
 
@@ -184,8 +175,8 @@ protected override async void OnActivated(IActivatedEventArgs e)
 
 public async Task AnswerIncomingCall(string action)
 {
-  if (action == "accept")
-  {
+    if (action == "accept")
+    {
       var acceptCallOptions = new AcceptCallOptions()
       {
           IncomingVideoOptions = new IncomingVideoOptions()
@@ -193,14 +184,14 @@ public async Task AnswerIncomingCall(string action)
               StreamKind = VideoStreamKind.RemoteIncoming
           }
       };
-
+    
       call = await incomingCall?.AcceptAsync(acceptCallOptions);
       call.StateChanged += OnStateChangedAsync;
       call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-  }
-  else if (action == "decline")
-  {
+    }
+    else if (action == "decline")
+    {
       await incomingCall?.RejectAsync();
-  }
+    }
 }
 ```
