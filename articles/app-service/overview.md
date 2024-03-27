@@ -5,7 +5,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 08/31/2023
-ms.custom: UpdateFrequency3
+ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
 ---

@@ -22,6 +22,7 @@ After you complete this quickstart, developers can use the [developer portal](qu
 
 To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
+You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md). Alternatively to creating these resources manually, you can also follow this quickstart to [deploy the dev center and project using an ARM template](./quickstart-create-dev-center-project-azure-resource-manager.md).
 
 ## Prerequisites
 
