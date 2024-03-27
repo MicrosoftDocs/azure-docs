@@ -66,7 +66,7 @@ docker run --rm <YOUR_CONTAINER_IMAGE>
 
 Verify that Docker runs your image without reporting any errors. If you're running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
 
-If your image is not publicly accessibile, you might receive the following error.
+If your image is not publicly accessible, you might receive the following error.
 
 ```
 docker: Error response from daemon: pull access denied for <YOUR_CONTAINER_IMAGE>, repository does not exist or may require 'docker login': denied: requested access to the resource is denied. See 'docker run --help'.
