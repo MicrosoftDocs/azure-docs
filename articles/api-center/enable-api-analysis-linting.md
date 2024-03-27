@@ -3,7 +3,7 @@ title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 03/26/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
@@ -94,7 +94,7 @@ Now that the managed identity is enabled, assign it the Azure API Center Complia
 
 1. In the Azure portal, navigate to your API center and select **Access control (IAM)**.
 1. Select **+ Add > Add role assignment**.
-1. Select **Privileged administrator roles** and then select **Azure API Center Compliance Manager**. Select **Next**.
+1. Select **Job function roles** and then select **Azure API Center Compliance Manager**. Select **Next**.
 1. On the **Members** page, in **Assign access to**, select **Managed identity > + Select members**.
 1. On the **Select managed identities** page, search for and select the managed identity of the function app. Click **Select** and then **Next**.
 1. Review the role assignment, and select **Review + assign**.
