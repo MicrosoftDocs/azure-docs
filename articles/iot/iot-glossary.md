@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 02/28/2024
 
 # Generated from YAML source.
 ---
@@ -112,6 +112,16 @@ A tool you can use to view the [telemetry](#telemetry) the [device](#device) is 
 Casing rules: Always capitalize as *Azure IoT Explorer*.
 
 Applies to: Iot Hub, Device developer
+
+### Azure IoT Operations Preview - enabled by Azure Arc
+
+A unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+
+[Learn more](../iot-operations/get-started/overview-iot-operations.md)
+
+On first mention in an article, use *Azure IoT Operations Preview - enabled by Azure Arc*. On subsequent mentions, you can use *Azure IoT Operations*. Never use an acronym.
+
+Casing rules: Always capitalize as *Azure IoT Operations Preview - enabled by Azure Arc* or *Azure IoT Operations*.
 
 ### Azure IoT Tools
 
@@ -574,12 +584,6 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub, Device Provisioning Service
 
-### Industry 4.0
-
-Refers to the fourth revolution that's occurred in manufacturing. Companies can build connected [solutions](#solution) to manage the manufacturing facility and equipment more efficiently by enabling manufacturing equipment to be cloud connected, allowing remote access and management from the cloud, and enabling OT personnel to have a single pane view of their entire facility.
-
-Applies to: Iot Hub, IoT Central
-
 ### Interface
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a [device](#device) [model](#model), it defines a [component](#component) of the device. A simple device only contains a default interface.
@@ -790,7 +794,7 @@ Applies to: Iot Hub, IoT Central, Digital Twins
 
 ### Model repository REST API
 
-An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to add and search for [device models](#device-model).
+An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to search for and retrieve [device models](#device-model).
 
 Casing rules: Always capitalize as *model repository REST API*.
 

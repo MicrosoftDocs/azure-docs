@@ -66,7 +66,7 @@ Parameters used to shape the response:
 
 ## Choose a client
 
-For early development and proof-of-concept testing, start with Azure portal or the Postman app for making REST API calls. These approaches are interactive, useful for targeted testing, and help you assess the effects of different properties without having to write any code.
+For early development and proof-of-concept testing, start with Azure portal or a [REST client](search-get-started-rest.md). Both approaches are interactive, useful for targeted testing, and help you assess the effects of different properties without having to write any code.
 
 To call search from within an app, use the **Azure.Document.Search** client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
 
@@ -100,9 +100,7 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 ### [**REST API**](#tab/rest-text-query)
 
-[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/documents/search-post). 
-
-[Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
+Use a REST client to set up a request. [Quickstart: Text search using REST](search-get-started-rest.md) has instructions if you need help with getting started.
 
 The following example calls the REST API for full text search:
 

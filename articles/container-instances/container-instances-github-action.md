@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 12/09/2022
-ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Configure a GitHub Action to create a container instance

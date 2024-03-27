@@ -41,11 +41,11 @@ If you **select the option to set the language used by all projects associated w
 * A language resource, and all its projects, will support one language only.
 * The language is explicitly set when the first project of the service is created.
 * The language can't be changed for any other projects associated with the resource.
-* The language is used by the Azure AI Search service (ranker #1) and Custom question answering (ranker #2) to generate the best answer to a query.
+* The language is used by the Azure AI Search service (ranker #1) and custom question answering (ranker #2) to generate the best answer to a query.
 
 ## Languages supported
 
-The following list contains the languages supported for a question answering resource.
+The following list contains the languages supported for a custom question answering resource.
 
 | Language |
 |--|
@@ -106,7 +106,7 @@ The following list contains the languages supported for a question answering res
 ## Query matching and relevance
 Custom question answering depends on [Azure AI Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
-While the Azure AI Search capabilities are on par for supported languages, question answering has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
+While the Azure AI Search capabilities are on par for supported languages, custom question answering has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
 |Languages with additional ranker|
 |--|

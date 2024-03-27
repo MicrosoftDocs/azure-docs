@@ -81,6 +81,10 @@ Use the UI Library for mobile native platforms to give local and remote particip
 
 UI Library provides the capability to join a call skipping the setup screen of the call join experience. By default, user goes through a setup screen to join a call. Here, user sets the call configuration such as camera turn on or off, microphone turn on or off and audio device selection before joining a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [How to use Skip Setup Screen Feature](../../../how-tos/ui-library-sdk/skip-setup-screen.md)
 
+### Audio Only Mode
+
+The Audio Only Mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio Only Mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the CallComposite configuration, more information available through the [Audio Only Quick Start](../../../how-tos/ui-library-sdk/audio-only-mode.md)
+
 ### Orientation
 
 UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
