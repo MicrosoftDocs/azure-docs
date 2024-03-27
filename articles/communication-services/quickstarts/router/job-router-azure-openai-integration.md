@@ -86,10 +86,10 @@ Workers are evaluated based on:
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
-    - a. Select a model that can perform completions
+   1. Select a model that can perform completions
 
        [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
-    - b. Give your model a Deployment name and select “Create”
+   1. b. Give your model a Deployment name and select “Create”
 
       :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating Azure OpenAI model.":::
 
