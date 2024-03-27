@@ -18,8 +18,8 @@ Azure HDInsight Open known issues:
 
 | HDInsight component | Issue description |
 |---------------------|-------------------|
-| Kafka | [Kafka 2.4.1 validation error in ARM templates]() |
-| Platform | [Cluster reliability issue with older images in HDInsight clusters]()|
+| Kafka | [Kafka 2.4.1 validation error in ARM templates](https://learn.microsoft.com/en-us/azure/hdinsight/afka241-validation-error-arm-templates) |
+| Platform | [Cluster reliability issue with older images in HDInsight clusters](https://learn.microsoft.com/en-us/azure/hdinsight/cluster-reliability-issues)|
 
 
 
