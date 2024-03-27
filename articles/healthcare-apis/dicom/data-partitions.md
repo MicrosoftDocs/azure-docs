@@ -17,9 +17,9 @@ Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom
 
 ## Limitations
 
-- The **partitions feature** can't be turned off after you turn it on.
-- **Querying across partitions** isn't supported.
-- **Updating and deleting partitions** is also not supported.
+- The partitions feature can't be turned off after you turn it on.
+- Querying across partitions isn't supported.
+- Updating and deleting partitions is also not supported.
 
 ## Enable data partitions during initial deployment 
 
