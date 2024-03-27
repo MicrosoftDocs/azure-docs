@@ -208,24 +208,8 @@ additionalContent:
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
     
-    - title: Disaster recovery, networking, and other resources
+    - title: Networking, Disaster recovery, and other resources
       items:
-        #card
-        - title: Azure Backup Server and third-party solutions
-          links:
-          - text: Set up Backup Server
-            url: set-up-backup-server-for-azure-vmware-solution.md
-          - text: Back up private cloud VMs with Backup Server
-            url: backup-azure-vmware-solution-virtual-machines.md 
-        #card
-        - title: Deploy with JetStream DR, VMware (HCX or SRM)
-          links:
-          - text: Deploy JetStream DR
-            url: deploy-disaster-recovery-using-jetstream.md
-          - text: Deploy VMware HCX for disaster recovery
-            url: deploy-disaster-recovery-using-vmware-hcx.md
-          - text: Deploy VMware SRM for disaster recovery
-            url: disaster-recovery-using-vmware-site-recovery-manager.md
         # Card
         - title: VMware solutions
           links:
@@ -262,6 +246,22 @@ additionalContent:
             url: ecosystem-app-monitoring-solutions.md
           - text: Bitnami appliance deployment
             url: bitnami-appliances-deployment.md
+        #card
+        - title: Azure Backup Server and third-party solutions
+          links:
+          - text: Set up Backup Server
+            url: set-up-backup-server-for-azure-vmware-solution.md
+          - text: Back up private cloud VMs with Backup Server
+            url: backup-azure-vmware-solution-virtual-machines.md 
+        #card
+        - title: Deploy with JetStream DR, VMware (HCX or SRM)
+          links:
+          - text: Deploy JetStream DR
+            url: deploy-disaster-recovery-using-jetstream.md
+          - text: Deploy VMware HCX for disaster recovery
+            url: deploy-disaster-recovery-using-vmware-hcx.md
+          - text: Deploy VMware SRM for disaster recovery
+            url: disaster-recovery-using-vmware-site-recovery-manager.md
         # Card
         - title: Implementation
           links:
