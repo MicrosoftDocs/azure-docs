@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 03/27/2024
 ---
 
 # Dapr integration with Azure Container Apps
@@ -25,13 +25,23 @@ Configure Dapr for your container apps environment with a [Dapr-enabled containe
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
 
-## Supported Dapr APIs
+## Supported Dapr APIs and components
 
-Azure Container Apps offers fully managed versions of the following _stable_ Dapr APIs (building blocks). To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
+In Azure Container Apps, Dapr APIs and components fall into the following support categories. 
+
+| Support terminology | Definition |
+| ------------------- | ---------- |
+| General Availability (GA) | General availability indicates that the API, feature, or component is fully managed and supported for use in production environments. |
+| Preview | Preview APIs, features, or components are available for early testing and aren't recommended for production. |
+| Service Level Agreement (SLA) | SLAs offer a commitment from Microsoft Azure regarding an API, feature, or component's availability and performance.
+
+### Managed APIs
+
+Azure Container Apps offers managed GA and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
-| Dapr API                                              | Status | Description                                                                                                                                                     |
+| API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | GA | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
 | [**State management**][dapr-statemgmt]                | GA | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
@@ -42,6 +52,31 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 | [**Workflow**][dapr-config]                           | Preview | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
+
+### Managed versus standard components
+
+In Azure Container Apps, support for Dapr components is broken into two levels: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
+
+- [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
+- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower SLA guarantee.
+
+#### Managed components
+
+| API | Component | Type |
+| --- | --------- | ------ |
+| State management | Azure Blob Storage<br>Azure CosmosDB  | `state.azure.blobstorage`<br>`state.azure.cosmosdb` | 
+| Publish & subscribe | Azure Service Bus | `pubsub.azure.servicebus` |
+| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Cron | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.cron` |
+| Secret management | Azure Key Vault | `secretstores.azure.keyvault` |
+| Configuration | Azure App Config | `configuration.azure.appconfig` |
+
+#### Standard components
+
+| API | Component | Type |
+| --- | --------- | ------ |
+| State management | Azure Table Storage | `state.azure.tablestorage` | 
+| Publish & subscribe | Azure Event Hubs | `pubsub.azure.eventhubs` |
+| Binding | Azure Event Hubs<br>AAzure SignalR<br>Azure Event Grid<br>Azure CosmosDB | `bindings.azure.eventhubs`<br>`bindings.azure.signalr`<br>`bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb` |
 
 ## Limitations
 
@@ -58,7 +93,7 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 
 <!-- Links Internal -->
 
-[dapr-faq]: ./faq.yml#dapr
+[dapr-faq]: ./faq.yml#are-alpha-dapr-apis-and-components-supported-or-available-in-azure-container-apps-
 [dapr-enable]: ./enable-dapr.md
 [dapr-components]: ./dapr-components.md
 [declarative-pubsub]: /rest/api/containerapps/dapr-subscriptions/create-or-update

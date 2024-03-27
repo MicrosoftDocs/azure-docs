@@ -21,53 +21,7 @@ Dapr components in container apps are environment-level resources that:
 
 In this guide, you learn how to configure Dapr components for your Azure Container Apps services. 
 
-## Managed versus standard components
-
-Support for Dapr components is broken into two levels: 
-- Managed components: fully managed, GA components that provided highest level of support
-- Standard components: Built-in components that are supported, but with a lower SLA guarantee
-
-
-
-### State store components
-
-| Component | Type | Support level |
-| --------- | ------ | ------------- |
-| Azure Blob Storage | `state.azure.blobstorage` | Managed |
-| Azure CosmosDB | `state.azure.cosmosdb` | Managed |
-| Azure Table Storage | `state.azure.tablestorage` | Standard |
-
-### Pub/sub components
-
-| Component | Type | Support level |
-| --------- | ------ | ------------- |
-| Azure Service Bus | `pubsub.azure.servicebus` | Managed |
-| Azure Event Hubs | `pubsub.azure.eventhubs` | Standard |
-
-### Binding components
-
-| Component | Type | Support level |
-| --------- | ------ | ------------- |
-| Azure Storage Queues | `bindings.azure.storagequeues` | Managed |
-| Azure Service Bus Queues | `bindings.azure.servicebusqueues` | Managed |
-| Azure Blob Storage | `bindings.azure.blobstorage` | Managed |
-| Azure Event Hubs | `bindings.azure.eventhubs` | Standard |
-| Azure SignalR | `bindings.azure.signalr` | Standard |
-| Azure Event Grid | `bindings.azure.eventgrid` | Standard |
-| Azure CosmosDB | `bindings.azure.cosmosdb` | Standard |
-| Cron | `bindings.cron` | Managed |
-
-### Secret store components
-
-| Component | Type | Support level |
-| --------- | ------ | ------------- |
-| Azure Key Vault | `secretstores.azure.keyvault` | Managed |
-
-### Configuration store components
-
-| Component | Type | Support level |
-| --------- | ------ | ------------- |
-| Azure App Config | `configuration.azure.appconfig` | Managed |
+[Learn more about which components are supported in Azure Container Apps.](./dapr-overview.md#managed-versus-standard-components)
 
 ## Component schema
 
