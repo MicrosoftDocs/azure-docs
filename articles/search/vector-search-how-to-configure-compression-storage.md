@@ -111,9 +111,9 @@ The following example shows the fields collection of a search index. Set `stored
 
 + The `stored` property is set during index creation on vector fields and is irreversible. 
 
-+ Defaults are `stored` set to true and `retrievable` set to false. A retrievable copy is stored, but it's not automatically returned in results. You can toggle `retrievable` at any time without having to rebuild an index. 
++ Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. You can toggle `retrievable` between true and false at any time without having to rebuild an index. 
 
-+ If by using multiple API versions you end up with a vector field having `stored` is set to false and `retrievable` set to true, `retrievable` is ignored and no vector data is returned in the response.
++ In the unlikely event you end up with a vector field having `stored` is set to false and `retrievable` set to true, `retrievable` is ignored and no vector data is returned in the response (because it doesn't exist).
 
 ## Option 3: Configure vector compression
 

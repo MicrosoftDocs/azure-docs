@@ -42,7 +42,7 @@ Higher vector limits exist for new services [in supported regions](search-create
 
 L1 and L2 currently have the same quota as services created after July 1, 2023.
 
-### Vector limits for services created between July 1, 2023 and before April 3, 2024
+### Vector limits for services created between July 1, 2023 and April 3, 2024
 
 The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
 
