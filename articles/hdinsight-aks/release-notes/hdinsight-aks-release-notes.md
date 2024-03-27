@@ -24,6 +24,9 @@ All these capabilities combined with HDInsight on AKS’s strong developer focus
 
 You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
+> [!IMPORTANT]
+> HDInsight on AKS uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
 ## Release Information
 
 ### Release date: March 20, 2024
