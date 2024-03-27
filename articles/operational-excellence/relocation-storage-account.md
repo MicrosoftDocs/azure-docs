@@ -7,8 +7,7 @@ ms.reviewer: anaharris
 ms.date: 01/25/2024
 ms.service: azure-storage
 ms.topic: concept
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
