@@ -19,6 +19,12 @@ The ADE team provides a selection of images to get you started, including a core
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to create, delete, and manage your deployments. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md).
 
+## Prequisites
+
+- Be familiar with the licensing requirements:
+    - [Container License Information](https://aka.ms/mcr/osslegalnotice)
+    - [License terms](https://github.com/Azure/deployment-environments/blob/main/LICENSE)
+
 ## Create and build a Docker image
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.

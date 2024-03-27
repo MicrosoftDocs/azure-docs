@@ -29,9 +29,10 @@ The ADE CLI currently supports the following commands:
 Additional information on how to invoke the ADE CLI commands can be found in the linked documentation. 
 
 ## License
-- Legal Notice: [Container License Information](https://aka.ms/mcr/osslegalnotice)
 
-See license terms [here](https://github.com/Azure/deployment-environments/blob/main/LICENSE).
+- Be familiar with the licensing requirements:
+    - [Container License Information](https://aka.ms/mcr/osslegalnotice)
+    - [License terms](https://github.com/Azure/deployment-environments/blob/main/LICENSE)
 
 ## ade environment command
 The `ade environment` command allows the user to see information related to their environment the operation is being performed on.
