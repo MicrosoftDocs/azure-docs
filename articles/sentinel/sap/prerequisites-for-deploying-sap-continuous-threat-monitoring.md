@@ -86,18 +86,17 @@ To successfully deploy the Microsoft Sentinel solution for SAP® applications, y
 - [Retrieve additional information from SAP (optional)](#retrieve-additional-information-from-sap-optional)
 
 ### Create and configure a role (required)
-<!--we need to update this CR number-->
-To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by loading the role authorizations from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file.
 
-The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and attack disruption response actions. To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
+To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+
+The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
 | Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
 
-
 Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
-<!--update cr number-->
+
 ### Retrieve additional information from SAP (optional)
 
 You can deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve certain information from your SAP system.
