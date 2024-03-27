@@ -14,9 +14,7 @@ ms.date: 08/01/2023
 show_latex: true
 ---
 
-# Forecasting at scale: many models and distributed training (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](./includes/machine-learning-preview-generic-disclaimer.md)]
+# Forecasting at scale: many models and distributed training
 
 This article is about training forecasting models on large quantities of historical data. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
@@ -32,7 +30,9 @@ The many models training component applies AutoML's [model sweeping and selectio
 
 You can configure the data partitioning, the [AutoML settings](how-to-auto-train-forecast.md#configure-experiment) for the models, and the degree of parallelism for many models training jobs. For examples, see our guide section on [many models components](how-to-auto-train-forecast.md#forecasting-at-scale-many-models).        
 
-## Hierarchical time series forecasting
+## Hierarchical time series forecasting (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](./includes/machine-learning-preview-generic-disclaimer.md)]
 
 It's common for time series in business applications to have nested attributes that form a hierarchy. Geography and product catalog attributes are often nested, for instance. Consider an example where the hierarchy has two geographic attributes, state and store ID, and two product attributes, category and SKU: 
 
@@ -53,7 +53,9 @@ AutoML supports the following features for hierarchical time series (HTS):
 HTS components in AutoML are built on top of [many models](#many-models), so HTS shares the scalable properties of many models. 
 For examples, see our guide section on [HTS components](how-to-auto-train-forecast.md#forecasting-at-scale-hierarchical-time-series).
 
-## Distributed DNN training
+## Distributed DNN training (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](./includes/machine-learning-preview-generic-disclaimer.md)]
 
 Data scenarios featuring large amounts of historical observations and/or large numbers of related time series may benefit from a scalable, single model approach. Accordingly, **AutoML supports distributed training and model search on temporal convolutional network (TCN) models**, which are a type of deep neural network (DNN) for time series data. For more information on AutoML's TCN model class, see our [DNN article](concept-automl-forecasting-deep-learning.md).
 
