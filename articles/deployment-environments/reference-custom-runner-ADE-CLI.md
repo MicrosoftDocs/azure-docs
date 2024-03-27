@@ -1,12 +1,14 @@
 ---
 title: ADE CLI Custom Runner Image reference
 titleSuffix: Azure Deployment Environments
-description: <!-- @jack can you add a description here -->
+description: Learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 02/16/2024
 ms.topic: reference
+
+# Customer intent: As a developer, I want to learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 ---
 
 # Azure Deployment Environment CLI Custom Runner Image reference
@@ -304,7 +306,7 @@ In order for, the incoming JSON file to be serialized properly and accepted as t
 }
 ```
 
-This format is adapted from how ARM template deployments report outputs of a deployment, along with an additional property of "sensitive". The "sensitive" property is optional to provide, but restricts viewing the output to users with privileged access, such as the creator of the environment.
+This format is adapted from how ARM template deployments report outputs of a deployment, along with a property of "sensitive". The "sensitive" property is optional to provide, but restricts viewing the output to users with privileged access, such as the creator of the environment.
 
 Acceptable types for outputs are "string", "int", "boolean", "array", and "object".
 
@@ -322,7 +324,7 @@ az devcenter dev environment show-outputs --dev-center-name DEV_CENTER_NAME --pr
 
 [File an issue.](https://github.com/Azure/deployment-environments/issues)
 
-[Additional Documentation about ADE](/azure/deployment-environments/)
+[Documentation about ADE](/azure/deployment-environments/)
 
 ## Related content
 - [ADE Custom Image Support](./how-to-configure-custom-runner.md)
