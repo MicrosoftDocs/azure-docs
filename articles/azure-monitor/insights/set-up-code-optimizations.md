@@ -12,7 +12,7 @@ ms.reviewer: ryankahng
 
 # Set up Code Optimizations (Preview)
 
-Enabling Code Optimizations to identify and analyze CPU and memory bottlenecks in your web applications is a simple process in the Azure portal. In this guide, you learn how to:
+Setting up Code Optimizations to identify and analyze CPU and memory bottlenecks in your web applications is a simple process in the Azure portal. In this guide, you learn how to:
 
 - Connect your web pp to Application Insights.
 - Enable the Profiler on your web app.
@@ -23,7 +23,7 @@ Enabling Code Optimizations to identify and analyze CPU and memory bottlenecks i
 
 ## Connect your web app to Application Insights
 
-Before enabling Code Optimizations for your web app, you need to ensure that it's connected to an Application Insights resource.
+Before setting up Code Optimizations for your web app, you need to ensure that it's connected to an Application Insights resource.
 
 1. In the Azure portal, navigate to your web application.
 1. From the left menu, select **Settings** > **Application Insights**.
