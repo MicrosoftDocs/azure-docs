@@ -1,6 +1,6 @@
 ---
 title: View Code Optimizations results (Preview)
-description: Learn how to access the results provided by Azure Monitor's Code Optimizations feature
+description: Learn how to access the results provided by Azure Monitor's Code Optimizations feature.
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: optimization-insights
@@ -12,7 +12,7 @@ ms.reviewer: ryankahng
 
 # View Code Optimizations results (Preview)
 
-Now that you've enabled and configured Code Optimizations on your app, access and view any insights you've received via the Azure portal. You can access Code Optimizations through the **Performance** blade from the left navigation pane and select **Code Optimizations (preview)** from the top menu.
+Now that you set up and configured Code Optimizations on your app, access and view any insights you received via the Azure portal. You can access Code Optimizations through the **Performance** blade from the left navigation pane and select **Code Optimizations (preview)** from the top menu.
 
 :::image type="content" source="./media/code-optimizations/code-optimizations-performance-blade.png" alt-text="Screenshot of Code Optimizations located in the Performance blade.":::
 
@@ -27,7 +27,7 @@ The estimated CPU and Memory are determined based on the amount of activity in y
 For Memory, the number is just a percentage of all allocations made within the trace. For example, if an issue takes 24% memory, you spent 24% of all your allocations within that call.
 
 ### CPU
-For CPU, the percentage is based on the number of CPUs in your machine (four core, eight core, etc.) and the trace time. For example, let's say your trace is 10 seconds long and you have 4 CPUs, you have a total of 40 seconds of CPU time. If the insight says the line of code is using 5% of the CPU, it’s using 5% of 40 seconds, or 2 seconds.
+For CPU, the percentage is based on the number of CPUs in your machine (four core, eight core, etc.) and the trace time. For example, let's say your trace is 10 seconds long and you have 4 CPUs: you have a total of 40 seconds of CPU time. If the insight says the line of code is using 5% of the CPU, it’s using 5% of 40 seconds, or 2 seconds.
 
 ## Filter and sort results
 
@@ -71,7 +71,7 @@ In the insights details pane, under the **Call Stack** heading, you can:
 
 ### Trend impact
 
-You can also view a graph depicting a specific performance issue's impact and threshold. The trend impact results vary depending on the filters you've set. For example, a CPU `String.SubString()` performance issue's insights seen over a seven day time frame may look like:
+You can also view a graph depicting a specific performance issue's impact and threshold. The trend impact results vary depending on the filters you set. For example, a CPU `String.SubString()` performance issue's insights seen over a seven day time frame may look like:
 
 :::image type="content" source="./media/code-optimizations/code-optimizations-trend-impact.png" alt-text="Screenshot of the C-P-U trend impact over the course of seven days.":::
 
