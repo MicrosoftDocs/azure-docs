@@ -3,6 +3,7 @@ title: Windows container considerations in Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container considerations with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 01/12/2024
 ms.author: schaffererin
 author: schaffererin
