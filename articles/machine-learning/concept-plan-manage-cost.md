@@ -40,11 +40,11 @@ As you add resources to your workspace, return to this calculator and add the sa
 
 For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Understand the full billing model
+## Understand the full billing model for Azure Machine Learning
 
 Azure Machine Learning runs on Azure infrastructure that accrues costs along with Azure Machine Learning when you deploy the new resource. It's important to understand that extra infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
-### Costs that typically accrue
+### Costs that typically accrue with Azure Machine Learning
 
 When you create resources for an Azure Machine Learning workspace, resources for other Azure services are also created. They are:
 
@@ -92,7 +92,7 @@ ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 
 If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace, you must delete them separately in the [Azure portal](https://portal.azure.com).
 
-### Use Azure Prepayment credit
+### Use Azure Prepayment credit with Azure Machine Learning
 
 You can pay for Azure Machine Learning charges by using your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for third-party products and services, including those from the Azure Marketplace.
 
@@ -155,7 +155,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you or others need to do more data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
-## Other ways to manage and reduce costs
+## Other ways to manage and reduce costs for Azure Machine Learning
 
 Use the following tips to help you manage and optimize your compute resource costs.
 
@@ -173,11 +173,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 For more information, see [Manage and optimize Azure Machine Learning costs](how-to-manage-optimize-cost.md).
 
-## Related content
+## Next steps
 
 - [Manage and optimize Azure Machine Learning costs](how-to-manage-optimize-cost.md)
 - [Manage budgets, costs, and quota for Azure Machine Learning at organizational scale](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost)
-- [How to optimize your cloud investment with Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- Learn [how to optimize your cloud investment with Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - [Quickstart: Start using Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - [Identify anomalies and unexpected changes in cost](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course
