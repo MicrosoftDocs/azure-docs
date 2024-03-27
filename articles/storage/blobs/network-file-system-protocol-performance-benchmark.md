@@ -31,6 +31,12 @@ No matter which method is used, it's always important to understand other potent
 
 **Using real-world application** is always the best method as it measures performance for real-world workloads that users are running on top of storage service. However, this method is often not practical as it requires replica of the production environment and end-users to generate proper load on the system. Some applications do have a load generation capability and should be used for performance benchmarking.
 
+| Testing method                    | Pros | Cons |
+| --------------------------------- | ---- | -----|
+| Using standard linux commands     | - Simple <br> - Available on any linux platform <br> - Familiarity with the tools | - Not designed for performance testing <br> - Not flexible <br> - Often CPU bound |
+| Using performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to setup a real-world test |
+| Using real-world application      | - Provides best insight on application behavior | - Interferes with end-users <br> - requires replica of the production environment |
+
 Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
 
 ## Selecting virtual machine size
@@ -38,6 +44,10 @@ To properly execute performance testing, the first step is to correctly size a v
 
 ## Creating a storage account with NFS 3.0
 After selecting the virtual machine, we need to create storage account we'll use in our testing. Follow our [how-to guide](network-file-system-protocol-support-how-to.md) for step-by-step guidance. We recommend reading [performance considerations for NFS 3.0 in Azure Blob Storage](network-file-system-protocol-support-how-to.md) before testing.  
+
+## Other considerations
+- Virtual machine and storage account with the NFS 3.0 endpoint must be in the same region,
+- Virtual machine running the test applications should be used only for testing to make sure other running services are not impacting the results.
 
 ## Executing performance benchmark
 There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with FIO (Flexible I/O tester). FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). It can be used in many test scenarios. This article describes the recommended scenarios for Azure Storage. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
@@ -50,7 +60,7 @@ Following parameters are used for testing:
 | Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
 | Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
 
-Our testing setup was done in US East region with client virtual machine type [D32ds_v5](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md).
+Our testing setup was done in US East region with client virtual machine type [D32ds_v5](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md). 
 
 ### Measuring sequential bandwidth
 
@@ -99,3 +109,8 @@ Our testing setup was done in US East region with client virtual machine type [D
 
 > [!NOTE]
 > Results from random tests are added for completeness, NFS 3.0 endpoint on Azure Blob Storage is not a recommended storage service for random write workloads.
+
+## Next steps
+- [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](./network-file-system-protocol-support-how-to.md)
+- [Known issues with Network File System (NFS) 3.0 protocol support for Azure Blob Storage](./network-file-system-protocol-known-issues.md)
+- [Network File System (NFS) 3.0 performance considerations in Azure Blob storage](./network-file-system-protocol-support-performance.md)
