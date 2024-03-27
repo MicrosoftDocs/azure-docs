@@ -9,9 +9,6 @@ ms.topic: how-to
 ms.date: 02/09/2024
 ---
 
-> [!NOTE]
-> [Azure Open AI On Your Data](../../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to Custom Question Answering.
-
 # Connect custom question answering with Azure OpenAI on your data 
 
 Custom question answering enables you to create a conversational layer on your data based on sophisticated Natural Language Processing (NLP) capabilities with enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Most use cases for custom question answering rely on finding appropriate answers for inputs by integrating it with chat bots, social media applications and speech-enabled desktop applications. 
@@ -77,4 +74,4 @@ At the same time, customers often require a custom answer authoring experience t
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
-* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
+* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md)
