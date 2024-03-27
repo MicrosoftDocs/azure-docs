@@ -14,14 +14,14 @@ ms.custom: language-service-ner
 
 # What is Named Entity Recognition (NER) in Azure AI Language?
 
-Named Entity Recognition (NER) is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The NER feature can identify and categorize entities in unstructured text. For example: people, places, organizations, and quantities. . The prebuilt NER feature has a pre-set list of [recognized entities](https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/concepts/named-entity-categories). The custom NER feature allows you to train the model to recognize specialized entities specific to your use case.
+Named Entity Recognition (NER) is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The NER feature can identify and categorize entities in unstructured text. For example: people, places, organizations, and quantities. The prebuilt NER feature has a pre-set list of [recognized entities](concepts/named-entity-categories.md). The custom NER feature allows you to train the model to recognize specialized entities specific to your use case.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
 * The [**conceptual articles**](concepts/named-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 > [!NOTE]
-> The Entity resolution protocol system and page has been replaced by the [Entity Metadata](https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/concepts/entity-metadata) page as of the version 2023-04-15-preview API. 
+> The Entity resolution protocol system and page has been replaced by the [Entity Metadata](concepts/entity-metadata.md) page starting from **_api-version=2023-04-15-preview_**. 
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 

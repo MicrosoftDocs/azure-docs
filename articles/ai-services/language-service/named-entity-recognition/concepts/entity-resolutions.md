@@ -19,7 +19,7 @@ A resolution is a standard format for an entity. Entities can be expressed in va
 You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that will be provided to a meeting scheduling system.
 
 > [!IMPORTANT]
-> This page no longer refers to the latest API.
+> Starting from version 2023-04-15-preview, the entity resolution feature is replaced by [entity metadata](entity-metadata.md)
 
 > [!NOTE]
 > Entity resolution responses are only supported starting from **_api-version=2022-10-01-preview_** and **_"modelVersion": "2022-10-01-preview"_**.
