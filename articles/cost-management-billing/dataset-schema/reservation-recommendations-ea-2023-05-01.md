@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 02/16/2024
+ms.date: 03/26/2024
 ms.author: banders
 ---
 
@@ -18,23 +18,23 @@ This article lists all of the data fields available in the Enterprise Agreement 
 
 Version: 2023-05-01
 
-|Fields|Description|
-|------|------|
-|SKU|The recommended SKU.|
-|Location|The location (region) of the resource.|
-|CostWithNoReservedInstances|The total amount of cost without reserved instances.|
-|FirstUsageDate|The usage date for looking back.|
-|InstanceFlexibilityRatio|The instance Flexibility Ratio.|
-|InstanceFlexibilityGroup|The instance Flexibility Group.|
-|LookBackPeriod|The number of days of usage to look back for recommendation.|
-|MeterId|The meter ID (GUID).|
-|NetSavings|Total estimated savings with reserved instances.|
-|NormalizedSize|The normalized Size.|
-|RecommendedQuantity|Recommended quantity for reserved instances.|
-|RecommendedQuantityNormalized|The recommended Quantity Normalized.|
-|ResourceType|The Azure resource type.|
-|Scope|Shared or single recommendation.|
-|SubscriptionId|MISSING.|
-|SkuProperties|List of SKU properties.|
-|Term|RI recommendations in one or three year terms.|
-|TotalCostWithReservedInstances|The total amount of cost with reserved instances.|
+| Column |Fields|Description|
+|---|------|------|
+| 1 |SKU|The recommended SKU.|
+| 2 |Location|The location (region) of the resource.|
+| 3 |CostWithNoReservedInstances|The total amount of cost without reserved instances.|
+| 4 |FirstUsageDate|The usage date for looking back.|
+| 5 |InstanceFlexibilityRatio|The instance Flexibility Ratio.|
+| 6 |InstanceFlexibilityGroup|The instance Flexibility Group.|
+| 7 |LookBackPeriod|The number of days of usage to look back for recommendation.|
+| 8 |MeterId|The meter ID (GUID).|
+| 9 |NetSavings|Total estimated savings with reserved instances.|
+| 10 |NormalizedSize|The normalized Size.|
+| 11 |RecommendedQuantity|Recommended quantity for reserved instances.|
+| 12 |RecommendedQuantityNormalized|The recommended quantity that's normalized.|
+| 13 |ResourceType|The Azure resource type.|
+| 14 |Scope|Shared or single recommendation.|
+| 15 |SubscriptionId|MISSING.|
+| 16 |SkuProperties|List of SKU properties.|
+| 17 |Term|RI recommendations in one or three-year terms.|
+| 18 |TotalCostWithReservedInstances|The total amount of cost with reserved instances.|
