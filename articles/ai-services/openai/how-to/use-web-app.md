@@ -45,7 +45,7 @@ When customizing the app, we recommend:
 
 Sample source code for the web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as a sample only. Customers are responsible for all customization and implementation of their web apps. 
 
-### Updating the web app
+## Updating the web app
 
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
@@ -58,7 +58,7 @@ Additionally, the web app must be synchronized every time the API version being 
 1. Select **Deployment center** in the navigation menu, under **Deployment**.
 1. Select **Sync** at the top of the screen, and confirm that the app will be redeployed. 
 
-    :::image type="content" source="../media/quickstarts/sync-app.png" alt-text="A screenshot of sync web app button on the Azure portal." lightbox="../media/quickstarts/sync-app.png":::
+    :::image type="content" source="../media/use-your-data/sync-app.png" alt-text="A screenshot of web app synchronization button on the Azure portal." lightbox="../media/use-your-data/sync-app.png":::
 
 
 
