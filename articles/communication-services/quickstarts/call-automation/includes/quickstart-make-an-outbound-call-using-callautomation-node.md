@@ -184,5 +184,5 @@ To run the application, open a Terminal window and run the following command:
 ```bash
   npm run dev
 ```
-
+Open `http://localhost:8080` or your dev tunnel URL in browser. The tunnel URL looks like: `https://0pbvlk3m-7032.usw2.devtunnels.ms`. To initiate an outbound call, click on the `Place a call!` button.
 
