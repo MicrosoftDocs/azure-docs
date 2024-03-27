@@ -11,7 +11,7 @@ ms.author: nikoduki
 
 # Performance benchmark test recommendations for NFS 3.0 on Azure Blob Storage
 
-This article provides benchmark testing recommendations and metrics analysis for NFS 3.0 on Azure Blob Storage. Since NFS 3.0 is mostly used in Linux environments, article focuses on Linux tools only. In many cases, other operating systems can be used, but tools and commands might change.
+This article provides benchmark testing recommendations and results for NFS 3.0 (Network File System Version 3) on Azure Blob Storage. Since NFS 3.0 is mostly used in Linux environments, article focuses on Linux tools only. In many cases, other operating systems can be used, but tools and commands might change.
 
 ## Overview
 
@@ -21,9 +21,9 @@ Storage performance testing is done to evaluate and compare different storage se
 1. using performance benchmark tools like fio, vdbench, ior, etc.
 1. using real-world application that is used in production.
 
-No matter which method is used, it is always important to understand other potential bottlenecks in the environment, and make sure they are not affecting the results. For example, if test measures write performance of the NFS export, we need to make sure that source disk can read the test data set as fast as the expected write performance for the NFS target (ideally, we should be using something like a RAM disk). Same applies for network throughput, CPU utilization, etc.
+No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Ideally, in these tests we can use a RAM disk. Same applies for network throughput, CPU utilization, etc.
 
-**Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results are often impacted by multiple aspects, not only storage and results must be carefully analyzed to fully understand them. Two commands that are typically used:
+**Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results must be carefully analyzed since they are impacted by many aspects, not only storage performance. Two commands that are typically used:
 - testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
 - second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
 
@@ -34,13 +34,13 @@ No matter which method is used, it is always important to understand other poten
 Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
 
 ## Selecting virtual machine size
-To properly execute performance testing, the first step is to correctly size a virtual machine used in testing. Virtual machine acts as a client that will run performance benchmarking tool. Most important aspect when selecting the virtual machine size for this test is available network bandwidth. The bigger virtual machine we select, better results we can achieve. If we run the test in Azure, we recommend using one of the [general purpose](/azure/virtual-machines/sizes-general) virtual machines.
+To properly execute performance testing, the first step is to correctly size a virtual machine used in testing. Virtual machine acts as a client that runs performance benchmarking tool. Most important aspect when selecting the virtual machine size for this test is available network bandwidth. The bigger virtual machine we select, better results we can achieve. If we run the test in Azure, we recommend using one of the [general purpose](/azure/virtual-machines/sizes-general) virtual machines.
 
 ## Creating a storage account with NFS 3.0
-After selecting the virtual machine, we need to create storage account we will use in our testing. Follow our [how-to guide](network-file-system-protocol-support-how-to.md) for step-by-step guidance. We recommend reading [performance considerations for NFS 3.0 in Azure Blob Storage](network-file-system-protocol-support-how-to.md) before testing.  
+After selecting the virtual machine, we need to create storage account we'll use in our testing. Follow our [how-to guide](network-file-system-protocol-support-how-to.md) for step-by-step guidance. We recommend reading [performance considerations for NFS 3.0 in Azure Blob Storage](network-file-system-protocol-support-how-to.md) before testing.  
 
 ## Executing performance benchmark
-There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with `fio`. FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). Below are the most common test cases. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
+There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with FIO (Flexible I/O tester). FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). It can be used in many test scenarios. This article describes the recommended scenarios for Azure Storage. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
 
 Following parameters are used for testing:
 
@@ -50,7 +50,7 @@ Following parameters are used for testing:
 | Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
 | Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
 
-Our testing setup was done in US East region with client VM D32ds_v5 (32xCPU, 128GB RAM, 16Gbps network bandwidth ) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md).
+Our testing setup was done in US East region with client virtual machine type [D32ds_v5](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md).
 
 ### Measuring sequential bandwidth
 
@@ -97,5 +97,5 @@ Our testing setup was done in US East region with client VM D32ds_v5 (32xCPU, 12
 > [!div class="mx-imgBorder"]
 > ![Results for random IOPS tests](./media/network-file-system-protocol-performance-benchmark/rnd_iops.png)
 
-> [!TIP]
+> [!NOTE]
 > Results from random tests are added for completeness, NFS 3.0 endpoint on Azure Blob Storage is not a recommended storage service for random write workloads.
