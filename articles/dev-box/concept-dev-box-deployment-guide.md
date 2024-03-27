@@ -26,14 +26,14 @@ Each of these roles has specific responsibilities during the deployment of Micro
 - **Platform engineer**: works with the IT admins to configure the developer infrastructure and tools for developer teams. This consists of the following tasks:
     - Configure Microsoft Entra ID to enable identity and authentication for development team leads and developers
     - Create and manage a dev center in the organization's Azure subscription
-    - Create and manage network connections, and dev box definitions within a dev center
+    - Create and manage network connections, dev box definitions, and compute galleries within a dev center
+    - Create and manage projects within a dev center
     - Create and configure other Azure resources in the organization's Azure subscriptions
     - Configure Microsoft Intune device configuration for dev boxes and assignment of licenses to Dev Box users
     - Configure networking settings to enable secure access and connectivity to organizational resources
     - Configure security settings for authorizing access to dev boxes
 
 - **Development team lead**: assists with creating and managing the developer experience. This includes the following tasks:
-    - Create and manage projects within a dev center
     - Create and manage dev box pools within a project
     - Provide input to platform engineers for creating and managing dev box definitions in the dev center
  
@@ -72,6 +72,8 @@ The following table lists requirements that could influence your Microsoft Dev B
 |                           | Configure device settings and features on different devices. | After a Dev Box is provisioned, you can manage it like any other device in Microsoft Intune. You can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off. |
 
 ## Microsoft Dev Box deployment plan
+
+
 
 Describe for each design area what the considerations are and, optionally, the recommendations. For complex areas, we might refer to a separate conceptual article, such as Intune configuration or networking.
 
