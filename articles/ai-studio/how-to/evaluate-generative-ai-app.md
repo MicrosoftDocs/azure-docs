@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 3/28/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -32,3 +32,5 @@ Learn more about how to evaluate your generative AI applications:
 - [View the evaluation results](./evaluate-flow-results.md)
 
 Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
+
+[Transparency Note for Azure AI Studio safety evaluations](safety-evaluations-transparency-note.md).
