@@ -100,7 +100,7 @@ spec:
   ```
 
 > [!NOTE] 
-> If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md/#create-a-pod-or-service-monitor).
+> If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
 
 
 ### Deploy Rules
