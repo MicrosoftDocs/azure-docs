@@ -11,7 +11,7 @@ ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 
 # Quickstart: Onboarding to Trusted Signing
 
-Trusted Signing is a fully managed end-to-end signing service.  In this Quickstart, you create the following three Trusted Signing resources: 
+Trusted Signing is a fully managed end to end signing service.  In this Quickstart, you create the following three Trusted Signing resources: 
 
 - Trusted Signing account
 - Identity Validation
@@ -35,7 +35,7 @@ Complete the following steps to create a Trusted Signing account in the Azure po
 5.  On the Trusted Signing account section, select **Create**. The Create Trusted Signing account section displays. 
 6.  In the **Subscription** pull-down menu, select a subscription. 
 7.  In the **Resource group** field, select **Create new** and enter a resource group name.
-8.  In the **Account Name** field, enter a unique account name. (See the below “Certificate Profile naming constraints” for naming requirements.) 
+8.  In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.) 
 9.  In the **Region** pull-down menu, select a region.
 10. In the **Pricing** tier pull-down menu, select a pricing tier.
 •   Refer to Select or change Trusted Signing pricing tier <link to the Pricing Tier How-To article> for information about the available pricing tiers.
@@ -89,7 +89,7 @@ az group create --name MyResourceGroup --location EastUS
 ```
 - To list accounts under the resource group, use the `az codesigning list -g MyResourceGroup` command.
 
-7.  Create a unique Trusted Signing account using the following command. (See the below “Certificate Profile naming constraints” for naming requirements.) 
+7.  Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.) 
 ```
 az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
 ```
@@ -168,7 +168,7 @@ A certificate profile resource is the logical container of the certificates that
     - Public identity validation is applicable to Public Trust, Public Trust Test.
     - Private identity validation is applicable to Private Trust, Private Trust CI Policy.
 4.  On the **Create certificate profile**, provide the following information:
-•   **Certificate Profile Name**: A unique name is required. (See the below “Certificate Profile naming constraints” for naming requirements.) 
+•   **Certificate Profile Name**: A unique name is required. (See the below Certificate Profile naming constraints for naming requirements.) 
 •   **Certificate Type**: This is auto-populated based on your selection.
 •   In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
 •   Include **street address**, select the box if this field must be included in the certificate.
@@ -196,7 +196,7 @@ To create a certificate profile with Azure CLI, follow these steps:
 az codesigning certificate-profile create -g MyResourceGroup --a
     account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
-- See the below “Certificate Profile naming constraints” for naming requirements. 
+- See the below Certificate Profile naming constraints for naming requirements. 
 
 2.  Create a certificate profile that includes street address or postal code (optional fields) in subject name of certificate using the following command:
 ``` 
