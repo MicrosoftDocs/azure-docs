@@ -5,10 +5,14 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 03/21/2024
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.collection: usx-security
 ---
 # Prerequisites for deploying Microsoft Sentinel solution for SAP® applications
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP® applications.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Deployment milestones
 
@@ -81,19 +85,21 @@ To successfully deploy the Microsoft Sentinel solution for SAP® applications, y
 - [Retrieve additional information from SAP (optional)](#retrieve-additional-information-from-sap-optional)
 
 ### Create and configure a role (required)
-
-To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. 
+<!--we need to update this CR number-->
+To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by deploying CR **NPLK900271** or by loading the role authorizations from the [/MSFTSEN/SENTINEL_RESPONDER](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_RESPONDER) file. 
 
 > [!NOTE]
 > Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file.
-> This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
+> This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently. <!--how to update this note?-->
 
+<!--update cr number-->
 Experienced SAP administrators may choose to create the role manually and assign it the appropriate permissions. In such a case, it is not necessary to deploy the CR *NPLK900271*, but you must instead create a role using the recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing-sap.md#required-abap-authorizations). 
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
 | Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
 
+<!--update cr number-->
 ### Retrieve additional information from SAP (optional)
 
 You can deploy additional CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve certain information from your SAP system.

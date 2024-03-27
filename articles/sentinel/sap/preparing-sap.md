@@ -13,7 +13,7 @@ This article shows you how to deploy SAP Change Requests (CRs), which prepare th
 
 > [!IMPORTANT]
 > - This article presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+> - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below. <!--update cr number to the new one?-->
 
 ## Required and optional CRs
 
@@ -24,6 +24,7 @@ This article discusses the installation of the following CRs:
 |NPLK900271 |Required |This CR creates and configures a role. Alternatively, you can load the authorizations directly from a file. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
 |NPLK900201 or NPLK900202 |Optional |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
 
+<!--update cr number to the new one?-->
 ## Prerequisites
 
 1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process. For the following example, the following details are assumed:
@@ -80,6 +81,7 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
     Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:
 
+    <!--update cr number to the new one?-->
     - Download NPLK900271 (required)
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
@@ -183,9 +185,10 @@ To deploy the CRs, follow the steps outlined below. The steps below may differ a
 
 ## Configure Sentinel role
 
-After the *NPLK900271* CR is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
+<!--update cr number and role name to the new one?-->
+After the *NPLK900271* CR is deployed, a **/MSFTSEN/SENTINEL_RESPONDER** role is created in SAP. If the role is created manually, it may bear a different name.
 
-In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
+In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_RESPONDER**.
 
 The next step is to generate an active role profile for Microsoft Sentinel to use.
 
@@ -193,7 +196,7 @@ The next step is to generate an active role profile for Microsoft Sentinel to us
 
     In the **SAP Easy Access** screen, type `PFCG` in the field in the upper left corner of the screen and press the **Enter** key.
 
-1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_CONNECTOR` in the **Role** field and select the **Change** button (the pencil).
+1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_RESPONDER` in the **Role** field and select the **Change** button (the pencil). <!--we'd need new screenshots here-->
 
     :::image type="content" source="media/preparing-sap/change-role-change.png" alt-text="Screenshot of choosing a role to change.":::
 
@@ -221,7 +224,7 @@ The next step is to generate an active role profile for Microsoft Sentinel to us
 
 The Microsoft Sentinel solution for SAP® applications requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
 
-In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
+In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_RESPONDER**.
 
 1. Run the **SU01** transaction:
 
@@ -231,7 +234,7 @@ In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNEC
 
 1. In the **Maintain Users** screen, select **System** from the **User Type** drop-down list. Create and enter a complex password in the **New Password** and **Repeat Password** fields, then select the **Roles** tab.
 
-1. In the **Roles** tab, in the **Role Assignments** section, enter the full name of the role - `/MSFTSEN/SENTINEL_CONNECTOR` in our example - and press **Enter**.
+1. In the **Roles** tab, in the **Role Assignments** section, enter the full name of the role - `/MSFTSEN/SENTINEL_RESPONDER` in our example - and press **Enter**.
 
 
     After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**.
@@ -240,12 +243,14 @@ In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNEC
 
 ### Required ABAP authorizations
 
-The following table lists the ABAP authorizations required to ensure that SAP logs can be correctly retrieved by the account used by Microsoft Sentinel's SAP data connector.
+This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](aka.ms/attack-disrupt-defender).
 
-The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
+The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel and the attack disruption response actions you want to apply.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> To create a role with all the required authorizations, deploy the SAP *CR NUMBER* <!--cr number tbd--> CR on the SAP system, or load the role authorizations from the [/MSFTSEN/SENTINEL_RESPONDER](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_RESPONDER) file. This CR creates the **/MSFTSEN/SENTINEL_RESPONDER** role, with all the permissions required for the data connector to operate.
+>
+> Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_READER** role that has all the necessary permissions for the data connector to operate. <!--do we need to update this everywhere?>
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |
@@ -353,6 +358,15 @@ The required authorizations are listed here by log type. Only the authorizations
 | **SNC Data** | | |
 | S_TABU_NAM | TABLE | SNCSYSACL |
 | S_TABU_NAM | TABLE | USRACL |
+|<a name=attack-disrupt></a>**Attack disruption: lock user and end session** | | |
+|---|---|---|
+|S_RFC	|RFC_TYPE	|Function Module |
+|S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
+|S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
+|S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+|S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+|S_USER_GRP	|ACTVT	|03 |
+|S_USER_GRP	|ACTVT	|05 |
 
 If needed, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
 
