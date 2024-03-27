@@ -29,4 +29,4 @@ To check your engine version, run `SELECT VERSION();` command at the MySQL promp
 - Fixed the issue that data-in HA failover stuck because of system table corrupt
 - Fixed the issue that in point-in-time restore that database or table starts with special keywords may be ignored
 - Fixed the issue where, if there's replication failure, the system now ignores the replication latency metric instead of displaying a '0' latency value.
-- Fixed the issue where under certain circumstances MySQL RP does not correctly get notified of a "private dns zone move operation". The issue will cause the server to be showing incorrect ARM resource id of the associated private dns zone resource.
+- Fixed the issue where under certain circumstances MySQL RP does not correctly get notified of a "private dns zone move operation". The issue will cause the server to be showing incorrect ARM resource ID of the associated private dns zone resource.
