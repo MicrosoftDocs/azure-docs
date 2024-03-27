@@ -73,7 +73,7 @@ If there are no errors, your migration is supported, and you can continue to the
 If you need to start an upgrade to upgrade your App Service Environment to the supported build version, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=PreMigrationUpgrade"
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigrationUpgrade&api-version=2022-03-01"
 ```
 
 ## 4. Generate outbound IP addresses for your new App Service Environment v3
