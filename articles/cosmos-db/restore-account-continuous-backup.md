@@ -154,7 +154,7 @@ Restore-AzCosmosDBAccount `
 
 
 ```
-If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to $true ensures TTL is disabled on restored account,this ensure restore action sets [DefaultTimeToLive](time-to-live.md) on container  to null on the restored account, and not providing parameter restores the account with TTL enabled if it was set earlier. 
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to $true ensures TTL is disabled on restored account, not providing parameter restores the account with TTL enabled if it was set earlier. 
 
 > [!NOTE]
 > For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
@@ -430,7 +430,7 @@ az cosmosdb restore \
 
 ```
 
-If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to  to $true ensures TTL is disabled on restored account, which ensures restore action sets [DefaultTimeToLive](time-to-live.md) on container(s) to null on the restored account, and not providing this parameter restores the account with TTL enabled if it was set earlier.. 
+If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to  to $true ensures TTL is disabled on restored account,  and not providing this parameter restores the account with TTL enabled if it was set earlier. 
 
  > [!NOTE]
  > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
