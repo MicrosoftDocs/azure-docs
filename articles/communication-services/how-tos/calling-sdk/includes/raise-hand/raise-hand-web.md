@@ -68,7 +68,7 @@ The `raisedHandChanged` and `loweredHandChanged` events contain an object with t
 To unsubscribe from the events, you can use the `off` method.
 
 ### List of all participants with active state
-To get information about all participants that have raised hand state on current call, you can use the `getRaisedHands` api. he returned array is sorted by the order field.
+To get information about all participants that have raised hand state on current call, you can use the `getRaisedHands` api. The returned array is sorted by the order field.
 Here's an example of how to use the `getRaisedHands` API:
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
