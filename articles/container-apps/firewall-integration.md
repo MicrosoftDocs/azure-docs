@@ -82,7 +82,8 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP and UDP | Your container app's subnet | \* | `168.63.129.16` | `53` | Enables the environment to use Azure DNS to resolve the hostname. |
 | TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
 | TCP | Your container app's subnet | \* | `Storage.<Region>` | `443` | Only required when using `Azure Container Registry` to host your images. |
-| TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | Only required when using `Azure Container Registry` to host your images. |
+| TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for Microsoft container registry for system containers. |
+| TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
 
