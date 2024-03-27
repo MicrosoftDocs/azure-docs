@@ -3,7 +3,7 @@ title: Versioning
 description: Versioning in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 03/27/2024
 ---
 
 # Azure HDInsight on AKS versions
@@ -45,11 +45,11 @@ Each number in the version indicates general compatibility with the previous ver
 
 ## Keep your clusters up to date
 
-To take advantage of the latest HDInsight on AKS features, we recommend regularly migrating your clusters to the latest patch or minor versions. Currently, HDInsight on AKS doesn't support in-place upgrades as part of public preview, where existing clusters are upgraded to newer versions. You  need to create a new HDInsight on AKS cluster in your existing cluster pool and migrate your application to use the new cluster with latest minor version or patch. All cluster pools align with the major version, and clusters within the pool align to the same major version, and you can create clusters with subsequent minor or patch versions. 
+To take advantage of the latest HDInsight on AKS features, we recommend regularly migrating your clusters to the latest patch or minor versions. Currently, HDInsight on AKS support's [in-place upgrades](./in-place-upgrade.md) as part of public preview with hotfix, node os and AKS patch upgrades, where existing clusters are upgraded to newer versions. 
 
-As part of the best practices, we recommend you to keep your clusters updated on regular basis.
+You  need to create a new HDInsight on AKS cluster in your existing cluster pool and migrate your application to use the new cluster with latest minor version or patch. All cluster pools align with the major version, and clusters within the pool align to the same major version, and you can create clusters with subsequent minor or patch versions. 
 
-HDInsight on AKS release happens every 30 to 60 days. It's always good to move to the latest releases as early as possible. The recommended maximum duration for cluster upgrades is less than three months.
+As part of the best practices, we recommend you to keep your clusters updated on regular basis.HDInsight on AKS release happens every 30 to 60 days. It's always good to move to the latest releases as early as possible. The recommended maximum duration for cluster upgrades is less than three months.
 
 ### Sample Scenarios 
 
@@ -90,17 +90,16 @@ Since HDInsight on AKS exposes and updates a minor version with each regular rel
 > [!IMPORTANT]
 > In case you're using RESTAPI operations, the cluster is always created with the most recent MS-Patch version to ensure you can get the latest security updates and critical bug fixes. 
 
-We're also building in-place upgrade support along with Azure advisor notifications to make the upgrade easier and smooth.
 
 ## Release notes
 For release notes on the latest versions of HDInsight on AKS, see [release notes](./release-notes/hdinsight-aks-release-notes.md)
 
 ## Versioning considerations
 
-* Once a cluster is deployed with a version, that cluster can't automatically upgrade to a newer version. You're required to recreate until in-place upgrade feature is live for minor versions.
+* HDInsight on AKS cluster pool versions and end of life are dependent on upstream AKS support, you can refer to the [AKS supported versions](/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) and plan for the cluster pool/cluster upgrades on ongoing basis.
+* Once a cluster pool is deployed with a certain cluster pool version, that cluster pool can't automatically upgrade to a newer minor version. You're required to recreate until [in-place upgrades](./in-place-upgrade.md) feature is live for minor versions for cluster pools.
+* Once a cluster is deployed within a certain cluster pool version, that cluster can't automatically upgrade to a newer minor or patch version. You're required to recreate until [in-place upgrades](./in-place-upgrade.md) feature is live for patch, minor versions for clusters.
 * During a new cluster creation, most recent version is deployed or picked.
 * Customers should test and validate that applications run properly when using new HDInsight on AKS version.
 * HDInsight on AKS reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight on AKS version when you create your clusters.
 * HDInsight on AKS may retire an OSS component version before retiring the HDInsight on AKS version, based on the upstream support of open-source or AKS dependencies.
-
-

@@ -5,7 +5,7 @@ author: tamram
 ms.author: tamram
 ms.topic: how-to 
 ms.date: 02/29/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, linux-related-content
 ---
 
 # Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools
