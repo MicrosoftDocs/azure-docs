@@ -96,7 +96,7 @@ For release notes on the latest versions of HDInsight on AKS, see [release notes
 
 ## Versioning considerations
 
-* HDInsight on AKS cluster pool versions and end of life are dependent on upstream AKS support, you can refer to the [AKS supported versions](/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar) and plan for the cluster pool/cluster upgrades on ongoing basis.
+* HDInsight on AKS cluster pool versions and end of life are dependent on upstream AKS support, you can refer to the [AKS supported versions](/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) and plan for the cluster pool/cluster upgrades on ongoing basis.
 * Once a cluster pool is deployed with a certain cluster pool version, that cluster pool can't automatically upgrade to a newer minor version. You're required to recreate until [in-place upgrades](./in-place-upgrade.md) feature is live for minor versions for cluster pools.
 * Once a cluster is deployed within a certain cluster pool version, that cluster can't automatically upgrade to a newer minor or patch version. You're required to recreate until [in-place upgrades](./in-place-upgrade.md) feature is live for patch, minor versions for clusters.
 * During a new cluster creation, most recent version is deployed or picked.
