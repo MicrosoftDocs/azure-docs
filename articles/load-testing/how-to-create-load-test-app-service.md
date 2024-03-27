@@ -33,7 +33,7 @@ To create a load test for a web app:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure App Service web app.
 
-1. On the left pane, select **Load testing**.
+1. On the left pane, select **Load Testing (Preview)** under the **Performance** section.
 
     On this page, you can see the list of tests and the load test runs for this web app. 
 
@@ -86,6 +86,9 @@ To create a load test for a web app:
 1. Select **Review + create** to review the test configuration, and then select **Create** to create the load test.
 
     Azure Load Testing now creates the load test. If you selected **Run test after creation** previously, the load test starts automatically.
+   
+> [!NOTE]
+> If the test was converted from a URL test to a JMX test directly from the Load Testing resource, the test cannot be modified from the App Service.
 
 ## View test runs
 
