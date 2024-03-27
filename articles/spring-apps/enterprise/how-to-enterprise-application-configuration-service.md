@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 03/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-track-azurecli
 ---
 
@@ -65,13 +65,13 @@ The **Refresh Interval** specifies the frequency (in seconds) for checking updat
 
 The following table describes the properties for each repository entry:
 
-| Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
-|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                                  |
-| `Patterns`    | Yes       | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
-| `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                        |
-| `Label`       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                             |
-| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                              |
+| Property      | Required? | Description                                                                                                                                                                                                                                                                                  |
+|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                  |
+| `Patterns`    | Yes       | The pattern type to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
+| `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                        |
+| `Label`       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                             |
+| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                              |
 
 ### Pattern
 
@@ -377,26 +377,23 @@ az spring application-configuration-service delete \
 
 ## Examine configuration file in ConfigMap
 
-The following section shows you how to examine the content of configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes ConfigMap (understand more in [Refresh strategies](#refresh-strategies)).
+The following section shows you how to examine the content of the configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes ConfigMap. For more information, see the [Refresh strategies](#refresh-strategies) section in this article.
 
 ### Assign an Azure role
-First you must have the Azure roles `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
+
+Use the following steps to have the `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
 
 #### [Azure portal](#tab/azure-Portal)
 
-Use the following steps to assign an Azure role using the Azure portal:
-
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. Open your Azure Spring Apps service instance.
+1. Open the [Azure portal](https://portal.azure.com) and go to your Azure Spring Apps service instance.
 
 1. In the navigation pane, select **Access Control (IAM)**.
 
-1. On the **Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-enterprise-application-configuration-service/add-role-assignment.png":::
 
-1. On the **Add role assignment** page, in the **Name** list, search for and select the target role and then select **Next**.
+1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service\application-configuration-service-config-pattern-file-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Config File Pattern Reader Role name highlighted." lightbox="media/how-to-enterprise-application-configuration-service\application-configuration-service-config-pattern-file-reader-role.png":::
 
@@ -406,20 +403,18 @@ Use the following steps to assign an Azure role using the Azure portal:
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to assign an Azure role:
-
-   ```azurecli
-   az role assignment create \
-       --role "Azure Spring Apps Application Configuration Service Config File Pattern Reader Role" \
-       --scope "<service-instance-resource-id>" \
-       --assignee "<your-identity>"
-   ```
+```azurecli
+az role assignment create \
+    --role "Azure Spring Apps Application Configuration Service Config File Pattern Reader Role" \
+    --scope "<service-instance-resource-id>" \
+    --assignee "<your-identity>"
+```
 
 ---
 
 ### Examine configuration file with Azure CLI
 
-Use the following command to view the content of configuration file by [Pattern](#pattern):
+Use the following command to view the content of the configuration file by [Pattern](#pattern):
 
 ```azurecli
 az spring application-configuration-service config show \
@@ -428,7 +423,8 @@ az spring application-configuration-service config show \
     --config-file-pattern <pattern>
 ```
 
-And here is an example output of this command:
+The command returns an output similar to the following example:
+
 ```json
 {
   "configurationFiles": {
@@ -440,18 +436,22 @@ And here is an example output of this command:
 }
 ```
 
-You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative path and absolute path. If not specified, it will take the path of current directory.
+You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both the relative path and the absolute path. If not specified, it takes the path of the current directory.
 
 ## Examine configuration file in the app
-After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment according to [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container. You can check the configuration files in each instance of that app deployment with following steps:
 
-1. Connect to one of the instances according to [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
-2. Use the command `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` to find the folders containing the configuration files, it will show a list of locations separated by comma. Following is an example, yours may vary.
-   - ```output
+After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment as described in the [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container. Use the following steps to check the configuration files in each instance of the app deployment:
+
+1. Connect to one of the application instances. For more information, see [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
+
+1. Use the `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` command to find the folders containing the configuration files. A list of locations shows up separated by comma, as shown in the following example:
+
+   ```output
      $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
      /etc/azure-spring-cloud/configmap/acs-default-payment-default-e9d46,/etc/azure-spring-cloud/configmap/acs-default-catalog-default-616f4
-     ```
-3. Then check the content of the configuration file with commands like `cat`.
+   ```
+
+1. Check the content of the configuration file using commands such as `cat`.
 
 ## Check logs
 
@@ -548,8 +548,8 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section. If it isn't updated, raise a ticket.
-- Confirm that the `ConfigMap` is mounted to the application as a file according to [Examine configuration file in the app](#examine-configuration-file-in-the-app) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` is mounted to the application as a file according to the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
 
