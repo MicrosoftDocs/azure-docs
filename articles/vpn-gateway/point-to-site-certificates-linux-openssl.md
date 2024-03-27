@@ -60,15 +60,6 @@ In this section, you generate the user certificate (client certificate). Certifi
    openssl verify -CAfile caCert.pem caCert.pem "${USERNAME}Cert.pem"
    ```
 
-## To use this client certificate on another Linux computer
-
-Each client computer requires two files in order to authenticate:
-
-* The file that contains the client key: caKey.pem
-* The file that contains the certificate public data: caCert.pem
-
-Copy both of these files and transfer them to the Linux client computer.
-
 ## Next steps
 
 To continue configuration steps, see [Point-to-site certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
