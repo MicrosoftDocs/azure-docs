@@ -88,7 +88,7 @@ The service scans the repository to find new environment definitions. After you 
 
 ### Specify a runner for a custom image
 
-The ADE extensibility model enables you to use your own custom container image. The ADE team provides sample ARM and Bicep templates to help you get started. For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). 
+The ADE extensibility model enables you to use your own custom container image. The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). 
 
 When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. You can edit the runner property to specify the location of your custom image, as shown in the following example:
 
@@ -129,7 +129,7 @@ To learn more about the parameters and their data types that you can use in *env
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
-:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
+:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the developer portal showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
 
 Developers can also supply values for specific parameters for their environments through the CLI.
 
