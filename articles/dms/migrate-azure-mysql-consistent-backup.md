@@ -53,6 +53,10 @@ To complete the migration successfully with Consistent Snapshot with read lock e
 
 - Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files are not purged before the replica commits the changes. Post successful cutover, the value can be reset.
 
+## Known issues and limitations for Enable Consistent Snapshot without locks
+
+- Tables with foreign keys having Cascade or Set Null on delete/on update clause are not supported.
+
 ## Known issues and limitations for Enable Consistent Snapshot with read lock
 
 The known issues and limitations associated with Consistent Backup fall broadly into two categories: locks and retries.
