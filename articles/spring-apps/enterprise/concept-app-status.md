@@ -26,7 +26,7 @@ The Azure Spring Apps UI delivers information about the status of running applic
 
 To view general status of an application type, select **Apps** in the left navigation pane of a resource group to display the following status information of the deployed app:
 
-* **Provisioning state**: Shows the deployment’s provisioning state.
+* **Provisioning state**: Shows the deployment's provisioning state.
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
 * **Registration status**: Shows how many app instances are registered in service discovery and how many app instances you desire. If you stop the app, this column shows **stopped**.
 
@@ -57,15 +57,15 @@ The provisioning state is accessible only from the CLI. The status is reported a
 
 ### Registration status
 
-The app registration status shows the state in service discovery. Azure Spring Apps in Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). 
+The app registration status shows the state in service discovery. Azure Spring Apps in Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
 
-The Enterprise pricing plan uses for service discovery. For more information, see [Use Tanzu Service Registry](how-to-enterprise-service-registry.md)
+The Enterprise pricing plan uses [Tanzu Service Registry](how-to-enterprise-service-registry.md) for service discovery.
 
 ## App instances status
 
 The *app instance* status represents every instance of the app. To view the status of a specific instance of a deployed app, select the **App instance** pane and then select the **App Instance Name** value for the app. The following status values appear:
 
-* **Status**: Indicates whether the instance is starting, running, terminating, or in failed state. 
+* **Status**: Indicates whether the instance is starting, running, terminating, or in failed state.
 * **Discovery Status**: The registered status of the app instance in the Eureka server or the Service Registry.
 
 :::image type="content" source="media/concept-app-status/apps-ui-instance-status.png" alt-text="Screenshot of the Azure portal showing the App instance Settings page with the Status and Discovery status columns highlighted." lightbox="media/concept-app-status/apps-ui-instance-status.png":::
@@ -78,7 +78,7 @@ The instance status is reported as one of the following values:
 |-------------|------------|
 | Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file may fail because the jar can't run properly. Azure Spring Apps will restart the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
 | Running     | The instance works. The instance can serve requests from inside Azure Spring Apps. |
-| Failed      | The app instance failed to start the user’s binary after several retries. The app instance may be in one of the following states:<br/>- The app may stay in the *Starting* status and never be ready for serving requests.<br/>- The app may boot up but crashed in a few seconds. |
+| Failed      | The app instance failed to start the user's binary after several retries. The app instance may be in one of the following states:<br/>- The app may stay in the *Starting* status and never be ready for serving requests.<br/>- The app may boot up but crashed in a few seconds. |
 | Terminating | The app instance is shutting down. The app may not serve requests and the app instance will be removed. |
 
 ### App discovery status
