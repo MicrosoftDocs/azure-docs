@@ -42,7 +42,7 @@ procedureSection:
       - |
         Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
 
-          :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Select Defender for IoT":::
+          :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Screenshot showing select Defender for IoT.":::
       - |
         Select **Create** to configure the deployment.
       - |
