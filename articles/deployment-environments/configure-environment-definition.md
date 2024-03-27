@@ -86,7 +86,7 @@ To add an environment definition:
 
 The service scans the repository to find new environment definitions. After you sync the repository, new environment definitions are available to all projects in the dev center.
 
-### Specify a runner for a custom image
+### Specify an ARM or Bicep runner for a custom image
 
 The ADE extensibility model enables you to use your own custom container image. The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). 
 
