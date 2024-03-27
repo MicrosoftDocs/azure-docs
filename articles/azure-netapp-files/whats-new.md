@@ -16,6 +16,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## March 2024
 
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
+
+    You can deploy new volumes in the logical availability zone of your choice to create cross-zone volumes to improve resiliency in case of zonal failures. This feature is available in all availability zone-enabled regions with Azure NetApp Files presence.
+    
+    The [populate existing volume](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) feature is still in preview. 
+
 * [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md): The 1 TiB capacity pool feature is now generally available (GA). 
 
     The 1 TiB lower limit for capacity pools using Standard network features is now generally available (GA). You still must register the feature.
