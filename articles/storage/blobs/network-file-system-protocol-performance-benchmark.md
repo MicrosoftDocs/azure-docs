@@ -34,7 +34,7 @@ No matter which method is used, it's always important to understand other potent
 | Testing method                    | Pros | Cons |
 | --------------------------------- | ---- | -----|
 | Using standard linux commands     | - Simple <br> - Available on any linux platform <br> - Familiarity with the tools | - Not designed for performance testing <br> - Not flexible <br> - Often CPU bound |
-| Using performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to setup a real-world test |
+| Using performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to set up a real-world test |
 | Using real-world application      | - Provides best insight on application behavior | - Interferes with end-users <br> - requires replica of the production environment |
 
 Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
@@ -47,7 +47,7 @@ After selecting the virtual machine, we need to create storage account we'll use
 
 ## Other considerations
 - Virtual machine and storage account with the NFS 3.0 endpoint must be in the same region,
-- Virtual machine running the test applications should be used only for testing to make sure other running services are not impacting the results.
+- Virtual machine running the test applications should be used only for testing to make sure other running services aren't impacting the results.
 
 ## Executing performance benchmark
 There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with FIO (Flexible I/O tester). FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). It can be used in many test scenarios. This article describes the recommended scenarios for Azure Storage. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
