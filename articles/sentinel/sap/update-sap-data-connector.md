@@ -5,8 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 03/27/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-ms.collection: usx-security
+
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent

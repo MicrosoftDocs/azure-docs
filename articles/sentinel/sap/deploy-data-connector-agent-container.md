@@ -6,8 +6,7 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 03/27/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-ms.collection: usx-security
+
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent
