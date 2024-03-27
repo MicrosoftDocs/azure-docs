@@ -674,6 +674,8 @@
               href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+            - name: Advance your maturity level
+              href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
         - name: Transparency note
