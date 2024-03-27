@@ -9,15 +9,15 @@ ms.author: jsaurezlee
 
 ## Set up push notifications
 
-A push notification is the pop-up notification that you get in the in your device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
+A push notification is the pop-up notification that you get in your device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
 
 The following sections describe how to register for, handle, and show a Windows notification to answer/decline an incoming call. Before you start those tasks, complete these prerequisites:
 
-1. Follow [Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification). After this you will have:
+1. Follow [Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification). After this you have:
     1. An application that has the `WindowsAzure.Messaging.Managed` and `Microsoft.Toolkit.Uwp.Notifications` packages.
-    2. A Azure PNH Hub name referenced as `<AZURE_PNH_HUB_NAME>` and the Azure PNH Connection String referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this quickstart.
+    2. An Azure PNH Hub name referenced as `<AZURE_PNH_HUB_NAME>` and the Azure PNH Connection String referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this quickstart.
   
-2. Make sure you have added the initialization code on your App.xaml.cs file to register for a WNS channel on every application init:
+2. To register for a WNS channel on every application init, Make sure you have added the initialization code on your App.xaml.cs file:
 
 ```C#
 // App.xaml.cs
@@ -118,7 +118,7 @@ public async Task HandlePushNotificationIncomingCallAsync(string notificationCon
 }
 ```
 
-This will trigger a incoming call event on CallAgent that will show the incoming call notification
+This triggers a incoming call event on CallAgent that will show the incoming call notification.
 
 ```C#
 // MainPage.xaml.cs
