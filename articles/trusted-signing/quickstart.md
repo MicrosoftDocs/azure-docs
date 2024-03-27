@@ -11,7 +11,7 @@ ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 
 # Quickstart: Onboarding to Trusted Signing
 
-Trusted Signing is a fully managed end-to-end signing service.  In this Quickstart, you'll create the following three Trusted Signing resources: 
+Trusted Signing is a fully managed end-to-end signing service.  In this Quickstart, you create the following three Trusted Signing resources: 
 
 - Trusted Signing account
 - Identity Validation
@@ -129,16 +129,16 @@ Here are the steps to create an Identity Validation request:
    
 | Input Fields       | Details     |
 | :------------------- | :------------------- |
-| **Organization Name**          | For Public, enter the Legal Business Entity that the certificate will be issued to. For Private, it will default to your Azure Tenant Name.|
+| **Organization Name**          | For Public, enter the Legal Business Entity that the certificate will be issued to. For Private, it defaults to your Azure Tenant Name.|
 | **(Private only) Organizational Unit**          | Enter the relevant information|
 | **Website url**          | Enter the website that belongs to the Legal Business Entity.|
 | **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in 7 days.  |
-| **Secondary Email**          | This email address(es) must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
+| **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
 | **Business Identifier**           |Enter a business identifier for the above Legal Business Entity.|
-| **Seller Id**          | Only applicable to Microsoft Store customers. Please find your Seller ID on Partner Center Portal.|
+| **Seller Id**          | Only applicable to Microsoft Store customers. Find your Seller ID on Partner Center Portal.|
 | **Street, City, Country, State, Postal code**           | Enter the business address of the Legal Business Entity.|
 
-6.  **Certificate subject preview**:  The preview provides a snapshot of what information will be displayed in the certificate.
+6.  **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
 7.  **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8.  Select the **Create** button. 
 
@@ -152,10 +152,10 @@ Here are the steps to create an Identity Validation request:
 | :------------------- | :------------------- |
 | Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of 3 or more years. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
-| Additional documentation            | You will be notified though email, if we need additional documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email will contain information about the file size requirements. Ensure the documents provided are latest.|
-| Failed email verification            | You’re required to initiate a new Identity Validation request if email verification fails.|
-| Identity Validation status            | You will be notified through email when there’s an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
-| Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need additional documentation from you) to process your Identity Validation request.|
+| Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
+| Failed email verification            | You are required to initiate a new Identity Validation request if email verification fails.|
+| Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
+| Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
 
 ## Create a certificate profile  
 A certificate profile resource is the logical container of the certificates that will be issued to you for signing.
@@ -173,7 +173,7 @@ A certificate profile resource is the logical container of the certificates that
 •   In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
 •   Include **street address**, select the box if this field must be included in the certificate.
 •   Include **postal code**, select the box if this field must be included in the certificate.
-•   Generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
+•   Generated **Certificate Subject Preview** shows the preview of the certificate issued.
 •   The remainder values are auto-populated based on the selection in Verified CN and O.
 •   Select **Create**.
 
@@ -235,7 +235,7 @@ az codesigning certificate-profile show -g myRG --account-name MyAccount -n     
 4. On the Trusted Signing account section, select the Trusted Signing account to be deleted.
 5. Select **Delete**.
 
-**Note**: This will delete all the certificate profiles associated to this account. This will stop any signing associated to the corresponding certificate profiles.
+**Note**: This deletes all the certificate profiles associated to this account. This stops any signing associated to the corresponding certificate profiles.
 
 - Delete the Certificate Profile:
 1. Navigate to your trusted signing account in the Azure portal.
@@ -243,7 +243,7 @@ az codesigning certificate-profile show -g myRG --account-name MyAccount -n     
 3. On the **Certificate Profiles**, choose the certificate profile to be deleted.
 4. Select **Delete**.
 
-**Note**: This will stop any signing associated to the corresponding certificate profile(s).
+**Note**: This stops any signing associated to the corresponding certificate profile(s).
 
 # [Azure CLI](#tab/adeleteresources-cli)
 - Delete the Trusted Signing account:
@@ -251,11 +251,14 @@ az codesigning certificate-profile show -g myRG --account-name MyAccount -n     
 ```
 az codesigning delete -n MyAccount -g MyResourceGroup
 ```
+**Note**: This deletes all the certificate profiles associated to this account. This stops any signing associated to the corresponding certificate profiles.
+
 - Delete the certificate profile:
 
  ```
 az codesigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
 ```
+**Note**: This stops any signing associated to the corresponding certificate profile(s).
 
 ## Next steps
 In this Quickstart you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To learn more about Trusted Signing and how to begin signing, refer to the articles below.
