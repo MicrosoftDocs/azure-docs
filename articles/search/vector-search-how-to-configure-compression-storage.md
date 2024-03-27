@@ -19,7 +19,7 @@ This article describes vector compression and other techniques for minimizing ve
 
 ## Evaluate the options
 
-As a first step, review your options for reducing the amount of storage used by vector fields.
+As a first step, review your options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive so you can use multiple options together.
 
 | Approach | Why use this option |
 |----------|---------------------|
@@ -62,15 +62,15 @@ Using preview APIs, you can assign narrow primitive data types to reduce the sto
    | [text-embedding-3-large](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
    | [Cohere V3 embedding models with int8 embedding_type](https://docs.cohere.com/reference/embed) | `Int8` | `Collection(Edm.SByte)` |
 
-1. Make sure you understand the tradeoffs of a narrow data type. `Collection(Edm.Half)` has less information, which results in lower resolution, so if your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time.
+1. Make sure you understand the tradeoffs of a narrow data type. `Collection(Edm.Half)` has less information, which results in lower resolution. If your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time because there's less detail that can be used to distinguish nearby vectors apart.
 
 1. Build the vector index, creating fields and assigning data types. You can use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package for this step.
 
 1. Check the results. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true) to verify the field content matches the data type. Be sure to use the correct `2024-03-01-preview` API version for the query, otherwise the new properties aren't shown.
+<!-- 
+   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over. -->
 
-   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over.
-
-   To check vector index size, use the Azure portal or the [2024-03-01-preview](/rest/api/searchservice/indexes/get-statistics?view=rest-searchservice-2024-03-01-preview&preserve-view=true)
+   To check vector index size, use the Azure portal or the [2024-03-01-preview](/rest/api/searchservice/indexes/get-statistics?view=rest-searchservice-2024-03-01-preview&preserve-view=true).
 
 > [!NOTE]
 > The field's data type is used to create the physical data structure. If you want to change a data type later, either drop and rebuild the index, or create a second field with the new definition.
@@ -111,9 +111,7 @@ The following example shows the fields collection of a search index. Set `stored
 
 + The `stored` property is set during index creation on vector fields and is irreversible. 
 
-+ Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. You can toggle `retrievable` between true and false at any time without having to rebuild an index. 
-
-+ In the unlikely event you end up with a vector field having `stored` is set to false and `retrievable` set to true, `retrievable` is ignored and no vector data is returned in the response (because it doesn't exist).
++ Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. When `stored` is true, you can toggle `retrievable` between true and false at any time without having to rebuild an index. When `stored` is false, `retrievable` must be false and can't be changed.
 
 ## Option 3: Configure vector compression
 
@@ -152,13 +150,13 @@ In an index definition created using 2024-03-01-preview REST API, add a `compres
 
 + Oversampling considers a broader set of potential results to offset the reduction in information from quantization. The formula for potential results consists of the `k` in the query, with an oversampling multiplier. For example, if the query specifies a `k` of 5, and oversampling is 20, then the query effectively requests 100 documents for use in reranking, using the original uncompressed vector for that purpose. Only the top `k` reranked results are returned.
 
-+ `quantizedDataType` must be set to `int8` or `int16`.
++ `quantizedDataType` must be set to `int8`. This is the only primitive data type supported at this time.
 
 ### Add a compression setting to a vector profile
 
-A vector compression configuration is added to a vector profile. Vector fields acquire compression settings through the vector profile assignment.
+A vector compression configuration is added to a vector profile. Vector fields acquire compression settings through the vector profile assignment. An existing field or existing profile that's being used can't add compression because compression involves building compressed indexes in memory.
 
-1. Add a compression configuration to a vector profile.
+1. Add a compression configuration to a vector profile. 
 
    ```json
    "profiles": [
@@ -186,7 +184,7 @@ A vector compression configuration is added to a vector profile. Vector fields a
 
 ### How scalar quantization works in Azure AI Search
 
-Scalar quantization reduces the resolution of each number within each vector embedding. Instead of describing each number as a 32-bit floating point number, it uses an 8-bit integer. It identifies a range of numbers (typically 99th percentile minimum and maximum) and divides them into a finite number of levels or bin”, assigning each bin an identifier. In the case of 8-bit scalar quantization, there are 2 to the eighth power, or 256, possible bins.
+Scalar quantization reduces the resolution of each number within each vector embedding. Instead of describing each number as a 32-bit floating point number, it uses an 8-bit integer. It identifies a range of numbers (typically 99th percentile minimum and maximum) and divides them into a finite number of levels or bin, assigning each bin an identifier. In 8-bit scalar quantization, there are 2^8, or 256, possible bins.
 
 Each component of the vector is mapped to the closest representative value within this set of quantization levels in a process akin to rounding a real number to the nearest integer. In the quantized 8-bit vector, the identifier number stands in place of the original value. After quantization, each vector is represented by an array of identifiers for the bins to which its components belong. These quantized vectors require much fewer bits to store compared to the original vector, thus reducing storage requirements and memory footprint. 
 
@@ -399,7 +397,7 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
 
 + Applies to vector fields that undergo vector compression, per the vector profile assignment.
 
-+ Overrides the `defaultOversampling` value or introduces oversampling at query time, even if the index doesn't specifically allow for it.
++ Overrides the `defaultOversampling` value or introduces oversampling at query time, even if the index's compression configuration didn't specify oversampling or reranking options.
 
 ## See also
 
