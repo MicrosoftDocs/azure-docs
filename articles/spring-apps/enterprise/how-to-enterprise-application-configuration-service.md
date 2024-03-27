@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-track-azurecli
 ---
 
@@ -170,7 +170,7 @@ In Spring applications, properties are held or referenced as beans within the Sp
 
 - Call the `/actuator/refresh` endpoint exposed on the config client via the Spring Actuator.
 
-  To use this method, add the following dependency to your configuration client’s *pom.xml* file.
+  To use this method, add the following dependency to your configuration client's *pom.xml* file.
 
   ```xml
   <dependency>
