@@ -1,11 +1,11 @@
 ---
-title: 'Troubleshooting'
-description: Troubleshoot an Azure Container Apps application.
+title: Troubleshooting in Azure Container Apps
+description: Learn to troubleshoot an Azure Container Apps application.
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 01/12/2024
+ms.date: 03/14/2024
 ms.author: v-wellsjason
 ms.custom: devx-track-azurecli
 ---
@@ -107,6 +107,8 @@ If you receive an error message when you try to deploy a new revision, verify th
 
 For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
 
+Before you run the following command, replace placeholders surrounded by `<>` with your values.
+
 ```
 docker run --rm <YOUR_CONTAINER_IMAGE>
 ```
@@ -117,7 +119,7 @@ For more information, see [Networking in Azure Container Apps environment](./net
 
 ## Review ingress configuration
 
-Your container app's ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. If you're unable to connect to your container app, review these ingress settings to make sure they aren't blocking requests that you want to allow.
+Your container app's ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. If you're unable to connect to your container app, review these ingress settings to make sure your ingress settings aren't blocking requests.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the *Search* bar, enter your container app's name.
