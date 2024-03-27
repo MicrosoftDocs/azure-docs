@@ -17,17 +17,27 @@ Trusted Signing is a fully managed end to end signing service.  In this Quicksta
 - Identity Validation
 - Certificate Profile
 
-Trusted Signing provides users with both an Azure Portal and Azure CLI extension experience to create and manage their Trusted Signing resources. **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
+Trusted Signing provides users with both an Azure portal and Azure CLI extension experience to create and manage their Trusted Signing resources. **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
 
 ## Prerequisites
-An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
+An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](https://learn.microsoft.com/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
 
 ## Create a Trusted Signing account 
 A Trusted Signing account is a logical container of identity validation and certificate profile resources. 
 
 # [Azure portal](#tab/account-portal)
 
-Complete the following steps to create a Trusted Signing account in the Azure portal:
+The resources must be created in Azure regions where Trusted Signing is currently available. See the table below of the current Azure regions with Trusted Signing resources: 
+
+| Region               | Region Class Fields  | Endpoint URI Value     |
+| :------------------- | :------------------- |:---------------|
+| East US              | EastUS               | https://eus.codesigning.azure.net  |
+| West US              |West US                | https://wus.codesigning.azure.net           |
+| West Central US      | WestCentralUS                | https://wcus.codesigning.azure.net/              |
+| West US 2                 |   WestUS2                   | https://wus2.codesigning.azure.net/              |
+| North Europe              | NorthEurope               | https://neu.codesigning.azure.net  |
+| West Europe              | WestEurope               | https://weu.codesigning.azure.net  |
+
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
 2.  From either the Azure portal menu or the Home page, select **Create a resource**.
 3.  In the Search box, enter **Trusted Signing account**.
@@ -38,7 +48,7 @@ Complete the following steps to create a Trusted Signing account in the Azure po
 8.  In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.) 
 9.  In the **Region** pull-down menu, select a region.
 10. In the **Pricing** tier pull-down menu, select a pricing tier.
-•   Refer to Select or change Trusted Signing pricing tier <link to the Pricing Tier How-To article> for information about the available pricing tiers.
+•   Refer to Select or change Trusted Signing pricing tier link to the Pricing Tier How-To article for information about the available pricing tiers.
 11. Select the **Review + Create** button. 
 
 ![screenshot-trusted-signing-account](media/trusted-signing-account-creation.png)
@@ -53,7 +63,7 @@ Complete the following steps to create a Trusted Signing account in the Azure po
 
 # [Az CLI](#tab/account-cli)
 
-The resources must be created in Azure regions where Trusted Signing is currently available. Below is a table of the current Azure regions with Trusted Signing resources: 
+The resources must be created in Azure regions where Trusted Signing is currently available. See the table below of the current Azure regions with Trusted Signing resources: 
 
 | Region               | Region Class Fields  | Endpoint URI Value     |
 | :------------------- | :------------------- |:---------------|
@@ -97,7 +107,7 @@ Or
 ```
 az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
-- Refer to Select or change Trusted Signing pricing tier <link to the Pricing Tier How-To article> for information about the available pricing tiers.
+- Refer to Select or change Trusted Signing pricing tier link to the Pricing Tier How-To article for information about the available pricing tiers.
 
 8.  Verify your Trusted Signing account using the `az codesigning show -g MyResourceGroup -n MyAccount` command.
  
@@ -115,15 +125,15 @@ az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ---
 
 ## Create an Identity Validation request
-You can complete your own Identity Validation by filing out the request form with the information that should be included in the certificate.  Identity Validation can only be completed in the Azure portal – it cannot be completed with Azure CLI.
+You can complete your own Identity Validation by filing out the request form with the information that should be included in the certificate.  Identity Validation can only be completed in the Azure portal – it can't be completed with Azure CLI.
 
 Here are the steps to create an Identity Validation request:
 1.  Navigate to your new Trusted Signing account in the Azure portal.
 2.  Confirm you have the **Code Signing Identity Verifier role**. 
-•   For RBAC access management, see <link to RBAC and role assignment>.
+•   For RBAC access management, see link to RBAC and role assignment.
 3.  From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
 4.  Select **New Identity Validation** > Public or Private. 
-    - Public identity validation is applicable to certificate profile types: Public Trust, Public Trust Test, VBS Enclave (this is not supported yet).
+    - Public identity validation is applicable to certificate profile types: Public Trust, Public Trust Test, VBS Enclave (this isn't supported yet).
     - Private identity validation is applicable to certificate profile types: Private Trust, Private Trust CI Policy.
 5.  On the **New identity validation** screen, provide the following information: 
    
@@ -132,10 +142,10 @@ Here are the steps to create an Identity Validation request:
 | **Organization Name**          | For Public, enter the Legal Business Entity that the certificate will be issued to. For Private, it defaults to your Azure Tenant Name.|
 | **(Private only) Organizational Unit**          | Enter the relevant information|
 | **Website url**          | Enter the website that belongs to the Legal Business Entity.|
-| **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in 7 days.  |
+| **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in seven days.  |
 | **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
 | **Business Identifier**           |Enter a business identifier for the above Legal Business Entity.|
-| **Seller Id**          | Only applicable to Microsoft Store customers. Find your Seller ID on Partner Center Portal.|
+| **Seller ID**          | Only applicable to Microsoft Store customers. Find your Seller ID on Partner Center portal.|
 | **Street, City, Country, State, Postal code**           | Enter the business address of the Legal Business Entity.|
 
 6.  **Certificate subject preview**:  The preview provides a snapshot of the information displayed in the certificate.
@@ -150,11 +160,11 @@ Here are the steps to create an Identity Validation request:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of 3 or more years. |
+| Onboarding           | Trusted Signing at this time can only onboard Legal Business Entities that have verifiable tax history of three or more years. |
 | Accuracy             | Ensure you provide the correct information for Public Identity Validation. Any changes or typos require you to complete a new Identity Validation request and affect the associated certificates used for signing.|
-| Additional documentation            | You are notified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
-| Failed email verification            | You are required to initiate a new Identity Validation request if email verification fails.|
-| Identity Validation status            | You are notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
+| Additional documentation            | You'll benotified though email, if we need extra documentation to process the identity validation request. The documents can be uploaded in Azure portal. The email contains information about the file size requirements. Ensure the documents provided are latest.|
+| Failed email verification            | You'll be required to initiate a new Identity Validation request if email verification fails.|
+| Identity Validation status            | You'll be notified through email when there is an update to the Identity Validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Expect anywhere between 1-7 business days (or sometimes longer if we need extra documentation from you) to process your Identity Validation request.|
 
 ## Create a certificate profile  
@@ -169,12 +179,12 @@ A certificate profile resource is the logical container of the certificates that
     - Private identity validation is applicable to Private Trust, Private Trust CI Policy.
 4.  On the **Create certificate profile**, provide the following information:
 •   **Certificate Profile Name**: A unique name is required. (See the below Certificate Profile naming constraints for naming requirements.) 
-•   **Certificate Type**: This is auto-populated based on your selection.
+•   **Certificate Type**: This is autopopulated based on your selection.
 •   In **Verified CN and O** pull-down menu, choose an identity validation that needs to be displayed on the certificate.
 •   Include **street address**, select the box if this field must be included in the certificate.
 •   Include **postal code**, select the box if this field must be included in the certificate.
 •   Generated **Certificate Subject Preview** shows the preview of the certificate issued.
-•   The remainder values are auto-populated based on the selection in Verified CN and O.
+•   The remainder values are autopopulated based on the selection in Verified CN and O.
 •   Select **Create**.
 
 ![screenshot-trusted-signing-certificateprofile-creation](media/trusted-signing-certificateprofile-creation.png)
@@ -198,7 +208,7 @@ az codesigning certificate-profile create -g MyResourceGroup --a
 ```
 - See the below Certificate Profile naming constraints for naming requirements. 
 
-2.  Create a certificate profile that includes street address or postal code (optional fields) in subject name of certificate using the following command:
+2.  Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
 ``` 
 az codesigning certificate-profile create -g MyResourceGroup --a
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-   validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
@@ -262,8 +272,8 @@ az codesigning certificate-profile delete -g MyResourceGroup --account-name MyAc
 
 ## Next steps
 In this Quickstart you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To learn more about Trusted Signing and how to begin signing, refer to the articles below.
-•   <link to How to>
-•   <link to Service design/business problem it address>
+•   link to How to
+•   link to Service design/business problem it address
 
 
 
