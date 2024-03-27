@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 03/27/2024
 ms.author: ankitadutta
 ---
 
@@ -65,7 +65,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage.png" alt-text="Screenshot of Storage."::: 
   
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard. 
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. 
          
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
