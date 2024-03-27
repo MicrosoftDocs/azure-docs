@@ -57,7 +57,7 @@ Azure Load Testing provides high-fidelity support of JMeter. You can create a ne
 
 Get started [create a load test by uploading a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
 
-If you previously created a [URL-based test](#create-a-url-based-quick-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
+If you previously created a [URL-based test](#create-a-url-based-load-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
 <a name="monitor"/>
 ## Monitor your apps for bottlenecks and provisioning issues 
