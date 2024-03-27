@@ -15,17 +15,19 @@ This article provides benchmark testing recommendations and metrics analysis for
 
 ## Overview
 
-Storage performance testing is done to evaluate and compare different storage services. There are many ways how to perform it, but three most common ones are:
+Storage performance testing is done to evaluate and compare different storage services. There are many ways to perform it, but three most common ones are:
 
 1. using standard Linux commands, typically cp or dd
 1. using performance benchmark tools like fio, vdbench, ior, etc.
-1. using real-world application that is used in production
+1. using real-world application that is used in production.
+
+No matter which method is used, it is always important to understand other potential bottlenecks in the environment, and make sure they are not affecting the results. For example, if test measures write performance of the NFS export, we need to make sure that source disk can read the test data set as fast as the expected write performance for the NFS target (ideally, we should be using something like a RAM disk). Same applies for network throughput, CPU utilization, etc.
 
 **Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results are often impacted by multiple aspects, not only storage and results must be carefully analyzed to fully understand them. Two commands that are typically used:
 - testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
-- second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run some of the performance benchmarking tools.
+- second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
 
-**Using performance benchmark tools** represents a synthetic performance testing that is common in comparing different storage services. Tools are properly designed to utilize available client resources to maximize the storage throughput. Most of the tools are configurable and allow to mimic real-world applications, at least the simpler ones. 
+**Using performance benchmark tools** represents synthetic performance testing that is common in comparing different storage services. Tools are properly designed to utilize available client resources to maximize the storage throughput. Most of the tools are configurable and allow mimicking real-world applications, at least the simpler ones. 
 
 **Using real-world application** is always the best method as it measures performance for real-world workloads that users are running on top of storage service. However, this method is often not practical as it requires replica of the production environment and end-users to generate proper load on the system. Some applications do have a load generation capability and should be used for performance benchmarking.
 
@@ -42,33 +44,58 @@ There are several performance benchmarking tools available to use on Linux envir
 
 Following parameters are used for testing:
 
-|Workload    | Metric    | Block size | Number of threads | IO depth | File size | Direct IO |
-| ---------- | --------- | ---------- | ----------------- | -------- | --------- | --------- |
-| Sequential | Bandwidth |1 MiB       | 8                 | 1024     | 10 GiB    | Yes       |
-| Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | Yes       |
-| Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | Yes       |
+|Workload    | Metric    | Block size | Number of threads | IO depth | File size | nconnect | Direct IO |
+| ---------- | --------- | ---------- | ----------------- | -------- | --------- | ---------| --------- |
+| Sequential | Bandwidth |1 MiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
+| Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
+| Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
 
+Our testing setup was done in US East region with client VM D32ds_v5 (32xCPU, 128GB RAM, 16Gbps network bandwidth ) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md).
 
-### Measuring sequential read bandwidth
+### Measuring sequential bandwidth
+
+#### Read bandwidth
 
 `fio --name=seq_read_bw --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=1M --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-### Measuring write sequential bandwidth
+#### Write bandwidth
 
 `fio --name=seq_write_bw --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=1M --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-### Measuring sequential read IOPS
+#### Results
+
+> [!div class="mx-imgBorder"]
+> ![Results for sequential bandwidth tests](./media/network-file-system-protocol-performance-benchmark/seq_bw.png)
+
+### Measuring sequential IOPS
+
+#### Read IOPS
 
 `fio --name=seq_read_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-### Measuring random read IOPS
-
-`fio --name=rnd_read_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=randread --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
-
-### Measuring sequential write IOPS
+#### Write IOPS
 
 `fio --name=seq_write_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
 
-### Measuring random write IOPS
+#### Results
+
+> [!div class="mx-imgBorder"]
+> ![Results for sequential IOPS tests](./media/network-file-system-protocol-performance-benchmark/seq_iops.png)
+
+### Measuring random IOPS
+
+#### Read IOPS
+
+`fio --name=rnd_read_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=randread --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
+
+#### Write IOPS
 
 `fio --name=rnd_write_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=randwrite --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
+
+#### Results
+
+> [!div class="mx-imgBorder"]
+> ![Results for random IOPS tests](./media/network-file-system-protocol-performance-benchmark/rnd_iops.png)
+
+> [!TIP]
+> Results from random tests are added for completeness, NFS 3.0 endpoint on Azure Blob Storage is not a recommended storage service for random write workloads.
