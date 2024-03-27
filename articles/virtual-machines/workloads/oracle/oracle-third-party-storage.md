@@ -1,6 +1,6 @@
 ---
 title: Third-party storage options for Oracle on Azure VMs 
-description: This article describes third-party storage options for Oracle on Azure Virtual Machines.
+description: This article describes how third-party storage options are available for Oracle on Azure Virtual Machines.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -28,7 +28,7 @@ The Lightbits Cloud Data Platform provides scalable and cost-efficient high-
 
 For other options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB. 
 
-In testing using real-world workload scenarios, Lightbits delivers up to 4.6X more IOPS than the best available cloud native storage (EBS io2 Block Express), which reaches its limits at around 250 K IOPS. Lightbits on Azure delivers almost 1M sustained IPS of 8 KB while Ultra Disk is limited to only 80 K IOPS of 8 KB.
+In real-world workload test scenarios, Lightbits delivers up to 4.6X more IOPS than the best available cloud native storage (EBS io2 Block Express), which reaches its limits at around 250 K IOPS. Lightbits on Azure delivers almost 1M sustained IPS of 8 KB while Ultra Disk is limited to only 80 K IOPS of 8 KB.
 
 The following table provides other inputs to help you to determine the appropriate disk type.
 
