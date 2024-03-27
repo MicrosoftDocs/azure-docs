@@ -377,11 +377,11 @@ az spring application-configuration-service delete \
 
 ## Examine configuration file in ConfigMap
 
-The following section shows you how to examine the content of the configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes ConfigMap. For more information, see the [Refresh strategies](#refresh-strategies) section in this article.
+The following section shows you how to examine the content of the configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes `ConfigMap`. For more information, see the [Refresh strategies](#refresh-strategies) section of this article.
 
 ### Assign an Azure role
 
-Use the following steps to have the `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
+Use the following steps to assign the `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role`.
 
 #### [Azure portal](#tab/azure-Portal)
 
@@ -440,7 +440,7 @@ You can also use this command with `--export-path {/path/to/target/folder}` para
 
 ## Examine configuration file in the app
 
-After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment as described in the [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section, the ConfigMap containing the configuration file for the pattern should be mounted to the application container. Use the following steps to check the configuration files in each instance of the app deployment:
+After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment, as described in the [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section of this article, the `ConfigMap` containing the configuration file for the pattern should be mounted to the application container. Use the following steps to check the configuration files in each instance of the app deployment:
 
 1. Connect to one of the application instances. For more information, see [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
 
@@ -548,8 +548,8 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
-- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated according to the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section. If it isn't updated, raise a ticket.
-- Confirm that the `ConfigMap` is mounted to the application as a file according to the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
+- Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated, as described in the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section of this article. If it isn't updated, raise a ticket.
+- Confirm that the `ConfigMap` is mounted to the application as a file, as described in the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section of this article. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 
 After checking these items, the applications should be able to read the updated configurations. If the applications still aren't updated, raise a ticket.
 
