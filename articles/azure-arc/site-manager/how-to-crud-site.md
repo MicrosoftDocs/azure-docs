@@ -37,7 +37,7 @@ Create a site to manage geographically related resources.
 
 1. From the main **Site manager** page in **Azure Arc**, select the blue **Create a site** button.
 
-   :::image type="content" source="./media/how-to-crud-site/create-a-site-button.jpeg" alt-text="Screenshot that shows creating a site from the site manager overview.":::
+   :::image type="content" source="./media/how-to-crud-site/create-a-site-button.png" alt-text="Screenshot that shows creating a site from the site manager overview.":::
 
 1. Provide the following information about your site:
 
@@ -90,4 +90,4 @@ Deleting a site doesn't affect the resources, resource group, or subscription in
 
 1. On the site's resource page, select **Delete**.
 
-   :::image type="content" source="./media/how-to-crud-site/california-site-main-page-delete.jpeg" alt-text="Screenshot that shows selecting Delete on the details page of a site.":::
+   :::image type="content" source="./media/how-to-crud-site/california-site-main-page-delete.png" alt-text="Screenshot that shows selecting Delete on the details page of a site.":::
