@@ -50,16 +50,14 @@ The provisioning state is accessible only from the CLI. The status is reported a
 | Value     | Definition                                              |
 |-----------|---------------------------------------------------------|
 | Creating  | The resource is creating and isn't ready.              |
-| Updating  | The resource is updating and the functionality may be different from the deployment definition until the update is complete.                               |
+| Updating  | The resource is updating and the functionality might be different from the deployment definition until the update is complete.                               |
 | Succeeded | Successfully supplied resources and deploys the binary. The deployment's functionality is the same as the definition and all app instances are working. |
 | Failed    | Failed to achieve the *Succeeded* goal.                 |
 | Deleting  | The resource is being deleted which prevents operation, and the resource isn't available in this status. |
 
 ### Registration status
 
-The app registration status shows the state in service discovery. Azure Spring Apps in Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
-
-The Enterprise pricing plan uses [Tanzu Service Registry](how-to-enterprise-service-registry.md) for service discovery.
+The app registration status shows the state in service discovery. The Basic/Standard plan uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks). The Enterprise pricing plan uses [Tanzu Service Registry](how-to-enterprise-service-registry.md) for service discovery.
 
 ## App instances status
 
@@ -76,10 +74,10 @@ The instance status is reported as one of the following values:
 
 | Value       | Definition |
 |-------------|------------|
-| Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file may fail because the jar can't run properly. Azure Spring Apps will restart the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
+| Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file might fail because the jar can't run properly. Azure Spring Apps restarts the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
 | Running     | The instance works. The instance can serve requests from inside Azure Spring Apps. |
-| Failed      | The app instance failed to start the user's binary after several retries. The app instance may be in one of the following states:<br/>- The app may stay in the *Starting* status and never be ready for serving requests.<br/>- The app may boot up but crashed in a few seconds. |
-| Terminating | The app instance is shutting down. The app may not serve requests and the app instance will be removed. |
+| Failed      | The app instance failed to start the user's binary after several retries. The app instance might be in one of the following states:<br/>- The app might stay in the *Starting* status and never be ready for serving requests.<br/>- The app might boot up but crashed in a few seconds. |
+| Terminating | The app instance is shutting down. The app might not serve requests and the app instance is removed. |
 
 ### App discovery status
 

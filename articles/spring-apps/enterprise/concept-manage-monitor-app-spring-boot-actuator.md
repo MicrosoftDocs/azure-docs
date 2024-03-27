@@ -18,19 +18,21 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-Spring Boot Actuator brings production-ready features to your apps. You can effortlessly monitor your app, collect metrics, and understand the status or database activity with this tool. Most importantly, you can gain access to professional-grade tools without needing to build them from scratch.
+Spring Boot Actuator brings production-ready features to your apps. You can effortlessly monitor your app, collect metrics, and understand the status or database activity with this tool. You gain access to professional-grade tools without needing to build them from scratch.
 
-The actuator exposes vital operational data about your running application, like health status, metrics, information, and more by using the HTTP endpoints or Java Management Extensions (JMX), making it easy to interact with. Once integrated, it provides several default endpoints, and like other Spring modules, it's easily configurable and extendable.
+The actuator exposes vital operational data about your running application, like health status, metrics, information, and more. The actuator uses HTTP endpoints or Java Management Extensions (JMX), making it easy to interact with. After you integrate it, it provides several default endpoints, and like other Spring modules, it's easily configurable and extendable.
 
-In Azure Spring Apps service instance, actuator is used for enriching metrics by using JMX. It can also work with Application Live View in Enterprise plan to help you get and interact with the data from apps.
+Azure Spring Apps uses the actuator for enriching metrics through JMX. It can also work with Application Live View in the Enterprise plan to help you get and interact with the data from apps.
 
 :::image type="content" source="media/concept-manage-monitor-app-spring-boot-actuator/data-flow.png" alt-text="Diagram that shows the data flow using Spring Boot Actuator." lightbox="media/concept-manage-monitor-app-spring-boot-actuator/data-flow.png":::
 
 ## Configure Spring Boot Actuator
 
+The following sections describe how to configure the actuator.
+
 ### Add actuator dependency
 
-To add the actuator to a Maven-based project, add the `Starter` dependency:
+To add the actuator to a Maven-based project, add the following dependency:
 
 ```xml
 <dependencies>
@@ -41,13 +43,11 @@ To add the actuator to a Maven-based project, add the `Starter` dependency:
 </dependencies>
 ```
 
-This configuration holds true for any Spring Boot version as versions are outlined in the Spring Boot Bill of Materials (BOM).
+This configuration works any Spring Boot version because versions are covered in the Spring Boot Bill of Materials (BOM).
 
 ### Configure actuator endpoint
 
-By default, Spring Boot application exposes the `health` endpoint only.
-
-To observe the configuration and configurable environment, you need to enable `env` and `configprops` endpoints as well.
+By default, a Spring Boot application exposes the `health` endpoint only. To observe the configuration and configurable environment, use the following steps to enable the `env` and `configprops` endpoints as well:
 
 1. Go to app **Overview** pane, select **Configuration** in the setting menu, and then go to the **Environment variables** configuration page.
 1. Add the following properties as in the "key:value" form. This environment opens the following Spring Actuator endpoints: `health`, `env`, and `configprops`.
@@ -64,9 +64,9 @@ To view all the endpoints built-in and related configurations, see the [Exposing
 
 ## Secure actuator endpoint
 
-When you open the app to public, these actuator endpoints are exposed to public as well. To hide all endpoints, set `management.endpoints.web.exposure.exclude=*`, because `exclude` property takes precedence over the `include` property. This action might block Application Live View in Enterprise plan, or other apps or tools relying on the actuator HTTP endpoint.
+When you open the app to the public, these actuator endpoints are exposed to the public as well. We recommend that you hide all endpoints by setting `management.endpoints.web.exposure.exclude=*`, because the `exclude` property takes precedence over the `include` property. Be aware that this action blocks Application Live View in the Enterprise plan and other apps or tools that rely on the actuator HTTP endpoint.
 
-In the Enterprise plan, you can disable public endpoint of apps and configure VMware Spring Cloud Gateway to disable actuator access from public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) 
+In the Enterprise plan, you can disable the public endpoint of apps and configure a routing rule in VMware Spring Cloud Gateway to disable actuator access from the public. For more information, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Next steps
 

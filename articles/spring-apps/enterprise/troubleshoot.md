@@ -22,7 +22,7 @@ This article provides instructions for troubleshooting Azure Spring Apps develop
 
 ### My application can't start
 
-When your application can't start, you may find that its endpoint can't be connected or it returns a 502 after a few retries.
+When your application can't start, you might find that its endpoint can't be connected or it returns a 502 after a few retries.
 
 For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
@@ -270,7 +270,7 @@ Creating an Azure Spring Apps Enterprise plan instance fails with error code "11
 
 ### No plans are available for market '\<Location>'
 
-When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it might say "No plans are available for market '\<Location>'" as in the following image.
 
 :::image type="content" source="./media/troubleshoot/no-enterprise-plans-available.png" alt-text="Screenshot of the Azure portal that shows the No plans are available for market error message." lightbox="./media/troubleshoot/no-enterprise-plans-available.png":::
 

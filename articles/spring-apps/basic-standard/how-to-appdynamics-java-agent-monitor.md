@@ -220,7 +220,7 @@ You can define more metrics for the JVM, as shown in this screenshot of the **Me
 
 ## View AppDynamics Agent logs
 
-By default, Azure Spring Apps will print the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the AppDynamics Agent from the following locations:
 
@@ -230,10 +230,10 @@ You can also get the logs of the AppDynamics Agent from the following locations:
 
 ## Learn about AppDynamics Agent upgrade
 
-The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upgrade may affect the following scenarios:
+The AppDynamics Agent is upgraded regularly with JDK (quarterly). Agent upgrade might affect the following scenarios:
 
-* Existing applications using AppDynamics Agent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of AppDynamics Agent.
-* Applications created after upgrade will use the new version of AppDynamics Agent.
+- Existing applications using AppDynamics Agent before upgrade are unchanged, but require restart or redeploy to engage the new version of AppDynamics Agent.
+- Applications created after upgrade use the new version of AppDynamics Agent.
 
 ## Configure virtual network injection instance outbound traffic
 
