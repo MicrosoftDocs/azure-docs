@@ -650,6 +650,24 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Web UI library
+      href: https://aka.ms/acsstorybook
+    - name: Call Automation
+      items:
+      - name: Overview
+        href: concepts/call-automation/call-automation.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/communication-services/
+      - name: Answer a call
+        href: concepts/call-automation/incoming-call-notification.md
+      - name: Connect to Azure AI
+        href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
+      - name: Play audio
+        href: concepts/call-automation/play-action.md
+      - name: Gather user input 
+        href: concepts/call-automation/recognize-action.md
+      - name: Ring Microsoft Teams users
+        href: concepts/call-automation/call-automation-teams-interop.md
     - name: Teams interoperability
       items:
       - name: Overview
@@ -708,52 +726,27 @@ items:
             href: concepts/interop/virtual-visits/govern-meeting-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+      - name: Closed captions
+        href: concepts/interop/enable-closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
-    - name: Rooms
+    - name: Advanced audio and video
+      items:    
+      - name: Rooms API for structured meetings 
+        href: concepts/rooms/room-concept.md      
+      - name: Recording
+        href: concepts/voice-video-calling/call-recording.md
+      - name: Music mode
+        href: concepts/voice-video-calling/music-mode.md
+        displayName: music mode, audio filters, calling
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Quality and Diagnostics
       items:
-      - name: Overview
-        href: concepts/rooms/room-concept.md
-    - name: Call recording
-      href: concepts/voice-video-calling/call-recording.md
-    - name: Enable Closed captions
-      href: concepts/interop/enable-closed-captions.md      
-    - name: Media access
-      href: concepts/voice-video-calling/media-access.md
-    - name: Data channel
-      href: concepts/voice-video-calling/data-channel.md
-    - name: Video constraints
-      href: concepts/voice-video-calling/video-constraints.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Music mode
-      href: concepts/voice-video-calling/music-mode.md
-      displayName: music mode, audio filters, calling
-    
-    - name: Simulcast
-      href: concepts/voice-video-calling/simulcast.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Events
-      items:
-      - name: Overview
-        href: ../event-grid/event-schema-communication-services.md
-      - name: Voice and Video events
-        href: ../event-grid/communication-services-voice-video-events.md
-    - name: Networking
-      items:
-      - name: Network recommendations
-        href: concepts/voice-video-calling/network-requirements.md
-        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: SDK best practices
-        href: concepts/best-practices.md
-        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Call networking internals
-        href: concepts/call-flows.md
-      - name: Call flow topologies
-        href: concepts/detailed-call-flows.md
-    - name: Mobile integrations
-    - name: Monitor and manage call quality
-      items:
-      - name: Manage call quality
+      - name: Optimizing call quality
         href: concepts/voice-video-calling/manage-call-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
       - name: Call Diagnostics
@@ -765,20 +758,45 @@ items:
       - name: Troubleshooting VoIP call quality
         href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
-    - name: Analytics
+      - name: Tuning video quality
+        href: concepts/voice-video-calling/video-constraints.md        
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Networking and Data
       items:
-      - name: Call logs
+      - name: Network recommendations
+        href: concepts/voice-video-calling/network-requirements.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: SDK best practices
+        href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Call networking internals
+        href: concepts/call-flows.md
+      - name: Call flow topologies
+        href: concepts/detailed-call-flows.md
+      - name: Data channel
+        href: concepts/voice-video-calling/data-channel.md
+    - name: Logging via Azure Monitor 
+      items:
+      - name: Call client logs
         href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Call Diagnostics
+        href: concepts/voice-video-calling/call-diagnostics.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
       - name: End of call survey logs
         href: concepts/analytics/logs/end-of-call-survey-logs.md
+      - name: Call automation metrics
+        href: concepts/analytics/logs/call-automation-metrics.md
       - name: Rooms logs
         href: concepts/analytics/logs/rooms-logs.md
-      - name: Call automation metrics overview
-        href: concepts/analytics/logs/call-automation-metrics.md
-      - name: Rooms metrics overview
+      - name: Rooms metrics 
         href: concepts/analytics/rooms-metrics.md
+    - name: Service events via EventGrid
+      items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+      - name: Voice and Video events
+        href: ../event-grid/communication-services-voice-video-events.md
     - name: UI Library
       items:
       - name: UI Library overview
@@ -787,16 +805,16 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
-    - name: Providing end user support
-      href: ./concepts/voice-video-calling/retrieve-support-files.md
-    - name: User experience
-      href: concepts/voice-video-calling/user-experience.md
+    - name: User support and experience
+      items:
+      - name: User support
+        href: ./concepts/voice-video-calling/retrieve-support-files.md
+      - name: User experience
+        href: concepts/voice-video-calling/user-experience.md
     - name: Known Issues
       items:    
       - name: WebJS calling SDK
         href: concepts/voice-video-calling/known-issues-webjs.md
-      - name: Native calling SDK
-        href: concepts/voice-video-calling/known-issues-native.md
       - name: Call Automation
         href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
@@ -875,15 +893,15 @@ items:
         href: concepts/call-automation/call-automation.md
       - name: Pricing
         href: https://azure.microsoft.com/pricing/details/communication-services/
-      - name: Learn about inbound calls
+      - name: Answer a call
         href: concepts/call-automation/incoming-call-notification.md
-      - name: Connecting Azure Communication Services to Azure AI services
+      - name: Connect to Azure AI
         href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
-      - name: Play audio in call
+      - name: Play audio
         href: concepts/call-automation/play-action.md
-      - name: Gathering user input 
+      - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
-      - name: Add Microsoft Teams users in Call Automation workflows
+      - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
