@@ -86,7 +86,7 @@ When an automation rule is triggered, it checks the triggering incident or alert
 
 For rules defined using the trigger **When an incident is created**, you can define conditions that check the **current state** of the values of a given list of incident properties, using one or more of the following operators:
 
-An incident property's value 
+An incident property's value
 - **equals** or **does not equal** the value defined in the condition.
 - **contains** or **does not contain** the value defined in the condition.
 - **starts with** or **does not start with** the value defined in the condition.
@@ -117,12 +117,34 @@ An incident property's value was
 - **changed to** the value defined in the condition.
 - **added** to (this applies to properties with a list of values).
 
-> [!NOTE]
-> - An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
->
-> - Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
->
-> - If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
+#### Items vs. collections
+
+For incident properties that are collections of items, such as tags&mdash;an incident can have multiple tags applied to it&mdash;you can define conditions that check **each item in the collection separately**, and conditions that check **the entire collection as a unit**.
+
+This distinction matters when your condition is a negative (does not equal, does not contain, and so on), and some items in the collection fulfill the condition and others don't.
+
+Let's look at an example where your condition is, **Tag does not contain "2024"**, and you have two incidents, each with two tags:
+
+| \ Incidents &#9654;<br>Condition &#9660; \ | Incident 1<br>Tag 1: 2024<br>Tag 2: 2023 | Incident 2<br>Tag 1: 2023<br>Tag 2: 2022 |
+| -------------------------------------- | :------------------------: | :------------------------: |
+| **Any individual tag<br>does not contain "2024"** | ***TRUE***      | TRUE                       |
+| **Collection of all tags<br>does not contain "2024"** | ***FALSE*** | TRUE                       |
+
+In this example, in *Incident 1*: 
+- If the condition checks each tag individually, then since there's at least one tag that *fulfills the condition* (that *doesn't* contain "2024"), the overall condition is **true**.
+- If the condition checks the entire collection as a unit, then since there's at least one tag that *doesn't fulfill the condition* (that *does* contain "2024"), the overall condition is **false**.
+
+In *Incident 2*, the outcome will be the same, regardless of which type of condition is defined.
+
+Both kinds of conditions can be chosen for properties that comprise collections, such as tags.
+
+#### When triggers collide
+
+- An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
+
+- Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
+
+- If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
 
 #### Alert create trigger
 
