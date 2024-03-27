@@ -257,7 +257,7 @@ The required authorizations are listed here by their purpose. You only need the 
 >
 > Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_READER** role that has all the necessary permissions for the data connector to operate. <!--do we need to update this everywhere?>
 
-| Authorization Object | Field | Value |
+| Authorization object | Field | Value |
 | -------------------- | ----- | ----- |
 | **All logs** | | |
 | S_RFC | RFC_TYPE | Function Module |

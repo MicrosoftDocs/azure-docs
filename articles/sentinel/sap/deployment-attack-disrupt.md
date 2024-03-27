@@ -24,6 +24,10 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 - To deploy automatic attack disruption for SAP in your existing system, make sure that you have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
+- While configuring your system to support attack disruption for SAP is done in the Azure portal and your SAP environment, attack disruption itself surfaces only in the unified SOC platform in the Microsoft Defender portal. Make sure that you've configured the integration between Microsoft Sentinel and Microsoft Defender XDR.
+
+    For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
+
 ## Update your SAP data connector agent
 
 Attack disruption for SAP requires that you have an agent with the latest version of the SAP data connector.
