@@ -13,7 +13,7 @@ ms.custom: template-how-to-pattern
 # Enabling NVMe and SCSI Interface on Virtual Machine
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 NVMe stands for nonvolatile memory express, which is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response time. Azure now supports the NVMe interface on the Ebsv5 and Ebdsv5 family, offering the highest IOPS and throughput performance for remote disk storage among all the GP v5 VM series.
 

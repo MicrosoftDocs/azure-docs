@@ -170,7 +170,7 @@ In Spring applications, properties are held or referenced as beans within the Sp
 
 - Call the `/actuator/refresh` endpoint exposed on the config client via the Spring Actuator.
 
-  To use this method, add the following dependency to your configuration client’s *pom.xml* file.
+  To use this method, add the following dependency to your configuration client's *pom.xml* file.
 
   ```xml
   <dependency>
