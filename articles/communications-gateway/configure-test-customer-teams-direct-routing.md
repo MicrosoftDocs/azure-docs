@@ -106,8 +106,7 @@ You can use Azure Communications Gateway's Number Management Portal or Provision
 1. Set the **Subdomain token region** fields to the TXT values that you obtained in [Start registering the subdomains in the customer tenant and get DNS TXT values](#start-registering-the-subdomains-in-the-customer-tenant-and-get-dns-txt-values).
 1. Select **Create**.
 1. Confirm that the DNS records have been generated.
-    1. Select the account.
-    1. Select **Manage account**.
+    1. On the **Accounts** pane, select the account name in the list.
     1. Confirm that **Subdomain Provisioned State** is **Provisioned**.
 
 # [Provisioning API](#tab/api)

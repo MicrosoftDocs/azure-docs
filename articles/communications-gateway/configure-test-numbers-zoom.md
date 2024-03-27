@@ -56,13 +56,13 @@ You can configure numbers directly in the Number Management Portal, or by upload
     1. Select **Enable Zoom Phone Cloud Peering**.
     1. Optionally, enter a value for **Custom SIP header**.
     1. Add the numbers in **Telephone Numbers**.
-    1. Select **Upload**.
+    1. Select **Create**.
 1. To upload a CSV containing multiple numbers:
     1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
 
         | Heading | Description  | Valid values |
         |---------|--------------|--------------|
-        | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
+        | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
         | `accountName` | The account to upload the number to | The name of an existing account |
         | `serviceDetails_zoomPhoneCloudPeering_enabled`| Whether Zoom Phone Cloud Peering is enabled | `true` or `false`|
         | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |

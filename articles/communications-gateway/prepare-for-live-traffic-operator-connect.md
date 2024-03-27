@@ -86,7 +86,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
     The following steps summarize the requests you must make to the Provisioning API. For full details of the relevant API resources, see the [API Reference](/rest/api/voiceservices).
 
     1. Find the _RFI_ (Request for information) resource for your test tenant and update the `status` property of its child _Customer Relationship_ resource to indicate the agreement has been signed.
-    1. Create an _Account_ resource that represents the customer.
+    1. Create an _Account_ resource that represents the customer. Enable backend service sync for the account.
     1. Create a _Number_ resource as a child of the Account resource for each test number.
 
     # [Number Management Portal (preview)](#tab/number-management-portal)
@@ -95,7 +95,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **Requests for Information**.
     1. Select your test tenant.
     1. Select **Update relationship status**. Use the drop-down to set the status to **Agreement signed**.
-    1. Select **Create account**. Fill in the fields as required and select **Create**.
+    1. Select **Create account**. Fill in the fields as required (including **Sync with backend service**) and select **Create**.
     1. Select **View account**.
     1. Select **View numbers** and select **Create numbers**.
     1. Fill in the fields as required, and then select **Upload**.
