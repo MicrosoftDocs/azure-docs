@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
 ms.author: allensu
 author: asudbring
+ms.subservice: aks-nodes
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot
