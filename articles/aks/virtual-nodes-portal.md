@@ -4,6 +4,7 @@ description: Learn how to use the Azure portal to create an Azure Kubernetes Ser
 ms.topic: conceptual
 ms.date: 05/09/2023
 ms.custom: references_regions
+ms.subservice: aks-nodes
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal

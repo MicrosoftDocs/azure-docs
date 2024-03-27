@@ -3097,7 +3097,7 @@ groups:
     title: Start with a template
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
-  title: Knowns issues
+  title: Known issues
   prompt: Choose a platform
   pivots:
   - id: all-browsers
@@ -3140,3 +3140,12 @@ groups:
     title: Portal
   - id: development-environment-azure-cli
     title: CLI
+# Owner: schaffererin
+- id: aks-azure-developer-cli
+  title: Azure command line interfaces
+  prompt: Choose a command line interface
+  pivots:
+  - id: development-environment-azure-cli
+    title: Azure CLI
+  - id: development-environment-azure-developer
+    title: Azure Developer CLI

@@ -4,6 +4,7 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang
 ms.author: nickoman
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 12/19/2023
 ms.custom: devx-track-azurecli
 ---

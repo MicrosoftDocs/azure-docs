@@ -64,6 +64,8 @@ items:
       href: concepts/ai-resources.md
     - name: Create and manage an Azure AI hub resource
       href: how-to/create-azure-ai-resource.md
+    - name: Create a secure Azure AI hub resource
+      href: how-to/create-secure-ai-hub.md
     - name: Create an Azure AI hub resource from template
       href: how-to/create-azure-ai-hub-template.md
     - name: Create an Azure AI project
