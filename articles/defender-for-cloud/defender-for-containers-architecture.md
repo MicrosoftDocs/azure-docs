@@ -84,7 +84,7 @@ When you enable the agentless discovery for Kubernetes extension, the following 
 
 These components are required in order to receive the full protection offered by Microsoft Defender for Containers:
 
-- **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)** - Azure Arc-enabled Kubernetes - An sensor based solution, installed on one node in the cluster, that connects your clusters to Defender for Cloud. Defender for Cloud is then able to deploy the following two agents as [Arc extensions](../azure-arc/kubernetes/extensions.md):
+- **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)** - Azure Arc-enabled Kubernetes - A sensor based solution, installed on one node in the cluster, that connects your clusters to Defender for Cloud. Defender for Cloud is then able to deploy the following two agents as [Arc extensions](../azure-arc/kubernetes/extensions.md):
 
 - **Defender sensor**: The DaemonSet that is deployed on each node, collects host signals using [eBPF technology](https://ebpf.io/) and Kubernetes audit logs, to provide runtime protection. The sensor is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. The Defender sensor is deployed as an Arc-enabled Kubernetes extension.
 
