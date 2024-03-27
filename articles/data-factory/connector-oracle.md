@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 03/27/2024
 ms.author: jianleishen
 ---
 
@@ -145,6 +145,20 @@ To enable encryption on Oracle connection, you have two options:
 
     3.	Place the `truststore` file on the self-hosted IR machine. For example, place the file at C:\MyTrustStoreFile.
     4.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore`/`TrustStorePassword`value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+
+>[!Note]
+> The following algorithms are deemed as secure by OpenSSL, and will be sent along to the sever for **OAS encryption**.
+>    - AES256 
+>    - AES192 
+>    - 3DES168 
+>    - AES128 
+>    - 3DES112 
+>    - DES
+>
+>The following algorithms are deemed as secure by OpenSSL, and will be sent along to the sever for **OAS data integrity**.
+>    - SHA256 
+>    - SHA384 
+>    - SHA512
 
 **Example:**
 
