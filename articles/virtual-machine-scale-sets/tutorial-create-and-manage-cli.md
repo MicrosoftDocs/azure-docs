@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, linux-related-content
+ms.custom: mimckitt, devx-track-azurecli
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
@@ -20,7 +20,7 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

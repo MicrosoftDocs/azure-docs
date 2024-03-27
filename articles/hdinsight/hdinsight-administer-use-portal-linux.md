@@ -3,7 +3,7 @@ title: Manage Apache Hadoop clusters in HDInsight using Azure portal
 description: Learn how to create and manage Azure HDInsight clusters using the Azure portal.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, linux-related-content
 ms.date: 12/06/2023
 ---
 

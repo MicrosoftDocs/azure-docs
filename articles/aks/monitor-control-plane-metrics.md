@@ -4,6 +4,7 @@ description: Learn how to collect metrics from the Azure Kubernetes Service (AKS
 author: aritraghosh
 ms.author: aritraghosh
 ms.service: azure-kubernetes-service
+ms.subservice: aks-monitoring
 ms.topic: how-to
 ms.date: 01/31/2024
 ms.custom: references_regions, devx-track-azurecli
