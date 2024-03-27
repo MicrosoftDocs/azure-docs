@@ -169,3 +169,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 * **I have enabled both platform and customer managed keys, how can I protect my disks?**
 
     Enabling double encryption with both platform and customer managed keys is supported by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
+
+## Next steps
+
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
