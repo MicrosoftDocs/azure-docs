@@ -91,7 +91,7 @@ Workers are evaluated based on:
        [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
     - b. Give your model a Deployment name and select “Create”
 
-      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating azure OpenAI model.":::
+      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating Azure OpenAI model.":::
 
 5. Once your Azure OpenAI Model is created, copy down the 'Endpoint', 'Keys', and 'Region'
 
@@ -114,11 +114,12 @@ Workers are evaluated based on:
 
 
 7. Go to the Overview blade of your function app. 
-    - a. Select the newly created function.
+
+   1. Select the newly created function.
        
       :::image type="content" source="./media/azure-function-overview.png" alt-text="Screenshot of deployed function."::: 
     
-    - b. Select the "Get Function URL" button and copy down the URL.
+   1. Select the "Get Function URL" button and copy down the URL.
         
       :::image type="content" source="./media/get-function-url.png" alt-text="Screenshot of get function url.":::  
         
