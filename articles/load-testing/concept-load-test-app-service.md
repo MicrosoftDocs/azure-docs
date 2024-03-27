@@ -36,17 +36,13 @@ You can create a load test to simulate traffic to your application on Azure App 
 
 After you create and run a load test, you can [monitor the resource metrics](#monitor) for the web application and all dependent Azure components to identify performance and scalability issues.
 
-### Create a URL-based quick test
+### Create a URL-based load test
 
-You can use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page.
-
-When you create a URL-based test, you specify the endpoint and basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time).
+You can create a URL-based load test directly from your Azure App Service web app in the Azure portal. When you create the load test, you can select a specific deployment slot and use the prepopulated endpoint URL.
 
 The following screenshot shows how to create a URL-based load test in the Azure portal.
 
-:::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that shows the Create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
-
-Get started by [creating a URL-based load test](./quickstart-create-and-run-load-test.md).
+Get started by [creating a URL-based load test for Azure App Service](./how-to-create-load-test-app-service.md).
 
 ### Create a load test by uploading a JMeter script
 
@@ -106,7 +102,6 @@ Another use for parameters is when you want to reuse your test script across mul
 ## Next steps
 
 Learn how to:
-- [Start create a URL-based load test](./quickstart-create-and-run-load-test.md).
-- [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
-- [Configure your test for high-scale load](./how-to-high-scale-load.md).
+- [Create a URL-based load test for Azure App Service](./how-to-create-load-test-app-service.md).
 - [Configure automated performance testing](./quickstart-add-load-test-cicd.md).
+- [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
