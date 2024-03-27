@@ -4,7 +4,7 @@ description: Need to start, stop, or delete your Azure Spring Apps application? 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 01/10/2023
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
 ---

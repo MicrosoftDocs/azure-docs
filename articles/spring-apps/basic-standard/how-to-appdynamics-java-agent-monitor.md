@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 06/07/2022
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.devlang: azurecli
 ---
