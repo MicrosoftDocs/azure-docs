@@ -44,5 +44,3 @@ April, 2024 test release is now available.
 Arc SQL Server | Support for moving Arc-enabled SQL Server instances and child resources (DBs, AGs) across different subscriptions & resource groups | Public Preview
 
 Arc SQL Server | Allow the database inventory feature for all license types | GA
-
-Arc SQL MI | Promote a non-readable secondary to readable replica and redirect connections when the readable replica is down | Private Preview
