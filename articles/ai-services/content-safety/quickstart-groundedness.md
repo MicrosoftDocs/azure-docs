@@ -35,27 +35,27 @@ This section walks through a sample request with cURL. Paste the command below i
 1. Replace `<endpoint>` with the endpoint URL associated with your resource.
 1. Replace `<your_subscription_key>` with one of the keys for your resource.
 1. Optionally, replace the `"query"` or `"text"` fields in the body with your own text you'd like to analyze.
+    
+    
+    ```shell
+    curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview' \
+    --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "domain": "Generic",
+      "task": "QnA",
+      "qna": {
+           "query": "How much does she currently get paid per hour at the bank?"
+      },
+      "text": "12/hour",
+      "groundingSources": [
+        "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
+      ],
+      "reasoning": False
+    }'
+    ```
 
-
-```shell
-curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview' \
---header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "domain": "Generic",
-  "task": "QnA",
-  "qna": {
-       "query": "How much does she currently get paid per hour at the bank?"
-  },
-  "text": "12/hour",
-  "groundingSources": [
-    "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
-  ],
-  "reasoning": False
-}'
-```
-
-Open a command prompt and run the cURL command.
+1. Open a command prompt and run the cURL command.
 
 
 #### [Python](#tab/python)
@@ -208,31 +208,31 @@ This section walks through a sample request with cURL. Paste the command below i
 1. Replace `<endpoint>` with the endpoint URL associated with your resource.
 1. Replace `<your_subscription_key>` with one of the keys for your resource.
 1. Optionally, replace the `"query"` or `"text"` fields in the body with your own text you'd like to analyze.
-
-
-```shell
-curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview' \
---header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "domain": "Generic",
-  "task": "QnA",
-  "qna": {
-       "query": "How much does she currently get paid per hour at the bank?"
-  },
-  "text": "12/hour",
-  "groundingSources": [
-    "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
-  ],
-  "reasoning": true,
-  "llmResource": {
-        "resourceType": "AzureOpenAI",
-        "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
-        "azureOpenAIDeploymentName": "<your_deployment_name>"
-}'
-```
-
-Open a command prompt and run the cURL command.
+    
+    
+    ```shell
+    curl --location --request POST '<endpoint>/contentsafety/text:detectGroundedness?api-version=2024-02-15-preview' \
+    --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "domain": "Generic",
+      "task": "QnA",
+      "qna": {
+           "query": "How much does she currently get paid per hour at the bank?"
+      },
+      "text": "12/hour",
+      "groundingSources": [
+        "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
+      ],
+      "reasoning": true,
+      "llmResource": {
+            "resourceType": "AzureOpenAI",
+            "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
+            "azureOpenAIDeploymentName": "<your_deployment_name>"
+    }'
+    ```
+    
+1. Open a command prompt and run the cURL command.
 
 
 #### [Python](#tab/python)
