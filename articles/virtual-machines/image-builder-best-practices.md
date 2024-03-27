@@ -1,5 +1,5 @@
 ---
-title: Best Practices
+title: Best practices
 description: This article describes best practices to be followed while using Azure VM Image Builder.
 author: sumit-kalra
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.subservice: image-builder
 ms.custom: references_regions
 ---
 
-# Best Practices
+# Best practices
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
