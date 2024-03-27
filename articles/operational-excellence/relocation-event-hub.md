@@ -73,13 +73,11 @@ Modify the template by changing the Event Hubs namespace name and region.
 # [portal](#tab/azure-portal)
 
 
-1. In the Azure portal, select **Create a resource**.
 
-1. In **Search the Marketplace**, type **template deployment**, and then select **Enter**.
 
 1. Select **Template deployment**. 
 
-1. Select **Create**.
+1. In the Azure portal, select **Create**.
 
 1. Select **Build your own template in the editor**.
 
