@@ -185,7 +185,7 @@ Following is an example of setting up firewall rules, and testing your outbound 
     
     1. Navigate to the firewall's overview page and select its firewall policy. 
     
-    1. In the firewall policy page, from the left navigation, select **Application Rules > Add a rule collection**. 
+    1. In the firewall policy page, from the left navigation, select **Application Rules and Network Rules > Add a rule collection.** 
     
     1. In **Rules**, add a network rule with the subnet as the source address, and specify an FQDN destination.  
     
@@ -239,9 +239,10 @@ Well-know FQDN： `{clusterName}.{clusterPoolName}.{subscriptionId}.{region}.hdi
 
 The well-know FQDN is like a public cluster, but it can only be resolved to a CNAME with subdomain, which means well-know FQDN of private cluster must be used with correct `Private DNS zone setting` to make sure FQDN can be finally solved to correct Private IP address. 
 
+Private DNS zone should be able to resolve private FQDN to an IP `(privatelink.{clusterPoolName}.{subscriptionId})`. 
  
 > [!NOTE]
-> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering to bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
+> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering and bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
 
 
 Private FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`

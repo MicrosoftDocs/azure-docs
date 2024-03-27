@@ -93,7 +93,7 @@ Usage of the `lexicon` element's attributes are described in the following table
 
 The supported values for attributes of the `lexicon` element were [described previously](#custom-lexicon).
 
-After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. 
+After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. We support lexicon URLs from Azure Blob Storage, Azure Media Services (AMS) Storage, and GitHub. However, note that other public URLs may not be compatible.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -116,7 +116,7 @@ To define how multiple entities are read, you can define them in a custom lexico
 
 Here are some limitations of the custom lexicon file:
 
-- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails.
+- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails. You can split your lexicon into multiple lexicons and include them in SSML if the file size exceeds 100 KB.
 - **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text to speech when it's first loaded. The lexicon with the same URI isn't reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
