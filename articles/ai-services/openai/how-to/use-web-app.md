@@ -53,7 +53,7 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. 
 
 
-Additionally, the web app synchronized every time the API version being used is [retired](../concepts/model-retirements.md). To synchronize the web app:
+Additionally, the web app must be synchronized every time the API version being used is [retired](../concepts/model-retirements.md). To synchronize the web app:
 1. If you've customized your app, update the app's source code.
 1. Navigate to your web app in the [Azure portal](https://portal.azure.com/).
 1. Select **Deployment center** in the navigation menu, under **Deployment**.
