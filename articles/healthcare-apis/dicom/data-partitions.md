@@ -23,9 +23,11 @@ Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom
 
 ## Enable data partitions during initial deployment 
 
-You enable data partitions by selecting **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed.
+1. Select **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed.
 
-After the data partitions setting is turned on, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition. 
+   After the data partitions setting is turned on, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition.
+
+   :::image type="content" source="media/enable-data-partitions/enable-data-partitions.png" alt-text="Screenshot showing the Enable data partitions option on the Create DICOM service page." lightbox="media/enable-data-partitions/enable-data-partitions.png"::: 
 
 > [!IMPORTANT]
 > Data partitions can't be disabled if partitions other than `Microsoft.Default` are present. When this situation happens, the system throws a `DataPartitionsFeatureCannotBeDisabledException` error on startup.
@@ -33,7 +35,7 @@ After the data partitions setting is turned on, the capability modifies the API 
 ## API changes
 
 All unique resource identifiers (URIs) assume an implicit DICOM service base URI. For example, the base URI of a DICOM server running locally is `https://localhost:63838/`.
-Example requests can be sent in the [Postman collection](../resources/Conformance-as-Postman.postman_collection.json) by providing a value for the `partitionName` collection variable.
+Example requests can be sent in the Postman collection by providing a value for the `partitionName` collection variable.
 
 #### List all data partitions
 This command Lists all data partitions:
@@ -81,7 +83,7 @@ After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and work
 | 400 (Bad Request) | Specified `PartitionName {PartitionName}` doesn't exist.   |
 
 #### Other APIs
-All other APIs, including [extended query tags](../how-to-guides/extended-query-tags.md), [operations](../how-to-guides/extended-query-tags.md#get-operation), and [change feed](change-feed.md) continue to be accessed at the base URI. 
+All other APIs, including extended query tags, operations, and change feed continue to be accessed at the base URI. 
 
 ### Manage data partitions
 
