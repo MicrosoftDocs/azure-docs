@@ -7,7 +7,7 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 03/27/2024
 ms.author: terrylan
 
 ---
@@ -27,7 +27,7 @@ These best practices are intended to be a resource for IT pros. This might inclu
 * [Azure operational security best practices](operational-best-practices.md)
 * [Azure PaaS Best Practices](paas-deployments.md)
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
-* [Best practices for Azure VM security](iaas.md)
+* [Best practices for IaaS workloads in Azure](iaas.md)
 * [Implementing a secure hybrid network architecture in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 * [Internet of Things security best practices](../../iot/iot-overview-security.md)
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
