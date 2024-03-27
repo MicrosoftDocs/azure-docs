@@ -43,11 +43,11 @@ In this article, you learn how to:
 
 ## Add an environment definition
 
-To add an environment definition to a catalog in Azure Deployment Environments, you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
+To add an environment definition to a catalog in Azure Deployment Environments (ADE), you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
 
 To add an environment definition:
 
-1. In your repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com), create a subfolder in the repository folder path.
+1. In your [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com) repository, create a subfolder in the repository folder path.
 
 1. Add two files to the new repository subfolder:
 
@@ -78,8 +78,6 @@ To add an environment definition:
        > [!NOTE]
        > The `version` field is optional. Later, the field will be used to support multiple versions of environment definitions.
 
-      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and an environment file." lightbox="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png":::
-
       To learn more about the options and data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
 
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
@@ -87,6 +85,16 @@ To add an environment definition:
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to sync the catalog." lightbox="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png":::
 
 The service scans the repository to find new environment definitions. After you sync the repository, new environment definitions are available to all projects in the dev center.
+
+### Specify a runner for a custom image
+
+The ADE extensibility model enables you to use your own custom container image. The ADE team provides sample ARM and Bicep templates to help you get started. For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). 
+
+When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. You can edit the runner property to specify the location of your custom image, as shown in the following example:
+
+```yaml
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
+```
 
 ### Specify parameters for an environment definition
 
