@@ -101,7 +101,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows selecting a signal name.](../media/alert-14.png)
 
-1. Use the following configuration parameters:
+1. You can use the following configuration parameters as an example:
 
    + Set **Threshold** to **Static**. 
    + Set **Operator** to **Greater than**.
