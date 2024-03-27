@@ -239,7 +239,7 @@ The following table describes the user identity data included in the **IdentityI
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                | AdditionalMailAddresses  |
 | **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. | AssignedRoles            |
 | **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High*                                     | BlastRadius              |
-| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync*                | ChangeSource             |
+| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*UEBA*<li>*Watchlist*<li>*FullSync*                | ChangeSource             |
 | **CompanyName**                 |          | The company name to which the user belongs.                | CompanyName              |
 | **City**                        | string   | The city of the user account.                              | City                     |
 | **Country**                     | string   | The country of the user account.                           | Country                  |
@@ -253,15 +253,15 @@ The following table describes the user identity data included in the **IdentityI
 | **Manager**                     | string   | The manager alias of the user account.                     | Manager                  |
 | **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas.                                                  | **DistinguishedName**    |
 | **Phone**                       | string   | The phone number of the user account.                      | Phone                    |
-| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *Hybrid* | **SourceProvider** |
+| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*Hybrid* | **SourceProvider** |
 | **State**                       | string   | The geographical state of the user account.                | State                    |
 | **StreetAddress**               | string   | The office street address of the user account.             | **Address**              |
 | **Surname**                     | string   | The surname of the user. account.                          | Surname                  |
 | **TenantId**                    | string   | The tenant ID of the user.                                 | --                       |
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).               | **Timestamp**            |
 | **Type**                        | string   | The name of the table.                                     | --                       |
-| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* | --                    |
-| **UserState**                   | string   | The current state of the user account in Microsoft Entra ID.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* | **Status** |
+| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<li>*AccountDisabled*<li>*HomedirRequired*<li>*AccountLocked*<li>*PasswordNotRequired*<li>*CannotChangePassword*<li>*EncryptedTextPasswordAllowed*<li>*TemporaryDuplicateAccount*<li>*NormalAccount*<li>*InterdomainTrustAccount*<li>*WorkstationTrustAccount*<li>*ServerTrustAccount*<li>*PasswordNeverExpires*<li>*MnsLogonAccount*<li>*SmartcardRequired*<li>*TrustedForDelegation*<li>*DelegationNotAllowed*<li>*UseDesKeyOnly*<li>*DontRequirePreauthentication*<li>*PasswordExpired*<li>*TrustedToAuthenticationForDelegation*<li>*PartialSecretsAccount*<li>*UseAesKeys* | --                    |
+| **UserState**                   | string   | The current state of the user account in Microsoft Entra ID.<br>Possible values:<li>*Active*<li>*Disabled*<li>*Dormant*<li>*Lockout* | **Status** |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). | --                   |
 | **UserType**                    | string   | The user type.                                             | --                       |
 
