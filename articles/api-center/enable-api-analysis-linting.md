@@ -3,7 +3,7 @@ title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 03/26/2024
 ms.author: danlep
 author: dlepow
 ms.custom:
@@ -85,20 +85,16 @@ Follow these steps to deploy the Azure Functions app that runs the linting funct
 
 To enable the function app to access the API center, configure a managed identity for the function app. The following steps show how to enable and configure a system-assigned managed identity for the function app using the Azure portal or the Azure CLI.
 
-> [!NOTE]
-> In preview, this scenario requires the Contributor role to be assigned to the function app's managed identity.
-
-
 #### [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your function app and select **Identity** under the **Settings** section.
 1. On the **System assigned** tab, set the **Status** to **On** and then select **Save**.
 
-Now that the managed identity is enabled, assign it the Contributor role to access the API center.
+Now that the managed identity is enabled, assign it the Azure API Center Compliance Manager role to access the API center.
 
 1. In the Azure portal, navigate to your API center and select **Access control (IAM)**.
 1. Select **+ Add > Add role assignment**.
-1. Select **Privileged administrator roles** and then select **Contributor**. Select **Next**.
+1. Select **Privileged administrator roles** and then select **Azure API Center Compliance Manager**. Select **Next**.
 1. On the **Members** page, in **Assign access to**, select **Managed identity > + Select members**.
 1. On the **Select managed identities** page, search for and select the managed identity of the function app. Click **Select** and then **Next**.
 1. Review the role assignment, and select **Review + assign**.
@@ -136,12 +132,12 @@ Now that the managed identity is enabled, assign it the Contributor role to acce
         --query "id" --output tsv)
     ```
 
-1. Assign the function app's managed identity the Contributor role in the API center using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. 
+1. Assign the function app's managed identity the Azure API Center Compliance Manager role in the API center using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. 
 
     ```azurecli
     #! /bin/bash
     az role assignment create \
-        --role "Contributor" \
+        --role "Azure API Center Compliance Manager" \
         --assignee-object-id $principalID \
         --assignee-principal-type ServicePrincipal \
         --scope $apicID 
@@ -150,7 +146,7 @@ Now that the managed identity is enabled, assign it the Contributor role to acce
     ```azurecli
     # PowerShell syntax
     az role assignment create `
-        --role "Contributor" `
+        --role "Azure API Center Compliance Manager" `
         --assignee-object-id $principalID `
         --assignee-principal-type ServicePrincipal `
         --scope $apicID 
