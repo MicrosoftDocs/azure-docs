@@ -28,8 +28,7 @@ A *data warehouse snapshot* creates a restore point you can leverage to recover 
 > Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that might affect the recovery (restore) time:
 > - The database size
 > - The location of the source and target data warehouse (in the case of a geo-restore)
->
-> - Data warehouse snapshot can't be exported as a seperate file (e.g. For Azure Storage, on-premises environment)
+> - Data warehouse snapshot can't be exported as a separate file (e.g. For Azure Storage, on-premises environment)
 
 A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes.
 
@@ -66,8 +65,7 @@ This feature enables you to manually trigger snapshots to create restore points 
 > If you require restore points longer than 7 days, please [vote for this capability](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
 
 > [!NOTE]
-> T-SQL script can't be used to take backup on-demand, user-defined restore points can be created by using the Azure portal or programmatically by using the PowerShell or REST APIs.
->
+> T-SQL script can't be used to take backup on-demand. User-defined restore points can be created by using the Azure portal or programmatically by using PowerShell or REST APIs.
 > 
 > In case you're looking for a Long-Term Backup (LTR) concept:
 > 1. Create a new user-defined restore point, or you can use one of the automatically generated restore points.
