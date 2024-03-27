@@ -70,13 +70,13 @@ During a load test, Azure Load Testing collects [metrics](./concept-load-testing
 
 Use the Azure Load Testing dashboard to analyze the test run metrics and identify performance bottlenecks in your application, or find out if you over-provisioned some compute resources. For example, you could evaluate if the service plan instances are right-sized for your workload.
 
-:::image type="content" source="media/concept-load-test-app-service/load-test-results-dashboard.png" alt-text="Screenshot that shows the load test results dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/load-test-results-dashboard.png":::
+:::image type="content" source="./media/concept-load-test-app-service/load-test-results-dashboard.png" alt-text="Screenshot that shows the load test results dashboard in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-results-dashboard.png":::
 
 Learn more about how to [monitor server-side metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
 For applications that are hosted on Azure App Service, you can use [App Service diagnostics](/azure/app-service/overview-diagnostics) to get extra insights into the performance and health of the application. When you add an app service application component to your load test configuration, the load testing dashboard provides a direct link to the App Service diagnostics dashboard for your App service resource.
 
-:::image type="content" source="media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
+:::image type="content" source="./media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="./media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
 
 ## Customize your load test's failure criteria
 
@@ -96,7 +96,7 @@ One example is using a parameter as an environment variable so you can avoid sto
 
 Another use for parameters is when you want to reuse your test script across multiple [Azure App Service deployment slots](/azure/app-service/deploy-staging-slots). Deployment slots are live apps with their own host names and separate URLs. Use a parameter for the application endpoint and then you can set up staging environments for your application. 
 
-:::image type="content" source="media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="media/concept-load-test-app-service/quick-test-parameters.png":::
+:::image type="content" source="./media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="./media/concept-load-test-app-service/quick-test-parameters.png":::
 
 
 ## Next steps
