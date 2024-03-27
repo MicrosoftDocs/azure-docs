@@ -50,6 +50,7 @@ This tutorial describes how to copy data from your host computer and generate ch
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Determine appropriate access tiers for block blobs
 > * Copy data to Data Box Disk
 > * Verify data
 
@@ -70,22 +71,28 @@ Before you begin, make sure that:
 
 Azure Storage allows you to store block blob data in multiple access tiers within the same storage account. This ability allows data to be organized and stored more efficiently based on how often it's accessed. The following table contains information and recommendations about Azure Storage access tiers.
 
-| Tier    | Recommendation | Best practice |
-|---------|----------------|---------------|
-| Hot     | Useful for online data accessed or modified frequently. This tier has the highest storage costs, but the lowest access costs. | Data in this tier should be in regular and active use. |
-| Cool    | Useful for online data accessed or modified infrequently. This tier has lower storage costs and higher access costs than the hot tier. | Data in this tier should be stored for at least 30 days. |
-| Cold    | Useful for online data accessed or modified rarely but still requiring fast retrieval. This tier has lower storage costs and higher access costs than the cool tier.| Data in this tier should be stored for a minimum of 90 days. |
-| Archive | Useful for offline data rarely accessed and having lower latency requirements. | Data in this tier should be stored for a minimum of 180 days. Data removed from the archive tier within 180 days is subject to an early deletion charge. |
+| Tier        | Recommendation | Best practice |
+|-------------|----------------|---------------|
+| **Hot**     | Useful for online data accessed or modified frequently. This tier has the highest storage costs, but the lowest access costs. | Data in this tier should be in regular and active use. |
+| **Cool**    | Useful for online data accessed or modified infrequently. This tier has lower storage costs and higher access costs than the hot tier. | Data in this tier should be stored for at least 30 days. |
+| **Cold**    | Useful for online data accessed or modified rarely but still requiring fast retrieval. This tier has lower storage costs and higher access costs than the cool tier.| Data in this tier should be stored for a minimum of 90 days. |
+| **Archive** | Useful for offline data rarely accessed and having lower latency requirements. | Data in this tier should be stored for a minimum of 180 days. Data removed from the archive tier within 180 days is subject to an early deletion charge. |
 
 For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
-You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to disks](#copy-data-to-disks) section.
+You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box Disk. This process is discussed in greater detail within the [Copy data to disks](#copy-data-to-disks) section.
 
 ## Copy data to disks
 
 Review the following considerations before you copy the data to the disks:
 
-- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the folder corrresponding to the appropriate access tier within the *BlockBlob* folder. Frequently used block blobs should be copies to the *Hot* tier's folder within *BlockBlob*. Likewise, blobs being uploaded to the *archive* tier should be copied to the *Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
+- It is your responsibility to copy local data to the share which corresponds to the appropriate data format. For instance, copy block blob data to the *BlockBlob* share. Copy VHDs to the *PageBlob* share. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
+- You can't copy data directly to a share's *root* folder. Instead, create a folder within the appropriate share and copy your data into it.
+    - Folders located at the *PageBlob* share's *root* correspond to containers within your storage account. A new container will be created for any folder whose name does not match an existing container within your storage account.
+    - Folders located at the *AzFile* share's *root* corrsepond to Azure file shares. A new file share will be created for any folder whose name does not match an existing file share within your storage account.
+    - The *BlockBlob* share's *root* level contains one folder corresponding to each access tier. When copying data to the *BlockBlob* share, create a subfolder within the top-level folder corresponding to the desired access tier. As with the *PageBlob* share, a new containers will be created for any folder whose name doesn't match an existing container. Data within the container will be copied to the tier corresponding to the subfolder's top-level parent.
+    
+      A container will also be created for any folder residing at the *BlockBlob* share's *root*, though the data it will be copied to the container's default access tier. To ensure that your data is copied to the desired access tier, don't create folders at the *root* level.
 
    > [!IMPORTANT]
    > Data uploaded to the archive tier remains offline and needs to be rehydrated before reading or modifying. Data copied to the archive tier must remain for at least 180 days or be subject to an early deletion charge. Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
@@ -93,6 +100,9 @@ Review the following considerations before you copy the data to the disks:
 - While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
 - To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
 - If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
+
+   > [!IMPORTANT]
+   >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
