@@ -38,7 +38,6 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Connect to Data Box Heavy
-> * Determine appropriate access tiers for block blobs
 > * Copy data to Data Box Heavy
 
 ::: zone-end
@@ -62,11 +61,11 @@ Before you begin, make sure that:
 3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
-   
 
 ## Connect to Data Box Heavy shares
 
 Based on the storage account selected, Data Box Heavy creates up to:
+
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium storage.
 - One share for a blob storage account, containing one folder for each of the four access tiers.
@@ -79,15 +78,7 @@ The following table identifies the names of the Data Box shares to which you can
 | Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
 | File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
-The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL to which data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
- 
-| Azure Storage types | Data Box shares |
-|---------------------|-----------------|
-| Azure Block blobs   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myBlob.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.txt`</li> |
-| Azure Page blobs    | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myBlob.vhd`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.vhd`</li> | 
-| Azure Files         | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li> | 
-
-Note that you can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
+You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
 
 Block blobs support the assignment of access tiers at the file level. When copying files to the block blob share, the recommended best-practice is to add new subfolders within the appropriate access tier. After creating new subfolders, continue adding files to each subfolder as appropriate. 
 
@@ -96,6 +87,14 @@ A new container is created for any folder residing at the root of the block blob
 For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed information about access tier best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
 The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL to which data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+ 
+| Azure Storage types | Data Box shares |
+|---------------------|-----------------|
+| Azure Block blobs   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myBlob.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.txt`</li> |
+| Azure Page blobs    | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myBlob.vhd`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.vhd`</li> | 
+| Azure Files         | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li> | 
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed information about access tier best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
 The steps to connect using a Windows or a Linux client are different.
 
