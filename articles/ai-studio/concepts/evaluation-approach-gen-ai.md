@@ -67,7 +67,7 @@ One application of AI-assisted quality and performance evaluations is the creati
 
    Annotate each interaction from the test dataset with a severity and reasoning derived from a severity scale that is defined for each type of content and security risk.
 
-Because the provisioned GPT-4 models act as an adversarial dataset generator or annotator, their safety filters are turned off and the models are hosted in a back-end service. The prompts used for these LLMs and the targeted adversarial prompt datasets are also hosted in the service. Due to the sensitive nature of the content being generated and passed through the LLM, the models and data assets are “eyes off” and not directly accessible to Azure AI Studio customers.
+Because the provisioned GPT-4 models act as an adversarial dataset generator or annotator, their safety filters are turned off and the models are hosted in a back-end service. The prompts used for these LLMs and the targeted adversarial prompt datasets are also hosted in the service. Due to the sensitive nature of the content being generated and passed through the LLM, the models and data assets aren't directly accessible to Azure AI Studio customers.
 
 The adversarial targeted prompt datasets were developed by Microsoft researchers, applied scientists, linguists, and security experts to help users get started with evaluating content and security risks in generative AI systems.
 
