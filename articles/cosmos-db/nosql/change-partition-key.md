@@ -1,5 +1,5 @@
 ---
-title: Change Partition Key
+title: Change partition key
 titleSuffix: Azure Cosmos DB
 description: Change partition key in Azure Cosmos DB for NOSQL API.
 author: richagaur
@@ -7,7 +7,7 @@ ms.author: richagaur
 ms.service: cosmos-db
 ms.topic: conceptual
 ---
-# Changing the Partition Key in Azure Cosmos DB (Preview)
+# Changing the partition key in Azure Cosmos DB (preview)
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
@@ -18,7 +18,7 @@ In the realm of database management, it isn't uncommon for the initially chosen 
 
 To address these issues, Azure Cosmos DB offers the ability to seamlessly change the partition key using the Azure portal.
 
-## Getting Started
+## Getting started
 
 To change the partition key of a container in Azure Cosmos DB for the NoSQL API using the Azure portal, follow these steps:
 
@@ -28,7 +28,7 @@ To change the partition key of a container in Azure Cosmos DB for the NoSQL API 
 
 ![Screenshot of the Change partition key feature in the Data Explorer in an Azure Cosmos DB account.](media/change-pk/cosmosdb-change-pk.png)
 
-## How the Change Partition Key Works
+## How the change partition key works
 
 Changing the partition key entails creating a new destination container or selecting an existing destination container within the same database.
 
@@ -52,7 +52,7 @@ Once the copy is complete, you can start using the new container with desired pa
    * [Merge partition](../merge.md)
 - The feature is currently supported only in the documented [regions](../container-copy.md#supported-regions).
   
-## Next Steps
+## Next steps
 
 - Explore more about [container copy jobs](../container-copy.md).
 - Learn further about [how to choose a partition key](../partitioning-overview.md#choose-partitionkey).
