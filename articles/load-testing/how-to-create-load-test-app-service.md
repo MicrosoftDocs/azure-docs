@@ -35,7 +35,9 @@ To create a load test for a web app:
 
 1. On the left pane, select **Load Testing (Preview)** under the **Performance** section.
 
-    On this page, you can see the list of tests and the load test runs for this web app. 
+    On this page, you can see the list of tests and the load test runs for this web app.
+   
+:::image type="content" source="./media/how-to-create-load-test-app-service.md/app-service-load-testing.png" lightbox="/media/how-to-create-load-test-app-service.md/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
 
 1. Optionally, select **Create load testing resource** if you don't have a load testing resource yet.
 
@@ -51,6 +53,8 @@ To create a load test for a web app:
     | **Run test after creation**  | When selected, the load test starts automatically after creating the test. |
 
 1. If you have multiple deployment slots for the web app, select the **Slot** against which to run the load test.
+
+   :::image type="content" source="./media/how-to-create-load-test-app-service.md/app-service-create-test-resource-configuration.png" lightbox="/media/how-to-create-load-test-app-service.md/app-service-create-test-resource-configuration.png" alt-text="Screenshot that shows the resource configuration page for creating a test in App Service.":::
 
 1. Select **Add request** to add HTTP requests to the load test:
 
@@ -83,6 +87,9 @@ To create a load test for a web app:
 
     Learn more about [load testing privately hosted endpoints](./how-to-test-private-endpoint.md).
 
+   :::image type="content" source="./media/how-to-create-load-test-app-service.md/app-service-create-test-load-configuration.png" lightbox="/media/how-to-create-load-test-app-service.md/app-service-create-test-load-configuration.png" alt-text="Screenshot that shows the load configuration page for creating a test in App Service.":::
+
+
 1. Select **Review + create** to review the test configuration, and then select **Create** to create the load test.
 
     Azure Load Testing now creates the load test. If you selected **Run test after creation** previously, the load test starts automatically.
@@ -103,6 +110,8 @@ You can view the list of test runs and a summary overview of the test results di
     For each test run, you can view the test details and a summary of the test outcome, such as average response time, throughput, and error state.
 
 1. Select a test run to go to the Azure Load Testing dashboard and analyze the test run details.
+
+   :::image type="content" source="./media/how-to-create-load-test-app-service.md/app-service-test-runs-list.png" lightbox="/media/how-to-create-load-test-app-service.md/app-service-test-runs-list.png" alt-text="Screenshot that shows the test runs list in App Service.":::
 
 ## Next steps
 
