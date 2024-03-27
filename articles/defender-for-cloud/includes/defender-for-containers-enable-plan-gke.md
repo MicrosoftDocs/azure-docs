@@ -117,3 +117,28 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 1. In the Value dropdown menu, select **GCP GKE Cluster**.
 
 1. Select **Ok**.
+
+## Deploying the Defender sensor
+
+To deploy the Defender sensor on your GCP clusters, follow these steps:
+
+1. Go to **Microsoft Defender for Cloud** -> **Environment settings** -> **Add environment** -> **Google Cloud Platform**.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/add-gcp-environment.png" alt-text="Screenshot of how to add a GCP environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/add-gcp-environment.png":::
+
+1. Fill in the account details.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/add-gcp-account-details.png" alt-text="Screenshot of the form to fill in the account details for a GCP environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/add-gcp-account-details.png":::
+
+1. Go to **Select plans**, open the Containers plan, and make sure **Auto provision Defender's sensor for Azure Arc** is set to on.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/enable-sensor-for-azure-arc-gcp.png" alt-text="Screenshot of how to enable the Defender sensor for Azure Arc in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/enable-sensor-for-azure-arc-gcp.png":::
+
+1. Go to **Configure access** and follow the steps there.
+
+    :::image type="content" source="../media/defender-for-kubernetes-intro/configure-access-gcp.png" alt-text="Screenshot of how to configure access for a GCP environment in Microsoft Defender for Cloud." lightbox="../media/defender-for-kubernetes-intro/configure-access-gcp.png":::
+
+1. After the gcloud script ran successfully, select **Create**.
+
+> [!NOTE]
+> You can exclude a specific GCP cluster from autoprovisioning. For sensor deployment, apply the `ms_defender_container_exclude_agents` label on the resource with the value `true`. For agentless deployment, apply the `ms_defender_container_exclude_agentless` label on the resource with the value `true`.
