@@ -118,11 +118,11 @@ Perform the following steps to connect and copy data from your computer to the D
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and subfolders  |
     |------------------------------|--------------------|-----------------------------|------------------------|
-    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>PageBlob<br>AzureFile |
-    |Storage account               |Blob storage account| NA                          | BlockBlob |
+    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul><br>PageBlob<br>AzureFile |
+    |Storage account               |Blob storage account| NA                          | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul> |
     |Managed disks                 |NA                  | GPv1 or GPv2                | ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
-    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
-    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
+    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul><br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
+    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul><br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
 
     The following screenshot shows an order where a GPv2 storage account and archive tier were specified:
 
