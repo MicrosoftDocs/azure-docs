@@ -12,7 +12,7 @@ ms.author: eric-urban
 
 To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can initiate an evaluation process. During this evaluation, your application is tested with the given dataset, and its performance will be quantitatively measured with both mathematical based metrics and AI-assisted metrics. This evaluation run provides you with comprehensive insights into the application's capabilities and limitations.
 
-To carry out this evaluation, you can utilize the evaluation functionality in Azure AI Studio, a comprehensive platform that offers tools and features for assessing the performance and safety of your generative AI model. In AI Studio, you're able to log, view and analyze detailed evaluation metrics.
+To carry out this evaluation, you can utilize the evaluation functionality in Azure AI Studio, a comprehensive platform that offers tools and features for assessing the performance and safety of your generative AI model. In AI Studio, you're able to log, view, and analyze detailed evaluation metrics.
 
 In this article, you learn to create an evaluation run from a test dataset or a flow with built-in evaluation metrics from Azure AI Studio UI. For greater flexibility, you can establish a custom evaluation flow and employ the  **custom evaluation** feature. Alternatively, if your objective is solely to conduct a batch run without any evaluation, you can also utilize the custom evaluation feature.
 
@@ -46,7 +46,7 @@ When you enter the evaluation creation wizard, you can provide an optional name 
 
 + **Question and answer with context**: This scenario is designed for applications that involve answering user queries and providing responses with context information.
 + **Question and answer without context**: This scenario is designed for applications that involve answering user queries and providing responses without context.
-+ **Conversation with context**: This scenario is suitable for applications where the model engages in single-turn or multi-turn conversation with context to extract information from your provided documents and generate detailed responses. We require you to follow a specific data format to run the evaluation. Please download the data template to understand how to format your dataset correctly.
++ **Conversation with context**: This scenario is suitable for applications where the model engages in single-turn or multi-turn conversation with context to extract information from your provided documents and generate detailed responses. We require you to follow a specific data format to run the evaluation. Download the data template to understand how to format your dataset correctly.
 
 :::image type="content" source="../../../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the basic information page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/basic-information.png":::
 
@@ -77,7 +77,7 @@ When using AI-assisted metrics for performance and quality evaluation, you must 
 
 :::image type="content" source="../../../media/evaluations/evaluate/quality-metrics.png" alt-text="Screenshot of the select metrics page with quality metrics selected when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/quality-metrics.png":::
 
-For risk and safety metrics, you do not need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
+For risk and safety metrics, you don't need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
 
 You can set the threshold to calculate the defect rate for the risk and safety metrics. The defect rate is calculated by taking a percentage of instances with severity levels (Very low, Low, Medium, High) above a threshold. By default, we set the threshold as “Medium”.
 
@@ -146,7 +146,7 @@ For guidance on the specific data mapping requirements for each metric, refer to
 | Violent content            | Required: list |
 | Sexual content             | Required: list |
 
-Messages: message key that follow the chat protocol format defined by Azure Open AI for [conversations](../concept/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
+Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../concept/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
 
 #### Review and finish
 

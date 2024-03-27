@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you may not have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
+Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you might not have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task, and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
 
 There are two main scenarios for generating a simulated interaction:
 
@@ -57,14 +57,14 @@ aoai_config = AzureOpenAIModelConfiguration.from_connection(
 )
 ```
 
-`max_tokens` and `temperature` are optional, the default value for `max_tokens` is 300, the default value for `temperature` is 0.9.
+`max_tokens` and `temperature` are optional. The default value for `max_tokens` is 300. The default value for `temperature` is 0.9.
 
 ### Initialize simulator class
 
 `Simulator` class supports interacting between the system large language model and the following:
 
 - A local function that follows a protocol.
-- A local standard chat PromptFlow as defined with the interface in the [develop chat flow example](https://microsoft.github.io/promptflow/how-to-guides/develop-a-flow/develop-chat-flow.html).
+- A local standard chat PromptFlow as defined with the interface in the [develop a chat flow example](https://microsoft.github.io/promptflow/how-to-guides/develop-a-flow/develop-chat-flow.html).
 
 ```python
 function_simulator = Simulator.from_fn(
@@ -83,7 +83,7 @@ promptflow_simulator = Simulator.from_pf(
 
 #### Specifying a callback function to initialize your Simulator
 
-For a more custom simulator which can support wrapping a more complex or custom target function, we support passing in a callback function when instantiating your Simualtor. The following is an example of providing a local function or local flow, and wrapping it in a `simulate_callback` function:
+For a more custom simulator, which can support wrapping a more complex or custom target function, we support passing in a callback function when instantiating your Simulator. The following is an example of providing a local function or local flow, and wrapping it in a `simulate_callback` function:
 
 ```python
 async def simulate_callback(
@@ -120,12 +120,13 @@ custom_simulator = Simulator.from_fn(
 ## Simulating general scenarios
 
 We provide the basic prompt templates needed for the system large language model to simulate different scenarios with your target
+
 | Task type          | Template name   |
 |--------------------|-----------------|
 | Conversation       | `conversation`  |
 | Summarization      | `summarization` |
 
-which can be called as a function by the `Simulator` by passing in the template name for the desired task above in the `get_template()` function
+Which can be called as a function by the `Simulator` by passing in the template name for the desired task above in the `get_template()` function
 ```python
 conversation_template = Simulator.get_template("conversation")
 conversation_parameters = task_template.get_parameters
@@ -133,7 +134,7 @@ print(conversation_parameters) # shows parameters needed for the prompt template
 print(conversation_template) # shows the prompt template that is used to generate conversations
 ```
 
-Configure the parameters for the simulated scenario (i.e. conversation) prompt template as a dictionary with the name of your simulated user, its profile description, tone, task, conversation starter input, and any additional metadata you may want to provide as part of the persona or task. You can also configure the name of your target chat application to ensure that the simulator knows what it is interacting with.
+Configure the parameters for the simulated scenario (conversation) prompt template as a dictionary with the name of your simulated user, its profile description, tone, task, conversation starter input, and any additional metadata you might want to provide as part of the persona or task. You can also configure the name of your target chat application to ensure that the simulator knows what it's interacting with.
 ```python
 conversation_parameters = {
     "name": "Cortana",
@@ -158,11 +159,11 @@ conversation_result = await simulator.simulate(
     max_conversation_turns = 3
 )
 ```
-`max_conversation_turns` defines how many turns the simulator will generate at most. It is optional, default value is 1. A turn is defined as a pair of input from the simulated "user" then response from your "assistant. `max_conversation_turns` parameter is only valid for the template type for conversations.
+`max_conversation_turns` defines how many turns the simulator will generate at most. It's optional, default value is 1. A turn is defined as a pair of input from the simulated "user" then response from your "assistant. `max_conversation_turns` parameter is only valid for the template type for conversations.
 
 ### Create custom simulation task templates
 
-If the provided built in templates are not sufficient, you can create your own templates by either passing in a prompt template directly or passing string in that can be passed to the system large language model simulator.
+If the provided built-in templates aren't sufficient, you can create your own templates by either passing in a prompt template directly or passing string in that can be passed to the system large language model simulator.
 
 ```python
 custom_scenario_template = Simulator.create_template(template="My template content in string") # pass in string
@@ -171,7 +172,7 @@ custom_scenario_template = Simulator.create_template(template_path="custom_simul
 
 ## Simulating adversarial scenarios
 
-Like the general-purpose simulator, you instantiate the adversarial simulator with the target you want to simulate against. However, you do not need to configure the simulator connection. Instead, pass in your AI Client, as the deployment for handling adversarial simulation for generating adversarial datasets is handled by a backend service.
+Like the general-purpose simulator, you instantiate the adversarial simulator with the target you want to simulate against. However, you don't need to configure the simulator connection. Instead, pass in your AI Client, as the deployment for handling adversarial simulation for generating adversarial datasets is handled by a backend service.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -209,11 +210,11 @@ adv_conversation_result = adversarial_simulator.simulate(
 )
 ```
 
-You can set `max_simulation_results` which controls the number of generations (i.e. conversations) you want in your dataset. By default, the full maximum number of simulations will be generated in the `adv_conversation_result`. 
+You can set `max_simulation_results` which controls the number of generations (conversations) you want in your dataset. By default, the full maximum number of simulations will be generated in the `adv_conversation_result`. 
 
 ### Generate an adversarial dataset with jailbreak injections
 
-Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can generate the adversarial content harms dataset with jailbreak injections with the following flag 
+Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can generate the adversarial content harms dataset with jailbreak injections with the following flag. 
 
 ```python
 adv_conversation_result_with_jailbreak = adversarial_simulator.simulate(
@@ -223,7 +224,7 @@ adv_conversation_result_with_jailbreak = adversarial_simulator.simulate(
 )
 ```
 
-The service provide a list of jailbreak `conversation_starters`, and the `jailbreak=true` randomly samples from that dataset for each generation.
+The service provides a list of jailbreak `conversation_starters`, and the `jailbreak=true` randomly samples from that dataset for each generation.
 
 ### Output
 
@@ -231,9 +232,9 @@ The `conversation_result` will be an array of messages.
 
 The `messages` in `conversation_result` is a list of conversation turns, for each conversation turn, it contains `content` which is the content of conversation, `role` which is either the user (simulated agent) or assistant and any required citations or context from either simulated user or the chat application.
 
-The `simulation_parameters` contains the parameters passed into the template used for simulating the scenario (i.e. conversation). 
+The `simulation_parameters` contains the parameters passed into the template used for simulating the scenario (conversation).
 
-Note that if an array of parameters is provided for a template, the simulator will return an array of outputs with the format specified as below:
+If an array of parameters is provided for a template, the simulator will return an array of outputs with the format specified as below:
 
 ```json
 {
@@ -268,7 +269,7 @@ Note that if an array of parameters is provided for a template, the simulator wi
 }
 ```
 
-This aligns to Azure AI SDK's `evaluate` function call which takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
+This aligns to Azure AI SDK's `evaluate` function call that takes in this chat format dataset for evaluating metrics such as groundedness, relevance, and retrieval_score if `citations` are provided.
 
 > [!TIP]
 > All outputs of the simulator will follow the chat protocol format above. To convert a single turn chat format to Question and Answering pair format, use the helper function `to_eval_qa_json_lines()` on your simulator output.  
@@ -277,7 +278,7 @@ This aligns to Azure AI SDK's `evaluate` function call which takes in this chat 
 
 #### Early termination
 
-Stop conversation earlier if the conversation meet certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well
+Stop conversation earlier if the conversation meet certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well.
 
 #### Retry
 
