@@ -652,6 +652,22 @@ items:
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Web UI library
       href: https://aka.ms/acsstorybook
+    - name: Call Automation
+      items:
+      - name: Overview
+        href: concepts/call-automation/call-automation.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/communication-services/
+      - name: Answer a call
+        href: concepts/call-automation/incoming-call-notification.md
+      - name: Connect to Azure AI
+        href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
+      - name: Play audio
+        href: concepts/call-automation/play-action.md
+      - name: Gather user input 
+        href: concepts/call-automation/recognize-action.md
+      - name: Ring Microsoft Teams users
+        href: concepts/call-automation/call-automation-teams-interop.md
     - name: Teams interoperability
       items:
       - name: Overview
@@ -877,15 +893,15 @@ items:
         href: concepts/call-automation/call-automation.md
       - name: Pricing
         href: https://azure.microsoft.com/pricing/details/communication-services/
-      - name: Learn about inbound calls
+      - name: Answer a call
         href: concepts/call-automation/incoming-call-notification.md
-      - name: Connecting Azure Communication Services to Azure AI services
+      - name: Connect to Azure AI
         href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
-      - name: Play audio in call
+      - name: Play audio
         href: concepts/call-automation/play-action.md
-      - name: Gathering user input 
+      - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
-      - name: Add Microsoft Teams users in Call Automation workflows
+      - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
