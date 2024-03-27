@@ -10,7 +10,7 @@ ms.subservice: image-builder
 ms.custom: references_regions
 ---
 
-# Best practices
+# Azure VM Image Builder best practices
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
