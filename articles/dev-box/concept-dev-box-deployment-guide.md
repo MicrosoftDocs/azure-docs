@@ -25,7 +25,9 @@ Each of these roles has specific responsibilities during the deployment of Micro
 
 - **Platform engineer**: works with the IT admins to configure the developer infrastructure and tools for developer teams. This consists of the following tasks:
     - Configure Microsoft Entra ID to enable identity and authentication for development team leads and developers
-    - Create and configure Azure resources in the organization's Azure subscriptions
+    - Create and manage a dev center in the organization's Azure subscription
+    - Create and manage network connections, and dev box definitions within a dev center
+    - Create and configure other Azure resources in the organization's Azure subscriptions
     - Configure Microsoft Intune device configuration for dev boxes and assignment of licenses to Dev Box users
     - Configure networking settings to enable secure access and connectivity to organizational resources
     - Configure security settings for authorizing access to dev boxes
@@ -33,8 +35,8 @@ Each of these roles has specific responsibilities during the deployment of Micro
 - **Development team lead**: assists with creating and managing the developer experience. This includes the following tasks:
     - Create and manage projects within a dev center
     - Create and manage dev box pools within a project
-    - Dev box definitions?
-
+    - Provide input to platform engineers for creating and managing dev box definitions in the dev center
+ 
 - **Developer**: self-serve one or more dev boxes within their assigned projects.
     - Create and manage a dev box based on project dev box pool from the developer portal
     - Connect to a dev box by using remote desktop or from the browser
