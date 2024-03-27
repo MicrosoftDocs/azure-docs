@@ -68,7 +68,7 @@ For any of these scenarios, you have the extra option to authenticate using SAP'
 
 Deploying the data connector agent container includes the following steps:
 
-1. [Creating the virtual machine and setting up access to your SAP system credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials). This step may need to be performed by other appropriate personnel but it must be done first.
+1. [Creating the virtual machine and setting up access to your SAP system credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials). This procedure may need to be performed by another team in your organization, but must be performed before the other procedures in this article.
 
 1. [Set up and deploy the data connector agent](#deploy-the-data-connector-agent).
 
@@ -93,12 +93,12 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 - If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](reference-systemconfig.md), though this is not preferred.
 
 > [!NOTE]
-> This procedure must be performed before setting up and deploying your data connector agent, and may need to be performed by another team in your organization. Regardless, this procedure must be performed before the other procedures in this article.
-> 
+> This procedure may need to be performed by another team in your organization, but must be performed before the other procedures in this article.
+>
 
 Select one of the following tabs, depending on how you plan to access your key vault:
 
-# [Managed identity](#tab/managed-identity)
+# [Managed identity access](#tab/create-managed-identity)
 
 ### Create a managed identity with an Azure VM
 
@@ -137,7 +137,7 @@ Select one of the following tabs, depending on how you plan to access your key v
 
 1. Copy the **systemAssignedIdentity** GUID, as it will be used in the coming steps. This is your **managed identity**.
 
-# [Registered application](#tab/registered-application)
+# [Registered application access](#tab/create-registered-application)
 
 ### Register an application to create an application identity
 
@@ -162,7 +162,7 @@ Select one of the following tabs, depending on how you plan to access your key v
 
 1. Before proceeding any further, create a virtual machine on which to deploy the agent. You can create this machine in Azure, in another cloud, or on-premises.
 
-# [Configuration file](#tab/config-file)
+# [Configuration file access](#tab/create-config-file)
 
 ### Create a configuration file
 
@@ -204,7 +204,7 @@ This procedure describes how to create a key vault to store your agent configura
 
     Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to your identity, substituting actual names for the `<placeholder>` values. Select the tab for the type of identity you'd created.
 
-    # [Managed identity](#tab/managed-identity)
+    # [Assign managed identity permissions](#tab/perms-managed-identity)
 
     Run one of the following commands, depending on your preferred Key Vault permission model, to assign key vault secrets permissions to your VM's system-assigned managed identity. The policy specified in the commands allows the VM to list and read secrets from the key vault.
 
@@ -220,7 +220,7 @@ This procedure describes how to create a key vault to store your agent configura
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <ManagedIdentityId> --secret-permissions get list
         ```
 
-    # [Registered application](#tab/registered-application)
+    # [Assign registered application permissions](#tab/perms-registered-application)
 
     Run one of the following commands, depending on your preferred Key Vault permission model, to assign key vault secrets permissions to your VM's registered application identity. The policy specified in the commands allows the VM to list and read secrets from the key vault.
 
@@ -274,13 +274,13 @@ Now that you've created a VM and a Key Vault, your next step is to create a new 
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
-Use one of the following sets of procedures, depending on whether you're using a managed identity or a registered application to access your key vault, and whether you're using the Azure portal or the command line to deploy the agent.
+Use one of the following sets of procedures, depending on whether you're using a managed identity or a registered application to access your key vault, and whether you're using the Azure portal or the command line to deploy the agent. The Azure portal can only be used with an Azure key vault. If you're using a configuration file instead, make sure to use one of the [command line options](#command-line-options).
 
 ### Azure portal options (Preview)
 
 Select one of the following tabs, depending on the type of identity you're using to access your key vault:
 
-# [Managed identity](#tab/managed-identity)
+# [Deploy with a managed identity](#tab/deploy-azure-managed-identity)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -377,7 +377,7 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Registered application](#tab/registered-application)
+# [Deploy with a registered application](#tab/deploy-azure-registered-application)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -474,18 +474,14 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Configuration file](#tab/config-file)
-
-**The Azure portal can only be used with Azure Key Vault.**
-
-To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 ---
+
 
 ### Command line options
 
 Select one of the following tabs, depending on the type of identity you're using to access your key vault:
 
-# [Managed identity](#tab/managed-identity)
+# [Deploy with a managed identity (CLI)](#tab/deploy-cli-managed-identity)
 
 Create a new agent using the command line, authenticating with a managed identity:
 
@@ -519,7 +515,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Registered application](#tab/registered-application)
+# [Deploy with a registered application (CLI)](#tab/deploy-cli-registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
@@ -554,7 +550,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Configuration file](#tab/config-file)
+# [Deploy with a configuration file (CLI)](#tab/deploy-cli-config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
