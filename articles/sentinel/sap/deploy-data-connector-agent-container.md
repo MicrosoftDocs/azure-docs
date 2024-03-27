@@ -274,7 +274,7 @@ Now that you've created a VM and a Key Vault, your next step is to create a new 
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
-# [Azure portal (Preview)](#tab/portal-managed-identity)
+# [Azure portal and managed identity (Preview)](#tab/portal-managed-identity)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -371,7 +371,7 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal (Preview)](#tab/portal-registered-application)
+# [Azure portal and registered application (Preview)](#tab/portal-registered-application)
 
 > [!NOTE]
 > If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
@@ -468,13 +468,13 @@ Anyone adding a new connection to an SAP system must have write permission to th
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal (Preview)](#tab/portal-config-file)
+# [Azure portal and configuration file(Preview)](#tab/portal-config-file)
 
 **The Azure portal can only be used with Azure Key Vault.**
 
 To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 
-# [Command line script](#tab/command-line-managed-identity)
+# [Command line script and managed identity](#tab/command-line-managed-identity)
 
 Create a new agent using the command line, authenticating with a managed identity:
 
@@ -508,7 +508,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line script](#tab/command-line-registered-application)
+# [Command line script and registered application](#tab/command-line-registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
@@ -543,7 +543,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line script](#tab/command-line-config-file)
+# [Command line script and configuration file](#tab/command-line-config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
