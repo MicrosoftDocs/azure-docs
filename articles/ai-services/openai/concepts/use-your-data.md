@@ -105,6 +105,8 @@ If you're using your own index, you can customize the [field mapping](#index-fie
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic search, and keyword search.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
+
 ### Intelligent search
 
 Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
@@ -176,6 +178,8 @@ When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify
 
 You might want to use Azure Blob Storage as a data source if you want to connect to existing Azure Blob Storage and use files stored in your containers.
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
+
 ## Schedule automatic index refreshes
 
 > [!NOTE] 
@@ -218,8 +222,6 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data, and optionally creating a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
 
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
-
-[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
