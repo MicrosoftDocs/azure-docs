@@ -1,5 +1,5 @@
 ---
-title: Deploy SAP Change Requests (CRs) and configure authorization
+title: Configure SAP authorizations and deploy optional SAP Change Requests (CRS)
 titleSuffix: Microsoft Sentinel
 description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 author: batamig
@@ -10,38 +10,11 @@ appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender por
 ms.collection: usx-security
 ---
 
-# Deploy SAP Change Requests and configure authorization
+# Configure SAP authorizations and deploy optional SAP Change Requests
 
-This article shows you how to deploy SAP Change Requests (CRs), which prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
+This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
 
-> [!IMPORTANT]
-> - This article presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below. <!--update cr number to the new one?-->
-
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
-## Required and optional CRs
-
-This article discusses the installation of the following CRs:
-
-|CR |Required/optional |Description |
-|---------|---------|---------|
-|NPLK900271 |Required |This CR creates and configures a role. Alternatively, you can load the authorizations directly from a file. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
-|NPLK900201 or NPLK900202 |Optional |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
-
-<!--update cr number to the new one?-->
-## Prerequisites
-
-1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process. For the following example, the following details are assumed:
-
-    - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
-    - **SID:** `A4H`
-    - **System number:** `00`
-    - **Client number:** `001`
-    - **IP address:** `192.168.136.4`
-    - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
-1. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) to determine which CRs to install.
-1. If you installed the NPLK900202 [optional CR](#required-and-optional-crs) used to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
+- [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
 ## Deployment milestones
 
@@ -70,160 +43,33 @@ Track your SAP solution deployment journey through this series of articles:
    - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
    - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
-To deploy the CRs, follow the steps outlined below. The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
+## Configure the Microsoft Sentinel role
 
-## Deploy CRs
+1. Upload role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub. 
 
-> [!NOTE]
-> 
-> It is *strongly recommended* that the deployment of SAP CRs be carried out by an experienced SAP system administrator.
+    This creates the **/MSFTSEN/SENTINEL_RESPONDER** role, which includes all the authorizations required to retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
 
-### Set up the files
+    Alternately, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](#required-abap-authorizations).    The examples in this procedure use the **/MSFTSEN/SENTINEL_RESPONDER** name.
 
-1. Sign in to the SAP system using SSH.
-
-1. Transfer the CR files to the SAP system. Learn more about [the CRs in this step](#required-and-optional-crs). 
-
-    Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:
-
-    <!--update cr number to the new one?-->
-    - Download NPLK900271 (required)
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
-        ```
-
-        Alternatively, you can [load these authorizations directly from a file](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).
-  
-    - Download NPLK900202 (optional)
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
-        ```
-
-    - Download NPLK900201 (optional)
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
-        ```    
-
-    Note that each CR consists of two files, one beginning with K and one with R.
-
-1. Change the ownership of the files to user *`<sid>`adm* and group *sapsys*. (Substitute your SAP system ID for `<sid>`.)
-
-    ```bash
-    chown <sid>adm:sapsys *.NPL
-    ```
-
-    In our example:
-    ```bash
-    chown a4hadm:sapsys *.NPL
-    ```
-
-1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
-
-    ```bash
-    cp -p K*.NPL /usr/sap/trans/cofiles/
-    ```
-
-1. Copy the data files (those beginning with R) to the `/usr/sap/trans/data` folder.  Preserve the permissions while copying, using the `cp` command with the `-p` switch.
-
-    ```bash
-    cp -p R*.NPL /usr/sap/trans/data/
-    ```
-
-### Import the CRs
-
-1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
-
-1. Run the **STMS_IMPORT** transaction:
-
-    In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
-
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
-
-1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
-
-    :::image type="content" source="media/preparing-sap/import-queue-add.png" alt-text="Screenshot of adding an import queue.":::
-
-1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the **Transp. Request** field.
-
-1. The **Transport requests** window will appear and display a list of CRs available to be deployed. Select a CR and select the green checkmark button.
-
-1. Back in the **Add Transport Request to Import Queue** window, select **Continue** (the green checkmark) or press the Enter key.
-
-1. In the **Add Transport Request** confirmation dialog, select **Yes**.
-
-1. If you plan to deploy more CRs, repeat the procedure in the preceding 5 steps for the remaining CRs.
-
-1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
-
-1. If you have remaining Transport Requests to add to the deployment, repeat step 9.
-
-1. Select the Import Requests icon:
-
-    :::image type="content" source="media/preparing-sap/import-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-requests-lightbox.png":::
-
-1. In **Start Import** window, select the **Target Client** field.
-
-1. The **Input Help..** dialog will appear. Select the number of the client you want to deploy the CRs to (`001` in our example), then select the green checkmark to confirm.
-
-1. Back in the **Start Import** window, select the **Options** tab, mark the **Ignore Invalid Component Version** checkbox, and select the green checkmark to confirm.
-
-    :::image type="content" source="media/preparing-sap/start-import.png" alt-text="Screenshot of the start import window.":::
-
-1. In the **Start import** confirmation dialog, select **Yes** to confirm the import.
-
-1. Back in the **Import Queue** window, select **Refresh**, wait until the import operation completes and the import queue shows as empty.
-
-1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
-
-    :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
-
-1. If you deployed the *NPLK900202* CR, it is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
-    
-    The CRs and versions in the screenshots below may change according to your installed CR version. 
-
-    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
-
-    :::image type="content" source="media/preparing-sap/import-warning.png" alt-text="Screenshot of import warning message display.":::
-
-## Configure Sentinel role
-
-<!--update cr number and role name to the new one?-->
-After the *NPLK900271* CR is deployed, a **/MSFTSEN/SENTINEL_RESPONDER** role is created in SAP. If the role is created manually, it may bear a different name.
-
-In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_RESPONDER**.
-
-The next step is to generate an active role profile for Microsoft Sentinel to use.
-
-1. Run the **PFCG** transaction:
+1. The next step is to generate an active role profile for Microsoft Sentinel to use. Run the **PFCG** transaction:
 
     In the **SAP Easy Access** screen, type `PFCG` in the field in the upper left corner of the screen and press the **Enter** key.
 
-1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_RESPONDER` in the **Role** field and select the **Change** button (the pencil). <!--we'd need new screenshots here-->
-
-    :::image type="content" source="media/preparing-sap/change-role-change.png" alt-text="Screenshot of choosing a role to change.":::
+1. In the **Role Maintenance** window, type the role name `/MSFTSEN/SENTINEL_RESPONDER` in the **Role** field and select the **Change** button (the pencil).
 
 1. In the **Change Roles** window that appears, select the **Authorizations** tab.
 
 1. In the **Authorizations** tab, select **Change Authorization Data**.
 
-    :::image type="content" source="media/preparing-sap/change-role-change-auth-data.png" alt-text="Screenshot of changing authorization data.":::
-
 1. In the **Information** popup, read the message and select the green checkmark to confirm.
 
 1. In the **Change Role: Authorizations** window, select **Generate**.
-
-    :::image type="content" source="media/preparing-sap/change-role-authorizations.png" alt-text="Screenshot of generating authorizations." lightbox="media/preparing-sap/change-role-authorizations-lightbox.png":::
 
     See that the **Status** field has changed from **Unchanged** to **generated**.
 
 1. Select **Back** (to the left of the SAP logo at the top of the screen).
 
 1. Back in the **Change Roles** window, verify that the **Authorizations** tab displays a green box, then select **Save**.
-
-    :::image type="content" source="media/preparing-sap/change-role-save.png" alt-text="Screenshot of saving changed role.":::
 
 ### Create a user
 
@@ -248,14 +94,14 @@ In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_RESPON
 
 ### Required ABAP authorizations
 
-This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
+This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).<!--fix this link-->
 
 The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel and the attack disruption response actions you want to apply.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP *CR NUMBER* <!--cr number tbd--> CR on the SAP system, or load the role authorizations from the [/MSFTSEN/SENTINEL_RESPONDER](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_RESPONDER) file. This CR creates the **/MSFTSEN/SENTINEL_RESPONDER** role, with all the permissions required for the data connector to operate.
+> To create a role with all the required authorizations, load the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_RESPONDER) file.
 >
-> Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_READER** role that has all the necessary permissions for the data connector to operate. <!--do we need to update this everywhere?>
+> Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system to create the **/MSFTSEN/SENTINEL_CONNECTOR** role, or load the role authorizations from the [**/MSFTSEN/SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. <!--check all these names are correct everywhere-->
 
 | Authorization object | Field | Value |
 | -------------------- | ----- | ----- |
@@ -373,6 +219,143 @@ The required authorizations are listed here by their purpose. You only need the 
 |S_USER_GRP	|ACTVT	|05 |
 
 If needed, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
+
+## Deploy optional CRs
+
+This section presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's intended for SOC engineers or implementers who may not necessarily be SAP experts.
+
+Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them.
+
+We strongly recommend that deployment of SAP CRs be carried out by an experienced SAP system administrator.
+
+This section discusses the installation of the following optional CRs:
+
+|CR |Description |
+|---------|---------|
+|NPLK900271  |This CR creates and configures a sample role with basic authorizations. Alternatively, you can load the authorizations directly from a file or manually define the role according to the information in the [Required ABAP authorizations](#required-abap-authorizations) section below. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
+|NPLK900201 or NPLK900202  |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
+
+### Prerequisites for deploying CRs
+
+1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process. For the following example, the following details are assumed:
+
+    - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
+    - **SID:** `A4H`
+    - **System number:** `00`
+    - **Client number:** `001`
+    - **IP address:** `192.168.136.4`
+    - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
+1. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) to determine which CRs to install.
+1. If you installed the NPLK900202 [optional CR](#required-and-optional-crs) used to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
+
+### Set up the files
+
+1. Sign in to the SAP system using SSH.
+
+1. Transfer the CR files to the SAP system or download the files directly onto the SAP system from the SSH prompt. Use the following commands:
+
+    - Download NPLK900271
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
+        ```
+
+        Alternatively, you can [load these authorizations directly from a file](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).
+  
+    - Download NPLK900202
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
+        ```
+
+    - Download NPLK900201
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
+        ```    
+
+    Note that each CR consists of two files, one beginning with K and one with R.
+
+1. Change the ownership of the files to user *`<sid>`adm* and group *sapsys*. (Substitute your SAP system ID for `<sid>`.)
+
+    ```bash
+    chown <sid>adm:sapsys *.NPL
+    ```
+
+    In our example:
+    ```bash
+    chown a4hadm:sapsys *.NPL
+    ```
+
+1. Copy the cofiles (those beginning with *K*) to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+
+    ```bash
+    cp -p K*.NPL /usr/sap/trans/cofiles/
+    ```
+
+1. Copy the data files (those beginning with R) to the `/usr/sap/trans/data` folder.  Preserve the permissions while copying, using the `cp` command with the `-p` switch.
+
+    ```bash
+    cp -p R*.NPL /usr/sap/trans/data/
+    ```
+
+### Import the CRs
+
+1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
+
+1. Run the **STMS_IMPORT** transaction:
+
+    In the **SAP Easy Access** screen, type `STMS_IMPORT` in the field in the upper left corner of the screen and press the **Enter** key.
+
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
+
+1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
+
+    :::image type="content" source="media/preparing-sap/import-queue-add.png" alt-text="Screenshot of adding an import queue.":::
+
+1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the **Transp. Request** field.
+
+1. The **Transport requests** window will appear and display a list of CRs available to be deployed. Select a CR and select the green checkmark button.
+
+1. Back in the **Add Transport Request to Import Queue** window, select **Continue** (the green checkmark) or press the Enter key.
+
+1. In the **Add Transport Request** confirmation dialog, select **Yes**.
+
+1. If you plan to deploy more CRs, repeat the procedure in the preceding 5 steps for the remaining CRs.
+
+1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
+
+1. If you have remaining Transport Requests to add to the deployment, repeat step 9.
+
+1. Select the Import Requests icon:
+
+    :::image type="content" source="media/preparing-sap/import-requests.png" alt-text="Screenshot of importing all requests." lightbox="media/preparing-sap/import-requests-lightbox.png":::
+
+1. In **Start Import** window, select the **Target Client** field.
+
+1. The **Input Help..** dialog will appear. Select the number of the client you want to deploy the CRs to (`001` in our example), then select the green checkmark to confirm.
+
+1. Back in the **Start Import** window, select the **Options** tab, mark the **Ignore Invalid Component Version** checkbox, and select the green checkmark to confirm.
+
+    :::image type="content" source="media/preparing-sap/start-import.png" alt-text="Screenshot of the start import window.":::
+
+1. In the **Start import** confirmation dialog, select **Yes** to confirm the import.
+
+1. Back in the **Import Queue** window, select **Refresh**, wait until the import operation completes and the import queue shows as empty.
+
+1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
+
+    :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
+
+1. If you deployed the *NPLK900202* CR, it is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
+    
+    The CRs and versions in the screenshots below may change according to your installed CR version. 
+
+    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
+
+    :::image type="content" source="media/preparing-sap/import-warning.png" alt-text="Screenshot of import warning message display.":::
+
+
 
 ## Verify that the PAHI table (history of system, database, and SAP parameters) is updated at regular intervals
 

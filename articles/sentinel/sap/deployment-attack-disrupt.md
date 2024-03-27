@@ -41,10 +41,7 @@ Update your existing agent to the latest version manually. Automatic updates are
 
 Attack disruption is supported by the new **/MSFTSEN/SENTINEL_RESPONDER** SAP role, which you must apply to your SAP system and assign to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
-1. Do one of the following to apply the new role to your SAP system:
-
-    - Deploy the SAP CR NUMBER TBD CR. <!--add cr number-->
-    - Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_RESPONDER) GitHub directory.
+1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
 1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
 

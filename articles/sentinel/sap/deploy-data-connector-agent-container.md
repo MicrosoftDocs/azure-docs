@@ -93,7 +93,7 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 - If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](reference-systemconfig.md), though this is not preferred.
 
 > [!NOTE]
-> This procedure must be performed before setting up and deploying your data connector agent, and may need to be performed by another team in your organization.
+> This procedure must be performed before setting up and deploying your data connector agent, and may need to be performed by another team in your organization. Regardless, this procedure must be performed before the other procedures in this article.
 > 
 
 Select one of the following tabs, depending on how you plan to access your key vault:
