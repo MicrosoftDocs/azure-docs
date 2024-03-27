@@ -80,9 +80,9 @@ Complete the following steps to create a Trusted Signing account with Azure CLI:
 1.  If you're using a local installation, login to Azure CLI using the `az login` command.  
 
  
-2.  To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+2.  To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
 
-3.  When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview).
+3.  When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
 
 4.   To see the versions of Azure CLI and dependent libraries that are installed, use the `az version` command. 
 •   To upgrade to the latest version, use the following command:
