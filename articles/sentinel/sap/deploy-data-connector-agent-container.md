@@ -21,7 +21,7 @@ Alternatively, you can deploy the data connector agent manually by issuing indiv
 > [!IMPORTANT]
 > Deploying the container and creating connections to SAP systems via the Azure portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+[!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
 ## Deployment milestones
 
@@ -195,7 +195,7 @@ This procedure describes how to create a key vault to store your agent configura
 
 ### Assign key vault access permissions
 
-1. In your key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the [identity that you created and copied earlier](#create-virtual-machine-and-configure-access-to-your-credentials).
+1. In your key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the [identity that you created and copied earlier](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
     |Permission model  |Permissions required  |
     |---------|---------|

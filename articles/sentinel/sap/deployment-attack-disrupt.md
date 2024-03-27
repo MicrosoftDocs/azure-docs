@@ -31,8 +31,7 @@ Attack disruption for SAP requires that you have an agent with the latest versio
 Update your existing agent to the latest version manually. Automatic updates aren't supported for attack disruption. For more information, see [Manually update SAP data connector agent](update-sap-data-connector.md#manually-update-sap-data-connector-agent).
 
 > [!TIP]
-> If you need to add a new agent, attack disruption supports new agents that are added using the portal option only. For more information, see [Deploy the data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent?tabs=portal-managed-identity).
-
+> If you need to add a new agent, attack disruption supports new agents that are added using the portal option only. For more information, see [Deploy the data connector agent](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent&tabs=portal-managed-identity).
 
 ## Apply and assign the /MSFTSEN/SENTINEL_RESPONDER SAP role to your SAP system
 
