@@ -441,11 +441,11 @@ When you chat with a model, providing a history of the chat will help the model 
 
 #### Function Calling
 
-Some Azure OpenAI models allow you to define [functions](../how-to/function-calling.md). You can set up function calling through [REST API](../reference.md#chat-completions) `/chat/completions`. If you specify both functions and [data sources](../references/on-your-data.md#request-body) in the request, the model will decide none, one or multiple functions are selected.
-1. If the model decides one or multiple functions are selected, the response will contain the selected functions name and the arguments, so the client can execute the functions call at the client side. The data sources are ignored and only the model was used to select the functions.
-1. Otherwise, if the model decides no function is selected, the functions are ignored and only the data sources are used for generating the answer. When the client is sending back the functions execution result as the conversation history in the next request, the model always decides not to select functions.
+Some Azure OpenAI models allow you to define [tools and tool_choice parameters](../how-to/function-calling.md) to enable function calling. You can set up function calling through [REST API](../reference.md#chat-completions) `/chat/completions`. If both `tools` and [data sources](../references/on-your-data.md#request-body) are in the request, the following policy is applied.
+1. If `tool_choice` is `none`, the tools are ignored, and only the data sources are used to generate the answer.
+1. Otherwise, if `tool_choice` is not specified, or specified as `auto` or an object, the data sources are ignored, and the response will contain the selected functions name and the arguments, if any. Even if the model decides no function is selected, the data sources are still ignored.
 
-If the above simple orchestration logic doesn't meet your need, please consider other options, for example: [prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) or [Assistants API](../how-to/assistant.md).
+If the policy above doesn't meet your need, please consider other options, for example: [prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) or [Assistants API](../how-to/assistant.md).
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
