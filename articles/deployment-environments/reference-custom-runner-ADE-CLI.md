@@ -9,35 +9,30 @@ ms.date: 02/16/2024
 ms.topic: reference
 ---
 
-# ADE CLI Custom Runner Image reference
+# Azure Deployment Environment CLI Custom Runner Image reference
 
-This article describes the various commands available to use when building custom images using ADE's base images.
-By utilizing the ADE CLI, customers can interact with information about their environment and specified environment definition, upload and access previously-uploaded files related to the environment, record additional logging regarding their executing operation, and upload and access outputs of an environment's deployment.
+This article describes the commands available for building custom images using Azure Deployment Environment (ADE) base images.
+
+By using the ADE CLI, you can interact with information about your environment and specified environment definition, upload, and access previously uploaded files related to the environment, record more logging regarding their executing operation, and upload and access outputs of an environment's deployment.
 
 ## What commands can I use?
 The ADE CLI currently supports the following commands:
-- ['ade environment'](environment.md)
-- ['ade definitions'](definitions.md)
-- ['ade files'](files.md)
-- ['ade log'](log.md)
-- ['ade operation-result'](operation-result.md)
-- ['ade outputs'](outputs.md)
+- [ade environment](#ade-environment-command)
+- [ade definitions](#ade-definitions-command-set)
+- [ade files](#ade-files-command-set)
+- [ade log](#ade-log-command-set)
+- [ade operation-result](#ade-operation-result-command)
+- [ade outputs](#ade-outputs-command-set)
 
 Additional information on how to invoke the ADE CLI commands can be found in the linked documentation. 
-
-## Support
-
-[File an issue](https://github.com/Azure/deployment-environments/issues)
-
-[Additional Documentation about ADE](/azure/deployment-environments/)
 
 ## License
 - Legal Notice: [Container License Information](https://aka.ms/mcr/osslegalnotice)
 
 See license terms [here](https://github.com/Azure/deployment-environments/blob/main/LICENSE).
 
-## 'ade environment' Command
-The 'ade environment' command allows the user to see information related to their environment the operation is being performed on.
+## ade environment command
+The `ade environment` command allows the user to see information related to their environment the operation is being performed on.
 
 The command is invoked as follows:
 
@@ -45,8 +40,8 @@ The command is invoked as follows:
 
 This command returns a data object describing the various properties of the environment.
 
-### Return Type
-This command returns a JSON object describing the environment. Here is an example of the return object:
+### Return type
+This command returns a JSON object describing the environment. Here's an example of the return object:
 ```
 {
     "uri": "https://TENANT_ID-DEVCENTER_NAME.DEVCENTER_REGION.devcenter.azure.com/projects/PROJECT_NAME/users/USER_ID/environments/ENVIRONMENT_NAME",
@@ -65,31 +60,31 @@ This command returns a JSON object describing the environment. Here is an exampl
 }
 ```
 
-### Utilizing Returned Property Values
+### Utilizing returned property values
 
-You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (pre-installed on ADE-authored images), using the following format:\
+You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (preinstalled on ADE-authored images), using the following format:\
 ```environment_name=$(echo $environment | jq -r ".Name")```
 
 You can learn more about advanced filtering and other uses for the JQ library [here](https://devdocs.io/jq/).
 
 
-## 'ade definitons' Command Set
-The 'ade definitons' command allows the user to see information related to the definition chosen for the environment being operated on, and download the related files, such as the primary and linked Infrastructure-as-Code (IaC) templates, to a specified file location. 
+## ade definitions command set
+The `ade definitions` command allows the user to see information related to the definition chosen for the environment being operated on, and download the related files, such as the primary and linked Infrastructure-as-Code (IaC) templates, to a specified file location. 
 
 The following commands are within this command set:
 
-- ['ade definitions list'](#ade-definitions-list)
-- ['ade definitons download'](#ade-definitons-download)
+- [ade definitions list](#ade-definitions-list)
+- [ade definitions download](#ade-definitions-download)
 
-### 'ade definitions list'
-The 'list' command is invoked as follows:
+### ade definitions list
+The list command is invoked as follows:
 
 ```definitionValue=$(ade definitions list)```
 
 This command returns a data object describing the various properties of the environment's definition.
 
-#### Return Type
-This command returns a JSON object describing the environment definition. Here is an example of the return object, based on one of our sample environment definitions:
+#### Return type
+This command returns a JSON object describing the environment definition. Here's an example of the return object, based on one of our sample environment definitions:
 ```
 {
     "id": "/projects/PROJECT_NAME/catalogs/CATALOG_NAME/environmentDefinitions/appconfig",
@@ -123,25 +118,25 @@ This command returns a JSON object describing the environment definition. Here i
 }
 ```
 
-#### Utilizing Returned Property Values
+#### Utilizing returned property values
 
-You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (pre-installed on ADE-authored images), using the following format:\
+You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (preinstalled on ADE-authored images), using the following format:\
 ```environment_name=$(echo $definitionValue | jq -r ".Name")```
 
 You can learn more about advanced filtering and other uses for the JQ library [here](https://devdocs.io/jq/).
 
-### 'ade definitons download'
+### ade definitions download
 This command is invoked as follows:\
 ```ade definitions download --folder-path EnvironmentDefinition```
 
-This command will download the main and linked Infrastructure-as-Code (IaC) templates and any other associated files with the provided template.
+This command downloads the main and linked Infrastructure-as-Code (IaC) templates and any other associated files with the provided template.
 
 #### Options
 
-**--folder-path**: The folder path to download the environment definition files to. If not specified, the command will store the files in a folder named 'EnvironmentDefinition' at the current directory level at execution time.
+**--folder-path**: The folder path to download the environment definition files to. If not specified, the command stores the files in a folder named EnvironmentDefinition at the current directory level at execution time.
 
 #### What Files Do I Have Access To?
-Any files stored at or below the level of the environment definition's manifest file (environment.yaml or manifest.yaml) within the catalog repository will be accessible when invoking this command. 
+Any files stored at or below the level of the environment definition's manifest file (environment.yaml or manifest.yaml) within the catalog repository are accessible when invoking this command. 
 
 You can learn more about curating environment definitions and the catalog repository structure through the following links:
 
@@ -149,19 +144,19 @@ You can learn more about curating environment definitions and the catalog reposi
 - [Add and Configure an Environment Definition in ADE](/azure/deployment-environments/configure-environment-definition)
 - [Best Practices For Designing Catalogs](/azure/deployment-environments/best-practice-catalog-structure)
 
-## 'ade files' Command Set
-The 'ade files' command set allows a customer to upload and download files within the executing operation contianer for a certain environment to be used later in the container, or in later operation executions. This command set is also used to upload state files generated for certain Infrastructre-as-Code (IaC) providers.
+## ade files command set
+The `ade files` command set allows a customer to upload and download files within the executing operation container for a certain environment to be used later in the container, or in later operation executions. This command set is also used to upload state files generated for certain Infrastructure-as-Code (IaC) providers.
 
 The following commands are within this command set:
-* ['ade files list'](#ade-files-list)
-* ['ade files download'](#ade-files-download)
-* ['ade files upload'](#ade-files-upload)
+* [ade files list](#ade-files-list)
+* [ade files download](#ade-files-download)
+* [ade files upload](#ade-files-upload)
 
-###  'ade files list'
-This command will list the available files for download while within the environment container.
+###  ade files list
+This command lists the available files for download while within the environment container.
 
-#### Return Type
-This command will return available files for download as an array of strings. Here is an example:
+#### Return type
+This command returns available files for download as an array of strings. Here's an example:
 ```
 [
     "file1.txt",
@@ -170,15 +165,15 @@ This command will return available files for download as an array of strings. He
 ]
 ```
 
-### 'ade files download'
-This command will download a selected file to a specified file location within the executing container. 
+### ade files download
+This command downloads a selected file to a specified file location within the executing container. 
 
 #### Options
-**--file-name**: The name of the file to download. This file name should be present within the list of available files returned from the 'ade files list' command. This option is required.
+**--file-name**: The name of the file to download. This file name should be present within the list of available files returned from the `ade files list` command. This option is required.
 
-**--folder-path**: The folder path to download the file to within the container. This is not required, and the CLI will by default download the file to the current directory when the command is executed.
+**--folder-path**: The folder path to download the file to within the container. This path isn't required, and the CLI by default downloads the file to the current directory when the command is executed.
 
-**--unzip**: This is a flag that can be set if you are wanting to download a zip file from the list of available files, and want the contents unzipped to the specified folder location. 
+**--unzip**: Set this flag if you want to download a zip file from the list of available files, and want the contents unzipped to the specified folder location. 
 
 #### Examples
 
@@ -187,7 +182,7 @@ The following command downloads a file to the current directory:
 ade files download --file-name file1.txt
 ```
 
-The following command downloads a file to a lower-level folder titled 'folder1'.
+The following command downloads a file to a lower-level folder titled *folder1*.
 ```
 ade files download --file-name file1.txt --folder-path folder1
 ```
@@ -197,65 +192,65 @@ The last command downloads a zip file, and unzips the file contents into the cur
 ade files download --file-name file3.zip --unzip
 ```
 
-### 'ade files upload'
-This command will upload either a singular file specified, or a zip folder specified as a folder path to the list of available files for the environment to access.
+### ade files upload
+This command uploads either a singular file specified, or a zip folder specified as a folder path to the list of available files for the environment to access.
 
 #### Options
-**--file-path**: The path of where the file exists from the current directory to upload. Either this option or the '--folder-path' option is requried to execute this command.
+**--file-path**: The path of where the file exists from the current directory to upload. Either this option or the `--folder-path` option is required to execute this command.
 
-**--folder-path**: The path of where the folder exists from the current directory to upload as a zip file. The resulting accessible file will be accessible under the name of the lowest folder. Either this option or the '--file-path' option is required to execute this command. 
+**--folder-path**: The path of where the folder exists from the current directory to upload as a zip file. The resulting accessible file is accessible under the name of the lowest folder. Either this option or the `--file-path` option is required to execute this command. 
 
-**NOTE**: Specifying a file or folder with the same name as an existing accessible file for the environment for this command will overwrite the previously saved file (i.e. if file1.txt is an existing accessible file, executing 'ade files --file-path file1.txt' will overwrite the previously saved file).
+**NOTE**: Specifying a file or folder with the same name as an existing accessible file for the environment for this command overwrites the previously saved file (that is, if file1.txt is an existing accessible file, executing `ade files --file-path file1.txt` overwrites the previously saved file).
 
 #### Examples
-The following command uploads a file from the current directory named 'file1.txt':
+The following command uploads a file from the current directory named *file1.txt*:
 ```
 ade files upload --file-path "file1.txt"
 ```
 
-This file will be later accessible by running:
+This file is later accessible by running:
 ```
 ade files download --file-name "file1.txt"
 ```
-The following command uploads a folder one level lower than the current directory named 'folder1' as a zip file named 'folder1.zip':
+The following command uploads a folder one level lower than the current directory named *folder1* as a zip file named *folder1.zip*:
 ```
 ade files upload --folder-path "folder1"
 ```
 
-Finally, the following command uploads a folder two levels lower than the current directory at 'folder1/folder2' as a zip file named 'folder2.zip':
+Finally, the following command uploads a folder two levels lower than the current directory at *folder1/folder2* as a zip file named *folder2.zip*:
 ```
 ade files upload --folder-path "folder1/folder2"
 ```
 
-## 'ade log' Command Set
-The 'ade log' commands are used to record details regarding the execution of the operation on the environment while within the container. This command offers a number of different logging levels, which can be then accessed after the operation has finished to analyze, and a customer can specify different files to log to for different logging scenarios.
+## ade log command set
+The `ade log` commands are used to record details regarding the execution of the operation on the environment while within the container. This command offers many different logging levels, which can be then accessed after the operation finishes to analyze, and a customer can specify different files to log to for different logging scenarios.
 
 ### Options
 **--content**: A string input containing the information to log. This option is required for this command.
 
-**--type**: The level of log (verbose, log, or error) to log the content under. If not specified, the CLI will log the content at the 'log' level.
+**--type**: The level of log (verbose, log, or error) to log the content under. If not specified, the CLI logs the content at the log level.
 
-**--file**: The file to log the content to. If not specified, the CLI will log to a .log file specified by the unique Operation ID of the executing operation.
+**--file**: The file to log the content to. If not specified, the CLI logs to a .log file specified by the unique Operation ID of the executing operation.
 
 ### Examples
 
-This command will log a simple string to the default log file:
+This command logs a string to the default log file:
 ```
 ade log --content "This is a log"
 ```
 
-This command will log an error to the default log file:
+This command logs an error to the default log file:
 ```
 ade log --type error --content "This is an error."
 ```
 
-This command will log a simple string to a specified file named 'specialLogFile.txt':
+This command logs a string to a specified file named *specialLogFile.txt*:
 ```
 ade log --content "This is a special log." --file "specialLogFile.txt"
 ```
 
-## 'ade operation-result' Command
-The 'ade operation-result' command allows error details to be added to the environment being operated on in the event of an operation failure, as well as updating the ongoing operation.
+## ade operation-result command
+The `ade operation-result` command allows error details to be added to the environment being operated on in the event of an operation failure, and updates the ongoing operation.
 
 The command is invoked as follows:
 ```
@@ -267,12 +262,12 @@ ade operation-result --code "ExitCode" --message "The operation failed!"
 
 **--message**: A string detailing the error message for the operation failure.
 
-**NOTE**: This operation should only be used just before exiting the container, as setting the operation in a Failed state does not permit additional CLI commands to successfully complete.
+**NOTE**: This operation should only be used just before exiting the container, as setting the operation in a Failed state doesn't permit other CLI commands to successfully complete.
 
-## 'ade outputs' Command Set
-The 'ade outputs' command allows a customer to upload outputs from the deployment of an Infrastructure-as-Code (IaC) template to be accessed from the Outputs API for ADE. 
+## ade outputs command set
+The `ade outputs` command allows a customer to upload outputs from the deployment of an Infrastructure-as-Code (IaC) template to be accessed from the Outputs API for ADE. 
 
-### 'ade outputs upload' 
+### ade outputs upload 
 This command uploads the contents of a JSON file specified in the ADE EnvironmentOutput format to the environment, to be accessed later using the Outputs API for ADE.
 
 #### Options
@@ -280,13 +275,13 @@ This command uploads the contents of a JSON file specified in the ADE Environmen
 
 #### Examples
 
-This command uploads a .json file named 'outputs.json' to the environment to serve as the outputs for the successful deployment:
+This command uploads a .json file named *outputs.json* to the environment to serve as the outputs for the successful deployment:
 ```
 ade outputs upload --file outputs.json
 ```
 
 #### EnvironmentOutputs Format
-In order for the incoming JSON file to be serialized properly and accepted as the environment's deployment outputs, the object submitted must follow the below structure:
+In order for, the incoming JSON file to be serialized properly and accepted as the environments deployment outputs, the object submitted must follow the below structure:
 ```
 {
     "outputs": {
@@ -309,8 +304,7 @@ In order for the incoming JSON file to be serialized properly and accepted as th
 }
 ```
 
-This format is adapted from how ARM deployments report outputs of a deployment, along with an additional property of "sensitive". The "sensitive" property is optional to provide, but will restrict the output to only being able to be viewed by those with privileged access, such as the creator of the environment.
-
+This format is adapted from how ARM template deployments report outputs of a deployment, along with an additional property of "sensitive". The "sensitive" property is optional to provide, but restricts viewing the output to users with privileged access, such as the creator of the environment.
 
 Acceptable types for outputs are "string", "int", "boolean", "array", and "object".
 
@@ -318,11 +312,17 @@ Acceptable types for outputs are "string", "int", "boolean", "array", and "objec
 
 To access outputs either while within the container or post-execution, a customer can use the Outputs API for ADE, accessible either by calling the API endpoint or using the AZ CLI.
 
-In order to access the outputs within the container, a customer will need to install the Azure CLI to their image (pre-installed on ADE-authored images), and run the following commands: 
+In order to access the outputs within the container, a customer needs to install the Azure CLI to their image (preinstalled on ADE-authored images), and run the following commands: 
 ```
 az login
 az devcenter dev environment show-outputs --dev-center-name DEV_CENTER_NAME --project-name PROJECT_NAME --environment-name ENVIRONMENT_NAME
 ```
+
+## Support
+
+[File an issue.](https://github.com/Azure/deployment-environments/issues)
+
+[Additional Documentation about ADE](/azure/deployment-environments/)
 
 ## Related content
 - [ADE Custom Image Support](./how-to-configure-custom-runner.md)
