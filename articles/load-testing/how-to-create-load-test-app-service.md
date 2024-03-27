@@ -20,6 +20,9 @@ With the integrated load testing experience in Azure App Service, you can:
 - View the test runs associated with the app service
 - Create a load testing resource
 
+> [!IMPORTANT]
+> This feature is currently supported through Microsoft Developer Community. If you are facing any issues, please report it [here](https://developercommunity.microsoft.com/loadtesting/report).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
