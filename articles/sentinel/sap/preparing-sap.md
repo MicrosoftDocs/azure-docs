@@ -363,7 +363,7 @@ The required authorizations are listed here by their purpose. You only need the 
 | **SNC Data** | | |
 | S_TABU_NAM | TABLE | SNCSYSACL |
 | S_TABU_NAM | TABLE | USRACL |
-|<a name=attack-disrupt></a>**Attack disruption: lock user and end session** | | |
+|<a name=attack-disrupt></a>**Attack disruption response actions** | | |
 |S_RFC	|RFC_TYPE	|Function Module |
 |S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
 |S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
