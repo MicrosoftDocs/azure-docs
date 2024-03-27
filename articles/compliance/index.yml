@@ -406,9 +406,9 @@ additionalContent:
   sections:
 
 #  Section 1
-    - title: Additional compliance resources
-      summary: To access a resource you may need to be signed into your cloud service 
-      items:
+    - title: More compliance resources
+      summary: To access a resource, you may need to be signed into your cloud service 
+      items.:
 
         - title: Privacy and GDPR
           links:
