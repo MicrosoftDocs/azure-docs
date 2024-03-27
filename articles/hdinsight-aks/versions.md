@@ -55,7 +55,7 @@ As part of the best practices, we recommend you to keep your clusters updated on
 
 | Runtime name | Release date | Release stage | End of Support announcement date | End of Support effective date |
 | --- | --- | --- | --- | --- |
-| [Azure HDInsight on AKS] | Oct 10, 2023 | Public Preview | | |
+| [Azure HDInsight on AKS](./overview.md) | Oct 10, 2023 | Public Preview | | |
 
 ### Sample Scenarios 
 
