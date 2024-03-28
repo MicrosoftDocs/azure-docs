@@ -1007,15 +1007,15 @@ items:
         - name: Device and permission issues
           items:
           - name: Overview
-            href: troubleshooting/voice-video-calling/device-issues/overview.md
+            href: resources/troubleshooting/voice-video-calling/device-issues/overview.md
           - name: The getMicrophones API doesn't return detailed microphone list
-            href: troubleshooting/voice-video-calling/device-issues/no-enumerated-microphone-list.md
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-enumerated-microphone-list.md
           - name: The getSpeakers API doesn't return detailed speaker list
-            href: troubleshooting/voice-video-calling/device-issues/no-enumerated-speaker-list.md
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-enumerated-speaker-list.md
           - name: No permission prompt shows when calling askDevicePermission
-            href: troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
           - name: The askDevicePermission API takes too long
-            href: troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
+            href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
 - name: References
   items:
   - name: Reference documentation overview

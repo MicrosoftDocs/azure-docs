@@ -29,16 +29,11 @@ Additionally, to detect the scenario where the user removes the microphone durin
 the application can listen to the `noMicrophoneDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md).
 This event can help the application understand the current situation, and show the warning message on its UI accordingly.
 
-## How to monitor
-### Azure log
-...
-### CDC
-...
-
 ## How to mitigate or resolve
 The application should always call the `DeviceManager.askDevicePermission` API to ensure that the required permissions are granted.
-If the user doesn't grant the microphone permission, the application should show a warning on its UI.
+If the user doesn't grant the microphone permission, the application should display a warning message on its UI.
 
-The application should also check whether the microphone list is empty and show a warning accordingly. 
 Additionally, the application should listen to the `noMicrophoneDevicesEnumerated` UFD event and show a message when there are no available microphone devices.
+If the application provides a device selection page before the call,
+it can also check whether the microphone list is empty and show a warning accordingly indicating no mic devices available.
 This will help the user understand what is happening.
