@@ -8,7 +8,7 @@ ms.date: 08/11/2022
 # Integrate ServiceNow with Microsoft Defender for IoT (legacy)
 
 > [!NOTE]
-> A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is now available from the ServiceNow store. The new integration streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.<!-- link is to outdated version of app. update link to latest version https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.10 Could also add, There may be more up to date versions of this software on the ServiceNow site. -->
+> A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.10) integration is now available from the ServiceNow store. The new integration streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model. Check the software version, as more up-to-date versions of this software maybe available on the ServiceNow site.
 >
 >Please read the ServiceNow’s supporting links and docs for the ServiceNow's terms of service.
 >
@@ -65,7 +65,7 @@ Before you begin, make sure that you have the following prerequisites:
 - **Sensor architecture**: If you want to set up your environment to include direct communication between sensors and ServiceNow, for each sensor define the ServiceNow Sync, Forwarding rules, and proxy configuration (if a proxy is needed).
 
 > [!NOTE]
->The integration for legacy versions of Defender for IoT will pass data for assets and alerts but won't pass vulnerbility data.
+>The integration for legacy versions of Defender for IoT will pass data for assets and alerts but won't pass vulnerability data.
 
 ## Download the Defender for IoT application in ServiceNow
 
