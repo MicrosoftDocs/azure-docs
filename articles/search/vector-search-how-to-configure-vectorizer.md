@@ -17,17 +17,17 @@ ms.date: 03/27/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
 
-In Azure AI Search a *vectorizer* is a vectorization agent, such as a deployed embedding model on Azure OpenAI, that converts text to vectors during query execution.
+In Azure AI Search a *vectorizer* is software that performs vectorization, such as a deployed embedding model on Azure OpenAI, that converts text to vectors during query execution.
 
-It's defined in a [search index](search-what-is-an-index.md) on searchable vector fields, and used at query time to generate an embedding for a text query input. If instead you need to vectorize text as part of the indexing process, refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md). You can configure an indexer and skillset that calls Azure OpenAI embedding model during indexing to generate embeddings for your text content.
+It's defined in a [search index](search-what-is-an-index.md), it applies to searchable vector fields, and it's used at query time to generate an embedding for a text query input. If instead you need to vectorize text as part of the indexing process, refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md). For built-in vectorization during indexing, you can configure an indexer and skillset that calls an Azure OpenAI embedding model for your raw text content.
 
-To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index 2023-10-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, or use any Azure beta SDK package that's been updated to provide this feature.
+To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index 2023-10-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, or use any Azure beta SDK package that's updated to provide this feature.
 
 ## Prerequisites
 
 + [An index with searchable vector fields](vector-search-how-to-create-index.md) on Azure AI Search.
 
-+ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate embeddings in the index.
++ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate the embeddings in your index.
 
 + Permissions to use the embedding model. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions. Or, you can provide an API key.
 
@@ -37,17 +37,17 @@ We recommend that you enable diagnostic logging on your search service to confir
 
 ## Try a vectorizer with sample data
 
-The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) reads files from Azure Blob storage, creates an index with chunked and vectorized fields, and adds a vectorizer. By design, the vectorizer created by the wizard is set to the same embedding model used to index the blob content.
+The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) reads files from Azure Blob storage, creates an index with chunked and vectorized fields, and adds a vectorizer. By design, the vectorizer that's created by the wizard is set to the same embedding model used to index the blob content.
 
 1. [Upload sample data files](/azure/storage/blobs/storage-quickstart-blobs-portal) to a container on Azure Storage. We used some [small text files from NASA's earth book](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/nasa-e-book/earth-txt-10) to test these instructions on a free search service.
   
 1. Run the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md), choosing the blob container for the data source.
 
-   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/connect-to-data.png" alt-text="Screenshot of the connect to your data page.":::
+   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/connect-to-data.png" lightbox="media/vector-search-how-to-configure-vectorizer/connect-to-data.png" alt-text="Screenshot of the connect to your data page.":::
 
 1. Choose an existing deployment of **text-embedding-ada-002**. This model generates embeddings during indexing and is also used to configure the vectorizer used during queries.
 
-   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/vectorize-enrich-data.png" alt-text="Screenshot of the vectorize and enrich data page.":::
+   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/vectorize-enrich-data.png" lightbox="media/vector-search-how-to-configure-vectorizer/vectorize-enrich-data.png" alt-text="Screenshot of the vectorize and enrich data page.":::
 
 1. After the wizard is finished and all indexer processing is complete, you should have an index with a searchable vector field. The field's JSON definition looks like this:
 
@@ -62,7 +62,7 @@ The [Import and vectorize data wizard](search-get-started-portal-import-vectors.
     }
    ```
 
-1. You should also have a vector profile and a vectorizer that looks similar to the following example:
+1. You should also have a vector profile and a vectorizer, similar to the following example:
 
    ```json
    "profiles": [
@@ -120,7 +120,7 @@ This section explains the modifications to an index schema for defining a vector
       ]
     ```
 
-1. In the same index, add a vector profiles section that specifies one of your vectorizers. Vector profiles also require an algorithm used during indexing.
+1. In the same index, add a vector profiles section that specifies one of your vectorizers. Vector profiles also require a [vector search algorithm](vector-search-ranking.md) used to create navigation structures.
 
     ```json
     "profiles": [ 
@@ -210,7 +210,7 @@ Use a search client to send a query through a vectorizer. This example assumes V
 
 1. Send the request. You should get three `k` results, where the first result is the most relevant.
 
-Notice that there are no vectorizer properties to set at query time. The query reads the vectorizer properties, as acquired through the vector profile field assignment in the index.
+Notice that there are no vectorizer properties to set at query time. The query reads the vectorizer properties, as per the vector profile field assignment in the index.
 
 ## Check logs
 
