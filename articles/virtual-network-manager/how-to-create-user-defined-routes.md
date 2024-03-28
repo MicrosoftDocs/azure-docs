@@ -13,11 +13,11 @@ ms.date: 03/18/2023
 
 In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-user-defined-route-management.md) with Azure Virtual Network Manager in the Azure portal. UDRs allow you to describe your desired routing behavior, and Virtual Network Manager orchestrates UDRs to create and maintain that behavior. You deploy all the resources needed to create UDRs, including the following resources:
     
-    - Virtual Network Manager instance
+- Virtual Network Manager instance
     
-    - Two virtual networks and a network group
+- Two virtual networks and a network group
     
-    - Routing configuration to create UDRs for the network group
+- Routing configuration to create UDRs for the network group
 
 [!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
 
