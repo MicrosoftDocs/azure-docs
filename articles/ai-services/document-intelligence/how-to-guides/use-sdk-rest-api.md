@@ -56,7 +56,9 @@ Choose from the following Document Intelligence models and analyze and extract d
 >
 > - The [prebuilt-receipt](../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 >
-> - The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US drivers licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
+> - The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US drivers licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards.
+
+> - The [prebuilt-businessCard](../concept-business-card.md) model extracts key information and contact details from business card images.
 
 ::: moniker-end
 
