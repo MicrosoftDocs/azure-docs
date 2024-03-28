@@ -35,7 +35,7 @@ highlightedContent:
       url: configure-identity-source-vcenter.md
     - title: Migration
       itemType: how-to-guide
-      url: ecosystem-migration-vms.md
+      url: architecture-migrate.md
     - title: Well-Architected Framework (WAF)
       itemType: concept
       url: /azure/well-architected/
