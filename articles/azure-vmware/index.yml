@@ -49,7 +49,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Learning about Azure VMware Solution
+    - title: Learn about Azure VMware Solution
       items:
         # Card
         - title: Overview
@@ -281,7 +281,7 @@ additionalContent:
           - text: Uninstall VMware HCX in Azure VMware Solution
             url: uninstall-vmware-hcx.md
         # Card
-        - title: Operations and monitoring
+        - title: Operate and monitor
           links:
             - text: Security solutions for Azure VMware Solution
               url: ecosystem-security-solutions.md
