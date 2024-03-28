@@ -48,7 +48,7 @@ After selecting the virtual machine, we need to create storage account we'll use
 ## Other considerations
 - Virtual machine and storage account with the NFS 3.0 endpoint must be in the same region,
 - Virtual machine running the test applications should be used only for testing to make sure other running services aren't impacting the results,
-- Mounting NFS 3.0 endpoint must use [AzNFS mount helper](./network-file-system-protocol-support-how-to.md) client for reliable access. 
+- Mounting NFS 3.0 endpoint must use [AzNFS mount helper](./network-file-system-protocol-support-how-to.md#step-5-install-the-aznfs-mount-helper-package) client for reliable access. 
 
 ## Executing performance benchmark
 There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with FIO (Flexible I/O tester). FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). It can be used in many test scenarios. This article describes the recommended scenarios for Azure Storage. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
