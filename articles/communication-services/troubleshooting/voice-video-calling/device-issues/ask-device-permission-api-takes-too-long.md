@@ -6,20 +6,17 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 03/27/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # The askDevicePermission API takes too long
-The `askDevicePermission` API triggers the permission prompt and updates the device list internally.
-If you find that this API is taking a long time, it could be due to delays in either step.
-If the browser shows the permission prompt UI and the user doesn't respond for a while,
+The `askDevicePermission` API triggers the permission prompt and updates the device list internally. If you find that this API is taking a long time, it could be due to delays in either step. If the browser shows the permission prompt UI and the user doesn't respond for a while,
 the ACS Web Calling SDK will resolve the promise and return the permission result.
 
-Occasionally, the device list update step can take a very long time. This is usually because the driver layer responds late.
-This can happen with some virtual audio devices in particular. [Chromium Issue 1402866](https://bugs.chromium.org/p/chromium/issues/detail?id=1402866&no_tracker_redirect=1)
+Occasionally, the device list update step can take a very long time. This is usually because the driver layer responds late. This can happen with some virtual audio devices in particular. [Chromium Issue 1402866](https://bugs.chromium.org/p/chromium/issues/detail?id=1402866&no_tracker_redirect=1)
 
 ## How to detect
 ### SDK
