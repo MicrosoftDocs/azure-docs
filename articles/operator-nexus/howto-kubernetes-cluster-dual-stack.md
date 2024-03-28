@@ -118,18 +118,18 @@ This parameter file is intended to be used with the [QuickStart guide](./quickst
 
 * Once the cluster is provisioned, confirm the nodes are provisioned with dual-stack networking using the `kubectl get nodes` command.
 
-    ```azurecli
-    kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addresses[?(@.type=='InternalIP')].address,PODCIDRS:.spec.podCIDRs[*]"
-    ```
+  ```azurecli
+  kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addresses[?(@.type=='InternalIP')].address,PODCIDRS:.spec.podCIDRs[*]"
+  ```
 
 The output from the kubectl get nodes command shows the nodes have addresses and pod IP assignment space from both IPv4 and IPv6.
 
-    ```output
-    NAME                                ADDRESSES                           PODCIDRS
-    ds-nodepool1-14508455-vmss000000   10.240.0.4,2001:1234:5678:9abc::4   10.244.0.0/24,fd12:3456:789a::/80
-    ds-nodepool1-14508455-vmss000001   10.240.0.5,2001:1234:5678:9abc::5   10.244.1.0/24,fd12:3456:789a:0:1::/80
-    ds-nodepool1-14508455-vmss000002   10.240.0.6,2001:1234:5678:9abc::6   10.244.2.0/24,fd12:3456:789a:0:2::/80
-    ```
+  ```output
+  NAME                                ADDRESSES                           PODCIDRS
+  ds-nodepool1-14508455-vmss000000   10.240.0.4,2001:1234:5678:9abc::4   10.244.0.0/24,fd12:3456:789a::/80
+  ds-nodepool1-14508455-vmss000001   10.240.0.5,2001:1234:5678:9abc::5   10.244.1.0/24,fd12:3456:789a:0:1::/80
+  ds-nodepool1-14508455-vmss000002   10.240.0.6,2001:1234:5678:9abc::6   10.244.2.0/24,fd12:3456:789a:0:2::/80
+  ```
 
 ## Create an example workload
 
@@ -139,57 +139,57 @@ Once the cluster has been created, you can deploy your workloads. This article w
 
 1. Create an NGINX web server using the `kubectl create deployment nginx` command.
 
-    ```bash-interactive
-    kubectl create deployment nginx --image=nginx:latest --replicas=3
-    ```
+  ```bash-interactive
+  kubectl create deployment nginx --image=nginx:latest --replicas=3
+  ```
 
 2. View the pod resources using the `kubectl get pods` command.
 
-    ```bash-interactive
-    kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
-    ```
+  ```bash-interactive
+  kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
+  ```
 
-    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
+  The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
 
-    ```output
-    NAME                     IPs                                NODE                                READY
-    nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   ds-nodepool1-14508455-vmss000002   True
-    nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       ds-nodepool1-14508455-vmss000000   True
-    nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   ds-nodepool1-14508455-vmss000001   True
-    ```
+  ```output
+  NAME                     IPs                                NODE                                READY
+  nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   ds-nodepool1-14508455-vmss000002   True
+  nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       ds-nodepool1-14508455-vmss000000   True
+  nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   ds-nodepool1-14508455-vmss000001   True
+  ```
 
 ### Expose the workload via a `LoadBalancer` type service
 
 1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
 
-    ```bash-interactive
-    kubectl expose deployment nginx --name=nginx --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilyPolicy": "PreferDualStack", "ipFamilies": ["IPv4", "IPv6"]}}'
-    ```
+  ```bash-interactive
+  kubectl expose deployment nginx --name=nginx --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilyPolicy": "PreferDualStack", "ipFamilies": ["IPv4", "IPv6"]}}'
+  ```
 
-    You receive an output that shows the services have been exposed.
+  You receive an output that shows the services have been exposed.
 
-    ```output
-    service/nginx exposed
-    ```
+  ```output
+  service/nginx exposed
+  ```
 
 2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
 
-    ```bash-interactive
-    kubectl get services
-    ```
+  ```bash-interactive
+  kubectl get services
+  ```
 
-    ```output
-    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
-    nginx        LoadBalancer   10.96.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
-    ```
+  ```output
+  NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+  nginx        LoadBalancer   10.96.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+  ```
 
-    ```bash-interactive
-    kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
-    ```
+  ```bash-interactive
+  kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
+  ```
 
-    ```output
-    ["10.96.223.73","fd17:d93e:db1f:f771::54e"]
-    ```
+  ```output
+  ["10.96.223.73","fd17:d93e:db1f:f771::54e"]
+  ```
 
 ## Next steps
 
