@@ -133,7 +133,7 @@ builder.Services.AddHttpContextAccessor();
 >
 > For more information on using `TargetingFilter`, see [Tutorial: Roll out features to targeted audiences in an ASP.NET Core app](./howto-targetingfilter-aspnet-core.md).
 
-## Feature filters in action
+## Feature filter in action
 
 Relaunch the application you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). If your browser is not Edge or Firefox browser, the **Beta** menu item will not appear on the toolbar. This is because the **Beta** feature flag is disabled by the browser filter.
 
