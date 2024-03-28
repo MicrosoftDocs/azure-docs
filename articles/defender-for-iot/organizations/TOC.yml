@@ -271,9 +271,6 @@
         - name: Update from a recent version
           href: update-ot-software.md
           displayName: upgrade
-        - name: Update from legacy versions
-          href: update-legacy-ot-software.md
-          displayName: upgrade
       - name: Backup and restore
         href: back-up-restore-sensor.md
         displayName: back up
