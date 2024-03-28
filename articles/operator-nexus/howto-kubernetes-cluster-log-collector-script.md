@@ -17,47 +17,47 @@ Microsoft support may need deeper visibility within the Nexus Kubernetes cluster
 
 The log collector script is designed to comprehensively gather data across various aspects of the system for troubleshooting and analysis purposes. Below is an overview of the types of diagnostic data it collects:
 
-### System and Kernel Diagnostics
+### System and kernel diagnostics
 
-- Kernel Information: Logs, human-readable messages, version, and architecture, for in-depth kernel diagnostics.
+- Kernel information: Logs, human-readable messages, version, and architecture, for in-depth kernel diagnostics.
 - Operating System Logs: Essential logs detailing system activity and container logs for system services.
 
-### Hardware and Resource Usage
+### Hardware and resource usage
 
-- CPU and IO Throttled Processes: Identifies throttling issues, providing insights into performance bottlenecks.
+- CPU and IO throttled processes: Identifies throttling issues, providing insights into performance bottlenecks.
 - Network Interface Statistics: Detailed statistics for network interfaces to diagnose errors and drops.
 
-### Software and Services
+### Software and services
 
-- Installed Packages: A list of all installed packages, vital for understanding the system's software environment.
-- Active System Services: Information on active services, process snapshots, and detailed system and process statistics.
-- Container Runtime and Kubernetes Components Logs: Logs for Kubernetes components and other vital services for cluster diagnostics.
+- Installed packages: A list of all installed packages, vital for understanding the system's software environment.
+- Active system services: Information on active services, process snapshots, and detailed system and process statistics.
+- Container runtime and Kubernetes components logs: Logs for Kubernetes components and other vital services for cluster diagnostics.
 
-### Networking and Connectivity
+### Networking and connectivity
 
-- Network Connection Tracking Information: Conntrack statistics and connection lists for firewall diagnostics.
-- Network Configuration and Interface Details: Interface configurations, IP routing, addresses, and neighbor information.
-- Multicard Interface Configuration Logs: Logs related to the configuration of multi-network card interfaces.
-- Network Connectivity Tests: Tests external network connectivity and Kubernetes API server communication.
-- DNS Resolution Configuration: DNS resolver configuration for diagnosing domain name resolution issues.
-- Networking Configuration and Logs: Comprehensive networking data including connection tracking and interface configurations.
-- Container Network Interface (CNI) Configuration: Configuration of CNI for container networking diagnostics.
+- Network connection tracking information: Conntrack statistics and connection lists for firewall diagnostics.
+- Network configuration and interface details: Interface configurations, IP routing, addresses, and neighbor information.
+- Multicard interface configuration logs: Logs related to the configuration of multi-network card interfaces.
+- Network connectivity tests: Tests external network connectivity and Kubernetes API server communication.
+- DNS resolution configuration: DNS resolver configuration for diagnosing domain name resolution issues.
+- Networking configuration and logs: Comprehensive networking data including connection tracking and interface configurations.
+- Container network interface (CNI) configuration: Configuration of CNI for container networking diagnostics.
 
-### Security and Compliance
+### Security and compliance
 
-- SELinux Status: Reports the SELinux mode to understand access control and security contexts.
-- IPtables Rules: Configuration of IPtables rulesets for insights into firewall settings.
+- SELinux status: Reports the SELinux mode to understand access control and security contexts.
+- IPtables rules: Configuration of IPtables rulesets for insights into firewall settings.
 
-### Storage and Filesystems
+### Storage and filesystems
 
-- Mount Points and Volume Information: Detailed information on mount points, volumes, disk usage, and filesystem specifics.
+- Mount points and volume information: Detailed information on mount points, volumes, disk usage, and filesystem specifics.
 
-### Configuration and Management
+### Configuration and management
 
-- System Configuration: Sysctl parameters for a comprehensive view of kernel runtime configuration.
-- Kubernetes Configuration and Health: Kubernetes setup details, including configurations and service listings.
-- Container Runtime Information: Configuration, version information, and details on running containers.
-- Container Runtime Interface (CRI) Information: Operations data for container runtime interface, aiding in container orchestration diagnostics.
+- System configuration: Sysctl parameters for a comprehensive view of kernel runtime configuration.
+- Kubernetes configuration and health: Kubernetes setup details, including configurations and service listings.
+- Container runtime information: Configuration, version information, and details on running containers.
+- Container runtime interface (CRI) information: Operations data for container runtime interface, aiding in container orchestration diagnostics.
 
 ## Prerequisite
 
