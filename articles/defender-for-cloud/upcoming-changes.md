@@ -58,8 +58,8 @@ Unified Disk Encryption recommendations will be released for General Availabilit
 
 | Recommendation DisplayName | Assessment key |
 | ---- | ---- |
-| [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](recommendations-reference.md#preview-linux-virtual-machines-should-enable-azure-disk-encryption-or-encryptionathosthttpsmsportalazurecomviewmicrosoft_azure_securitygenericrecommendationdetailsbladeassessmentkeya40cc620-e72c-fdf4-c554-c6ca2cd705c0) | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
-| [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](recommendations-reference.md#preview-windows-virtual-machines-should-enable-azure-disk-encryption-or-encryptionathosthttpsmsportalazurecomviewmicrosoft_azure_securitygenericrecommendationdetailsbladeassessmentkey0cb5f317-a94b-6b80-7212-13a9cc8826af) | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
+| Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
+| Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
 
 Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
 
