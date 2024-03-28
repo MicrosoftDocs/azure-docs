@@ -36,6 +36,8 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
 | Use the Number Management Portal (preview) | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the AzureCommunicationsGateway enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
 
+> [!IMPORTANT]
+> The roles that you assign for the Number Management Portal apply to all Azure Communications Gateway resources in the same tenant.
 
 ## Configure user roles
 
@@ -59,6 +61,9 @@ You need to use the Azure portal to configure user roles.
     - To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.
     - To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.
     - To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**.
+
+    > [!IMPORTANT]
+    > Ensure you configure these roles on the AzureCommunicationsGateway enterprise application (not the Project Synergy enterprise application for Operator Connect and Teams Phone Mobile). The ID application for AzureCommunicationsGateway is always `8502a0ec-c76d-412f-836c-398018e2312b`.
 
 ## Next steps
 

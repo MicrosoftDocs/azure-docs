@@ -26,8 +26,6 @@ The standard storage with cool access feature provides options for the “coolne
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
-* Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
-    * An auto QoS capacity pool enabled for standard storage with cool access cannot be converted to a capacity pool using manual QoS.
 * You can't use large volumes with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR) and [cross-zone replication](cross-zone-replication-introduction.md): 
@@ -71,21 +69,18 @@ To use the Standard storage with cool access feature, you need to configure the 
 
 ### Configure the capacity pool for cool access
 
-Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. The capacity pool must use the auto [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types). You can do so in one of the following ways: 
+Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. You can do so in one of the following ways: 
 
 * [Create a new Standard service-level capacity pool with cool access.](#enable-cool-access-new-pool) 
 * [Modify an existing Standard service-level capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
 
 #### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool  
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level and the **auto** QoS type.  
+1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md) with the **Standard** service level.  
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
-    When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type isn't supported for Standard service with cool access. 
-
-    :::image type="content" source="./media/manage-cool-access/cool-access-new-capacity-pool.png" alt-text="Screenshot that shows the New Capacity Pool window with the Enable Cool Access option selected." lightbox="./media/manage-cool-access/cool-access-new-capacity-pool.png"::: 
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
-You can enable cool access support on an existing Standard service-level capacity pool that uses the auto QoS type. This action allows you to add or modify volumes in the pool to use cool access.  
+You can enable cool access support on an existing Standard service-level capacity pool. This action allows you to add or modify volumes in the pool to use cool access.  
 
 1. Right-click a **Standard** service-level capacity pool for which you want to enable cool access.   
 
@@ -124,12 +119,8 @@ Standard storage with cool access can be enabled during the creation of a volume
             * If cool access retrieval policy is set to `Never`:   
                 Cold data will be served directly from the cool tier and not be retrieved to the hot tier.
         * *Cool access is **disabled**:*     
-            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to the hot tier. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
-
-        The following limitations apply to the cool access retrieval policy settings:    
-        
-        * When the cool access setting is disabled on the volume, you can't modify the cool access retrieval policy setting on the volume. 
-        * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
+            * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
+            * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
@@ -164,13 +155,8 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
             * If cool access retrieval policy is set to `Never`:   
                 Cold data will be served directly from the cool tier and not be retrieved to the hot tier.
         * *Cool access is **disabled**:*     
-            You can't set cool access retrieval policy if cool access is disabled. If there's existing data in the cool tier from previous tiering when cool access was enabled on the volume, only random reads can be performed to get this data back to the hot tier. That is, the retrieval policy remains `Default` on the back end, and no further tiering will happen.
-
-        The following limitations apply to the cool access retrieval policy settings:    
-        
-        * When the cool access setting is disabled on the volume, you can't modify the cool access retrieval policy setting on the volume. 
-        * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
-
+            * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
+            * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
 
     :::image type="content" source="./media/manage-cool-access/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access window with the Enable Cool Access field selected. " lightbox="./media/manage-cool-access/cool-access-existing-volume.png"::: 
 

@@ -21,6 +21,7 @@ This single page, currently in preview, in Defender for Cloud's portal pages sho
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
+>
 > - Access the resource health page for all resource types
 > - Evaluate the outstanding security issues for a resource
 > - Improve the security posture for the resource

@@ -15,6 +15,12 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you how to use the maps events manager.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## Interact with the map
 
 The map manages all events through its `events` property. The following table lists the supported map events.

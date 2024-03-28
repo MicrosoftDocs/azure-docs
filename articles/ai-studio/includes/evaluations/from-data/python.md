@@ -6,7 +6,7 @@
 ms.author: eric-urban
  ms.service: azure-ai-studio
  ms.topic: include
- ms.date: 11/15/2023
+ ms.date: 03/28/2024
  ms.custom: include
 ---
 
@@ -18,23 +18,29 @@ In this article, you learn to create an evaluation run from a test dataset or fl
 
 To evaluate with AI-assisted metrics, you need:
 
-+ A test dataset in `.jsonl` format. See the next section for dataset requirements
-+ A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models.
+- A test dataset in `.jsonl` format. See the next section for dataset requirements
+- A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models.
 
 ## Supported scenarios and datasets
 
-We currently offer support for these scenarios: 
-+ **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
-+ **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
+We currently offer support for these scenarios:
 
-For more in-depth information on each metric definition and how it's calculated, learn more [here](../../../concepts/evaluation-metrics-built-in.md).
+- **Question Answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
+- **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 
 
-| Scenario           | Default metrics                          | All metrics                                                                                        |
-|--------------------|------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Question Answering | Groundedness, Relevance, Coherence       | Groundedness, Relevance, Coherence, Fluency, GPT Similarity, F1 Score, Exact Match, ADA Similarity |
-| Conversation       | Groundedness, Relevance, Retrieval Score | Groundedness, Relevance, Retrieval Score                                                           |
+For more in-depth information on each metric definition and how it's calculated,see [Evaluation and monitoring metrics](../../../concepts/evaluation-metrics-built-in.md).
 
-When using AI-assisted metrics for evaluation, you must specify a GPT model for the calculation process. Choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for your calculations. If you select ADA similarity, it requires an embedding model and you must also select a deployment featuring the `text-similarity-ada-001` or `text-similarity-ada-002` model to support ADA similarity calculations. 
+| Scenario           | Default metrics                          | Performance and quality metrics                                   | Risk and safety metrics                                                                |
+|--------------------|------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Question Answering | Groundedness, Relevance, Coherence       | Groundedness, Relevance, Coherence, Fluency, Similarity, F1 Score | Hateful and unfair content, Sexual content, Violent content, Self-harm-related content |
+| Conversation       | Groundedness, Relevance, Retrieval Score | Groundedness, Relevance, Coherence, Fluency, Retrieval Score      | Hateful and unfair content, Sexual content, Violent content, Self-harm-related content |
+
+When using AI-assisted performance and quality metrics, you must specify a GPT model for the calculation process. Choose a deployment with either GPT-3.5, GPT-4, or the Davinci model for your calculations.
+
+When using AI-assisted risk and safety metrics, you do not need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms. 
+
+> [!NOTE]
+> Currently AI-assisted risk and safety metrics are only available in the following regions: East US 2, France Central, UK South, Sweden Central. Groundedness measurement leveraging Azure AI Content Safety Groundedness Detection is only supported following regions: East US 2 and Sweden Central. Read more about the [supported metrics](../../../concepts/evaluation-metrics-built-in.md) and when to use which metric.
 
 ### Supported input data format for question answering
 
@@ -46,10 +52,8 @@ We require question and answer pairs in `.jsonl` format with the required fields
 | Relevance      | Required: Str | Required: Str | Required: Str | N/A           |
 | Coherence      | Required: Str | Required: Str | N/A           | N/A           |
 | Fluency        | Required: Str | Required: Str | N/A           | N/A           |
-| GPT-similarity | Required: Str | Required: Str | N/A           | Required: Str |
-| F1 Score | Required: Str | Required: Str | N/A           | Required: Str |
-| Exact Match | Required: Str | Required: Str | N/A           | Required: Str |
-| ADA similarity | Required: Str | Required: Str | N/A           | Required: Str |
+| Similarity | N/A | Required: Str | N/A           | Required: Str |
+| F1 Score | N/A  | Required: Str | N/A           | Required: Str |
 
 - Question: the question asked by the user in Question Answer pair
 - Response: the response to question generated by the model as answer
@@ -76,14 +80,13 @@ Each conversation turn contains:
 - `role`: Either the user or assistant.
 - `"citations"` (within `"context"`): Provides the documents and its ID as key value pairs from the retrieval-augmented generation model. 
 
-> [!NOTE]
-> Currently only metrics for conversations or chat payloads with `"citations"` field provided (RAG scenario) are supported.
-
 | Metric          | Citations from retrieved documents |
 |-----------------|---------------------|
 | Groundedness    | Required: str       |
 | Relevance       | Required: str       |
 | Retrieval score | Required: str       |
+| Coherence       | N/A       |
+| Fluency         | N/A       |
 
 **Citations**: the relevant source from retrieved documents by retrieval model or user provided context that model's response is generated with respect to.
 
@@ -106,7 +109,6 @@ Each conversation turn contains:
 }
 ```
 
-
 ## Evaluate with the Azure AI SDK
 
 Built-in evaluation metrics are available with the following installation:
@@ -125,12 +127,12 @@ For the supported scenarios mentioned previously, we provide default metrics by 
 
 | Scenario task type   | `task_type` value  | Default metrics | All metrics |
 |------------------------------------------------------------|--------------------------------------------------------------------------------------|---|--------------------------------------------------------------------------------------------------------------------------|
-| Question Answering                                         | `qa`              | `gpt_groundedness` (requires context), `gpt_relevance` (requires context), `gpt_coherence` | `gpt_groundedness`, `gpt_relevance`, `gpt_coherence`, `gpt_fluency`, `gpt_similarity`, `f1_score`, `exact_match`, `ada_similarity` |
-| Single and multi-turn conversation (context required) | `chat`            |  `gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |`gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |
+| Question Answering                                         | `qa`              | `gpt_groundedness` (requires context), `gpt_relevance` (requires context), `gpt_coherence` | `gpt_groundedness`, `gpt_relevance`, `gpt_coherence`, `gpt_fluency`, `gpt_similarity`, `f1_score`, `hate_unfairness`, `sexual`, `violence`, `self_harm` |
+| Single and multi-turn conversation | `chat`            |  `gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`                                 |`gpt_groundedness`, `gpt_relevance`, `gpt_retrieval_score`, `gpt_coherence`, `gpt_fluency`,`hate_unfairness`, `sexual`, `violence`, `self_harm`                                 |
 
 ### Set up your Azure OpenAI configurations for AI-assisted metrics
 
-Before you call the `evaluate()` function, your environment needs to set up your large language model deployment configuration that's required for generating the AI-assisted metrics. 
+Before you call the `evaluate()` function, your environment needs to set up your large language model deployment configuration that's required for generating the AI-assisted metrics.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -138,6 +140,8 @@ from azure.ai.resources.client import AIClient
 
 client = AIClient.from_config(DefaultAzureCredential())
 ```
+> [!NOTE]
+> If only risk and safety metrics are passed into `metrics_list` then the `model_config` parameter in the following interface is optional. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
 
 ### Evaluate question answering: `qa`
 
@@ -151,7 +155,7 @@ result = evaluate(
     target=myflow, # pass in a flow that you want to run then evaluate results on 
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
-    metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity"] #optional superset over default set of metrics
+    metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity", "hate_unfairness", "sexual", "violence", "self_harm"] #optional superset over default set of metrics
     model_config= { #for AI-assisted metrics, need to hook up AOAI GPT model for doing the measurement
             "api_version": "2023-05-15",
             "api_base": os.getenv("OPENAI_API_BASE"),
@@ -160,9 +164,9 @@ result = evaluate(
             "deployment_id": os.getenv("AZURE_OPENAI_EVALUATION_DEPLOYMENT")
     },
     data_mapping={
-        "questions":"question", #column of data providing input to model
-        "contexts":"context", #column of data providing context for each input
-        "y_test":"groundtruth" #column of data providing ground truth answer, optional for default metrics
+        "question":"question", #column of data providing input to model
+        "context":"context", #column of data providing context for each input
+        "ground_truth":"groundtruth" #column of data providing ground truth answer, optional for default metrics
         },
     output_path="./myevalresults", #optional: save output artifacts to local folder path 
     tracking_uri=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
@@ -170,6 +174,7 @@ result = evaluate(
 ```
 
 #### Evaluate on test dataset
+
 Alternatively if you already have a test dataset and *don't need to run a flow* to get the generated results, you can alter the above function call to not take in a `target` parameter. However, if no `target` is specified, you must provide `"y_pred"` in your `data_mapping` parameter.
 
 ```python
@@ -177,7 +182,7 @@ result = evaluate(
     evaluation_name="my-qa-eval-with-data", #name your evaluation to view in AI Studio
     data=mydata, # data to be evaluated
     task_type="qa", # for different task types, different metrics are available
-    metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity"] #optional superset over default set of metrics
+    metrics_list=["gpt_groundedness","gpt_relevance","gpt_coherence","gpt_fluency","gpt_similarity", "hate_unfairness", "sexual", "violence", "self_harm"] #optional superset over default set of metrics
     model_config= { #for AI-assisted metrics, need to hook up AOAI GPT model for doing the measurement
             "api_version": "2023-05-15",
             "api_base": os.getenv("OPENAI_API_BASE"),
@@ -186,15 +191,19 @@ result = evaluate(
             "deployment_id": os.getenv("AZURE_OPENAI_EVALUATION_DEPLOYMENT")
     },
     data_mapping={
-        "questions":"question", #column of data providing input to model
-        "contexts":"context", #column of data providing context for each input
-        "y_pred":"answer", #column of data providing output from model
-        "y_test":"groundtruth" #column of data providing ground truth answer, optional for default metrics
+        "question":"question", #column of data providing input to model
+        "context":"context", #column of data providing context for each input
+        "answer":"answer", #column of data providing output from model
+        "ground_truth":"groundtruth" #column of data providing ground truth answer, optional for default metrics
         },
     output_path="./myevalresults", #optional: save evaluation results .jsonl to local folder path 
     tracking_uri=client.tracking_uri #optional: if configured with AI client, evaluation gets logged to AI Studio
 )
 ```
+
+#### Evaluating jailbreak vulnerability
+
+Evaluating jailbreak is a comparative measurement, not an AI-assisted metric. Run evaluations on two different, red-teamed datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. You can do this with functionality and attack datasets from the [adversarial simulator](../../../how-to/simulator-interaction-data.md). Then you can evaluate jailbreak vulnerability by comparing content risk evaluations between the two test dataset's content risk defect rates. 
 
 #### Evaluation result 
 
@@ -203,7 +212,7 @@ The `evaluate()` function outputs an `EvaluationResult()` that includes a `metri
 Here's an example output from `result.metric_summary`:
 ```json
 {
-  "mean_gpt_groundedness":4.8, "mean_gpt_relevance":3.7, "mean_gpt_coherence":4.1
+  "mean_gpt_groundedness":4.8, "mean_gpt_relevance":3.7, "mean_gpt_coherence":4.1, "hate_unfairness_defect_rate":0.33, "sexual_defect_rate":0.12, "violence_defect_rate":0.0, "self_harm_defect_rate":0.0
 }
 ```
 
@@ -225,9 +234,18 @@ The contents of `eval_results.jsonl` looks like this:
   "ground_truth": "Paris",
   "gpt_groundedness": "5",
   "gpt_coherence": "5",
-  "gpt_relevance": "5"
+  "gpt_relevance": "5",
+  "hate_unfairness_score": "0",
+  "hate_unfairness": "Very low",
+  "hate_unfairness_reasoning": "The system's response does not express any negative sentiment towards any protected factors, nor any unfrounded inference of sensitive attributes."
 }
 ```
+
+The outputs of your risk and safety metrics will provide the following:
+
+- `{metric_name}_defect_rate`, which measures % of instances that surpassed the severity threshold (set to default 4) and is the aggregate metric over the whole dataset.
+- `{metric_name}_score` with a range between 0 and 7 severity for each data point. You can read more about the descriptions of each [content risk and severity scale](../../../concepts/evaluation-metrics-built-in.md).
+- `{metric_name}_reasoning` with a text reasoning for why a certain severity score was given for each data point.
 
 You can download your `EvaluationResult()` with `download_evaluation_artifacts()` to a local folder path. 
 
@@ -239,7 +257,9 @@ result.download_evaluation_artifacts("./myevalresults")
 > Get the contents of the `result.studio_url` property for a link to view your logged evaluation results in AI Studio.
 
 ### Evaluate Conversation: `chat`
-The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"` shown below
+
+The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"`.
+
 ```python
 task_type="chat",
 data_mapping={
@@ -247,7 +267,8 @@ data_mapping={
         }
 ```
 
-An example of an output: 
+An example of an output with scores appended at the end:
+
 ```json
 {
   "messages": [

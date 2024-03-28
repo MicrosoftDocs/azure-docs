@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/12/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
