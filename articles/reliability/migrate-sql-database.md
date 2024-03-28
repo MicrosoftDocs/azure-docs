@@ -205,7 +205,7 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 
 **To disable zone-redundancy with Azure portal:**
 
-1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
 
 1. Select **Settings**, and then select **Configure**. 
 
@@ -221,7 +221,7 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 
 **To disable zone-redundancy with Azure portal:**
 
-1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
 
 1. Select **Settings**, and then select **Configure**. 
 
