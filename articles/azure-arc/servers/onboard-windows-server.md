@@ -11,8 +11,7 @@ Windows Server machines can be onboarded directly to [Azure Arc](https://azure.m
 
 Onboarding to Azure Arc is not needed if the Windows Server machine is already running in Azure.
 
-For Windows Server 2025 and later, Azure Arc Setup is a Feature on Demand (FOD), rather than an optional component (as it is for Windows Server 2022). Essentially, this means that the procedures for removal and enablement differ between OS versions. See [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities?view=windows-11) for more information.
-
+For Windows Server 2022, Azure Arc Setup is an optional component that can be removed using the **Remove Roles and Features Wizard**. For Windows Server 2025 and later, Azure Arc Setup is a [Features On Demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities?view=windows-11). Essentially, this means that the procedures for removal and enablement differ between OS versions. See  for more information.
 
 > [!NOTE]
 > The Azure Arc Setup feature only applies to Windows Server 2022 and later. It was released in the [Cumulative Update of 10/10/2023](https://support.microsoft.com/en-us/topic/october-10-2023-kb5031364-os-build-20348-2031-7f1d69e7-c468-4566-887a-1902af791bbc).
@@ -75,7 +74,7 @@ The Azure Arc system tray icon at the bottom of your Windows Server machine indi
 >
 To uninstall Azure Arc Setup from a Windows Server 2022 machine:
 
-1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. (See [Remove roles, role services, and features by using the remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard) for more information.)
+1. In the Server Manager, navigate to the **Remove Roles and Features Wizard**. (See [Remove roles, role services, and features by using the Remove Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard) for more information.)
 
 1. On the Features page, uncheck the box for **Azure Arc Setup**.
 
