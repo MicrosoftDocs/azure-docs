@@ -97,7 +97,8 @@ To fix this, the credentials in the appliance VM need to be updated. For more in
 
 ### Private Link is unsupported
 
-Arc resource bridge does not support private link. If you are using private link on a different Azure Arc product, such as Azure Arc-enabled servers, you must provide Arc resource bridge with a different DNS server and deploy Arc resource bridge on a different network segment than the one being used for private link. 
+Arc resource bridge does not support private link. All calls coming from the appliance VM should not be going through your private link set up. The Private Link IPs may conflict with the Pod IP CIDR range which is not configurable on the resource bridge. You must deploy Arc resource bridge on a separate network segment unrelated to the private link setup. You must use a different DNS server than the one being used with private link.
+
 
 ## Networking issues
 
