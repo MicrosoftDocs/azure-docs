@@ -4,8 +4,9 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 03/19/2024
-appliesto: Microsoft Sentinel in the Microsoft Defender portal
+ms.date: 03/28/2024
+appliesto: 
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
@@ -108,8 +109,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |Automation   |   Microsoft Sentinel > Configuration > Automation       |
 |Settings   | System > Settings > Microsoft Sentinel       |
 
-
-
 ## Related content
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+- [Microsoft Defender XDR documentation](/microsoft-365/security/defender)
