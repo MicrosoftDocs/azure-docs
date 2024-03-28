@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Roll out features to targeted audiences
+# Tutorial: Roll out features to targeted audiences
 
 Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the targeted audience. An audience is made up of specific users, groups, and a designated percentage of the entire user base.
 

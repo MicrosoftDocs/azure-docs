@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Enable features on a schedule
+# Tutorial: Enable features on a schedule
 
 [Feature filters](./howto-feature-filters.md#enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled dynamically. For instance, you might want to regulate the feature's availability on a schedule, such as enabling or disabling it until a certain moment. This can be accomplished using the time window filter, which provides the capability to enable a feature based on a time window. 
 

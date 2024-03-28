@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Roll out features to targeted audiences in an ASP.NET Core app
+# Tutorial: Roll out features to targeted audiences in an ASP.NET Core app
 
 In this tutorial, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core app. For more information about the targeting filter, please read this [article](./howto-targetingfilter.md).
 
