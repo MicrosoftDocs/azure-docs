@@ -13,11 +13,11 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 
 :::moniker range="doc-intel-3.1.0"
-   | [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v3-1.md) | 
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v3-1.md) |
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-    | [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../sdk-overview-v3-0.md) | 
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../sdk-overview-v3-0.md) |
 :::moniker-end
 
 In this quickstart, learn to use the Document Intelligence REST API to analyze and extract data and values from documents:

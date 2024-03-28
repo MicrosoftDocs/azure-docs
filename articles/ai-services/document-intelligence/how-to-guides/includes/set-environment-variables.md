@@ -19,7 +19,7 @@ To interact with the Document Intelligence service, you need to create an instan
 
 > [!IMPORTANT]
 >
-> Don't include your key directly in the code and never post it publicly. For production, use a secure way to store and access your credentials, such as [Azure Key Vault](../../../../../ai-services/use-key-vault.md). For more information, see [Azure AI services security](../../../../../ai-services/security-features.md).
+> Don't include your key directly in the code and never post it publicly. For production, use a secure way to store and access your credentials, such as [Azure Key Vault](../../../../ai-services/use-key-vault.md). For more information, see [Azure AI services security](../../../../ai-services/security-features.md).
 
 To set the environment variable for your Document Intelligence resource key, open a console window, and follow the instructions for your operating system and development environment. Replace *\<yourKey>* and *\<yourEndpoint>* with the values from your resource in the Azure portal.
 
