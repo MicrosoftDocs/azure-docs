@@ -138,7 +138,7 @@ You should only use autoinstrumentation on App Service if you are not using manu
 
 ### Missing telemetry
 
-If you are missing telemetry, follow these steps to see confirm autoinstrumentation is enabled correctly.
+If you are missing telemetry, follow these steps to confirm that autoinstrumentation is enabled correctly.
 
 #### Step 1: Check the Application Insights blade on your App Service resource
 
@@ -148,7 +148,7 @@ Confirm that autoinstrumentation is enabled in the Application Insights blade on
 
 #### Step 2: Confirm that your App Settings are correct
 
-Confirm that the `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3` and that your `APPLICATIONINSIGHTS_CONNECTION_STRING` points to the appropiate Application Insights resource.
+Confirm that the `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3` and that your `APPLICATIONINSIGHTS_CONNECTION_STRING` points to the appropriate Application Insights resource.
 
 :::image type="content"source="./media/azure-web-apps-python/application-settings-python.png" alt-text="Screenshot of App Service Application Settings with available Application Insights settings." lightbox="./media/azure-web-apps-python/application-settings-python.png":::
 
@@ -174,7 +174,7 @@ Here's an example JSON file:
 
 ```
 
-The `applicationinsights-extension.log` in the same folder may show other helpful diagnostics.
+The `applicationinsights-extension.log` file in the same folder may show other helpful diagnostics.
 
 ### Django apps
 
