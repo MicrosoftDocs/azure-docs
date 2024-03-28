@@ -130,6 +130,29 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
 
 Again, for setting complex **Or** conditions with different fields, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
+#### Conditions based on tags
+
+You can create two kinds of conditions based on tags:
+
+- Conditions with **Any individual tag** operators evaluate the specified value against every tag in the collection. The evaluation is *true* when *at least one tag* satisfies the condition.
+- Conditions with **Collection of all tags** operators evaluate the specified value against the collection of tags as a single unit. The evaluation is *true* only if *the collection as a whole* satisfies the condition.
+
+To add one of these conditions based on an incident's tags, take the following steps:
+
+1. Create a new automation rule as described above.
+
+1. Add a condition or a condition group.
+
+1. Select **Tag** from the properties drop-down list.
+
+1. Select the operators drop-down list to reveal the available operators to choose from.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule.":::
+
+    See how the operators are divided in two categories as described before. Choose your operator carefully based on how you want the tags to be evaluated.
+
+    For more information, see [*Tag* property: individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection).
+
 #### Conditions based on custom details
 
 You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
