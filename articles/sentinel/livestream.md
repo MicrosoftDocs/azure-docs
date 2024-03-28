@@ -6,7 +6,9 @@ ms.date: 03/12/2024
 ms.author: austinmc
 author: austinmccollum
 ms.collection: usx-security
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Detect threats by using hunting livestream in Microsoft Sentinel

@@ -5,7 +5,9 @@ ms.topic: how-to
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Defender XDR
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---

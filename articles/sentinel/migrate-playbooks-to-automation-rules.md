@@ -5,7 +5,9 @@ ms.topic: how-to
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---
@@ -43,7 +45,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 1. Under **Active rules**, find an analytics rule already configured to run a playbook.
 
-1. Select **Edit**. <!--add screenshot if there's time-->
+1. Select **Edit**.
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/find-analytics-rule.png" alt-text="Screenshot of finding and selecting an analytics rule.":::
 

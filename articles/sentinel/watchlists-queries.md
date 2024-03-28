@@ -5,7 +5,9 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to incorporate my watchlists with advanced hunting or detection rules so I can use data I provide in meaningful ways for my security monitoring.
 ---

@@ -63,8 +63,6 @@ See how behavior analytics is used in [Microsoft Defender for Cloud Apps](https:
 
 Learn more about [entities in Microsoft Sentinel](entities.md) and see the full list of [supported entities and identifiers](entities-reference.md).
 
-<!-- Is this the "Investigation priority score" that appears on the entity pages in Microsoft Defender? If so, is it coming directly from MDA there, or from UEBA? -->
-
 ### Entity pages
 
 Information about **entity pages** can now be found at [Entity pages in Microsoft Sentinel](entity-pages.md).

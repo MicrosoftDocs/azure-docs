@@ -5,7 +5,9 @@ author: cwatson-cat
 ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal.
 ---
 
 # About Microsoft Sentinel content and solutions
