@@ -28,7 +28,7 @@ It's important to note that this scenario is different from the scenario where a
 ### SDK
 `DeviceManager.getSpeakers` API returns an empty array or an array with an object, where  the id is set to `speaker:` and the name is set to an empty string.
 
-Additionally, to detect the scenario where the user removes the speaker during the call and there are no available audiooutput in the system, the application can listen to the `noSpeakerDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md). This event can help the application understand the current situation, and show the warning message on its UI accordingly.
+Additionally, to detect the scenario where the user removes the speaker during the call and there are no available audiooutput in the system, the application can listen to the `noSpeakerDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md). This event can help the application understand the current situation, and show the warning message on its UI accordingly.
 
 For the platform that doesn't support speaker enumeration, you will get an error when caliing `DeviceManager.getSpeakers` API.
 
@@ -40,12 +40,6 @@ The error code/subcode is
 | subcode          | 40606                                                 |
 | message          | This device does not support speaker enumeration.     |
 | resultCategories | Expected                                              |
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 The application should always call the `DeviceManager.askDevicePermission` API to ensure that the required permissions are granted. If the user doesn't grant the microphone permission, the application should show a warning on its UI, so the user knows that they are not able to see the speaker device list.

@@ -26,7 +26,7 @@ In the latter case, the `DeviceManager.getMicrophones` API only returns an empty
 `DeviceManager.getMicrophones` API returns an empty array or an array with an object, where  the id is set to `microphone:` and the name is set to an empty string.
 
 Additionally, to detect the scenario where the user removes the microphone during the call and there are no available microphones in the system,
-the application can listen to the `noMicrophoneDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+the application can listen to the `noMicrophoneDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
 This event can help the application understand the current situation, and show the warning message on its UI accordingly.
 
 ## How to mitigate or resolve

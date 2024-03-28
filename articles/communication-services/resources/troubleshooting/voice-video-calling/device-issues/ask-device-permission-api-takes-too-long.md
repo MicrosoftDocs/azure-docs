@@ -16,7 +16,7 @@ ms.subservice: calling
 The `askDevicePermission` API triggers the permission prompt and updates the device list internally.
 If you find that this API is taking a long time, it could be due to delays in either step.
 If the browser shows the permission prompt UI and the user doesn't respond for a while,
-the ACS Web Calling SDK resolves the promise and return the permission result.
+the ACS Web Calling SDK resolves the promise and returns the permission result.
 
 Occasionally, the device list update step can take a long time.
 This issue is usually because the driver layer responds late, which can happen with some virtual audio devices in particular. [Chromium Issue 1402866](https://bugs.chromium.org/p/chromium/issues/detail?id=1402866&no_tracker_redirect=1)
