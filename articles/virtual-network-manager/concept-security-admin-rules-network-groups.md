@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 03/18/2024
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23, references_regions
 #customer intent: As a network administrator, I want to deploy security admin rules in Azure Virtual Network Manager. When creating security admin rules, I want to define network groups as the source and destination of traffic.
 ---
 
@@ -18,7 +18,7 @@ In this article, you learn how to use network groups with security admin rules i
 
 Using network groups with security admin rules allows you to define the source and destination of the traffic for the security admin rule. This feature streamlines the process of securing your traffic across workloads and environments, as it removes the manual step of specifying individual CIDR ranges or resource IDs.
 
-For example, you may want to ensure traffic is denied between your production and non-production environments, which you have represented with two separate network groups. To achieve this, you can create a security admin rule with an action type of “Deny,” specify one of your network groups as the source, specify the other network group as the destination, and select the direction of the traffic you want to deny. This allows you to enforce the traffic between your grouped network resources without having to specify individual CIDR ranges or resource IDs.
+For example, you need to ensure traffic is denied between your production and nonproduction environments, which are represented by two separate network groups. To achieve this, you can create a security admin rule with an action type of “Deny,” specify one of your network groups as the source, specify the other network group as the destination, and select the direction of the traffic you want to deny. This allows you to enforce the traffic between your grouped network resources without having to specify individual CIDR ranges or resource IDs.
 
 ## How do I deploy a security admin rule using network groups?
 
@@ -46,8 +46,8 @@ The following limitations apply when using network groups with security admin ru
 - Supports 100 networking resources (virtual networks or subnets) in any one network group referenced in the security admin rule.
 - Only supports IPv4 address prefixes in the network group members.
 - Role-based access control (RBAC) ownership is inferred from the Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write permission only.
-- There is no scope enforcement on the network group members when using clients other than the Azure Portal.
+- There's no scope enforcement on the network group members when using clients other than the Azure portal.
 - Network groups must have the same member-types. Virtual networks and subnets are supported but must be in separate network groups.
 - Only supports aggregating members in the same tenant as the network manager.
-- Azure Virtual Filtering Platform (VFP) programming for AVNM-managed virtual networks is not optimized.
-- Force-delete of any network group used as the source and/or destination in a security admin rule is not currently supported and will cause an error.
+- Azure Virtual Filtering Platform (VFP) programming for AVNM-managed virtual networks isn't optimized.
+- Force-delete of any network group used as the source and/or destination in a security admin rule isn't currently supported. Usage causes an error.
