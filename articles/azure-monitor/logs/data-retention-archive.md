@@ -53,6 +53,8 @@ If you change the archive settings on a table with existing data, the relevant d
 
 You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
 
+# [Portal](#tab/portal-3)
+
 To set the default workspace retention:
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select your workspace.
@@ -62,6 +64,73 @@ To set the default workspace retention:
     :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" lightbox="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Screenshot that shows changing the workspace data retention setting.":::
 
 1. Move the slider to increase or decrease the number of days, and then select **OK**.
+
+# [API](#tab/api-3)
+
+To set the retention and archive duration for a table, call the [Workspaces - Update API](/rest/api/azureml/workspaces/update):
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2023-09-01
+```
+
+**Request body**
+
+The request body includes the values in the following table.
+
+|Name | Type | Description |
+| --- | --- | --- |
+|properties.retentionInDays | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
+
+**Example**
+
+This example sets the workspace's retention to the workspace default of 30 days.
+
+**Request**
+
+```http
+PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685?api-version=2023-09-01
+
+{
+  "properties": {
+    "retentionInDays": 30,
+  }
+}
+```
+
+**Response**
+
+Status code: 200
+
+```http
+{
+  "properties": {
+    "retentionInDays": 30,
+  },
+  "location": "australiasoutheast",
+  "tags": {
+    "tag1": "val1"
+  }
+}
+```
+
+# [CLI](#tab/cli-3)
+
+To set the retention and archive duration for a table, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
+
+This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the archive duration is 23 months:
+
+```azurecli
+az monitor log-analytics workspace update --resource-group myresourcegroup --retention-time 30 --workspace-name myworkspace
+```
+
+# [PowerShell](#tab/PowerShell-3)
+
+Use the [Set-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/Set-AzOperationalInsightsWorkspace) cmdlet to set the retention for a workspace. This example sets the workspace's retention to 30 days:
+
+```powershell
+Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "MyWorkspace" -RetentionInDays 30
+```
+---
 
 ## Configure retention and archive at the table level
 
@@ -90,7 +159,7 @@ To set the retention and archive duration for a table in the Azure portal:
 
 # [API](#tab/api-1)
 
-To set the retention and archive duration for a table, call the **Tables - Update** API:
+To set the retention and archive duration for a table, call the [Tables - Update API](/rest/api/loganalytics/tables/update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2022-10-01

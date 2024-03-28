@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 03/11/2024
 ms.author: danlep
 author: dlepow
-ms.custom:
+ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to lint the API definitions in my organization's API center and analyze whether my APIs comply with my organization's API style guide.
 ---
 
@@ -299,4 +299,3 @@ Learn more about Event Grid:
 * [System topics in Azure Event Grid](../event-grid/system-topics.md)
 * [Event Grid push delivery - concepts](../event-grid/concepts.md)
 * [Event Grid schema for API Center](../event-grid/event-schema-api-center.md)
-

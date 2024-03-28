@@ -4,8 +4,9 @@ description: How to set environment variables for keys and endpoint
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ---
 
@@ -41,9 +42,6 @@ Environment variables in Windows aren't case-sensitive. They're typically declar
 1. After you set your environment variables, close the Command Prompt window. The values remain modified until you change them again.
 
 1. Restart any running programs that read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
 
 Here are a few more helpful commands to use with environment variables:
 
@@ -90,9 +88,6 @@ To set an environment variable permanently, place an export command in your Bash
      source ~/.bash-profile
      ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
-
 Here are a few more helpful commands to use with environment variables:
 
 | Command | Action | Example |
@@ -137,9 +132,6 @@ To set an environment variable permanently, place an export command in your Bash
      ```bash
      source ~/.bashrc
      ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue setting the environment variables.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=environment-variables) -->
 
 Here are a few more helpful commands to use with environment variables:
 
