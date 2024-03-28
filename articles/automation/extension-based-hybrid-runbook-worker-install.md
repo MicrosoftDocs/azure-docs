@@ -3,7 +3,7 @@ title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in 
 description: This article provides information about deploying the extension-based User Hybrid Runbook Worker to run runbooks on Windows or Linux machines in your on-premises datacenter or other cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
 ms.date: 03/20/2024
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.

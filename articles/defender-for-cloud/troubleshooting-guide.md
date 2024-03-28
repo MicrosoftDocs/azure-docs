@@ -215,7 +215,7 @@ If you experience problems with loading the workload protection dashboard, make 
 
 If you can't onboard your Azure DevOps organization, try the following troubleshooting tips:
 
-- Make sure you're using a non-preview version of the [Azure portal]( https://portal.azure.com); the authorize step doesn't work in the Azure preview portal.
+- Make sure you're using a non-preview version of the [Azure portal](https://portal.azure.com); the authorize step doesn't work in the Azure preview portal.
 
 - It's important to know which account you're signed in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
 

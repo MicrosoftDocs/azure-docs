@@ -6,12 +6,11 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 10/26/2022
 ms.author: shaas
-
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-
 ---
 
 ::: zone target="docs"
@@ -348,4 +347,3 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
 
 ::: zone-end
-
