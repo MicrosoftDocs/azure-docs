@@ -9,7 +9,7 @@ ms.date: 03/25/2024
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
@@ -95,7 +95,7 @@ IoT Edge devices behave and can be managed differently than typical IoT devices.
 
 1. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use it to configure the IoT Edge runtime in the next section.
 
-For example, your connection string should look similar to `HostName=contoso-hub.azure-devices.net;DeviceId=myEdgeDevice;SharedAccessKey={device_shared_access_key}`
+   For example, your connection string should look similar to `HostName=contoso-hub.azure-devices.net;DeviceId=myEdgeDevice;SharedAccessKey=<DEVICE_SHARED_ACCESS_KEY>`.
 
 ## Install and start the IoT Edge runtime
 
@@ -189,7 +189,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-    Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
+   Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
 
 1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
 
@@ -203,14 +203,16 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploy to your IoT Edge device. 
 
-   >[!NOTE]
-   >When you submit a new deployment to an IoT Edge device, nothing is pushed to your device. Instead, the device queries IoT Hub regularly for any new instructions. If the device finds an updated deployment manifest, it uses the information about the new deployment to pull the module images from the cloud then starts running the modules locally. This process can take a few minutes.
+   > [!NOTE]
+   > When you submit a new deployment to an IoT Edge device, nothing is pushed to your device. Instead, the device queries IoT Hub regularly for any new instructions. If the device finds an updated deployment manifest, it uses the information about the new deployment to pull the module images from the cloud then starts running the modules locally. This process can take a few minutes.
 
 After you create the module deployment details, the wizard returns you to the device details page. View the deployment status on the **Modules** tab.
 
 You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
 :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows the SimulatedTemperatureSensor in the list of deployed modules." lightbox="./media/quickstart/view-deployed-modules.png":::
+
+If you have issues deploying modules, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## View the generated data
 
@@ -241,12 +243,10 @@ The module that you pushed generates sample environment data that you can use fo
    sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-   >[!IMPORTANT]
-   >IoT Edge commands are case-sensitive when they refer to module names.
-
    :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot that shows the output logs of the Simulated Temperature Sensor module when it's running." lightbox="./media/quickstart/temperature-sensor-screen.png":::
 
-You can also use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to watch messages arrive at your IoT hub.
+   >[!TIP]
+   >IoT Edge commands are case-sensitive when they refer to module names.
 
 ## Clean up resources
 

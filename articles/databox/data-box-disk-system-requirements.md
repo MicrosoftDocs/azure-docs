@@ -6,6 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 10/11/2022
 ms.author: shaas
@@ -108,4 +109,3 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 * [Deploy your Azure Data Box Disk](data-box-disk-deploy-ordered.md)
 
 ::: zone-end
-

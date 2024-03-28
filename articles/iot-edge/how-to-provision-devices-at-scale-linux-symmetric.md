@@ -6,6 +6,7 @@ ms.author: patricka
 ms.date: 02/27/2024
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale on Linux using symmetric key

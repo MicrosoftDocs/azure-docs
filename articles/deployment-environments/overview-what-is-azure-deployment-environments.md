@@ -91,5 +91,6 @@ Start using Azure Deployment Environments:
 
 - [Key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md)
 - [Azure Deployment Environments scenarios](./concept-environments-scenarios.md)
+- [Quickstart: Create dev center and project (Azure Resource Manager)](./quickstart-create-dev-center-project-azure-resource-manager.md)
 - [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
 - [Quickstart: Create and access environments](./quickstart-create-access-environments.md)
