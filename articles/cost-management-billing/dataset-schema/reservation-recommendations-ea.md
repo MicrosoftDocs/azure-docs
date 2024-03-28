@@ -29,10 +29,10 @@ This article lists all of the data fields available in the Enterprise Agreement 
 | 9 |NetSavings|Total estimated savings with reserved instances.|
 | 10 |NormalizedSize|The normalized Size.|
 | 11 |RecommendedQuantity|Recommended quantity for reserved instances.|
-| 12 |RecommendedQuantityNormalized|The recommended quantity that's normalized.|
+| 12 |RecommendedQuantityNormalized|The normalized recommended quantity.|
 | 13 |ResourceType|The Azure resource type.|
 | 14 |Scope|Shared or single recommendation.|
 | 15 |SubscriptionId|MISSING.|
 | 16 |SkuProperties|List of SKU properties.|
-| 17 |Term|RI recommendations in one or three-year terms.|
+| 17 |Term|Reservation recommendations in one or three-year terms.|
 | 18 |TotalCostWithReservedInstances|The total amount of cost with reserved instances.|

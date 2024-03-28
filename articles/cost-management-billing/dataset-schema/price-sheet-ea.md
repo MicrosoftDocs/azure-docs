@@ -42,4 +42,4 @@ Heres the list of all of the data fields found in your price sheet.
 | 20 |IncludedQuantity|Quantities of a specific service where you're entitled to use without incremental charges.|
 | 21 |OfferID|Offer ID associated with the meter.|
 | 22 |Term|Displays the term for the validity of the offer. For example, for reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, the Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
-| 23 |PriceType|Currently supported values are `Consumption` and `Savings Plan`. <br><br>Future Supported values: <br><br>·    Consumption <br><br>·    SavingsPlan <br><br>·    Reservation <br><br>·    Entitlement (Spot will not be supported in PS download experience)**|
+| 23 |PriceType|Currently supported values are `Consumption` and `Savings Plan`. <br><br>Future Supported values: <br><br>· `Consumption`<br><br>· `SavingsPlan`<br><br>· `Reservation`<br><br>· `Entitlement` **(Spot will not be supported in PS download experience.)**|

@@ -6,7 +6,7 @@ ms.reviewer: jojo
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/26/2024
+ms.date: 03/28/2024
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ This article lists the cost details (formerly known as usage details) fields fou
 
 | Column | Fields | Description |
 |---|---|---|
-| 1 | AvailabilityZone | Provider assigned identifier for a physically separated and isolated area within a Region that provides high availability and fault tolerance. |
+| 1 | AvailabilityZone | Provider-assigned identifier for a physically separated and isolated area within a region that provides high availability and fault tolerance. |
 | 2 | BilledCost | A charge serving as the basis for invoicing, inclusive of all reduced rates and discounts while excluding the amortization of upfront charges (one-time or recurring). |
 | 3 | BillingAccountId | Unique identifier assigned to a billing account by the provider. |
 | 4 | BillingAccountName | Display name assigned to a billing account. |

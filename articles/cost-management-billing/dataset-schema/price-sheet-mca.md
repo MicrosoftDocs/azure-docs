@@ -1,5 +1,5 @@
 ---
-title: Microsoft Customer Agreement price sheet schema
+title: Microsoft Customer Agreement (MCA) price sheet schema
 description: Learn about the data fields available in the Microsoft Customer Agreement price sheet.
 author: bandersmsft
 ms.reviewer: jojo
@@ -12,7 +12,7 @@ ms.author: banders
 
 # Microsoft Customer Agreement price sheet schema
 
-This article lists all of the data fields available in the Microsoft Customer Agreement price sheet. Its a data file that contains all of the prices for your Azure services.
+This article lists all of the data fields available in the Microsoft Customer Agreement price sheet. It's a data file that contains all of the prices for your Azure services.
 
 ## Version 2023-05-01
 
