@@ -20,11 +20,11 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You need to have the **Network Contributor Role** for the scope that you want to use for you virtual network manager instance. 
+- You need to have the **Network Contributor Role** for the scope that you want to use for your virtual network manager instance. 
 
 ## Create a Virtual Network Manager instance
 
-In this step,you deploy a Virtual Network Manager instance with the defined scope and access that you need. 
+In this step, you deploy a Virtual Network Manager instance with the defined scope and access that you need. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -131,7 +131,7 @@ In this step, you create a network group containing your virtual networks using 
     | **Operator** | Select **Contains** from the dropdown menu. |
     | **Condition** | Enter **-spoke-**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/create-azure-policy.png" alt-text="Screenshot of create azure policy window defining a conditional statement for network group membership.":::
+    :::image type="content" source="media/how-to-deploy-user-defined-routes/create-azure-policy.png" alt-text="Screenshot of create Azure Policy window defining a conditional statement for network group membership.":::
         ```
 1. Select **Preview Resources** to see the resources that will be included in the network group, and select **Close**.
    

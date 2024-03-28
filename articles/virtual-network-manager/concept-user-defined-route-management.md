@@ -6,6 +6,7 @@ ms.author: mbender
 ms.topic: overview 
 ms.date: 03/18/2024
 ms.service: virtual-network-manager
+ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
 ---
 # Automate UDR Management with Azure Virtual Network Manager
