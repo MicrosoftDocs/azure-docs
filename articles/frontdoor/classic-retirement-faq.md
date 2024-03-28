@@ -35,7 +35,7 @@ Azure Front Door Standard and Premium tiers represent the enhanced versions of A
 * Enhanced security features, such as[Private Link integration](private-link.md), advanced WAF enhancements with DRS 2.1, anomaly scoring based detection and bot management, and many more to come. 
 * Deep integration with Azure services to deliver secure, accelerated, and user friendly end-to-end cloud solutions. These integrations include:
     * DNS deterministic name library integrations to prevent subdomain take over
-    * [Prevalidated domain integration with PaaS service with  one-time domain validation](./standard-premium/how-to-add-custom-domain.md#associate-the-custom-domain-with-your-front-door-endpoint).
+    * [Prevalidated domain integration with PaaS service with  one-time domain validation](./standard-premium/how-to-add-custom-domain.md#associate-the-custom-domain-with-your-azure-front-door-endpoint).
     * [One-click enablement on Static Web Apps](../static-web-apps/front-door-manual.md)
     * Use [managed identities](managed-identity.md) to access Azure Key Vault certificates
     * Azure Advisor integration to provide best practice recommendations
@@ -62,7 +62,7 @@ After the service is retired, you'll lose the ability to:
 We offer a zero-downtime migration tool. The following resources are available to assist you in understand and perform the migration process:
 
 * Familiarize yourself with the [zero-downtime migration tool](tier-migration.md). It's important to pay attention to the section of **Breaking changes when migrating to Standard or Premium tier**.
-* Gain understanding of the [settings mapping](yier-mapping.md) between the different Azure Front Door tiers.
+* Gain understanding of the [settings mapping](tier-mapping.md) between the different Azure Front Door tiers.
 * Learn the process of migrating from Azure Front Door (classic) to Standard or Premium tier using the [Azure portal](migrate-tier.md) or [Azure PowerShell](migrate-tier-powershell.md). 
 
 ### How will migrating to Azure Front Door Standard or Premium affect the Total Cost Ownership (TCO)?
