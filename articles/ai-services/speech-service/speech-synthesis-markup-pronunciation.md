@@ -38,21 +38,21 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="tə.ˈmeɪ.toʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -68,7 +68,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-AvaMultilingualNeural">
+     <voice name="en-US-AvaNeural">
         <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
@@ -99,7 +99,7 @@ After you publish your custom lexicon, you can reference it from your SSML. The 
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?

@@ -54,13 +54,19 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate that migration is supported
 
-The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md). This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, an upgrade automatically starts. For more information on the premigration upgrade, see [Validate that migration is supported using the in-place migration feature for your App Service Environment](migrate.md#validate-that-migration-is-supported-using-the-in-place-migration-feature-for-your-app-service-environment).
+The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md). This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, you need to start the upgrade yourself. For more information on the premigration upgrade, see [Validate that migration is supported using the in-place migration feature for your App Service Environment](migrate.md#validate-that-migration-is-supported-using-the-in-place-migration-feature-for-your-app-service-environment).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
 ```
 
 If there are no errors, your migration is supported, and you can continue to the next step.
+
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=PreMigrationUpgrade"
+```
 
 ## 3. Generate IP addresses for your new App Service Environment v3 resource
 
@@ -236,6 +242,8 @@ If your environment isn't supported for migration, a banner appears at the top o
 If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you can't use the migration feature. If your environment [isn't supported for migration with the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md).
 
 :::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows an example portal message that says the migration feature doesn't support the App Service Environment.":::
+
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, you're prompted to start the upgrade. Select **Upgrade** to start the upgrade. When the upgrade completes, you pass validation and can use the migration feature to start your migration.
 
 If migration is supported for your App Service Environment, proceed to the next step in the process. The **Migration** page guides you through the series of steps to complete the migration.
 
