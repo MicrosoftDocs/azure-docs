@@ -54,7 +54,7 @@ API Management offers both managed and self-hosted gateways:
 
 ## Feature comparison: Managed versus self-hosted gateways
 
-The following table compares features available in the following API Management gateways:
+The following tables compare features available in the following API Management gateways:
 
 * **Classic** - the managed gateway available in the Developer, Basic, Standard, and Premium service tiers
 * **V2** - the managed gateway available in the Basic v2 and Standard v2 tiers
@@ -80,7 +80,7 @@ The following table compares features available in the following API Management 
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ✔️ | ❌ |
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ |
@@ -107,7 +107,7 @@ The following table compares features available in the following API Management 
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ |
 | [Pass-through gRPC](grpc-api.md) (preview) |  ❌ | ❌ | ❌ | ✔️ |
-| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ |
+| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ | ✔️ |
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ | ✔️ | ❌ | ✔️ |
@@ -124,7 +124,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ |
-| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup>
+| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The quota by key policy isn't available in the v2 tiers.<br/>
@@ -138,16 +138,17 @@ For details about monitoring options, see [Observability in Azure API Management
 
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted  |
 | --- | --- | ----- | ----- | ---------- |
-| [API analytics](howto-use-analytics.md) | ✔️ | ✔️ | ❌ | ❌ |
+| [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ |
 | [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ |
-| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>1</sup> |
+| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> |
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ |
-| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>2</sup> | ✔️ | ✔️ |
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ |
 
-<sup>1</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
+<sup>1</sup> The v2 tiers support Azure Monitor-based analytics.
+<sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
 <sup>2</sup> Tracing is currently unavailable in the v2 tiers.
 
 ### Authentication and authorization
@@ -177,7 +178,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
     * In the Premium tier, optionally add and distribute gateway capacity across multiple [regions](api-management-howto-deploy-multi-region.md).
 
 * **v2 tiers**
-    Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier.
+    * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier.
 
 * **Consumption tier**
     * API Management instances in the Consumption tier scale automatically based on the traffic.
