@@ -54,6 +54,11 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5000 |
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
+| Standard_M12s_v3, Standard_M12ds_v3 | 1 | 1250 |
+| Standard_M24s_v3, Standard_M24ds_v3 | 2 | 2500 |
+| Standard_M48s_1_v3, Standard_M48ds_1_v3 | 4 | 5000 |
+| Standard_M96s_1_v3, Standard_M96ds_1_v3, Standard_M96s_2_v3, Standard_M96ds_2_v3 | 8 | 10000 |
+| Standard_M176s_3_v3, Standard_M176ds_3_v3, Standard_M176s_4_v3, Standard_M176ds_4_v3 | 16 | 20000 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM. Attached disks cannot exceed the write accelerator IOPS limit for a VM. For an example, even though the attached disks can do 30,000 IOPS, the system does not allow the disks to go above 20,000 IOPS for M416ms_v2.
 
