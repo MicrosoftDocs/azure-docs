@@ -288,9 +288,25 @@ Some properties may be changed, with exceptions depending on the current value. 
 - subnet
 - imageReferenceSku
 - imageReferenceOffer
+- imageReferenceVersion
 - Availability Zones (Preview)
 
 #### Examples
+
+To update your scale set to use a different OS SKU or version follow the below PS cmds. In this example, we are changing from Windows server 2019 Datacenter version *"2019.0.20181107"* to *"latest"* (it will take the latest version from the markerplace image). If you want to change the SKU from Windows server 2019 to Windows server 2022, please set the ImageReferenceSKU to 2022-datacenter.
+
+```powershell
+$VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Set-AzVmssStorageProfile $vmss `
+    -OsDiskCreateOption "FromImage" `
+    -ImageReferencePublisher "MicrosoftWindowsServer" `
+    -ImageReferenceOffer "WindowsServer" `
+    -ImageReferenceSku "2019-datacenter" `
+    -ImageReferenceVersion "latest"; 
+
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $VMSS
+ ```
 To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
 
 ```azurecli
