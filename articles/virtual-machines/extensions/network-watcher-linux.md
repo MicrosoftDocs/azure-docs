@@ -1,20 +1,20 @@
 ---
 title: Network Watcher Agent VM extension - Linux
 description: Deploy the Network Watcher Agent virtual machine extension on Linux virtual machines.
-ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: extensions
 author: halkazwini
 ms.author: halkazwini
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.topic: concept-article
 ms.collection: linux
-ms.date: 06/29/2023
+ms.date: 03/26/2024
 ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines (VMs), such as capturing network traffic on demand, and other advanced functionality.
 
@@ -56,27 +56,28 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 ```json
 {
-    "type": "extensions",
-    "name": "Microsoft.Azure.NetworkWatcher",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('vmName'), '/AzureNetworkWatcherExtension')]",
     "apiVersion": "[variables('apiVersion')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
     ],
     "properties": {
+        "autoUpgradeMinorVersion": true,
         "publisher": "Microsoft.Azure.NetworkWatcher",
         "type": "NetworkWatcherAgentLinux",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true
+        "typeHandlerVersion": "1.4"
     }
 }
+
 ```
 
 ### Property values
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2022-11-01 |
+| apiVersion | 2023-03-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
@@ -116,6 +117,8 @@ The following example shows the deployment state of the NetworkWatcherAgentLinux
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
 ```
 
-### Support
+## Related content
 
-If you need more help at any point in this article, you can refer to the [Network Watcher documentation](../../network-watcher/index.yml), or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure Support, see the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+- [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
+- [Network Watcher documentation](../../network-watcher/index.yml).
+- [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).

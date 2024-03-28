@@ -4,7 +4,8 @@ description: Learn how to configure the Dapr extension specifically for your Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
-ms.custom: build-2023, devx-track-azurecli
+ms.custom: build-2023, devx-track-azurecli, linux-related-content
+ms.subservice: aks-developer
 ms.date: 06/08/2023
 ---
 

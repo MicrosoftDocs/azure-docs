@@ -4,7 +4,7 @@ description: Learn about the concepts of in-place major version upgrade with Azu
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
-ms.date: 01/16/2024
+ms.date: 03/18/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
@@ -46,13 +46,30 @@ Here are some of the important considerations with in-place major version upgrad
 
 -	Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous version of the database instance.
 
+## Major Version Upgrade Logs 
+
+Major Version Upgrade Logs (PG_Upgrade_Logs) provides direct access to detailed logs through the [Server Logs](./how-to-server-logs-portal.md). Here’s how to integrate `PG_Upgrade_Logs` into your upgrade process, ensuring a smoother and more transparent transition to new PostgreSQL versions.
+
+You can configure your Major Version Upgrade Logs in the same way as [Server Logs](./how-to-server-logs-portal.md), above using the Server Parameters
+* `logfiles.download_enable` ON to enable this feature.
+* `logfiles.retention_days` to define logfile retention in days.
+
+#### Setting Up PostgreSQL Version Upgrade Logs
+- **Access via Azure portal or CLI**: To start utilizing the PG_Upgrade_Logs feature, you can configure and access the logs either through the Azure portal or by using the [Command Line Interface (CLI)](./how-to-server-logs-cli.md). This flexibility allows you to choose the method that best fits your workflow.
+- **Server Logs UI**: Once set up, the upgrade logs will be accessible through the Server Logs UI, where you can monitor the progress and details of your PostgreSQL major version upgrades in real time. This provides a centralized location for viewing logs, making it easier to track and troubleshoot the upgrade process.
+
+#### Utilizing Upgrade Logs for Troubleshooting
+
+- **Insightful Diagnostics**: The PG_Upgrade_Logs feature provides valuable insights into the upgrade process, capturing detailed information about the operations performed and highlighting any errors or warnings that occur. This level of detail is instrumental in diagnosing and resolving issues that may arise during the upgrade, ensuring a smoother transition.
+- **Streamlined Troubleshooting**: With direct access to these logs, you can quickly identify and address potential upgrade obstacles, reducing downtime and minimizing the impact on your operations. The logs serve as a crucial tool in your troubleshooting arsenal, enabling more efficient and effective problem resolution.
+
 ## Limitations  
 
 If in-place major version upgrade pre-check operations fail, then the upgrade aborts with a detailed error message for all the below limitations.
 
 - In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica.
 
-- Azure Database for PostgreSQL - Flexible Server requires the ability to send and receive traffic to destination ports 5432, and 6432 within VNET where Flexible Server is deployed, as well as to Azure storage for log archival. If you configure Network Security Groups (NSG) to restrict traffic to or from your Flexible Server within its deployed subnet, please make sure to allow traffic to destination ports 5432 and 6432 within the subnet and to Azure storage by using service tag **Azure Storage** as a destination.If network rules are not set up properly HA is not enabled automatically post a major version upgrade and you should manually enable HA. Please modify your NSG rules to allow traffic for the destination ports and storage as requested above and enable a high availability feature on the server.
+- Azure Database for PostgreSQL - Flexible Server requires the ability to send and receive traffic to destination ports 5432, and 6432 within VNET where Flexible Server is deployed, as well as to Azure storage for log archival. If you configure Network Security Groups (NSG) to restrict traffic to or from your Flexible Server within its deployed subnet, make sure to allow traffic to destination ports 5432 and 6432 within the subnet and to Azure storage by using service tag **Azure Storage** as a destination.If network rules are not set up properly HA is not enabled automatically post a major version upgrade and you should manually enable HA. Modify your NSG rules to allow traffic for the destination ports and storage as requested above and enable a high availability feature on the server.
 
 - In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, **pg_partman**, and **postgres_fdw** are unsupported for all PostgreSQL versions. 
 

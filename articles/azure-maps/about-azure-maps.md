@@ -23,7 +23,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
-Additionally, Azure Maps services are available through the Web SDK and the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
+Additionally, Azure Maps services are available through the Web SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
 
 You can sign up for a free [Azure Maps account] and start developing.
 
@@ -42,6 +42,12 @@ The Azure Maps Web SDK lets you customize interactive maps with your own content
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
 
 ### Android SDK
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 Use the Azure Maps Android SDK to create mobile mapping applications.
 

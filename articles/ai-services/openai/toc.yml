@@ -97,6 +97,8 @@ items:
       displayName: ChatGPT, chatgpt
     - name: GPT-4 Turbo with Vision
       href: ./how-to/gpt-with-vision.md
+    - name: DALL-E
+      href: ./how-to/dall-e.md
     - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions
@@ -115,6 +117,8 @@ items:
     href: ./how-to/content-filters.md
   - name: Use blocklists
     href: ./how-to/use-blocklists.md
+  - name: Risks & Safety Monitor
+    href: ./how-to/risks-safety-monitor.md
   - name: Embeddings
     items:
     - name: Embeddings basics
@@ -213,11 +217,11 @@ items:
           href: ./references/azure-search.md
         - name: Data source - Azure Cosmos DB for MongoDB vCore
           href: ./references/cosmos-db.md
-        - name: Data source - Azure Machine Learning index
+        - name: Data source - Azure Machine Learning index (preview)
           href: ./references/azure-machine-learning.md
-        - name: Data source - Elasticsearch
+        - name: Data source - Elasticsearch (preview)
           href: ./references/elasticsearch.md
-        - name: Data source - Pinecone
+        - name: Data source - Pinecone (preview)
           href: ./references/pinecone.md
         - name: Ingestion API (preview)
           href: /rest/api/azureopenai/ingestion-jobs
@@ -246,7 +250,7 @@ items:
           displayName: RAG, rag
           items:
             - name: C#
-              href: /dotnet/azure/ai/get-started-app-chat-template
+              href: /dotnet/ai/get-started-app-chat-template
               displayName: RAG, rag
             - name: Java
               href: /azure/developer/java/quickstarts/get-started-app-chat-template

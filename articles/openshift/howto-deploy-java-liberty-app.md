@@ -101,6 +101,8 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
 
+1. After selecting the region, select **Next**.
+
 The following steps show you how to fill out the **ARO** pane shown in the following screenshot:
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/azure-portal-liberty-on-aro-configure-cluster.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ARO pane." lightbox="media/howto-deploy-java-liberty-app/azure-portal-liberty-on-aro-configure-cluster.png":::
@@ -112,6 +114,8 @@ The following steps show you how to fill out the **ARO** pane shown in the follo
 1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
 
 1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
+
+1. After filling in the values, select **Next**.
 
 The following steps show you how to fill out the **Operator and application** pane shown in the following screenshot, and start the deployment.
 

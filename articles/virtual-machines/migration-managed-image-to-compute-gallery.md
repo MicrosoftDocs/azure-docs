@@ -104,6 +104,8 @@ New-AzGalleryImageVersion `
     -SourceImageId $sourceImageID
 ```
 
+---
+
 ## Next steps
 
 Replace managed image reference with Azure compute gallery image version in the Virtual machine and flex scale sets deployment templates.

@@ -23,8 +23,26 @@ The listed features were released in the last three months. For information abou
 
 ## March 2024
 
+- [Amazon Web Services S3 connector now generally available (GA)](#amazon-web-services-s3-connector-now-generally-available-ga)
+- [Codeless Connector builder (preview)](#codeless-connector-builder-preview)
 - [SIEM migration experience (preview)](#siem-migration-experience-preview)
 - [Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+
+### Amazon Web Services S3 connector now generally available (GA)
+
+Microsoft Sentinel has released the AWS S3 data connector to general availability (GA). You can use this connector to ingest logs from several AWS services to Microsoft Sentinel using an S3 bucket and AWS's simple message queuing service.
+
+Concurrent with this release, this connector's configuration has changed slightly for Azure Commercial Cloud customers. User authentication to AWS is now done using an OpenID Connect (OIDC) web identity provider, instead of through the Microsoft Sentinel application ID in combination with the customer workspace ID. Existing customers can continue using their current configuration for the time being, and will be notified well in advance of the need to make any changes.
+
+To learn more about the AWS S3 connector, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+
+### Codeless connector builder (preview)
+
+We now have a workbook to help navigate the complex JSON involved in deploying an ARM template for codeless connector platform (CCP) data connectors. Use the friendly interface of the **codeless connector builder** to simplify your development. 
+
+See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
+
+For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
 
 ### SIEM migration experience (preview)
 

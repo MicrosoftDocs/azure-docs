@@ -57,7 +57,7 @@ Exceptions include standardized headers whose values:
 - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 
-In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+In case of those exceptions, multiple header values won't be concatenated into one string and will be passed as separate headers, for example:
 
 ```
 User-Agent: value1
@@ -67,7 +67,8 @@ User-Agent: value3
 
 The following limitations apply:
 
-- Removal of `Server` header is not supported.
+- Removal of `Server` header isn't supported.
+- Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
 
 ## Examples
 

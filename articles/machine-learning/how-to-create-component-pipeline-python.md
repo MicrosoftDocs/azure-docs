@@ -72,7 +72,9 @@ Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image
 
 To define the input data of a job that references the Web-based data, run:
 
+```
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
+```
 
 By defining an `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 
