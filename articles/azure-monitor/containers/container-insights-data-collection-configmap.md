@@ -11,7 +11,7 @@ ms.reviewer: aul
 This article describes how to configure data collection in Container insights using ConfigMap. [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as configuration file or environment variables. 
 
 The ConfigMap is primarily used to configure data collection of the container logs and environment variables of the cluster. You can individually configure the stdout and stderr logs and also enable multiline logging.
-
+l
 Specific configuration you can perform with the ConfigMap includes:
 
 - Enable/disable and namespace filtering for stdout and stderr logs
@@ -20,6 +20,11 @@ Specific configuration you can perform with the ConfigMap includes:
 - Select log schema
 - Enable/disable multiline logging
 - Ignore proxy settings  
+
+> [!WARNING]
+> Kubernetes clusters can generate a lot of monitoring data, which can result in significant costs if you collect it all. Before you enable monitoring, see the following articles to optimize your monitoring environment for cost and ensure that you don't collect any more data than you require:
+>
+> - 
 
 > [!NOTE]
 > See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) to configure data collection using a DCR which allows you to configure different settings.

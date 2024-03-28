@@ -17,8 +17,12 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 
 [Using the Azure portal](#enable-full-monitoring-with-azure-portal), you can enable all of the features at the same time. You can also enable them individually by using the Azure CLI, Azure Resource Manager template, Terraform, or Azure Policy. Each of these methods is described in this article.
 
-> [!IMPORTANT]
-> This article describes onboarding using default configuration settings including managed identity authentication. See [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require. See [Authentication for Container Insights](container-insights-authentication.md) for guidance on migrating from legacy authentication models.
+> [!WARNING]
+> Kubernetes clusters generate a lot of log data, which can result in significant costs if you aren't selective about the logs that you collect. Before you enable monitoring for your cluster, see the following articles to ensure that your environment is optimized for cost and that you limit your log collection to only the data that you require:
+> 
+>- [Configure data collection and cost optimization in Container insights using data collection rule](./container-insights-data-collection-dcr.md)<br>Details on customizing log collection once you've enabled monitoring, including using preset cost optimization configurations.
+>- [Best practices for monitoring Kubernetes with Azure Monitor](../best-practices-containers.md)<br>Best practices for monitoring Kubernetes clusters organized by the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/), including cost optimization.
+>- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize you costs and limit the amount of data that you collect.
 
 ## Supported clusters
 
