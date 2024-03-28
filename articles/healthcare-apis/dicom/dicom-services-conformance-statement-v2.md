@@ -118,6 +118,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported.                                                                                                                                                                                     |
 | `409 (Conflict)`               | None of the instances in the store transaction request were stored.                                                                                                                                                            |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported.                                                                                                                                                                                       |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                                         |
 
 ### Store response payload
@@ -417,6 +418,7 @@ Content-Type: application/dicom
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data. |
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcodes requests the file requested was too large. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)
@@ -610,6 +612,7 @@ The query API returns one of the following status codes in the response:
 | `400 (Bad Request)`         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
 | `401 (Unauthorized)`        | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 ### Notes
@@ -650,6 +653,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `404 (Not Found)`              | When the specified series wasn't found within a study or the specified instance wasn't found within the series. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Delete response payload
@@ -710,6 +714,7 @@ found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `409 (Conflict)`               | The Workitem already exists. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Create response payload
@@ -750,6 +755,7 @@ The request payload might include Action Information as [defined in the DICOM St
 | `404 (Not Found)`              | The Target Workitem wasn't found. |
 | `409 (Conflict)`               | The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the `SCHEDULED` or `COMPLETED` state. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Request cancellation response payload
@@ -781,6 +787,7 @@ The `Accept` header is required and must have the value `application/dicom+json`
 | 401 (Unauthorized)           	| The client isn't authenticated. |
 | 403 (Forbidden)               | The user isn't authorized. |
 | 404 (Not Found)              	| The Target Workitem wasn't found. |
+| 424 (Failed Dependency)      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | 503 (Service Unavailable)     | The service is unavailable or busy. Try again later. |
 
 #### Retrieve Workitem response payload
@@ -825,6 +832,7 @@ found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | `404 (Not Found)`            	| The Target Workitem wasn't found. |
 | `409 (Conflict)`             	| The request is inconsistent with the current state of the Target Workitem. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Update Workitem transaction response payload
@@ -864,6 +872,7 @@ The request payload shall contain the Change UPS State Data Elements. These data
 | `403 (Forbidden)`             | The user isn't authorized. |
 | `404 (Not Found)`             | The Target Workitem wasn't found. |
 | `409 (Conflict)`              | The request is inconsistent with the current state of the Target Workitem. |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)`   | The service is unavailable or busy. Try again later. |
 
 #### Change Workitem state response payload
@@ -963,6 +972,7 @@ The query API returns one of the following status codes in the response:
 | `400 (Bad Request)`         | There was a problem with the request. For example, invalid Query Parameter syntax. The response body contains details of the failure. |
 | `401 (Unauthorized)`        | The client isn't authenticated. |
 | `403 (Forbidden)`           | The user isn't authorized. |
+| `424 (Failed Dependency)`   | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 #### Additional notes
