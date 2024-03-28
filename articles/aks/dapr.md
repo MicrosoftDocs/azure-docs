@@ -47,6 +47,8 @@ Select how you'd like to install, deploy, and configure the Dapr extension.
 
 # [Azure CLI](#tab/cli)
 
+### Set up the Azure CLI extension for cluster extensions
+
 Install the `k8s-extension` Azure CLI extension by running the following commands:
 
 ```azurecli-interactive
