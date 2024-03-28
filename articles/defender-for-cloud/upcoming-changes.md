@@ -61,9 +61,9 @@ Unified Disk Encryption recommendations will be released for General Availabilit
 | Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
 | Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
 
-Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
+Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
 
-The recommendations depend on [Guest Configuration](https://learn.microsoft.com/en-us/azure/governance/machine-configuration/overview). Pre-requisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected. 
+The recommendations depend on [Guest Configuration](/azure/governance/machine-configuration/overview). Pre-requisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected. 
 
 These recommendations will replace the recommendation "Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources." 
 
@@ -444,6 +444,7 @@ No action is required from your end.
 
 > [!IMPORTANT]
 > For more information about how to plan for this change, see [Microsoft Defender for Cloud - strategy and plan towards Log Analytics Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
+
 ### Defender for SQL Server on machines
 
 The Defender for SQL Server on machines plan relies on the Log Analytics agent (MMA) / Azure monitoring agent (AMA) to provide Vulnerability Assessment and Advanced Threat Protection to IaaS SQL Server instances. The plan supports Log Analytics agent autoprovisioning in GA, and Azure Monitoring agent autoprovisioning in Public Preview.
