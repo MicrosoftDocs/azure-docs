@@ -18,6 +18,12 @@ recommendations: false
 
 ## March 2024
 
+### Risks & Safety monitor in OpenAI Studio
+
+Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
+
+[Use the Risks & Safety monitor](./how-to/risks-safety-monitor.md)
+
 ### Elasticsearch database support for Azure OpenAI On Your Data
 
 - You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
