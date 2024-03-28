@@ -19,8 +19,8 @@ You can configure Azure Communications Gateway with the details of your customer
 
 You can provision Azure Communications Gateway with the:
 
-- Provisioning API: a REST API for automated provisioning.
-- Number Management Portal: a browser-based portal available in the Azure portal.
+- Provisioning API (preview): a REST API for automated provisioning.
+- Number Management Portal (preview): a browser-based portal available in the Azure portal.
 
 The following table shows how you can provision Azure Communications Gateway for each  service. The following sections in this article provide more detail about each use case.
 
@@ -45,16 +45,16 @@ For Microsoft Teams Direct Routing, Zoom Phone Cloud Peering, and Azure Operator
 - Update SIP messages for Microsoft Teams Direct Routing with the information that Microsoft Phone System requires to match calls to tenants. For more information, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).
 
 For Operator Connect or Teams Phone Mobile:
-- If you use the Provisioning API for flow-through provisioning or you use the Number Management Portal, resources on the Provisioning API associate the customer numbers with the relevant service.
+- If you use the Provisioning API (preview) for flow-through provisioning or you use the Number Management Portal (preview), resources on the Provisioning API associate the customer numbers with the relevant service.
 - Otherwise, Azure Communications Gateway defaults to Operator Connect for fixed-line calls and Teams Phone Mobile for mobile calls, and doesn't create resources on the Provisioning API.
 
 ## Flow-through provisioning of communications services
 
 Flow-through provisioning is when you use Azure Communications Gateway to provision a communications service. 
 
-For Operator Connect and Teams Phone Mobile, you can use the Provisioning API to provision the Operator Connect and Teams Phone Mobile environment with subscribers (your customers and the numbers you assign to them). This integration is equivalent to separate integration with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. It meets the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
+For Operator Connect and Teams Phone Mobile, you can use the Provisioning API (preview) to provision the Operator Connect and Teams Phone Mobile environment with subscribers (your customers and the numbers you assign to them). This integration is equivalent to separate integration with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. It meets the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.
 
-Before you launch your service, you can also use the Number Management Portal to provision the Operator Connect and Teams Phone Mobile environment. However, the Number Management Portal doesn't meet the requirement for API-based provisioning after you launch your service.
+Before you launch your service, you can also use the Number Management Portal (preview) to provision the Operator Connect and Teams Phone Mobile environment. However, the Number Management Portal doesn't meet the requirement for API-based provisioning after you launch your service.
 
 Azure Communications Gateway doesn't support flow-through provisioning for other communications services.
 
@@ -65,7 +65,7 @@ Azure Communications Gateway can add a custom header to messages sent to your co
 To set up custom headers:
 
 - Choose the name of the custom header when you [deploy Azure Communications Gateway](deploy.md) or by updating the Provisioning Platform configuration in the Azure portal. This header name is used for all custom headers.
-- Use the Provisioning API or Number Management Portal to provision Azure Communications Gateway with numbers and the contents of the custom header for each number.
+- Use the Provisioning API (preview) or Number Management Portal (preview) to provision Azure Communications Gateway with numbers and the contents of the custom header for each number.
 
 Azure Communications Gateway then uses this information to add custom headers to a call as follows:
 

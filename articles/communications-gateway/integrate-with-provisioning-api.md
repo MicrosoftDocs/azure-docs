@@ -33,9 +33,9 @@ Whether you integrate with the Provisioning API depends on your chosen communica
 
 You must have completed [Deploy Azure Communications Gateway](deploy.md).
 
-You must have access to a machine with an IP address that is permitted to access the Provisioning API. This allowlist of IP addresses (or ranges) was configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service).
+You must have access to a machine with an IP address that is permitted to access the Provisioning API (preview). This allowlist of IP addresses (or ranges) was configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service).
 
-## Learn about the API and plan your BSS client changes
+## Learn about the Provisioning API (preview) and plan your BSS client changes
 
 To integrate with the API, you need to create (or update) a BSS client that can contact the Provisioning API. The Provisioning API supports a machine-to-machine [OAuth 2.0](/azure/active-directory/develop/v2-protocols) client credentials authentication flow. Your client authenticates and makes authorized API calls as itself, without the interaction of users.
 
@@ -49,7 +49,7 @@ Use the *Key concepts* and *Examples* information in the [API Reference](/rest/a
 
 ## Configure your BSS client to connect to Azure Communications Gateway
 
-The Provisioning API is available on port 443 of `provapi.<base-domain>`, where `<base-domain>` is the base domain of the Azure Communications Gateway resource.
+The Provisioning API (preview) is available on port 443 of `provapi.<base-domain>`, where `<base-domain>` is the base domain of the Azure Communications Gateway resource.
 
 > [!TIP]
 > To find the base domain:

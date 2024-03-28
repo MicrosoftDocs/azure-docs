@@ -92,9 +92,9 @@ To route calls to a customer tenant, the customer tenant must be configured with
 
 Azure Communications Gateway includes a DNS server. You must use Azure Communications Gateway to create the DNS records required to verify the customer subdomains. To generate the records, provision the details of the customer tenant and the DNS TXT values on Azure Communications Gateway.
 
-You can use Azure Communications Gateway's Number Management Portal or Provisioning API.
+You can use Azure Communications Gateway's Number Management Portal (preview) or Provisioning API (preview).
 
-# [Number Management Portal](#tab/azure-portal)
+# [Number Management Portal (preview)](#tab/azure-portal)
 
 1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar.
 1. Select **Accounts**.
@@ -109,7 +109,7 @@ You can use Azure Communications Gateway's Number Management Portal or Provision
     1. On the **Accounts** pane, select the account name in the list.
     1. Confirm that **Subdomain Provisioned State** is **Provisioned**.
 
-# [Provisioning API](#tab/api)
+# [Provisioning API (preview)](#tab/api)
 
 1. Use the Provisioning API to configure an account for the customer. The request must:
     - Enable Direct Routing for the account.

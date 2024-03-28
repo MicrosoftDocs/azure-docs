@@ -41,9 +41,9 @@ You must provision Azure Communications Gateway with the details of the test num
 > [!IMPORTANT]
 > Do not provision the service verification numbers for Zoom. Azure Communications Gateway routes calls involving those numbers automatically. Any provisioning you do for those numbers has no effect.
 
-We recommend using the Number Management Portal to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API.
+We recommend using the Number Management Portal (preview) to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API (preview).
 
-# [Number Management Portal](#tab/number-management-portal)
+# [Number Management Portal (preview)](#tab/number-management-portal)
 
 You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
 
@@ -71,7 +71,7 @@ You can configure numbers directly in the Number Management Portal, or by upload
     1. Select the `.csv` file that you prepared.
     1. Select **Upload**.
 
-# [Provisioning API](#tab/provisioning-api)
+# [Provisioning API (preview)](#tab/provisioning-api)
 
 The API allows you to indicate to Azure Communications Gateway which service you're supporting for each number, using _account_ and _number_ resources.
 

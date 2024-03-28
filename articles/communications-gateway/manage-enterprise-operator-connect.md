@@ -69,7 +69,7 @@ If you're changing the status of an enterprise, you can optionally specify an ID
 
 ## Manage your agreement with an enterprise customer
 
-When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise. The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status.
+When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise. The Number Management Portal (preview) displays a consent as a *Request for Information* and allows you to update the status.
 
 1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
 1. Select **Requests for Information**.

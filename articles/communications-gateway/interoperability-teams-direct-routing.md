@@ -69,7 +69,7 @@ For each customer, you must:
 2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
 3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
-As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal or the Provisioning API. This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
+As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal (preview) or the Provisioning API (preview). This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
 
 > [!TIP]
 > For a walkthrough of setting up a customer tenant and numbers for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md) and [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask your customer to carry out the steps that need access to their tenant.
@@ -78,7 +78,7 @@ As part of arranging updates to customer tenants, you must create DNS records co
 
 Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user in their tenant, even if you don't assign that number to them in your network. This lack of validation presents a risk of caller ID spoofing.
 
-To prevent caller ID spoofing, Azure Communications Gateway screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you assigned to them. However, you can disable this screening on a per-customer basis, as part of "account" configuration available in the Number Management Portal and the Provisioning API.
+To prevent caller ID spoofing, Azure Communications Gateway screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you assigned to them. However, you can disable this screening on a per-customer basis, as part of "account" configuration available in the Number Management Portal (preview) and the Provisioning API (preview).
 
 The following diagram shows the call flow for an INVITE from a number that is assigned to a customer. In this case, Azure Communications Gateway's configuration for the number also includes custom header configuration, so Azure Communications Gateway adds a custom header with the contents.
 
@@ -99,7 +99,7 @@ The following diagram shows the call flow for an INVITE from a number that isn't
 
 The Microsoft Phone System uses the domains in the Contact header of messages to identify the tenant for each message. Azure Communications Gateway automatically rewrites Contact headers on messages towards the Microsoft Phone System so that they include the appropriate per-customer domain. This process removes the need for your core network to map between numbers and per-customer domains.
 
-You must provision Azure Communications Gateway with each number assigned to a customer for Direct Routing. This provisioning uses Azure Communications Gateway's Provisioning API or Number Management Portal.
+You must provision Azure Communications Gateway with each number assigned to a customer for Direct Routing. This provisioning uses Azure Communications Gateway's Provisioning API (preview) or Number Management Portal (preview).
 
 The following diagram shows how Azure Communications Gateway rewrites Contact headers on messages sent from the operator network to the Microsoft Phone System with Direct Routing.
 

@@ -70,7 +70,7 @@ To allow Azure Communications Gateway to identify the correct service for a call
 
 You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call.
 
-This configuration requires you to use Azure Communication Gateway's Number Management Portal (a browser-based configuration portal) or the [Provisioning API](provisioning-platform.md).
+This configuration requires you to use Azure Communication Gateway's browser-based Number Management Portal (preview) or the [Provisioning API (preview)](provisioning-platform.md).
 
 > [!NOTE]
 > For Operator Connect and Teams Phone Mobile:

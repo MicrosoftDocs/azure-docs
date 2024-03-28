@@ -40,9 +40,9 @@ You must be able to sign in to the Microsoft 365 admin center for your test cust
 
 In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer.
 
-We recommend using the Number Management Portal to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API.
+We recommend using the Number Management Portal (preview) to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API (preview).
 
-# [Number Management Portal](#tab/number-management-portal)
+# [Number Management Portal (preview)](#tab/number-management-portal)
 
 You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
 
@@ -69,7 +69,7 @@ You can configure numbers directly in the Number Management Portal, or by upload
     1. Select the `.csv` file that you prepared.
     1. Select **Upload**.
 
-# [Provisioning API](#tab/api)
+# [Provisioning API (preview)](#tab/api)
 
 Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you chose under the account. Enable each number for Teams Direct Routing. For example API requests, see [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
 

@@ -67,7 +67,7 @@ For full details of the media interworking features available in Azure Communica
 
 ## Identifying Zoom calls
 
-You must provision Azure Communications Gateway with all the numbers that you upload to Zoom and indicate that these numbers are enabled for Zoom service. This provisioning allows Azure Communications Gateway to route calls to and from Zoom. It requires using Azure Communication Gateway's [Number Management Portal or  Provisioning API](provisioning-platform.md).
+You must provision Azure Communications Gateway with all the numbers that you upload to Zoom and indicate that these numbers are enabled for Zoom service. This provisioning allows Azure Communications Gateway to route calls to and from Zoom. It requires using Azure Communication Gateway's [Number Management Portal (preview) or Provisioning API (preview)](provisioning-platform.md).
 
 > [!IMPORTANT]
 > If numbers that you upload to Zoom aren't configured on Azure Communications Gateway, calls involving those numbers fail.
