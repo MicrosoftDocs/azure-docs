@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 02/27/2024
+ms.date: 03/28/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -25,7 +25,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Backup Extension is installed in its own namespace *dataprotection-microsoft* by default. It's installed with cluster wide scope that allows the extension to access all the cluster resources. During the extension installation, it also creates a User-assigned Managed Identity (Extension Identity) in the Node Pool resource group. 
 
-- Backup Extension uses a blob container (provided in input during installation) as a default location for backup storage. To access this blob container, the Extension Identity requires *Storage Account Contributor* role on the storage account that has the container.
+- Backup Extension uses a blob container (provided in input during installation) as a default location for backup storage. To access this blob container, the Extension Identity requires *Storage Blob Data Contributor* role on the storage account that has the container.
 
 - You need to install Backup Extension on both the source cluster to be backed up and the target cluster where the restore will happen.
 
@@ -37,6 +37,8 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
   >[!Note]
   >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
+
+- If Storage Account, to be provided as input for Extension installation, is under Virtual Network/Firewall, then BackupVault needs to be added as trusted access in Storage Account Network Settings. [Learn how to grant access to trusted Azure service](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services), which helps to store backups in the Vault datastore
 
 Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
