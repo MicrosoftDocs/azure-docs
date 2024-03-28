@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 03/05/2024
+ms.date: 03/28/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,28 +25,47 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) | March 6, 2024 | April, 2024 |
+| [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Update recommendations to align with Azure AI Services resources](#update-recommendations-to-align-with-azure-ai-services-resources) | February 20, 2024 | February 28, 2024 |
 | [Deprecation of data recommendation](#deprecation-of-data-recommendation) | February 12, 2024 | March 14, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
-| [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | March, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
-| [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
-| [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
-| [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## General Availability of Unified Disk Encryption recommendations
+
+**Announcement date: March 28, 2024**
+
+**Estimated date of change: April 30, 2024**
+
+Unified Disk Encryption recommendations will be released for General Availability (GA) within Azure Public Cloud in April 2024. The recommendations enable customers to audit encryption compliance of virtual machines with Azure Disk Encryption or EncryptionAtHost.
+
+**Recommendations moving to GA:**
+
+| Recommendation name | Assessment key |
+| ---- | ---- |
+| Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
+| Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
+
+Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
+
+The recommendations depend on [Guest Configuration](/azure/governance/machine-configuration/overview). Prerequisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected. 
+
+These recommendations will replace the recommendation "Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources." 
 
 ## Defender for open-source relational databases updates
 
@@ -67,6 +86,18 @@ If you're already protecting your subscription with Defender for open-source rel
 Specific billing notifications have been sent via email for affected subscriptions.
 
 Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+## Changes in where you access Compliance offerings and Microsoft Actions
+
+**Announcement date: March 3, 2024**
+
+**Estimated date for change: September 30, 2025**
+
+On September 30, 2025, the locations where you access two preview features, Compliance offering and Microsoft Actions, will change.
+
+The table that lists the compliance status of Microsoft's products (accessed from the **Compliance offerings** button in the toolbar of Defender's [regulatory compliance dashboard](regulatory-compliance-dashboard.md)). After this button is removed from Defender for Cloud, you'll still be able to access this information using the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+For a subset of controls, Microsoft Actions was accessible from the **Microsoft Actions (Preview)** button in the controls details pane. After this button is removed, you can view Microsoft Actions by visiting Microsoft’s [Service Trust Portal for FedRAMP](https://servicetrust.microsoft.com/viewpage/FedRAMP) and accessing  the Azure System Security Plan document.
 
 ## Microsoft Security Code Analysis (MSCA) is no longer operational
 
@@ -179,17 +210,6 @@ For more information on the code to cloud security capabilities in Defender CSPM
 
 In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](faq-permissions.yml)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any more capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](concept-agentless-data-collection.md#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
 
-## Deprecation of two recommendations related to PCI
-
-**Announcement date: January 14, 2024**
-
-**Estimated date for change: February 2024**
-
-The following two recommendations related to PCI (Permission Creep Index) are set for deprecation:
-
-- `Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)`
-- `Over-Provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)`
-
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
 **Announcement date: January 9, 2024**
@@ -201,14 +221,6 @@ The Defender for Servers built-in vulnerability assessment solution powered by Q
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
-
-## New version of Defender Agent for Defender for Containers
-
-**Announcement date: January 4, 2024**
-
-**Estimated date for change: February 2024**
-
-A new version of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) will be released in February 2024. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you'll need to upgrade. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
 
 ## Upcoming change for the Defender for Cloud’s multicloud network requirements
 
@@ -322,32 +334,9 @@ The `Key Vaults should have purge protection enabled` recommendation is deprecat
 
 | Recommendation name | Description | Effect(s) | Version |
 |--|--|--|--|
-| [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+| [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Recoverable_Audit.json) |
 
 See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md).
-
-## Preview alerts for DNS servers to be deprecated
-
-**Estimated date for change: August 2023**
-
-Following quality improvement process, security alerts for DNS servers are set to be deprecated in August. For cloud resources, use [Azure DNS](defender-for-dns-introduction.md) to receive the same security value.
-
-The following table lists the alerts to be deprecated:
-
-| AlertDisplayName | AlertType |
-|--|--|
-| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain |
-| Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
-| Digital currency mining activity (Preview) | DNS_CurrencyMining |
-| Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |
-| Attempted communication with suspicious sinkholed domain (Preview) | DNS_SinkholedDomain |
-| Communication with possible phishing domain (Preview) | DNS_PhishingDomain|
-| Possible data transfer via DNS tunnel (Preview) | DNS_DataObfuscation |
-| Possible data exfiltration via DNS tunnel (Preview) | DNS_DataExfiltration |
-| Communication with suspicious algorithmically generated domain (Preview) | DNS_DomainGenerationAlgorithm |
-| Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
-| Anonymity network activity (Preview) | DNS_DarkWeb |
-| Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
 
 ## Change to the Log Analytics daily cap
 

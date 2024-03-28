@@ -4,7 +4,7 @@ description: include file
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/18/2023
+ms.date: 03/19/2024
 ms.author: chez
 ms.custom: include file
 ---
@@ -16,12 +16,12 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Total number of entities, such as pipelines, data sets, triggers, linked services, Private Endpoints, and integration runtimes, within a data factory | 5,000 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Total CPU cores for Azure-SSIS Integration Runtimes under one subscription | 64 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Concurrent pipeline runs per data factory that's shared among all pipelines in the factory | 10,000  | 10,000 |
-| Concurrent External activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, Web, and others. This limit does not apply to Self-hosted IR. | 3,000 | 3,000 |
-| Concurrent Pipeline activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit does not apply to Self-hosted IR. | 1,000 | 1,000                                                        |
-| Concurrent authoring operations per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit does not apply to Self-hosted IR. | 200 | 200                                                          |
+| Concurrent External activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, Web, and others. This limit doesn't apply to Self-hosted IR. | 3,000 | 3,000 |
+| Concurrent Pipeline activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit doesn't apply to Self-hosted IR. | 1,000 | 1,000                                                        |
+| Concurrent authoring operations per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit doesn't apply to Self-hosted IR. | 200 | 200                                                          |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network|  2,400 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
-| Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
+| Maximum activities per pipeline, which includes inner activities for containers | 80 | 120 (soft limit) |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
 | Maximum number of nodes that can be created against a single self-hosted integration runtime | 4 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Maximum parameters per pipeline | 50 | 50 |
@@ -46,7 +46,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
 | Meta Data Entity Size limit in a factory | 2 GB | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 
-<sup>1</sup> The data integration unit (DIU) is used in a cloud-to-cloud copy operation, learn more from [Data integration units (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). For information on billing, see [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/).
+<sup>1</sup> The data integration unit (DIU) is used in a cloud-to-cloud copy operation. Learn more from [Data integration units (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). For information on billing, see [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/).
 
 <sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) is [globally available](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs. 
 

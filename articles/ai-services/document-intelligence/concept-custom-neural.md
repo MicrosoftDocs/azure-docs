@@ -65,7 +65,24 @@ Neural models support documents that have the same information, but different pa
 
 *See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
-## Tabular fields
+## Overlapping fields
+
+With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
+
+To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) will fail in the studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
+
+* Complete overlap. The same set of tokens are labeled for two different fields.
+* Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
+
+Overlapping fields have some limits:
+
+* Any token or word can only be labeled as two fields.
+* overlapping fields in a table can't span table rows.
+* Overlapping fields can only be recognized if at least one sample in the dataset contains overlapping labels for those fields.
+
+To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
+
+## Tabular fields adds table, row and cell confidence
 
 With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
 
@@ -91,23 +108,6 @@ Tabular fields provide **table, row and cell confidence** starting with the ```2
 * The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell.
 
 See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
-
-## Overlapping fields
-
-With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
-
-To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use region labeling to designate each of the spans of content (with the overlap) for each field. Overlap support includes:
-
-* Complete overlap. The same set of tokens are labeled for two different fields.
-* Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
-
-Overlapping fields have some limits:
-
-* Any token or word can only be labeled as two fields.
-* overlapping fields in a table can't span table rows.
-* Overlapping fields can only be recognized if at least one sample in the dataset contains overlapping labels for those fields.
-
-To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
 
 
 ## Supported regions

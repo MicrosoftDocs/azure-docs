@@ -29,7 +29,7 @@ You can choose the availability zone for the primary and the standby replica. Pl
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram that shows the architecture for zone-redundant high availability.":::
 
-The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). The log files are replicated to the standby server via the storage-level replication available with ZRS and applied to stand by server continuously.
+The data and log files are hosted in [zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). The standby server reads and replay the log files continuously from the primary server’s storage account, which is protected by storage-level replication.
 
 If there's a failover: 
 - The standby replica is activated. 
@@ -51,7 +51,7 @@ The standby server offers infrastructure redundancy with a separate virtual mach
 
 :::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Diagram that shows the architecture for same-zone high availability.":::
 
-The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). The log files are replicated to the standby server via the storage-level replication available with LRS and applied to stand by server continuously.
+The data and log files are hosted in [locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). The standby server reads and replay the log files continuously from the primary server’s storage account, which is protected by storage-level replication.
 
 If there's a failover: 
 - The standby replica is activated. 
@@ -65,10 +65,9 @@ Automatic backups, both snapshots and log backups, are performed on locally redu
 
 > [!NOTE]
 > For both zone-redundant and same-zone HA:
-> - If there's a failure, the time needed for the standby replica to take over the role of primary depends on the binary log application on the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
+> - If there's a failure, the time needed for the standby replica to take over the role of primary depends on the time it takes to replay the binary log from the primary storage account to the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds.
 > - The standby server isn't available for read or write operations. It's a passive standby to enable fast failover.
 > - Always use a fully qualified domain name (FQDN) to connect to your primary server. Avoid using an IP address to connect. If there's a failover, after the primary and standby server roles are switched, a DNS A record might change. That change would prevent the application from connecting to the new primary server if an IP address is used in the connection string.
-
 ## Failover process 
  
 ### Planned: Forced failover
@@ -106,15 +105,23 @@ The health monitor component continuously does the following checks
 > If there are any networking issue between the application and the customer networking endpoint (Private/Public access), either in networking path , on the endpoint or DNS issues in client side, the health check does not monitor this scenario. If you are using private access, make sure that the NSG rules for the VNet does not block the communication to the instance customer networking endpoint on port 3306. For public access make sure that the firewall rules are set and network traffic is allowed on port 3306 (if network path has any other firewalls). The DNS resolution from the client application side also needs to be taken care of.
 
 ## Monitoring for high availability
-The health of your HA is continuously monitored and reported on the overview page. Here are the replication statuses:
+The **High Availability Status** located in the server’s *High Availability* pane in portal can be used to determine the server’s HA configuration status.
 
 | **Status** | **Description** |
 | :----- | :------ |
-| **NotEnabled** | Zone-redundant HA isn't enabled. |
-| **ReplicatingData** | The standby is catching up with the primary server after being created. |
+| **NotEnabled** | HA isn't enabled. |
+| **ReplicatingData** |Standby server is in the process of synchronizing with the primary server at the time of HA server provisioning or when HA option is enabled.|
 | **FailingOver** | The database server is in the process of failing over from the primary to the standby. |
-| **Healthy** | Zone-redundant HA is in a steady state and is healthy. |
-| **RemovingStandby** | A user has deleted the standby replica, and deletion is in process.| 
+| **Healthy** | HA option is enabled. |
+| **RemovingStandby** | When the HA option is disabled, and the deletion process is underway.|
+
+You can also use the below metrics to monitor the health of the HA server.
+
+|Metric display name|Metric|Unit|Description|
+| -------- | -------- | -------- | -------- |
+|HA IO Status|ha_io_running|State|HA IO Status indicates the state of HA replication. Metric value is 1 if the I/O thread is running and 0 if not.|
+|HA SQL Status|ha_sql_running|State|HA SQL Status indicates the state of HA replication. Metric value is 1 if the SQL thread is running and 0 if not.|
+|HA Replication Lag|replication_lag|Seconds|Replication lag is the number of seconds the standby is behind in replaying the transactions received at the primary server.|
 
 ##  Limitations 
  
@@ -126,6 +133,11 @@ Here are some considerations to keep in mind when you use high availability:
 
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
+
+> [!NOTE]
+>Storage autogrow is default enabled for a High-Availability configured server and can not to be disabled.
+
+
 
 ## Frequently asked questions (FAQ)
 

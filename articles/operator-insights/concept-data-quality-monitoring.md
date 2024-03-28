@@ -34,8 +34,8 @@ Data quality dimensions are the various aspects or characteristics that define t
 
 All data quality dimensions are covered by quality metrics produced by Azure Operator Insights platform. There are two types of the quality metrics:
 
-- Basic - Standard set of checks across all data products.
-- Custom - Custom set of checks, allowing all data products to implement checks that are specific to their product.
+- Basic - Standard set of checks across all Data Products.
+- Custom - Custom set of checks, allowing all Data Products to implement checks that are specific to their product.
 
 The basic quality metrics produced by the platform are available in the following table.
 
@@ -54,7 +54,7 @@ The basic quality metrics produced by the platform are available in the followin
 | Percentiles for lag between data processed and available for querying            | Timeliness    | Processed       |
 | Ages for materialized views                                                      | Timeliness    | Processed       |
 
-The custom data quality metrics are implemented on per data product basis. These metrics cover the accuracy and consistency dimensions. Data product documentation contains description for the custom quality metrics available.
+The custom data quality metrics are implemented on per Data Product basis. These metrics cover the accuracy and consistency dimensions. Data Product documentation contains description for the custom quality metrics available.
 
 ## Monitoring
 

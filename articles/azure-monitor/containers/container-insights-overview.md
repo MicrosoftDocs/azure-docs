@@ -24,9 +24,7 @@ Container insights sends data to a [Log Analytics workspace](../logs/data-platfo
 
 :::image type="content" source="media/container-insights-overview/aks-monitor-data.png" lightbox="media/container-insights-overview/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
 
-
-
-### Supported configurations
+## Supported configurations
 Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
@@ -45,6 +43,11 @@ Container insights supports the following environments:
 > Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 >
 > Container insights support for Windows Server 2022 operating system is in public preview.
+
+## Security
+
+- Container Insights supports FIPS enabled Linux and Windows node pools starting with Agent version 3.1.17 (Linux)  & Win-3.1.17 (Windows).
+- Starting with Agent version 3.1.17 (Linux) and Win-3.1.17 (Windows), Container Insights agents images (both Linux and Windows) are signed and  for Windows agent,  binaries inside the container are signed as well
 
 ## Access Container insights
 

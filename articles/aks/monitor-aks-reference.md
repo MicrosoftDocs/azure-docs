@@ -4,6 +4,7 @@ description: Important reference material needed when you monitor AKS
 ms.custom: subject-monitoring
 ms.date: 08/01/2023
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ---
 
 # Monitor AKS data reference

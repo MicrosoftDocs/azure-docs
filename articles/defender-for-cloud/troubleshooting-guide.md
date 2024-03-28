@@ -37,7 +37,7 @@ Defender for Cloud uses connectors to collect monitoring data from Amazon Web Se
 - Standards should be assigned on the security connector. To check, go to **Environment settings** on the Defender for Cloud left menu, select the connector, and then select **Settings**. If no standards are assigned, select the three dots to check if you have permissions to assign standards.
 - A connector resource should be present in Azure Resource Graph. Use the following Resource Graph query to check: `resources | where ['type'] =~ "microsoft.security/securityconnectors"`.
 - Make sure that sending Kubernetes audit logs is enabled on the AWS or GCP connector so that you can get [threat detection alerts for the control plane](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
-- Make sure that the Microsoft Defender agent and the Azure Policy for Azure Arc-enabled Kubernetes extensions were installed successfully to your Amazon Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
+- Make sure that the Microsoft Defender sensor and the Azure Policy for Azure Arc-enabled Kubernetes extensions were installed successfully to your Amazon Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
   - **EKS clusters should have Microsoft Defender's extension for Azure Arc installed**
   - **GKE clusters should have Microsoft Defender's extension for Azure Arc installed**
   - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
@@ -215,7 +215,7 @@ If you experience problems with loading the workload protection dashboard, make 
 
 If you can't onboard your Azure DevOps organization, try the following troubleshooting tips:
 
-- Make sure you're using a non-preview version of the [Azure portal]( https://portal.azure.com); the authorize step doesn't work in the Azure preview portal.
+- Make sure you're using a non-preview version of the [Azure portal](https://portal.azure.com); the authorize step doesn't work in the Azure preview portal.
 
 - It's important to know which account you're signed in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
 
