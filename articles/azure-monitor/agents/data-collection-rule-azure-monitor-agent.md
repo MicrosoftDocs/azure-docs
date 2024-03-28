@@ -110,9 +110,223 @@ You can define a data collection rule to send data from multiple machines to mul
 
 This capability is enabled as part of the Azure CLI monitor-control-service extension. [View all commands](/cli/azure/monitor/data-collection/rule).
 
-### [Resource Manager template](#tab/arm)
+### [ARM](#tab/arm)
 
-For sample templates, see [Azure Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md).
+#### Create association with Azure VM
+
+The following sample creates an association between an Azure virtual machine and a data collection rule.
+
+
+##### Template file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+##### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
+
+## Create association with Azure Arc
+
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
+
+##### Template file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+### [Bicep](#tab/bicep)
+
+#### Create association with Azure VM
+
+The following sample creates an association between an Azure virtual machine and a data collection rule.
+
+
+##### Template file
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+##### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
+
+## Create association with Azure Arc
+
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
+
+##### Template file
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.HybridCompute/machines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this Arc server.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+---
+
+##### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
 
 ---
 
