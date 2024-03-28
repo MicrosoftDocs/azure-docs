@@ -6,6 +6,7 @@ ms.topic: article
 ms.custom: build-2023, linux-related-content
 ms.reviewer: mattmcinnes
 ms.date: 04/19/2023
+ms.subservice: aks-upgrade
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 

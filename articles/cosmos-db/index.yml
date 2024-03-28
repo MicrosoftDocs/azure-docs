@@ -89,7 +89,7 @@ additionalContent:
             - text: Find request unit charge
               url: table/find-request-unit-charge.md
             - text: FAQ
-              url: table/table-api-faq.yml
+              url: table/faq.yml
             - text: See more >
               url: table/index.yml
         - title: PostgreSQL

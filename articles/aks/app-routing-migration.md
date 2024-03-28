@@ -4,7 +4,7 @@ description: Learn how to migrate from the HTTP application routing feature to t
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 11/03/2023
 ---
 

@@ -3,7 +3,7 @@ title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 1/12/2023
+ms.date: 01/23/2024
 ms.author: pahealy
 author: phealy
 ---
@@ -132,7 +132,7 @@ az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location>
   --node-public-ip-tags RoutingPreference=Internet
 ```
 
-## Allow host port connections and add node pools to application security groups (PREVIEW)
+## Allow host port connections and add node pools to application security groups
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
@@ -149,46 +149,10 @@ Examples:
 - 53/udp,80/tcp
 - 50000-60000/tcp
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
 ### Requirements
 
 * AKS version 1.24 or greater is required.
 * Version 0.5.110 of the aks-preview extension is required.
-
-### Install the aks-preview Azure CLI extension
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Register the 'NodePublicIPNSGControlPreview' feature flag
-
-Register the `NodePublicIPNSGControlPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a new cluster with allowed ports and application security groups
 

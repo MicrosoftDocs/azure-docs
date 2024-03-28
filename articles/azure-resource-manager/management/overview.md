@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 02/16/2024
 ms.custom: devx-track-arm-template
 ---
+
 # What is Azure Resource Manager?
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
@@ -128,7 +129,7 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 
 This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
-### Resource group location alignment
+## Resource group location alignment
 
 To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group.
 

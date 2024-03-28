@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -29,7 +29,7 @@ In this article, you learn how to create and develop your first prompt flow in A
 
 ## Prerequisites
 
-- If you don't have a project already, first [create a project](create-projects.md).
+- If you don't have an Azure AI project already, first [create a project](create-projects.md).
 - Prompt flow requires a runtime. If you don't have a runtime, you can [create one in Azure AI Studio](./create-manage-runtime.md).
 - You need a deployed model.
 
@@ -40,8 +40,9 @@ You can create a flow by either cloning the samples available in the gallery or 
 To create a prompt flow from the gallery in Azure AI Studio:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
-1. From the collapsible left menu, select **Flows**.
-1. In the **Standard flows** tile, select **Create**.
+1. From the collapsible left menu, select **Prompt flow**.
+1. Select **+ Create**.
+1. In the **Standard flow** tile, select **Create**.
 1. On the **Create a new flow** page, enter a folder name and then select **Create**.
 
     :::image type="content" source="../media/prompt-flow/create-standard-flow.png" alt-text="Screenshot of selecting and creating a standard flow." lightbox="../media/prompt-flow/create-standard-flow.png":::

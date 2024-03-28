@@ -2,7 +2,7 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 02/23/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
@@ -21,11 +21,11 @@ sys.correlationid like 'abc-%'
 
 > [!NOTE]
 > - For a list of system properties, see [Messages, payloads, and serialization](service-bus-messages-payloads.md). 
-> - Use system property names from [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties) in your filters even when you use [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) from the new [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus) namespace to send and receive messages. 
-> - `Subject` from [Azure.Messaging.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
+> - Use system property names from [Azure.Messaging.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) in your filters. 
+> - `Subject` from [Azure.Messaging.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) maps to `Label` in the deprecated [Microsoft.Azure.ServiceBus.Message](/dotnet/api/microsoft.azure.servicebus.message#properties). 
 
 ## Filter on message properties
-Here are the examples of using application or user properties in a filter. You can access application properties set by using [Azure.Messaging.ServiceBus.ServiceBusMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties)) (latest) or user properties set by [Microsoft.Azure.ServiceBus.Message.UserProperty](/dotnet/api/microsoft.azure.servicebus.message.userproperties) (deprecated) using the syntax: `user.property-name` or just `property-name`.
+Here are the examples of using application or user properties in a filter. You can access application properties set by using [Azure.Messaging.ServiceBus.ServiceBusMessage.ApplicationProperties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties)) (latest) or user properties set by [Microsoft.Azure.ServiceBus.ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) (deprecated) using the syntax: `user.property-name` or just `property-name`.
 
 ```csharp
 MessageProperty = 'A'

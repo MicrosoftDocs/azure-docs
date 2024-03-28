@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
-ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, linux-related-content, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
+ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
