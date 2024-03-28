@@ -5,8 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 03/27/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-ms.collection: usx-security
+
 ---
 
 # Microsoft Sentinel solution for SAP® applications overview
