@@ -25,7 +25,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 
 :::moniker range="doc-intel-3.0.0"
 [Client library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples) |[Supported REST API versions](../../../sdk-overview-v3-0.md)
-:::moniker-end
+::: moniker-end
 
 ## Prerequisites
 
@@ -98,7 +98,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`.
 
-1. Select one of the following code samples to copy and paste into your application's *Program.cs* file:
+1. Select one of the following code samples and copy/paste into your application's *Program.cs* file:
 
    - [prebuilt-read](#use-the-read-model)
    - [prebuilt-layout](#use-the-layout-model)
@@ -178,7 +178,7 @@ foreach (DocumentLanguage language in result.Languages)
 > [!div class="nextstepaction"]
 <!-- > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-read) -->
 
-Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
+Visit the Azure samples repository on GitHub and view the [`read` model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
@@ -276,7 +276,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
+Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
@@ -376,7 +376,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
+Visit the Azure samples repository on GitHub and view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
 
@@ -488,7 +488,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
-Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
+Visit the Azure samples repository on GitHub and view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
 
@@ -598,7 +598,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
-Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
+Visit the Azure samples repository on GitHub and view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the Receipt model
 
@@ -691,7 +691,7 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 
 ```
 
-Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
+Visit the Azure samples repository on GitHub and view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## ID document model
 
@@ -799,7 +799,7 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 
 ```
 
-Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
+Visit the Azure samples repository on GitHub and view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
 
 ## Use the Business card model
 
@@ -1005,4 +1005,4 @@ foreach (AnalyzedDocument businessCard in businessCards.Documents)
 
 ```
 
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).
+Visit the Azure samples repository on GitHub and view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).

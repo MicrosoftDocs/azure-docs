@@ -39,7 +39,7 @@ Environment variables in Windows aren't case-sensitive. They're typically declar
    setx DI_ENDPOINT <yourEndpoint>
    ```
 
-1. After you set your environment variables, close the Command Prompt window. The values remain modified until you change them again.
+1. Close the Command Prompt window after you set your environment variables. The values remain until you change them again.
 
 1. Restart any running programs that read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
@@ -80,9 +80,9 @@ To set an environment variable permanently, place an export command in your Bash
 
      Example: `export DI_KEY="<yourKey>"`
 
-  1. Save your changes to the *.bash_profile* file.
+  1. Save your changes to the *bash_profile* file.
 
-  1. Run the following command from your terminal window to make the changes effective:
+  1. To make the changes effective, run the following command from your terminal window:
 
      ```bash
      source ~/.bash-profile
@@ -127,7 +127,7 @@ To set an environment variable permanently, place an export command in your Bash
 
   1. Save your changes to the *.bashrc* file.
 
-  1. Run the following command from your terminal window to make the changes effective:
+  1. To make the changes effective, run the following command from your terminal window:
 
      ```bash
      source ~/.bashrc

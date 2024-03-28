@@ -1,13 +1,13 @@
 ---
-title: "Use Document Intelligence client library SDKs or REST API "
+title: "Use Document Intelligence client library or REST API "
 titleSuffix: Azure AI services
-description: Learn how to use Document Intelligence SDKs or REST API and create apps to extract key data from documents.
+description: Learn how to use Document Intelligence client libraries or REST API and create apps to extract key data from documents.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, linux-related-content
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
@@ -38,11 +38,11 @@ In this guide, learn how to add Document Intelligence models to your application
 
 Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service while you learn the technology. Remember that the number of free pages is limited to 500 per month.
 
-Choose from the following Document Intelligence models to analyze and extract data and values from forms and documents:
+Choose from the following Document Intelligence models and analyze and extract data and values from forms and documents:
 
 > [!div class="checklist"]
 >
-> - The [prebuilt-read](../concept-read.md) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+> - The [prebuilt-read](../concept-read.md) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the `read` model as a foundation for extracting texts from documents.
 >
 > - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images. You can extract key/value pairs using the layout model with the optional query string parameter **`features=keyValuePairs`** enabled.
 >
@@ -124,7 +124,7 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ## Next steps
 
-Congratulations! You've learned to use Document Intelligence models to analyze various documents in different ways. Next, explore the Document Intelligence Studio and reference documentation.
+Congratulations! You learned to use Document Intelligence models to analyze various documents in different ways. Next, explore the Document Intelligence Studio and reference documentation.
 
 >[!div class="nextstepaction"]
 > [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) [Explore the Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
