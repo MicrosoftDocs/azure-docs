@@ -61,16 +61,15 @@ The log collector script is designed to comprehensively gather data across vario
 
 ## Prerequisite
 
-Before proceeding, ensure that you have [SSH access to the Nexus Kubernetes cluster node](./howto-kubernetes-cluster-connect.md#azure-arc-for-servers).
+- Ensure that you have SSH access to the Nexus Kubernetes cluster node. If you have direct IP reachability to the node, establish an SSH connection directly. Otherwise, use Azure Arc for servers with the command `az ssh arc`. For more information about various connectivity methods, check out the [connect to the cluster](./howto-kubernetes-cluster-connect.md) article.
 
-## Execution steps
+## Execution
 
-- Connect to the Nexus Kubernetes cluster node using SSH.
-- Run the log collector script by executing the command `sudo /opt/log-collector/collect.sh`.
+Once you have SSH access to the node, run the log collector script by executing the command `sudo /opt/log-collector/collect.sh`.
 
 Upon execution, you observe an output similar to:
 
-```
+``` bash
 Trying to check for root... 
 Trying to check for required utilities... 
 Trying to create required directories... 
@@ -91,6 +90,18 @@ Finishing up...
 Once the log file is generated, you can download the generated log file from your cluster node to your local machine using various methods, including SCP, SFTP or Azure CLI. However, it is important to note that SCP or SFTP are only possible if you have direct IP reachability to the cluster node. If you do not have direct IP reachability, you can use Azure CLI to download the log file.
 
 This command should look familiar to you, as it is the same command used to SSH into the Nexus Kubernetes cluster node. To download the generated log file from the node to your local machine, simply use this command again, with the addition of the `cat` command at the end to copy the file.
+
+``` bash
+RESOURCE_GROUP="myResourceGroup"
+CLUSTER_NAME="myNexusK8sCluster"
+SUBSCRIPTION_ID="<Subscription ID>"
+USER_NAME="azureuser"
+SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --output tsv --query managedResourceGroupConfiguration.name)
+```
+
+> [!NOTE]
+> Replace the placeholders variables with actual values relevant to your Azure environment and Nexus Kubernetes cluster.
 
 ```azurecli
 az ssh arc --subscription $SUBSCRIPTION_ID \
