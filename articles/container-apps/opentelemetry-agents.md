@@ -197,7 +197,7 @@ You can control how an agent behaves based off data type and endpoint-related op
 
 | Option | Example |
 |---|---|
-| Each data type (for instance: logs, metrics, and traces), is individually configured. |  |
+| Select a data type. | You can configure logs, metrics, and/or traces individually. |
 | Enable or disable any data type. | You can choose to send only traces and no other data. |
 | Send one data type to multiple endpoints. | You can send logs to both DataDog and an OTLP-configured endpoint. |
 | Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to DataDog. |
@@ -327,7 +327,7 @@ These variables are only necessary if you're using both the managed OpenTelemetr
 
 ## OpenTelemetry agent costs
 
-Customers are billed for the underlying compute of the agent. For details about billing, see [billing.md].
+Customers are billed for the underlying compute of the agent. For details about billing, see [./billing.md].
 
 See the destination service for their billing structure and terms. For example, if you send data to both Azure Application Insights and Datadog, you're responsible for the charges applied by both services.
 
