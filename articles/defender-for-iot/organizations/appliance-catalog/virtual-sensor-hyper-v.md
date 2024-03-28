@@ -15,7 +15,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
-
+ 
 > [!IMPORTANT]
 > Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using versions 22.3.x and above.
 
@@ -60,7 +60,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Configure the network adaptor according to your server network topology. Under the "Hardware Acceleration" blade, disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
-1. Connect the VHDX created previously to the virtual machine.
+1. Connect the VHDX, created previously, to the virtual machine.
 
 1. Review the summary, and select **Finish**.
 
@@ -71,6 +71,8 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 1. Select the virtual switch that will connect to the sensor management network.
 
 1. Allocate CPU resources [according to your organization's needs](../ot-appliance-sizing.md).
+
+1. Select **Firmware**, in **Boot order** move **DVD Drive** to the top of the list, and select **OK**.
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
@@ -85,8 +87,6 @@ This procedure describes how to create a virtual machine by using Hyper-V.
     The VM will start from the ISO image, and the language selection screen will appear.
 
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
-
-
 
 ## Next steps
 
