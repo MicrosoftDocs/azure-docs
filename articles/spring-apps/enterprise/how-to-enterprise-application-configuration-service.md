@@ -68,9 +68,9 @@ The following table describes the properties for each repository entry:
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                  |
-| `Patterns`    | Yes       | The pattern type to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
+| `Patterns`    | Yes       | The patterns to search for in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](#pattern) section of this article. |
 | `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                        |
-| `Label`       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                             |
+| `Label`       | Yes       | The branch name to search for in the Git repository.                                                                                                                                                                                                                                         |
 | `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                              |
 
 ### Pattern
@@ -155,7 +155,7 @@ The Application Configuration Service also supports polyglot apps like dotNET, G
 When you modify and commit your configurations in a Git repository, several steps are involved before these changes are reflected in your applications. This process, though automated, involves the following distinct stages and components, each with its own timing and behavior:
 
 - Polling by Application Configuration Service: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the refresh interval. When a change is detected, Application Configuration Service updates the Kubernetes `ConfigMap`.
-- ConfigMap update and interaction with kubelet cache: In Azure Spring Apps, this `ConfigMap` is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the kubelet refreshes its cache to recognize changes in `ConfigMap`.
+- `ConfigMap` update and interaction with kubelet cache: In Azure Spring Apps, this `ConfigMap` is mounted as a data volume to the relevant application. However, there's a natural delay in this process due to the frequency at which the kubelet refreshes its cache to recognize changes in `ConfigMap`.
 - Application reads updated configuration: Your application running in the Azure Spring Apps environment can access the updated configuration values. The existing beans in the Spring Context aren't automatically refreshed to use the updated configurations.
 
 These stages are summarized in the following diagram:
@@ -377,13 +377,15 @@ az spring application-configuration-service delete \
 
 ## Examine configuration file in ConfigMap
 
-The following section shows you how to examine the content of the configuration file pulled by Application Configuration Service from upstream Git repositories in related Kubernetes `ConfigMap`. For more information, see the [Refresh strategies](#refresh-strategies) section of this article.
+The following section shows you how to examine the content of the configuration file pulled by Application Configuration Service from upstream Git repositories in the related Kubernetes `ConfigMap`. For more information, see the [Refresh strategies](#refresh-strategies) section of this article.
 
 ### Assign an Azure role
 
-Use the following steps to assign the `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role`.
+First, you must have the Azure role `Azure Spring Apps Application Configuration Service Config File Pattern Reader Role` assigned to you.
 
 #### [Azure portal](#tab/azure-Portal)
+
+Use the following steps to assign an Azure role:
 
 1. Open the [Azure portal](https://portal.azure.com) and go to your Azure Spring Apps service instance.
 
@@ -402,6 +404,8 @@ Use the following steps to assign the `Azure Spring Apps Application Configurati
 1. Select **Review + assign**.
 
 #### [Azure CLI](#tab/azure-CLI)
+
+Use the following command to assign an Azure role:
 
 ```azurecli
 az role assignment create \
@@ -423,7 +427,7 @@ az spring application-configuration-service config show \
     --config-file-pattern <pattern>
 ```
 
-The command returns an output similar to the following example:
+This command produces JSON output similar to the following example:
 
 ```json
 {
@@ -436,7 +440,7 @@ The command returns an output similar to the following example:
 }
 ```
 
-You can also use this command with `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both the relative path and the absolute path. If not specified, it takes the path of the current directory.
+You can also use this command with the `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
 
 ## Examine configuration file in the app
 
@@ -444,7 +448,7 @@ After you bind the app to the Application Configuration Service and set the [Pat
 
 1. Connect to one of the application instances. For more information, see [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
 
-1. Use the `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` command to find the folders containing the configuration files. A list of locations shows up separated by comma, as shown in the following example:
+1. Use the `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` command to find the folders containing the configuration files. A list of locations shows up separated by commas, as shown in the following example:
 
    ```output
      $ echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH
