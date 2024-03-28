@@ -51,6 +51,9 @@ Your image builds will automatically be migrated to Isolated Image Builds and yo
 >
 > If you have Azure Policies applying DDoS protection plans to any newly created Virtual Network, either relax the Policy for the resource group or ensure that the Template Managed Identity has permissions to join the plan.
 
+> [!IMPORTANT]
+> Make sure you follow all [best practices](image-builder-best-practices.md) while using Azure VM Image Builder.
+
 ## Next steps
 
 - [Azure VM Image Builder overview](./image-builder-overview.md)
