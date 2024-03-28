@@ -3,7 +3,7 @@ title: Azure HDInsight known issues
 description: Track known issues for Azure HDInsight, along with troubleshooting steps, actions, and frequently asked questions.
 ms.service: hdinsight
 ms.topic: troubleshooting-known-issue
-ms.date: 10/13/2023
+ms.date: 03/28/2024
 ---
 
 # Azure HDInsight known issues
@@ -18,8 +18,8 @@ Azure HDInsight Open known issues:
 
 | HDInsight component | Issue description |
 |---------------------|-------------------|
-| Kafka | [Kafka 2.4.1 validation error in ARM templates](https://learn.microsoft.com/en-us/azure/hdinsight/afka241-validation-error-arm-templates) |
-| Platform | [Cluster reliability issue with older images in HDInsight clusters](https://learn.microsoft.com/en-us/azure/hdinsight/cluster-reliability-issues)|
+| Kafka | [Kafka 2.4.1 validation error in ARM templates](./kafka241-validation-error-arm-templates.md) |
+| Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
 
 
 
@@ -27,9 +27,9 @@ Azure HDInsight Open known issues:
 
 Select the title to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
-| Issue ID         | Area                   |Title                    | Issue publish date| Status |
+| Issue ID         | Area                   |Title                    | Issue published date| Status |
 |------------------|------------------------|-------------------------|-------------------|-------|
-|Not applicable|Spark|[Conda Version Regression in a recent HDInsight release](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-known-issues-conda-version-regression)|October 13, 2023|Closed|
+|Not applicable|Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
 
 ## Next steps
 
