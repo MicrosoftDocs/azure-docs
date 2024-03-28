@@ -13,16 +13,55 @@ ms.custom: template-how-to
 
 Microsoft support may need deeper visibility within the Nexus Kubernetes cluster in certain scenarios. To facilitate this, a log-collection script is available for you to use. This script retrieves all the necessary logs, enabling Microsoft support to gain a better understanding of the issue and troubleshoot it effectively.
 
-The log collection script is designed to retrieve different kinds of system and application logs from the node. It gathers common operating system logs, details about the system’s mount points and volumes, and logs related to Multus—a multi-network plugin for Kubernetes, if they're present.
+## What it collects?
 
-Among the system-related logs, it captures kernel logs, sysctl information, and IP Virtual Server administration data. Additionally, the script collects networking information, including connection tracking details, Container Network Interface (CNI) configuration (if available), and interface settings.
+The log collector script is designed to comprehensively gather data across various aspects of the system for troubleshooting and analysis purposes. Below is an overview of the types of diagnostic data it collects:
 
-Furthermore, the script does network connectivity tests by pinging the default gateway and the API server, provided a kubeconfig file exists.
+### System and Kernel Diagnostics
+
+- Kernel Information: Logs, human-readable messages, version, and architecture, for in-depth kernel diagnostics.
+- Operating System Logs: Essential logs detailing system activity and container logs for system services.
+
+### Hardware and Resource Usage
+
+- CPU and IO Throttled Processes: Identifies throttling issues, providing insights into performance bottlenecks.
+- Network Interface Statistics: Detailed statistics for network interfaces to diagnose errors and drops.
+
+### Software and Services
+
+- Installed Packages: A list of all installed packages, vital for understanding the system's software environment.
+- Active System Services: Information on active services, process snapshots, and detailed system and process statistics.
+- Container Runtime and Kubernetes Components Logs: Logs for Kubernetes components and other vital services for cluster diagnostics.
+
+### Networking and Connectivity
+
+- Network Connection Tracking Information: Conntrack statistics and connection lists for firewall diagnostics.
+- Network Configuration and Interface Details: Interface configurations, IP routing, addresses, and neighbor information.
+- Multicard Interface Configuration Logs: Logs related to the configuration of multi-network card interfaces.
+- Network Connectivity Tests: Tests external network connectivity and Kubernetes API server communication.
+- DNS Resolution Configuration: DNS resolver configuration for diagnosing domain name resolution issues.
+- Networking Configuration and Logs: Comprehensive networking data including connection tracking and interface configurations.
+- Container Network Interface (CNI) Configuration: Configuration of CNI for container networking diagnostics.
+
+### Security and Compliance
+
+- SELinux Status: Reports the SELinux mode to understand access control and security contexts.
+- IPtables Rules: Configuration of IPtables rulesets for insights into firewall settings.
+
+### Storage and Filesystems
+
+- Mount Points and Volume Information: Detailed information on mount points, volumes, disk usage, and filesystem specifics.
+
+### Configuration and Management
+
+- System Configuration: Sysctl parameters for a comprehensive view of kernel runtime configuration.
+- Kubernetes Configuration and Health: Kubernetes setup details, including configurations and service listings.
+- Container Runtime Information: Configuration, version information, and details on running containers.
+- Container Runtime Interface (CRI) Information: Operations data for container runtime interface, aiding in container orchestration diagnostics.
 
 ## Prerequisite
 
 Before proceeding, ensure that you have [SSH access to the Nexus Kubernetes cluster node](./howto-kubernetes-cluster-connect.md#azure-arc-for-servers).
-
 
 ## Execution steps
 
