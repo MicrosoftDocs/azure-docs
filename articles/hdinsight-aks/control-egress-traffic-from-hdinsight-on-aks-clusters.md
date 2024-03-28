@@ -232,7 +232,7 @@ Each private cluster contains two FQDNs: public FQDN and private FQDN.
 
 Public FQDN： `{clusterName}.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 
-The Public FQDN can only be resolved to a CNAME with subdomain, therefofe it must be used with the correct `Private DNS zone setting` to make sure FQDN can be finally solved to correct Private IP address. 
+The Public FQDN can only be resolved to a CNAME with subdomain, therefore it must be used with the correct `Private DNS zone setting` to make sure FQDN can be finally solved to correct Private IP address. 
 
 The Private DNS zone should be able to resolve private FQDN to an IP `(privatelink.{clusterPoolName}.{subscriptionId})`. 
  
