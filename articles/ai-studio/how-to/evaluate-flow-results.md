@@ -79,7 +79,7 @@ Evaluation results might have different meanings for different audiences. For ex
 
 When understanding each content risk metric, you can easily view each metric definition and severity scale by selecting the metric name above the chart to see a detailed explanation in a pop-up.
 
-:::image type="content" source="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png" alt-text="Screenshot of risk and safety metrics detailed explanation pop-up." lightbox="../media/evaluations/view-results/ risk-safety-metric-definition-popup.png":::
+:::image type="content" source="../media/evaluations/view-results/risk-safety-metric-definition-popup" alt-text="Screenshot of risk and safety metrics detailed explanation pop-up." lightbox="../media/evaluations/view-results/risk-safety-metric-definition-popup.png":::
 
 If there's something wrong with the run, you can also debug your evaluation run with the log and trace. 
 
