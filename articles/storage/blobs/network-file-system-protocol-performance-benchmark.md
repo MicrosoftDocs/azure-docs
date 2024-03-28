@@ -17,8 +17,8 @@ This article provides benchmark testing recommendations and results for NFS 3.0 
 
 Storage performance testing is done to evaluate and compare different storage services. There are many ways to perform it, but three most common ones are:
 
-1. using standard Linux commands, typically cp or dd
-1. using performance benchmark tools like fio, vdbench, ior, etc.
+1. using standard Linux commands, typically cp or dd,
+1. using performance benchmark tools like fio, vdbench, ior, etc.,
 1. using real-world application that is used in production.
 
 No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Ideally, in these tests we can use a RAM disk. Same applies for network throughput, CPU utilization, etc.
@@ -33,9 +33,9 @@ No matter which method is used, it's always important to understand other potent
 
 | Testing method                    | Pros | Cons |
 | --------------------------------- | ---- | -----|
-| Using standard linux commands     | - Simple <br> - Available on any linux platform <br> - Familiarity with the tools | - Not designed for performance testing <br> - Not flexible <br> - Often CPU bound |
-| Using performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to set up a real-world test |
-| Using real-world application      | - Provides best insight on application behavior | - Interferes with end-users <br> - requires replica of the production environment |
+| Standard linux commands     | - Simple <br> - Available on any linux platform <br> - Familiarity with the tools | - Not designed for performance testing <br> - Not configurable <br> - Often CPU core bound |
+| Performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to set up a real-world test |
+| Real-world application      | - Provides accurate end-user experience | - Often end-users run tests <br> - Requires replica of the production environment <br> - Can be subjective|
 
 Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
 
@@ -47,18 +47,19 @@ After selecting the virtual machine, we need to create storage account we'll use
 
 ## Other considerations
 - Virtual machine and storage account with the NFS 3.0 endpoint must be in the same region,
-- Virtual machine running the test applications should be used only for testing to make sure other running services aren't impacting the results.
+- Virtual machine running the test applications should be used only for testing to make sure other running services aren't impacting the results,
+- Mounting NFS 3.0 endpoint must use [AzNFS mount helper](./network-file-system-protocol-support-how-to.md) client for reliable access. 
 
 ## Executing performance benchmark
 There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with FIO (Flexible I/O tester). FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). It can be used in many test scenarios. This article describes the recommended scenarios for Azure Storage. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
 
 Following parameters are used for testing:
 
-|Workload    | Metric    | Block size | Number of threads | IO depth | File size | nconnect | Direct IO |
-| ---------- | --------- | ---------- | ----------------- | -------- | --------- | ---------| --------- |
-| Sequential | Bandwidth |1 MiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
-| Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
-| Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | 16       | Yes       |
+|Workload    | Metric    | Block size | Threads | IO depth | File size | nconnect | Direct IO |
+| ---------- | --------- | ---------- | --------| -------- | --------- | ---------| --------- |
+| Sequential | Bandwidth |1 MiB       | 8       | 1024     | 10 GiB    | 16       | Yes       |
+| Sequential | IOPS      |4 KiB       | 8       | 1024     | 10 GiB    | 16       | Yes       |
+| Random     | IOPS      |4 KiB       | 8       | 1024     | 10 GiB    | 16       | Yes       |
 
 Our testing setup was done in US East region with client virtual machine type [D32ds_v5](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) and file size of 10 GB. All tests were run 100 times and results show the average value. Tests were done on Standard and Premium storage accounts. Read more on the differences between the two types of storage accounts [here](../common/storage-account-overview.md). 
 
