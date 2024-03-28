@@ -106,22 +106,23 @@ Select the **+ Add** expander and choose **Condition (And)** from the drop-down 
 
     | Property | Operator set |
     | -------- | -------- |
-    | <ul><li>Title<li>Description<li>All listed entity properties | <ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with |
-    | <ul><li>Severity<li>Status<li>Incident provider<li>Custom details key (Preview) | <ul><li>Equals/Does not equal |
-    | <ul><li>Tactics<li>Alert product names<li>Custom details value (Preview) | <ul><li>Contains/Does not contain |
-    | <ul><li>Tag<br>(See [Items vs. collections](automate-incident-handling-with-automation-rules.md#items-vs-collections)) | Any individual tag:<ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with</ul><br>Collection of all tags:<ul><li>Equals/Does not equal<li>Contains/Does not contain<li>Starts with/Does not start with<li>Ends with/Does not end with |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
+    | - **Severity**<br>- **Status**<br>- **Incident provider**<br>- **Custom details key** (Preview) | - Equals/Does not equal |
+    | - **Tactics**<br>- **Alert product names**<br>- **Custom details value** (Preview) | - Contains/Does not contain |
 
     ##### Conditions available with the update trigger
 
     | Property | Operator set |
     | -------- | -------- |
-    | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
-    | - Tag (in addition to above)<br>- Alerts<br>- Comments | - Added |
-    | - Severity<br>- Status | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
-    | - Owner | - Changed |
-    | - Incident provider<br>- Updated by<br>- Custom details key (Preview) | - Equals/Does not equal |
-    | - Tactics | - Contains/Does not contain<br>- Added |
-    | - Alert product names<br>- Custom details value (Preview) | - Contains/Does not contain |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
+    | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
+    | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
+    | - **Owner** | - Changed |
+    | - **Incident provider**<br>- **Updated by**<br>- **Custom details key** (Preview) | - Equals/Does not equal |
+    | - **Tactics** | - Contains/Does not contain<br>- Added |
+    | - **Alert product names**<br>- **Custom details value** (Preview) | - Contains/Does not contain |
 
 1. Enter a value in the text box on the right. Depending on the property you chose, this might be a drop-down list from which you would select the values you choose. You might also be able to add several values by selecting the icon to the right of the text box (highlighted by the red arrow below).
 

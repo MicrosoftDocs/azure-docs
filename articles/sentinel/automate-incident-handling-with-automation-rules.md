@@ -117,14 +117,14 @@ An incident property's value was
 - **changed to** the value defined in the condition.
 - **added** to (this applies to properties with a list of values).
 
-#### Items vs. collections
+#### *Tag* property: individual vs. collection
 
-For incident properties that are collections of items, such as tags&mdash;an incident can have multiple tags applied to it&mdash;you can define conditions that check **each item in the collection individually**, and conditions that check **the entire collection as a unit**.
+The incident property **Tag** is a collection of individual items&mdash;a single incident can have multiple tags applied to it. You can define conditions that check **each tag in the collection individually**, and conditions that check **the collection of tags as a unit**.
 
-- **Any individual item** operators check the condition against every item in the collection. The evaluation is *true* when *at least one item* satisfies the condition.
-- **Collection of all items** operators check the condition against the collection of items as a single unit. The evaluation is *true* only if *the collection as a whole* satisfies the condition.
+- **Any individual tag** operators check the condition against every tag in the collection. The evaluation is *true* when *at least one tag* satisfies the condition.
+- **Collection of all tags** operators check the condition against the collection of tags as a single unit. The evaluation is *true* only if *the collection as a whole* satisfies the condition.
 
-This distinction matters when your condition is a negative (does not equal, does not contain, and so on), and some items in the collection satisfy the condition and others don't.
+This distinction matters when your condition is a negative (does not contain), and some tags in the collection satisfy the condition and others don't.
 
 Let's look at an example where your condition is, **Tag does not contain "2024"**, and you have two incidents, each with two tags:
 
@@ -138,8 +138,6 @@ In this example, in *Incident 1*:
 - If the condition checks all the tags in the incident as a single unit, then since there's at least one tag that *doesn't satisfy the condition* (that *does* contain "2024"), the overall condition is **false**.
 
 In *Incident 2*, the outcome will be the same, regardless of which type of condition is defined.
-
-Both kinds of conditions can be chosen for properties that comprise collections, such as tags.
 
 #### When triggers collide
 
