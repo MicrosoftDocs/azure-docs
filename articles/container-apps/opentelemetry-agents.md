@@ -364,7 +364,7 @@ These variables are only necessary if you're using both the managed OpenTelemetr
 
 ## OpenTelemetry agent costs
 
-You are billed for the underlying compute of the agent. For details about billing, see [./billing.md].
+You are [billed](./billing.md) for the underlying compute of the agent.
 
 See the destination service for their billing structure and terms. For example, if you send data to both Azure Monitor Application Insights and Datadog, you're responsible for the charges applied by both services.
 
