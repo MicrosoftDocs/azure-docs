@@ -15,8 +15,6 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ## Prerequisites
 
-
-
 #### [DALL-E 3](#tab/dalle3)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
@@ -79,7 +77,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
         # Enter your prompt text here
         "prompt": "A multi-colored umbrella on the beach, disposable camera",
         "size": "1024x1024", # supported values are “1792x1024”, “1024x1024” and “1024x1792” 
-        "n": 1,
+        "n": 1, #The number of images to generate. Only n=1 is supported for DALL-E 3.
         "quality": "hd", # Options are “hd” and “standard”; defaults to standard 
         "style": "vivid" # Options are “natural” and “vivid”; defaults to “vivid”
     }
@@ -184,7 +182,7 @@ The output from a successful image generation API call looks like the following 
 
 ---
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md). For examples of error responses, see the [DALL-E how-to guide](../how-to/dall-e.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
 

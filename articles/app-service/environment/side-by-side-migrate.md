@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side-by-side migration
 description: Overview of the side-by-side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 3/26/2024
+ms.date: 3/27/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -120,7 +120,7 @@ Side-by-side migration consists of a series of steps that must be followed in or
 
 The platform validates that your App Service Environment can be migrated using the side-by-side migration feature. If your App Service Environment doesn't pass all validation checks, you can't migrate at this time using the side-by-side migration feature. See the [troubleshooting](#troubleshooting) section for details of the possible causes of validation failure. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates. If you can't migrate using the side-by-side migration feature, see the [manual migration options](migration-alternatives.md).
 
-The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, an upgrade is automatically started. Your App Service Environment won't be impacted, but you won't be able to scale or make changes to your App Service Environment while the upgrade is in progress. You won't be able to migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
+The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
 
 ### Select and prepare the subnet for your new App Service Environment v3
 
