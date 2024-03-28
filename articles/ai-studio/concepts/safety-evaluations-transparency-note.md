@@ -111,4 +111,4 @@ Due to the non-deterministic nature of the LLMs, you might experience false nega
 - [Microsoft concept documentation on our approach to evaluating generative AI applications](evaluation-approach-gen-ai.md)
 - [Microsoft concept documentation on how safety evaluation works](evaluation-metrics-built-in.md)
 - [Microsoft how-to documentation on using safety evaluations](../how-to/evaluate-generative-ai-app.md)
-- [Technical blog on how to evaluate content and security risks in your generative AI applications](https://aka.ms/Safety-Evals-Blog)
+- [Technical blog on how to evaluate content and security risks in your generative AI applications](https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/introducing-ai-assisted-safety-evaluations-in-azure-ai-studio/ba-p/4098595)
