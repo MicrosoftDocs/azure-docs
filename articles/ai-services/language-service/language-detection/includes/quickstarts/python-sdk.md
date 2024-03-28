@@ -44,17 +44,19 @@ Create a new Python file and copy the below code. Remember to replace the `key` 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```python
-key = "paste-your-key-here"
-endpoint = "paste-your-endpoint-here"
+
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+language_key = os.environ.get('LANGUAGE_KEY')
+language_endpoint = os.environ.get('LANGUAGE_ENDPOINT')
 
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 
 # Authenticate the client using your key and endpoint 
 def authenticate_client():
-    ta_credential = AzureKeyCredential(key)
+    ta_credential = AzureKeyCredential(language_key)
     text_analytics_client = TextAnalyticsClient(
-            endpoint=endpoint, 
+            endpoint=language_endpoint, 
             credential=ta_credential)
     return text_analytics_client
 

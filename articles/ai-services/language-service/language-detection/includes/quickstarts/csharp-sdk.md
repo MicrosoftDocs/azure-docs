@@ -51,8 +51,10 @@ namespace LanguageDetectionExample
 {
     class Program
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
-        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+
+        // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+        static string languageKey = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
 
         // Example method for detecting the language of text
         static void LanguageDetectionExample(TextAnalyticsClient client)
@@ -64,7 +66,7 @@ namespace LanguageDetectionExample
 
         static void Main(string[] args)
         {
-            var client = new TextAnalyticsClient(endpoint, credentials);
+            var client = new TextAnalyticsClient(languageEndpoint, languageKey);
             LanguageDetectionExample(client);
 
             Console.Write("Press any key to exit.");

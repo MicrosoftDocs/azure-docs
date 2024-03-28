@@ -64,16 +64,17 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 ```javascript
 "use strict";
 
-const { TextAnalysisClient, AzureKeyCredential } = require("@azure/ai-language-text");
-const key = '<paste-your-key-here>';
-const endpoint = '<paste-your-endpoint-here>';
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const key = process.env.LANGUAGE_KEY;
+const endpoint = process.env.LANGUAGE_ENDPOINT;
 
 //Example sentences in different languages to be analyzed
 const documents = [
     "This document is written in English.",
     "这是一个用中文写的文件",
 ];
-
 
 //Example of how to use the client library to detect language
 async function main() {

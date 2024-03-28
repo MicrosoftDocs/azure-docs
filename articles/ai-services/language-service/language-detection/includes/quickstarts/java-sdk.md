@@ -58,11 +58,12 @@ import com.azure.ai.textanalytics.TextAnalyticsClient;
 
 public class Example {
 
-    private static String KEY = "replace-with-your-key-here";
-    private static String ENDPOINT = "replace-with-your-endpoint-here";
+    // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+    private static String languageKey = System.getenv("LANGUAGE_KEY");
+    private static String languageEndpoint = System.getenv("LANGUAGE_ENDPOINT");
 
     public static void main(String[] args) {
-        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        TextAnalyticsClient client = authenticateClient(languageKey, languageEndpoint);
         detectLanguageExample(client);
     }
     // Method to authenticate the client object with your key and endpoint
