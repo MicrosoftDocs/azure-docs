@@ -98,6 +98,8 @@ items:
       href: monitor-azure-communications-gateway.md
     - name: Monitoring data reference
       href: monitoring-azure-communications-gateway-data-reference.md
+  - name: Maintenance notifications
+    href: maintenance-notifications.md
   - name: Get support or request changes
     href: request-changes.md
 - name: Reference
