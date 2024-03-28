@@ -47,4 +47,4 @@ The data product factory is delivered as a GitHub-based SDK containing:
 
 ## Next step
 
-Apply for access to the data product factory SDK by contacting your Microsoft representative.
+Apply for access to the data product factory SDK by filling in the [application form](https://forms.office.com/r/vMP9bjQr6n).
