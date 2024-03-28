@@ -43,6 +43,8 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Enable data partitioning
+      href: data-partitions.md
     - name: Access DICOM Change Feed logs 
       href: pull-dicom-changes-from-change-feed.md
     - name: Import DICOM files
