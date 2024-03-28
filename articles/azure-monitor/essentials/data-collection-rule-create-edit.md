@@ -19,7 +19,7 @@ This article describes the different methods for creating and editing a DCR. For
 
 | Built-in role | Scopes | Reason |
 |:---|:---|:---|
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations). |
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations. |
 | [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM. |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
 
@@ -75,7 +75,7 @@ az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePat
 
 ### [ARM](#tab/arm)
 
-See the follow references for defining DCRs and associations in a template.
+See the following references for defining DCRs and associations in a template.
 - [Data collection rules](/azure/templates/microsoft.insights/datacollectionrules)
 - [Data collection rule associations](/azure/templates/microsoft.insights/datacollectionruleassociations)
 

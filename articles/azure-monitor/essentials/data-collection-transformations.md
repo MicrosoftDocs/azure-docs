@@ -4,14 +4,14 @@ description: Use transformations in a data collection rule in Azure Monitor to f
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2023
+ms.date: 03/28/2024
 ms.reviwer: nikeist
 ---
 
 # Data collection transformations in Azure Monitor
 With transformations in Azure Monitor, you can filter or modify incoming data before it's sent to a Log Analytics workspace. This article provides a basic description of transformations and how they're implemented. It provides links to other content for creating a transformation.
 
-Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
+Transformations are performed in Azure Monitor in the data ingestion pipeline after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
 
 Transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a [Kusto Query Language (KQL) statement](data-collection-transformations-structure.md) that's applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure expected by the destination.
 
