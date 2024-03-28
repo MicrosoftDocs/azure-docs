@@ -72,7 +72,7 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 ## Open the demo application
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
-2. Observe the map shown of New York City. Zoom in and out to see how the map automatically renders with more or less information depending on the zoom level.
+2. Observe the map shown of the City of Los Angeles. Zoom in and out to see how the map automatically renders with more or less information depending on the zoom level.
 3. Change the default center of the map. In the **AzureMapDemo.html** file, search for the variable named **center**. Replace the longitude, latitude pair value for this variable with the new values **[-74.0060, 40.7128]**. Save the file and refresh your browser.
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
@@ -102,6 +102,7 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 > [!div class="nextstepaction"]
 > [Search nearby points of interest with Azure Maps]
 
+[Azure Active Directory]: azure-maps-authentication.md#azure-ad-authentication
 [Azure portal]: https://portal.azure.com
 [Find an address with Azure Maps search service]: how-to-search-for-address.md
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
