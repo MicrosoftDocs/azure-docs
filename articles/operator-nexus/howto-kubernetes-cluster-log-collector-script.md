@@ -37,7 +37,7 @@ The log collector script is designed to comprehensively gather data across vario
 
 - Network connection tracking information: Conntrack statistics and connection lists for firewall diagnostics.
 - Network configuration and interface details: Interface configurations, IP routing, addresses, and neighbor information.
-- Multicard interface configuration logs: Logs related to the configuration of multi-network card interfaces.
+- Any additional interface configuration and logs: Logs related to the configuration of all interfaces inside the Node.
 - Network connectivity tests: Tests external network connectivity and Kubernetes API server communication.
 - DNS resolution configuration: DNS resolver configuration for diagnosing domain name resolution issues.
 - Networking configuration and logs: Comprehensive networking data including connection tracking and interface configurations.
