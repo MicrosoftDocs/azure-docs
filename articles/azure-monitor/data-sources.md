@@ -62,7 +62,7 @@ Azure Kubernetes Service (AKS) clusters create the same activity logs and platfo
 
 
 ## Application
-Application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
+Application monitoring in Azure Monitor is done with [Application Insights](/azure/azure-monitor/app/app-insights-overview/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
 
 See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
 
