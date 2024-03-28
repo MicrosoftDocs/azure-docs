@@ -1,7 +1,7 @@
 ---
-title: How to connect a verified email domain with Azure Communication Service resource
+title: How to connect a verified email domain
 titleSuffix: An Azure Communication Services quick start guide
-description: Learn about how to connect verified email domains with Azure Communication Services Resource.
+description: Learn about how to connect verified email domains in Azure Communication Services.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python-portal-rest
 ---
-# Quickstart: How to connect a verified email domain with Azure Communication Service resource
+# Quickstart: How to connect a verified email domain
 
-In this quick start, you'll learn how to connect a verified domain in Azure Communication Services to send email.
+In this quick start, you learn how to connect a verified domain in Azure Communication Services to send email.
 
 ::: zone pivot="azure-portal"
 [!INCLUDE [connect-domain-portal](./includes/connect-domain-portal.md)]
