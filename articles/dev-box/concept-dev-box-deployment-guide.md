@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 In this article, you learn about the process, configuration options, and considerations for planning and implementing a Microsoft Dev Box deployment.
 
-The deployment of Microsoft Dev Box requires the [involvement of different roles](#roles-and-responsibilities) within your organization. Each role has particular responsibilities and requirements. Before you start the implementation of Microsoft Dev Box, it's important to [collect all requirements](#define-your-requirements-for-microsoft-dev-box) from the different roles, as they influence the configuration settings for the different components in Microsoft Dev Box. Once you have outlined your requirements, you can then go through the [implementation steps to roll out Dev Box](#microsoft-dev-box-deployment-plan) in your organization.
+The deployment of Microsoft Dev Box requires the [involvement of different roles](#roles-and-responsibilities) within your organization. Each role has particular responsibilities and requirements. Before you start the implementation of Microsoft Dev Box, it's important to [collect all requirements](#define-your-requirements-for-microsoft-dev-box) from the different roles, as they influence the configuration settings for the different components in Microsoft Dev Box. Once you have outlined your requirements, you can then go through the [deployment steps to roll out Dev Box](#deploy-microsoft-dev-box) in your organization.
 
 ## Roles and responsibilities
 
@@ -71,9 +71,11 @@ The following table lists requirements that could influence your Microsoft Dev B
 | Device management         | Restrict access to dev box to only managed devices, or based on geography. | You can use Microsoft Intune to create dynamic device groups and conditional access policies. Learn how to [configure Intune conditional access policies](./how-to-configure-intune-conditional-access-policies.md). |
 |                           | Configure device settings and features on different devices. | After a Dev Box is provisioned, you can manage it like any other device in Microsoft Intune. You can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off. |
 
-## Microsoft Dev Box deployment plan
+## Deploy Microsoft Dev Box
 
-After you've defined your requirements for Microsoft Dev Box within your organization, you can start the deployment. To set up Microsoft Dev Box to give developers self-service access to dev boxes, follow these steps.
+After you've defined the requirements, you can start the deployment of Microsoft Dev Box. Microsoft Dev Box consists of multiple Azure resources, such as a dev center, projects, dev box definitions, and more. Dev Box also has dependencies on other Azure services and Microsoft Intune. Learn more about the [Microsoft Dev Box architecture](./concept-dev-box-architecture.md).
+
+To deploy Microsoft Dev Box involves creating and configuring multiple services, across Azure, Intune, and your infrastructure. The following sections provide the different steps for deploying Microsoft Dev Box in your organization. Some steps are optional and depend on your specific organizational setup.
 
 ### Step 1: Configure Azure subscription
 Needs to be same tenant as Intune
