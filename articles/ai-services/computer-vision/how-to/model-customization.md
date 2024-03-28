@@ -235,7 +235,6 @@ prediction = prediction_client.predict(model_name, img, content_type='image/png'
 logging.info(f'Prediction: {prediction}')
 ```
 
-<!-- nbend -->
 -->
 
 #### [Vision Studio](#tab/studio)
