@@ -135,9 +135,24 @@ You might consider creating multiple dev centers in the following cases:
 
 Learn more about how to [create a dev center for Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 
-### Step x: Configure network connections
-- Azure networking connections
-- Hosted networking connections
+### Step 5: Configure network connections
+
+Network connections control where dev boxes are created and hosted, and enable you to connect to other Azure or corporate resources. Depending on your level of control, you can use Microsoft-hosted network connections or bring your own Azure network connections.
+
+Microsoft-hosted network connections provide network connectivity in a SaaS manner. Microsoft manages the network infrastructure and related services for your dev boxes. Microsoft-hosted networks are a cloud-only deployment with support for Microsoft Entra join. This option isn't compatible with the Microsoft Entra hybrid join model.
+
+A Microsoft-hosted network connection is created and assigned to a specific dev center project. You can create multiple network connections per project. The network connection created in a project are not shared with other projects.
+
+You can also use Azure network connections (bring your own network) to connect to Azure virtual networks and optionally connect to corporate resources. With Azure network connections, you manage and control the entire network setup and configuration. You can use either Microsoft Entra join or Microsoft Entra hybrid join options with Azure network connections, enabling you to connect to on-premises Azure Active Directory Domain Services.
+
+You create Azure network connections and assign them to a dev center. All projects in a dev center share the network connections in the dev center.
+
+Consider creating a separate network connection in the following scenarios:
+
+- A developer or team is located in a different geographic region. The network connection region determines where the dev boxes are hosted.
+- A developer or team needs access to Azure resources. Consider creating a separate Azure network connection per usage scenario (for example, access to a source control server, or access to a web app and database server).
+- A developer or team needs access to corporate, on-premises resources. Create an Azure network connection and configure it for hybrid connectivity.
+- Dev box users need to authenticate with their Active Directory account. Create an Azure network connection and configure it for hybrid connectivity.
 
 ### Step x: Create compute galleries
 - Marketplace vs compute gallery
