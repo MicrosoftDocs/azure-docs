@@ -33,8 +33,8 @@ You need the following from the source SIEM:
 You need the following on the target, Microsoft Sentinel:
 
 - The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
-- Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. 
-    - If the data connector isn't installed yet, find the relevant solution in **Content hub**. 
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Install and enable out-of-the-box (OOTB) data connectors to match your security monitoring estate from your source SIEM. [MULTIPLE]
+    - If the data connectors aren't installed yet, find the relevant solutions in **Content hub**. 
     - If no data connector exists, create a custom ingestion pipeline.<br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
 ## Translate Splunk detection rules
@@ -51,9 +51,9 @@ Current capabilities:
 Here are some of the priorities that are important to us as we continue to develop the translation technology:
 
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
-- Translation of complex correlation logic that queries and correlates events across multiple data sources
 - Support for Splunk macros
-- Support for Splunk lookups 
+- Support for Splunk lookups
+- Translation of complex correlation logic that queries and correlates events across multiple data sources
 
 ## Start the SIEM migration experience
 
@@ -113,7 +113,7 @@ Here are some of the priorities that are important to us as we continue to devel
 
    The following resources are deployed:
    - For all OOTB matches, the corresponding solutions with the matched analytics rule are installed, and the matched rules are deployed as active analytics rules.
-   - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
+   - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules in the disabled state.
 
 1. Before exiting the SIEM Migration experience, **Download Migration Summary** to keep a summary of the Analytics deployment.
 
