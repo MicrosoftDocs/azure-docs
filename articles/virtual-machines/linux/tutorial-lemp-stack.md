@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Deploy LEMP and WordPress on a VM
+title: Tutorial - Deploy a LEMP stack using WordPress on a VM
 description: In this tutorial, you learn how to install the LEMP stack, and WordPress, on a Linux virtual machine in Azure.
 author: chasecrum
 ms.collection: linux
 ms.service: virtual-machines
 ms.devlang: azurecli
-ms.custom: innovation-engine, linux-related-content
+ms.custom: innovation-engine, linux-related-content, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 2/29/2024
 ms.author: chasecrum
@@ -17,7 +17,7 @@ ms.reviewer: jushim
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?Microsoft_Azure_CloudNative_clientoptimizations=false&feature.canmodifyextensions=true#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMLAMP)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateLinuxVMLAMP)
 
 This article walks you through how to deploy an NGINX web server, Azure MySQL Flexible Server, and PHP (the LEMP stack) on an Ubuntu Linux VM in Azure. To see the LEMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 
@@ -66,9 +66,11 @@ export MY_AZURE_USER=$(az account show --query user.name --output tsv)
 export FQDN="${MY_DNS_LABEL}.${REGION}.cloudapp.azure.com"
 ```
 
-<!--```bash
+<!--
+```bash
 export MY_AZURE_USER_ID=$(az ad user list --filter "mail eq '$MY_AZURE_USER'" --query "[0].id" -o tsv)
-```-->
+```
+-->
 
 ## Create a resource group
 
@@ -521,7 +523,7 @@ Results:
 
 ## Create an Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](../../mysql/flexible-server/quickstart-create-server-cli.md#create-an-azure-database-for-mysql-flexible-server-instance) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
+Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](../../mysql/flexible-server/quickstart-create-server-cli.md#create-an-azure-database-for-mysql-flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
 
 ```bash
 az mysql flexible-server create \

@@ -4,7 +4,7 @@ description: Creating a Client Certificate with Microsoft Azure confidential led
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: overview
 ms.date: 04/11/2023
 ms.author: mbaldwin
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 # Creating a Client Certificate
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The Azure confidential ledger APIs require client certificate-based authentication. Only those certificates added to an allowlist during ledger creation or a ledger update can be used to call the confidential ledger Functional APIs.
 

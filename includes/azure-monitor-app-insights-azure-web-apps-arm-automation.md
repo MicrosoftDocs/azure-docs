@@ -1,11 +1,10 @@
 ---
 ms.topic: include
 ms.date: 09/03/2021
-ms.author: lagayhar
-author: lgayhardt
 services: azure-monitor
 ms.subservice: application-insights
-ms.custom:
+author: AaronMaxwell
+ms.author: aaronmax
 ---
 
 ### App Service application settings with Azure Resource Manager

@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.service: azure-kubernetes-service
 ms.date: 08/28/2023
 ms.custom: references_regions, devx-track-azurecli
+ms.subservice: aks-nodes
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using Azure CLI

@@ -2,7 +2,7 @@
 title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 11/06/2023
+ms.date: 03/27/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -37,6 +37,9 @@ You need a vSphere account that can:
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
 This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
+
+>[!Important]
+> If there are any changes to the credentials of the vSphere account after onboarding, follow these [steps](./administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) to update the credentials in Arc Resource Bridge and VMware cluster extension. 
 
 ### Resource bridge resource requirements
 

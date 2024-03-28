@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 03/21/2024
 ms.author: greglin
 ---
 
@@ -20,7 +20,7 @@ TLS policy includes definition of the TLS protocol version, cipher suites, and o
 
 - A custom TLS policy allows you to configure the minimum protocol version, ciphers, and elliptical curves for your gateway.
 - If no TLS policy is defined, a [default TLS policy](tls-policy.md#default-tls-policy) is used.
-- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers is based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connections between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites negotiated between client and Application Gateway for Containers are based on the _Gateway listener_ configuration as defined in YAML. The cipher suites used in establishing connections between Application Gateway for Containers and the backend target are based on the type of server certificates presented by the backend target.
 
 ## Predefined TLS policy
 
@@ -46,7 +46,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | P-384 | &check; | &check; |
 | P-256 | &check; | &check; |
 
-Protocol versions, ciphers, and elliptical curves not specified in the table above are not supported and won't be negotiated.
+Protocol versions, ciphers, and elliptical curves not specified in the table above aren't supported and won't be negotiated.
 
 ### Default TLS policy
 
@@ -72,8 +72,7 @@ spec:
     kind: Gateway
     name: target-01
     namespace: test-infra
-    gateway: gateway-01
-    listeners:
+    sectionNames:
     - https-listener
     group : gateway.networking.k8s.io
   default:
