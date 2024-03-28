@@ -7,6 +7,7 @@ ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 04/05/2023
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
 
