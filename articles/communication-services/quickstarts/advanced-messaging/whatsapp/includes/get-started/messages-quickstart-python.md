@@ -485,5 +485,3 @@ if __name__ == '__main__':
     messages.send_text_message()
     messages.send_image_message()
 ```
-
-
