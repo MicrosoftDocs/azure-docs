@@ -281,7 +281,7 @@ The **API Analysis Report** opens, and it displays the API definition and errors
 To view a summary of analysis reports for all API definitions in your API center:
 
 1. In the portal, navigate to your API center.
-2. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
+1. In the left-hand menu, under **Governance**, select **API Analysis**. The summary appears.
 
     :::image type="content" source="media/enable-api-analysis-linting/api-analysis-summary.png" alt-text="Screenshot of the API analysis summary in the portal.":::
 
