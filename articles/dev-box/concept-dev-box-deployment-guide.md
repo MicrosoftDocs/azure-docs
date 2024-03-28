@@ -117,7 +117,7 @@ Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant acc
 - Grant project administrators access to perform administrative tasks on Microsoft Dev Box projects (Project Admin role)
 - Grant dev box users access to create and manage their dev boxes in a Dev Box project (Dev Box User role)
 
-You can create security groups in Microsoft Entra ID for granting or revoking access for admins and users for each project. By using a security group, you can delegate the task of granting access independently of their permissions on the Azure resources. For example, you could delete granting access for dev box users to the dev team lead for that project.
+Consider creating security groups in Microsoft Entra ID for granting or revoking access for admins and users for each project. By using a security group, you can delegate the task of granting access independently of their permissions on the Azure resources. For example, you could delete granting access for dev box users to the dev team lead for that project.
 
 Learn more about [Microsoft Entra ID groups](/entra/fundamentals/concept-learn-about-groups).
 
@@ -154,13 +154,24 @@ Consider creating a separate network connection in the following scenarios:
 - A developer or team needs access to corporate, on-premises resources. Create an Azure network connection and configure it for hybrid connectivity.
 - Dev box users need to authenticate with their Active Directory account. Create an Azure network connection and configure it for hybrid connectivity.
 
-### Step x: Create compute galleries
-- Marketplace vs compute gallery
-- create galleries
-- create custom images
-- consider base image and apply customizations
+### Step 6: Create compute galleries
 
-### Step x: Attach catalog
+By default, dev box definitions can use any virtual machine (VM) image from the Azure Marketplace. You can assign one or more Azure compute galleries to the dev center to control the VM images that are available across all dev center projects.
+
+Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources.
+
+Consider using an Azure compute gallery in the following cases:
+
+- Development teams can standardize on a supported image version until a newer version is validated.
+- Development teams can use the latest version of an image definition to ensure they always receive the most recent image when creating dev boxes.
+- Development teams can choose from images that are preconfigured with software components and configurations for their project or usage scenario. For example, images for data science projects, front-end web development, and more.
+- You want to maintain the images in a single location and use them across dev centers, projects, and pools.
+
+When you create custom VM images, also consider using [dev box customization tasks](#step-7-attach-catalog) to limit the number of VM image variants and enable developers to fine-tune their dev box configuration themselves. For example, you might create a gneral-purpose development image, and use customization to let developers configure it for specific development tasks and preconfigure their source code repository.
+
+Learn more about how to [configure a compute gallery for a dev center](./how-to-configure-azure-compute-gallery.md).
+
+### Step 7: Attach catalog
 - create repo
 - add customization tasks
 
