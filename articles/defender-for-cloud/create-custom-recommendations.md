@@ -23,8 +23,6 @@ This article describes how to:
 
 We recommend watching this episode of [Defender for Cloud in the field](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/creating-custom-recommendations-amp-standards-for-aws-gcp/ba-p/3810248) to learn more about the feature, and dig into creating KQL queries.
 
-Watch this episode of [Defender for Cloud in the field](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/creating-custom-recommendations-amp-standards-for-aws-gcp/ba-p/3810248) to learn more about the feature, and dig into creating KQL queries.
-
 ## Create a custom recommendation
 
 Create custom recommendations, including steps for remediation, severity, and the standards to which the recommendation should be assigned. You add recommendation logic with KQL. You can use a simple query editor with built-in query templated that you can tweak as needed, or you can write your KQL query from scratch.

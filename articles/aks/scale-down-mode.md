@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.date: 08/21/2023
 ms.author: qpetraroia
 author: qpetraroia
+ms.subservice: aks-nodes
 ---
 
 # Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS)
