@@ -2,6 +2,7 @@
 title: Upgrade options for Azure Kubernetes Service (AKS) clusters
 description: Learn the different ways to upgrade an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.subservice: aks-upgrade
 ms.date: 02/08/2024
 ---
 
@@ -21,6 +22,7 @@ To perform manual upgrades, see the following articles:
 * [Upgrade the node image](./node-image-upgrade.md)
 * [Customize node surge upgrade](./upgrade-aks-cluster.md#customize-node-surge-upgrade)
 * [Process node OS updates](./node-updates-kured.md)
+* [Upgrade multiple AKS clusters via Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/update-orchestration)
 
 ## Configure automatic upgrades
 

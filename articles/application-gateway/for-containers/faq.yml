@@ -1,16 +1,16 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Application Gateway for Containers (preview)
+  title: Frequently asked questions about Azure Application Gateway for Containers
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
   author: greglin
   ms.service: application-gateway
   ms.subservice: appgw-for-containers
   ms.topic: article
-  ms.date: 09/25/2023
+  ms.date: 02/27/2024
   ms.author: greglin
     
-title: Frequently asked questions about Application Gateway for Containers (preview)
+title: Frequently asked questions about Application Gateway for Containers
 summary: The following are common questions asked about Azure Application Gateway for Containers.
 
 sections:
@@ -24,6 +24,15 @@ sections:
 
       - question: How does Application Gateway for Containers handle routine maintenance?
         answer: Routine maintenance and updates are designed to not be service impacting and require no customer intervention. For updates that might break existing configurations or cause existing product functionality changes, notifications are published via [Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md). These notifications are also sent via email to subscription service administrators.
+
+      - question: Does Application Gateway for Containers support FIPS?
+        answer: Yes, Application Gateway for Containers can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode". FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing are used. Please open a support case via the Azure portal to request FIPS mode to be enabled if required. 
+
+  - name: Performance
+    questions:
+      - question: How does Application Gateway for Containers support high availability and scalability?
+        answer: Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
+          
   - name: Configuration - TLS
     questions:
       - question: Does Application Gateway for Containers support reencryption (end-to-end encryption) of traffic to backend targets?

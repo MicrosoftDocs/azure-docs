@@ -28,7 +28,10 @@ The Service URL to access your service is: https://```YOUR-NAME```.cognitiveserv
 
 To send an API request, you need your Azure AI services account endpoint and key. 
 
-You can find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/create-job).
+
+<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
+
+
 
 ![[Screenshot of the Keys and Endpoints for the Radiology Insights.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
 
@@ -124,7 +127,11 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 }
 ```
 
-You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/create-job).
+<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
+
+
+
+
 
 ### Evaluating a response that contains a case
 
@@ -168,8 +175,8 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
   "status": "succeeded"
 }
 ```
-You can find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/get-job).
 
+<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job). -->
 
 ## Data limits
 

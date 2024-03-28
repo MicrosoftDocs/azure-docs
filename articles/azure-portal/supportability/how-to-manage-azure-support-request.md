@@ -21,15 +21,15 @@ View the details and status of support requests by going to **Help + support** >
 
 :::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="All support requests":::
 
-On this page, you can search, filter, and sort support requests. By default, you might only see recent open requests. Change the filter options to select a longer period of time or to include support requests that were closed.
+You can search, filter, and sort support requests. By default, you might only see recent open requests. Change the filter options to select a longer period of time or to include support requests that were closed.
 
 To view details about a support request to view details, including its severity and any messages associated with the request, select it from the list.
 
 ## Send a message
 
-1. On the **All support requests** page, select the support request.
+1. From **All support requests**, select the support request.
 
-1. On the **Support Request** page, select **New message**.
+1. In the **Support Request**, select **New message**.
 
 1. Enter your message and select **Submit**.
 
@@ -38,9 +38,9 @@ To view details about a support request to view details, including its severity 
 > [!NOTE]
 > The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 
-1. On the **All support requests** page, select the support request.
+1. From **All support requests**, select the support request.
 
-1. On the **Support Request** page, select **Change severity**.
+1. In the **Support Request**, select **Change severity**.
 
 1. The Azure portal shows one of two screens, depending on whether your request is already assigned to a support engineer:
 
@@ -58,9 +58,9 @@ When you create a support request, you can select **Yes** or **No** in the **Adv
 
 To change your **Advanced diagnostic information** selection after the request is created:
 
-1. On the **All support requests** page, select the support request.
+1. From **All support requests**, select the support request.
 
-1. On the **Support Request** page, select **Advanced diagnostic information** near the top of the screen.
+1. In the **Support Request**, select **Advanced diagnostic information** near the top of the screen.
 
 1. Select **Yes** or **No**, then select **Submit**.
 
@@ -70,9 +70,9 @@ To change your **Advanced diagnostic information** selection after the request i
 
 You can use the file upload option to upload a diagnostic file, such as a [browser trace](../capture-browser-trace.md) or any other files that you think are relevant to a support request.
 
-1. On the **All support requests** page, select the support request.
+1. From **All support requests**, select the support request.
 
-1. On the **Support Request** page, select the **Upload file** box, then browse to find your file and select **Upload**.
+1. In the **Support Request**, select the **Upload file** box, then browse to find your file and select **Upload**.
 
 ### File upload guidelines
 

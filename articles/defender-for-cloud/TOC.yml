@@ -192,6 +192,9 @@
       - name: Security policies
         displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
+      - name: Risk prioritization
+        displayName: risk, prioritization, security, posture, management, prioritization
+        href: risk-prioritization.md
       - name: Secure score
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
@@ -206,15 +209,26 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Permissions Management (Preview)
-        href: enable-permissions-management.md
+      - name: Critical assets protection
+        href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
       - name: Integrations
         items:  
-        - name: ServiceNow integration
-          displayName: CSPM, cloud security, posture, management, ServiceNow
-          href: integration-servicenow.md
+        - name: ServiceNow
+          items:
+          - name: ServiceNow integration with Defender for Cloud
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: integration-servicenow.md
+          - name: Connect ServiceNow to Defender for Cloud
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: connect-servicenow.md
+          - name: Create a ticket in Defender for Cloud 
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: create-ticket-servicenow.md
+          - name: Create automatic tickets with governance rules
+            displayName: CSPM, cloud security, posture, management, ServiceNow
+            href: create-governance-rule-servicenow.md
       - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
@@ -267,7 +281,9 @@
             - name: Incidents reference list
               displayName: incidents
               href: incidents-reference.md
-
+        - name: Exporting alerts and recommendations with continuous export
+          displayName: continuous, export, exportable, exportable data
+          href: benefits-of-continuous-export.md
 
 - name: How-to guides
   items:
@@ -289,6 +305,8 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
+        - name: Enable Permissions Management
+          href: enable-permissions-management.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -308,10 +326,7 @@
       items:
       - name: Choose standards for your compliance dashboard
         href: update-regulatory-compliance-packages.md
-      - name: Create custom standards/recommendations (Azure)
-        displayName: initiatives, custom, policies
-        href: custom-security-policies.md
-      - name: Create custom standards/recommendations (AWS/GCP)
+      - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
         href: manage-mcsb.md
@@ -406,15 +421,29 @@
             - name: Prepare Azure resources for exporting to Splunk and QRadar
               displayName: azure, resources, Splunk, QRadar
               href: export-to-splunk-or-qradar.md
-            - name: Export to a Log Analytics workspace or Azure Event Hubs
-              displayName: continuous, log analytics, workspace, event hubs, azure
-              href: continuous-export.md
-            - name: Download a CSV report of all alerts
+            - name: Continuous export
+              items:
+              - name: Setup continuous export in the Azure portal
+                displayName: continuous, log analytics, workspace, event hubs, azure
+                href: continuous-export.md
+              - name: Setup continuous export with REST API
+                displayName: continuous, setup, export
+                href: continuous-export-rest-api.md
+              - name: Setup continuous export with Azure policy
+                displayName: continuous, setup, export, policy
+                href: continuous-export-azure-policy.md
+              - name: Continuous export to an event hub behind a firewall
+                displayName: continuous, export, event hub, firewall
+                href: continuous-export-event-hub-firewall.md
+              - name: View exported data in Azure Monitor
+                displayName: continuous, view, exported, data, monitor
+                href: continuous-export-view-data.md
+            - name: Download a CSV report
               displayName: CSV report, alerts
-              href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-            - name: Alerts schemas
-              displayName: Alerts schemas
-              href: alerts-schemas.md
+              href: export-alerts-to-csv.md
+        - name: Alerts schemas
+          displayName: Alerts schemas
+          href: alerts-schemas.md
         - name: Manage security incidents
           displayName: security incidents
           href: incidents.md
@@ -554,6 +583,11 @@
       - name: Enable the Defender for Endpoint integration
         displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
         href: enable-defender-for-endpoint.md
+      - name: Assessment checks for endpoint detection and response solutions (MMA)
+        href: endpoint-protection-recommendations-technical.md
+      - name: Review and remediate endpoint detection and response  recommendations (agentless)
+        displayName: defender for endpoint, endpoint, edr
+        href: endpoint-detection-response.md
     - name: Adaptive application controls
       items:
       - name: Understand adaptive application controls
@@ -631,9 +665,6 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
-      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
-        displayName: ACR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md

@@ -63,14 +63,14 @@ Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to crea
 $ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/my-dcr"
 $FilePath = ".\my-dcr.json"
 $DCRContent = Get-Content $FilePath -Raw 
-Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent
+Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method PUT -Payload $DCRContent
 ```
 
 
 ```azurecli
 ResourceId="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/my-dcr"
 FilePath="my-dcr.json"
-az rest --method put --url $ResourceId"?api-version=2021-09-01-preview" --body @$FilePath
+az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePath
 ```
 
 
@@ -126,7 +126,7 @@ If you need to retrieve the JSON for an existing DCR, you can copy it from the *
 ```powershell
 $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
 $FilePath = "<FilePath>" # Store DCR content in this file
-$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
+$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method GET
 $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
 ```
 

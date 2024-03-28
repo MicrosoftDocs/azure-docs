@@ -48,6 +48,7 @@ This table shows the parameters that define the resource naming.
 > | -------------------------------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`                    | Identifier for the control plane (max 5 characters). | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
 > | `location`                       | Azure region in which to deploy.                     | Required   | Use lowercase.                                                                              |
+> | `codename`                       | Additional component for naming the resources.       | Optional   |                                                                                             |
 > | `name_override_file`             | Name override file.                                  | Optional   | See [Custom naming](naming-module.md).                                                      |
 > | `place_delete_lock_on_resources` | Place a delete lock on the key resources.            | Optional   |                                                                                             |
 
@@ -58,8 +59,8 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
+> | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
 ### Network parameters
@@ -147,13 +148,14 @@ xxx_vm_image  = {
 This section defines the parameters used for defining the VM authentication.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                         | Type      |
-> | ------------------------------------------------ | --------------------------------------------------- | --------- |
-> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer | Optional  |
-> | `deployer_authentication_username`               | Administrator account name                          | Optional  |
-> | `deployer_authentication_password`               | Administrator password                              | Optional  |
-> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
-> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
+> | Variable                                         | Description                                                                              | Type      |
+> | ------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------- | 
+> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer                                      | Optional  |
+> | `deployer_authentication_username`               | Administrator account name                                                               | Optional  |
+> | `deployer_authentication_password`               | Administrator password                                                                   | Optional  |
+> | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication                                           | Optional  |
+> | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication                                          | Optional  |
+> | `use_spn`                                        | If defined the deployment will be performed using a Service Principal, otherwise an MSI  | Optional  |
 
 ### Key vault parameters
 
@@ -170,6 +172,8 @@ This section defines the parameters used for defining the Azure Key Vault inform
 > | `deployer_password_secret_name`	                 | The key vault secret name for the deployer password.                                  | Optional	  |
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment key vault access policies.         | Optional	  |
 > | `set_secret_expiry`	                             | Set expiry of 12 months for key vault secrets.                                        | Optional	  |
+> | `soft_delete_retention_days`	                   | The number of days that items should be retained in the soft delete period.           | Optional	  |
+> | `deployer_assign_subscription_permissions`	     | Controls subscription permission assignment.                                          | Optional	  |
 
 ### DNS support
 
@@ -185,13 +189,15 @@ This section defines the parameters used for defining the Azure Key Vault inform
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                     | Description                                                            | Type        | Notes                         |
-> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.        | Optional    |                               |
-> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.       | Optional    |                               |
-> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).             | Optional    |                               |
-> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault. | Optional    | Use only for test deployments. |
-> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                    | Optional    |
+> | Variable                                     | Description                                                                  | Type        | Notes                         |
+> | -------------------------------------------- | ---------------------------------------------------------------------------- | ----------- | ----------------------------- |
+> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.           | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.          | Optional    |                               |
+> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).                  | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault.     | Optional    | Use only for test deployments. |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                         | Optional    |
+> | `Agent_IP`                                   | IP address of the agent.                                                     | Optional    |
+> | `add_Agent_IP`                               | Controls if Agent IP is added to the key vault and storage account firewalls | Optional    |
 
 ### Web App parameters
 
@@ -267,8 +273,8 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
+> | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
 ### SAP installation media storage account

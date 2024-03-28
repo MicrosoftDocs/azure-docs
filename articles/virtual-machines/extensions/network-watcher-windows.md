@@ -1,13 +1,13 @@
 ---
 title: Network Watcher Agent VM extension - Windows 
-description: Deploy the Network Watcher Agent virtual machine extension on Windows virtual machines.
-ms.topic: conceptual
+description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
+author: halkazwini
+ms.author: halkazwini
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: halkazwini
-author: halkazwini
+ms.topic: concept-article
+ms.date: 03/25/2024
 ms.collection: windows
-ms.date: 02/19/2024
 ---
 
 # Network Watcher Agent virtual machine extension for Windows
@@ -30,29 +30,31 @@ Some of the Network Watcher Agent functionality requires that the virtual machin
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension doesn't require, or support, any user-supplied settings, and relies on its default configuration.
 
+
 ```json
 {
-    "type": "extensions",
-    "name": "Microsoft.Azure.NetworkWatcher",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "apiVersion": "[variables('apiVersion')]",
+    "name": "[concat(parameters('vmName'), '/AzureNetworkWatcherExtension')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
     ],
     "properties": {
+        "autoUpgradeMinorVersion": true,
         "publisher": "Microsoft.Azure.NetworkWatcher",
         "type": "NetworkWatcherAgentWindows",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true
+        "typeHandlerVersion": "1.4"
     }
 }
+
 ```
 
 ### Property values
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2022-11-01 |
+| apiVersion | 2023-03-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
@@ -68,9 +70,9 @@ Use the `Set-AzVMExtension` command to deploy the Network Watcher Agent virtual 
 
 ```powershell
 Set-AzVMExtension `
-  -ResourceGroupName "myResourceGroup1" `
+  -ResourceGroupName "myResourceGroup" `
   -Location "WestUS" `
-  -VMName "myVM1" `
+  -VMName "myVM" `
   -Name "networkWatcherAgent" `
   -Publisher "Microsoft.Azure.NetworkWatcher" `
   -Type "NetworkWatcherAgentWindows" `
