@@ -12,7 +12,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 # Deployment
 
-Azure App Configuration supports the following methods to read and manage your configuration for deployment:
+Azure App Configuration supports the following methods to read and manage your configuration during deployment:
 
 - [ARM template](./quickstart-resource-manager.md)
 - [Bicep](./quickstart-bicep.md)
@@ -31,7 +31,7 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 ## Manage Azure App Configuration data in deployment
 
-Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set your configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for audit purpose.
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set your configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for auditing purpose.
 
 ### ARM authentication mode
 
@@ -75,7 +75,7 @@ If all of these criteria are met, then deployments accessing App Configuration d
 
 # [Azure portal](#tab/portal)
 
-To enable the ARM private access of an Azure App Configuration resource in the Azure portal, follow these steps:
+To enable ARM private network access for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal
 2. Locate the **Networking** setting under **Settings**
