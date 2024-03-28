@@ -31,7 +31,7 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 ## Manage Azure App Configuration data in deployment
 
-Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for audit purpose.
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set your configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for audit purpose.
 
 ### ARM authentication mode
 
@@ -55,7 +55,7 @@ To configure the ARM authentication mode of an Azure App Configuration resource 
 
 ### Azure App Configuration Authorization
 
-When your App Configuration resource has its ARM authentication mode set to **Pass-through**, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment. This is in addition to baseline management permission requirements of the resource.  Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/keyValues/read and Microsoft.AppConfiguration/configurationStores/snapshots/read. Built-in roles with this action include:
+When your App Configuration resource has its ARM authentication mode set to **Pass-through**, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment. This is in addition to baseline management permission requirements of the resource.  Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/\*/read and Microsoft.AppConfiguration/configurationStores/\*/write. Built-in roles with this action include:
 
 - App Configuration Data Owner
 - App Configuration Data Reader
@@ -67,8 +67,8 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 When an App Configuration resource is restricted to private network access, deployments accessing App Configuration data through public networks will be blocked. To enable successful deployments when access to an App Configuration resource is restricted to private networks the following actions must be taken:
 
 - [Azure Resource Management Private Link](../azure-resource-manager/management/create-private-link-access-portal.md) must be set up
-- The App Configuration resource must have its ARM authentication mode set to **Pass-through**
-- The App Configuration resource must have its ARM private access enabled
+- The App Configuration resource must have ARM authentication mode set to **Pass-through**
+- The App Configuration resource must have ARM private network access enabled
 - Deployments accessing App Configuration data must run through the configured ARM private link
 
 If all of these criteria are met, then deployments accessing App Configuration data will be successful.
@@ -91,7 +91,7 @@ To enable the ARM private access of an Azure App Configuration resource in the A
 
 ## Next steps
 
-To learn about deployment using ARM template and Bicep, check below documentations.
+To learn about deployment using ARM template and Bicep, check the documentations linked below.
 
 - [Quickstart: Create an Azure App Configuration store by using an ARM template](./quickstart-resource-manager.md)
 - [Quickstart: Create an Azure App Configuration store using Bicep](./quickstart-bicep.md)
