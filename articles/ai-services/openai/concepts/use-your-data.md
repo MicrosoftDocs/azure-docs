@@ -318,6 +318,27 @@ You can use Azure OpenAI On Your Data securely by protecting data and resources 
 
 Use the following sections to learn how to improve the quality of responses given by the model.
 
+### Ingestion parameter
+
+When your data is ingested into to Azure AI Search, You can modify the following additional settings in either the studio or [ingestion API](/rest/api/azureopenai/ingestion-jobs/create#request-body).
+
+### Chunk size (preview)
+
+Azure OpenAI On Your Data processes your documents by splitting them into chunks before ingesting them. The chunk size is the maximum size in terms of the number of tokens of any chunk in the search index. Chunk size and the number of retrieved documents together control how much information (tokens) is included in the prompt sent to the model. In general, the chunk size multiplied by the number of retrieved documents is the total number of tokens sent to the model. 
+
+#### Setting chunk size for your use case
+
+The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens) more effective.
+
+Adjusting the chunk size can enhance your chatbot's performance. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it could affect retrieval performance. 
+
+A small chunk size like 256 produces more granular chunks. This size also means the model will utilize fewer tokens to generate its output (unless the number of retrieved documents is very high), potentially costing less. Smaller chunks also mean the model does not have to process and interpret long sections of text, reducing noise and distraction. This granularity and focus however pose a potential problem. Important information might not be among the top retrieved chunks, especially if the number of retrieved documents is set to a low value like 3.
+
+> [!TIP]
+> Keep in mind that altering the chunk size requires your documents to be re-ingested, so it's useful to first adjust [runtime parameters](#runtime-parameters) like strictness and the number of retrieved documents. Consider changing the chunk size if you're still not getting the desired results:
+> * If you are encountering a high number of responses such as "I don't know" for questions with answers that should be in your documents, consider reducing the chunk size to 256 or 512 to improve granularity.
+> * If the chatbot is providing some correct details but missing others, which becomes apparent in the citations, increasing the chunk size to 1,536 might help capture more contextual information.
+
 ### Runtime parameters
 
 You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../references/on-your-data.md). You don't need to reingest your data when you update these parameters. 
