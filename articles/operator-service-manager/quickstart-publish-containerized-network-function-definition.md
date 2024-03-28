@@ -89,7 +89,7 @@ Here's sample input-cnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build -f input-cnf-nfd.json --definition-type cnf
+az aosm nfd build -f input-cnf-nfd.jsonc --definition-type cnf
 ```
 
 **TODO: The helm template validation generates some warnings from the above command because there is one invalid image in the template used**
