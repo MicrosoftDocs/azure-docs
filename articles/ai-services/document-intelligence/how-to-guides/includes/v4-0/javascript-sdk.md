@@ -5,12 +5,11 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/27/2024
+ms.date: 08/21/2023
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
   - ignite-2023
-monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -18,14 +17,11 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-:::moniker range="doc-intel-3.1.0"
-[Client library](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/samples/v5) |[Supported REST API versions](../../sdk-overview-v3-1.md)
-:::moniker-end
+> [!NOTE]
+>
+> This project targets Document Intelligence REST API version 3.1.
 
-:::moniker range="doc-intel-3.0.0"
-
-[Client library](/javascript/api/%40azure/ai-form-recognizer/) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/26e85928088c6ee46ff9b357b2af8158b9da8b49/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript) |[Supported REST API versions](../../sdk-overview-v3-0.md)
-:::moniker-end
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -60,7 +56,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
 
-[!INCLUDE [environment-variables](../set-environment-variables.md)]
+[!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
 

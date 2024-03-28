@@ -7,23 +7,15 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 03/27/2024
+ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
-
-
-:::moniker range="doc-intel-3.1.0"
-   | [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v3-1.md) | 
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-    | [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../sdk-overview-v3-0.md) | 
-:::moniker-end
 
 > [!NOTE]
 >
-> This project uses the  `cURL` command-line tool to execute REST API calls.
+> This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
+
+[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -51,7 +43,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
 
-[!INCLUDE [environment-variables](../set-environment-variables.md)]
+[!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Analyze documents and get results
 

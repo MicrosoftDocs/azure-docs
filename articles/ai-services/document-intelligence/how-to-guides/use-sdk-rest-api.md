@@ -21,10 +21,6 @@ zone_pivot_groups: programming-languages-set-formre
 
 # Use Document Intelligence models
 
-::: moniker range="doc-intel-4.0.0"
-[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
-::: moniker-end
-
 ::: moniker range="doc-intel-3.1.0"
 [!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
 ::: moniker-end
@@ -38,7 +34,8 @@ zone_pivot_groups: programming-languages-set-formre
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
-In this guide, you learn how to add Document Intelligence models to your applications and workflows. Use a programming language SDK of your choice or the REST API.
+
+In this guide, learn how to add Document Intelligence models to your applications and workflows. Use a programming language SDK of your choice or the REST API.
 
 Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service while you learn the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -74,7 +71,11 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ::: zone pivot="programming-language-csharp"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [C# SDK quickstart](includes/v3-0/csharp-sdk.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [C# SDK quickstart](includes/v3-0/csharp-sdk.md)]
 ::: moniker-end
 
@@ -82,7 +83,11 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ::: zone pivot="programming-language-java"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [Java SDK quickstart](includes/v4-0/java-sdk.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [Java SDK quickstart](includes/v3-0/java-sdk.md)]
 ::: moniker-end
 
@@ -90,7 +95,11 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ::: zone pivot="programming-language-javascript"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [NodeJS SDK quickstart](includes/v4-0/javascript-sdk.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [NodeJS SDK quickstart](includes/v3-0/javascript-sdk.md)]
 ::: moniker-end
 
@@ -98,7 +107,11 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ::: zone pivot="programming-language-python"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [Python SDK quickstart](includes/v4-0/python-sdk.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [Python SDK quickstart](includes/v3-0/python-sdk.md)]
 ::: moniker-end
 
@@ -106,7 +119,11 @@ Choose from the following Document Intelligence models to analyze and extract da
 
 ::: zone pivot="programming-language-rest-api"
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [REST API quickstart](includes/v4-0/rest-api.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 [!INCLUDE [REST API quickstart](includes/v3-0/rest-api.md)]
 ::: moniker-end
 
