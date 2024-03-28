@@ -27,7 +27,7 @@ The integration instruments popular Python libraries in your code, letting you a
 > [!NOTE]
 > If using Django, see the additional [Django Instrumentation](#django-instrumentation) section in this article.
 
-Logging telemetry is also collected with your logs that use the standard Python logging library.
+Logging telemetry is collected at the level of the root logger. To learn more about Python's native logging hierarchy, visit the [Python logging documentation][python_logging_docs].
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ The easiest way to monitor Python applications on Azure App Services is through 
 Activating monitoring in the Azure portal automatically instruments your application with Application Insights and requires no code changes.
 
 > [!NOTE]
-> You should only use Azure Monitor OpenTelemetry autoinstrumentation on App Service if you aren't using manual instrumentation of OpenTelemetry, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
+> You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
 
 ### Autoinstrumentation through Azure portal
 
@@ -157,7 +157,7 @@ Here's an example JSON file:
 
 ### Step 3: Avoid duplicate telemetry
 
-You should only use Azure Monitor OpenTelemetry autoinstrumentation on App Service if you aren't using manual instrumentation of OpenTelemetry, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using Autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
+You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using Autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
 
 ### Step 4: Confirm Django settings are configured
 
@@ -174,16 +174,14 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 
 ## Next steps
 
-* [Monitor Azure Functions with Application Insights](monitor-functions.md)
 * [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold
-* Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page
 * [Availability overview](availability-overview.md)
 
 [application_insights_sampling]: ./sampling.md
 [azure_core_tracing_opentelemetry_plugin]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core-tracing-opentelemetry
-[azure_monitor_opentelemetry_exporter]: https://learn.microsoft.com/python/api/overview/azure/monitor-opentelemetry-exporter-readme?view=azure-python-preview&preserve-view=true
+[azure_monitor_opentelemetry_exporter]: https://learn.microsoft.com/python/api/overview/azure/monitor-opentelemetry-exporter-readme
 [django_settings_module_docs]: https://docs.djangoproject.com/en/4.2/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
 [ot_env_vars]: https://opentelemetry.io/docs/reference/specification/sdk-environment-variables/
 [ot_instrumentation_django]: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django
@@ -202,6 +200,7 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 [opentelemetry_resource]: https://opentelemetry.io/docs/specs/otel/resource/sdk/
 [opentelemetry_spec_resource_attributes_env_var]: https://opentelemetry-python.readthedocs.io/en/latest/sdk/environment_variables.html?highlight=OTEL_RESOURCE_ATTRIBUTES%20#opentelemetry-sdk-environment-variables
 [opentelemetry_spec_service_name_env_var]: https://opentelemetry-python.readthedocs.io/en/latest/sdk/environment_variables.html?highlight=OTEL_RESOURCE_ATTRIBUTES%20#opentelemetry.sdk.environment_variables.OTEL_SERVICE_NAME
+[python_logging_docs]: https://docs.python.org/3/library/logging.html
 [pypi_django]: https://pypi.org/project/Django/
 [pypi_fastapi]: https://pypi.org/project/fastapi/
 [pypi_flask]: https://pypi.org/project/Flask/
