@@ -7,13 +7,13 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ---
 
 > [!NOTE]
 >
-> This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
+> This project uses cURL command-line tool to execute REST API calls.
 
 [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
@@ -40,7 +40,7 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-[!INCLUDE [environment-variables](set-environment-variables.md)]
+[!INCLUDE [environment-variables](../set-environment-variables.md)]
 
 ## Analyze documents and get results
 
