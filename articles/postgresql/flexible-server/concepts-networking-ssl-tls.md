@@ -86,10 +86,15 @@ There are many connection parameters for configuring the client for SSL. Few imp
 
 3. **sslcert**, **sslkey** and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
 
+**Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
+
 > [!NOTE]  
-> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
+> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
 
 For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
+
+> [!NOTE]
+>  For clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, they have to accept **both** [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
 
 ## Cipher Suites
 
