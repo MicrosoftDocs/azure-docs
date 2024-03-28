@@ -223,7 +223,7 @@ You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTempe
 
 :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows the SimulatedTemperatureSensor in the list of deployed modules." lightbox="./media/quickstart-linux/view-deployed-modules.png":::
 
-If you had issues deploying modules, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
+If you have issues deploying modules, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## View generated data
 
