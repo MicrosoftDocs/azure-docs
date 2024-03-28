@@ -11,7 +11,7 @@ ms.date: 03/18/2024
 ms.author: pafarley
 ---
 
-# Quickstart: Groundedness detection 
+# Quickstart: Groundedness detection (preview)
 
 Follow this guide to use Azure AI Content Safety Groundedness detection to check whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users.
 
