@@ -1,0 +1,38 @@
+---
+title: Overview of cameraStoppedUnexpectedly UFD
+titleSuffix: Azure Communication Services - Troubleshooting Guide
+description: Overview and detailed reference of cameraStoppedUnexpectedly UFD
+author: sloanster
+ms.author: micahvivion
+
+services: azure-communication-services
+ms.date: 03/27/2024
+ms.topic: troubleshooting
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
+# cameraStoppedUnexpectedly UFD
+The `cameraStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the camera track has been muted. Noted that it is related to the `mute` event of the camera track, which is triggered by an external source. The event can be triggered on mobile browsers when the browser goes to background. Additionally, in some browser implementations, the browser will send black frames when the video input track is muted.
+
+| cameraStoppedUnexpectedly             | Details                |
+| --------------------------------------|------------------------|
+| UFD type                              | MediaDiagnostics       |
+| value type                            | DiagnosticFlag         |
+| possible values                       | true, false            |
+
+## Example
+```typescript
+call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
+    if (diagnosticInfo.diagnostic === 'cameraStoppedUnexpectedly') {
+       if (diagnosticInfo.value === true) {
+           // cameraStoppedUnexpectedly UFD, show a warning message on UI
+       } else {
+           // The cameraStoppedUnexpectedly UFD recovered, notify the user
+       }
+    }
+});
+```
+## How to mitigate or resolve
+Your application should subscribe to events from the User Facing Diagnostics and display a message on the user interface to alert users of any camera state changes.
+This will ensure that users are aware of camera stopped issues and are not surprised if other participants cannot see the video.
