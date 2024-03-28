@@ -328,7 +328,7 @@ Azure OpenAI On Your Data processes your documents by splitting them into chunks
 
 #### Setting chunk size for your use case
 
-The default chunk size is 1024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens) more effective.
+The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens) more effective.
 
 Adjusting the chunk size can enhance your chatbot's performance. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it could affect retrieval performance. 
 
