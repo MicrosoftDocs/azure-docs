@@ -54,7 +54,7 @@
       - name: Security admin rule enforcement
         href: concept-enforcement.md
       - name: Network groups as source and destination
-        href: concept-security-admin-rule-network-groups.md
+        href: concept-security-admin-rules-network-groups.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
@@ -98,7 +98,7 @@
   - Name: Security admin rules
     items:
     - name: Using network groups as source and destination
-      href: how-to-create-security-admin-rules-network-groups.md
+      href: how-to-create-security-admin-rule-network-groups.md
   - name: Cross-tenant connection support
     items:
     - name: Configure cross-tenant connection - Portal
