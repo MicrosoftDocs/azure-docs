@@ -105,7 +105,7 @@ The Stream Analytics job creates [Delta Log checkpoints](https://github.com/delt
         - Cardinality of the [Partition Column values](#delta-lake-configuration) of the batch.
     - To reduce the number of Add File Actions generated for a batch the following steps can be taken:
         - Reduce the batching configurations [Minimum Rows and Maximum Time](blob-storage-azure-data-lake-gen2-output.md#output-configuration)
-        - Reduce the cardinality of the [Partition Column values](#delta-lake-configuration.md) by tweaking the input data or choosing a different partition column
+        - Reduce the cardinality of the [Partition Column values](#delta-lake-configuration) by tweaking the input data or choosing a different partition column
 - Stream Analytics jobs can only read and write single part V1 Checkpoints. Multi-part checkpoints and the Checkpoint V2 format aren't supported.
 
 ## Next steps
