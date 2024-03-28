@@ -15,7 +15,7 @@ ms.author: zhiyuanliang
 ---
 # Quickstart: Add feature flags to a .NET background service
 
-In this quickstart, you incorporate the feature management capability from Azure App Configuration into a .NET background service. You use the App Configuration service to centrally store and manage your feature flags.
+In this quickstart, you incorporate the feature management capability from Azure App Configuration into a .NET background service. You use App Configuration to centrally store and manage your feature flags.
 
 ## Prerequisites
 
@@ -111,7 +111,9 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     }
     ```
 
-1. Update the `ExecuteAsync` method to log a message depending on the state of the feature flag. The `TryRefreshAsync` method is called at the beginning of every iteration of the task execution to refresh the feature flag. It will be a no-op if the refresh interval time window isn't reached. The `await` operator is not used so that the feature flags are refreshed without blocking the current iteration of the task execution. In that case, later iterations of the task execution will get updated value.
+1. Update the `ExecuteAsync` method to log a message depending on the state of the feature flag. 
+
+    The `TryRefreshAsync` method is called at the beginning of every iteration of the task execution to refresh the feature flag. It will be a no-op if the refresh interval time window isn't reached. The `await` operator is not used so that the feature flags are refreshed without blocking the current iteration of the task execution. In that case, later iterations of the task execution will get updated value.
 
     ```csharp
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)

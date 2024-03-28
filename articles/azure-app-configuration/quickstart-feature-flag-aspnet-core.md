@@ -19,7 +19,7 @@ The feature management support extends the dynamic configuration feature in App 
 
 ## Prerequisites
 
-The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the following tutorials to create an ASP.NET Core app with dynamic configuration first.
+Follow the documents to create an ASP.NET Core app with dynamic configuration.
 
 - [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
 - [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
