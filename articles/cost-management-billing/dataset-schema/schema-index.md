@@ -30,7 +30,7 @@ Here's the list of all dataset schema files available in Cost Management + Billi
 |ReservationRecommendations|EA|[2023-05-01](reservation-recommendations-ea.md)
 |ReservationRecommendations|MCA|[2023-05-01](reservation-recommendations-mca.md)
 |ReservationTransactions|EA|[2023-05-01](reservation-transactions-ea.md)
-|ReservationTransactions|MCA|[2023-05-01](reservation-transactions-mca.md>)
+|ReservationTransactions|MCA|[2023-05-01](reservation-transactions-mca.md)
 |Usage|EA|[2021-10-01](usage-details-ea.md)
 |Usage|MCA, Partner, and Subscription|[2021-10-01](usage-details-mca-partner-subscription.md)
 |Usage|MCA and Partner|[2021-10-01](usage-details-mca-partner.md)
