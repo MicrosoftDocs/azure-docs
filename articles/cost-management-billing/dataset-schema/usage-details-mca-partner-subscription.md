@@ -1,6 +1,6 @@
 ---
 title: Microsoft Customer Agreement (MCA) partner subscription cost details file schema
-description: Learn about the data fields available in the Microsoft Customer Agreement partner cost details file.
+description: Learn about the data fields available in the Microsoft Customer Agreement partner subscription cost details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
