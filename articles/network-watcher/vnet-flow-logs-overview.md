@@ -63,7 +63,7 @@ VNet flow logs also avoid the need to enable multiple-level flow logging, such a
 In addition to existing support to identify traffic that [network security group rules](../virtual-network/network-security-groups-overview.md) allow or deny, VNet flow logs support identification of traffic that [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md) allow or deny. VNet flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
 
 > [!IMPORTANT]
-> It is recommended to disable NSG flow logs before enabling VNet flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. If you enable NSG flow logs on the network security group of a subnet, then you enable VNet flow logs on the same subnet or parent virtual network, you might get duplicate logging (both NSG flow logs and VNet flow logs are generated for all supported workloads in that particular subnet).
+> It is recommended to disable NSG flow logs before enabling VNet flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. If you enable NSG flow logs on the network security group of a subnet, then you enable VNet flow logs on the same subnet or parent virtual network, you might get duplicate logging (both NSG flow logs and VNet flow logs generated for all supported workloads in that particular subnet).
 
 ## How logging works
 
