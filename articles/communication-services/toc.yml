@@ -992,12 +992,32 @@ items:
         href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
-- name: Resources 
+- name: Resources
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules
     href: resources/learn-modules.md
+  - name: Troubleshooting Guides
+    items:
+    - name: Voice and Video
+      items:
+      - name: Calling (JavaScript)
+        items:
+        - name: Call setup issues
+          items:
+          - name: Overview
+            href: troubleshooting/voice-video-calling/call-setup-issues/overview.md
+          - name: Invalid or expired tokens
+            href: troubleshooting/voice-video-calling/call-setup-issues/invalid-or-expired-tokens.md
+          - name: Failed to create callAgent
+            href: troubleshooting/voice-video-calling/call-setup-issues/failed-to-create-call-agent.md
+          - name: The user doesn't receive incoming call notifications
+            href: troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
+          - name: The user is unable to establish a call
+            href: troubleshooting/voice-video-calling/call-setup-issues/unable-to-establish-a-call.md
+          - name: The call setup takes too long
+            href: troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
 - name: References
   items:
   - name: Reference documentation overview
