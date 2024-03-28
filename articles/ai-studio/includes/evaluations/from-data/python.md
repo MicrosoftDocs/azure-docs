@@ -141,7 +141,7 @@ from azure.ai.resources.client import AIClient
 client = AIClient.from_config(DefaultAzureCredential())
 ```
 > [!NOTE]
-> If only risk and safety metrics are passed into `metrics_list` then the `model_config` parameter in the interface below is optional. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
+> If only risk and safety metrics are passed into `metrics_list` then the `model_config` parameter in the following interface is optional. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
 
 ### Evaluate question answering: `qa`
 
@@ -243,7 +243,7 @@ The contents of `eval_results.jsonl` looks like this:
 
 The outputs of your risk and safety metrics will provide the following:
 
-- `{metric_name}_defect_rate` which measures % of instances which surpassed the severity threshold (set to default 4) and is the aggregate metric over the whole dataset.
+- `{metric_name}_defect_rate`, which measures % of instances that surpassed the severity threshold (set to default 4) and is the aggregate metric over the whole dataset.
 - `{metric_name}_score` with a range between 0 and 7 severity for each data point. You can read more about the descriptions of each [content risk and severity scale](../../../concepts/evaluation-metrics-built-in.md).
 - `{metric_name}_reasoning` with a text reasoning for why a certain severity score was given for each data point.
 
@@ -258,7 +258,8 @@ result.download_evaluation_artifacts("./myevalresults")
 
 ### Evaluate Conversation: `chat`
 
-The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"` shown below
+The same interface can be used with `evaluate()` for the conversation scenario but with data mapping required only for model output `y_pred` and `task_type="chat"`.
+
 ```python
 task_type="chat",
 data_mapping={
