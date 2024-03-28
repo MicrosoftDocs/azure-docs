@@ -147,7 +147,7 @@ In an index definition created using [2024-03-01-preview REST API](/rest/api/sea
 
 **Key points**:
 
-+ `kind` must be set to `scalarQantization`. This is the only quantization method supported at this time.
++ `kind` must be set to `scalarQuantization`. This is the only quantization method supported at this time.
 
 + `rerankWithOriginalVectors` uses the original, uncompressed vectors to recalculate similarity and rerank the top results returned by the initial search query. The uncompressed vectors exist in the search index even if `stored` is false. This property is optional. Default is true.
 

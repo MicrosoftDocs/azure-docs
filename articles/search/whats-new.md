@@ -25,7 +25,7 @@ ms.custom:
 | [**Increased quota for vectors**](vector-search-index-size.md#vector-limits-for-services-created-after-april-3-2024) | Feature | Vector quotas are also higher on new services created after April 3, 2024 in selected regions. |
 | [**Support for narrow vector primitive data types, vector compression, and new `stored` property (preview)**](vector-search-how-to-configure-compression-storage.md) | Feature | This preview adds [new vector data types](/rest/api/searchservice/supported-data-types), vector compression, and more flexible vector field storage options. Built-in vector compression is based scalar quantization. |
 | [**2024-03-01-preview Search REST API**](/rest/api/searchservice/search-service-api-versions#2024-03-01-preview) | API | New preview version of the Search REST APIs for the new data types, vector compression properties, and storage options. |
-| [**2024-03-01-preview Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true) | API | New preview version of the Management REST APIs for control plane operations. This version adds APIs for network security perimeters. |
+| [**2024-03-01-preview Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true) | API | New preview version of the Management REST APIs for control plane operations.  |
 
 ## February 2024
 
