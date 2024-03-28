@@ -12,7 +12,7 @@ ms.author: cshoe
 
 Using an OpenTelemetry data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
-- Piping data from an agent into a desired endpoint. Destination options include Azure Monitor Application Insights, Datadog, and any OTLP-configured endpoint.
+- Piping data from an agent into a desired endpoint. Destination options include Azure Monitor Application Insights, Datadog, and any OpenTelemetry Protocol (OTLP)-compatible endpoint.
 
 - Easily changing destination endpoints without having to reconfigure how they emit data, and without having to manually run an OpenTelemetry agent.
 
@@ -22,9 +22,9 @@ This article shows you how to set up and configure an OpenTelemetry agent for yo
 
 OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI.
 
-Each endpoint type (Azure Application Insights, DataDog, and OTLP) has specific configuration requirements.
+Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
 
-Setting up an agent is a two step process. The first step is to create an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Application Insights, you first need to create an App Insights instance.
+Setting up an agent is a two step process. The first step is to create an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Monitor Application Insights, you first need to create an App Insights instance.
 
 The second step is to configure your container app to send data to the destination.
 
@@ -40,11 +40,11 @@ Prepare your application to collect data by installing the [OpenTelemetry SDK](h
 
 ### Initialize endpoints
 
-Before you can send data to a collection destination, you first need to create an instance of the destination service. For example, if you want to send data to Azure Application Insights, you need to create an Application Insights instance ahead of time.
+Before you can send data to a collection destination, you first need to create an instance of the destination service. For example, if you want to send data to Azure Monitor Application Insights, you need to create an Application Insights instance ahead of time.
 
 The managed OpenTelemetry agent accepts the following destinations:
 
-- Azure Application Insights
+- Azure Monitor Application Insights
 - Datadog
 - Any OTLP endpoint (For example: New Relic or Honeycomb)
 
@@ -56,7 +56,7 @@ The following table shows you what type of data you can send to each destination
 | [Datadog](https://datadoghq.com/) | No | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
-## Azure Application Insights
+## Azure Monitor Application Insights
 
 The only configuration detail required from Application Insights is the connection string. Once you have the connection string, you can configure the agent via your container app's ARM template or with Azure CLI commands.
 
@@ -254,7 +254,7 @@ The following example shows how to use an OTLP endpoint named `customDashboard`.
 
 ## Example OpenTelemetry configuration
 
-The following example ARM template shows how you might configure your container app to collect telemetry data using Azure Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
+The following example ARM template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
 
 Before you deploy this template, replace placeholders surrounded by `<>` with your values.
 
@@ -327,14 +327,13 @@ These variables are only necessary if you're using both the managed OpenTelemetr
 
 ## OpenTelemetry agent costs
 
-Customers are billed for the underlying compute of the agent. For details about billing, see [./billing.md].
+You are billed for the underlying compute of the agent. For details about billing, see [./billing.md].
 
-See the destination service for their billing structure and terms. For example, if you send data to both Azure Application Insights and Datadog, you're responsible for the charges applied by both services.
+See the destination service for their billing structure and terms. For example, if you send data to both Azure Monitor Application Insights and Datadog, you're responsible for the charges applied by both services.
 
-## Known Limitations
+## Known limitations
 
-This feature is in preview, and has the following known limitations:
-
+- OpenTelemetry agents are in preview.
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
 - The Datadog endpoint doesn't accept logs.
