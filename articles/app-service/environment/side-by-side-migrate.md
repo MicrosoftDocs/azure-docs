@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side-by-side migration
 description: Overview of the side-by-side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 3/26/2024
+ms.date: 3/28/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -50,11 +50,11 @@ The following App Service Environment configurations can be migrated using the s
 |---------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 |[Internal Load Balancer (ILB)](create-ilb-ase.md) App Service Environment v2                       |ILB App Service Environment v3                             |
 |[External (ELB/internet facing with public IP)](create-external-ase.md) App Service Environment v2 |ELB App Service Environment v3                             |
-|ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 (custom domain suffix is optional) |
+|ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 with a custom domain suffix |
 
 App Service Environment v3 can be deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
-If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured during the migration set-up or at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, don't configure a custom domain suffix during the migration set-up.
+If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, you must configure a custom domain suffix for the migration. You can remove the custom domain suffix after migration is complete.
 
 ## Side-by-side migration feature limitations
 
@@ -63,6 +63,8 @@ The following are limitations when using the side-by-side migration feature:
 - Your new App Service Environment v3 is in a different subnet but the same virtual network as your existing environment.
 - You can't change the region your App Service Environment is located in.
 - ELB App Service Environment can’t be migrated to ILB App Service Environment v3 and vice versa.
+- If your existing App Service Environment uses a custom domain suffix, you have to configure custom domain suffix for your App Service Environment v3 during the migration process.
+  - If you no longer want to use a custom domain suffix, you can remove it once the migration is complete.
 - The side-by-side migration feature is only available using the CLI or via REST API. The feature isn't available in the Azure portal.
 
 App Service Environment v3 doesn't support the following features that you might be using with your current App Service Environment v2.
@@ -111,6 +113,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The InternalLoadBalancingMode must be manually changed by the Microsoft team. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode to allow migration. |
 |Migration is invalid. Your ASE needs to be upgraded to the latest build to ensure successful migration. We will upgrade your ASE now. Please try migrating again in few hours once platform upgrade has finished. |Your App Service Environment isn't on the minimum build required for migration. An upgrade is started. Your App Service Environment won't be impacted, but you won't be able to scale or make changes to your App Service Environment while the upgrade is in progress. You won't be able to migrate until the upgrade finishes. |Wait until the upgrade finishes and then migrate. |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](how-to-side-by-side-migrate.md).  |
+|Full migration cannot be called on Ase with custom dns suffix set but without an AseV3 Custom Dns Suffix Configuration configured. |Your existing App Service Environment uses a custom domain suffix. You have to configure custom domain suffix for your App Service Environment v3 during the migration process. |Configure a [custom domain suffix](./how-to-custom-domain-suffix.md). If you no longer want to use a custom domain suffix, you can remove it once the migration is complete. |
 
 ## Overview of the migration process using the side-by-side migration feature
 
@@ -120,7 +123,7 @@ Side-by-side migration consists of a series of steps that must be followed in or
 
 The platform validates that your App Service Environment can be migrated using the side-by-side migration feature. If your App Service Environment doesn't pass all validation checks, you can't migrate at this time using the side-by-side migration feature. See the [troubleshooting](#troubleshooting) section for details of the possible causes of validation failure. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates. If you can't migrate using the side-by-side migration feature, see the [manual migration options](migration-alternatives.md).
 
-The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, an upgrade is automatically started. Your App Service Environment won't be impacted, but you won't be able to scale or make changes to your App Service Environment while the upgrade is in progress. You won't be able to migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
+The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
 
 ### Select and prepare the subnet for your new App Service Environment v3
 
@@ -168,7 +171,7 @@ Azure Policy can be used to deny resource creation and modification to certain p
 
 ### Add a custom domain suffix (optional)
 
-If your existing App Service Environment uses a custom domain suffix, you can configure a custom domain suffix for your new App Service Environment v3. Custom domain suffix on App Service Environment v3 is implemented differently than on App Service Environment v2. You need to provide the custom domain name, managed identity, and certificate, which must be stored in Azure Key Vault. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). Configuring a custom domain suffix is optional. If your App Service Environment v2 has a custom domain suffix and you don't want to use it on your new App Service Environment v3, don't configure a custom domain suffix during the migration set-up. 
+If your existing App Service Environment uses a custom domain suffix, you must configure a custom domain suffix for your new App Service Environment v3. Custom domain suffix on App Service Environment v3 is implemented differently than on App Service Environment v2. You need to provide the custom domain name, managed identity, and certificate, which must be stored in Azure Key Vault. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your App Service Environment v2 has a custom domain suffix, you must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration if needed.
 
 ### Migrate to App Service Environment v3
 
