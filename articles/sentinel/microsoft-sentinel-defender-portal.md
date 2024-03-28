@@ -14,6 +14,9 @@ ms.collection: usx-security
 
 Microsoft Sentinel is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
 
+> [!IMPORTANT]
+> Information in this article relates to a prerelease product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
 ## New and improved capabilities
 
 The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel and Defender XDR.
