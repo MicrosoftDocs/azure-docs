@@ -1,5 +1,5 @@
 ---
-title: Enterprise Agreement reservation transactions file schema - version 2023-05-01
+title: Enterprise Agreement reservation transactions file schema
 description: Learn about the data fields available in the Enterprise Agreement reservation transactions file.
 author: bandersmsft
 ms.reviewer: jojo
@@ -14,9 +14,7 @@ ms.author: banders
 
 This article lists all of the data fields available in the Enterprise Agreement reservation transactions file. The reservation transaction file is a data file that contains all of the reservation transactions for the Azure reservations that you bought.
 
-## Reservation transactions data fields
-
-Version: 2023-05-01
+## Version 2023-05-01
 
 | Column |Fields|Description|
 |---|------|------|

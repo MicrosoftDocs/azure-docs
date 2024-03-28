@@ -1,5 +1,5 @@
 ---
-title: Microsoft Customer Agreement price sheet schema - version 2023-05-01
+title: Microsoft Customer Agreement price sheet schema
 description: Learn about the data fields available in the Microsoft Customer Agreement price sheet.
 author: bandersmsft
 ms.reviewer: jojo
@@ -14,9 +14,7 @@ ms.author: banders
 
 This article lists all of the data fields available in the Microsoft Customer Agreement price sheet. Its a data file that contains all of the prices for your Azure services.
 
-## Price sheet data fields
-
-Version: 2023-05-01
+## Version 2023-05-01
 
 Heres the list of all of the data fields found in your price sheet.
 

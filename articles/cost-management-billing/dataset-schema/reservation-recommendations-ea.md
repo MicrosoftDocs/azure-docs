@@ -1,5 +1,5 @@
 ---
-title: Enterprise Agreement reservation recommendations file schema - version 2023-05-01
+title: Enterprise Agreement reservation recommendations file schema
 description: Learn about the data fields available in the Enterprise Agreement reservation recommendations file.
 author: bandersmsft
 ms.reviewer: jojo
@@ -14,9 +14,7 @@ ms.author: banders
 
 This article lists all of the data fields available in the Enterprise Agreement reservation recommendations file. The reservation recommendations file is a data file that contains all of the reservation recommendation details for savings. The savings are calculated in addition to your negotiated, or discounted, if applicable, prices.
 
-## Enterprise Agreement reservation recommendations data fields
-
-Version: 2023-05-01
+## Version 2023-05-01
 
 | Column |Fields|Description|
 |---|------|------|
