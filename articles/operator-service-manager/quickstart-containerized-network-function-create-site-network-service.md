@@ -57,15 +57,13 @@ ms.service: azure-operator-service-manager
     
     ```json
     { 
-    "nginx-nfdg": { 
-        "deploymentParameters": { 
-            "service_port": 5222, 
-            "serviceAccount_create": false 
-        }, 
+    "nginx-nsdg": { 
+        "deploymentParameters": [{}], 
         "customLocationId": "<resource id of your custom location>", 
-        "nginx_nfdg_nfd_version": "1.0.0" 
+        "nfdvName": "1.0.0", 
+        "managedIdentity": "<managed-identity-resource-id>"
     }, 
-    "managedIdentity": "<managed-identity-resource-id>"
+
     }
     ```
 

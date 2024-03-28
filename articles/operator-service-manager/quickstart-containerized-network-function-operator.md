@@ -28,7 +28,7 @@ You also need the *Owner* or *User Access Administrator* role in the Network Fun
 Adapt the environment variable settings and references as needed for your particular environment. For example, in Windows PowerShell, you would set the environment variables as follows:
 
 ```powershell
-$env:ARC_RG=<my rg>
+$env:ARC_RG="<my rg>"
 ``````
 
 To use an environment variable, you would reference it as `$env:ARC_RG`.
