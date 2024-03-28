@@ -1,7 +1,7 @@
 ---
 title: OT sensor VM (Microsoft Hyper-V) Gen 1- Microsoft Defender for IoT
 description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V.
-ms.date: 04/24/2022
+ms.date: 03/27/2024
 ms.topic: reference
 ---
 
@@ -56,7 +56,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
 
-1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dynamic Memory**.
+1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (for example, 8192, 16384, 32768). Don't enable **Dynamic Memory**.
 
 1. Configure the network adaptor according to your server network topology. Under the "Hardware Acceleration" blade, disable "Virtual Machine Queue" for the monitoring (SPAN) network interface.
 
@@ -68,11 +68,11 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Add Hardware**, and add a new network adapter.
 
-1. Select the virtual switch that will connect to the sensor management network.
+1. Select the virtual switch that connects to the sensor management network.
 
 1. Allocate CPU resources [according to your organization's needs](../ot-appliance-sizing.md).
 
-1. Select **BIOS**, in **Startup order** move **IDE** to the top of the list, and select **OK**.
+1. Select **BIOS**, in **Startup order** move **IDE** to the top of the list, select **Apply** and then select **OK**.
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
@@ -84,7 +84,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. To start installing the OT sensor software, open the virtual machine console.
 
-    The VM will start from the ISO image, and the language selection screen will appear.
+    The VM starts from the ISO image, and the language selection screen will appear.
 
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
 
