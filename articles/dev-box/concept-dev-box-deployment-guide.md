@@ -78,18 +78,40 @@ After you've defined the requirements, you can start the deployment of Microsoft
 To deploy Microsoft Dev Box involves creating and configuring multiple services, across Azure, Intune, and your infrastructure. The following sections provide the different steps for deploying Microsoft Dev Box in your organization. Some steps are optional and depend on your specific organizational setup.
 
 ### Step 1: Configure Azure subscription
-Needs to be same tenant as Intune
-https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions
 
-### Step x: Configure network
-- vnets, vnet peering
-- firewalls
-- NSGs
-- gateways
-- expressroute
-- VPN
+Subscriptions are a unit of management, billing, and scale within Azure. You can have one or more Azure subscriptions because of organization and governance design, resource quota and capacity, cost management, and more. Learn more about [considerations for creating Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
 
-### Step x: Configure security groups for role-based access control
+Each Azure subscription is linked to a single Microsoft Entra tenant, which acts as an identity provider (IdP) for your Azure subscription. The Microsoft Entra tenant is used to authenticate users, services, and devices.
+
+Each Dev Box user needs a Microsoft Intune license. The Azure subscription that contains your Dev Box Azure resources (dev center, project, and more) needs to be in the same tenant as Microsoft Intune.
+
+### Step 2: Configure network
+
+Dev boxes require a network connection to access resources. You can choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription. When you use an Azure network connection, you need to configure the corresponding networking components in Azure and potentially in your organization's network infrastructure.
+
+Examples of networking components you might need to configure:
+
+- Azure virtual networks (VNET)
+- Configure virtual network peering
+- Configure network security groups (NSGs)
+- Configure firewalls, such as [Azure Firewall](/azure/firewall/overview), or other
+- Configure Azure ExpressRoute
+- Configure VPNs or gateways
+
+When you have the following requirements, you need to use Azure network connections and configure your network accordingly:
+
+- Access to on-premises resources from a dev box, such as a licensing server, printers, version control system, or other
+- Access to other Azure resources, such as a Cosmos DB database, AKS cluster, and more
+- Restrict access through firewalls or network security groups (NSGs)
+- Define custom network routing rules
+- User management not in Microsoft Entra ID
+
+When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security.
+
+Learn more about [Microsoft Dev Box networking requirements](./concept-dev-box-network-requirements.md?tabs=W365).
+
+### Step 3: Configure security groups for role-based access control
+
 - project admins
 - dev box users
 
