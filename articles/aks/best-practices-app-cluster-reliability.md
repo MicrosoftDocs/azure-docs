@@ -186,33 +186,37 @@ You can use the `nodeSelector` field in your pod specification to specify the no
 The following example pod definition file shows how to use pod anti-affinity to ensure that pods are spread across nodes:
 
 ```yaml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: with-node-affinity
+  name: multi-zone-deployment
+  labels:
+    app: myapp
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: topology.kubernetes.io/zone
-            operator: In
-            values:
-            - 0 # Azure Availability Zone 0
-            - 1 # Azure Availability Zone 1
-            - 2 # Azure Availability Zone 2
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
-          matchExpressions:
-          - key: another-node-label-key
-            operator: In
-            values:
-            - another-node-label-value
-  containers:
-  - name: with-node-affinity
-    image: registry.k8s.io/pause:2.0
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: nginx
+        ports:
+        - containerPort: 80
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - myapp
+            topologyKey: topology.kubernetes.io/zone
 ```
 
 For more information, see [Affinity and anti-affinity in Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
@@ -493,7 +497,7 @@ For more information, see [Configure Azure CNI networking for dynamic allocation
 >
 > Use v5 VM SKUs for improved performance during and after updates, less overall impact, and a more reliable connection for your applications.
 
-For node pools in AKS, use v5 SKU VMs with ephemeral OS disks to provide sufficient compute resources for kube-system pods. For more information, see [Best practices for creating and running AKS clusters at scale](./operator-best-practices-run-at-scale.md) and [Best practices for performance and scaling for large workloads in AKS](./best-practices-performance-scale-large.md).
+For node pools in AKS, use v5 SKU VMs with ephemeral OS disks to provide sufficient compute resources for kube-system pods. For more information, see [Best practices for performance and scaling large workloads in AKS](./best-practices-performance-scale-large.md).
 
 ### Do *not* use B series VMs
 
@@ -562,5 +566,5 @@ For more information, see [Secure your AKS clusters with Azure Policy](./use-azu
 This article focused on best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) clusters. For more best practices, see the following articles:
 
 * [High availability and disaster recovery overview for AKS](./ha-dr-overview.md)
-* [Run AKS clusters at scale](./operator-best-practices-run-at-scale.md)
+* [Run AKS clusters at scale](./best-practices-performance-scale-large.md)
 * [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

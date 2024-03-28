@@ -20,7 +20,7 @@ Custom question answering is commonly used to build conversational client applic
 Custom question answering comprises two capabilities:
 
 * Custom question answering: Using this capability users can customize different aspects like edit question and answer pairs extracted from the content source, define synonyms and metadata, accept question suggestions etc.
-* Prebuilt custom question answering: This capability allows users to get a response by querying a text passage without having the need to manage knowledgebases.
+* [QnA Maker](./../../qnamaker/Overview/overview.md): This capability allows users to get a response by querying a text passage without having the need to manage knowledge bases.
 
 This documentation contains the following article types:
 
