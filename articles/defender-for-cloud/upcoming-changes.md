@@ -56,7 +56,7 @@ Unified Disk Encryption recommendations will be released for General Availabilit
 
 **Recommendations moving to GA:**
 
-| Recommendation DisplayName | Assessment key |
+| Recommendation name | Assessment key |
 | ---- | ---- |
 | Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
 | Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
