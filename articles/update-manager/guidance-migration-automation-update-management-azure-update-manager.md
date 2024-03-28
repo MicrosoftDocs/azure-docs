@@ -10,7 +10,7 @@ ms.author: sudhirsneha
 
 # Move from Automation Update Management to Azure Update Manager
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers
 
 This article provides guidance to move virtual machines from Automation Update Management to Azure Update Manager.
 
@@ -71,7 +71,6 @@ After you review the resources that must be moved, you can proceed with the migr
 
    For more information on the parameters to fetch and the location from where it must be fetched, see [migration of machines and schedules](#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png" alt-text="Screenshot that shows monitoring of runbook logs." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/monitor-runbook-logs.png":::
 
 1. **Deboard resources from Automation Update management**
 
@@ -104,11 +103,11 @@ To initiate migration from a single VM **Updates** view, follow these steps:
 
    You can see that the Automation account to which the machine belongs is preselected and a summary of all resources in the Automation account is presented. This allows you to migrate the resources from Automation Update Management to Azure Update Manager.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migration of resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migrate the resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
 
    From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience-preview).
 
-   For more information on how the scripts are executed in the backend, and their behavior see, [Migration scripts (preview)](#migration-scripts-preview)
+   For more information on how the scripts are executed in the backend, and their behavior see, [Migration scripts (preview)](#migration-scripts-preview).
 
 ---
 
