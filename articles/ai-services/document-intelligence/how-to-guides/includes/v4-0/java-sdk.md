@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
@@ -17,11 +17,7 @@ ms.custom:
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!NOTE]
->
-> This project targets Document Intelligence REST API version 3.1.
-
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)| [Supported REST API versions](../../../sdk-overview-v3-1.md)
+[Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.2/index.html) | [REST API reference](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) | [Package (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.2) | [Samples]( https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/src/samples/README.md) |[Supported REST API version](../../sdk-overview-v4-0.md)
 
 ## Prerequisites
 
@@ -60,9 +56,6 @@ ms.custom:
   | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
   | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
@@ -71,11 +64,11 @@ To set up your programming environment, create a Gradle project and install the 
 
 ### Create a Gradle project
 
-1. In a console window, create a directory for your app called *form-recognizer-app* and navigate to it.
+1. In a console window, create a directory for your app called *doc-intelligence-app* and navigate to it.
 
    ```console
-   mkdir form-recognizer-app
-   cd form-recognizer-app
+   mkdir doc-intelligence-app
+   cd doc-intelligence-app
    ```
 
 1. Run the `gradle init` command from your working directory. This command creates essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
@@ -86,60 +79,53 @@ To set up your programming environment, create a Gradle project and install the 
 
 1. When prompted to choose a **DSL**, select *Kotlin*.
 
-1. Select **Enter** to accept the default project name, *form-recognizer-app*.
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue creating a gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-gradle-project) -->
+1. Select **Enter** to accept the default project name, *doc-intelligence-app*.
 
 ### Install the client library
 
-This article uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+This article uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://central.sonatype.com/artifact/com.azure/azure-ai-documentintelligence).
 
 1. Open the project's *build.gradle.kts* file in your IDE. Copy and paste the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
     ```kotlin
     plugins {
-        java
-        application
-    }
-    application {
-        mainClass.set("FormRecognizer")
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0")
-    }
-    ```
+       java
+       application
+   }
+   application {
+       mainClass.set("DocIntelligence")
+   }
+   repositories {
+       mavenCentral()
+   }
+   dependencies {
+       implementation group: 'com.azure', name: 'azure-ai-documentintelligence', version: '1.0.0-beta.2'
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=install-client-library.) -->
+   }
+    ```
 
 ## Create a Java application
 
-To interact with the Document Intelligence service, create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+To interact with the Document Intelligence service, create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
-1. From the *form-recognizer-app* directory, run the following command:
+1. From the *doc-intelligence-app* directory, run the following command:
 
    ```console
    mkdir -p src/main/java
    ```
 
-   You create the following directory structure:
+ That command creates the following directory structure:
 
    :::image type="content" source="../../../media/quickstarts/java-directories-2.png" alt-text="Screenshot of Java directory structure":::
 
-1. Navigate to the `java` directory and create a file named *FormRecognizer.java*.
+1. Navigate to the `java` directory and create a file named *DocIntelligence.java*.
 
    > [!TIP]
    >
-   > You can create a new file by using PowerShell. Open a PowerShell window in your project directory by holding down the **Shift** key and right-clicking the folder, then type the following command: *New-Item FormRecognizer.java*.
+   > You can create a new file by using PowerShell. Open a PowerShell window in your project directory by holding down the **Shift** key and right-clicking the folder, then type the following command: *New-Item DocIntelligence.java*.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue creating the Java application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-java-app) -->
 
-1. Open the *FormRecognizer.java* file and select one of the following code samples to copy and paste into your application:
+1. Open the *DocIntelligence.java* file and select one of the following code samples to copy and paste into your application:
 
    - The [prebuilt-read](#use-the-read-model) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. The layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
    - The [prebuilt-layout](#use-the-layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
@@ -152,37 +138,39 @@ To interact with the Document Intelligence service, create an instance of the `D
 
    ```console
    gradle build
-   gradle -PmainClass=FormRecognizer run
+   gradle run
    ```
 
 ## Use the Read model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+
+public class DocIntelligence {
+
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -193,9 +181,9 @@ String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-
 String modelId = "prebuilt-read";
 
 SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-  client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+  client.beginAnalyzeDocument(modelId, invoiceUrl);;
 
-AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult().getAnalyzeResult();
 
 // pages
 analyzeLayoutResult.getPages().forEach(documentPage -> {
@@ -220,39 +208,36 @@ analyzeLayoutResult.getPages().forEach(documentPage -> {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-read) -->
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -262,9 +247,9 @@ String layoutDocumentUrl = "https://raw.githubusercontent.com/Azure-Samples/cogn
 String modelId = "prebuilt-layout";
 
 SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-  client.beginAnalyzeDocumentFromUrl(modelId, layoutDocumentUrl);
+  client.beginAnalyzeDocument(modelId, layoutDocumentUrl);
 
-AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult().getAnalyzeResult();
 
 // pages
 analyzeLayoutResult.getPages().forEach(documentPage -> {
@@ -317,39 +302,36 @@ private static String getBoundingCoordinates(List < Point > boundingPolygon) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -358,9 +340,9 @@ public class FormRecognizer {
 String generalDocumentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 String modelId = "prebuilt-document";
 SyncPoller < OperationResult, AnalyzeResult > analyzeDocumentPoller =
-  client.beginAnalyzeDocumentFromUrl(modelId, generalDocumentUrl);
+  client.beginAnalyzeDocument(modelId, generalDocumentUrl);
 
-AnalyzeResult analyzeResult = analyzeDocumentPoller.getFinalResult();
+AnalyzeResult analyzeResult = analyzeDocumentPoller.getFinalResult().getAnalyzeResult();;
 
 // pages
 analyzeResult.getPages().forEach(documentPage -> {
@@ -413,7 +395,7 @@ analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
+doc-intelligence-app
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/general-document-model-output.md).
@@ -421,31 +403,31 @@ Visit the Azure samples repository on GitHub to view the [general document model
 ## Use the W-2 tax model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -455,9 +437,9 @@ String w2Url = "https://raw.githubusercontent.com/Azure-Samples/cognitive-servic
 String modelId = "prebuilt-tax.us.w2";
 
 SyncPoller < OperationResult, AnalyzeResult > analyzeW2Poller =
-  client.beginAnalyzeDocumentFromUrl(modelId, w2Url);
+  client.beginAnalyzeDocument(modelId, w2Url);
 
-AnalyzeResult analyzeTaxResult = analyzeW2Poller.getFinalResult();
+AnalyzeResult analyzeTaxResult = analyzeW2Poller.getFinalResult().getAnalyzeResult();
 
 for (int i = 0; i < analyzeTaxResult.getDocuments().size(); i++) {
   AnalyzedDocument analyzedTaxDocument = analyzeTaxResult.getDocuments().get(i);
@@ -552,7 +534,7 @@ for (int i = 0; i < analyzeTaxResult.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
+doc-intelligence-app
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
 
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/w2-tax-model-output.md).
@@ -560,31 +542,31 @@ Visit the Azure samples repository on GitHub to view the [W-2 tax model output](
 ## Use the Invoice model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -594,9 +576,9 @@ String invoiceUrl = "https://github.com/Azure-Samples/cognitive-services-REST-ap
 String modelId = "prebuilt-invoice";
 
 SyncPoller < OperationResult, AnalyzeResult > analyzeInvoicesPoller =
-  client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+  client.beginAnalyzeDocument(modelId, invoiceUrl);
 
-AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult();
+AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult().getAnalyzeResult();
 
 for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
   AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
@@ -710,7 +692,7 @@ for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
+doc-intelligence-app
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
 
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/invoice-model-output.md).
@@ -718,31 +700,31 @@ Visit the Azure samples repository on GitHub to view the [invoice model output](
 ## Use the Receipt-model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -751,9 +733,9 @@ String receiptUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-s
 String modelId = "prebuilt-receipt";
 
 SyncPoller < OperationResult, AnalyzeResult > analyzeReceiptPoller =
-  client.beginAnalyzeDocumentFromUrl(modelId, receiptUrl);
+  client.beginAnalyzeDocument(modelId, receiptUrl);
 
-AnalyzeResult receiptResults = analyzeReceiptPoller.getFinalResult();
+AnalyzeResult receiptResults = analyzeReceiptPoller.getFinalResult().getAnalyzeResult();
 
 for (int i = 0; i < receiptResults.getDocuments().size(); i++) {
   AnalyzedDocument analyzedReceipt = receiptResults.getDocuments().get(i);
@@ -840,7 +822,7 @@ for (int i = 0; i < receiptResults.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
+doc-intelligence-app
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-receipt) -->
 
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/receipt-model-output.md).
@@ -848,31 +830,31 @@ Visit the Azure samples repository on GitHub to view the [receipt model output](
 ## Use the ID document model
 
 ```java
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FormRecognizer {
+public class DocIntelligence {
   //use your `key` and `endpoint` environment variables
   private static final String key = System.getenv("FR_KEY");
   private static final String endpoint = System.getenv("FR_ENDPOINT");
 
   public static void main(final String[] args) {
 
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+      DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
         .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
@@ -881,9 +863,9 @@ public class FormRecognizer {
 String licenseUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png";
 String modelId = "prebuilt-idDocument";
 
-SyncPoller < OperationResult, AnalyzeResult > analyzeIdentityDocumentPoller = client.beginAnalyzeDocumentFromUrl(modelId, licenseUrl);
+SyncPoller < OperationResult, AnalyzeResult > analyzeIdentityDocumentPoller = client.beginAnalyzeDocument(modelId, licenseUrl);
 
-AnalyzeResult identityDocumentResults = analyzeIdentityDocumentPoller.getFinalResult();
+AnalyzeResult identityDocumentResults = analyzeIdentityDocumentPoller.getFinalResult().getAnalyzeResult();
 
 for (int i = 0; i < identityDocumentResults.getDocuments().size(); i++) {
   AnalyzedDocument analyzedIDDocument = identityDocumentResults.getDocuments().get(i);
@@ -965,214 +947,4 @@ for (int i = 0; i < identityDocumentResults.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
-
 Visit the Azure samples repository on GitHub to view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/id-document-output.md).
-
-## Use the Business card model
-
-```java
-import com.azure.ai.formrecognizer.*;
-
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.util.polling.SyncPoller;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Arrays;
-import java.time.LocalDate;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-public class FormRecognizer {
-  //use your `key` and `endpoint` environment variables
-  private static final String key = System.getenv("FR_KEY");
-  private static final String endpoint = System.getenv("FR_ENDPOINT");
-
-  public static void main(final String[] args) {
-
-      // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
-        .credential(new AzureKeyCredential(key))
-        .endpoint(endpoint)
-        .buildClient();
-
-//sample document
-String businessCardUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg";
-String modelId = "prebuilt-businessCard";
-
-SyncPoller < OperationResult, AnalyzeResult > analyzeBusinessCardPoller = client.beginAnalyzeDocumentFromUrl(modelId, businessCardUrl);
-
-AnalyzeResult businessCardPageResults = analyzeBusinessCardPoller.getFinalResult();
-
-for (int i = 0; i < businessCardPageResults.getDocuments().size(); i++) {
-  System.out.printf("--------Analyzing business card %d -----------%n", i);
-  AnalyzedDocument analyzedBusinessCard = businessCardPageResults.getDocuments().get(i);
-  Map < String, DocumentField > businessCardFields = analyzedBusinessCard.getFields();
-  DocumentField contactNamesDocumentField = businessCardFields.get("ContactNames");
-  if (contactNamesDocumentField != null) {
-    if (DocumentFieldType.LIST == contactNamesDocumentField.getType()) {
-      List < DocumentField > contactNamesList = contactNamesDocumentField.getValueAsList();
-      contactNamesList.stream()
-        .filter(contactName -> DocumentFieldType.MAP == contactName.getType())
-        .map(contactName -> {
-          System.out.printf("Contact name: %s%n", contactName.getContent());
-          return contactName.getValueAsMap();
-        })
-        .forEach(contactNamesMap -> contactNamesMap.forEach((key, contactName) -> {
-          if ("FirstName".equals(key)) {
-            if (DocumentFieldType.STRING == contactName.getType()) {
-              String firstName = contactName.getValueAsString();
-              System.out.printf("\tFirst Name: %s, confidence: %.2f%n",
-                firstName, contactName.getConfidence());
-            }
-          }
-          if ("LastName".equals(key)) {
-            if (DocumentFieldType.STRING == contactName.getType()) {
-              String lastName = contactName.getValueAsString();
-              System.out.printf("\tLast Name: %s, confidence: %.2f%n",
-                lastName, contactName.getConfidence());
-            }
-          }
-        }));
-    }
-  }
-
-  DocumentField jobTitles = businessCardFields.get("JobTitles");
-  if (jobTitles != null) {
-    if (DocumentFieldType.LIST == jobTitles.getType()) {
-      List < DocumentField > jobTitlesItems = jobTitles.getValueAsList();
-      jobTitlesItems.forEach(jobTitlesItem -> {
-        if (DocumentFieldType.STRING == jobTitlesItem.getType()) {
-          String jobTitle = jobTitlesItem.getValueAsString();
-          System.out.printf("Job Title: %s, confidence: %.2f%n",
-            jobTitle, jobTitlesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField departments = businessCardFields.get("Departments");
-  if (departments != null) {
-    if (DocumentFieldType.LIST == departments.getType()) {
-      List < DocumentField > departmentsItems = departments.getValueAsList();
-      departmentsItems.forEach(departmentsItem -> {
-        if (DocumentFieldType.STRING == departmentsItem.getType()) {
-          String department = departmentsItem.getValueAsString();
-          System.out.printf("Department: %s, confidence: %.2f%n",
-            department, departmentsItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField emails = businessCardFields.get("Emails");
-  if (emails != null) {
-    if (DocumentFieldType.LIST == emails.getType()) {
-      List < DocumentField > emailsItems = emails.getValueAsList();
-      emailsItems.forEach(emailsItem -> {
-        if (DocumentFieldType.STRING == emailsItem.getType()) {
-          String email = emailsItem.getValueAsString();
-          System.out.printf("Email: %s, confidence: %.2f%n", email, emailsItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField websites = businessCardFields.get("Websites");
-  if (websites != null) {
-    if (DocumentFieldType.LIST == websites.getType()) {
-      List < DocumentField > websitesItems = websites.getValueAsList();
-      websitesItems.forEach(websitesItem -> {
-        if (DocumentFieldType.STRING == websitesItem.getType()) {
-          String website = websitesItem.getValueAsString();
-          System.out.printf("Web site: %s, confidence: %.2f%n",
-            website, websitesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField mobilePhones = businessCardFields.get("MobilePhones");
-  if (mobilePhones != null) {
-    if (DocumentFieldType.LIST == mobilePhones.getType()) {
-      List < DocumentField > mobilePhonesItems = mobilePhones.getValueAsList();
-      mobilePhonesItems.forEach(mobilePhonesItem -> {
-        if (DocumentFieldType.PHONE_NUMBER == mobilePhonesItem.getType()) {
-          String mobilePhoneNumber = mobilePhonesItem.getValueAsPhoneNumber();
-          System.out.printf("Mobile phone number: %s, confidence: %.2f%n",
-            mobilePhoneNumber, mobilePhonesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField otherPhones = businessCardFields.get("OtherPhones");
-  if (otherPhones != null) {
-    if (DocumentFieldType.LIST == otherPhones.getType()) {
-      List < DocumentField > otherPhonesItems = otherPhones.getValueAsList();
-      otherPhonesItems.forEach(otherPhonesItem -> {
-        if (DocumentFieldType.PHONE_NUMBER == otherPhonesItem.getType()) {
-          String otherPhoneNumber = otherPhonesItem.getValueAsPhoneNumber();
-          System.out.printf("Other phone number: %s, confidence: %.2f%n",
-            otherPhoneNumber, otherPhonesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField faxes = businessCardFields.get("Faxes");
-  if (faxes != null) {
-    if (DocumentFieldType.LIST == faxes.getType()) {
-      List < DocumentField > faxesItems = faxes.getValueAsList();
-      faxesItems.forEach(faxesItem -> {
-        if (DocumentFieldType.PHONE_NUMBER == faxesItem.getType()) {
-          String faxPhoneNumber = faxesItem.getValueAsPhoneNumber();
-          System.out.printf("Fax phone number: %s, confidence: %.2f%n",
-            faxPhoneNumber, faxesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField addresses = businessCardFields.get("Addresses");
-  if (addresses != null) {
-    if (DocumentFieldType.LIST == addresses.getType()) {
-      List < DocumentField > addressesItems = addresses.getValueAsList();
-      addressesItems.forEach(addressesItem -> {
-        if (DocumentFieldType.STRING == addressesItem.getType()) {
-          String address = addressesItem.getValueAsString();
-          System.out
-            .printf("Address: %s, confidence: %.2f%n", address, addressesItem.getConfidence());
-        }
-      });
-    }
-  }
-
-  DocumentField companyName = businessCardFields.get("CompanyNames");
-  if (companyName != null) {
-    if (DocumentFieldType.LIST == companyName.getType()) {
-      List < DocumentField > companyNameItems = companyName.getValueAsList();
-      companyNameItems.forEach(companyNameItem -> {
-        if (DocumentFieldType.STRING == companyNameItem.getType()) {
-          String companyNameValue = companyNameItem.getValueAsString();
-          System.out.printf("Company name: %s, confidence: %.2f%n", companyNameValue,
-            companyNameItem.getConfidence());
-        }
-      });
-    }
-  }
-}
-}
-}
-```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/business-card-model-output.md).

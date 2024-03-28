@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
@@ -17,11 +17,7 @@ ms.custom:
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!NOTE]
->
-> This project targets Document Intelligence REST API version 3.1.
-
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview-v3-1.md)
+[Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b2/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API version](../../sdk-overview-v4-0.md#supported-programming-languages)
 
 ## Prerequisites
 
@@ -48,9 +44,6 @@ ms.custom:
   | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
   | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
@@ -58,12 +51,12 @@ ms.custom:
 Open a console window in your local environment and install the Azure AI Document Intelligence client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.2.0
+pip install azure-ai-documentintelligence==1.0.0b2
 ```
 
 ## Create your Python application
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence endpoint.
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence endpoint.
 
 1. Create a new Python file called *form_recognizer_quickstart.py* in an editor or IDE.
 
@@ -82,19 +75,17 @@ To interact with the Document Intelligence service, you need to create an instan
    python form_recognizer_quickstart.py
    ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=setup) -->
-
 ## Use the Read model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 # formatting function
 def format_polygon(polygon):
@@ -107,11 +98,11 @@ def analyze_read():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-read", formUrl
     )
     result = poller.result()
@@ -157,21 +148,20 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-read) -->
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
+
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 # formatting function
 def format_polygon(polygon):
@@ -184,11 +174,11 @@ def analyze_layout():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-layout", formUrl
     )
     result = poller.result()
@@ -273,21 +263,19 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 # formatting function
 def format_bounding_region(bounding_regions):
@@ -306,10 +294,10 @@ def analyze_general_documents():
     # sample document
     docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    # create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
             "prebuilt-document", docUrl)
     result = poller.result()
 
@@ -405,21 +393,19 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
-
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 # formatting function
 def format_address_value(address_value):
@@ -430,11 +416,11 @@ def analyze_tax_us_w2():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-tax.us.w2", formUrl
     )
     w2s = poller.result()
@@ -730,21 +716,19 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
-
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 # formatting function
 def format_bounding_region(bounding_regions):
@@ -763,11 +747,11 @@ def analyze_invoice():
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
             "prebuilt-invoice", invoiceUrl)
     invoices = poller.result()
 
@@ -1025,30 +1009,28 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
-
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/invoice-model-output.md).
 
 ## Use the Receipt model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 def analyze_receipts():
     # sample document
     receiptUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-receipt", receiptUrl, locale="en-US"
     )
     receipts = poller.result()
@@ -1125,31 +1107,29 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-receipt) -->
-
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## Use the ID document model
 
 ```python
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
 
 # use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
+key = os.environ.get('DI_KEY')
+endpoint = os.environ.get('DI_ENDPOINT')
 
 def analyze_identity_documents():
 # sample document
     identityUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png"
 
-    document_analysis_client = DocumentAnalysisClient(
+    document_intelligence_client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document_from_url(
+    poller = document_intelligence_client.begin_analyze_document(
             "prebuilt-idDocument", identityUrl
         )
     id_documents = poller.result()
@@ -1219,143 +1199,4 @@ if __name__ == "__main__":
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
-
 Visit the Azure samples repository on GitHub to view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/id-document-output.md).
-
-## Use the Business card model
-
-```python
-import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
-from azure.core.credentials import AzureKeyCredential
-
-# use your `key` and `endpoint` environment variables
-key = os.environ.get('FR_KEY')
-endpoint = os.environ.get('FR_ENDPOINT')
-
-def analyze_business_card():
-      # sample document
-    businessCardUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg"
-
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
-
-    poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-businessCard", businessCardUrl, locale="en-US"
-        )
-    business_cards = poller.result()
-
-    for idx, business_card in enumerate(business_cards.documents):
-        print("--------Analyzing business card #{}--------".format(idx + 1))
-        contact_names = business_card.fields.get("ContactNames")
-        if contact_names:
-            for contact_name in contact_names.value:
-                print(
-                    "Contact First Name: {} has confidence: {}".format(
-                        contact_name.value["FirstName"].value,
-                        contact_name.value[
-                            "FirstName"
-                        ].confidence,
-                    )
-                )
-                print(
-                    "Contact Last Name: {} has confidence: {}".format(
-                        contact_name.value["LastName"].value,
-                        contact_name.value[
-                            "LastName"
-                        ].confidence,
-                    )
-                )
-        company_names = business_card.fields.get("CompanyNames")
-        if company_names:
-            for company_name in company_names.value:
-                print(
-                    "Company Name: {} has confidence: {}".format(
-                        company_name.value, company_name.confidence
-                    )
-                )
-        departments = business_card.fields.get("Departments")
-        if departments:
-            for department in departments.value:
-                print(
-                    "Department: {} has confidence: {}".format(
-                        department.value, department.confidence
-                    )
-                )
-        job_titles = business_card.fields.get("JobTitles")
-        if job_titles:
-            for job_title in job_titles.value:
-                print(
-                    "Job Title: {} has confidence: {}".format(
-                        job_title.value, job_title.confidence
-                    )
-                )
-        emails = business_card.fields.get("Emails")
-        if emails:
-            for email in emails.value:
-                print(
-                    "Email: {} has confidence: {}".format(email.value, email.confidence)
-                )
-        websites = business_card.fields.get("Websites")
-        if websites:
-            for website in websites.value:
-                print(
-                    "Website: {} has confidence: {}".format(
-                        website.value, website.confidence
-                    )
-                )
-        addresses = business_card.fields.get("Addresses")
-        if addresses:
-            for address in addresses.value:
-                print(
-                    "Address: {} has confidence: {}".format(
-                        address.value, address.confidence
-                    )
-                )
-        mobile_phones = business_card.fields.get("MobilePhones")
-        if mobile_phones:
-            for phone in mobile_phones.value:
-                print(
-                    "Mobile phone number: {} has confidence: {}".format(
-                        phone.content, phone.confidence
-                    )
-                )
-        faxes = business_card.fields.get("Faxes")
-        if faxes:
-            for fax in faxes.value:
-                print(
-                    "Fax number: {} has confidence: {}".format(
-                        fax.content, fax.confidence
-                    )
-                )
-        work_phones = business_card.fields.get("WorkPhones")
-        if work_phones:
-            for work_phone in work_phones.value:
-                print(
-                    "Work phone number: {} has confidence: {}".format(
-                        work_phone.content, work_phone.confidence
-                    )
-                )
-        other_phones = business_card.fields.get("OtherPhones")
-        if other_phones:
-            for other_phone in other_phones.value:
-                print(
-                    "Other phone number: {} has confidence: {}".format(
-                        other_phone.value, other_phone.confidence
-                    )
-                )
-
-        print("--------------------------------------")
-
-if __name__ == "__main__":
-    analyze_business_card()
-
-```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/business-card-model-output.md).

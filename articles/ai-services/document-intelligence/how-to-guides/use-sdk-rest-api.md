@@ -21,6 +21,10 @@ zone_pivot_groups: programming-languages-set-formre
 
 # Use Document Intelligence models
 
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0 (preview)](../includes/applies-to-v40.md)]
+::: moniker-end
+
 ::: moniker range="doc-intel-3.1.0"
 [!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
 ::: moniker-end
@@ -51,15 +55,7 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
 >
-> - The [prebuilt-tax.us.w2](../concept-tax-document.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
->
-> - The [prebuilt-tax.us.1098](../concept-tax-document.md) model extracts information reported on US 1098 tax forms.
->
-> - The [prebuilt-tax.us.1098E](../concept-tax-document.md) model extracts information reported on US 1098-E tax forms.
->
-> - The [prebuilt-tax.us.1098T](../concept-tax-document.md) model extracts information reported on US 1098-T tax forms.
->
-> - The [prebuilt-tax.us.1099(variations)](../concept-tax-document.md) model extracts information reported on US 1099 tax forms.
+> - The [prebuilt tax document models](../concept-tax-document.md) model extracts information reported on US tax forms.
 >
 > - The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices in various formats and quality. Fields include phone-captured images, scanned documents, and digital PDFs.
 >
@@ -136,10 +132,8 @@ Choose from the following Document Intelligence models to analyze and extract da
 Congratulations! You've learned to use Document Intelligence models to analyze various documents in different ways. Next, explore the Document Intelligence Studio and reference documentation.
 
 >[!div class="nextstepaction"]
-> [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+> [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) [Explore the Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 
-> [!div class="nextstepaction"]
-> [Explore the Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

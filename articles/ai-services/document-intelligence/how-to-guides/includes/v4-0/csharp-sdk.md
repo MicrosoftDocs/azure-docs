@@ -10,6 +10,7 @@ ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
   - ignite-2023
+monikerRange: 'doc-intel-4.0.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -43,10 +44,7 @@ ms.custom:
   | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
   | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
-[!INCLUDE [environment-variables](set-environment-variables.md)]
+[!INCLUDE [environment-variables](../set-environment-variables.md)]
 
 ## Set up your programming environment
 
@@ -60,20 +58,17 @@ ms.custom:
 
    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** page, under **Project name** enter *formRecognizer_app*. Then select **Next**.
+1. In the **Configure your new project** page, under **Project name** enter **docIntelligence_app**. Then select **Next**.
 
    :::image type="content" source="../../../media/quickstarts/configure-new-project-console.png" alt-text="Screenshot of Visual Studio's configure new project page.":::
 
-1. In the **Additional information** page, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+1. In the **Additional information** page, select **.NET 8.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information page.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup) -->
-
 ### Install the client library with NuGet
 
- 1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
+ 1. Right-click on your **docIntelligence_app** project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="../../../media/quickstarts/select-nuget-package-console.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
@@ -82,10 +77,6 @@ ms.custom:
     :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
  1. Select a version from the dropdown menu and install the package in your project.
-<!-- --- -->
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue installing the NuGet package.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup) -->
 
 ## Build your application
 
@@ -116,18 +107,18 @@ ms.custom:
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 //sample document
 Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-read", fileUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-read", fileUri);
 AnalyzeResult result = operation.Value;
 
 foreach (DocumentPage page in result.Pages)
@@ -176,27 +167,24 @@ foreach (DocumentLanguage language in result.Languages)
 
 ```
 
-> [!div class="nextstepaction"]
-<!-- > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-read) -->
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -277,27 +265,24 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-document", fileUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-document", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -380,9 +365,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
-
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
@@ -390,18 +372,18 @@ Visit the Azure samples repository on GitHub to view the [general document model
 ```csharp
 
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 Uri w2Uri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-tax.us.w2", w2Uri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-tax.us.w2", w2Uri);
 
 AnalyzeResult result = operation.Value;
 
@@ -495,27 +477,24 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
-
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 Uri invoiceUri = new Uri("https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -608,9 +587,6 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
-
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the Receipt model
@@ -618,18 +594,18 @@ Visit the Azure samples repository on GitHub to view the [invoice model output](
 ```csharp
 
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 Uri receiptUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-receipt", receiptUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-receipt", receiptUri);
 
 AnalyzeResult receipts = operation.Value;
 
@@ -704,29 +680,26 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-reecipt) -->
-
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
 
-## ID document model
+## Use the ID document model
 
 ```csharp
 
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instances
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 // sample document document
 
 Uri idDocumentUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-idDocument", idDocumentUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-idDocument", idDocumentUri);
 
 AnalyzeResult identityDocuments = operation.Value;
 
@@ -815,216 +788,4 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
-
 Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
-
-## Use the Business card model
-
-```csharp
-using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
-
-//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
-AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
-
-// sample document document
-Uri businessCardUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/business-card-english.jpg");
-
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-businessCard", businessCardUri);
-
-AnalyzeResult businessCards = operation.Value;
-
-foreach (AnalyzedDocument businessCard in businessCards.Documents)
-{
-    if (businessCard.Fields.TryGetValue("ContactNames", out DocumentField ContactNamesField))
-    {
-        if (ContactNamesField.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField contactNameField in ContactNamesField.Value.AsList())
-            {
-                Console.WriteLine("Contact Name: ");
-
-                if (contactNameField.FieldType == DocumentFieldType.Dictionary)
-                {
-                    IReadOnlyDictionary<string, DocumentField> contactNameFields = contactNameField.Value.AsDictionary();
-
-                    if (contactNameFields.TryGetValue("FirstName", out DocumentField firstNameField))
-                    {
-                        if (firstNameField.FieldType == DocumentFieldType.String)
-                        {
-                            string firstName = firstNameField.Value.AsString();
-
-                            Console.WriteLine($"  First Name: '{firstName}', with confidence {firstNameField.Confidence}");
-                        }
-                    }
-
-                    if (contactNameFields.TryGetValue("LastName", out DocumentField lastNameField))
-                    {
-                        if (lastNameField.FieldType == DocumentFieldType.String)
-                        {
-                            string lastName = lastNameField.Value.AsString();
-
-                            Console.WriteLine($"  Last Name: '{lastName}', with confidence {lastNameField.Confidence}");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("JobTitles", out DocumentField jobTitlesFields))
-    {
-        if (jobTitlesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField jobTitleField in jobTitlesFields.Value.AsList())
-            {
-                if (jobTitleField.FieldType == DocumentFieldType.String)
-                {
-                    string jobTitle = jobTitleField.Value.AsString();
-
-                    Console.WriteLine($"Job Title: '{jobTitle}', with confidence {jobTitleField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("Departments", out DocumentField departmentFields))
-    {
-        if (departmentFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField departmentField in departmentFields.Value.AsList())
-            {
-                if (departmentField.FieldType == DocumentFieldType.String)
-                {
-                    string department = departmentField.Value.AsString();
-
-                    Console.WriteLine($"Department: '{department}', with confidence {departmentField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("Emails", out DocumentField emailFields))
-    {
-        if (emailFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField emailField in emailFields.Value.AsList())
-            {
-                if (emailField.FieldType == DocumentFieldType.String)
-                {
-                    string email = emailField.Value.AsString();
-
-                    Console.WriteLine($"Email: '{email}', with confidence {emailField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("Websites", out DocumentField websiteFields))
-    {
-        if (websiteFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField websiteField in websiteFields.Value.AsList())
-            {
-                if (websiteField.FieldType == DocumentFieldType.String)
-                {
-                    string website = websiteField.Value.AsString();
-
-                    Console.WriteLine($"Website: '{website}', with confidence {websiteField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("MobilePhones", out DocumentField mobilePhonesFields))
-    {
-        if (mobilePhonesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField mobilePhoneField in mobilePhonesFields.Value.AsList())
-            {
-                if (mobilePhoneField.FieldType == DocumentFieldType.PhoneNumber)
-                {
-                    string mobilePhone = mobilePhoneField.Value.AsPhoneNumber();
-
-                    Console.WriteLine($"Mobile phone number: '{mobilePhone}', with confidence {mobilePhoneField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("WorkPhones", out DocumentField workPhonesFields))
-    {
-        if (workPhonesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField workPhoneField in workPhonesFields.Value.AsList())
-            {
-                if (workPhoneField.FieldType == DocumentFieldType.PhoneNumber)
-                {
-                    string workPhone = workPhoneField.Value.AsPhoneNumber();
-
-                    Console.WriteLine($"Work phone number: '{workPhone}', with confidence {workPhoneField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("Faxes", out DocumentField faxesFields))
-    {
-        if (faxesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField faxField in faxesFields.Value.AsList())
-            {
-                if (faxField.FieldType == DocumentFieldType.PhoneNumber)
-                {
-                    string fax = faxField.Value.AsPhoneNumber();
-
-                    Console.WriteLine($"Fax phone number: '{fax}', with confidence {faxField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("Addresses", out DocumentField addressesFields))
-    {
-        if (addressesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField addressField in addressesFields.Value.AsList())
-            {
-                if (addressField.FieldType == DocumentFieldType.String)
-                {
-                    string address = addressField.Value.AsString();
-
-                    Console.WriteLine($"Address: '{address}', with confidence {addressField.Confidence}");
-                }
-            }
-        }
-    }
-
-    if (businessCard.Fields.TryGetValue("CompanyNames", out DocumentField companyNamesFields))
-    {
-        if (companyNamesFields.FieldType == DocumentFieldType.List)
-        {
-            foreach (DocumentField companyNameField in companyNamesFields.Value.AsList())
-            {
-                if (companyNameField.FieldType == DocumentFieldType.String)
-                {
-                    string companyName = companyNameField.Value.AsString();
-
-                    Console.WriteLine($"Company name: '{companyName}', with confidence {companyNameField.Confidence}");
-                }
-            }
-        }
-    }
-}
-
-```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).

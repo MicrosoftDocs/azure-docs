@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
@@ -17,11 +17,7 @@ ms.custom:
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!NOTE]
->
-> This project targets Document Intelligence REST API version 3.1.
-
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../../sdk-overview-v3-1.md)
+[Client library](/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript) |[Supported REST API version](../../sdk-overview-v4-0.md)
 
 ## Prerequisites
 
@@ -53,20 +49,17 @@ ms.custom:
   | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
   | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
 
 Create a Node.js Express application.
 
-1. In a console window, create and navigate to a new directory for your app named `form-recognizer-app`.
+1. In a console window, create and navigate to a new directory for your app named `doc-intel-app`.
 
     ```console
-    mkdir form-recognizer-app
-    cd form-recognizer-app
+    mkdir doc-intel-app
+    cd doc-intel-app
     ```
 
 1. Run the `npm init` command to initialize the application and scaffold your project.
@@ -81,12 +74,12 @@ Create a Node.js Express application.
    - We recommend that you keep `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes. You can skip them for this project.
    - Select **Enter** to accept the suggestions in parentheses.
 
-   After you complete the prompts, the command creates a `package.json` file in your *form-recognizer-app* directory.
+   After you complete the prompts, the command creates a `package.json` file in your *doc-intel-app* directory.
 
-1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
+1. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure/ai-form-recognizer @azure/identity
+    npm i @azure/ai-document-intelligence@1.0.0-beta.2 @azure/identity
     ```
 
   Your app's *package.json* file is updated with the dependencies.
@@ -97,12 +90,9 @@ Create a Node.js Express application.
    >
    > You can create a new file by using PowerShell. Open a PowerShell window in your project directory by holding down the **Shift** key and right-clicking the folder, then type the following command: *New-Item index.js*.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=setup) -->
-
 ## Build your application
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence endpoint.
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence endpoint.
 
 Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
@@ -113,17 +103,14 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 - The [prebuilt-receipt](#use-the-receipt-model) model extracts key information from printed and handwritten sales receipts.
 - The [prebuilt-idDocument](#use-the-id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue building the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=build-application) -->
-
 ## Use the Read model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample document
 const documentUrlRead = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png"
@@ -136,8 +123,8 @@ function* getTextOfSpans(content, spans) {
 }
 
 async function main() {
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
     const poller = await client.beginAnalyzeDocument("prebuilt-read", documentUrlRead);
 
     const {
@@ -210,27 +197,24 @@ main().catch((error) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-read) -->
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample document
 const layoutUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png"
 
 async function main() {
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl(
+    const poller = await client.beginAnalyzeDocument(
       "prebuilt-layout", layoutUrl);
 
     // Layout extraction produces basic elements such as pages, words, lines, etc. as well as information about the
@@ -283,27 +267,24 @@ async function main() {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample document
 const documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
 async function main() {
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-document", documentUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-document", documentUrl);
 
     const {
         keyValuePairs
@@ -332,24 +313,21 @@ main().catch((error) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
-
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 const w2DocumentURL = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png"
 
 async function main() {
- const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+ const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
  const poller = await client.beginAnalyzeDocument("prebuilt-tax.us.w2", w2DocumentURL);
 
@@ -414,26 +392,23 @@ main().catch((error) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
-
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample url
 const invoiceUrl = "https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf";
 
 async function main() {
 
-  const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+  const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
   const poller = await client.beginAnalyzeDocument("prebuilt-invoice", invoiceUrl);
 
@@ -479,26 +454,23 @@ main().catch((error) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
-
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/invoice-model-output.md).
 
 ## Use the Receipt model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample url
 const receiptUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png";
 
 async function main() {
 
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
     const poller = await client.beginAnalyzeDocument("prebuilt-receipt", receiptUrl);
 
@@ -541,25 +513,22 @@ main().catch((err) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-receipt) -->
-
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## Use the ID document model
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
+const key = process.env['DI_KEY'];
+const endpoint = process.env['DI_ENDPOINT'];
 
 // sample document
 const idDocumentURL = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png"
 
 async function main() {
- const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+ const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
  const poller = await client.beginAnalyzeDocument("prebuilt-idDocument", idDocumentURL);
 
@@ -604,7 +573,7 @@ async function main() {
       console.log("Extracted a Passport:");
       console.log("  Name:", FirstName && FirstName.content, LastName && LastName.content);
       console.log("  Date of Birth:", DateOfBirth && DateOfBirth.content);
-      console.log("  Nationality:", Nationality && natiNationalityonality.content);
+      console.log("  Nationality:", Nationality && Nationality.content);
       console.log("  Passport No.:", DocumentNumber && DocumentNumber.content);
       console.log("  Issuer:", CountryRegion && CountryRegion.content);
       console.log("  Expiration Date:", DateOfExpiration && DateOfExpiration.content);
@@ -625,89 +594,4 @@ main().catch((error) => {
 
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
-
 Visit the Azure samples repository on GitHub to view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/id-document-output.md).
-
-## Use the Business card model
-
-```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
-
-//use your `key` and `endpoint` environment variables
-const key = process.env['FR_KEY'];
-const endpoint = process.env['FR_ENDPOINT'];
-
-// sample document
-const businessCardURL = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg"
-
-async function main() {
-    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
-
-    const poller = await client.beginAnalyzeDocument("prebuilt-businessCard", businessCardURL);
-
-    const {
-        documents: [result]
-    } = await poller.pollUntilDone();
-
-    if (result) {
-        const businessCard = result.fields;
-        console.log("=== Business Card Information ===");
-
-        // There are more fields than just these few, and the model allows for multiple contact & company names as well as
-        // phone numbers, though we'll only show the first extracted values here.
-        const name = businessCard.ContactNames && businessCard.ContactNames.values[0];
-        if (name) {
-            const {
-                FirstName,
-                LastName
-            } = name.properties;
-            console.log("Name:", FirstName && FirstName.content, LastName && LastName.content);
-        }
-
-        const company = businessCard.CompanyNames && businessCard.CompanyNames.values[0];
-        if (company) {
-            console.log("Company:", company.content);
-        }
-
-        const address = businessCard.Addresses && businessCard.Addresses.values[0];
-        if (address) {
-            console.log("Address:", address.content);
-        }
-        const jobTitle = businessCard.JobTitles && businessCard.JobTitles.values[0];
-        if (jobTitle) {
-            console.log("Job title:", jobTitle.content);
-        }
-        const department = businessCard.Departments && businessCard.Departments.values[0];
-        if (department) {
-            console.log("Department:", department.content);
-        }
-        const email = businessCard.Emails && businessCard.Emails.values[0];
-        if (email) {
-            console.log("Email:", email.content);
-        }
-        const workPhone = businessCard.WorkPhones && businessCard.WorkPhones.values[0];
-        if (workPhone) {
-            console.log("Work phone:", workPhone.content);
-        }
-        const website = businessCard.Websites && businessCard.Websites.values[0];
-        if (website) {
-            console.log("Website:", website.content);
-        }
-    } else {
-        throw new Error("Expected at least one business card in the result.");
-    }
-}
-
-main().catch((error) => {
-    console.error("An error occurred:", error);
-    process.exit(1);
-});
-
-```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/business-card-model-output.md).

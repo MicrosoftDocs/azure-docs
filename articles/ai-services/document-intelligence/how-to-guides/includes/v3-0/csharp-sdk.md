@@ -68,11 +68,11 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 
    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** page, under **Project name** enter *formRecognizer_app*. Then select **Next**.
+1. In the **Configure your new project** page, under **Project name** enter **docIntelligence_app**. Then select **Next**.
 
    :::image type="content" source="../../../media/quickstarts/configure-new-project-console.png" alt-text="Screenshot of Visual Studio's configure new project page.":::
 
-1. In the **Additional information** page, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+1. In the **Additional information** page, select **.NET 8.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information page.":::
 
@@ -81,7 +81,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 
 ### Install the client library with NuGet
 
- 1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
+ 1. Right-click on your **docIntelligence_app** project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="../../../media/quickstarts/select-nuget-package-console.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
@@ -127,8 +127,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -196,8 +196,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -297,8 +297,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -401,8 +401,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -515,8 +515,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -629,8 +629,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -725,8 +725,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
@@ -835,8 +835,8 @@ using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 //use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
-string key = Environment.GetEnvironmentVariable("FR_KEY");
-string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
+string key = Environment.GetEnvironmentVariable("DI_KEY");
+string endpoint = Environment.GetEnvironmentVariable("DI_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 

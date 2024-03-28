@@ -29,13 +29,13 @@ Environment variables in Windows aren't case-sensitive. They're typically declar
 1. Set your key variable:
 
    ```console
-   setx FR_KEY <yourKey>
+   setx DI_KEY <yourKey>
    ```
 
 1. Set your endpoint variable
 
    ```console
-   setx FR_ENDPOINT <yourEndpoint>
+   setx DI_ENDPOINT <yourEndpoint>
    ```
 
 1. After you set your environment variables, close the Command Prompt window. The values remain modified until you change them again.
@@ -49,9 +49,9 @@ Here are a few more helpful commands to use with environment variables:
 
 | Command | Action | Example |
 |---------|--------|---------|
-| `setx VARIABLE_NAME=` | Delete the environment variable by setting the value to an empty string.| `setx FR_KEY=` |
-| `setx VARIABLE_NAME=value` | Set or change the value of an environment variable.| `setx FR_KEY=<yourKey>`|
-| `set VARIABLE_NAME` | Display the value of a specific environment variable.| `set  FR_KEY` |
+| `setx VARIABLE_NAME=` | Delete the environment variable by setting the value to an empty string.| `setx DI_KEY=` |
+| `setx VARIABLE_NAME=value` | Set or change the value of an environment variable.| `setx DI_KEY=<yourKey>`|
+| `set VARIABLE_NAME` | Display the value of a specific environment variable.| `set  DI_KEY` |
 | `set`| Display all environment variables.| `set`|
 
 #### [macOS](#tab/macOS)
@@ -77,10 +77,10 @@ To set an environment variable permanently, place an export command in your Bash
   1. Use a text editor to open the *~/.bash_profile* file and add the following command to create a permanent environment variable:
 
      ```bash
-     export FR_KEY=<yourKey> FR_ENDPOINT=<yourEndpoint>
+     export DI_KEY=<yourKey> DI_ENDPOINT=<yourEndpoint>
      ```
 
-     Example: `export FR_KEY="<yourKey>"`
+     Example: `export DI_KEY="<yourKey>"`
 
   1. Save your changes to the *.bash_profile* file.
 
@@ -97,9 +97,9 @@ Here are a few more helpful commands to use with environment variables:
 
 | Command | Action | Example |
 |---------|--------|---------|
-| `unset VARIABLE_NAME` | Delete an environment variable.| `unset FR_KEY` |
-| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export FR_KEY=<yourKey>` |
-| `printenv VARIABLE_NAME`</br>`echo $VARIABLE_NAME`| Display the value of a specific environment variable. With the `echo` command, precede the variable with `$`.| `printenv FR_KEY` </br>`echo $FR_KEY`|
+| `unset VARIABLE_NAME` | Delete an environment variable.| `unset DI_KEY` |
+| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export DI_KEY=<yourKey>` |
+| `printenv VARIABLE_NAME`</br>`echo $VARIABLE_NAME`| Display the value of a specific environment variable. With the `echo` command, precede the variable with `$`.| `printenv DI_KEY` </br>`echo $DI_KEY`|
 | `printenv` | Display all environment variables.| `printenv` |
 
 #### [Linux](#tab/linux)
@@ -111,13 +111,13 @@ The `export` command sets the variable and exports it to the global environment,
 1. Set your key variable:
 
    ```bash
-   export FR_KEY=<yourKey>
+   export DI_KEY=<yourKey>
    ```
 
 1. Set your endpoint variable:
 
    ```bash
-   export FR_ENDPOINT=<yourEndpoint>
+   export DI_ENDPOINT=<yourEndpoint>
    ```
 
 To set an environment variable permanently, place an export command in your Bash `~/.bashrc` startup script:
@@ -128,7 +128,7 @@ To set an environment variable permanently, place an export command in your Bash
      export <VARIABLE>=<value>
      ```
 
-     Example: `export FR_KEY=<yourKey>`
+     Example: `export DI_KEY=<yourKey>`
 
   1. Save your changes to the *.bashrc* file.
 
@@ -145,9 +145,9 @@ Here are a few more helpful commands to use with environment variables:
 
 | Command | Action | Example |
 |---------|--------|---------|
-| `unset VARIABLE_NAME`| Delete an environment variable.|`unset FR_KEY=` |
-| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export FR_KEY={yourKey}`|
-| `printenv VARIABLE_NAME`</br>`echo $VARIABLE_NAME`| Display the value of an environment variable. With the `echo` command, precede the variable with `$`.| `printenv FR_KEY` </br>`echo $FR_KEY`|
+| `unset VARIABLE_NAME`| Delete an environment variable.|`unset DI_KEY=` |
+| `export VARIABLE_NAME=value` | Set or change the value of a temporary environment variable.| `export DI_KEY={yourKey}`|
+| `printenv VARIABLE_NAME`</br>`echo $VARIABLE_NAME`| Display the value of an environment variable. With the `echo` command, precede the variable with `$`.| `printenv DI_KEY` </br>`echo $DI_KEY`|
 | `printenv`| Display all environment variables.|`printenv`|
 
 ---
