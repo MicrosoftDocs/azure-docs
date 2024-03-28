@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 03/21/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -128,7 +128,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following actions:
 
 - Use the template that's generated during the restore operation to customize settings, and trigger VM deployment. You edit the default template settings, and submit the template for VM deployment.
-- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
+- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.yml) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
@@ -220,7 +220,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
 
-Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
+Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
 
 ![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
 

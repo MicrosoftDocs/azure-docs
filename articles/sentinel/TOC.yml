@@ -847,7 +847,7 @@
     - name: Amazon Web Services logs
       href: connect-aws.md
     - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.md
+      href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Azure Active Directory

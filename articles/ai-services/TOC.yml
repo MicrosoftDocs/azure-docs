@@ -1,3 +1,4 @@
+items:
 - name: Azure AI services documentation
   href: index.yml
 - name: Overview
@@ -101,6 +102,10 @@
     href: cognitive-services-limited-access.md
 - name: Reference
   items:
+  - name: Azure AI services client libraries (SDKs)
+    href: reference/sdk-package-resources.md
+  - name: Azure AI services REST APIs
+    href: reference/rest-api-resources.md
   - name: REST API
     href: /rest/api/cognitiveservices/accountmanagement/accounts
   - name: .NET

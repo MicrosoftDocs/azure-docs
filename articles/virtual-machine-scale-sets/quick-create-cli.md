@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, mode-api, linux-related-content
+ms.custom: mimckitt, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create a Virtual Machine Scale Set with the Azure CLI
@@ -21,7 +21,7 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of auto-scalin
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
