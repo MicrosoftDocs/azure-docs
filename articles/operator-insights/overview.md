@@ -13,9 +13,9 @@ ms.date: 01/10/2024
 
 Azure Operator Insights is a fully managed service that enables the collection and analysis of massive quantities of network data gathered from complex multi-part or multi-vendor network functions. It delivers statistical, machine learning, and AI-based insights for operator-specific workloads to help operators understand the health of their networks and the quality of their subscribers' experiences in near real-time.
 
-Azure Operator Insights accelerates time to business value by eliminating the pain and time-consuming task of assembling off-the-shelf cloud components (chemistry set). This reduces load on ultra-lean operator platform and data engineering teams by making the following turnkey: 
-High scale ingestion to handle large amounts of network data from operator data sources. 
+Azure Operator Insights accelerates time to business value by eliminating the pain and time-consuming task of assembling off-the-shelf cloud components (chemistry set). This reduces load on ultra-lean operator platform and data engineering teams by making the following turnkey:
 
+- High scale ingestion to handle large amounts of network data from operator data sources.
 - Pipelines managed for all operators, leading to economies of scale dropping the price. 
 - Operator privacy module. 
 - Operator compliance including handling retention policies. 
@@ -46,6 +46,12 @@ We provide the following Data Products.
 | [Monitoring - Affirmed MCC Data Product](concept-monitoring-mcc-data-product.md) | Analysis and insight from performance management data (performance statistics) from Affirmed Networks MCC network elements| [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) configured to use SFTP as a source |
 
 If you prefer, you can provide your own ingestion agent to upload data to your chosen Data Product.
+
+Azure Operator Insights also offers the data product factory (preview) to allow partners and operators to build new Data Products. For more information, see [What is the Azure Operator Insights data product factory (preview)?](data-product-factory.md).
+
+## How can I use Azure Operator Insights for end-to-end insights?
+
+Azure Operator Insights provides built-in support for discovering and joining Data Products together in a data mesh to achieve higher-value end-to-end insights for multi-site multi-vendor networks. Individual Data Products provide specialized data processing, enrichment, and visualizations, while using the Azure Operator Insights platform to manage operator-scale data. All Data Products share a standardized and composable architecture, and support consistent processes for operating and designing Data Products.
 
 ## How do I get access to Azure Operator Insights?
 

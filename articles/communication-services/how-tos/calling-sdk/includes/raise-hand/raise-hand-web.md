@@ -60,15 +60,15 @@ const raisedHandChangedHandler = (event) => {
 const loweredHandChangedHandler = (event) => {
     console.log(`Participant ${event.identifier} lowered hand`);
 };
-raiseHandFeature.on('raisedHandChanged', raisedHandChangedHandler):
-raiseHandFeature.on('loweredHandChanged', loweredHandChangedHandler):
+raiseHandFeature.on('raisedHandEvent', raisedHandChangedHandler):
+raiseHandFeature.on('loweredHandEvent', loweredHandChangedHandler):
 ```
 The `raisedHandChanged` and `loweredHandChanged` events contain an object with the `identifier` property, which represents the participant's communication identifier. In the example above, we log a message to the console indicating that a participant has raised their hand.
 
 To unsubscribe from the events, you can use the `off` method.
 
 ### List of all participants with active state
-To get information about all participants that have raised hand state on current call, you can use the `getRaisedHands` api. he returned array is sorted by the order field.
+To get information about all participants that have raised hand state on current call, you can use the `getRaisedHands` api. The returned array is sorted by the order field.
 Here's an example of how to use the `getRaisedHands` API:
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
