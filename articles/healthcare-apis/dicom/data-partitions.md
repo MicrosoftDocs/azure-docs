@@ -34,23 +34,20 @@ Although UIDs should be [unique across all contexts](http://dicom.nema.org/dicom
 
 ## API changes
 
-All unique resource identifiers (URIs) assume an implicit DICOM service base URI. For example, the base URI of a DICOM server running locally is `https://localhost:63838/`.
-Example requests can be sent in the Postman collection by providing a value for the `partitionName` collection variable.
-
-#### List all data partitions
+### List all data partitions
 This command Lists all data partitions:
 
 ```http
 GET /partitions
 ```
 
-#### Request header
+### Request header
 
 | Name         | Required  | Type   | Description                     |
 | ------------ | --------- | ------ | ------------------------------- |
 | Content-Type | false     | string | `application/json` is supported |
 
-#### Responses
+### Responses
 
 | Name              | Type                          | Description                           |
 | ----------------- | ----------------------------- | ------------------------------------- |
@@ -58,7 +55,7 @@ GET /partitions
 | 204 (No Content)  |                               | No partitions exist.                   |
 | 400 (Bad Request) |                               | Data partitions capability is disabled.   |
 
-#### STOW, WADO, QIDO, delete, export, update, and worklist APIs
+### STOW, WADO, QIDO, delete, export, update, and worklist APIs
 
 After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and worklist requests must include a data partition URI segment after the base URI, with the form `/partitions/{partitionName}`, where `partitionName` is:
 
@@ -74,7 +71,7 @@ After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and work
 | Export  | `POST /partitions/myPartition1/export`                              |
 | Update  | `POST /partitions/myPartition-1/studies/$bulkUpdate`                |
 
-#### New responses
+### New responses
 
 | Name              | Message                                                   |
 | ----------------- | --------------------------------------------------------- |
@@ -82,7 +79,7 @@ After partitions are enabled, STOW, WADO, QIDO, delete, export, update, and work
 | 400 (Bad Request) | `PartitionName` value is missing in the route segment.      |
 | 400 (Bad Request) | Specified `PartitionName {PartitionName}` doesn't exist.   |
 
-#### Other APIs
+### Other APIs
 All other APIs, including extended query tags, operations, and change feed continue to be accessed at the base URI. 
 
 ### Manage data partitions
