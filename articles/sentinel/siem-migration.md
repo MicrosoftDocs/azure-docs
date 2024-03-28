@@ -89,7 +89,12 @@ Here are some of the priorities that are important to us as we continue to devel
 1. Review the analysis of the Splunk export.
 
     - **Name** is the original Splunk detection rule name.
-    - **Compatibility** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic. 
+    - **Translation Type** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic.
+    - **Translation State** has the following values:
+        - **Fully Translated** queries in this rule were fully translated to KQL
+        - **Partially Translated** queries in this rule weren't fully translated to KQL
+        - **Not Translated** indicates an error in translation
+        - **Manually Translated** when any rule is reviewed and saved
 
     :::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
@@ -100,11 +105,21 @@ Here are some of the priorities that are important to us as we continue to devel
 
 ## Deploy the Analytics rules
 
-1. Select **Deploy** to start the deployment of analytics rules to your Microsoft Sentinel workspace. 
+1. (Optional) Select **Export Templates** to download the Analytics rules as ARM templates for us in your CI/CD or custom deployment processes.
+
+    :::image type="content" source="media/siem-migration/export-templates.png" alt-text="Screenshot showing the Review and Migrate tab highlighting the Export Templates button.":::
+ 
+1. **Deploy** starts the deployment of the selected analytics rules to your Microsoft Sentinel workspace. 
 
    The following resources are deployed:
    - For all OOTB matches, the corresponding solutions with the matched analytics rule are installed, and the matched rules are deployed as active analytics rules.
    - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
+
+1. Before exiting the SIEM Migration experience, **Download Migration Summary** to keep a summary of the Analytics deployment.
+
+    :::image type="content" source="media/siem-migration/download-migration-summary.png" alt-text="Screenshot showing the Download Migration Summary button from the Review and Migrate tab.":::
+
+## Validate and enable rules
 
 1. View the properties of deployed rules from Microsoft Sentinel **Analytics**.
 
@@ -118,7 +133,7 @@ Here are some of the priorities that are important to us as we continue to devel
      `triggerThreshold`<br>
      `suppressionDuration`
 
-1. Enable rules you've reviewed and verified. 
+1. Enable rules after you review and verify them.
 
 ## Next step
 
