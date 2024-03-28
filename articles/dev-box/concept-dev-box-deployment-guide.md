@@ -121,8 +121,19 @@ You can create security groups in Microsoft Entra ID for granting or revoking ac
 
 Learn more about [Microsoft Entra ID groups](/entra/fundamentals/concept-learn-about-groups).
 
-### Step x: Create dev center
+### Step 4: Create dev center
 
+To get started with Microsoft Dev Box, you first create a dev center. A dev center in Microsoft Dev Box provides a centralized place to manage a collection of projects, the configuration of available dev box images and sizes, and the networking settings to enable access to organizational resources.
+
+You might consider creating multiple dev centers in the following cases:
+
+- If you want specific configurations to be available to a subset of projects. All projects in a dev center share the same dev box definitions, network connection, catalogs, and compute galleries. 
+
+- If different people need to own and maintain the dev center resource in Azure.
+
+> The Azure region where the dev center is located does not determine the location of the dev boxes.
+
+Learn more about how to [create a dev center for Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 
 ### Step x: Configure network connections
 - Azure networking connections
