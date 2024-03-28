@@ -8,7 +8,7 @@ ms.custom: "devx-track-python"
 ms.reviewer: abinetabate
 ---
 
-# Application monitoring for Azure App Service and Python
+# Application monitoring for Azure App Service and Python (Preview)
 
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -184,7 +184,7 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 
 [application_insights_sampling]: ./sampling.md
 [azure_core_tracing_opentelemetry_plugin]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core-tracing-opentelemetry
-[azure_monitor_opentelemetry_exporter]: https://learn.microsoft.com/python/api/overview/azure/monitor-opentelemetry-exporter-readme
+[azure_monitor_opentelemetry_exporter]: /python/api/overview/azure/monitor-opentelemetry-exporter-readme
 [django_settings_module_docs]: https://docs.djangoproject.com/en/4.2/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
 [ot_env_vars]: https://opentelemetry.io/docs/reference/specification/sdk-environment-variables/
 [ot_instrumentation_django]: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django
