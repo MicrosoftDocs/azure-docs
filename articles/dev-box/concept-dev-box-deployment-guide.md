@@ -85,7 +85,7 @@ Each Azure subscription is linked to a single Microsoft Entra tenant, which acts
 
 Each Dev Box user needs a Microsoft Intune license. The Azure subscription that contains your Dev Box Azure resources (dev center, project, and more) needs to be in the same tenant as Microsoft Intune.
 
-### Step 2: Configure network
+### Step 2: Configure network components
 
 Dev boxes require a network connection to access resources. You can choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription. When you use an Azure network connection, you need to configure the corresponding networking components in Azure and potentially in your organization's network infrastructure.
 
@@ -112,8 +112,14 @@ Learn more about [Microsoft Dev Box networking requirements](./concept-dev-box-n
 
 ### Step 3: Configure security groups for role-based access control
 
-- project admins
-- dev box users
+Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality in the service: 
+
+- Grant project administrators access to perform administrative tasks on Microsoft Dev Box projects (Project Admin role)
+- Grant dev box users access to create and manage their dev boxes in a Dev Box project (Dev Box User role)
+
+You can create security groups in Microsoft Entra ID for granting or revoking access for admins and users for each project. By using a security group, you can delegate the task of granting access independently of their permissions on the Azure resources. For example, you could delete granting access for dev box users to the dev team lead for that project.
+
+Learn more about [Microsoft Entra ID groups](/entra/fundamentals/concept-learn-about-groups).
 
 ### Step x: Create dev center
 
