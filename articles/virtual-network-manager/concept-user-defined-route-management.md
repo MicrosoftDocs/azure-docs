@@ -71,7 +71,7 @@ Each route rule consists of the following settings:
 
 :::image type="content" source="media/how-to-deploy-user-defined-routes/routing-rule-settings.png" alt-text="Screenshot of configured routing rule.":::
 
-For each type of next hop, please refer to https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined.
+For each type of next hop, please refer to [used-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 ### Common destination patterns for IP Addresses
 
