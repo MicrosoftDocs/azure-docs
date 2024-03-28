@@ -27,7 +27,7 @@ To add a vectorizer to search index, you can use the index designer in Azure por
 
 + [An index with searchable vector fields](vector-search-how-to-create-index.md) on Azure AI Search.
 
-+ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. The embedding model used to vectorize a query must be identical to the one used to generate embeddings in the index.
++ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate embeddings in the index.
 
 + Permissions to use the embedding model. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions. Or, you can provide an API key.
 
@@ -37,9 +37,9 @@ We recommend that you enable diagnostic logging on your search service to confir
 
 ## Try a vectorizer with sample data
 
-The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) reads files from Azure Blob storage, creates an index with chunked and vectorized fields, and adds a vectorizer. By design, the vectorizer is set to the same embedding model used to index the content.
+The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) reads files from Azure Blob storage, creates an index with chunked and vectorized fields, and adds a vectorizer. By design, the vectorizer created by the wizard is set to the same embedding model used to index the blob content.
 
-1. [Upload sample data files](/storage/blobs/storage-quickstart-blobs-portal) to a container on Azure Storage. We used [some text files from NASA's earth book](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/nasa-e-book/earth-txt-10) to test these instructions on a free search service.
+1. [Upload sample data files](/azure/storage/blobs/storage-quickstart-blobs-portal) to a container on Azure Storage. We used some [small text files from NASA's earth book](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/nasa-e-book/earth-txt-10) to test these instructions on a free search service.
   
 1. Run the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md), choosing the blob container for the data source.
 
@@ -89,11 +89,11 @@ The [Import and vectorize data wizard](search-get-started-portal-import-vectors.
 
 1. Skip ahead to [test your vectorizer](#test-a-vectorizer) for text-to-vector conversion during query execution.
 
-## Define a vectorizer and vector profile.
+## Define a vectorizer and vector profile
 
-This section explains the modifications to an index schema for defining a vectorizer.
+This section explains the modifications to an index schema for defining a vectorizer manually.
 
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add `vectorizers` to the search index.
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add `vectorizers` to a search index.
 
 1. Add the following JSON to your index definition. The vectorizers section provides connection information to a deployed embedding model. This step shows two vectorizer examples so that you can compare an Azure OpenAI embedding model and a custom web API side by side.
 
