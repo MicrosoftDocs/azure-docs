@@ -91,13 +91,11 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 ### Expired credentials in the appliance VM
 
-Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials aren't updated, the resource bridge is no longer able to communicate with the management endpoint. This can cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
-
-To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
+Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials aren't updated, the resource bridge is no longer able to communicate with the management endpoint. This can cause problems when trying to upgrade the resource bridge or manage VMs through Azure. To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
 ### Private Link is unsupported
 
-Arc resource bridge does not support private link. All calls coming from the appliance VM should not be going through your private link set up. The Private Link IPs may conflict with the Pod IP CIDR range which is not configurable on the resource bridge. You must deploy Arc resource bridge on a separate network segment unrelated to the private link setup. You must use a different DNS server than the one being used with private link.
+Arc resource bridge does not support private link. All calls coming from the appliance VM should not be going through your private link set up. The Private Link IPs may conflict with the appliance IP pool range which is not configurable on the resource bridge. Arc resource bridge reaches out to [required URLs](network-requirements.md#firewallproxy-url-allowlist) that shouldn't go through a private link connection. You must deploy Arc resource bridge on a separate network segment unrelated to the private link setup.
 
 
 ## Networking issues
