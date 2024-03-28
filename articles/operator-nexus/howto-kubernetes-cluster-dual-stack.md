@@ -34,8 +34,8 @@ Operator Nexus Kubernetes dual-stack networking relies on the pod and service CI
 
 To configure dual-stack networking in your Operator Nexus Kubernetes cluster, you need to define the `Pod` and `Service` CIDRs. These configurations are essential for defining the IP address range for Pods and Kubernetes services in the cluster.
 
-* The `podCidrs` parameter takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from. Example, `10.244.0.0/16,fd12:3456:789a::/64`.
-* The `serviceCidrs` parameter takes a comma-separated list of CIDR notation IP ranges to assign service IPs from. Example, `10.96.0.0/16,fd12:3456:789a:1::/108` is used.
+* The `podCidrs` parameter takes a list of CIDR notation IP ranges to assign pod IPs from. Example, `["10.244.0.0/16", "fd12:3456:789a::/64"]`.
+* The `serviceCidrs` parameter takes a list of CIDR notation IP ranges to assign service IPs from. Example, `["10.96.0.0/16", "fd12:3456:789a:1::/108"]`.
 * The IPv6 subnet assigned to `serviceCidrs` can be no larger than a `/108`.
 
 ## Bicep template parameters for IP address pool configuration
