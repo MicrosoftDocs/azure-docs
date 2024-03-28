@@ -82,7 +82,7 @@ This command returns the username and password you''ll use to sign in to the ACR
 
 1. Find the name of the ACR that backs the artifact store resource by opening the navigating to the artifact store and copying the `Backing storage` field
 
-    :::image type="content" source="media/how-to-create-site-network-service-search-site-network-services.png" alt-text="Diagram showing the Azure portal Create resource page and search for Site Network Service." lightbox="media/how-to-create-site-network-service-search-site-network-services.png":::
+    :::image type="content" source="media/how-to-find-backing-artifact-store.png" alt-text="Diagram showing the Azure portal Artifact Store backing resource field." lightbox="media/how-to-find-backing-artifact-store.png":::
 
 1. Sign in to the ACR using the ORAS CLI
 
