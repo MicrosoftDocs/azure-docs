@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 
 [!INCLUDE[MongoDB](../../includes/appliesto-mongodb.md)]
 
-[Azure Cosmos DB](../../introduction.md) is a fully managed NoSQL and relational database for modern app development.
+[Azure Cosmos DB](../../introduction.md) is a fully managed NoSQL relational, and vector database for modern app development.
 
 Azure Cosmos DB for MongoDB RU (Request Unit architecture) makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools. Azure Cosmos DB for MongoDB RU is built on top of the Cosmos DB platform. This service takes advantage of Azure Cosmos DB's global distribution, elastic scale, and enterprise-grade security.
 

@@ -48,20 +48,12 @@ Assume that you already have your own LangChain code available locally, which is
 
 ### Prerequisites for environment and runtime
 
-> [!NOTE]
-> Our base image has langchain v0.0.149 installed. To use another specific version, you need to create a customized environment.
+You can customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. Learn more about [automatic runtime](./how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page)
 
-#### Create a customized environment
-
-For more libraries import, you need to customize environment based on our base image, which should contain all the dependency packages you need for your LangChain code. You can follow this guidance to use **docker context** to build your image, and [create the custom environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime) based on it in Azure Machine Learning workspace.
-
-Then you can create a [prompt flow runtime](./how-to-create-manage-runtime.md) based on this custom environment.
-
-:::image type="content" source="./media/how-to-integrate-with-langchain/runtime-custom-env.png" alt-text="Screenshot of flows on the runtime tab with the add compute instance runtime popup. " lightbox = "./media/how-to-integrate-with-langchain/runtime-custom-env.png":::
 
 ### Convert credentials to prompt flow connection
 
-When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/llms/azure_openai), which is necessary for invoking the AzureOpenAI model.
+When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/platforms/microsoft), which is necessary for invoking the AzureOpenAI model.
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/langchain-env-variables.png" alt-text="Screenshot of Azure OpenAI example in LangChain. " lightbox = "./media/how-to-integrate-with-langchain/langchain-env-variables.png":::
 

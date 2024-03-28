@@ -47,8 +47,9 @@ There are different types of analysis available from this service. The following
 | :-------------------------- | :---------------------- |
 | Analyze text API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
 | Analyze image API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Jailbreak risk detection (new) | Scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
-| Protected material text detection (new) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| Prompt Shields (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
+| Groundedness detection (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
+| Protected material text detection (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 
 ## Content Safety Studio
 
@@ -124,7 +125,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 - West US 2
 - Sweden Central
 
-Private preview features, such as jailbreak risk detection and protected material detection, are available in the following Azure regions:
+Public preview features, such as Prompt Shields and protected material detection, are available in the following Azure regions:
 - East US
 - West Europe
 
