@@ -1,5 +1,5 @@
 ---
-title: How to use the Risk & Safety monitor in OpenAI Studio
+title: How to use Risks & Safety monitoring in Azure OpenAI Studio
 titleSuffix: Azure OpenAI Service
 description: Learn how to check statistics and insights from your Azure OpenAI content filtering activity.
 author: PatrickFarley 
@@ -10,15 +10,15 @@ ms.date: 03/19/2024
 manager: nitinme
 ---
 
-# Use the Risks & Safety monitor in OpenAI Studio (preview) 
+# Use Risks & Safety monitoring in Azure OpenAI Studio (preview) 
 
 When you use an Azure OpenAI model deployment with a content filter, you may want to check the results of the filtering activity. You can use that information to further adjust your filter configuration to serve your specific business needs and meet Responsible AI principles.  
 
-[Azure OpenAI Studio](https://oai.azure.com/) provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration.
+[Azure OpenAI Studio](https://oai.azure.com/) provides a Risks & Safety monitoring dashboard for each of your deployments that uses a content filter configuration.
 
-## Access the Risks & Safety monitor
+## Access Risks & Safety monitoring
 
-To access the Risks & Safety monitor, you need an Azure OpenAI resource in one of the supported Azure regions: East US, Switzerland North, France Central, Sweden Central, Canada East. You also need a model deployment that uses a content filter configuration.
+To access Risks & Safety monitoring, you need an Azure OpenAI resource in one of the supported Azure regions: East US, Switzerland North, France Central, Sweden Central, Canada East. You also need a model deployment that uses a content filter configuration.
 
 Go to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. Select the **Deployments** tab on the left and then select your model deployment from the list. On the deployment's page, select the **Risks & Safety** tab at the top.
 
@@ -35,7 +35,7 @@ Content filtering data is shown in the following ways:
 - **Severity distribution by category**: This view shows the severity levels detected for each harm category, across the whole selected time range. This is not limited to _blocked_ content but rather includes all content that was detected as harmful.
 - **Severity rate distribution over time by category**: This view shows the rates of detected severity levels over time, for each harm category. Select the tabs to switch between supported categories.
 
-:::image type="content" source="../media/how-to/content-detection.png" alt-text="Screenshot of the content detection pane in the Risks & Safety monitor." lightbox="../media/how-to/content-detection.png":::
+:::image type="content" source="../media/how-to/content-detection.png" alt-text="Screenshot of the content detection pane in the Risks & Safety monitoring page." lightbox="../media/how-to/content-detection.png":::
 
 ### Recommended actions
 
@@ -56,7 +56,7 @@ To use Potentially abusive user detection, you need:
 ### Set up your Azure Data Explorer database
 
 In order to protect the data privacy of user information and manage the permission of the data, we support the option for our customers to bring their own storage to store potentially abusive user detection insights in a compliant way and with full control. Follow these steps to enable it:
-1. In OpenAI Studio, navigate to the model deployment that you'd like to set up user abuse analysis with, and select **Add a data store**. 
+1. In Azure OpenAI Studio, navigate to the model deployment that you'd like to set up user abuse analysis with, and select **Add a data store**. 
 1. Fill in the required information and select **add**. We recommend you create a new database to store the analysis results.
 1. After you connect the data store, take the following steps to grant permission:
     1. Go to your Azure OpenAI resource's page in the Azure portal, and choose the **Identity** tab.
@@ -78,7 +78,7 @@ The potentially abusive user detection relies on the user information that custo
     - **Total abuse request ratio/count**
     - **Abuse ratio/count by category** 
 
-:::image type="content" source="../media/how-to/potentially-abusive-user.png" alt-text="Screenshot of the Potentially abusive user detection pane in the Risks & Safety monitor." lightbox="../media/how-to/potentially-abusive-user.png":::
+:::image type="content" source="../media/how-to/potentially-abusive-user.png" alt-text="Screenshot of the Potentially abusive user detection pane in the Risks & Safety monitoring page." lightbox="../media/how-to/potentially-abusive-user.png":::
 
 ### Recommended actions
 
