@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 03/27/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -77,9 +77,9 @@ We recommend using the built-in vectorization support of Azure AI Studio. If thi
 
 For query-only vectorization:
 
-1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer) to an index. It should be the same embedding model used to generate vectors in the index.
-1. [Assign the vectorizer](vector-search-how-to-configure-vectorizer.md#assign-a-vector-profile-to-a-field) to the vector field.
-1. [Formulate a vector query](vector-search-how-to-query.md#query-with-integrated-vectorization-preview) that specifies the text string to vectorize.
+1. [Add a vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer-and-vector-profile) to an index. It should be the same embedding model used to generate vectors in the index.
+1. [Assign the vectorizer](vector-search-how-to-configure-vectorizer.md#define-a-vectorizer-and-vector-profile) to a vector profile, and then assign a vector profile to the vector field.
+1. [Formulate a vector query](vector-search-how-to-configure-vectorizer.md#test-a-vectorizer) that specifies the text string to vectorize.
 
 A more common scenario - data chunking and vectorization during indexing:
 
