@@ -59,7 +59,7 @@ If you're uploading new numbers for an enterprise customer:
 
 Each number is automatically assigned to the Operator Connect or Teams Phone Mobile calling profile associated with the Azure Communications Gateway that is being provisioned.
 
-If you're changing the status of an enterprise, you can optionally specify and ID of any ticket or other request that you want to associate with this number. This ID can be up to 64 characters.
+If you're changing the status of an enterprise, you can optionally specify an ID for any ticket or other request that you want to associate with this number. This ID can be up to 64 characters.
 
 ## Go to your Communications Gateway resource
 
