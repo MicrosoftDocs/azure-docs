@@ -11,8 +11,7 @@ ms.reviewer: shseth
 
 # Sources of monitoring data for Azure Monitor and their data collection methods
 
-Azure Monitor is based on a [common monitoring data platform](data-platform.md) that allows different types of data from multiple types of resources to be analyzed together using a common set of tools. This article describes common sources of monitoring data collected by Azure Monitor and their data collection methods. Use this article as a starting point to understand the option for collecting different types of data being generated in your environment.
-
+Azure Monitor is based on a [common monitoring data platform](data-platform.md) that allows different types of data from multiple types of resources to be analyzed together using a common set of tools. Currently, different sources of data for Azure Monitor use different methods to deliver their data, and each typically require different types of configuration. This article describes common sources of monitoring data collected by Azure Monitor and their data collection methods. Use this article as a starting point to understand the option for collecting different types of data being generated in your environment.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
