@@ -3,20 +3,20 @@ title: Cluster reliability issue with older images in HDInsight clusters
 description: Cluster reliability issue with older images in HDInsight clusters
 ms.service: hdinsight
 ms.topic: troubleshooting-known-issue
-ms.date: 10/13/2023
+ms.date: 03/28/2024
 ---
 
-### Cluster reliability issue with older images in HDInsight clusters
+# Cluster reliability issue with older images in HDInsight clusters
 
 **Issue published date**: October 13, 2023
 
 As part of the proactive reliability management of Azure HDInsight, we recently found a potential reliability issue on HDInsight clusters that use images dated February 2022 or older.
 
-#### Issue background
+### Issue background
 
 In HDInsight images dated before March 2022, a known bug was discovered on one particular Azure Linux build. The Microsoft Azure Linux Agent (`waagent`), a lightweight process that manages virtual machines, was unstable and resulted in VM outages. HDInsight clusters that consumed the Azure Linux build have experienced service outages, job failures, and adverse effects on features like IPsec and autoscale.
 
-#### Required action
+### Required action
 
 If your cluster was created before March 2022, we advise rebuilding your cluster with the latest HDInsight image. Support for cluster images dated before March 2022 ended on November 10, 2023. These images won't receive security updates, bug fixes, or patches, leaving them highly susceptible to vulnerabilities.
 
@@ -43,4 +43,3 @@ The last 10 digits in your HDInsight image version indicate the date and time of
 - [Create HDInsight clusters by using automation](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
 - [Verify your HDInsight image version](/azure/hdinsight/view-hindsight-cluster-image-version)
-
