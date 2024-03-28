@@ -102,12 +102,12 @@ The Stream Analytics job creates [Delta Log checkpoints](https://github.com/delt
 - When a Stream Analytics job writes a batch of data to a Delta Lake, it can generate multiple [Add File Action](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#add-file-and-remove-file). When there are too many Add File Actions generated for a single batch, a Stream Analytics Job can be stuck.
     - The number of Add File Actions generated are determined by many factors:
         - Size of the batch. It's determined by the data volume and the batching parameters [Minimum Rows and Maximum Time](blob-storage-azure-data-lake-gen2-output.md#output-configuration)
-        - Cardinality of the [Partition Column values](write-to-delta-lake.md#delta-lake-configuration) of the batch.
+        - Cardinality of the [Partition Column values](#delta-lake-configuration) of the batch.
     - To reduce the number of Add File Actions generated for a batch the following steps can be taken:
         - Reduce the batching configurations [Minimum Rows and Maximum Time](blob-storage-azure-data-lake-gen2-output.md#output-configuration)
-        - Reduce the cardinality of the [Partition Column values](write-to-delta-lake#delta-lake-configuration.md) by tweaking the input data or choosing a different partition column
+        - Reduce the cardinality of the [Partition Column values](#delta-lake-configuration.md) by tweaking the input data or choosing a different partition column
 - Stream Analytics jobs can only read and write single part V1 Checkpoints. Multi-part checkpoints and the Checkpoint V2 format aren't supported.
 
 ## Next steps
 
-* [Create a Stream Analytics job writing to Delta Lake Table in ADLS Gen2](write-to-delta-lake.md)
+* [Capture data from Event Hubs in Delta Lake format](capture-event-hub-data-delta-lake.md)
