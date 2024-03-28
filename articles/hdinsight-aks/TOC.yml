@@ -211,7 +211,7 @@ items:
         href: ./flink/azure-iot-hub.md  
       - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
-      - name:  Azure Data Factory Managed Airflow
+      - name:  Azure Data Factory Workflow Orchestration Manager
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
@@ -267,7 +267,7 @@ items:
     href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
-    - name:  Azure Data Factory Managed Airflow
+    - name:  Azure Data Factory Workflow Orchestration Manager
       href: ./spark/spark-job-orchestration.md  
     - name: Configuration management
       href: ./spark/configuration-management.md
