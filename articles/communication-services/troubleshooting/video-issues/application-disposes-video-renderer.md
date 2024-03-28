@@ -1,0 +1,40 @@
+---
+title: Video issues - The application disposes the video renderer while subscribing the video
+titleSuffix: Azure Communication Services - Troubleshooting Guide
+description: Learn how to handle the error when the application disposes the video renderer while subscribing the video
+author: enricohuang
+ms.author: enricohuang
+
+services: azure-communication-services
+ms.date: 02/04/2024
+ms.topic: troubleshooting
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+# The application disposes the video renderer while subscribing the video
+The `createView` promise API doesn't resolve immediately, as there are multiple underlying asynchronous operations involved in the video subscription process.
+
+If the application disposes of the render object while the video subscription is in progress, the `createView` API throws an error.
+
+This is an expected error from SDK's perspective as the application decides to dispose of the renderer object.
+## How to detect
+### SDK
+You will get an error while invoking the `createView` API.
+
+The error code/subcode is
+
+| error            |                                                       |
+|------------------|-------------------------------------------------------|
+| code             | 405(METHOD\_NOT\_ALLOWED)                             |
+| subcode          | 43209                                                 |
+| message          | Failed to start stream, disposing stream              |
+| resultCategories | Expected                                              |
+
+## How to monitor
+### Azure log
+...
+### CDC
+...
+## How to mitigate or resolve
+The application should verify whether it intends to dispose the renderer or if unexpected renderer disposal is triggered due to the release of certain UI resources at the application layer.
+If the application indeed has the potential to dispose of the renderer during video subscription, it should gracefully handle this error thrown by the SDK to ensure that the end user is informed that the video subscription has been cancelled.
