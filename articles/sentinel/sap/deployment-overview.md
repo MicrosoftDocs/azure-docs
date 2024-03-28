@@ -13,14 +13,6 @@ ms.date: 06/19/2023
 
 This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP applications. The full process is detailed in a set of articles linked under [Deployment milestones](#deployment-milestones).
 
-> [!TIP]
-> Learn how to [monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
-
-Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises. Learn more about this [certification](solution-overview.md#certification).
-
-> [!NOTE]
-> [Update an existing Microsoft Sentinel for SAP data connector](update-sap-data-connector.md) to the latest version.
-
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## What is the Microsoft Sentinel solution for SAP applications?
@@ -66,6 +58,13 @@ Follow your deployment journey through this series of articles, in which you lea
 | **7. Deploy the data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
 | **8. Configure the Microsoft Sentinel solution for SAP** | [Configure the Microsoft Sentinel solution for SAP](deployment-solution-configuration.md) |
 | **9. Optional steps** | - [Configure the Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) <br>- [Deploy automatic attack disruption for SAP (Preview)](deployment-attack-disrupt.md) |
+
+## Related content
+
+For more information, see:
+
+- [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md)
+- [Update an existing Microsoft Sentinel for SAP data connector](update-sap-data-connector.md) 
 
 ## Next step
 
