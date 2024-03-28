@@ -992,12 +992,40 @@ items:
         href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
-- name: Resources 
+- name: Resources
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules
     href: resources/learn-modules.md
+  - name: Troubleshooting Guides
+    items:
+    - name: Voice and Video
+      items:
+      - name: Calling (JavaScript)
+        items:
+        - name: Audio issues
+          items:
+          - name: Overview
+            href: troubleshooting/voice-video-calling/audio-issues/overview.md
+          - name: The user cannot hear sound during the call
+            items:
+            - name: The speaking participant doesn't grant the microphone permission
+              href: troubleshooting/voice-video-calling/audio-issues/microphone-permission.md
+            - name: The speaking participant's microphone has a problem
+              href: troubleshooting/voice-video-calling/audio-issues/microphone-issue.md
+            - name: The user's speaker has a problem
+              href: troubleshooting/voice-video-calling/audio-issues/speaker-issue.md
+            - name: There is a network issue in the call
+              href: troubleshooting/voice-video-calling/audio-issues/network-issue.md
+          - name: The user experiences poor audio quality
+            href: troubleshooting/voice-video-calling/audio-issues/poor-quality.md
+          - name: The user experiences delays during the call
+            href: troubleshooting/voice-video-calling/audio-issues/delay-issue.md
+          - name: The user experiences echo during the call
+            href: troubleshooting/voice-video-calling/audio-issues/echo-issue.md
+          - name: The volume of the incoming audio is low
+            href: troubleshooting/voice-video-calling/audio-issues/incoming-audio-low-volume.md
 - name: References
   items:
   - name: Reference documentation overview
