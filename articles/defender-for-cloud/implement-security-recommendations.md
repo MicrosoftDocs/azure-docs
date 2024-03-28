@@ -58,7 +58,7 @@ In addition to risk level, we recommend that you prioritize the security control
 
 ## Use the Fix option
 
-To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources. If the Fix button isn't present in the recommendation, then there's no option to apply a quick fix. 
+To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources. If the Fix button isn't present in the recommendation, then there's no option to apply a quick fix.
 
 **To remediate a recommendation with the Fix button**:
 

@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
 ms.date: 02/09/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
 

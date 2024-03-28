@@ -78,6 +78,7 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
     SUBSCRIPTION_ID="<Subscription ID>"
     USER_NAME="azureuser"
     SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --output tsv --query managedResourceGroupConfiguration.name)
     ```
 
 2. Get the available cluster node names.
@@ -98,7 +99,7 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
 
     ```azurecli
     az ssh arc --subscription $SUBSCRIPTION_ID \
-        --resource-group $RESOURCE_GROUP \
+        --resource-group $MANAGED_RESOURCE_GROUP \
         --name <VM Name> \
         --local-user $USER_NAME \
         --private-key-file $SSH_PRIVATE_KEY_FILE
