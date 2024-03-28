@@ -132,26 +132,37 @@ In this section, you create an Azure function that implements your custom alloca
 
 1. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
 
-   | Parameter      | Value                        |
-   |--------------------|------------------------------|
-   | **Subscription**      | Make sure that the subscription where you created the resources for this tutorial is selected. |
-   | **Resource Group** | Select the resource group that you created in the previous section. The default is **contoso-us-resource-group**.    |
-   | **Function App name** | Provide a name for your function app. |
-   | **Publish**        | Code                         |
-   | **Runtime Stack**  | .NET                         |
-   | **Version**        | 3.1                          |
-   | **Region**         | West US                      |
+   | Parameter          | Value |
+   |--------------------|-------|
+   | **Subscription**   | Make sure that the subscription where you created the resources for this tutorial is selected. |
+   | **Resource Group** | Select the resource group that you created in the previous section. The default provided in the previous section is **contoso-us-resource-group**. |
+   | **Function App name** | Provide a name for your function app.|
+   | **Do you want to deploy code or container image?** | **Code** |
+   | **Runtime Stack**  | **.NET** |
+   | **Version**        | Select any **in-process model** version. |
+   | **Region**         | Select a region close to you. |
 
-    > [!NOTE]
-    > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
+   > [!NOTE]
+   > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
 
-    ![Create an Azure Function App to host the custom allocation function](./media/tutorial-custom-allocation-policies/create-function-app.png)
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/create-function-app.png" alt-text="Screenshot that shows the Create Function App form in the Azure portal.":::
 
-1. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
+1. On the **Review + create** tab, select **Create** to create the function app.
 
-1. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
+1. Deployment may take several minutes. When it completes, select **Go to resource**.
 
-1. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then select the **HTTP Trigger** template followed by the **Create** button.
+1. On the left pane of the function app **Overview** page, select **Create function**.
+
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/create-function-in-portal.png" alt-text="Screenshot that shows selecting the option to create function in the Azure portal.":::
+
+1. On the **Create function** page, select the **HTTP Trigger** template then select **Next**.
+
+1. On the **Template details** tab, select **Anonymous** as the **Authorization level** then select **Create**.
+
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/function-authorization-level.png" alt-text="Screenshot that shows setting the authorization level as anonymous.":::
+
+   >[!TIP]
+   >If you keep the authorization level as **Function**, then you'll need to configure your DPS enrollments with the function API key. For more information, see [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 1. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
 
