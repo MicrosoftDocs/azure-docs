@@ -23,7 +23,7 @@ highlightedContent:
       url: /azure/azure-vmware/introduction
     - title: Architecture and design 
       itemType: get-started
-      url: architecture-private-clouds.md
+      url: architecture-network-design-considerations.md
     - title: Implementation
       itemType: how-to-guide
       url: plan-private-cloud-deployment.md
