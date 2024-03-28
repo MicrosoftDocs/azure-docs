@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Reserve Bank of India - IT Framework for NBFC
 description: Details of the Reserve Bank of India - IT Framework for NBFC Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/18/2024
+ms.date: 03/28/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in Reserve Bank of India - IT Framework for NBFC.
 For more information about this compliance standard, see
 [Reserve Bank of India - IT Framework for NBFC](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10999&Mode=0#C1). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md) and
+_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **Reserve Bank of India - IT Framework for NBFC** controls. Many of the controls
