@@ -17,7 +17,7 @@ ms.custom:
 
 # Connect to Azure AI Search using Azure role-based access control (Azure RBAC)
 
-Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Azure AI Search, you can use Azure roles for:
+Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can use Azure roles for:
 
 + Control plane operations (service administration tasks through Azure Resource Manager).
 

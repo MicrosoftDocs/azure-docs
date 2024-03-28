@@ -92,5 +92,5 @@ The **DevOps security** blade shows your onboarded repositories grouped by Organ
 ## Next steps
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
-- Configure the [Microsoft Security DevOps task in your Azure Pipelines](azure-devops-extension.md).
+- Configure the [Microsoft Security DevOps task in your Azure Pipelines](azure-devops-extension.yml).
 - [Troubleshoot your Azure DevOps connector](troubleshooting-guide.md#troubleshoot-connector-problems-for-the-azure-devops-organization)

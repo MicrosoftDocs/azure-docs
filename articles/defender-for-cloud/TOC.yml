@@ -350,7 +350,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -439,7 +439,7 @@
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
@@ -558,7 +558,7 @@
         href: just-in-time-access-overview.md
       - name: Enable just-in-time access on VMs
         displayName: jit, management, ports
-        href: just-in-time-access-usage.md
+        href: just-in-time-access-usage.yml
     - name: Endpoint detection and response
       items:
       - name: Understand endpoint detection and response
@@ -847,7 +847,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations

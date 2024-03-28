@@ -1,9 +1,9 @@
 ---
 title: Create parameters files for Bicep deployment
-description: Create parameters file for passing in values during deployment of a Bicep file
+description: Create parameters file for passing in values during deployment of a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/17/2024
+ms.date: 03/19/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -15,7 +15,7 @@ Rather than passing parameters as inline values in your script, you can use a Bi
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the [`using` statement](./bicep-using.md) within the Bicep parameters file.
 
-You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.  See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
+You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file. See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
 
 ## Parameters file
 
@@ -29,6 +29,35 @@ using '<path>/<file-name>.bicep'
 param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
 ```
+
+You can use the [using statement](./bicep-using.md) with Bicep file, ARM JSON templates, Bicep modules, and template specs. For example:
+
+```bicep
+using './main.bicep'
+...
+```
+
+```bicep
+using './azuredeploy.json'
+...
+```
+
+```bicep
+using 'br/public:storage/storage-account:3.0.1'
+...
+```
+
+```bicep
+using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
+...
+```
+
+```bicep
+using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
+...
+```
+
+For more information, see the [using statement](./bicep-using.md).
 
 You can use expressions with the default value. For example:
 
@@ -328,7 +357,7 @@ To generate a parameters file, you have two options: either through Visual Studi
 
 ## Build Bicep parameters file
 
-From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  for more information, see [Build parameters file](./bicep-cli.md#build-params).
+From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  For more information, see [Build parameters file](./bicep-cli.md#build-params).
 
 ## Deploy Bicep file with parameters file
 
@@ -336,7 +365,7 @@ From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
 ```azurecli
 az deployment group create \

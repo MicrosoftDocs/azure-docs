@@ -48,9 +48,9 @@ procedureSection:
       - |
         In the remove role assignment message that appears, click **Yes**.
 
-            If you see a message that inherited role assignments cannot be removed, you are trying to remove a role assignment at a child scope. You should open Access control (IAM) at the scope where the role was assigned and try again. A quick way to open Access control (IAM) at the correct scope is to look at the **Scope** column and click the link next to **(Inherited)**.
+        If you see a message that inherited role assignments cannot be removed, you are trying to remove a role assignment at a child scope. You should open Access control (IAM) at the scope where the role was assigned and try again. A quick way to open Access control (IAM) at the correct scope is to look at the **Scope** column and click the link next to **(Inherited)**.
 
-          [![Screenshot of remove role assignment message for inherited role assignments.](./media/role-assignments-remove/remove-role-assignment-inherited.png)](./media/role-assignments-remove/remove-role-assignment-inherited.png#lightbox)
+        [![Screenshot of remove role assignment message for inherited role assignments.](./media/role-assignments-remove/remove-role-assignment-inherited.png)](./media/role-assignments-remove/remove-role-assignment-inherited.png#lightbox)
   - title: |
       Azure PowerShell
     summary: |
@@ -171,9 +171,9 @@ procedureSection:
 
 relatedContent:
   - text: List Azure role assignments using the Azure portal
-    url: role-assignments-list-portal.md
+    url: role-assignments-list-portal.yml
   - text: List Azure role assignments using Azure PowerShell
-    url: role-assignments-list-powershell.md
+    url: role-assignments-list-powershell.yml
   - text: Troubleshoot Azure RBAC
     url: troubleshooting.md
 

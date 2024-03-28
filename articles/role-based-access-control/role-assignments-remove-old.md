@@ -165,6 +165,6 @@ There isn't a way to remove a role assignment using an Azure Resource Manager te
 
 ## Next steps
 
-- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
-- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md)
+- [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
+- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml)
 - [Troubleshoot Azure RBAC](troubleshooting.md)

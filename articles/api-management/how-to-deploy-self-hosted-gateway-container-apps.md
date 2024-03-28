@@ -21,7 +21,7 @@ Deploy a self-hosted gateway to a container app to access APIs that are hosted i
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 - For Azure CLI:
-    [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
     > The Azure CLI command examples in this article require the `containerapp` Azure CLI extension. If you haven't used `az containerapp` commands, the extension is installed dynamically when you run your first `az containerapp` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).

@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/15/2024
 ms.author: greglin
 ---
 
@@ -70,7 +70,7 @@ The virtual network resource supports [DNS server](../virtual-network/manage-vir
 
 The Application Gateway resource is deployed inside a virtual network, so we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations.
 
-Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the virtual network or subnet. This validation also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
+Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the virtual network or subnet. This validation also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
 You can use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support this permission. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
@@ -79,7 +79,7 @@ You can use the built-in roles, such as [Network contributor](../role-based-acce
 
 #### Identify affected users or service principals for your subscription
 
-By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are:
+By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are as follows:
 
 **Title**: Update VNet permission of Application Gateway users </br>
 **Category**: Reliability </br>

@@ -3,7 +3,7 @@ title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
@@ -245,7 +245,7 @@ You can configure your FQDN using one of the following methods:
 * Set the DNS label using Azure CLI or Azure PowerShell.
 * Set the DNS label using Helm chart settings.
 
-For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#dns-name-label).
+For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#domain-name-label).
 
 #### Set the DNS label using Azure CLI or Azure PowerShell
 

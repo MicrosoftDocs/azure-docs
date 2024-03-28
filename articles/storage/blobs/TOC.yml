@@ -190,7 +190,7 @@ items:
       - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
       - name: Calculate blob count and total size
-        href: calculate-blob-count-size.md
+        href: calculate-blob-count-size.yml
       - name: 'Tutorial: Analyze blob inventory reports'
         href: storage-blob-inventory-report-analytics.md
       - name: 'Tutorial: Calculate container statistics'
@@ -384,7 +384,7 @@ items:
       - name: Enable blob soft delete
         href: soft-delete-blob-enable.md
       - name: Manage and restore soft-deleted blobs
-        href: soft-delete-blob-manage.md
+        href: soft-delete-blob-manage.yml
     - name: Versioning
       href: versioning-overview.md
       items:
@@ -495,12 +495,11 @@ items:
           href: lifecycle-management-policy-configure.md
       - name: Archive and rehydrate
         items:
-        - name: Rehydrate blobs
+        - name: Blob rehydration overview
           href: archive-rehydrate-overview.md
         - name: Archive blobs
           href: archive-blob.md
-        - name: Blob rehydration from archive tier
-        - name: Rehydrate an archived blob
+        - name: Rehydrate blobs
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
