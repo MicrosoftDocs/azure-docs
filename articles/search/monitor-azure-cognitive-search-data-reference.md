@@ -26,7 +26,7 @@ SearchQueriesPerSecond shows the average of the search queries per second (QPS) 
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
 

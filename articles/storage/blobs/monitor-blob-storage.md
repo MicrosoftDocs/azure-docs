@@ -25,12 +25,10 @@ Azure Storage insights offer a unified view of storage performance, capacity, an
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
-
 For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#metrics).
 
 <a name="collection-and-routing"></a>
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
