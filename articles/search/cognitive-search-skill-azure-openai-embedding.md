@@ -113,7 +113,7 @@ The output resides in memory. To send this output to a field in the search index
   ]
 ```
 
-# Best practices
+## Best practices
 
 The following are some best practices you need to consider when utilizing this skill:
 - If you are hitting your Azure OpenAI TPM (Tokens per minute) limit, consider the [quota limits advisory](../ai-services/openai/quotas-limits.md) so you can address accordingly. Refer to the [Azure OpenAI monitoring](../ai-services/openai/how-to/monitoring.md) documentation for more information about your Azure OpenAI instance performance.
