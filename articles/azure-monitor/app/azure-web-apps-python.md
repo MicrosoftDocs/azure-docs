@@ -130,14 +130,30 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 
 ## Troubleshooting
 
-Here we provide our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using autoinstrumentation.
+Here we provide our troubleshooting guide for monitoring Python applications on Azure App Services using autoinstrumentation.
 
-### Step 1: Confirm that App Service autoinstrumentation is enabled
+### Duplicate telemetry
 
-Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
+You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use App Service OpenTelemetry autoinstrumentaion, first remove manual instrumentation of OpenTelemetry from your code.
 
-### Step 2: Check autoinstrumentation diagnostics and status logs
-Navigate to */var/log/applicationinsights/* and open *status.json*.
+### Missing telemetry
+
+If you are missing telemetry, follow these steps to see confirm autoinstrumentation is enabled correctly.
+
+#### Step 1: Check the Application Insights blade on your App Service resource
+
+Confirm that autoinstrumentation is enabled in the Application Insights blade on your App Service Resource:
+
+:::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Screenshot of Application Insights tab with enable selected." lightbox="./media/azure-web-apps/enable.png"::: 
+
+#### Step 2: Confirm that your App Settings are correct
+
+Confirm that the `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3` and that your `APPLICATIONINSIGHTS_CONNECTION_STRING` points to the appropiate Application Insights resource.
+
+:::image type="content"source="./media/azure-web-apps-python/application-settings-python.png" alt-text="Screenshot of App Service Application Settings with available Application Insights settings." lightbox="./media/azure-web-apps-python/application-settings-python.png":::
+
+#### Step 3: Check autoinstrumentation diagnostics and status logs
+Navigate to */var/log/applicationinsights/* and open status_*.json.
 
 Confirm that `AgentInitializedSuccessfully` is set to true and `IKey` to have a valid iKey.
 
@@ -158,11 +174,9 @@ Here's an example JSON file:
 
 ```
 
-### Step 3: Avoid duplicate telemetry
+The `applicationinsights-extension.log` in the same folder may show other helpful diagnostics.
 
-You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using Autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use OpenTelemetry Autoinstrumentaion on App Service, first remove the Azure Monitor OpenTelemetry Distro from your app.
-
-### Step 4: Confirm Django settings are configured
+### Django apps
 
 If your app uses Django and is either failing to start or using incorrect settings, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable. See the [Django Instrumentation](#django-instrumentation) section for details.
 
