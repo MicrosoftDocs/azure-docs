@@ -11,9 +11,9 @@ ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Heath Data Services
 
-This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
+This page is an index of [Azure Policy](./../../articles/governance/policy/overview.md) built-in policy
 definitions for Azure Heath Data Services. For additional Azure Policy built-ins for other services, see
-[Azure Policy built-in definitions](../../governance/policy/samples/built-in-policies.md).
+[Azure Policy built-in definitions](./../../articles/governance/policy/samples/built-in-policies.md).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **Version** column to view the source on the
@@ -29,7 +29,7 @@ the link in the **Version** column to view the source on the
 ## Next steps
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
-- Review [Understanding policy effects](../../governance/policy/concepts/effects.md).
+- Review the [Azure Policy definition structure](./../../articles/governance/policy/concepts/definition-structure.md).
+- Review [Understanding policy effects](./../../articles/governance/policy/concepts/effects.md).
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
