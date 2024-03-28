@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 06/28/2022
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Microsoft Sentinel UEBA reference

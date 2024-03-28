@@ -18,6 +18,8 @@ Query data in any table against data from a watchlist by treating the watchlist 
 
 For optimal query performance, use **SearchKey** as the key for joins in your queries.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Build queries with watchlists
 
 To use a watchlist in search query, write a Kusto query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join.
