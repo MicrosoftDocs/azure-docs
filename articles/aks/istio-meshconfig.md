@@ -92,8 +92,8 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | tcpKeepAlive | false |
 | defaultConfig | true |
 | outboundTrafficPolicy | true |
-| extensionProviders | true |
-| defaultProviders | true |
+| extensionProviders | false |
+| defaultProviders | false |
 | accessLogFile | true |
 | accessLogFormat | true |
 | accessLogEncoding | true |
