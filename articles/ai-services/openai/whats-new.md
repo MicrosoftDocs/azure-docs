@@ -18,9 +18,11 @@ recommendations: false
 
 ## March 2024
 
-### Elasticsearch database support for Azure OpenAI On Your Data
+
+### Azure OpenAI On Your Data updates
 
 - You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+- You can use the [chunk size parameter](./concepts/use-your-data.md#chunk-size-preview) during data ingestion to set the maximum number of tokens of any given chunk of data in your index.
 
 ### 2024-02-01 general availability (GA) API released
 
