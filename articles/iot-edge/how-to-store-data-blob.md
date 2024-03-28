@@ -157,6 +157,14 @@ sudo chmod -R 700 <blob-dir>
 
 For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
 
+To configure the output log level, you can set `LogLevel` environment variable for this module. `LogLevel` can take the following values (the default value is set to `Info`):
+
+* Critical
+* Error
+* Warning
+* Info
+* Debug
+
 ## Connect to your blob storage module
 
 You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.
