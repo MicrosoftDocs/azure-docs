@@ -6,7 +6,7 @@ ms.service: site-recovery
 ms.date: 03/15/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.custom: engagement-fy23 
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure

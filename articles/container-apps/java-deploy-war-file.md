@@ -4,6 +4,7 @@ description: Learn how to deploy a WAR file on Tomcat in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: tutorial
 ms.date: 02/27/2024
 ms.author: cshoe

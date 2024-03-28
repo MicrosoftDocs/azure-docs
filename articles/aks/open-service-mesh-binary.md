@@ -2,6 +2,7 @@
 title: Download the OSM client Library
 description: Download and configure the Open Service Mesh (OSM) client library
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 12/26/2023
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
