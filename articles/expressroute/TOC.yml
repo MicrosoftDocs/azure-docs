@@ -183,6 +183,8 @@
       href: maintenance-alerts.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
+  - name: Evaluate ExpressRoute circuit resiliency
+    href: evaluate-circuit-resiliency.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
   - name: Managing peerings
