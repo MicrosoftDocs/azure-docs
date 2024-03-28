@@ -1,7 +1,7 @@
 ---
 title: Transparency Note for Azure AI Studio safety evaluations
 titleSuffix: Azure AI Studio
-description: 
+description: Azure AI Studio safety evaluations intended purpose, capabilities, limitations and how to achieve the best performance.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: article
@@ -12,6 +12,8 @@ author: lgayhardt
 ---
 
 # Transparency Note for Azure AI Studio safety evaluations
+
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 ## What is a Transparency Note
 
@@ -39,16 +41,16 @@ The Azure AI Studio safety evaluations let users evaluate the output of their ge
 
 ### System behavior
 
-Azure AI Studio provisions an Azure Open AI GPT-4 model and orchestrates adversarial attacks against your application to generate a high quality test dataset. It then provisions another GPT-4 model to annotate your test dataset for content and security. Users provide their generative AI application endpoint that they wish to test, and the safety evaluations will output a static test dataset against that endpoint along with its content risk label (Very low, Low, Medium, High) as well as reasoning for the AI-generated label.
+Azure AI Studio provisions an Azure Open AI GPT-4 model and orchestrates adversarial attacks against your application to generate a high quality test dataset. It then provisions another GPT-4 model to annotate your test dataset for content and security. Users provide their generative AI application endpoint that they wish to test, and the safety evaluations will output a static test dataset against that endpoint along with its content risk label (Very low, Low, Medium, High) and reasoning for the AI-generated label.
 
 ### Use cases
 
 #### Intended uses
 
-The safety evaluations aren't intended to use for any purpose other than to evaluate content risks and jailbreak vulnerabilities of your generative AI application: 
+The safety evaluations aren't intended to use for any purpose other than to evaluate content risks and jailbreak vulnerabilities of your generative AI application:
 
 - **Evaluating your generative AI application pre-deployment**: Using the evaluation wizard in the Azure AI studio or the Azure AI Python SDK, safety evaluations can assess in an automated way to evaluate potential content or security risks.
-- **Augmenting your red-teaming operations**: Using the adversarial simulator, safety evaluations can generate attacks against your generative AI application to attempt to uncover content and security risks.
+- **Augmenting your red-teaming operations**: Using the adversarial simulator, safety evaluations can simulate adversarial interactions with your generative AI application to attempt to uncover content and security risks.
 - **Communicating content and security risks to stakeholders**: Using the Azure AI studio, you can share access to your AI project with safety evaluations results with auditors or compliance stakeholders.
 
 #### Considerations when choosing a use case
@@ -58,7 +60,7 @@ We encourage customers to leverage Azure AI Studio safety evaluations in their i
 - **Safety evaluations should include human-in-the-loop**: Using automated evaluations like Azure AI Studio safety evaluations should include human reviewers such as domain experts to assess whether your generative AI application has been tested thoroughly prior to deployment to end users.
 - **Safety evaluations do not include total comprehensive coverage**: Though safety evaluations can provide a way to augment your testing for potential content or security risks, it wasn't designed to replace manual red-teaming operations specifically geared towards your application’s domain, use cases, and type of end users.
 - Supported scenarios:
-    - For adversarial simulation: Question answering, multi-turn chat, summarization, search, text re-write, ungrounded and grounded content generation.
+    - For adversarial simulation: Question answering, multi-turn chat, summarization, search, text rewrite, ungrounded and grounded content generation.
     - For automated annotation: Question answering and multi-turn chat.
 - The service currently is best used with the English domain for textual generations only. Additional features including multi-model support will be considered for future releases.
 - The coverage of content risks provided in the safety evaluations is subsampled from a limited number of marginalized groups and topics:
@@ -84,7 +86,7 @@ We encourage customers to leverage Azure AI Studio safety evaluations in their i
 
 ### Evaluation methods
 
-For all supported content risk types, we have internally checked the quality by comparing the rate of approximate matches between human labelers using a 0-7 severity scale and the safety evaluations’ automated annotator also using a 0-7 severity scale on the same datasets. For each risk area, we had both human labelers and an automated annotator label 500 English, single-turn texts. Note that the human labelers and the automated annotator didn't use exactly the same versions of the annotation guidelines; while the automated annotator’s guidelines stemmed from the guidelines for humans, they have since diverged to varying degrees (with the hate and unfairness guidelines having diverged the most). Despite these slight to moderate differences, we believe it's still useful to share general trends and insights from our comparison of approximate matches. In our comparisons, we looked for matches with a 2-level tolerance (where human label matched automated annotator label exactly or was within 2 levels above or below in severity), matches with a 1-level tolerance, and matches with a 0-level tolerance.
+For all supported content risk types, we have internally checked the quality by comparing the rate of approximate matches between human labelers using a 0-7 severity scale and the safety evaluations’ automated annotator also using a 0-7 severity scale on the same datasets. For each risk area, we had both human labelers and an automated annotator label 500 English, single-turn texts. The human labelers and the automated annotator didn't use exactly the same versions of the annotation guidelines; while the automated annotator’s guidelines stemmed from the guidelines for humans, they have since diverged to varying degrees (with the hate and unfairness guidelines having diverged the most). Despite these slight to moderate differences, we believe it's still useful to share general trends and insights from our comparison of approximate matches. In our comparisons, we looked for matches with a 2-level tolerance (where human label matched automated annotator label exactly or was within 2 levels above or below in severity), matches with a 1-level tolerance, and matches with a 0-level tolerance.
 
 ### Evaluation results
 
@@ -102,11 +104,11 @@ Due to the non-deterministic nature of the LLMs, you might experience false nega
 
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/tools-practices)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/ai/)
+- [Microsoft Azure Learning courses on responsible AI](/ai)
 
 ## Learn more about Azure AI Studio safety evaluations
 
 - [Microsoft concept documentation on our approach to evaluating generative AI applications](evaluation-approach-gen-ai.md)
 - [Microsoft concept documentation on how safety evaluation works](evaluation-metrics-built-in.md)
 - [Microsoft how-to documentation on using safety evaluations](../how-to/evaluate-generative-ai-app.md)
-- [Technical blog on how to evaluate content and security risks in your generative AI applications](https://techcommunity.microsoft.com/)
+- [Technical blog on how to evaluate content and security risks in your generative AI applications](https://aka.ms/Safety-Evals-Blog)

@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Advancements in language models such as OpenAI GPT-4 and Llama 2 offer great promise while coming with challenges related to responsible AI. If not designed carefully,systems built upon these models can perpetuate existing societal biases, promote misinformation, create manipulative content, or lead to a wide range of other negative impacts. Addressing these risks while maximizing benefits to users is possible with an iterative approach through four stages: identify, measure, and mitigate, operate.
+Advancements in language models such as OpenAI GPT-4 and Llama 2 offer great promise while coming with challenges related to responsible AI. If not designed carefully, systems built upon these models can perpetuate existing societal biases, promote misinformation, create manipulative content, or lead to a wide range of other negative impacts. Addressing these risks while maximizing benefits to users is possible with an iterative approach through four stages: [identify, measure, and mitigate, operate](https://aka.ms/LLM-RAI-devstages).
 
 The measurement stage provides crucial information for steering development toward quality and safety. On the one hand, this includes evaluation of performance and quality. On the other hand, when evaluating risk and safety, this includes evaluation of an AI system’s predisposition toward different risks (each of which can have different severities). In both cases, this is achieved by establishing clear metrics, creating test sets, and completing iterative, systematic testing. This measurement stage provides practitioners with signals that inform targeted mitigation steps such as prompt engineering and the application of content filters. Once mitigations are applied, one can repeat evaluations to test effectiveness.
 
@@ -39,7 +39,7 @@ For instance, in tasks such as classification or short-form question-answering, 
 
 Large language models (LLM) such as GPT-4 can be used to evaluate the output of generative AI language systems. This is achieved by instructing an LLM to annotate certain aspects of the AI-generated output. For instance, you can provide GPT-4 with a relevance severity scale (for example, provide criteria for relevance annotation on a 1-5 scale) and then ask GPT-4 to annotate the relevance of an AI system’s response to a given question.  
 
-AI-assisted evaluations can be beneficial in scenarios where ground truth and expected answers aren't available. In many generative AI scenarios, such as open-ended question answering or creative writing, single correct answers do not exist, making it challenging to establish the ground truth or expected answers that are necessary for traditional metrics.
+AI-assisted evaluations can be beneficial in scenarios where ground truth and expected answers aren't available. In many generative AI scenarios, such as open-ended question answering or creative writing, single correct answers don't exist, making it challenging to establish the ground truth or expected answers that are necessary for traditional metrics.
 
 In these cases,[AI-assisted evaluations](./evaluation-metrics-built-in.md) can help to measure important concepts like the quality and safety of generated outputs. Here, quality refers to performance and quality attributes such as relevance, coherence, fluency, and groundedness. Safety refers to risk and safety attributes such as presence of harmful content (content risks).
 
@@ -49,7 +49,7 @@ By instructing an LLM to annotate these attributes, you can build a metric for h
 
 ### AI-assisted performance and quality metrics
 
-To run AI-assisted performance and quality evaluations, an LLM is possibly leveraged for two separate functions. First, a test dataset must be created. This can be created manually by choosing prompts and capturing responses from your AI system, or it can be created synthetically by simulating interactions between your AI system and an LLM (referred to as the AI-assisted dataset generator in the diagram below). Then, an LLM is also used to annotate your AI system’s outputs in the test set. Finally, annotations are aggregated into performance and quality metrics and logged to your Azure AI studio project for viewing and analysis.
+To run AI-assisted performance and quality evaluations, an LLM is possibly leveraged for two separate functions. First, a test dataset must be created. This can be created manually by choosing prompts and capturing responses from your AI system, or it can be created synthetically by simulating interactions between your AI system and an LLM (referred to as the AI-assisted dataset generator in the following diagram). Then, an LLM is also used to annotate your AI system’s outputs in the test set. Finally, annotations are aggregated into performance and quality metrics and logged to your Azure AI studio project for viewing and analysis.
 
 :::image type="content" source="../media/evaluations/quality-evaluation-diagram.png" alt-text="Diagram of evaluate generative AI quality applications in AI Studio." lightbox="../media/evaluations/quality-evaluation-diagram.png":::
 
@@ -71,13 +71,13 @@ Because the provisioned GPT-4 models act as an adversarial dataset generator or 
 
 The adversarial targeted prompt datasets were developed by Microsoft researchers, applied scientists, linguists, and security experts to help users get started with evaluating content and security risks in generative AI systems.
 
-If you already have a test dataset with input prompts and AI system responses (for example, records from red-teaming), you can directly pass that dataset in to be annotated by the content risk evaluator. Safety evaluations can help augment and accelerate manual red teaming efforts by enabling red teams to generate and automate adversarial prompts at scale. However, note that AI-assisted evaluations are neither designed to replace human review nor to provide comprehensive coverage of all possible risks.
+If you already have a test dataset with input prompts and AI system responses (for example, records from red-teaming), you can directly pass that dataset in to be annotated by the content risk evaluator. Safety evaluations can help augment and accelerate manual red teaming efforts by enabling red teams to generate and automate adversarial prompts at scale. However, AI-assisted evaluations are neither designed to replace human review nor to provide comprehensive coverage of all possible risks.
 
 :::image type="content" source="../media/evaluations/safety-evaluation-service-diagram.png" alt-text="Diagram of evaluate generative AI safety in AI Studio." lightbox="../media/evaluations/safety-evaluation-service-diagram.png":::
 
 #### Evaluating jailbreak vulnerability
 
-Unlike content risks, jailbreak vulnerability cannot be reliably measured with direct annotation by an LLM. However, jailbreak vulnerability can be measured via comparison of two parallel test datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. Each dataset can be annotated by the AI-assisted content risk evaluator, producing a content risk defect rate for each. Then the user evaluates jailbreak vulnerability by comparing the defect rates and noting cases where the jailbreak dataset led to more or higher severity defects. For example, if an instance in these parallel test datasets is annotated as more severe for the version with a jailbreak injection, that instance would be considered a jailbreak defect.
+Unlike content risks, jailbreak vulnerability can't be reliably measured with direct annotation by an LLM. However, jailbreak vulnerability can be measured via comparison of two parallel test datasets: a baseline adversarial test dataset versus the same adversarial test dataset with jailbreak injections in the first turn. Each dataset can be annotated by the AI-assisted content risk evaluator, producing a content risk defect rate for each. Then the user evaluates jailbreak vulnerability by comparing the defect rates and noting cases where the jailbreak dataset led to more or higher severity defects. For example, if an instance in these parallel test datasets is annotated as more severe for the version with a jailbreak injection, that instance would be considered a jailbreak defect.
 
 To learn more about the supported task types and built-in metrics, see [evaluation and monitoring metrics for generative AI](./evaluation-metrics-built-in.md).
 

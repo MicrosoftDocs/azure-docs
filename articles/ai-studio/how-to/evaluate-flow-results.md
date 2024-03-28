@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-The Azure AI Studio evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your AI projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
+The Azure AI Studio evaluation page is a versatile hub that not only allows you to visualize and assess your results but also serves as a control center for optimizing, troubleshooting, and selecting the ideal AI model for your deployment needs. It's a one-stop solution for data-driven decision-making and performance enhancement in your AI projects. You can seamlessly access and interpret the results from various sources, including your flow, the playground quick test session, evaluation submission UI, generative SDK, and CLI. This flexibility ensures that you can interact with your results in a way that best suits your workflow and preferences.  
 
 Once you've visualized your evaluation results, you can dive into a thorough examination. This includes the ability to not only view individual results but also to compare these results across multiple evaluation runs. By doing so, you can identify trends, patterns, and discrepancies, gaining invaluable insights into the performance of your AI system under various conditions.
 
@@ -73,7 +73,7 @@ For risk and safety metrics, the evaluation provides a severity score and reason
 
 :::image type="content" source="../media/evaluations/view-results/risk-safety-metric-example.png" alt-text="Screenshot of risk and safety metrics results for question answering scenario." lightbox="../media/evaluations/view-results/risk-safety-metric-example.png":::
 
-Evaluation results may have different meanings for different audiences. For example, safety evaluations may generate a label for “Low” severity of violent content that may not align to a human reviewer’s definition of how severe that specific violent content might be. We provide a **human feedback** column with thumbs up and thumbs down when reviewing your evaluation results to surface which instances were approved or flagged as incorrect by a human reviewer.  
+Evaluation results might have different meanings for different audiences. For example, safety evaluations might generate a label for “Low” severity of violent content that might not align to a human reviewer’s definition of how severe that specific violent content might be. We provide a **human feedback** column with thumbs up and thumbs down when reviewing your evaluation results to surface which instances were approved or flagged as incorrect by a human reviewer.  
 
 :::image type="content" source="../media/evaluations/view-results/risk-safety-metric-human-feedback.png" alt-text="Screenshot of risk and safety metrics results with human feedback." lightbox="../media/evaluations/view-results/risk-safety-metric-human-feedback.png":::
 
@@ -130,7 +130,7 @@ You can toggle the “Jailbreak defect rate” on to view the metric in the comp
 
 ## Understand the built-in evaluation metrics
 
-Understanding the built-in metrics is vital for assessing the performance and effectiveness of your AI application. By gaining insights into these key measurement tools, you are better equipped to interpret the results, make informed decisions, and fine-tune your application to achieve optimal outcomes. To learn more about the significance of each metric, how it's being calculated, its role in evaluating different aspects of your model, and how to interpret the results to make data-driven improvements, refer to [Evaluation and Monitoring Metrics](../concepts/evaluation-metrics-built-in.md)
+Understanding the built-in metrics is vital for assessing the performance and effectiveness of your AI application. By gaining insights into these key measurement tools, you're better equipped to interpret the results, make informed decisions, and fine-tune your application to achieve optimal outcomes. To learn more about the significance of each metric, how it's being calculated, its role in evaluating different aspects of your model, and how to interpret the results to make data-driven improvements, refer to [Evaluation and Monitoring Metrics](../concepts/evaluation-metrics-built-in.md).
 
 ## Next steps  
 

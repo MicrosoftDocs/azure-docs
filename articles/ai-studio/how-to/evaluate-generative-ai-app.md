@@ -31,6 +31,6 @@ Learn more about how to evaluate your generative AI applications:
 - [Evaluate your generative AI apps via the playground](./evaluate-prompts-playground.md)
 - [View the evaluation results](./evaluate-flow-results.md)
 
-Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
-
-[Transparency Note for Azure AI Studio safety evaluations](../concepts/safety-evaluations-transparency-note.md)
+- Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
+- Get started with [samples](https://aka.ms/safetyevalsamples) to try out the AI-assisted evaluations.
+- [Transparency Note for Azure AI Studio safety evaluations](../concepts/safety-evaluations-transparency-note.md).

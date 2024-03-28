@@ -21,8 +21,8 @@ Large language models are known for their few-shot and zero-shot learning abilit
 
 There are two main scenarios for generating a simulated interaction:
 
-- **General-purpose interaction simulation:** generate multiple interaction data samples at one time with user-provided list of tasks or profiles to create an target dataset to evaluate your generative AI applications.
-- **Adversarial attack simulation:** Augment and accelerate your red-teaming operation by leveraging Azure AI Studio safety evaluations to generate an adversarial dataset against your application. We provide adversarial tasks and profiles along with access to an Azure Open AI GPT-4 model with safety behaviors turned off to enable the adversarial simulation.
+- **General-purpose interaction simulation:** generate multiple interaction data samples at one time with user-provided list of tasks or profiles to create a target dataset to evaluate your generative AI applications.
+- **Adversarial interaction simulation:** Augment and accelerate your red-teaming operation by leveraging Azure AI Studio safety evaluations to generate an adversarial dataset against your application. We provide adversarial tasks and profiles along with access to an Azure Open AI GPT-4 model with safety behaviors turned off to enable the adversarial simulation.
 
 ## Getting started
 
@@ -33,7 +33,7 @@ from azure.ai.generative import Simulator
 ```
 ### Initialize large language model
 
-The general simulator works by setting up a system large language model such as GPT to simulate a user and interact with your application. It takes in task parameters that specify what task you want the simulator to accomplish in interacting with your application as well as giving character and tone to the simulator. First we set up the system large language model which will interact with your target to simulate a user or test case against your generative AI application.
+The general simulator works by setting up a system large language model such as GPT to simulate a user and interact with your application. It takes in task parameters that specify what task you want the simulator to accomplish in interacting with your application as well as giving character and tone to the simulator. First we set up the system large language model, which will interact with your target to simulate a user or test case against your generative AI application.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -119,14 +119,14 @@ custom_simulator = Simulator.from_fn(
 
 ## Simulating general scenarios
 
-We provide the basic prompt templates needed for the system large language model to simulate different scenarios with your target
+We provide the basic prompt templates needed for the system large language model to simulate different scenarios with your target.
 
 | Task type          | Template name   |
 |--------------------|-----------------|
 | Conversation       | `conversation`  |
 | Summarization      | `summarization` |
 
-Which can be called as a function by the `Simulator` by passing in the template name for the desired task above in the `get_template()` function
+Which can be called as a function by the `Simulator` by passing in the template name for the desired task above in the `get_template()` function.
 ```python
 conversation_template = Simulator.get_template("conversation")
 conversation_parameters = task_template.get_parameters
@@ -278,13 +278,13 @@ This aligns to Azure AI SDK's `evaluate` function call that takes in this chat f
 
 #### Early termination
 
-Stop conversation earlier if the conversation meet certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well.
+Stop conversation earlier if the conversation meets a certain criteria, such as "bye" or "goodbye" appears in the conversation. Users can customize the stopping criteria themselves as well.
 
 #### Retry
 
-The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consiquent retries in case the last API call failed is 3.
+The scenario simulator supports retry logic, the default maximum number of retries in case the last API call failed is 3. The default number of seconds to sleep between consequent retries in case the last API call failed is 3.
 
-User can also defines their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` pass it into the `Simulator()`.
+User can also define their own `api_call_retry_sleep_sec` and `api_call_retry_max_count` and pass it into the `Simulator()`.
 
 #### Example of output conversation from a general simulator
 
@@ -335,4 +335,5 @@ User can also defines their own `api_call_retry_sleep_sec` and `api_call_retry_m
 
 ## Next steps
 
-- [Learn more about Azure AI Studio](../what-is-ai-studio.md)
+- [Learn more about Azure AI Studio](../what-is-ai-studio.md).
+- Get started with [samples](https://aka.ms/safetyevalsamples) to try out the simulator.

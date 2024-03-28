@@ -40,7 +40,7 @@ When using AI-assisted performance and quality metrics, you must specify a GPT m
 When using AI-assisted risk and safety metrics, you do not need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms. 
 
 > [!NOTE]
-> Currently AI-assisted risk and safety metrics are only available in the following regions: East US 2, France Central, UK South, Sweden Central. Groundedness measurement leveraging Azure AI Content Safety Groundedness Detection is only supported following regions: East US 2 and Sweden Central. Read more about the [supported metrics](../concepts/evaluation-metrics-built-in.md#metrics-for-single-turn-question-answering-without-retrieval-non-rag) and when to use which metric.
+> Currently AI-assisted risk and safety metrics are only available in the following regions: East US 2, France Central, UK South, Sweden Central. Groundedness measurement leveraging Azure AI Content Safety Groundedness Detection is only supported following regions: East US 2 and Sweden Central. Read more about the [supported metrics](../../../concepts/evaluation-metrics-built-in.md#metrics-for-single-turn-question-answering-without-retrieval-non-rag) and when to use which metric.
 
 ### Supported input data format for question answering
 

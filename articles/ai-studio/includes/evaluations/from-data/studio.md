@@ -105,7 +105,7 @@ You can select from pre-existing datasets or upload a new dataset specifically t
     
         :::image type="content" source="../../../media/evaluations/evaluate/input-manually.png" alt-text="Screenshot of the manual data input option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/input-manually.png":::
 
-+ **Data mapping**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations. For guidance on the specific data mapping requirements for each metric, refer to the information provided below:
++ **Data mapping**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations. For guidance on the specific data mapping requirements for each metric, refer to the following information:
 
     :::image type="content" source="../../../media/evaluations/evaluate/data-mapping.png" alt-text="Screenshot of the dataset mapping when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/data-mapping.png":::
 
@@ -146,7 +146,7 @@ For guidance on the specific data mapping requirements for each metric, refer to
 | Violent content            | Required: list |
 | Sexual content             | Required: list |
 
-Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../../../concept/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
+Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../../../concepts/evaluation-metrics-built-in.md#Conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
 
 #### Review and finish
 
