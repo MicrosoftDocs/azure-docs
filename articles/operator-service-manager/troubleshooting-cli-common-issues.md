@@ -155,3 +155,24 @@ AOSM will return the following error message if the CGV contains an empty array 
 ```json
 {"code":"BadRequest","message":"NSDV ResourceElementTemplate (name: 'mco-nsdg', type: 'NetworkFunctionDefinition') expects at least one 'networkfunctions' resource in the associated template. Please use the type: 'ArmResourceDefinition' to install generic ARM resources."}
 ```
+
+### Cyclic dependsOnProfile errors
+
+AOSM will raise an error if you attempt to deploy a network function (NF) which references an NFDV with cyclic network function application dependencies. Here's an example error:
+
+```json
+ {
+  "id": "/providers/Microsoft.HybridNetwork/locations/EASTUS2EUAP/operationStatuses/<operation-id>",
+  "name": "<operation-id>",
+  "resourceId": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/networkfunctions/<nf-name>",
+  "status": "Failed",
+  "startTime": "2023-07-17T20:48:01.4792943Z",
+  "endTime": "2023-07-17T20:48:10.0191285Z",
+  "error": {
+    "code": "DependenciesValidationFailed",
+    "message": "CyclicDependencies: Circular dependencies detected at <nf-application-name>."
+  }
+}
+```
+
+The error message includes the NF application which contains the cyclic dependency. The solution is to resolve the dependency, either by editing the Azure CLI AOSM extension input file and rerunning the `nfd build` and `nfd publish` commands. You can also edit the `dependsOnProfile` property of the affected NF applications in the NFDV manually.
