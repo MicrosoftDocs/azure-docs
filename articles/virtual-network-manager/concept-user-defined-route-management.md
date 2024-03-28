@@ -19,13 +19,13 @@ In Azure Virtual Network Manager, you can automate and simplify routing behavior
 
 Azure Virtual Network Manager (AVNM) allows you to describe your desired routing behavior, and AVNM orchestrates user-defined routes (UDRs) to create and maintain the desired routing behavior. 
 
-User-defined routes addresses the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. Also, you can utilize the Azure-managed hub in Virtual WAN, but this option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
+User-defined routes address the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. You can utilize the Azure-managed hub in Virtual WAN. This option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
 
 ## How does UDR management works
 
 In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. 
 
-Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, *VNet1* and *VNet2*, accesses the DNS service's address through a Firewall. Your network manager will create UDRs to make this routing behavior happen.
+Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, **VNet1** and **VNet2**, accesses the DNS service's address through a Firewall. Your network manager creates UDRs to make this routing behavior happen.
 
 :::image type="content" source="media/concept-udr-management/udr-management-example.png" alt-text="Diagram of user-defined rules being applied to virtual networks to route DNS traffic through firewall.":::
 
@@ -72,7 +72,7 @@ Each route rule consists of the following settings:
 
 :::image type="content" source="media/how-to-deploy-user-defined-routes/routing-rule-settings.png" alt-text="Screenshot of configured routing rule.":::
 
-For each type of next hop, please refer to [used-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined).
+For each type of next hop, refer to [used-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 ### Common destination patterns for IP Addresses
 
@@ -82,7 +82,7 @@ The following are common destination patterns:
 | **Traffic destination** | **Description** |
 |-------------------------|-----------------|
 | **Internet > NVA** | For traffic destined to the Internet through a network virtual appliance, enter **0.0.0.0/0** as the destination in the rule. |
-| **Private traffic > NVA** | For traffic destined to the private space through a network virtual appliance, enter **192.168.0.0/16, 172.16.0.0/12, 40.0.0.0/24, 10.0.0.0/24** as the destination in the rule. These are base on the RFC1918 private IP address space. |
+| **Private traffic > NVA** | For traffic destined to the private space through a network virtual appliance, enter **192.168.0.0/16, 172.16.0.0/12, 40.0.0.0/24, 10.0.0.0/24** as the destination in the rule. These destinations are based on the RFC1918 private IP address space. |
 | **Spoke network > NVA** | For traffic bound between two spoke virtual networks connecting through a network virtual appliance, enter the CIDRs of the spokes as the destination in the rule. |
 
 ### Use Azure Firewall as the next hop
@@ -98,9 +98,9 @@ Here are the common routing scenarios that you can simplify and automate by usin
 | **Routing scenarios**                              | **Description**  |
 |--------------------------------------------------|---------------|
 | Spoke network -> Network Virtual Appliance -> Spoke network |  Use this scenario for traffic bound between two spoke virtual networks connecting through a network virtual appliance. |
-| Spoke network -> Network Virtual Appliance -> Endpoint or Service in Hub network | Use this scenario for traffic from a spoke network to a service endpoint in a hub network connecting through a network virtual appliance. |
+| Spoke network -> Network Virtual Appliance -> Endpoint or Service in Hub network | Use this scenario for spoke network traffic for a service endpoint in a hub network connecting through a network virtual appliance. |
 | Subnet -> Network Virtual Appliance -> Subnet even in the same virtual network |              |
-| Spoke network -> Network Virtual Appliance -> On-premises network/internet | Use this scenario when you have traffic outbound through a network virtual appliance to the Internet or an on-premises location, such as hybrid network scenarios. |
+| Spoke network -> Network Virtual Appliance -> On-premises network/internet | Use this scenario when you have Internet traffic outbound through a network virtual appliance or an on-premises location, such as hybrid network scenarios. |
 | Cross-hub and spoke network via Network Virtual Appliances in each hub |              |
 | hub and spoke network with Spoke network to on-premises needs to go via Network Virtual Appliance |              |
 | Gateway -> Network Virtual Appliance -> Spoke network  |              |
@@ -120,5 +120,5 @@ When you select **Direct routing within virtual network** or **Direct routing wi
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn to how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
+> [Learn how to create user-defined routes in Azure Virtual Network Manager](how-to-create-user-defined-routes.md).
 
