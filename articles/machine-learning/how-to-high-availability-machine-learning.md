@@ -173,8 +173,8 @@ The following artifacts can be exported and imported between workspaces by using
 | ----- | ----- | ----- |
 | Models | [az ml model download --name {NAME} --version {VERSION}](/cli/azure/ml/model#az-ml-model-download) | [az ml model create](/cli/azure/ml/model#az-ml-model-create) |
 | Environments | [az ml environment share --name my-environment --version {VERSION} --resource-group {RESOURCE_GROUP} --workspace-name {WORKSPACE} --share-with-name {NEW_NAME_IN_REGISTRY} --share-with-version {NEW_VERSION_IN_REGISTRY} --registry-name {REGISTRY_NAME}](/cli/azure/ml/environment#az-ml-environment-share) | [az ml environment create](/cli/azure/ml/environment#az-ml-environment-create) |
-| Azure Machine Learning jobs | [az ml job download -n {NAME} -g {RESOURCE_GROUP} -w {WORKSPACE_NAME}](/cli/azure/ml/job#az-ml-job-download) | [az ml job create -f {FILE} -g {RESOURCE_GROUP} -w {WORKSPACE_NAME}](/cli/azure/ml/pipeline#az-ml-job-create) |
-| Data assets | [az ml data share --name {DATA_NAME} --version {VERSION} --resource-group {RESOURCE_GROUP} --workspace-name {WORKSPACE} --share-with-name {NEW_NAME_IN_REGISTRy} --share-with-version {NEW_VERSION_IN_REGISTRY} --registry-name {REGISTRY_NAME}](/cli/azure/ml/data?view=azure-cli-latest#az-ml-data-create) | [az ml data create -f {FILE} -g {RESOURCE_GROUP} --registry-name {REGISTRY_NAME}]() |
+| Azure Machine Learning jobs | [az ml job download -n {NAME} -g {RESOURCE_GROUP} -w {WORKSPACE_NAME}](/cli/azure/ml/job#az-ml-job-download) | [az ml job create -f {FILE} -g {RESOURCE_GROUP} -w {WORKSPACE_NAME}](/cli/azure/ml/job#az-ml-job-create) |
+| Data assets | [az ml data share --name {DATA_NAME} --version {VERSION} --resource-group {RESOURCE_GROUP} --workspace-name {WORKSPACE} --share-with-name {NEW_NAME_IN_REGISTRy} --share-with-version {NEW_VERSION_IN_REGISTRY} --registry-name {REGISTRY_NAME}](/cli/azure/ml/data#az-ml-data-create) | [az ml data create -f {FILE} -g {RESOURCE_GROUP} --registry-name {REGISTRY_NAME}]() |
 
 
 > [!TIP]
