@@ -41,7 +41,7 @@ You can't use tools or APIs to transfer content, such as an index, from one serv
 
 Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Azure CLI versions are [listed on GitHub](https://github.com/Azure/azure-cli/releases).
 
@@ -288,7 +288,7 @@ az search private-endpoint-connection show \
 To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-update). The following example sets a private endpoint connection to rejected:
 
 ```azurecli-interactive
-az search private-endpoint-connection show \
+az search private-endpoint-connection update \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
     --resource-group <search-service-resource-group-name> 

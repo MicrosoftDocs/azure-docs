@@ -4,6 +4,7 @@ description: Learn about the tools and resources needed to run Java applications
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: cshoe
@@ -33,8 +34,8 @@ Running containerized applications usually means you need to create a Dockerfile
 
 | Type | Description | Uses Buildpacks | Uses a Dockerfile |
 |--|--|--|--|
-| Artifact build | You can deploy directly to Container Apps from your source code. | Yes | No |
-| Maven build | You can create a Maven build to deploy to Container Apps | Yes | No |
+| [Source code build](./quickstart-code-to-cloud.md?tabs=bash%2Cjava&pivots=without-dockerfile) | You can deploy directly to Container Apps from your source code. | Yes | No |
+| [Artifact build](deploy-artifact.md) | You can create a Maven build to deploy to Container Apps | Yes | No |
 | Dockerfile | You can create your Dockerfile manually and take full control over your deployment. | No | Yes |
 
 > [!NOTE]

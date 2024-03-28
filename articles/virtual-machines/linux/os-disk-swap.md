@@ -6,7 +6,7 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: rogarana
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Change the OS disk used by an Azure VM using the Azure CLI
 
