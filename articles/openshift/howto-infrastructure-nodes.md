@@ -363,7 +363,21 @@ Use this procedure for any additional ingress controllers you may have in the cl
 
 1. Allow the DNS pods to run on the infrastructure nodes.
 
+   ```
+   oc edit dns.operator/default
+   ```
 
+   ```
+   apiVersion: operator.openshift.io/v1
+   kind: DNS
+   metadata:
+   name: default
+   spec:
+   nodePlacement:
+     tolerations:
+     - operator: Exists
+   ```
+    
 1. Verify that DNS pods are scheduled onto all infra nodes.
 
 ```
