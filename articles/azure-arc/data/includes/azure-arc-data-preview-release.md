@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/12/2024
 ---
 
-At this time, a test or preview build is not available for the next release.
-
 <!---
-March, 2024 preview release is now available.
+At this time, a test or preview build is not available for the next release.
+-->
+
+April, 2024 test release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.28.0_2024-03-12`|
+|Container images tag |`v1.29.0_2024-04-09`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -33,18 +34,13 @@ March, 2024 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.12 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.28.0|
+|`arcdata` Azure CLI extension version|1.5.13 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.29.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
-|SQL Database version | 964 |
+|SQL Database version | 968 |
 
 ### Release notes
 
-#### Arc-enabled SQL Server
-Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Server in Portal and CLI | Public Preview
+Arc SQL Server | Support for moving Arc-enabled SQL Server instances and child resources (DBs, AGs) across different subscriptions & resource groups | Public Preview
 
-Arc SQL Server | Set feature flags via the Azure CLI | GA
-
-Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA
-
--->
+Arc SQL Server | Allow the database inventory feature for all license types | GA

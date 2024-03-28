@@ -1,11 +1,13 @@
 ---
 title: Create Azure Monitor log search alert rules
-description: This article shows you how to create a new log search alert rule.
+description: This article explains how to create a new Azure Monitor log search alert rule or edit an existing rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.date: 02/28/2024
 ms.reviewer: nolavime
+
+#Customer intent: As a customer, I want to create a new log search alert rule or edit an existing rule so that I can monitor my resources and receive alerts when certain conditions are met.
 ---
 
 # Create or edit a log search alert rule
@@ -40,13 +42,14 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
-    > [!NOTE]
-    > * Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
-    > * The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
+Limitations for log search alert rule queries:
+ - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+ - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
+ - The combined size of all data in the log alert rule properties cannot exceed 64KB.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
-1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp. We recommend that you add a time range filter to the query. For example:
 
     ```KQL
         adx('https://help.kusto.windows.net/Samples').table    
@@ -61,9 +64,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md).
 
-   For limitations:
+   These are the limitations for using cross queries:
    * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
    * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
    * Not supported in government clouds
