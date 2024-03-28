@@ -25,12 +25,12 @@ The network policy rules are defined as YAML manifests. Network policies can be 
 
 Azure provides three Network Policy engines for enforcing network policies:
 
-* *Cilium* for AKS clusters that use [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md).
-* *Azure Network Policy Manager*.
-* *Calico*, an open-source network and network security solution founded by [Tigera][tigera].
+* _Cilium_ for AKS clusters that use [Azure CNI Powered by Cilium](./azure-cni-powered-by-cilium.md).
+* _Azure Network Policy Manager_.
+* _Calico_, an open-source network and network security solution founded by [Tigera][tigera].
 
 Cilium is our recommended Network Policy engine. Cilium enforces network policy on the traffic using Linux Berkeley Packet Filter (BPF), which is generally more efficient than "IPTables". See more details in [Azure CNI Powered by Cilium documentation](./azure-cni-powered-by-cilium.md).  
-To enforce the specified policies, Azure Network Policy Manager for Linux uses Linux *IPTables*. Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies*. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as `IPTable` or `HNS ACLPolicy` filter rules.
+To enforce the specified policies, Azure Network Policy Manager for Linux uses Linux _IPTables_. Azure Network Policy Manager for Windows uses _Host Network Service (HNS) ACLPolicies_. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as `IPTable` or `HNS ACLPolicy` filter rules.
 
 
 ## Differences between Network Policy engines: Cilium, Azure NPM, and Calico
@@ -136,13 +136,13 @@ Register the `WindowsNetworkPolicyPreview` feature flag by using the [az feature
 az feature register --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+It takes a few minutes for the status to show _Registered_. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
 ```
 
-When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects _Registered_, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -370,10 +370,10 @@ Requirements:
  - Azure CLI version 2.54 or later
  - AKS REST API version 2023-08-02-preview or later
 
-Notes:
- - The uninstall process does _not_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These CRDs and CRs all have names ending with either "projectcalico.org" or "tigera.io".
- These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico breaks the cluster).
- - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies are no longer enforced.
+> [!NOTE]
+ > - The uninstall process does _**not**_ remove Custom Resource Definitions (CRDs) and Custom Resources (CRs) used by Calico. These CRDs and CRs all have names ending with either "projectcalico.org" or "tigera.io".
+ > These CRDs and associated CRs can be manually deleted _after_ Calico is successfully uninstalled (deleting the CRDs before removing Calico breaks the cluster).
+ > - The upgrade will not remove any NetworkPolicy resources in the cluster, but after the uninstall these policies are no longer enforced.
 
 > [!WARNING]
 > The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
