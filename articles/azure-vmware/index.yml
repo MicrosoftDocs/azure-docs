@@ -38,7 +38,7 @@ highlightedContent:
       url: architecture-migrate.md
     - title: Well-Architected Framework (WAF)
       itemType: concept
-      url: /azure/well-architected/
+      url: /azure/well-architected/what-is-well-architected-framework
     - title: Cloud Adoption Framework (CAF)
       itemType: concept
       url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
