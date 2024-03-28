@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: application-insights
-author: lgayhardt
+author: AaronMaxwell
 ms.service: application-insights
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: lagayhar
+ms.author: aaronmax
 ms.custom: include file
 ---
 
