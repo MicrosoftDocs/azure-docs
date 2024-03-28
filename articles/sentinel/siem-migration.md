@@ -33,7 +33,7 @@ You need the following from the source SIEM:
 You need the following on the target, Microsoft Sentinel:
 
 - The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
-- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Install and enable out-of-the-box (OOTB) data connectors to match your security monitoring estate from your source SIEM. [MULTIPLE]
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Install and enable out-of-the-box (OOTB) data connectors to match your security monitoring estate from your source SIEM.
     - If the data connectors aren't installed yet, find the relevant solutions in **Content hub**. 
     - If no data connector exists, create a custom ingestion pipeline.<br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
