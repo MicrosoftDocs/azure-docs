@@ -10,7 +10,7 @@ appliesto:
 ms.collection: usx-security
 ---
 
-# Microsoft Sentinel in the Microsoft Defender portal
+# Microsoft Sentinel in the Microsoft Defender portal (preview)
 
 Microsoft Sentinel is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
 
