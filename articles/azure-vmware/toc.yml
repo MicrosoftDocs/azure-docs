@@ -189,8 +189,6 @@ items:
   items:
   - name: Operating system support for VMs
     href: ecosystem-os-vms.md
-  - name: ESUs for Windows Server and SQL Server in Azure VMware Solution VMs
-    href: extended-security-updates-windows-sql-server.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Deploy VMs from the content library
