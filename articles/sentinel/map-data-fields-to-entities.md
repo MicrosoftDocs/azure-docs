@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
+ms.collection: usx-security
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Map data fields to entities in Microsoft Sentinel 

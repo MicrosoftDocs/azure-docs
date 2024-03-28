@@ -8,6 +8,7 @@ ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #customer intent: As a security architect or SOC analyst, I want to understand what data connectors are in Microsoft Sentinel.
 ---
 

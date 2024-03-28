@@ -22,6 +22,8 @@ For an introduction to playbooks, see [Automate threat response with playbooks i
 
 For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Permissions required
 
 | Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |

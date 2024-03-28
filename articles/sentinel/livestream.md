@@ -27,6 +27,7 @@ Use hunting livestream to create interactive sessions that let you test newly cr
     
     If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Create a livestream session
 

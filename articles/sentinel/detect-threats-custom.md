@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Create a custom analytics rule from scratch

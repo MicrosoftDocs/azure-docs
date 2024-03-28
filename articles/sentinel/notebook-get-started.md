@@ -31,6 +31,8 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 
 Several Microsoft Sentinel notebooks don't use MSTICPy, such as the **Credential Scanner** notebooks, or the PowerShell and C# examples. Notebooks that don't use MSTICpy don't need the MSTICPy configuration described in this article.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Prerequisites
 
 Before you begin, make sure you have the required permissions and resources.

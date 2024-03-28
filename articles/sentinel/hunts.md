@@ -27,6 +27,8 @@ Use the end to end hunting experience within Microsoft Sentinel to:
 - Keep track of your new, active, and closed hunts in one place.
 - View metrics based on validated hypotheses and tangible results.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Prerequisites
 In order to use the hunts feature, you either need to be assigned a built-in Microsoft Sentinel role, or a custom Azure RBAC role. Here are your options:
 
