@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/18/2022
 ms.author: mattmcinnes
 ms.reviewer: jamesser
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, linux-related-content
 ---
 
 # Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure

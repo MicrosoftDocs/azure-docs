@@ -28,6 +28,8 @@ items:
       href: concept-security.md
     - name: Network Security
       items:
+      - name: Ingress and Egress controls
+        href: ./control-egress-traffic-from-hdinsight-on-aks-clusters.md
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
   - name: Resource management
@@ -36,6 +38,8 @@ items:
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters
     href : ./customize-clusters.md
+  - name: In-place upgrades
+    href : ./in-place-upgrade.md  
 - name: Releases
   items:
   - name: Release notes
@@ -123,6 +127,8 @@ items:
       href: ./trino/trino-add-delta-lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
+    - name: Configure sharded SQL connector
+      href: ./trino/trino-sharded-sql-connector.md
   - name: Cluster management
     items:
     - name: Trino configuration
@@ -171,6 +177,8 @@ items:
     href: ./flink/flink-create-cluster-portal.md
   - name: Tutorials
     items:
+    - name: Application Mode clusters
+      href: ./flink/application-mode-cluster-on-hdinsight-on-aks.md
     - name: Configuration management
       href: ./flink/flink-configuration-management.md
     - name: Job management
