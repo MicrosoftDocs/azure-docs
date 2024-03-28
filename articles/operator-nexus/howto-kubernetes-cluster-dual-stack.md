@@ -26,9 +26,6 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 * Single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
 
-> [!IMPORTANT]
-> These instructions are for creating a new Nexus Kubernetes cluster. Avoid applying the Bicep template to an existing cluster, as IP pool configuration is immutable. Once a cluster is created with the IP pool configuration, it cannot be modified.
-
 ## Configuration options
 
 Operator Nexus Kubernetes dual-stack networking relies on the pod and service CIDR to enable both IPv4 and IPv6 communication. Before configuring the dual-stack networking, it's important to understand the various configuration options available. These options allow you to define the behavior and parameters of the dual-stack networking according to your specific requirements. Let's explore the configuration options for dual-stack networking.
@@ -65,6 +62,9 @@ To enable dual-stack `LoadBalancer` services in your cluster, you must ensure th
 ### Example parameters
 
 This parameter file is intended to be used with the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) Bicep template for creating a cluster with BGP load balancer enabled. It contains the necessary configuration settings to set up the cluster with BGP load balancer functionality. By using this parameter file with the Bicep template, you can create a cluster with the desired BGP load balancer capabilities.
+
+> [!IMPORTANT]
+> These instructions are for creating a new Operator Nexus Kubernetes cluster. Avoid applying the Bicep template to an existing cluster, as Pod and Service CIDR configurations are immutable.
 
 ```json
 {
