@@ -87,9 +87,9 @@ Finishing up...
 
 ## How to download the log file
 
-Once the log file is generated, you can download the generated log file from your cluster node to your local machine using various methods, including SCP, SFTP or Azure CLI. However, it is important to note that SCP or SFTP are only possible if you have direct IP reachability to the cluster node. If you do not have direct IP reachability, you can use Azure CLI to download the log file.
+Once the log file is generated, you can download the generated log file from your cluster node to your local machine using various methods, including SCP, SFTP, or Azure CLI. However, it's important to note that SCP or SFTP are only possible if you have direct IP reachability to the cluster node. If you don't have direct IP reachability, you can use Azure CLI to download the log file.
 
-This command should look familiar to you, as it is the same command used to SSH into the Nexus Kubernetes cluster node. To download the generated log file from the node to your local machine, simply use this command again, with the addition of the `cat` command at the end to copy the file.
+This command should look familiar to you, as it's the same command used to SSH into the Nexus Kubernetes cluster node. To download the generated log file from the node to your local machine, use this command again, with the addition of the `cat` command at the end to copy the file.
 
 ``` bash
 RESOURCE_GROUP="myResourceGroup"
