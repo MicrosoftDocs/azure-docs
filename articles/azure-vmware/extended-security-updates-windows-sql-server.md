@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/18/2024
 ---
 
-# Extended Security Updates (ESU) for Windows Server and SQL Server in Azure VMware Solution virtual machines
+# ESUs for Windows Server and SQL Server in Azure VMware Solution VMs
 
 Extended Security Updates (ESUs) provide a way for customers to continue to run software that has reached its end-of-support lifecycle. ESUs are the mechanism, which allows these older versions of software to continue to be run in a supported manner and still receive security updates and critical patches. 
 
