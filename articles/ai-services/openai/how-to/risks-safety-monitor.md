@@ -12,7 +12,7 @@ manager: nitinme
 
 # Use Risks & Safety monitoring in Azure OpenAI Studio (preview) 
 
-When you use an Azure OpenAI model deployment with a content filter, you may want to check the results of the filtering activity. You can use that information to further adjust your filter configuration to serve your specific business needs and meet Responsible AI principles.  
+When you use an Azure OpenAI model deployment with a content filter, you may want to check the results of the filtering activity. You can use that information to further adjust your filter configuration to serve your specific business needs and Responsible AI principles.  
 
 [Azure OpenAI Studio](https://oai.azure.com/) provides a Risks & Safety monitoring dashboard for each of your deployments that uses a content filter configuration.
 
@@ -24,7 +24,7 @@ Go to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credent
 
 ## Content detection   
 
-The **Content detection** pane shows information about content filter activity. Your content filter configuration is applied to both the user input and model output of LLM sessions. 
+The **Content detection** pane shows information about content filter activity. Your content filter configuration is applied as described in the [Content filtering documentation](/azure/ai-services/openai/how-to/content-filters).
 
 ### Report description
 
@@ -32,18 +32,18 @@ Content filtering data is shown in the following ways:
 - **Total blocked request count and block rate**: This view shows a global view of the amount and rate of content that is filtered over time. This helps you understand trends of harmful requests from users and see any unexpected activity.
 - **Blocked requests by category**: This view shows the amount of content blocked for each category. This is an all-up statistic of harmful requests across the time range selected. It currently supports the harm categories hate, sexual, self-harm, and violence.
 - **Block rate over time by category**: This view shows the block rate for each category over time. It currently supports the harm categories hate, sexual, self-harm, and violence.
-- **Severity distribution by category**: This view shows the severity levels detected for each harm category, across the whole selected time range. This is not limited to _blocked_ content but rather includes all content that was detected as harmful.
+- **Severity distribution by category**: This view shows the severity levels detected for each harm category, across the whole selected time range. This is not limited to _blocked_ content but rather includes all content that was flagged by the content filters.
 - **Severity rate distribution over time by category**: This view shows the rates of detected severity levels over time, for each harm category. Select the tabs to switch between supported categories.
 
 :::image type="content" source="../media/how-to/content-detection.png" alt-text="Screenshot of the content detection pane in the Risks & Safety monitoring page." lightbox="../media/how-to/content-detection.png":::
 
 ### Recommended actions
 
-Fine-tune your content filter configuration to further align with business needs and conform to your system's Responsible AI requirements.  
+Adjust your content filter configuration to further align with business needs and Responsible AI principles.
 
 ## Potentially abusive user detection   
 
-The **Potentially abusive user detection** pane shows information about users whose behavior has resulted in blocked content. The goal is to help you get a view of the sources of harmful content so you can take responsive actions to ensure the model is being used in a responsible way. 
+The **Potentially abusive user detection** pane leverages user-level abuse reporting to show information about users whose behavior has resulted in blocked content. The goal is to help you get a view of the sources of harmful content so you can take responsive actions to ensure the model is being used in a responsible way. 
 
 <!--
 To use Potentially abusive user detection, you need:
