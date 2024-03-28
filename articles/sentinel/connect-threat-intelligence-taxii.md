@@ -25,6 +25,8 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 **See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
 
 ## Prerequisites  

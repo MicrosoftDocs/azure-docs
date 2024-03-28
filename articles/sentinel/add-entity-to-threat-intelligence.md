@@ -6,7 +6,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto: 
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to quickly add relevant threat intelligence from my investigation for myself and others so I don't lose important information.
 ---
