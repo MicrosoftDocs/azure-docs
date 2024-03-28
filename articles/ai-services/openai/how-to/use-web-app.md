@@ -58,8 +58,7 @@ We recommend pulling changes from the `main` branch for the web app's source cod
 **If you've customized or changed the app's source code:**
 * You will need to update your app's source code manually and redeploy it before synchronizing the app.
     * If your app is hosted on GitHub, push your code changes to your repo, and use the synchronization steps below.
-    * If you're redeploying the app manually (for example Azure CLI), follow the steps for your deployment setup. 
- they can use the Sync button after pushing to their repo, but they may just be redeploying manually with the Azure CLI.
+    * If you're redeploying the app manually (for example Azure CLI), follow the steps for your deployment strategy.
 
 
 ### Synchronize the web app
