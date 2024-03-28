@@ -1,14 +1,17 @@
 ---
-title: Monitor Azure app services performance Python | Microsoft Docs
+title: Monitor Azure app services performance Python (Preview)
 description: Application performance monitoring for Azure app services using Python. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 04/01/2024
 ms.devlang: python
 ms.custom: "devx-track-python"
 ms.reviewer: abinetabate
 ---
 
-# Application monitoring for Azure App Service and Python (preview)
+# Application monitoring for Azure App Service and Python
+
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Monitor your Python web applications on Azure App Services without modifying the code. This guide shows you how to enable Azure Monitor Application Insights and offers tips for automating large-scale deployments.
 
@@ -31,8 +34,8 @@ Logging telemetry is collected at the level of the root logger. To learn more ab
 
 ## Prerequisites
 
-* Python version must be 3.11 or below.
-* App Service must be deployed as code. Custom containers are not supported.
+* Python version 3.11 or prior.
+* App Service must be deployed as code. Custom containers aren't supported.
 
 ## Enable Application Insights
 
@@ -127,7 +130,7 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 
 ## Troubleshooting
 
-Below is our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using autoinstrumentation.
+Here we provide our step-by-step troubleshooting guide for monitoring Python applications on Azure App Services using autoinstrumentation.
 
 ### Step 1: Confirm that App Service autoinstrumentation is enabled
 
