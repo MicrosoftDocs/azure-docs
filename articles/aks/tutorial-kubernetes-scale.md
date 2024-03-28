@@ -103,18 +103,24 @@ These resource requests and limits are defined for each container, as shown in t
 1. Create a manifest file to define the autoscaler behavior and resource limits, as shown in the following condensed example manifest file `aks-store-quickstart-hpa.yaml`:
 
     ```yaml
-    apiVersion: autoscaling/v1
+    apiVersion: autoscaling/v2
     kind: HorizontalPodAutoscaler
     metadata:
       name: store-front-hpa
     spec:
       maxReplicas: 10 # define max replica count
       minReplicas: 3  # define min replica count
-      targetCPUUtilizationPercentage: 50 # target CPU utilization
       scaleTargetRef:
         apiVersion: apps/v1
         kind: Deployment
         name: store-front
+      metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 50
     ```
 
 2. Apply the autoscaler manifest file using the `kubectl apply` command.
