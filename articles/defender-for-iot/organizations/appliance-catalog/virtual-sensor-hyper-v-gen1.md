@@ -1,11 +1,11 @@
 ---
-title: OT sensor VM (Microsoft Hyper-V) Gen 2- Microsoft Defender for IoT
+title: OT sensor VM (Microsoft Hyper-V) Gen 1- Microsoft Defender for IoT
 description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# OT network sensor VM (Microsoft Hyper-V) Gen 2
+# OT network sensor VM (Microsoft Hyper-V) Gen 1
 
 This article describes an OT sensor deployment on a virtual appliance using Microsoft Hyper-V.
 
@@ -54,7 +54,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter a name for the virtual machine.
 
-1. Select **Generation** and set it to **Generation 2**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
 
 1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dynamic Memory**.
 
@@ -72,7 +72,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Allocate CPU resources [according to your organization's needs](../ot-appliance-sizing.md).
 
-1. Select **Firmware**, in **Boot order** move **DVD Drive** to the top of the list, and select **OK**.
+1. Select **BIOS**, in **Startup order** move **IDE** to the top of the list, and select **OK**.
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
