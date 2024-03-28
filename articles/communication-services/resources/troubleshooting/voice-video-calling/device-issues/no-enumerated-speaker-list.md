@@ -36,7 +36,7 @@ The error code/subcode is
 
 | error            | Details                                               |
 |------------------|-------------------------------------------------------|
-| code             | 405 (METHOD\_NOT\_ALLOWED)                            |
+| code             | 405 (Method Not Allowed)                              |
 | subcode          | 40606                                                 |
 | message          | This device does not support speaker enumeration.     |
 | resultCategories | Expected                                              |
