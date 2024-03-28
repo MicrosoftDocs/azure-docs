@@ -6,10 +6,12 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/11/2024
 ms.author: austinmc
+appliesto: 
+- Microsoft Sentinel in the Azure portal
 #customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 ---
 
-# Migrate to Microsoft Sentinel with the SIEM migration experience (preview)
+# Migrate to Microsoft Sentinel with the SIEM migration experience
 
 Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cases. Automated assistance from the SIEM Migration experience simplifies your migration. 
 
@@ -39,27 +41,25 @@ You need the following on the target, Microsoft Sentinel:
 
 At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
 
-Capabilities in public preview:
+Current capabilities:
 
 - Translate simple queries with a single data source
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
 - Review translated query error feedback with edit capability to save time in the detection rule translation process
+- Translated queries feature a completeness status with translation states 
 
 Here are some of the priorities that are important to us as we continue to develop the translation technology:
 
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
-- Translated queries feature a completeness status with translation states 
-- Multiple data sources and index
-- Rule correlations
-- Support for macros
-- Support for lookups 
-- Complex queries with joins
+- Translation of complex correlation logic that queries and correlates events across multiple data sources
+- Support for Splunk macros
+- Support for Splunk lookups 
 
 ## Start the SIEM migration experience
 
 1. Navigate to Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 
-1. Select **SIEM Migration (Preview)**. 
+1. Select **SIEM Migration**. 
 
 :::image type="content" source="media/siem-migration/siem-migration-experience.png" alt-text="Screenshot showing content hub with menu item for the SIEM migration experience.":::
 
