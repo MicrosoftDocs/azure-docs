@@ -162,32 +162,69 @@ An OpenTelemetry protocol (OTLP) endpoint is a telemetry data destination that c
 
 While you can set up as many OTLP-configured endpoints as you like, each endpoint must have a distinct name.
 
+# [ARM template](#tab/arm)
+
+```json
+{
+  "properties": {
+    "appInsightsConfiguration": {},
+    "openTelemetryConfiguration": {
+      "destinationsConfiguration":{
+        "otlpConfiguration": [
+          {
+            "name": "otlp1",
+            "endpoint": "ENDPOINT_URL_1",
+            "insecure": false,
+            "headers": "api-key-1=key"
+          },
+          {
+            "name": "otlp2",
+            "endpoint": "ENDPOINT_URL_2",
+            "insecure": true
+          }
+        ]
+      },
+      "logsConfiguration": { 
+        "destinations": ["otlp2"]
+      },
+      "tracesConfiguration":{
+        "destinations": ["otlp1", "otlp2"]
+      },
+      "metricsConfiguration": {
+        "destinations": ["otlp1"]
+      }
+    }
+  }
+}
+
+```
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az containerap env telemetry otlp add \
-  --name "otlp1" \
+  --name "otlp1"
   --endpoint "ENDPOINT_URL_1" \
   --insecure false \
   --headers "api-key-1=key" \
   --EnableOpenTelemetryTraces true \
   --EnableOpenTelemetryMetrics true
 az containerap env telemetry otlp add \
-  --name "otlp2" \
+  --name "otlp2"
   --endpoint "ENDPOINT_URL_2" \
   --insecure true \
   --EnableOpenTelemetryTraces true \
   --EnableOpenTelemetryLogs true
 ```
 
+---
+
 | Name | Description |
 |---|---|
-| `--name` | A name you select to identify your OTLP-configured endpoint. |
-| `--endpoint` | The URL of the destination that receives collected data. |
-| `--insecure` | Defaults to `true`. Defines whether to enable client transport security for the exporter's gRPC connection. If set to `false`, the `headers` parameter is required. |
-| `--headers` | Space separated values in `key=value` format that provides required security information for an OTLP endpoint. Example: `"api-key=key other-config-value=value"` |
-
----
+| `name` | A name you select to identify your OTLP-configured endpoint. |
+| `endpoint` | The URL of the destination that receives collected data. |
+| `insecure` | Default true. Defines whether to enable client transport security for the exporter's gRPC connection. If false, the `headers` parameter is required. |
+| `headers` | Space-separated values, in 'key=value' format, that provide required information for the OTLP endpoints' security. Example: `"api-key=key other-config-value=value"`. |
 
 ## Configuration options
 
