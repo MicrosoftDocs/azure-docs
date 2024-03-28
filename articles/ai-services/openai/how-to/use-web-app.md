@@ -50,10 +50,20 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
 
-We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. 
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is retired. 
+
+**If you haven't customized the app:**
+* You can follow the synchronization steps below
+
+**If you've customized or changed the app's source code:**
+* You will need to update your app's source code manually and redeploy it before synchronizing the app.
+    * If your app is hosted on GitHub, push your code changes to your repo, and use the synchronization steps below.
+    * If you're redeploying the app manually (for example Azure CLI), follow the steps for your deployment setup. 
+ they can use the Sync button after pushing to their repo, but they may just be redeploying manually with the Azure CLI.
 
 
-Additionally, the web app must be synchronized every time the API version being used is [retired](../concepts/model-retirements.md). To synchronize the web app:
+### Synchronize the web app
+
 1. If you've customized your app, update the app's source code.
 1. Navigate to your web app in the [Azure portal](https://portal.azure.com/).
 1. Select **Deployment center** in the navigation menu, under **Deployment**.
