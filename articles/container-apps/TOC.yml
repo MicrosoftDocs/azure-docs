@@ -126,6 +126,8 @@
           href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Troubleshooting
+      href: troubleshooting.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
@@ -293,9 +295,9 @@
   items:
     - name: .NET
       items:
-      - name: Deploy a .NET Aspire app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
       - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
+      - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
     - name: Java
       items:

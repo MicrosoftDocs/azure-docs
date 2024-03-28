@@ -57,22 +57,26 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Groundedness detection
+            url: concepts/groundedness.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
           - text: Using the REST API or client SDKs
             url: quickstart-text.md?pivots=programming-language-rest
+          - text: Detect groundedness in LLM responses
+            url: quickstart-groundedness.md
       - linkListType: how-to-guide
         links:
           - text: Use a blocklist
             url: how-to/use-blocklist.md
 
-  - title: Jailbreak risk detection
+  - title: User input risk detection
     linkLists:
       - linkListType: concept
         links:
-          - text: Jailbreak risk detection
+          - text: Prompt Shields
             url: concepts/jailbreak-detection.md
       - linkListType: quickstart
         links:
