@@ -225,7 +225,7 @@ additionalContent:
           links:
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
-          - text: Back up with azure-vmware-solution-citrix.md Backup Server
+          - text: Set up Azure Backup Server for Azure VMware Solution
             url: set-up-backup-server-for-azure-vmware-solution.md
           - text: Backup private cloud VMs with Backup Server
             url: backup-azure-vmware-solution-virtual-machines.md
