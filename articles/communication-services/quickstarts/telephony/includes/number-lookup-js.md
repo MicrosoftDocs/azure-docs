@@ -1,7 +1,7 @@
 Get started with the Phone Numbers client library for JavaScript to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number).
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ let searchResults = await phoneNumbersClient.searchOperatorInformation([ "<targe
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account
+> Using this functionality will incur a charge to your account.
 
 ### Use operator information
 
@@ -124,4 +124,4 @@ node number-lookup-quickstart.js
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number)).
