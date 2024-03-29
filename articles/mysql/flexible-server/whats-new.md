@@ -24,6 +24,10 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## April 2024 
+- **Microsoft Defender for Cloud supports Azure Database for MySQL flexible server (General Availability)**
+
+  We’re excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious databases activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. The error "The server <server_name> is not compatible with Advanced Threat Protection. Please contact Microsoft support to update the server to a supported version" may appear on MySQL Flexible Servers that are still waiting for an internal update. This will be resolved automatically in the next internal update, but you can also open a support ticket to force an immediate update. 
 
 ## March 2024
 
