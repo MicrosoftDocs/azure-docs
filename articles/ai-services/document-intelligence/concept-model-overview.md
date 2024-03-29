@@ -289,9 +289,13 @@ Use the credit card model to process credit and debit cards to extract key field
 
 :::image type="icon" source="media/studio/custom.png":::
 
-Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
+Custom models can be broadly classified into two types. Custom classification models that support classification of a "document type" and custom extraction models that can extract a defined schema from a specific document type.
 
-Version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
+:::image type="icon" source="media/studio/custom-models.png":::
+
+Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
+
+Version v3.0 custom model supports signature detection in custom template (form) and cross-page tables in both template and neural models.
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
