@@ -11,7 +11,7 @@ ms.date: 01/10/2024
 
 # Custom authentication in Azure Static Web Apps
 
-Azure Static Web Apps provides [managed authentication](authentication-authorization.md) that uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration.
+Azure Static Web Apps provides [managed authentication](authentication-authorization.yml) that uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration.
 
 - Custom authentication also allows you to [configure custom providers](./authentication-custom.md?tabs=openid-connect#configure-a-custom-identity-provider) that support [OpenID Connect](https://openid.net/connect/). This configuration allows the registration of multiple external providers.
 
@@ -89,7 +89,7 @@ For more information on how to configure Microsoft Entra ID, see the [App Servic
 To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 > [!NOTE]
-> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
+> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.yml) section for more information.
 
 # [Apple](#tab/apple)
 
