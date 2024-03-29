@@ -56,13 +56,21 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 ### Trigger syncing
 
-When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. When you deploy your updates by referencing an external package URL, local Git, cloud sync, or FTP, you must manually sync your triggers. You can sync triggers in one of three ways:
+When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. 
+
+You must manually sync triggers when using these deploymention options:
+
++ [External package URL](#external-package-url)
++ [Local Git](#local-git)
++ [FTPS](#ftps) 
+
+You can sync triggers in one of three ways:
 
 + Restart your function app in the Azure portal.
 + Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
-When you deploy using an external package URL, you need to manually restart your function app to fully sync your updates when the package changes without changing the URL.
+When you deploy using an external package URL, you need to manually restart your function app to fully sync your deployment when the package changes without changing the URL, which includes initial deployment.
 
 ### Remote build
 
@@ -112,7 +120,7 @@ You can use an external package URL to reference a remote package (.zip) file th
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
->__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed. When you change the contents of the package file and not the URL itself, you must also restart your function app manually.
+>__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. Whenever you deploy the package file that a function app references, you must [manually sync triggers](#trigger-syncing), including the initial deployment. When you change the contents of the package file and not the URL itself, you must also restart your function app to sync triggers. 
 
 >__Where app content is stored:__ App content is stored at the URL specified. This could be on Azure Blobs, possibly in the storage account specified by the `AzureWebJobsStorage` connection. Some client tools may default to deploying to a blob in this account. For example, for Linux Consumption apps, the Azure CLI will attempt to deploy through a package stored in a blob on the account specified by `AzureWebJobsStorage`.
 
@@ -143,18 +151,6 @@ You can deploy a function app running in a Linux container.
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
 
 >__Where app content is stored:__ App content is stored in the specified container registry as a part of the image.
-
-### Web Deploy (MSDeploy)
-
-Web Deploy packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
-
->__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Clear the **Run from package file (recommended)** check box.
->
->You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
-
->__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
-
->__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
 ### Source control
 

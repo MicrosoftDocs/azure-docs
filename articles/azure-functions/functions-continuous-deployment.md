@@ -40,7 +40,7 @@ You can also connect your function app to an external Git repository, but this r
 >
 >GitHub is the only continuous deployment source supported for apps running on Linux in a [Consumption plan](./consumption-plan.md), which includes serverless Python apps. 
 
-## Requirements for continuous deployment
+## Requirements
 
 For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
 
@@ -48,7 +48,7 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 ## Build providers
 
-Building your code project is part of the deployment process. While this build process is key for compiled languages (C#/Java/TypeScript) to generate runable binaries, even interpreted and hybrid languages (Python/JavaScript) require a build to obtain and package any required libraries. Builds can be done locally or remotely. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
+Building your code project is part of the deployment process. The specific build process depends on your specific language stack, operating system, and hosting plan. Builds can be done locally or remotely, again depending on your specific hosting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 Functions supports these build providers:
 
@@ -65,6 +65,8 @@ GitHub Actions is the default build provider for GitHub projects. GitHub Actions
 The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site is accessible to your app. For more information, see [Secure the scm endpoint](security-concepts.md#secure-the-scm-endpoint). 
 
 ---
+
+Your options for which of these build providers you can use depend on the specific code deployment source.  
 
 ## <a name="credentials"></a>Deployment center
 
@@ -156,7 +158,7 @@ When a new commit is pushed to the local git repository, the service pulls your 
 
 After deployment completes, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
-## Considerations for continuous deployment
+## Considerations
 
 You should keep these considerations in mind when planning for a continuous deployment strategy:
 

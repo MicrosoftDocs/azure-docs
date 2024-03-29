@@ -1,7 +1,7 @@
 ---
 title: Create your first containerized Azure Functions on Azure Container Apps
 description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
-ms.date: 03/07/2024
+ms.date: 03/28/2024
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
@@ -29,7 +29,7 @@ Before you can deploy your container to Azure, you need to create three resource
 
 Use the following commands to create these items. 
 
-1. If you haven't so done already, sign in to Azure.
+1. If you haven't done so already, sign in to Azure.
 
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
 
@@ -166,7 +166,7 @@ Specifying `--workload-profile-name "Consumption"` creates your app in an enviro
 <!--- CI/CD isn't yet supported: 
 You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->
 
-At this point, your functions are running in a Container Apps environment, with the required application settings already added. When you need to add other settings in your functions app, you can do this in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
 > When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry)
