@@ -25,8 +25,8 @@ to monitor device and network issues and display warning messages accordingly, s
 Here we list several common audio issues, along with potential causes for each issue:
 
 ### The user can't hear sound during the call
-* The speaking participant's microphone has a problem.
-* The user's speaker has a problem.
+* There's a problem on the microphone of the speaking participant.
+* There's a problem on the audio output device of the user.
 * There's a network issue in the call
 
 ### The user experiences poor audio quality

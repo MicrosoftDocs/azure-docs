@@ -27,11 +27,11 @@ From the perspective of the ACS Calling SDK, network issues are considered exter
 To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
-The application should listen to the `User Facing Diagnostics` events mentioned above and display a warning message when receiving them,
+The application should listen to the `networkReconnect` event and display a warning message when receiving them,
 so that the user is aware of the issue and understands that the audio loss is due to network reconnection.
 
 However, if the network reconnection occurs at the sender's side,
-the users on the receiving end won't be able to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
+users on the receiving end aren't be able to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
 
-In the future, the SDK will support Remote UFD, which can detect this case quickly and provides applications a way to handle this error gracefully.
+In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 
