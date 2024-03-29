@@ -189,7 +189,7 @@ Custom monitoring signal through a custom Azure Machine Learning component.
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ------------| ---------------| ------------- |
 | `type` | String | **Required**. Type of monitoring signal. Prebuilt monitoring signal processing component is automatically loaded according to the `type` specified here. | `custom` | `custom` |
-| `component_id` | String | **Required**. The Azure Machine Learning component id corresponding to your custom signal. For example `azureml:mycustomcomponent:1` | | |
+| `component_id` | String | **Required**. The Azure Machine Learning component ID corresponding to your custom signal. For example `azureml:mycustomcomponent:1` | | |
 | `input_data` | Object | **Optional**. Description of the input data to be analyzed by the monitoring signal, see [job input data](./reference-yaml-job-command.md#job-inputs) specification.  | | |
 | `input_data.<data_name>.data_context` | String | The context of data, it refers model production data and could be model inputs or model outputs | `model_inputs` |  |
 | `input_data.<data_name>.data_window` | Object | **Optional**. Data window of the reference data to be used as comparison baseline data. | Allow either rolling data window or fixed data window only. For using rolling data window, please specify `input_data.<data_name>.data_window.lookback_window_offset` and  `input_data.<data_name>.data_window.lookback_window_size` properties. For using fixed data windows, please specify `input_data.<data_name>.data_window.window_start` and `input_data.<data_name>.data_window.window_end` properties. All property values must be in ISO8601 format. | |
