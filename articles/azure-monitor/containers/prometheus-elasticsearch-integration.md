@@ -16,90 +16,17 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 
 
 ### Install Elastic Search Exporter -
-Install the [elastic search exporter](https://github.com/prometheus-community/elasticsearch_exporter) as a deployment using the following yaml configuration - 
+Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart -
 
-> [!NOTE] 
-> The container can be configured with arguments as described in the [Flags](https://github.com/prometheus-community/elasticsearch_exporter#configuration) section.
-Please specify the right server address where the elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the elasticsearch server. For the following configuration, the server address is set to "quickstart-es-internal-http" using the argument "es.uri"
-
-```yaml
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: azmon-elasticsearch-exporter
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azmon-elasticsearch-exporter
-  labels:
-    app.kubernetes.io/instance: azmon-elasticsearch-exporter
-    app.kubernetes.io/name: azmon-elasticsearch-exporter
-  namespace: azmon-elasticsearch-exporter
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app.kubernetes.io/instance: azmon-elasticsearch-exporter
-      app.kubernetes.io/name: azmon-elasticsearch-exporter
-  template:
-    metadata:
-      labels:
-        app.kubernetes.io/instance: azmon-elasticsearch-exporter
-        app.kubernetes.io/name: azmon-elasticsearch-exporter
-    spec:
-      containers:
-      - name: azmon-elasticsearch-exporter
-        command: ["elasticsearch_exporter",
-        "--es.uri=https://username:password@quickstart-es-internal-http.namespace:9200",
-        "--web.listen-address=:9108",
-        "--web.telemetry-path=/metrics"]
-        image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
-        imagePullPolicy: IfNotPresent
-        lifecycle:
-          preStop:
-            exec:
-              command:
-              - /bin/sleep
-              - "20"
-        ports:
-        - containerPort: 9108
-          name: metrics
-          protocol: TCP
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/os
-                    operator: In
-                    values:
-                      - linux
+```bash
+helm install azmon-elasticsearch-exporter --version 5.7.0 prometheus-community/prometheus-elasticsearch-exporter --set es.uri="https://username:password@quickstart-es-internal-http.namespace:9200" --set podMonitor.enabled=true --set podMonitor.apiVersion=azmonitoring.coreos.com/v1
 ```
-### Deploy Pod Monitor
-Deploy the following pod monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter.
-```yaml
-apiVersion: azmonitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  name: azmon-elasticsearch-exporter-pod-monitor
-  namespace: azmon-elasticsearch-exporter
-spec:
-  labelLimit: 63
-  labelNameLengthLimit: 511
-  labelValueLengthLimit: 1023
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: azmon-elasticsearch-exporter
-  namespaceSelector:
-    matchNames:
-    - azmon-elasticsearch-exporter
-  podMetricsEndpoints:
-  - port: metrics
-    interval: 30s
-  ```
 
 > [!NOTE] 
+> Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=5.7.0.</br>
+> The [prometheus-elasticsearch-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-elasticsearch-exporter/values.yaml) yaml.
+Please specify the right server address where the elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the elasticsearch server. For this helm chart, the server address is set to "quickstart-es-internal-http" using the argument "es.uri".</br>
+> You could also use service monitor, instead of pod monitor by using the **--set serviceMonitor.enabled=true** helm chart paramaters. Make sure to use the api version supported by Azure Managed Prometheus using the parameter **serviceMonitor.apiVersion=azmonitoring.coreos.com/v1**.</br>
 > If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
 
 
