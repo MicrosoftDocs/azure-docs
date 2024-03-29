@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.date: 03/08/2024
 ms.author: cshoe
+ms.topic: how-to
 ---
 
 # Collect and read OpenTelemetry data in Azure Container Apps (preview)
