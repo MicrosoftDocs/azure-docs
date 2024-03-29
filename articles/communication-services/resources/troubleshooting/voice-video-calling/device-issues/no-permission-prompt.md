@@ -15,11 +15,11 @@ ms.subservice: calling
 # No permission prompt shows when calling askDevicePermission
 If a user reports that they don't see any permission prompt, it may be because they have previously granted or denied permission and the browser caches the result.
 
-Not showing the permission prompt is not a problem if the browser has required permission.
+Not showing the permission prompt isn't a problem if the browser has required permission.
 However, if the user can't see the device list, it could be because they denied permission before.
 
-Another possible reason for the lack of a permission prompt is that the user's system does not have any microphone or camera devices available,
-causing the browser to skip the prompt even if the permission state is set to 'prompt'.
+Another possible reason for the lack of a permission prompt is that the user's system doesn't have any microphone or camera devices available,
+causing the browser to skip the prompt even if the permission state is set to `prompt`.
 
 ## How to detect
 ### SDK
