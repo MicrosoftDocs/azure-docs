@@ -81,7 +81,7 @@ This section describes the observability features (dashboards, statistics, logs,
 
 #### Dashboards
 
-Various dashboard are supported, including:
+Various dashboards are supported, including:
 
 - Grafana dashboards (see [Logging framework dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/EFK_Dashboards.htm))
 - Kibana dashboards (see [Kibana dashboard overview](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Kibana_Dashboards.htm))
@@ -144,7 +144,7 @@ The metrics framework supports the following features:
 - Multiple modes of graphing and dashboarding support. 
 
 For more information about Prometheus, see [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
-For more information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/)
+For more information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/).
 
 ### Observability
 
