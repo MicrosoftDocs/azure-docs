@@ -192,7 +192,7 @@ additionalContent:
           - text: Security recommendations
             url: security-recommendations.md
           - text: Security baseline
-            url: /security/benchmark/azure/baselines/azure-vmware-solution-    security-baseline?toc=/azure/azure-vmware/toc.json
+            url: https://learn.microsoft.com/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline
           - text: Vulnerability Management
             url: vulnerability-management.md
           - text: Rotate cloudadmin credentials
