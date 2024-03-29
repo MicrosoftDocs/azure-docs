@@ -30,6 +30,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 #### Sidecar Capacity and Istiod CPU and Memory
 
 **Azure CNI Overlay**
+
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
 |           0 | --                          |              25000 |                 32.1 |           15 |
@@ -38,6 +39,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 
 
 **Azure CNI Overlay with Cilium**
+
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
 |           0 |--                           |              30000 |                 41.2 |           15 |
@@ -49,11 +51,13 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. The results can be compared to the 0% churn test (one service) in the pod churn scenario. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
 
 **Sidecar Capacity**
+
 |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
 |---------------------|---------------------------------|
 |               20000 |                           20000 |
 
 **CPU and Memory**
+
 | Resource               | Azure CNI Overlay  |   Azure CNI Overlay with Cilium |
 |------------------------|--------------------|---------------------------------|
 | API Server Memory (GB) |        38.9        |               9.7               |
