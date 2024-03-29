@@ -109,11 +109,11 @@ Here are some of the priorities that are important to us as we continue to devel
 
 ## Deploy the Analytics rules
 
-1. Select **Deploy** to start the deployment of the selected analytics rules to your Microsoft Sentinel workspace. 
+1. Select **Deploy**.
 
-    | **Translation Type** | resource deployed |
+    | Translation Type | Resource deployed |
     |:----|:---|
-    | Out of the box | The corresponding solutions from **Content hub** that contain the matched analytics rule templates are installed. The matched rules are deployed as active analytics rules in the disabled state. For more information, see [Manage Analytics rule templates](manage-analytics-rule-templates.md).|
+    | Out of the box | The corresponding solutions from **Content hub** that contain the matched analytics rule templates are installed. The matched rules are deployed as active analytics rules in the disabled state. <br><br>For more information, see [Manage Analytics rule templates](manage-analytics-rule-templates.md). |
     | Custom | Rules are deployed as active analytics rules in the disabled state. |
 
 1. (Optional) Choose Analytics rules and select **Export Templates** to download them as ARM templates for use in your CI/CD or custom deployment processes.
