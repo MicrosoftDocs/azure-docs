@@ -123,28 +123,22 @@ additionalContent:
           - text: Migrate
             url: architecture-migrate.md
         # Card
-        - title: Well-Architected Framework (WAF)
+        - title: WAF - Azure VMware Solution design principles
           links:
-           - text: Configure DHCP server or relay 
-             url: configure-dhcp-azure-vmware-solution.md
-           - text: Configure DHCP on L2 stretched networks
-             url: configure-l2-stretched-vmware-hcx-networks.md
-           - text: Configure DNS forwarder
-             url: configure-dns-azure-vmware-solution.md
-           - text: Configure port mirroring 
-             url: configure-port-mirroring-azure-vmware-solution.md
-           - text: Enable Public IP to the NSX Edge for Azure VMware Solution
-             url: enable-public-ip-nsx-edge.md
-           - text: Configure a site-to-site VPN in vWAN
-             url: configure-site-to-site-vpn-gateway.md
-           - text: Configure Windows Server Failover Cluster
-             url: configure-windows-server-failover-cluster.md
-           - text: Connect multiple private clouds in same region 
-             url: connect-multiple-private-clouds-same-region.md  
-           - text: Configure storage policies
-             url: configure-storage-policy.md
-           - text: Create placement policy
-             url: create-placement-policy.md
+          - text: Azure VMware Solution design principles
+            url: /azure/well-architected/azure-vmware/design-principles
+          - text: Infrastructure and provisioning considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/infrastructure
+          - text: Application considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/application-platform
+          - text: Networking considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/networking
+          - text: Monitoring considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/monitoring
+          - text: Security considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/security
+          - text: Operations considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/operations
         # Card
         - title: Cloud Adoption Framework (CAF)
           links:
