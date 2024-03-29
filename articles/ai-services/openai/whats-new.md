@@ -18,6 +18,17 @@ recommendations: false
 
 ## March 2024
 
+### Risks & Safety monitoring in Azure OpenAI Studio
+
+Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
+
+[Use Risks & Safety monitoring](./how-to/risks-safety-monitor.md)
+
+### Azure OpenAI On Your Data updates
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+- You can use the [chunk size parameter](./concepts/use-your-data.md#chunk-size-preview) during data ingestion to set the maximum number of tokens of any given chunk of data in your index.
+
 ### 2024-02-01 general availability (GA) API released
 
 This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.

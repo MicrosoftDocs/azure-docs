@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for RMIT Malaysia
 description: Details of the RMIT Malaysia Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/18/2024
+ms.date: 03/28/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in RMIT Malaysia.
 For more information about this compliance standard, see
 [RMIT Malaysia](https://www.bnm.gov.my/documents/20124/963937/Risk+Management+in+Technology+(RMiT).pdf/810b088e-6f4f-aa35-b603-1208ace33619?t=1592866162078). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md) and
+_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **RMIT Malaysia** controls. Many of the controls

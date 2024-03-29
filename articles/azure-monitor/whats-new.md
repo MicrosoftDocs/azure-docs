@@ -562,7 +562,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |[Filter and preprocess telemetry in the Application Insights SDK](./app/api-filtering-sampling.md)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
 |[Java Profiler for Azure Monitor Application Insights](./app/java-standalone-profiler.md)|Announced the new Java Profiler at Ignite. Read all about it.|
 |[Release notes for Azure Web App extension for Application Insights](./app/web-app-extension-release-notes.md)|Added release notes for 2.8.44 and 2.8.43.|
-|[Resource Manager template samples for creating Application Insights resources](./app/resource-manager-app-resource.md)|Fixed inaccurate tagging of workspace-based resources as still in preview.|
+|[Resource Manager template samples for creating Application Insights resources](./app/create-workspace-resource.md)|Fixed inaccurate tagging of workspace-based resources as still in preview.|
 |[Unified cross-component transaction diagnostics](./app/transaction-search-and-diagnostics.md?tabs=transaction-diagnostics)|Added a FAQ section to help troubleshoot Azure portal errors like "error retrieving data."|
 |[Upgrading from Application Insights Java 2.x SDK](./app/java-standalone-upgrade-from-2x.md)|Added more upgrade guidance. Java 2.x is deprecated.|
 |[Using Azure Monitor Application Insights with Spring Boot](./app/java-spring-boot.md)|Updated configuration options.|
@@ -792,7 +792,6 @@ Azure Monitor Workbooks documentation previously resided on an external GitHub r
 | [Collect text and IIS logs with Azure Monitor Agent (preview)](agents/data-collection-text-log.md) | Corrected error in data collection rule. |
 | [Overview of the Azure monitoring agents](agents/agents-overview.md) | Added new OS supported for agent. |
 | [Resource Manager template samples for agents](agents/resource-manager-agent.md) | Added Bicep examples. |
-| [Resource Manager template samples for data collection rules](agents/resource-manager-data-collection-rules.md) | Fixed bug in sample parameter file. |
 | [Rsyslog data not uploaded due to Full Disk space issue on Azure Monitor Agent Linux Agent](agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) | New article. |
 | [Troubleshoot the Azure Monitor Agent on Linux virtual machines and scale sets](agents/azure-monitor-agent-troubleshoot-linux-vm.md) | New article. |
 | [Troubleshoot the Azure Monitor Agent on Windows Arc-enabled server](agents/azure-monitor-agent-troubleshoot-windows-arc.md) | New article. |

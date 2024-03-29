@@ -7,7 +7,7 @@ ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 03/29/2024
 manager: nitinme
 keywords: ChatGPT
 zone_pivot_groups: openai-chat

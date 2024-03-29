@@ -7,7 +7,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/31/2023
-ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity
+ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 ---
@@ -57,7 +57,7 @@ Before your source code is executed on the frontend, the App Service injects the
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - [Node.js (LTS)](https://nodejs.org/download/)
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Clone the sample application 
 

@@ -89,7 +89,7 @@ The following features are supported in Azure IoT Akri Preview:
 | Deployment through the orchestration service                                                      | Supported   |   ✅     |
 | Onboard devices as custom resources to an edge cluster                                            | Supported   |   ✅     |
 | View Azure IoT Akri metrics and logs through Azure Monitor	                                      | Unsupported |   ❌     |
-| Azure IoT Akri configuration via cloud OT Operator Experience                                     | Unsupported |   ❌     |
+| Azure IoT Akri configuration via Azure IoT Operations (preview) portal                            | Unsupported |   ❌     |
 | Azure IoT Akri detects and creates assets that can be ingested into the Azure Device Registry     | Unsupported |   ❌     |
 | ISVs can build and sell custom protocol handlers for Azure IoT Operations solutions               | Unsupported |   ❌     |
 

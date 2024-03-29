@@ -4,6 +4,7 @@ description: Learn how to use cost analysis to surface granular cost allocation 
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
+ms.subservice: aks-monitoring
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/15/2024
@@ -64,7 +65,7 @@ az extension update --name aks-preview
 
 ## Enable cost analysis on your AKS cluster
 
-Cost analysis can be enabled during one of the following operations:
+You can enable the cost analysis with the `--enable-cost-analysis` flag during one of the following operations:
 
 * Create a `Standard` or `Premium` tier AKS cluster.
 
@@ -76,10 +77,16 @@ Cost analysis can be enabled during one of the following operations:
 
 * Downgrade a `Premium` cluster to `Standard` tier.
 
-To enable the feature, use the flag `--enable-cost-analysis` in combination with one of these operations. For example, the following command creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
+The following example creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
-az aks create --resource-group <resource_group> --name <name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
+az aks create --resource-group <resource-group> --name <cluster-name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
+```
+
+The following example updates an existing AKS cluster in the `Standard` tier to enable cost analysis:
+
+```azurecli-interactive
+az aks update --resource-group <resource-group> --name <cluster-name> --enable-cost-analysis
 ```
 
 > [!WARNING]
