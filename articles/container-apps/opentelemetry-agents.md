@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Collect and read OpenTelemetry data in Azure Container Apps (preview)
 
-Using an OpenTelemetry data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
+Using an [OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
 - Piping data from an agent into a desired endpoint. Destination options include Azure Monitor Application Insights, Datadog, and any OpenTelemetry Protocol (OTLP)-compatible endpoint.
 
@@ -24,15 +24,10 @@ OpenTelemetry agents live within your container app environment. You configure a
 
 Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
 
-Setting up an agent is a two step process. The first step is to create an instance of the destination service to accept data from your container app. For instance, if you want to send data to Azure Monitor Application Insights, you first need to create an App Insights instance.
-
-The second step is to configure your container app to send data to the destination.
-
-The following examples show how to configure your container app to send telemetry data to different agents.
 
 ## Prerequisites
 
-Enabling the managed OpenTelemetry agent to your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings.
+Enabling the managed OpenTelemetry agent to your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings and instrumenting your code correctly. 
 
 ### Configure source code
 
@@ -122,7 +117,7 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
       "destinationsConfiguration":{
         ...
         "dataDogConfiguration":{
-          "site": "<YOUR_DATADOG_SUBDOMAIN>",
+          "site": "<YOUR_DATADOG_SUBDOMAIN>.datadoghq.com",
           "key": "<YOUR_DATADOG_KEY>"
         }
       },
@@ -137,9 +132,10 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
 }
 ```
 
-Before you run this command, replace placeholders surrounded by `<>` with your values.
 
 # [Azure CLI](#tab/azure-cli)
+
+Before you run this command, replace placeholders surrounded by `<>` with your values.
 
 ```azurecli
 az containerapp env telemetry data-dog set \
@@ -226,9 +222,9 @@ az containerap env telemetry otlp add \
 | `insecure` | Default true. Defines whether to enable client transport security for the exporter's gRPC connection. If false, the `headers` parameter is required. |
 | `headers` | Space-separated values, in 'key=value' format, that provide required information for the OTLP endpoints' security. Example: `"api-key=key other-config-value=value"`. |
 
-## Configuration options
+## Configure Data Destinations
 
-You can control how an agent behaves based off data type and endpoint-related options.
+To configure an agent, use the `destinations` array to define which agents your application sends data. Valid keys are either `appInsights`, `dataDog`, or the name of your custom OTLP endpoint. You can control how an agent behaves based off data type and endpoint-related options.
 
 ### By data type
 
@@ -245,19 +241,11 @@ You can control how an agent behaves based off data type and endpoint-related op
 - You can only set up one Application Insights and Datadog endpoint each at a time.
 - While you can define more than one OTLP-configured endpoint, each one must have a distinct name.
 
-## Configure what data is collected
 
-The OpenTelemetry agent divides data up into the following categories:
-
-- Traces
-- Metrics
-- Logs
-
-You can send each type of data to different locations, but you can also choose not to send one of the data categories an agent.
-
-To configure an agent, use the `destinations` array to define which agents your application sends data. Valid keys are either `appInsights`, `dataDog`, or the name of your custom OTLP endpoint.
-
-The following example shows how to use an OTLP endpoint named `customDashboard`.
+The following example shows how to use an OTLP endpoint named `customDashboard`. It sends:
+-  traces to app insights and `customDashboard`
+- logs to app insights and `customDashboard`
+- metrics to DataDog and `customDashboard`
 
 ```json
 {
@@ -287,7 +275,6 @@ The following example shows how to use an OTLP endpoint named `customDashboard`.
     }
   }
 }
-```
 
 ## Example OpenTelemetry configuration
 
