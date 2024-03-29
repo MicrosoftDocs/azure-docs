@@ -25,9 +25,6 @@ More specifically, entity pages consist of three parts:
 
     As of November 2023, the next generation of insights is starting to be made available in **PREVIEW**, in the form of enrichment widgets. These new insights can integrate data from external sources and get updates in real time, and they can be seen alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
 
-    - [See the instructions for enabling the widget experience](enable-enrichment-widgets.md).
-    - [Learn more about enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview).
-
 If you're investigating an incident using the **[new investigation experience](investigate-incidents.md)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
 
 ## The timeline
