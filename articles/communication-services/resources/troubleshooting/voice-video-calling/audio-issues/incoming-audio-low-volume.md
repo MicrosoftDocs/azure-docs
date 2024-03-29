@@ -37,4 +37,5 @@ Users can check their device's volume settings and speaker output to ensure that
 It may be possible to address this issue at the application layer using Web Audio GainNode.
 By using this feature with the raw audio stream, it's possible to increase the output volume of the stream.
 
-To make this feature more user-friendly, the application can to provide a volume slider on the user interface. This allows users to adjust the gain on their own and find a volume level that works best for them.
+To make this feature more user-friendly, the application can provide a volume slider on the user interface.
+This way allows users to adjust the gain on their own and find a volume level that works best for them.
