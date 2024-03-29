@@ -46,7 +46,7 @@ sections:
         answer: Yes. Dev Box users can use smart card and other devices that are connected to the physical machine. Since Dev Box uses same RDP client as Azure Virtual Desktop, you can review following documentation to learn about all the different capabilities supported by RDP client. You can also review RDP client capabilities on different operating systems.
                 [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
 
-      - question: What if I use Linux as my development environment?
+      - question: Can I use Linux as my development environment?
         answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This support enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
 
       - question: What should I do when a network connection health check fails?
