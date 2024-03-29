@@ -131,6 +131,8 @@ For a list and discussion of common Virtual Machines alert rules, see [Common al
 
 ## Other VM monitoring options
 
+Azure VMs has the following non-Azure Monitor monitoring options:
+
 ### Boot diagnostics
 
 Boot diagnostics is a debugging feature for Azure VMs that allows you to diagnose VM boot failures by collecting serial log information and screenshots of a VM as it boots up. When you create a VM in the Azure portal, boot diagnostics is enabled by default. For more information, see [Azure boot diagnostics](boot-diagnostics.md).
