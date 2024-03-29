@@ -65,7 +65,7 @@ procedureSection:
       - |
         The **Connection strings** pane opens. It has all the information necessary to connect to the account by using a driver for MongoDB, including a preconstructed connection string.
         
-        **Connection string requirements**
+        ### Connection string requirements
 
         > [!IMPORTANT]
         > Azure Cosmos DB has strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via *TLS*.
