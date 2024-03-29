@@ -21,7 +21,6 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 - Horizontal pod autoscaling disabled
 - Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU: Standard D16 v3 (16 vCPU, 64-GB memory)
-- 500 nodes
 - Kubernetes version: 1.28.5
 
 ### Pod churn
@@ -32,9 +31,9 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |**Azure CNI Overlay**| | | | |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
-|           0 |--                           |              35000 |                 47.8 |           15 |
-|          25 | 41.7                        |              25000 |                 37.2 |           16 |
-|          50 | 52.1                        |              25000 |                 39.8 |           16 |
+|           0 | --                          |              25000 |                 32.1 |           15 |
+|          25 | 31.2                        |              15000 |                 22.2 |           15 |
+|          50 | 31.2                        |              15000 |                 25.4 |           15 |
 
 |**Azure CNI Overlay with Cilium**|||||
 |-------------|-----------------------------|--------------------|----------------------|--------------|
@@ -53,12 +52,12 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |               20000 |                           20000 |
 
 |**CPU and Memory**|||
-|------------------------|---------------------|---------------------------------|
-| Resource               |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
-| API Server Memory (GB) |                 7   |                             9.7 |
-| API Server CPU         |                 4.3 |                             4.7 |
-| Istiod Memory (GB)     |                43.1 |                            42.6 |
-| Istiod CPU             |                16   |                            16   |
+|------------------------|--------------------|---------------------------------|
+| Resource               | Azure CNI Overlay  |   Azure CNI Overlay with Cilium |
+| API Server Memory (GB) |        38.9        |               9.7               |
+| API Server CPU         |         6.1        |               4.7               |
+| Istiod Memory (GB)     |        40.4        |              42.6               |
+| Istiod CPU             |         15         |                16               |
 
 
 ## Data Plane Performance
@@ -69,7 +68,6 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 #### Test Specifications
 - Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU: Standard D16 v5 (16 vCPU, 64-GB memory)
-- 25 nodes
 - Kubernetes version: 1.28.5
 - Two proxy workers
 - 1-KB payload
