@@ -1,7 +1,7 @@
 ---
 title: Video issues - The sender's video is frozen
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot poor video quality when the sender's video is frozen
+description: Learn how to troubleshoot poor video quality when the sender's video is frozen.
 author: enricohuang
 ms.author: enricohuang
 
@@ -29,27 +29,22 @@ At the video sending end, you can check events with the values of `networkReconn
 
 At the receiving end, you can check events with the values of `networkReconnect` and `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the netowrk and video quality.
+In addition, the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
 
 For the quality of the video sending end, you can check the metrics `packetsLost`, `rttInMs`, `frameRateSent`, `frameWidthSent`, `frameHeightSent`, and `availableOutgoingBitrate`.
 
 For the quality of the receiving end, you can check the metrics `packetsLost`, `frameRateDecoded`, `frameWidthReceived`, `frameHeightReceived`, and `framesDropped`.
 
-## How to monitor
-### Azure log
-...
-### CDC
-...
-
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it is usually necessary to understand the network topology and the nodes causing the problem.
+To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
-It is very important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly, so that they are aware of any network quality issues and are not surprised if they experience frozen video during a call.
+It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly.
+In this way, users can be aware of any network quality issues and aren't surprised if they experience frozen video during a call.
 
-If you expect the user's network environment to be very poor, you can also use the [Video Constraint Feature](../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
+If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
 
 Other reasons, especially those that occur on the sender side, such as the sender's camera stopped or the sender dropping the call unexpectedly,
-cannot currently be known by the receiver because there is no reporting mechanism for this part from the sender to other participants.
-In the future, the SDK will support Remote UFD, which can detect this case quickly and provides applications a way to handle this error gracefully.
+cannot currently be known by the receiver because there's no reporting mechanism for this part from the sender to other participants.
+In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 

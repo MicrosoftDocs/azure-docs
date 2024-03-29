@@ -1,7 +1,7 @@
 ---
-title: Video issues - Subscribing a video which is not available
+title: Video issues - Subscribing to a video that is unavailable
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to handle the error when subscribing a video which is not available.
+description: Learn how to handle the error when subscribing to a video that is unavailable.
 author: enricohuang
 ms.author: enricohuang
 
@@ -11,15 +11,15 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Subscribing a video which is not available
+# Subscribing to a video that is unavailable
 The application tries to subscribe to a video when [isAvailable](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/remotevideostream?view=azure-communication-services-js#@azure-communication-calling-remotevideostream-isavailable) is false.
 
 Subscribing a video in this case results in failure.
 
-This error is expected from SDK's perspective as applications should not subscribe to a video that is currently not available.
+This error is expected from SDK's perspective as applications shouldn't subscribe to a video that is currently not available.
 ## How to detect
 ### SDK
-If you subscribe to a video which is not available, the `createView` API throws an error.
+If you subscribe to a video that is unavailable, the `createView` API throws an error.
 
 The error code/subcode is
 
@@ -32,8 +32,8 @@ The error code/subcode is
 
 ## How to mitigate or resolve
 While the SDK throws an error in this scenario,
-applications should refrain from subscribing to a video when the remote video is not available, as it doesn't satisfy the precondition.
+applications should refrain from subscribing to a video when the remote video isn't available, as it doesn't satisfy the precondition.
 
 The general recommended practice is to monitor the isAvailable change within the `isAvailable` event callback function and to subscribe to the video when `isAvailable` changes to `true`.
-However, if there is asychronous processing in the application layer that might cause some delay before invoking `createView` API.
+However, if there's asynchronous processing in the application layer that might cause some delay before invoking `createView` API.
 In such case, applications can check isAvailable again before invoking the createView API.

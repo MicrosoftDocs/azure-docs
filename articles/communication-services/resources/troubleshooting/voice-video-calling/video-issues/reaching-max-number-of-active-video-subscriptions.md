@@ -31,4 +31,4 @@ The error code/subcode is
 | resultCategories | Expected                                              |
 
 ## How to mitigate or resolve
-Applications should catch and handle this error thrown by the SDK gracefully, so end users won't feel confused about not being able to see all the videos.
+Applications should catch and handle this error thrown by the SDK gracefully, so end users don't feel confused about not being able to see all the videos.
