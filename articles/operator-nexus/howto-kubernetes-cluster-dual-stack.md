@@ -18,13 +18,15 @@ In a dual-stack Kubernetes cluster, both the nodes and the pods are configured w
 ## Prerequisites
 
 Before proceeding with this how-to guide, it's recommended that you:
-* Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
+
+* Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
 * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 * Knowledge of Kubernetes concepts, including deployments and services.
 
 ## Limitations
 
 * Single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
+* Admin kubeconfig kube-vip IP is IPv4-only.
 
 ## Configuration options
 
@@ -119,16 +121,19 @@ This parameter file is intended to be used with the [QuickStart guide](./quickst
 * Once the cluster is provisioned, confirm the nodes are provisioned with dual-stack networking using the `kubectl get nodes` command.
 
   ```azurecli
-  kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addresses[?(@.type=='InternalIP')].address,PODCIDRS:.spec.podCIDRs[*]"
+  kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addresses[?(@.type=='InternalIP')].address"
   ```
 
 The output from the kubectl get nodes command shows the nodes have addresses and pod IP assignment space from both IPv4 and IPv6.
 
   ```output
-  NAME                                ADDRESSES                           PODCIDRS
-  ds-nodepool1-14508455-vmss000000   10.240.0.4,2001:1234:5678:9abc::4   10.244.0.0/24,fd12:3456:789a::/80
-  ds-nodepool1-14508455-vmss000001   10.240.0.5,2001:1234:5678:9abc::5   10.244.1.0/24,fd12:3456:789a:0:1::/80
-  ds-nodepool1-14508455-vmss000002   10.240.0.6,2001:1234:5678:9abc::6   10.244.2.0/24,fd12:3456:789a:0:2::/80
+  NAME                                              ADDRESSES
+  dual-stack-cluster-374cc36c-agentpool1-md-6ff45   10.14.34.20,fda0:d59c:da0a:e22:a8bb:ccff:fe6d:9e2a,fda0:d59c:da0a:e22::11,fe80::a8bb:ccff:fe6d:9e2a    
+  dual-stack-cluster-374cc36c-agentpool1-md-dpmqv   10.14.34.22,fda0:d59c:da0a:e22:a8bb:ccff:fe80:f66f,fda0:d59c:da0a:e22::13,fe80::a8bb:ccff:fe80:f66f    
+  dual-stack-cluster-374cc36c-agentpool1-md-tcqpf   10.14.34.21,fda0:d59c:da0a:e22:a8bb:ccff:fed5:a3fb,fda0:d59c:da0a:e22::12,fe80::a8bb:ccff:fed5:a3fb    
+  dual-stack-cluster-374cc36c-control-plane-gdmz8   10.14.34.19,fda0:d59c:da0a:e22:a8bb:ccff:fea8:5a37,fda0:d59c:da0a:e22::10,fe80::a8bb:ccff:fea8:5a37    
+  dual-stack-cluster-374cc36c-control-plane-smrxl   10.14.34.18,fda0:d59c:da0a:e22:a8bb:ccff:fe7b:cfa9,fda0:d59c:da0a:e22::f,fe80::a8bb:ccff:fe7b:cfa9     
+  dual-stack-cluster-374cc36c-control-plane-tjfc8   10.14.34.17,10.14.34.14,fda0:d59c:da0a:e22:a8bb:ccff:feaf:21ec,fda0:d59c:da0a:e22::c,fe80::a8bb:ccff:feaf:21ec
   ```
 
 ## Create an example workload
@@ -140,7 +145,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 1. Create an NGINX web server using the `kubectl create deployment nginx` command.
 
   ```bash-interactive
-  kubectl create deployment nginx --image=nginx:latest --replicas=3
+  kubectl create deployment nginx --image=mcr.microsoft.com/cbl-mariner/base/nginx:1.22 --replicas=3
   ```
 
 2. View the pod resources using the `kubectl get pods` command.
@@ -152,10 +157,10 @@ Once the cluster has been created, you can deploy your workloads. This article w
   The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
 
   ```output
-  NAME                     IPs                                NODE                                READY
-  nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   ds-nodepool1-14508455-vmss000002   True
-  nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       ds-nodepool1-14508455-vmss000000   True
-  nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   ds-nodepool1-14508455-vmss000001   True
+  NAME                     IPs                                                  NODE                                              READY
+  nginx-7d566f5967-gtqm8   10.244.31.200,fd12:3456:789a:0:9ca3:8a54:6c22:1fc8   dual-stack-cluster-374cc36c-agentpool1-md-6ff45   True
+  nginx-7d566f5967-sctn2   10.244.106.73,fd12:3456:789a:0:1195:f83e:f6bd:4809   dual-stack-cluster-374cc36c-agentpool1-md-tcqpf   True
+  nginx-7d566f5967-wh2rp   10.244.100.196,fd12:3456:789a:0:c296:3da:b545:aa04   dual-stack-cluster-374cc36c-agentpool1-md-dpmqv   True
   ```
 
 ### Expose the workload via a `LoadBalancer` type service
@@ -179,8 +184,8 @@ Once the cluster has been created, you can deploy your workloads. This article w
   ```
 
   ```output
-  NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
-  nginx        LoadBalancer   10.96.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+  NAME         TYPE           CLUSTER-IP     EXTERNAL-IP                                           PORT(S)        AGE
+  nginx        LoadBalancer   10.96.119.27   10.14.35.240,fda0:d59c:da0a:e23:ffff:ffff:ffff:fffc   80:30122/TCP   10s
   ```
 
   ```bash-interactive
@@ -188,7 +193,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
   ```
 
   ```output
-  ["10.96.223.73","fd17:d93e:db1f:f771::54e"]
+  ["10.96.119.27","fd12:3456:789a:1::e6bb"]
   ```
 
 ## Next steps
