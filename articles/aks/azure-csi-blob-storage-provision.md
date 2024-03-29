@@ -3,7 +3,8 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: linux-related-content
+ms.custom:
+ms.subservice: aks-storage
 ms.date: 01/18/2024
 ---
 
@@ -35,7 +36,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of Blob storage for use by a workload. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container.
 
-### Dynamic provisioning parameters
+### Storage class parameters for dynamic PersistentVolumes
+
+The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | --- |
@@ -240,7 +243,9 @@ In this example, the following manifest configures using blobfuse and mounts a B
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Blob storage for use by a workload.
 
-### Static provisioning parameters
+### Static provisioning parameters for PersistentVolume
+
+The following table includes parameters you can use to define a PersistentVolume.
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|

@@ -4,6 +4,7 @@ description: How to bring your Linux VM images or create new images to use in Az
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: overview
 ms.date: 09/01/2023
@@ -14,7 +15,7 @@ ms.reviewer: cynthn
 # Bringing and creating Linux images in Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 

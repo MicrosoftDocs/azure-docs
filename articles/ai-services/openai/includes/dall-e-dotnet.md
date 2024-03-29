@@ -83,7 +83,7 @@ namespace Azure.AI.OpenAI.Tests.Samples
         public static async Task Main(string[] args)
         {
             string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-            string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+            string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
             OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
@@ -131,5 +131,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

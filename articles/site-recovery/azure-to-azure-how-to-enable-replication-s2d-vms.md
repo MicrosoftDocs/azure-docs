@@ -24,7 +24,7 @@ This article describes how to enable disaster recovery of Azure virtual machines
 
 In a typical scenario, you may have virtual machines guest cluster on Azure for higher resiliency of your application like Scale out file server. While this can provide your application higher availability, you would like to protect these applications using Site Recovery for any region level failure. Site Recovery replicates the data from one region to another Azure region and brings up the cluster in disaster recovery region in an event of failover.
 
-Following diagram shows a two-node Azure virtual machine failover cluster using storage spaces direct.
+The following diagram shows a two-node Azure virtual machine failover cluster using storage spaces direct.
 
 ![Screenshot of storage spaces.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
@@ -73,7 +73,7 @@ For your applications to function correctly, you might need to do some operation
 
 Both the nodes of the virtual machines need to be failed over using the Site Recovery [recovery plan](./site-recovery-create-recovery-plans.md).
 
-![Screeshot showing storagespacesdirect protection.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
+![Screenshot showing storagespacesdirect protection.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
 ## Run a test failover
 1.	In the Azure portal, select your Recovery Services vault.

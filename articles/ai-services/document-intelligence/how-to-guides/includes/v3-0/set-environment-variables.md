@@ -4,6 +4,7 @@ description: How to set environment variables for keys and endpoint
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 08/21/2023
 ms.author: lajanuar

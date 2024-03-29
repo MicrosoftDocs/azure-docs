@@ -94,7 +94,7 @@ Use quotas to manage compute target allocation between multiple Azure AI hub r
 
 By default, all Azure AI hub resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI hub resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
-In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure Open AI resources. 
+In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure OpenAI resources. 
 
 :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for virtual machines and Azure OpenAI models." lightbox="../media/cost-management/quota-manage.png":::
 
