@@ -427,7 +427,7 @@ You can't configure an inventory policy in the account if support for version-le
 
 ### Reports might exclude soft-deleted blobs in accounts that have a hierarchical namespace
 
-If a directory is deleted with soft-delete enabled, then the directory and all its contents are marked as soft-deleted. However, only the directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure Portal and what is reported by an inventory report. 
+If a container or directory is deleted with soft-delete enabled, then the container or directory and all its contents are marked as soft-deleted. However, only the container or directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that container or directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure Portal and what is reported by an inventory report. 
 
 Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
 
