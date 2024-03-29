@@ -222,7 +222,7 @@ Once your environment is set up, use the Visual Studio Code debugger to test and
     - **Raised Exceptions** is **unchecked**
     - **Uncaught Exceptions** is **checked**
 
-    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Screenshot showing how to configure Azure Machine Learning Debug Local Environment debug profile" lightbox="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png":::
+    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Screenshot showing how to configure Azure Machine Learning Debug Local Environment debug profile." lightbox="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png":::
 
 1. Select the play icon next to the **Run and Debug** dropdown to start your debugging session.
 
