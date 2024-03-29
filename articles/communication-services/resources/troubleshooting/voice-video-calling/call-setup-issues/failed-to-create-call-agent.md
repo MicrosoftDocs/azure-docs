@@ -25,57 +25,57 @@ The possible error code/subcode are
 |------------------|-------------------------------------------------------|
 | code             | 409 (Conflict)                                        |
 | subcode          | 40228                                                 |
-| message          | *Failed to create CallAgent, an instance of CallAgent associated with this identity already exists. Please dispose the existing CallAgent, or create a new one with a different identity.*|
+| message          | Failed to create CallAgent, an instance of CallAgent associated with this identity already exists.|
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 408 (Request Timeout)                                 |
 | subcode          | 40104                                                 |
-| message          | *Failed to create CallAgent, timeout during initialization of the calling user stack. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support.* |
+| message          | Failed to create CallAgent, timeout during initialization of the calling user stack.|
 | resultCategories | UnexpectedClientError                                 |
 | error            |                                                       |
 | code             | 500 (Internal Server Error)                           |
 | subcode          | 40216                                                 |
-| message          | *Failed to create CallAgent. Please try again, if issue persists, gather browser console logs and contact Azure Communication Services support.* |
+| message          | Failed to create CallAgent.                           |
 | resultCategories | UnexpectedClientError                                 |
 | error            |                                                       |
 | code             | 401 (Unauthorized)                                    |
 | subcode          | 44110                                                 |
-| message          | *Failed to get AccessToken*                           |
+| message          | Failed to get AccessToken                             |
 | resultCategories | UnexpectedClientError                                 |
 | error            |                                                       |
 | code             | 408 (Request Timeout)                                 |
 | subcode          | 40114                                                 |
-| message          | *Failed to connect to Azure Communication Services infrastructure, timeout during initialization. Please try again and check the browser's network requests. If the requests keep failing, gather browser console logs, .HAR file, and contact Azure Communication Services support.* |
+| message          | Failed to connect to Azure Communication Services infrastructure, timeout during initialization.|
 | resultCategories | UnexpectedClientError                                 |
 | error            |                                                       |
 | code             | 403 (Forbidden)                                       |
 | subcode          | 40229                                                 |
-| message          | *CallAgent must be created only with ACS token*       |
+| message          | CallAgent must be created only with ACS token         |
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 412 (Precondition Failed)                             |
 | subcode          | 40115                                                 |
-| message          | *Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure. Please try again and check the browser's network requests. If the requests keep failing, gather browser console logs, .HAR file, and contact Azure Communication Services support.* |
+| message          | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure.|
 | resultCategories | UnexpectedClientError                                 |
 | error            |                                                       |
 | code             | 403 (Forbidden)                                       |
 | subcode          | 40231                                                 |
-| message          | *TeamsCallAgent must be created only with Teams token* |
+| message          | TeamsCallAgent must be created only with Teams token  |
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 401 (Unauthorized)                                    |
 | subcode          | 44114                                                 |
-| message          | *Wrong AccessToken scope format. Scope is expected to be a string that contains 'voip'* |
+| message          | Wrong AccessToken scope format. Scope is expected to be a string that contains 'voip' |
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 400 (Bad Request)                                     |
 | subcode          | 44214                                                 |
-| message          | *Display name is not allowed to be set for Teams users.* |
+| message          | Display name is not allowed to be set for Teams users.|
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 500 (Internal Server Error)                           |
 | subcode          | 40102                                                 |
-| message          | *Failed to create CallAgent, failure during initialization of the calling base stack. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support.* |
+| message          | Failed to create CallAgent, failure during initialization of the calling base stack.|
 | resultCategories | UnexpectedClientError                                 |
 
 ## How to mitigate or resolve
