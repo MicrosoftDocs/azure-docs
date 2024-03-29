@@ -1644,7 +1644,7 @@
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.yml?toc=/azure/virtual-machines/toc.json
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?toc=/azure/virtual-machines/toc.json
     - name: Azure PowerShell
       href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?toc=/azure/virtual-machines/toc.json
     - name: Azure CLI
