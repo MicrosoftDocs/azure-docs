@@ -14,15 +14,17 @@ ms.reviwer: nikeist
 
 A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
-## Embedded DCEs
-Any DCRs created after March 31, 2024 will automatically use an *embedded DCE*. These are automatically created and managed by Azure Monitor and won't appear in the list of DCEs for your subscription. The DCR will instead include properties for [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) that contain the URLs of the endpoints for the DCR. You can't modify these URLs.
+## When is a DCE required?
+Prior to March 31, 2024, a DCE was required for all data collection scenarios using a DCR and requiring an endpoint. Any DCR created after this date includes its own endpoints for logs and metrics. The URL for these endpoints can be found in the [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) properties. You can't modify these URLs.
 
-You must explicitly create a DCE only for the following scenarios:
+> [!NOTE]
+> Endpoints cannot be added to an existing DCR. You must create a new DCR to replace the existing one.
+
+You must create a DCE for the following scenarios:
 
 - [Private link](../logs/private-link-security.md)
-- [Workspace replication]()
-
-In this case, you add a [`dataCollectionEndpointId`](./data-collection-rule-structure.md#properties) property to the DCR with the URL of the DCE. Configure clients to connect to this URL. The DCR will include `logsIngestion` and `metricsIngestion` for the embedded DCE, but they won't be used.
+- Legacy DCR
+- Single URL
 
 ## Components of a DCE
 
