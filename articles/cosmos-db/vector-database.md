@@ -46,7 +46,7 @@ Vector databases are used in numerous domains and situations across analytical a
 - identify data anomalies or fraudulent activities that are dissimilar from predominant or normal patterns
 - implement persistent memory for AI agents
 
-Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale.
+Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its low latency, high scalability, and high availability.
 
 It's especially popular to use vector databases to enable [retrieval-augmented generation (RAG)](#retrieval-augmented-generation) that harnesses LLMs and custom data or domain-specific information. This approach allows you to:
 
