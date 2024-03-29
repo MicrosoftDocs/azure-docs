@@ -134,7 +134,7 @@ Here we provide our troubleshooting guide for monitoring Python applications on 
 
 ### Duplicate telemetry
 
-You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use App Service OpenTelemetry autoinstrumentaion, first remove manual instrumentation of OpenTelemetry from your code.
+You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. Using autoinsturmentation on top of the manual instrumentation could cause duplicate telemetry and increase your cost. In order to use App Service OpenTelemetry autoinstrumentation, first remove manual instrumentation of OpenTelemetry from your code.
 
 ### Missing telemetry
 
