@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 03/29/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -60,10 +60,10 @@ Azure Files geo-redundancy for large file shares is generally available in the m
 | Canada East | Preview |
 | Central India | Preview |
 | Central US | GA |
-| China East | Preview |
+| China East | GA |
 | China East 2 | Preview |
 | China East 3 | GA |
-| China North | Preview |
+| China North | GA |
 | China North 2 | Preview |
 | China North 3 | GA |
 | East Asia | GA |
@@ -96,9 +96,9 @@ Azure Files geo-redundancy for large file shares is generally available in the m
 | UK West | GA |
 | US DoD Central | GA |
 | US DoD East | GA |
-| US Gov Arizona | Preview |
-| US Gov Texas | Preview |
-| US Gov Virginia | Preview |
+| US Gov Arizona | GA |
+| US Gov Texas | GA |
+| US Gov Virginia | GA |
 | West Central US | GA |
 | West Europe | Preview |
 | West India | Preview |
