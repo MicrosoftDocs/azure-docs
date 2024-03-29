@@ -1,7 +1,7 @@
 ---
 title: Video issues - Subscribing a video which is not available
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to handle the error when subscribing a video which is not available
+description: Learn how to handle the error when subscribing a video which is not available.
 author: enricohuang
 ms.author: enricohuang
 
@@ -14,32 +14,26 @@ ms.subservice: calling
 # Subscribing a video which is not available
 The application tries to subscribe to a video when [isAvailable](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/remotevideostream?view=azure-communication-services-js#@azure-communication-calling-remotevideostream-isavailable) is false.
 
-Subscribing a video in this case will result in failure.
+Subscribing a video in this case results in failure.
 
-This is an expected error from SDK's perspective as applications should not subscribe to a video that is currently not available.
+This error is expected from SDK's perspective as applications should not subscribe to a video that is currently not available.
 ## How to detect
 ### SDK
-You will get an error while invoking the `createView` API.
+If you subscribe to a video which is not available, the `createView` API throws an error.
 
 The error code/subcode is
 
-| error            |                                                       |
+| error            | Details                                               |
 |------------------|-------------------------------------------------------|
-| code             | 412 (PRECONDITION\_FAILED)                            |
+| code             | 412 (Precondition Failed)                             |
 | subcode          | 43200                                                 |
 | message          | Failed to create view, remote stream is not available |
 | resultCategories | Expected                                              |
 
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 ## How to mitigate or resolve
 While the SDK throws an error in this scenario,
 applications should refrain from subscribing to a video when the remote video is not available, as it doesn't satisfy the precondition.
 
-The general recommended practice is to monitor the isAvailable change within the `isAvailable` event callback function and to subscribe to the video when isAvailable changes to true.
+The general recommended practice is to monitor the isAvailable change within the `isAvailable` event callback function and to subscribe to the video when `isAvailable` changes to `true`.
 However, if there is asychronous processing in the application layer that might cause some delay before invoking `createView` API.
 In such case, applications can check isAvailable again before invoking the createView API.

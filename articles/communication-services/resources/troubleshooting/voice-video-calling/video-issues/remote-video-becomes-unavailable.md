@@ -1,7 +1,7 @@
 ---
 title: Video issues - The remote video becomes unavailable while subscribing the video
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to handle the error when the remote video becomes unavailable while subscribing the video
+description: Learn how to handle the error when the remote video becomes unavailable while subscribing the video.
 author: enricohuang
 ms.author: enricohuang
 
@@ -16,24 +16,19 @@ The remote video is initially available, but during the video subscription proce
 
 The SDK detects this change and throws an error.
 
-This is an expected error from SDK's perspective as the remote endpoint stops sending the video.
+This error is expected from SDK's perspective as the remote endpoint stops sending the video.
 ## How to detect
 ### SDK
-You will get an error while invoking the `createView` API.
+If the video becomes unavailable before the `createView` API finishes, the `createView` API throws an error.
 
 The error code/subcode is
 
-| error            |                                                       |
+| error            | Details                                               |
 |------------------|-------------------------------------------------------|
-| code             | 404(NOT\_FOUND)                                       |
+| code             | 404(Not Found)                                        |
 | subcode          | 43202                                                 |
 | message          | Failed to start stream, stream became unavailable     |
 | resultCategories | Expected                                              |
 
-## How to monitor
-### Azure log
-...
-### CDC
-...
 ## How to mitigate or resolve
 Applications should catch and handle this error thrown by the SDK gracefully, so end users know the failure is because the remote participant stops sending video.
