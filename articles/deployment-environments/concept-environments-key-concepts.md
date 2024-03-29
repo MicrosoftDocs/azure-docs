@@ -83,6 +83,14 @@ An environment definition is a combination of an IaC template and an environment
 
 To learn about the structure of an ARM template, the sections of a template, and the properties that are available in those sections, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
+## Built-in roles
+
+Azure Deployment Environments supports three [built-in roles](../role-based-access-control/built-in-roles.md):
+
+- **Dev Center Project Admin**: Creates environments and manages the environment types for a project.
+- **Deployment Environments User**: Creates environments based on appropriate access.
+- **Deployment Environments Reader**: Reads environments that other users created. 
+
 ## Resources shared with Microsoft Dev Box
 
 Azure Deployment Environments and Microsoft Dev Box are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
