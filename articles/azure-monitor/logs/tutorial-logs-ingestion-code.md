@@ -14,8 +14,6 @@ This article provides sample code using the [Logs ingestion API](logs-ingestion-
 - Microsoft Entra application with access to the DCR
 - Data collection endpoint (DCE) if you're using private link. Otherwise, use the DCR logs endpoint.
 
-> [!NOTE]
-> This article previously included a step to create a data collection endpoint (DCE). This is no longer required since [DCRs now include their own endpoint](../essentials/data-collection-endpoint-overview.md). A DCE is only required with Logs ingestion API if private link is used.
 
 ## Sample code
 
