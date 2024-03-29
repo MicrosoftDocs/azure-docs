@@ -1,6 +1,6 @@
 ---
-title: Istio Service Mesh AKS Add-On Performance
-description: Istio Service Mesh AKS Add-On Performance
+title: Istio service mesh aks add-on performance
+description: Istio service mesh aks add-on performance
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/19/2024
@@ -10,7 +10,7 @@ ms.author: shalierxia
 # **Istio service mesh add-on performance**
 The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load. 
 
-## Control Plane Performance
+## Control plane performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
 
 - Pod churn: examines the impact of pod churning on `istiod`. To reduce variables, only one service is used for all sidecars. 
@@ -47,7 +47,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          50 | 37.9                        |              25000 |                 42.7 |           16 |
 
 
-### Multiple Services
+### Multiple services
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. The results can be compared to the 0% churn test (one service) in the pod churn scenario. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
 
 **Sidecar Capacity**
@@ -66,7 +66,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 | Istiod CPU             |         15         |                16               |
 
 
-## Data Plane Performance
+## Data plane performance
 Various factors impact [sidecar performance][data-plane-performance] such as request size, number of proxy worker threads, and number of client connections. Additionally, any request flowing through the mesh traverses the client-side proxy and then the server-side proxy. Therefore, latency and resource consumption are measured to determine the data plane performance.
 
 [Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
@@ -91,10 +91,10 @@ The following evaluates the impact of adding sidecar proxies to the data path, s
 
 | Azure CNI Overlay |Azure CNI Overlay with Cilium |
 |:-------------------------:|:-------------------------:|
-[ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p99.png#lightbox) |  [ ![Diagram that compares P99 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p99.png#lightbox)
-[ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure_p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium_p90.png#lightbox)
+[ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p99.png#lightbox) |  [ ![Diagram that compares P99 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p99.png#lightbox)
+[ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png#lightbox)
 
-## Service Entry
+## Service entry
 Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
 
 - Switch to `resolution: NONE` to avoid proxy DNS lookups entirely. Suitable for most use cases.
