@@ -187,4 +187,5 @@ Navigate to the directory containing the pom.xml file and use the following mvn 
 - Build the package: `mvn package`
 - Execute the app: `mvn exec:java`
 
+Open `http:/localhost:8080/swagger-ui.html` or your dev tunnel URL in browser. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger-ui.html`
 
