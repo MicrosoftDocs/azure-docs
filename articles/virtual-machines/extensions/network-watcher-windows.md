@@ -26,7 +26,6 @@ In this article, you learn about the supported platforms and deployment options 
 
 - Internet connectivity: Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
-
 # [**PowerShell**](#tab/powershell)
 
 - An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
@@ -64,8 +63,6 @@ In this article, you learn about the supported platforms and deployment options 
     - You can [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. Use [az login](/cli/azure/reference-index#az-login) command to sign in to Azure.
 
 ---
-
-
 
 ## Supported operating systems
 
