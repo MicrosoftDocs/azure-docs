@@ -165,18 +165,6 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 You've now deployed a pod that's using Ephemeral Disk as its storage, and you can use it for your Kubernetes workloads.
 
-## Detach and reattach a persistent volume
-
-To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
-
-```azurecli-interactive
-kubectl delete pods <pod-name>
-```
-
-To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
-
-To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
-
 ## Expand a storage pool
 
 You can expand storage pools backed by local NVMe or temp SSD to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
