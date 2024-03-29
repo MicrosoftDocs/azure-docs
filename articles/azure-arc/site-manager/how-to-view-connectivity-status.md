@@ -13,7 +13,7 @@ ms.date: 03/24/2024
 ---
 # How to view connectivity status for an Arc site
 
-This article details how to view connectivity status for an Arc site, which reflects the status for the overall site and enables the ability to view the connectivity status for support resources as well. The status of an overall site is based upon the underlying resources.
+This article details how to view the connectivity status for an Arc site. A site's connectivity status reflects the status of the underlying resources. From the site status view, you can find detailed status information for the supported resources as well.
 
 ## Prerequisites
 
@@ -33,15 +33,15 @@ In the Azure portal, status is indicated using color.
 
 ## View connectivity status
 
-You can view connectivity status for an Arc site as a whole from the main page of Azure Arc site manager.
+You can view connectivity status for an Arc site as a whole from the main page of Azure Arc site manager (preview).
 
 1. From the [Azure portal](https://portal.azure.com), navigate to **Azure Arc** and select **Site manager (preview)** to open site manager.
 
-1. From Azure Arc site manager, navigate to the **Overview** page. 
+1. From Azure Arc site manager, navigate to the **Overview** page.
 
    :::image type="content" source="./media/how-to-view-connectivity-status/overview-sites-page.png" alt-text="Screenshot that shows selecting the Overview page in site manager.":::
 
-1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the example below, one site is **up to date** and one site **needs attention**.
+1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the following example, one site is **up to date** and one site **needs attention**.
 
    :::image type="content" source="./media/how-to-view-connectivity-status/site-connection-overview.png" alt-text="Screenshot that shows the connectivity view in the sites overview page.":::
 
@@ -55,6 +55,6 @@ You can view connectivity status for an Arc site as a whole from the main page o
 
    :::image type="content" source="./media/how-to-view-connectivity-status/site-connectivity-status-from-sites-page.png" alt-text="Screenshot that shows selecting the connectivity status for a site to see the resource details.":::
 
-1. On the site's resource page, you can view the connectivity status for each resource within the site, including the resource that had resulted in the top-level most important status.
+1. On the site's resource page, you can view the connectivity status for each resource within the site, including the resource responsible for the top-level most important status.
 
    :::image type="content" source="./media/how-to-view-connectivity-status/london-resource-status-connectivity.png" alt-text="Screenshot that shows using the site details page to identify resources with connectivity issues.":::

@@ -12,15 +12,15 @@ ms.date: 02/16/2024
 
 ---
 
-# Frequently asked questions: Azure Arc site manager
+# Frequently asked questions: Azure Arc site manager (preview)
 
-The following are frequently asked questions and answers for Azure Arc site manager:
+The following are frequently asked questions and answers for Azure Arc site manager.
 
-*Question:* I have resources in the resource group, which aren't yet supported by site manager. Do I need to move them?
+*Question:* My resource group includes resources that aren't supported by site manager. Do I need to move them?
 
-*Answer:* Site manager provides health status aggregation for only the supported resource types. Resources of other types won't be managed via site manager. They'll continue to function normally as they would without otherwise.
+*Answer:* Site manager provides health status aggregation for only the supported resource types. Resources of other types aren't managed via site manager. They continue to function normally as they would without otherwise.
 
-*Question:* Can I update a site after it has been created?
+*Question:* Can I update a site after it's created?
 
 *Answer:* Site properties and details can't be updated.
 
@@ -35,4 +35,3 @@ The following are frequently asked questions and answers for Azure Arc site mana
 *Question:* Does an Arc site have to represent a physical site or location?
 
 *Answer:* Site manager is tailored for customers who manage on-premises infrastructure. Arc sites can also be created to represent more than just a physical location as well.
-
