@@ -21,7 +21,7 @@ Therefore, understanding how video packets flow from the sender to the receiver 
 
 ## How a video call works from an end-to-end perspective
 
-:::image type="content" source="../media/video-issues/video-stream-flow.png" alt-text="The end-to-end flow of video stream data":::
+:::image type="content" source="./media/video-stream-flow.png" alt-text="The end-to-end flow of video stream data":::
 
 Here we use an ACS group call as an example.
 

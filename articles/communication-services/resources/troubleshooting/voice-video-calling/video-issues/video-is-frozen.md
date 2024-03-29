@@ -23,13 +23,13 @@ or if the video sender drops the call unexpectedly.
 ## How to detect
 ### SDK
 
-Through [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
 At the video sending end, you can check events with the values of `networkReconnect`, `networkSendQuality`, `cameraFreeze`, `cameraStoppedUnexpectedly`.
 
 At the receiving end, you can check events with the values of `networkReconnect` and `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
+In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
 
 For the quality of the video sending end, you can check the metrics `packetsLost`, `rttInMs`, `frameRateSent`, `frameWidthSent`, `frameHeightSent`, and `availableOutgoingBitrate`.
 
@@ -42,7 +42,7 @@ These parts involve network infrastructure, which is outside the scope of the AC
 It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly.
 In this way, users can be aware of any network quality issues and aren't surprised if they experience frozen video during a call.
 
-If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
+If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
 
 Other reasons, especially those that occur on the sender side, such as the sender's camera stopped or the sender dropping the call unexpectedly,
 cannot currently be known by the receiver because there's no reporting mechanism for this part from the sender to other participants.
