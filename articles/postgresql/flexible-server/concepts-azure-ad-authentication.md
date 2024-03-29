@@ -105,35 +105,35 @@ To configure Microsoft Entra ID with Azure Database for PostgreSQL flexible serv
 
 - **What are the available authentication modes in Azure Database for PostgreSQL flexible server?**
 
-   Azure Database for PostgreSQL flexible server supports three modes of authentication: PostgreSQL authentication only, Microsoft Entra authentication only, and  PostgreSQL and Microsoft Entra authentication.
+  Azure Database for PostgreSQL flexible server supports three modes of authentication: PostgreSQL authentication only, Microsoft Entra authentication only, and  PostgreSQL and Microsoft Entra authentication.
 
 - **Can I configure multiple Microsoft Entra administrators on my flexible server?**
 
-    Yes. You can configure multiple Microsoft Entra administrators on your flexible server. During provisioning, you can set only a single Microsoft Entra administrator. But after the server is created, you can set as many Microsoft Entra administrators as you want by going to the **Authentication** pane.
+  Yes. You can configure multiple Microsoft Entra administrators on your flexible server. During provisioning, you can set only a single Microsoft Entra administrator. But after the server is created, you can set as many Microsoft Entra administrators as you want by going to the **Authentication** pane.
 
 - **Is a Microsoft Entra administrator just a Microsoft Entra user?**
 
-    No. A Microsoft Entra administrator can be a user, group, service principal, or managed identity.
+  No. A Microsoft Entra administrator can be a user, group, service principal, or managed identity.
 
 - **Can a Microsoft Entra administrator create local password-based users?**
 
-   Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
+  Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
 
 - **What happens when I enable Microsoft Entra authentication on my flexible server?**
 
-    When you set Microsoft Entra authentication at the server level, the PGAadAuth extension is enabled and the server restarts.
+  When you set Microsoft Entra authentication at the server level, the PGAadAuth extension is enabled and the server restarts.
 
 - **How do I sign in by using Microsoft Entra authentication?**
 
-    You can use client tools like psql or pgAdmin to sign in to your flexible server. Use your Microsoft Entra user ID as the username and your Microsoft Entra token as your password.
+  You can use client tools like psql or pgAdmin to sign in to your flexible server. Use your Microsoft Entra user ID as the username and your Microsoft Entra token as your password.
 
 - **How do I generate my token?**
 
-   You generate the token by using `az login`. For more information, see [Retrieve the Microsoft Entra access token](how-to-configure-sign-in-azure-ad-authentication.md).
+  You generate the token by using `az login`. For more information, see [Retrieve the Microsoft Entra access token](how-to-configure-sign-in-azure-ad-authentication.md).
 
 - **What's the difference between group login and individual login?**
 
-   The only difference between signing in as a Microsoft Entra group member and signing in as an individual Microsoft Entra user lies in the username. Signing in as an individual user requires an individual Microsoft Entra user ID. Signing in as a group member requires the group name. In both scenarios, you use the same individual Microsoft Entra token as the password.
+  The only difference between signing in as a Microsoft Entra group member and signing in as an individual Microsoft Entra user lies in the username. Signing in as an individual user requires an individual Microsoft Entra user ID. Signing in as a group member requires the group name. In both scenarios, you use the same individual Microsoft Entra token as the password.
 
 - **What's the token lifetime?**
 
