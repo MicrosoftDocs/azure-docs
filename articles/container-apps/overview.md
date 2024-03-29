@@ -35,7 +35,7 @@ To begin working with Container Apps, select the description that best describes
 | | Description | Resource |
 |---|---|---|
 | **I'm new to containers**| Start here if you have yet to build your first container but are curious how containers can serve your development needs. | [Learn more about containers](start-containers.md) |
-| **I'm using serverless containers** | Container Apps provide automatic scaling, reduce operational complexity, and allow you to focus on your application rather than infrastructure.<br><br>Start here if you're interested in the management, scalability, and pay-per-use features of cloud computing. | [Learn more about serverless containers](start-serverless-containers.md) |
+| **I'm using serverless containers** | Container Apps provides automatic scaling, reduces operational complexity, and allows you to focus on your application rather than infrastructure.<br><br>Start here if you're interested in the management, scalability, and pay-per-use features of cloud computing. | [Learn more about serverless containers](start-serverless-containers.md) |
 
 ## Features
 
