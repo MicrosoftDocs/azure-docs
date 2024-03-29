@@ -74,6 +74,6 @@ The end users can know the current situation and understand that video subscript
 
 ### When a participant enables the camera while waiting in the lobby
 In an ACS-Teams call, if other participants attempt to subscribe to a video while the sender is still in the lobby, the `createView` API fails
-because there will be no incoming video frames while the sender is still in the lobby.
+because no incoming video frames are received while the sender is still in the lobby.
 
 Applications can delay the video subscription until the remote participant leaves the lobby and enters the call.

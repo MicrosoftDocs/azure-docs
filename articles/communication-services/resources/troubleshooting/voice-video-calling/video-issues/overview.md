@@ -14,21 +14,21 @@ ms.subservice: calling
 
 # Overview of video issues
 
-Establishing a video call involves many components and processes, such as the video stream acqusition from a camera device, browser encoding, browser decoding, video rendering, and so on.
-If there is a problem in any of these stages, users on the receiving end may encounter video-related issues.
+Establishing a video call involves many components and processes, such as the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
+If there's a problem in any of these stages, users on the receiving end may encounter video-related issues.
 For example, they may complain about being unable to see the video or the poor quality of the video.
-Therefore, understanding how video flows from the sender to the receiver is crucial for debugging video issues.
+Therefore, understanding how video packets flow from the sender to the receiver is crucial for debugging video issues.
 
-## How a video call works from a end-to-end perspective
+## How a video call works from an end-to-end perspective
 
 :::image type="content" source="../media/video-issues/video-stream-flow.png" alt-text="The end-to-end flow of video stream data":::
 
 Here we use an ACS group call as an example.
 
-When the sender starts video in a call, the SDK internally retrieves the camera video stream via a browser APIs.
-After completing the handshake at the signaling layer with the server, it begins sending the video stream to the server.
-The browser performs video encoding and packetization at the RTP layer for transmission.
-The other participants in the call receive notifications from the server, indicating the availablity of a video stream from the sender.
+When the sender starts video in a call, the SDK internally retrieves the camera video stream via a browser API.
+After the SDK completes the handshake at the signaling layer with the server, it begins sending the video stream to the server.
+The browser performs video encoding and packetization at the RTP(Real-time Transport Protocol) layer for transmission.
+The other participants in the call receive notifications from the server, indicating the availability of a video stream from the sender.
 The app can decide whether to subscribe to the video stream or not. 
 If the app subscribes to the video stream from the server (for example, using createView API), the server forwards the sender's video packets to the receiver.
 The receiver's browser decodes and renders the incoming video.
@@ -46,7 +46,7 @@ Here we list several common video issues, along with potential causes for each i
 
 ### The user can't see video from the remote participant
 
-* Subscribing a video which is not available
+* Subscribing a video that isn't available
 * The remote video becomes unavailable while subscribing the video
 * The application disposes the video renderer while subscribing the video
 * The maximum number of active video subscriptions has been reached
