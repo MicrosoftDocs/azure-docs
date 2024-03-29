@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # The getSpeakers API doesn't return detailed speaker list
-If a user reports that they can't see the detailed speaker list, it's could be because the application doesn't have permission to access the microphone.
+If a user reports that they can't see the detailed speaker list, it could be because the application doesn't have permission to access the microphone.
 Alternatively, the platform may not support speaker enumeration.
 
 The way browsers currently work may seem counterintuitive, as the permission to access the microphone can interfere with the enumeration of speakers.
