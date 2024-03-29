@@ -1,6 +1,6 @@
 ---
-title: Built-in policy definitions for Azure Heath Data Services
-description: Lists Azure Policy built-in policy definitions for Azure Heath Data Services. These built-in policy definitions provide common approaches to managing your Azure resources.
+title: Built-in policy definitions for Azure Health Data Services
+description: Lists Azure Policy built-in policy definitions for Azure Health Data Services. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 03/26/2024
 author: expekesheth
 ms.author: kesheth
@@ -9,10 +9,10 @@ ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---
-# Azure Policy built-in definitions for Azure Heath Data Services
+# Azure Policy built-in definitions for Azure Health Data Services
 
 This page is an index of [Azure Policy](./../../articles/governance/policy/overview.md) built-in policy
-definitions for Azure Heath Data Services. For additional Azure Policy built-ins for other services, see
+definitions for Azure Health Data Services. For additional Azure Policy built-ins for other services, see
 [Azure Policy built-in definitions](./../../articles/governance/policy/samples/built-in-policies.md).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
