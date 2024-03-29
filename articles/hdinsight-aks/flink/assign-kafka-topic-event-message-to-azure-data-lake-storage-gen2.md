@@ -3,7 +3,7 @@ title: Write event messages into Azure Data Lake Storage Gen2 with Apache Flink�
 description: Learn how to write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/29/2024
 ---
 
 # Write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API
@@ -165,8 +165,10 @@ public class KafkaSinkToGen2 {
 
 We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2.
 
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-flink-job.png" alt-text="Diagram showing how to submit Flink Job." border="true" lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-flink-job.png":::
+
 :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
-:::Image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
+
 
 **Validate streaming data on ADLS Gen2**
 
