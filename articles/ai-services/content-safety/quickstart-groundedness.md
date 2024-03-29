@@ -156,7 +156,7 @@ The JSON objects in the output are defined here:
 
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
-| **ungrounded** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
+| **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
 | **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
@@ -192,7 +192,7 @@ In your request to the Groundedness detection API, set the `"Reasoning"` body pa
     
 ```json
  {
-  "Reasoning": true,
+  "reasoning": true,
   "llmResource": {
     "resourceType": "AzureOpenAI",
     "azureOpenAIEndpoint": "<your_OpenAI_endpoint>",
@@ -331,7 +331,7 @@ The JSON objects in the output are defined here:
 
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
-| **ungrounded** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
+| **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
 | **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
