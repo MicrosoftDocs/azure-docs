@@ -13,20 +13,20 @@ ms.subservice: calling
 ---
 
 # The user's speaker has a problem
-When the user's speaker has a problem, they may not be able to hear the audio, resulting in one-way audio inssue in the call.
+When the user's speaker has a problem, they may not be able to hear the audio, resulting in one-way audio issue in the call.
 
 ## How to detect
 ### SDK
-There is no way for a web application to detect speaker issues.
+There's no way for a web application to detect speaker issues.
 However, the application can use the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) 
-to understand whether the incoming audio is really silent or not.
+to understand whether the incoming audio is actually silent or not.
 
 To check the audio level at the receiving end, look at `audioOutputLevel` value, which also ranges from 0 to 65536.
 This value indicates the volume level of the decoded audio samples.
-If the `audioOutputLevel` value is not always very low but the user cannot hear audio, this indicates there is a problem in the their speaker or output volume settings.
+If the `audioOutputLevel` value isn't always low but the user can't hear audio, this indicates there's a problem in the their speaker or output volume settings.
 
 ## How to mitigate or resolve
 Speaker issues are considered external problems from the perspective of the ACS Calling SDK.
 
-It is recommended that the application implement a remote volume indicator function with the [getVolume API](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/remoteaudiostream?view=azure-communication-services-js) provided by SDK.
-If the incoming audio is not silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.
+It's recommended that the application implement a remote volume indicator function with the [getVolume API](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/remoteaudiostream?view=azure-communication-services-js) provided by SDK.
+If the incoming audio isn't silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.
