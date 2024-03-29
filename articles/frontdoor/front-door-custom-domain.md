@@ -4,7 +4,6 @@ description: In this article, you learn how to onboard a custom domain to Azure 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.author: duau
@@ -12,6 +11,8 @@ ms.author: duau
 ---
 
 # Add a custom domain to Azure Front Door
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This article shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you want your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 

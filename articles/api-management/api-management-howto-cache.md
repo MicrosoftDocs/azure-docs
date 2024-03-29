@@ -5,11 +5,9 @@ author: dlepow
 manager: erikre
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
-ms.workload: mobile
 ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: danlep
-
 ---
 
 # Add caching to improve performance in Azure API Management

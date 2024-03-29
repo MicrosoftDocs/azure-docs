@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -43,7 +43,7 @@ For more information and best practices, see [prompt engineering techniques](../
 
 ## Build with the Prompt tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ Prompt** to add the Prompt tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/prompt-tool.png" alt-text="Screenshot of the Prompt tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/prompt-tool.png":::

@@ -4,7 +4,6 @@ description: Get started learning about Azure Load Balancer portal settings.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/19/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23

@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 02/05/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -268,6 +268,37 @@ To view the current compliance state of your existing resources:
 ## Check your scheduled patching run
 
 You can check the deployment status and history of your maintenance configuration runs from the Update Manager portal. For more information, see [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
+
+
+## Timeline of Maintenance Window
+
+The maintenance window controls the number of updates that can be installed on your virtual machine and Arc-enabled servers. We recommend that you go through the following table to understand the timeline for a maintenance window while installing an update:
+
+For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the following are the details on how the updates are installed:
+
+#### [Windows](#tab/windows-maintenance)
+
+| **Update Type** | **Details** |
+| ---------- | ------------- |
+| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |  
+| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.| 
+| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15 minutes for Azure VMs and 25 minutes for Arc servers after a reboot to complete the reboot operation before marking it as failed. |
+
+#### [Linux](#tab/linux-maintenance)
+
+| **Update Type** | **Details** |
+| ---------- | ------------- |
+| Reboot | If the VMs need a reboot, you need to have 15 minutes left in the maintenance window, else the reboot is skipped. </br> **Note**: This is only applicable for Azure VMs and not for Arc-enabled servers. </br> In this example, you must start the reboot by 5:45 PM. |
+| Updates installed in batches | If the batch size is X, then the minimum time required to update the packages is calculated as follows </br></br> - If X is less than or equal to 3, the minimum required time  = 5 x X minutes. </br> - If X is greater than 3, the minimum required time = 15+2 x (X-3) minutes. </br> **Note**:  Only Azure Update Manager service controls the batch size (X) of the updates. |
+
+---
+
+> [!NOTE]
+> - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
+> - Azure Update Manger doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
+> - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
+
+
 
 ## Next steps
 

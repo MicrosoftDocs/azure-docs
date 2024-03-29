@@ -1,15 +1,14 @@
 ---
-title: Deploy OpenShift to Azure Stack Hub 
+title: Deploy OpenShift to Azure Stack Hub
 description: Deploy OpenShift to Azure Stack Hub.
 author: ronmiab
 manager: femila
 ms.author: robess
 ms.service: azure-stack
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.date: 02/13/2023
-
 ---
 
 # Deploy OpenShift Container Platform or OKD to Azure Stack Hub

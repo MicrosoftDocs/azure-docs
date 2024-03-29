@@ -1,83 +1,57 @@
 ---
-title: Monitoring Azure Container Instances data reference 
-description: Important reference material needed when you monitor Azure Container Instances 
-author: tomvcassidy
+title: Monitoring data reference for Container Instances
+description: This article contains important reference material you need when you monitor Container Instances.
+ms.date: 02/27/2024
+ms.custom: horz-monitor
 ms.topic: reference
+author: tomvcassidy
 ms.author: tomcassidy
 ms.service: container-instances
-ms.custom: subject-monitoring
-ms.date: 06/06/2022
 ---
 
-# Monitoring Azure Container Instances data reference
+# Container Instances monitoring data reference
 
-See [Monitoring Azure Container Instances](monitor-azure-container-instances.md) for details on collecting and analyzing monitoring data for Azure Container Instances.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Container Instances](monitor-azure-container-instances.md) for details on the data you can collect for Container Instances and how to use it.
 
-This section lists all the automatically collected platform metrics collected for Azure Container Instances.  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Container Instances | [Microsoft.ContainerInstance/containerGroups](/azure/azure-monitor/platform/metrics-supported#microsoftcontainerinstancecontainergroups) |
+### Supported metrics for Microsoft.ContainerInstance/containerGroups
+The following table lists the metrics available for the Microsoft.ContainerInstance/containerGroups resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [microsoft-containerinstance-containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)]
 
-## Metric dimensions
+### Supported metrics for Microsoft.ContainerInstance/containerScaleSets
+The following table lists the metrics available for the Microsoft.ContainerInstance/containerScaleSets resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)]
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-Azure Container Instances has the following dimension associated with its metrics.
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **containerName** | The name of the container. The name must be between 1 and 63 characters long. It can contain only lowercase letters numbers, and dashes. Dashes can't begin or end the name, and dashes can't be consecutive. The name must be unique in its resource group. |
 
-## Activity log
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-The following table lists the operations that Azure Container Instances may record in the Activity log. This is a subset of the possible entries you might find in the activity log. You can also find this information in the [Azure role-based access control (RBAC) Resource provider operations documentation](../role-based-access-control/resource-provider-operations.md#microsoftcontainerinstance).
+### Supported resource logs for Microsoft.ContainerInstance/containerGroups
+[!INCLUDE [microsoft-containerinstance-containergroups-logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)]
 
-| Operation | Description |
-|:---|:---|
-| Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
-| Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container group profiles. |
-| Microsoft.ContainerInstance/containerGroupProfiles/write | Create or update a specific container group profile. |
-| Microsoft.ContainerInstance/containerGroupProfiles/delete | Delete the specific container group profile. |
-| Microsoft.ContainerInstance/containerGroups/read | Get all container groups. |
-| Microsoft.ContainerInstance/containerGroups/write | Create or update a specific container group. |
-| Microsoft.ContainerInstance/containerGroups/delete | Delete the specific container group. |
-| Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. This log only captures customer-intiated restarts, not restarts initiated by Azure Container Instances infrastructure. |
-| Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources will be deallocated and billing will stop. |
-| Microsoft.ContainerInstance/containerGroups/start/action | Starts a specific container group. |
-| Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exec into a specific container. |
-| Microsoft.ContainerInstance/containerGroups/containers/attach/action | Attach to the output stream of a container. |
-| Microsoft.ContainerInstance/containerGroups/containers/buildlogs/read | Get build logs for a specific container. |
-| Microsoft.ContainerInstance/containerGroups/containers/logs/read | Get logs for a specific container. |
-| Microsoft.ContainerInstance/containerGroups/detectors/read | List Container Group Detectors |
-| Microsoft.ContainerInstance/containerGroups/operationResults/read | Get async operation result |
-| Microsoft.ContainerInstance/containerGroups/outboundNetworkDependenciesEndpoints/read | List Container Group Detectors |
-| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
-| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
-| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
-| Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
-| Microsoft.ContainerInstance/locations/cachedImages/read | Gets the cached images for the subscription in a region. |
-| Microsoft.ContainerInstance/locations/capabilities/read | Get the capabilities for a region. |
-| Microsoft.ContainerInstance/locations/operationResults/read | Get async operation result |
-| Microsoft.ContainerInstance/locations/operations/read | List the operations for Azure Container Instance service. |
-| Microsoft.ContainerInstance/locations/usages/read | Get the usage for a specific region. |
-| Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
-| Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by Azure Container Instance resource provider on a subnet. |
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-See [all the possible resource provider operations in the activity log](../role-based-access-control/resource-provider-operations.md).  
+Container Instances has two table schemas, a legacy schema for Log Analytics and a new schema that supports diagnostic settings. Diagnostic settings is in public preview in the Azure portal. You can use either or both schemas at the same time.
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
+### Legacy Log Analytics tables
 
-## Schemas
-
-The following schemas are in use by Azure Container Instances.
+The following *_CL* tables represent the legacy Log Analytics integration. Users provide the Log Analytics workspace ID and key in the Container Group payload.
 
 > [!NOTE]
-> Some of the columns listed below only exist as part of the schema, and won't have any data emitted in logs. These columns are denoted below with a description of 'Empty'.
+> Some of the columns in the following list exist only as part of the schema, and don't have any data emitted in logs. These columns are denoted with a description of 'Empty'.
 
-### ContainerInstanceLog_CL
+#### ContainerInstanceLog_CL
 
 | Column | Type | Description |
 |-|-|-|
@@ -97,7 +71,7 @@ The following schemas are in use by Azure Container Instances.
 |_ResourceId|string|A unique identifier for the resource that the record is associated with|
 |_SubscriptionId|string|A unique identifier for the subscription that the record is associated with|
 
-### ContainerEvent_CL
+#### ContainerEvent_CL
 
 |Column|Type|Description|
 |-|-|-|
@@ -119,7 +93,51 @@ The following schemas are in use by Azure Container Instances.
 |_ResourceId|string|A unique identifier for the resource that the record is associated with|
 |_SubscriptionId|string|A unique identifier for the subscription that the record is associated with|
 
-## See also
+### Azure Monitor Log Analytics tables
 
-- See [Monitoring Azure Container Instances](monitor-azure-container-instances.md) for a description of monitoring Azure Container Instances.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
+
+#### Container Instances
+Microsoft.ContainerInstance/containerGroups
+- [ContainerInstanceLog](/azure/azure-monitor/reference/tables/containerinstancelog)
+- [ContainerEvent](/azure/azure-monitor/reference/tables/containerevent)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+The following table lists a subset of the operations that Azure Container Instances may record in the Activity log. For the complete listing, see [Microsoft.ContainerInstance resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).
+
+| Operation | Description |
+|:---|:---|
+| Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
+| Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container group profiles. |
+| Microsoft.ContainerInstance/containerGroupProfiles/write | Create or update a specific container group profile. |
+| Microsoft.ContainerInstance/containerGroupProfiles/delete | Delete the specific container group profile. |
+| Microsoft.ContainerInstance/containerGroups/read | Get all container groups. |
+| Microsoft.ContainerInstance/containerGroups/write | Create or update a specific container group. |
+| Microsoft.ContainerInstance/containerGroups/delete | Delete the specific container group. |
+| Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. This log only captures customer-intiated restarts, not restarts initiated by Azure Container Instances infrastructure. |
+| Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources are deallocated and billing stops. |
+| Microsoft.ContainerInstance/containerGroups/start/action | Starts a specific container group. |
+| Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exec into a specific container. |
+| Microsoft.ContainerInstance/containerGroups/containers/attach/action | Attach to the output stream of a container. |
+| Microsoft.ContainerInstance/containerGroups/containers/buildlogs/read | Get build logs for a specific container. |
+| Microsoft.ContainerInstance/containerGroups/containers/logs/read | Get logs for a specific container. |
+| Microsoft.ContainerInstance/containerGroups/detectors/read | List Container Group Detectors |
+| Microsoft.ContainerInstance/containerGroups/operationResults/read | Get async operation result |
+| Microsoft.ContainerInstance/containerGroups/outboundNetworkDependenciesEndpoints/read | List Container Group Detectors |
+| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
+| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
+| Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
+| Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
+| Microsoft.ContainerInstance/locations/cachedImages/read | Gets the cached images for the subscription in a region. |
+| Microsoft.ContainerInstance/locations/capabilities/read | Get the capabilities for a region. |
+| Microsoft.ContainerInstance/locations/operationResults/read | Get async operation result |
+| Microsoft.ContainerInstance/locations/operations/read | List the operations for Azure Container Instance service. |
+| Microsoft.ContainerInstance/locations/usages/read | Get the usage for a specific region. |
+| Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
+| Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by Azure Container Instance resource provider on a subnet. |
+
+## Related content
+
+- See [Monitor Container Instances](monitor-azure-container-instances.md) for a description of monitoring Container Instances.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

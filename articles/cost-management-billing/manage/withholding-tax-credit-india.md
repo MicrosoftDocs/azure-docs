@@ -3,7 +3,6 @@ title: Request a credit for Withholding Tax on your account (India customers) - 
 description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

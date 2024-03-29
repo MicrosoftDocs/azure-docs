@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 1/23/2024
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content
 ms.devlang: azurecli
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---

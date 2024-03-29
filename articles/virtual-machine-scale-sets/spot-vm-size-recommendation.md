@@ -5,7 +5,6 @@ author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn

@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: concept-article
-ms.date: 11/20/2023
+ms.date: 01/08/2024
 
 #CustomerIntent: As someone planning a deployment, I want to learn about my options for connectivity, so that I can start deploying
 ---
@@ -32,11 +32,16 @@ The following table lists all the available connection types and whether they're
 |---------|---------|---------|---------|---------|
 | MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Internet peering for Peering Service Voice walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
 |ExpressRoute Microsoft Peering |✅|✅|✅|- Easy to deploy<br>- Extra cost<br>- Consult with your onboarding team and ensure that it's available in your region<br>- See [Using ExpressRoute for Microsoft PSTN services](/azure/expressroute/using-expressroute-for-microsoft-pstn)|
-|Public internet |❌|✅|✅|- No extra setup<br>- Not recommended for production|
+|Public internet |⚠️ Lab deployments only|✅|✅|- No extra setup<br>- Where available, not recommended for production |
 
-Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. Your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
+> [!NOTE]
+> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet.
+
+Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. For production deployments, your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
 :::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Network diagram showing Azure Communications Gateway deployed into two Azure regions within one Azure Geography. The Azure Communications Gateway resource in each region connects to a communications service and both operator sites. Azure Communications Gateway uses MAPS or Express Route as its peering service between Azure and an operators network." lightbox="media/azure-communications-gateway-network.svg":::
+
+Lab deployments have one Azure service region and must connect to one site in your network.
 
 ## IP addresses and domain names
 

@@ -158,7 +158,7 @@ You can expose additional TCP ports from your application. To learn more, see th
 Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
 ```azurecli
-az containerapp create
+az containerapp create \
     --name <app-name> \
     --resource-group <resource-group> \
     --yaml <your-yaml-file>
