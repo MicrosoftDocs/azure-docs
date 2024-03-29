@@ -15,13 +15,13 @@ ms.reviwer: nikeist
 A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
 ## When is a DCE required?
-Prior to March 31, 2024, a DCE was required for all data collection scenarios using a DCR that required an endpoint. Any DCR created after this date includes its own endpoints for logs and metrics. The URL for these endpoints can be found in the [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) properties of the DCR. These endpoints can be used instead of a DCE for most scenarios.
+Prior to March 31, 2024, a DCE was required for all data collection scenarios using a DCR that required an endpoint. Any DCR created after this date includes its own endpoints for logs and metrics. The URL for these endpoints can be found in the [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) properties of the DCR. These endpoints can be used instead of a DCE for any direct ingestion scenarios.
 
 Endpoints cannot be added to an existing DCR, but you can keep using any existing DCRs with existing DCEs. If you want to move to a DCR endpoint, then you must create a new DCR to replace the existing one. A DCR with endpoints can also use a DCE. In this case, you can choose whether to use the DCE or the DCR endpoints for each of the clients that use the DCR.
 
-The following scenarios can't use the DCR endpoints and require a DCE:
+The following scenarios can currently use DCR endpoints.  A DCE required if private link is used.
 
-- [Private link](../logs/private-link-security.md)
+- [Logs ingestion API](../logs/logs-ingestion-api-overview.md).
 
 
 ## Components of a DCE
@@ -129,7 +129,6 @@ The sample data collection endpoint (DCE) below is for virtual machines with Azu
 
 - Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
 
-- Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 
 ## Next steps
 - [Associate endpoints to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)

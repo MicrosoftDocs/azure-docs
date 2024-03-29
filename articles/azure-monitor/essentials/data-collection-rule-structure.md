@@ -36,9 +36,7 @@ Contains the URLs of the endpoints for the DCR. This section and its properties 
 | `metricsIngestion` | URL for ingestion endpoint for metric data.  |
 
 **Scenarios**
-- Azure Monitor agent
 - Logs ingestion API
-- Events Hubs
 
 ## `dataCollectionEndpointId` 
 Specifies the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.

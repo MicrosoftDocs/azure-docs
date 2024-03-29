@@ -286,6 +286,8 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
 - Applies a [transformation](../essentials//data-collection-transformations.md) to the incoming data.
 
+> [!NOTE]
+> Logs ingestion API requires the [logsIngestion](../essentials/data-collection-rule-structure.md#endpoints) property which includes the URL of the endpoint. This property is added to the DCR after it's created.
 
 ```json
 {

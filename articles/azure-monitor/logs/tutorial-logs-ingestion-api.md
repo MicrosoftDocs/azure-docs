@@ -248,7 +248,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot that shows DCR details.":::
 
-1. Copy the **Immutable ID** and **Logs ingestion URI** for the DCR. You'll use these in a later step when you send sample data using the API.
+1. Copy the **Immutable ID** and **Logs ingestion URI** for the DCR. You'll use these when you [send data to Azure Monitor using the API](./tutorial-logs-ingestion-code.md).
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 

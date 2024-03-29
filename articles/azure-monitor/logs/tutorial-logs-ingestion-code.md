@@ -12,6 +12,10 @@ This article provides sample code using the [Logs ingestion API](logs-ingestion-
 - Custom table in a Log Analytics workspace
 - Data collection rule (DCR) to direct the data to the target table
 - Microsoft Entra application with access to the DCR
+- Data collection endpoint (DCE) if you're using private link. Otherwise, use the DCR logs endpoint.
+
+
+
 
 ## Sample code
 
