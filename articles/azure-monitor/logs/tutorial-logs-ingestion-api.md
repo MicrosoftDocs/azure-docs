@@ -22,6 +22,9 @@ The steps required to configure the Logs ingestion API are as follows:
 5. [Give the Microsoft Entra application access to the DCR](#assign-permissions-to-a-dcr).
 6. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code to send data to using the Logs ingestion API.
 
+> [!NOTE]
+> This article previously included a step to create a data collection endpoint (DCE). This is no longer required since [DCRs now include their own endpoint](../essentials/data-collection-endpoint-overview.md). A DCE is only required with Logs ingestion API if private link is used.
+
 ## Prerequisites
 To complete this tutorial, you need:
 
