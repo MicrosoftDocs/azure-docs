@@ -148,6 +148,8 @@
       href: log-monitoring.md
     - name: Alerts
       href: alerts.md
+    - name: OpenTelemetry agents
+      href: opentelemetry-agents.md
 - name: Scaling & performance
   items:
     - name: Overview
