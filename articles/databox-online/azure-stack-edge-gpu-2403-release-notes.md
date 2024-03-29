@@ -50,10 +50,9 @@ You can update to the latest version using the following update paths:
 
 The 2403 release has the following new features and enhancements:
 
-- CAT-1 STIG security fixes Mariner Guest OS for AKS on Azure Stack Edge.
 - Deprecated support for AKS telemetry on AKS on Azure Stack Edge.
 - Zone-label support for two-node Kubernetes clusters. 
-- Hyper-V VM management: memory usage monitoring on Azure Stack Edge host.
+- Hyper-V VM management, memory usage monitoring on Azure Stack Edge host.
 
 ## Issues fixed in this release
 
@@ -67,6 +66,7 @@ The 2403 release has the following new features and enhancements:
 |**6.**| Kubernetes | Overall two-node Kubernetes resiliency improvements, like increasing memory for control plane for AKS workload cluster, increasing limits for etcd, multi-replica, and hard anti-affinity support for core DNS and Azure disk csi controller pods to improve VM failover times. |
 |**7.**| Compute Diagnostic and Update | Resiliency fixes |
 |**8.**| Security | STIG security fixes. Mariner Guest OS for AKS on Azure Stack Edge. |
+|**9.**| VM operations | On an Azure Stack Edge cluster that deploys an AP5GC workload, after a host power cycle test, when the host returns a transient error about CPU group configuration, AzSHostAgent would crash. This caused a VM operations failure. The fix made *AzSHostAgent* resilient to a transient CPU group error. | 
 
 <!--!## Known issues in this release
 
