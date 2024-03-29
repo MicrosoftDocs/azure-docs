@@ -81,7 +81,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
       1. Select **Apache Spark version** as `Spark version 3.3`
       1. Optionally, increase the **Session timeout** (idle time) if you want to avoid frequent restarts of the serverless Spark session
       1. Under **Configuration settings**, define *Property* `spark.jars.packages` and *Value* `com.microsoft.azure:azureml-fs-scala-impl:1.0.4`
-         :::image type="content" source="./media/tutorial-feature-store-domain-specific-language/dsl-spark-jars-property.png" lightbox="./media/tutorial-feature-store-domain-specific-language/dsl-spark-jars-property.png" alt-text="This screenshot shows the Spark session property for a package that contains the jar file used by managed feature store domain-specific language":::
+         :::image type="content" source="./media/tutorial-feature-store-domain-specific-language/dsl-spark-jars-property.png" lightbox="./media/tutorial-feature-store-domain-specific-language/dsl-spark-jars-property.png" alt-text="This screenshot shows the Spark session property for a package that contains the jar file used by managed feature store domain-specific language.":::
       1. Select **Python packages**
       1. Select **Upload conda file**
       1. Select the `conda.yml` you downloaded on your local device
