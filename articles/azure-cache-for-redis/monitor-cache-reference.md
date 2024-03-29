@@ -63,9 +63,9 @@ The following list provides details and more information about the supported Azu
 - Connections Closed Per Second
   - The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - CPU
-  - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
+  - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note that this metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
 - Errors
-  - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could add more in the future. The error types represented now are as follows:
+  - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types. The error types represented now are as follows:
     - **Failover** – when a cache fails over (subordinate promotes to primary)
     - **Dataloss** – when there's data loss on the cache
     - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
