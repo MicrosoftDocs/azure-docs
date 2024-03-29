@@ -1126,29 +1126,12 @@ productDirectory:
         - management-and-governance
       url: azure-portal/index.yml
     # Card
-    - title: Network Watcher
-      summary: Network performance monitoring and diagnostics solution
-      imageSrc: ./media/index/network-watcher.svg
-      azureCategories:
-        - management-and-governance
-        - networking
-      url: network-watcher/index.yml
-    # Card
-    - title: Traffic Manager
-      summary: Route incoming traffic for high performance and availability
-      imageSrc: ./media/index/traffic-manager.svg
-      azureCategories:
-        - management-and-governance
-        - networking
-      url: traffic-manager/index.yml
-    # Card
     - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale
       imageSrc: ./media/index/update-center.svg
       azureCategories:
         - management-and-governance
       url: update-manager/index.yml
-
     # Card
     - title: Azure Media Player
       summary: A single player for all your playback needs
@@ -1162,7 +1145,6 @@ productDirectory:
       imageSrc: ./media/index/cdn-profiles.svg
       azureCategories:
         - media
-        - networking
         - web
       url: cdn/index.yml
     # Card
@@ -1246,13 +1228,6 @@ productDirectory:
         - security
       url: application-gateway/index.yml
     # Card
-    - title: Azure Bastion
-      summary: Private and fully managed RDP and SSH access to your virtual machines
-      imageSrc: ./media/index/web_connect.svg
-      azureCategories:
-        - networking
-      url: bastion/index.yml
-    # Card
     - title: Microsoft Defender for Cloud
       summary: Security posture management and advanced threat protection across Azure, hybrid, and multicloud workloads
       imageSrc: ./media/index/defender.svg
@@ -1290,14 +1265,6 @@ productDirectory:
         - networking
         - security
       url: firewall/index.yml
-    # Card
-    - title: Azure Firewall Manager
-      summary: Central network security policy and route management for globally distributed, software-defined perimeters
-      imageSrc: ./media/index/firewall-manager.svg
-      azureCategories:
-        - networking
-        - security
-      url: firewall-manager/index.yml
     # Card
     - title: Azure Front Door
       summary: Scalable, security-enhanced delivery point for global, microservice-based web applications
@@ -1358,13 +1325,6 @@ productDirectory:
         - networking
       url: virtual-network/index.yml
     # Card
-    - title: Azure Virtual Network Manager (Preview)
-      summary: Centralized management of virtual network connectivity and enforce security rules across subscriptions.
-      imageSrc: ./media/index/azure-virtual-network-manager.svg
-      azureCategories:
-        - networking
-      url: virtual-network-manager/index.yml
-    # Card
     - title: Virtual WAN
       summary: Microsoft-managed hub and spoke service for connectivity and security
       imageSrc: ./media/index/virtual-wans.svg
@@ -1392,7 +1352,6 @@ productDirectory:
       summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet
       imageSrc: ./media/index/nat-gateway.svg
       azureCategories:
-        - networking
         - security
       url: nat-gateway/index.yml
     # Card
