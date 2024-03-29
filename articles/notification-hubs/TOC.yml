@@ -158,7 +158,9 @@
     href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Use APNS VOIP through Notification Hubs
     href: voip-apns.md  
-  - name: Enable diagnostic logs for Notification Hubs
+  - name: Monitor
+    href: monitor-notification-hubs.md
+  - name: Enable diagnostic logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
   items:  
@@ -172,6 +174,8 @@
     href: /rest/api/notificationhubs/
   - name: Resource Manager template
     href: /azure/templates/microsoft.notificationhubs/allversions
+  - name: Monitoring data reference
+    href: monitor-notification-hubs-reference.md
 - name: Resources
   items:
   - name: FAQ
