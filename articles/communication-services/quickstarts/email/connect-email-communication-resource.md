@@ -45,9 +45,9 @@ In this quick start, you learn how to connect a verified domain in Azure Communi
 
 * [How to send an Email](../../quickstarts/email/send-email.md)
 
-* [What is Email Communication Resource for Azure Communication Service](../../concepts/email/prepare-email-communication-resource.md)
+* [What is Email Communication Resource for Azure Communication Services](../../concepts/email/prepare-email-communication-resource.md)
 
 
-The following documents may be interesting to you:
+## Related articles
 
 - Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)

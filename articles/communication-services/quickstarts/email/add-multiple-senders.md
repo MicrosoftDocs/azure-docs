@@ -27,7 +27,7 @@ An email domain that is provisioned to send email has a default MailFrom address
 > [!NOTE]
 > Sender usernames cannot be enabled for Azure Managed Domains or custom domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../concepts/service-limits.md#rate-limits).
 
-1. Open the Overview page of the Email Communications Service resource that you created in [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md).
+1. Open the Overview page of the Email Communication Service resource that you created in [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md).
 2. Click **Provision Domains** on the left navigation panel to see list of provisioned domains.
 3. Click on the one of the provisioned domains to open the Domain Overview page.
 
@@ -69,7 +69,7 @@ An email domain that is provisioned to send email has a default MailFrom address
 
 ## Next steps
 
-* [Quickstart: Create and manage email communication services resources](../../quickstarts/email/create-email-communication-resource.md)
+* [Quickstart: Create and manage Email Communication Service resources](../../quickstarts/email/create-email-communication-resource.md)
 
 * [Quickstart: How to connect a verified email domain](../../quickstarts/email/connect-email-communication-resource.md)
 

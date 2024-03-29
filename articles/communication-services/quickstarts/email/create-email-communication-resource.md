@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Create and manage Email Communication Service resource in Azure Communication Service
+title: Quickstart - Create and manage Email Communication Service resource in Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to create and manage your first Azure Email Communication Services resource.
+description: In this quickstart, you'll learn how to create and manage your first Azure Email Communication Service resource.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -10,10 +10,10 @@ ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-# Quickstart: Create and manage email communication services resources
+# Quickstart: Create and manage Email Communication Service resources
 
  
-Get started with Email by provisioning your first email communication services resource. Communication services resources can be provisioned through the [Azure portal](https://portal.azure.com/) or with the .NET management client library. The management client library and the Azure portal enable you to create, configure, update, and delete your resources and interface with [Azure Resource Manager](../../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functions available in the client libraries are available in the Azure portal.
+Get started with Email by provisioning your first Email Communication Service resource. Provision Email Communication Service resources through the [Azure portal](https://portal.azure.com/) or with the .NET management client library. The management client library and the Azure portal enable you to create, configure, update, and delete your resources and interface with [Azure Resource Manager](../../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functions available in the client libraries are available in the Azure portal.
 
 ## Create the Email Communications Service resource using portal
 

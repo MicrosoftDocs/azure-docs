@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Quickstart: How to add Azure Managed Domains to email
 
-In this quick start, you learn how to provision the Azure Managed domain in Azure Communication Services to send email.
+In this quick start, you learn how to provision the Azure Managed Domain in Azure Communication Services to send email.
 
 ## Prerequisites
 

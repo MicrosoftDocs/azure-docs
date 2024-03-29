@@ -39,7 +39,7 @@ To provision a custom domain, you need to:
 
 In this section, you verify the custom domain ownership by adding a TXT record in your DNS.
 
-1. Open the Overview page of the Email Communications Service resource that you created in [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md).
+1. Open the Overview page of the Email Communication Service resource that you created in [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md).
 2. Create a custom domain using one of the following options.
     - (Option 1) Click the **Setup** button under **Setup a custom domain**. Continue to **step 3**.
 
@@ -213,7 +213,7 @@ The following links provide more information about how to add a CNAME record usi
 
 * [Get started by connecting Email Communication Service with an Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
-* [How to send an email using Azure Communication Service](../../quickstarts/email/send-email.md)
+* [How to send an email using Azure Communication Services](../../quickstarts/email/send-email.md)
 
 
 ## Related articles
