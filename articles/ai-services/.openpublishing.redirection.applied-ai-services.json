@@ -217,7 +217,7 @@
           },
           {
             "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
-            "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
+            "redirect_url": "/azure/ai-services/openai/concepts/fine-tuning-considerations",
             "redirect_document_id": true
           }
 	]
