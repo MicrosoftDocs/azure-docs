@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 03/26/2024
+ms.date: 03/29/2024
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---
@@ -19,8 +19,9 @@ This tutorial describes how to inspect (trace) request processing in Azure API M
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Trace an example call
+> * Trace an example call in the test console
 > * Review request processing steps
+> * Enable tracing for an API
 
 :::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="Screenshot showing the API inspector." lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
 
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
-## Trace a call
+## Trace a call in the portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 1. Select **APIs**.
@@ -68,25 +69,22 @@ In this tutorial, you learn how to:
     > Each step also shows the elapsed time since the request is received by API Management.
 
 
-## Enable tracing using a REST client 
+## Enable tracing for an API
 
 You can enable tracing for an API when making requests to API Management using `curl`, a REST client such as Visual Studio Code with the REST Client extension, or a client app. 
 
-> [!IMPORTANT]
-> API Management request tracing is no longer enabled by setting the **Ocp-Apim-Trace** header in a request and using the value of the **Ocp-Apim-Trace-Location** header in the response to retrieve the trace.
-
-Enable tracing by the following flow using calls to the API Management REST API.
+Enable tracing by the following steps using calls to the API Management REST API.
 
 > [!NOTE]
-> The following steps require API Management REST API version 2023-05-01-preview or later.
+> The following steps require API Management REST API version 2023-05-01-preview or later. You must be assigned the Contributor or higher role on the API Management instance to call the REST API.
 
-1. Obtain trace credentials by calling the [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. Pass the gateway resource ID in the URI, or use "managed" for the instance's managed gateway.  for cloud in URI, and API that you want to trace in payload. For example:
+1. Obtain trace credentials by calling the [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. Pass the gateway ID in the URI, or use "managed" for the instance's managed gateway in the cloud. For example, to obtain trace credentials for the managed gateway, use a call similar to the following:
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listDebugCredentials?api-version=2023-05-01-preview
     ```
     
-    Pass the full resource ID of the API in the payload, and specify `purposes` as `tracing`. By default the token credential returned in the response expires after 1 hour, but you can specify a different value in the payload.
+    In the request body, pass the full resource ID of the API that you want to trace, and specify `purposes` as `tracing`. By default the token credential returned in the response expires after 1 hour, but you can specify a different value in the payload.
 
     ```json
     {
@@ -104,19 +102,23 @@ Enable tracing by the following flow using calls to the API Management REST API.
     }
     ```
 
-1. To enable tracing, send the token value in an `Apim-Debug-Authorization` header of an API request. 
+1. To enable tracing for a request to the API Management gateway, send the token value in an `Apim-Debug-Authorization` header. For example, to trace a call to the demo conference API, use a call similar to the following:
 
-    * If the token is valid, the response contains an `Apim-Trace-Id` header whose value is the trace ID.
-    * If the token is expired, the response contains an `Apim-Debug-Authorization-Expired` header with information about expiration date.
-    * If the token was obtained for wrong API, the response contains an `Apim-Debug-Authorization-WrongAPI` header with an error message
+    ```bash
+    curl -v GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 -H "Ocp-Apim-Subscription-Key: <subscription-key>" -H "Apim-Debug-Authorization: aid=api-name&p=tracing&ex=......."
+    ```
+1. Depending on the token, the response contains different headers:
+    * If the token is valid, the response includes an `Apim-Trace-Id` header whose value is the trace ID.
+    * If the token is expired, the response includes an `Apim-Debug-Authorization-Expired` header with information about expiration date.
+    * If the token was obtained for wrong API, the response includes an `Apim-Debug-Authorization-WrongAPI` header with an error message.
 
-1. To retrieve the trace, pass the trace ID obtained in the previous step to the [List trace](/rest/api/apimanagement/gateway/list-trace) API:
+1. To retrieve the trace, pass the trace ID obtained in the previous step to the [List trace](/rest/api/apimanagement/gateway/list-trace) API for the gateway. For example, to retrieve the trace for the managed gateway, use a call similar to the following:
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listTrace?api-version=2023-05-01-preview
     ```
 
-    with body
+    In the request body, pass the trace ID obtained in the previous step.
 
     ```json
     {
@@ -124,7 +126,7 @@ Enable tracing by the following flow using calls to the API Management REST API.
     }
     ```
     
-    The response body contains the trace data for the previous API request to the gateway.
+    The response body contains the trace data for the previous API request to the gateway. The trace is similar to the trace you can see by tracing a call in the portal's test console.
 
 
 For information about customizing trace information, see the [trace](trace-policy.md) policy.
@@ -136,6 +138,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Trace an example call
 > * Review request processing steps
+> * Enable tracing for an API
 
 Advance to the next tutorial:
 
