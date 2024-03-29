@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # The getMicrophones API doesn't return detailed microphone list
 If a user reports that they can't see the detailed microphone list,
-it's likely because the browser is not granted permission to access the microphone.
+it's likely because the browser isn't granted permission to access the microphone.
 When the permission state is `prompt` or `denied`, the browser doesn't provide detailed information about the microphone devices.
 In this scenario, the `DeviceManager.getMicrophones` API returns an array with one object, where the `id` is set to `microphone:` and the name is set to an empty string.
 
