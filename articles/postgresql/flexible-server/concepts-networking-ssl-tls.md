@@ -89,7 +89,7 @@ There are many connection parameters for configuring the client for SSL. Few imp
 **Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
 
 > [!NOTE]  
-> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
+> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates. To determine if you are pinning CAs, please refer to [Certificate pinning and Azure services](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application). 
 
 For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
 
@@ -123,6 +123,8 @@ System.setProperty("javax.net.ssl.trustStorePassword","password");
 ```
 6. Replace the original root CA pem file with the combined root CA file and restart your application/client.
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
 
 
 ## Cipher Suites
