@@ -31,7 +31,7 @@ Benefits of using Microsoft Entra ID include:
 
 Microsoft Entra authentication for Azure Database for PostgreSQL flexible server incorporates our experience and feedback collected from Azure Database for PostgreSQL single server.
 
-The following table lists high-level comparisons of Microsoft Entra features and capabilites between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server.
+The following table lists high-level comparisons of Microsoft Entra features and capabilities between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server.
 
 | Feature/Capability | Azure Database for PostgreSQL single server | Azure Database for PostgreSQL flexible server |
 | --- | --- | --- |

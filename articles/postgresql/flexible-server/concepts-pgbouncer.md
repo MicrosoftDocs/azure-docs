@@ -51,7 +51,7 @@ By using the built-in PgBouncer feature with Azure Database for PostgreSQL flexi
 
 * **Support for various connection types**: PgBouncer in Azure Database for PostgreSQL flexible server provides support for both public and private connections. You can use it to establish secure connections over private networks or connect externally, depending on your specific requirements.
 
-* **High availability during failover scenarios**: In the event of a failover, where a standby server is promoted to the primary role, PgBouncer seamlessly restarts on the newly promoted standby. You don't need to make any changes to the application connection string. This ability helps ensure continuous availability and minimizes disruption to the application's connection pool.
+* **High availability in failover scenarios**: If a standby server is promoted to the primary role during a failover, PgBouncer seamlessly restarts on the newly promoted standby. You don't need to make any changes to the application connection string. This ability helps ensure continuous availability and minimizes disruption to the application's connection pool.
 
 ## Monitoring PgBouncer
 
@@ -90,7 +90,7 @@ After you're connected to the database, use `SHOW` commands to view PgBouncer st
 * `SHOW DATABASES`: Show the current applied connection limits for each database.
 * `SHOW STATS`: Show statistics on requests and traffic for every database.
 
-For more details on the PgBouncer `SHOW` commands, see [Admin console](https://www.pgbouncer.org/usage.html#admin-console).
+For more information on the PgBouncer `SHOW` commands, see [Admin console](https://www.pgbouncer.org/usage.html#admin-console).
 
 ## Switching your application to use PgBouncer
 
@@ -127,7 +127,7 @@ Using an application-side pool together with PgBouncer on the database server ca
 
 * If PgBouncer is deployed as a feature, it becomes a potential single point of failure. If the PgBouncer feature is down, it can disrupt the entire database connection pool and cause downtime for the application. To mitigate the single point of failure, you can set up multiple PgBouncer instances behind a load balancer for high availability on Azure VMs.
 
-* PgBouncer is a lightweight application that uses a single-threaded architecture. This design is great for the majority of application workloads. But in applications that create a large number of short-lived connections, it might affect pgBouncer performance and limit your ability to scale your application. You might need to try one of these approaches:
+* PgBouncer is a lightweight application that uses a single-threaded architecture. This design is great for most application workloads. But in applications that create a large number of short-lived connections, it might affect pgBouncer performance and limit your ability to scale your application. You might need to try one of these approaches:
 
   * Distribute the connection load across multiple PgBouncer instances on Azure VMs.
   * Consider alternative solutions, including multithreaded solutions like such as [PgCat](https://github.com/postgresml/pgcat), on Azure VMs.

@@ -28,7 +28,7 @@ More detailed information about Azure compliance offerings is available from the
 
 ## Azure Database for PostgreSQL flexible server compliance certifications
 
-Azure Database for PostgreSQL flexible server has achieved a comprehensive set of national/regional and industry-specific compliance certifications in the Azure public cloud to help you comply with requirements that govern the collection and use of data.
+Azure Database for PostgreSQL flexible server has achieved a comprehensive set of national/regional and industry-specific compliance certifications in the Azure public cloud. These certifications help you comply with requirements that govern the collection and use of data.
 
 > [!div class="mx-tableFixed"]
 > | Certification| Applicable to |

@@ -51,7 +51,7 @@ The following table shows the *default* maximum number of connections for each p
 |E64s_v3 / E64ds_v4 / E64ds_v5 / E64ads_v5|64    |432 GiB    |5,000           |4,985                |
 |E96ds_v5 / E96ads_v5                     |96    |672 GiB    |5,000           |4,985                |
 
-The reserved connection slots, presently at 15, could change. We advise regularly verifying the total reserved connections on the server. You calculate this number by summing the values of the `reserved_connections` and `superuser_reserved_connections` server parameters. The maximum available user connections is `max_connections` - (`reserved_connections` + `superuser_reserved_connections`).
+The reserved connection slots, presently at 15, could change. We advise regularly verifying the total reserved connections on the server. You calculate this number by summing the values of the `reserved_connections` and `superuser_reserved_connections` server parameters. The maximum number of available user connections is `max_connections` - (`reserved_connections` + `superuser_reserved_connections`).
 
 The default value for the `max_connections` server parameter is calculated when you provision the instance of Azure Database for PostgreSQL flexible server, based on the product name that you select for its compute. Any subsequent changes of product selection to the compute that supports the flexible server won't have any effect on the default value for the `max_connections` server parameter of that instance. We recommend that whenever you change the product assigned to an instance, you also adjust the currently set value for the `max_connections` parameter according to the values in the preceding table.
 
@@ -131,7 +131,7 @@ The following sections list considerations for what is and isn't supported in Az
 
 ### Server restoration
 
-- When you're using the PITR feature, the new server is created with the same compute and storage configurations as the server it's based on.
+- When you're using the point-in-time restore (PITR) feature, the new server is created with the same compute and storage configurations as the server that it's based on.
 - Database servers in virtual networks are restored into the same virtual networks when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. You need to create firewall rules separately for the new server.
 - Restore to a different subscription isn't supported. As a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.

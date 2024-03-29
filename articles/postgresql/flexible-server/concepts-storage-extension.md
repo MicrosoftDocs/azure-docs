@@ -92,7 +92,7 @@ The following example shows the import of data from an *employee.csv* file that 
    );
    ```
 
-2. Use a `COPY` statement to copy data into the target table. Specify that that the first row is headers.
+2. Use a `COPY` statement to copy data into the target table. Specify that the first row is headers.
 
    ```sql
    COPY employees

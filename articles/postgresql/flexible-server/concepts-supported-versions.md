@@ -53,7 +53,7 @@ It's also possible to do in-place major version upgrades by using the [major ver
 
 ## Supportability and retirement policy of the underlying operating system
 
-Azure Database for PostgreSQL flexible server is a fully managed open-source database. The underlying operating system is an integral part of the service. Microsoft continually works to ensure ongoing security updates and maintenance for security compliance and vulnerability mitigation, whether it's provided by a partner or an internal vendor. Automatic upgrades during scheduled maintenance help keep your managed database secure, stable, and up to date.
+Azure Database for PostgreSQL flexible server is a fully managed open-source database. The underlying operating system is an integral part of the service. Microsoft continually works to ensure ongoing security updates and maintenance for security compliance and vulnerability mitigation, whether a partner or an internal vendor provides them. Automatic upgrades during scheduled maintenance help keep your managed database secure, stable, and up to date.
 
 ## Managing PostgreSQL engine defects
 
