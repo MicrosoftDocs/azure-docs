@@ -153,6 +153,8 @@ ACG images can be created by users from various sources, including virtual machi
 ### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
 - Users will require read permission on the Managed Image/Gallery Image.
 
+---
+
 |Source type |Permissions Required | 
 |---|---|
 | Virtual machine | Write |
@@ -162,7 +164,7 @@ ACG images can be created by users from various sources, including virtual machi
 | Gallery Image	| Read|
 
 Refer to our documentation for additional information regarding [Azure built-in roles](../role-based-access-control/built-in-roles.md), for [granting RBAC permissions](../role-based-access-control/quickstart-assign-role-user-portal.md)
----
+
 
 
 ## Shallow replication 
@@ -219,7 +221,8 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
-  
+
+
 ### [Azure CLI](#tab/azure-cli)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
@@ -241,8 +244,6 @@ $params = @{
 
 Get-AzSubscription | ForEach-Object @params
 ```
-
----
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 
@@ -349,7 +350,7 @@ StorageProfile = new GalleryImageVersionStorageProfile()
             },
 ```
 
-For VHD as a source, use StorageAccountID field under GallerySource under OS disk or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
+For VHD as a source, use StorageAccountID field under GallerySource under OSDiskImage or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
 ```
 StorageProfile = new GalleryImageVersionStorageProfile()
             {

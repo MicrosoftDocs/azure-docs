@@ -1,0 +1,124 @@
+### YamlMime:FAQ
+metadata:
+  title: Trusted Signing FAQs #Required; The page title is displayed in search results. Include "FAQ" or "Frequently asked questions".
+  description: Get answers to frequently asked questions (FAQs) for Trusted. #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
+  author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
+  ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
+  ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
+  ms.topic: faq #Required
+  ms.date: 03/18/2024 #Required; mm/dd/yyyy format.
+title: Trusted Signing FAQs #Required. This appears as the headline in the article as displayed.
+summary: |
+  This page lists common questions and answers related to Trusted Signing. 
+
+# Remember that indentation is significant in YAML files.
+# If there is any disallowed spacing, the build will fail.
+
+sections:
+  - name: Onboarding
+    questions:
+      - question: What Windows versions does Trusted Signing support? # Question.
+        answer: | 
+          Refer to the [Trusted Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) page for details about Windows support for Trusted Signing.
+          The service is supported on all currently supported versions of:
+          * Windows 11 (Supported out of the box) 
+          * Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
+          * Windows Server 2019, Windows Server 2016  
+          Files signed by Trusted Signing’s Public Trust certificates are trusted on:  
+          * Windows Server 2012 R2 (Command line only) 
+          * Windows 8.1 
+          * Windows 7 SP1 ESU - Must install May 2021 update rolls up  
+          * Windows 10 1507  
+          Not Supported
+          * Windows 7 SP1 non-ESU (Not supported by Microsoft) 
+          * Windows OS version that were already end of life
+
+          General User Mode Code Integrity (UMCI) support for Trusted Signing:
+          * Signed binaries was added in the July 2021 Certificate Trust List (CTL) update delivered by Windows. In standard scenarios, upon first sight of an end-entity cert from a chain on the machine, the system pulls down the root CA cert into the trust root store on a system.  
+      - question: How do I grant API access in Microsoft Entra ID to Trusted Signing?
+        answer: | 
+         Ask your tenant admin to provide you with an approval. For more information about permissions, see:
+          *[Overview of consent and permissions](https://learn.microsoft.com/entra/identity/enterprise-apps/user-admin-consent-overview)
+          *[Configure the admin consent workflow](https://learn.microsoft.com/entra/identity/enterprise-apps/configure-admin-consent-workflow)
+          *[Review permissions granted to applications](https://learn.microsoft.com/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal.
+      - question: What if I don’t see Microsoft.CodeSigning in my resource provider? 
+        answer: | 
+          Register the Microsoft.CodeSigning app in the subscription resource provider page using the below screenshot as a guide: :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png"::: 
+      - question: What if I fail identity validation?
+        answer: | 
+          If more documentation is required for identity validation, you're asked to provide those documents on the Azure portal. Otherwise, we recommend checking for an email sent to the listed address for email validation. However, if your organization fails identity validation we can't onboard you to Trusted Signing. We recommend you delete your Trusted Signing account so you don't get billed for unused resources.
+  - name: Certificate Profiles
+    questions:
+      - question: What if my Trusted Signing subject name is different than my old cert and my MSIX's package name is now different? 
+        answer: |
+          Follow the persistent identity guidance in the [MSIX Persistent Identity](https://learn.microsoft.com/windows/msix/package/persistent-identity) article.
+      - question: Does deleting the certificate profile revoke the certificates? 
+        answer: |
+          No. If you delete the certificate profile, any certificates that were previously issued or used under that profile will remain - they won't be revoked.
+      - question: Does Trusted Signing allow me to use a custom CN? 
+        answer: |
+          Per the CA/B Forum baseline requirements for publicly trusted code signing certs, CN values must be the legal entity's validated name (e.g. Microsoft Corporation) so there isn't much flexibility in CN values. However, a `O` value allows for verified legal names, trade names, and DBAs (doing business as). For individuals, there are already requirements for verification of individuals in the baseline requirements that we meet.
+  - name: Signing
+    questions:
+      - question: What is Trusted Signing’s compliance level?
+        answer: |
+          FIPS 140-2 level 3 (mHSMs)
+      - question: How to include the appropriate EKU for our certificates into the ELAM driver resources? 
+        answer: |
+          - For information regarding ELAM driver config for Protected Anti-Malware Services, refer to the following guidance: "Beginning in 2022, all user mode anti-malware service binaries must be signed by Microsoft's Azure Code Sign signing service. The Trusted Signing issued Authenticode certificate for signing anti-malware binaries is updated every 30 days for security. To prevent the need to update the ELAM driver every time the certificate is updated, we recommend that anti-malware vendors include the Azure Code Sign PCA certificate TBS hash in the CertHash portion of the ELAM driver resource file info. Additionally, the anti-malware vendor must include their unique Trusted Signing EKU identity in the EKU field of the resource file info. The EKU identity will begin with the prefix *1.3.6.1.4.1.311.97.*."
+          - See the [PKI Repository](https://www.microsoft.com/pkiops/docs/repository.htm) page for the Microsoft ID Verified Code Signing PCA 2021 cert.
+      - question: What happens if we run Trusted Signing binaries on a signed on machine that doesn't have the Trusted Signing update (especially binaries that are INTEGRITYCHECK-ed)?
+        answer: |
+          - If an INTEGRITYCHECK flag is set, the user's signature isn't validated at runtime and isn't run with INTEGRITYCHECK.  
+          - To check if Trusted Signing update is installed or not, we recommend that you check against one of your packaged /IntegrityCheck-linked DLLs. A dummy one works, too. That way you can complete your check independently of the platform and the availability of our IntegrityCheck-linked binaries.
+      - question: My Sectigo cert is expiring, can I get a new one or do I have to use Trusted Signing?
+        answer: |
+          We're not extending any cross-signed certificates. , you must sign with the Trusted Signing service.
+      - question: How is Trusted Signing different than the signing customers do with Partner Center?
+        answer: |
+          Signing with the Partner Center is Kernel mode signing (no change here with the introduction of Trusted Signing). You'll need to sign your user mode binaries with Trusted Signing. For your apps that interact with the Windows Security Center (WSC) service, you must include the Code Integrity bit (/INTEGRITYCHECK). Without the Trusted Signing signature, you aren't able to register with the WSC, and Windows Defender will run in parallel.
+      - question: How do we get the Authenticode certificate?  
+        answer: |
+          The Authenticode certificate used for signing with the profile is never given to you. All certificates are securely stored within the service and are only accessible at the time of signing. The public certificate is always included in any signed binary by the service. 
+      - question: What are the common steps I should complete if I get a SignTool error (for example, unexpected internal error has occurred)?  
+        answer: |
+         - Confirm the dlib and dll are in the correct path.
+          - Confirm the sign tool and dlib are both 64 bit.
+          - [Download](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170) and install C++ Redistributables.
+          - Search the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool) article.
+          - We recommend using this version of the [SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) as opposed to directly from NuGet. We used the previous article to test if it works with our dlib (version 10.0.22621 recommended currently). 
+      - question: What if I get a 403 Forbidden or an admin approval to access this resource error? 
+        answer: |
+          This error is likely due to the Trusted Signing application not being allowed to run. Confirm that you have the "Trusted Signing Certificate Profile Signer" role: `({assignee} is your email)  az role assignment list --assignee {assignee}`
+      - question: How do I check if the timestamper service is healthy? 
+        answer: |
+          Run the following command `curl http://timestamp.acs.microsoft.com`. If the StatusCode 200 is returned, it means the timestamper service is healthy and running. 
+      - question: What if I get a 400 error with `SharedTokenCacheCredential` authentication failed? 
+        answer: |
+          This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON. To learn more, go to [DefaultAzureCredential Class (Azure.Identity)](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+      - question: I’m getting errors when doing Private Trust signing. What should I do? 
+        answer: |
+          If you get an internal error, check that the CN name you used matches with the cert name. The package name is checked so ensure to copy the entire Subject name that appears in the Azure portal to the manifest file when signing is submitted. 
+      - question: I'm getting command succeeded for SignTool, but the file doesn't appear to be signed when I check the digital signature. What should I do? 
+        answer: |
+          If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types have the signature tab in properties.
+      - question: How do I fix pop-up credentials in the Azure VM when running the SignTool + Dlib command?
+        answer: |
+          - [Create a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
+          - Then add the user-assigned managed identity to the VM by selecting the VM, going to "Identity" in the left navigation bar, clicking "User assigned" and the "Add" button to add the managed identity. 
+          - Finally, in the Resource Group (or Subscription) that has the role Trusted Signing Certificate Profile Signer, add the user-assigned managed identity to the role. Go to "Access control (IAM)" and "Role assignments" to assign the correct role.
+      - question: How do I fix pop-up credentials when using GCP?
+        answer: |
+          - Since GCP doesn't have Azure Managed Identity resource by default, an [Environment Credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) needs to be set up. 
+          Use the [EnvironmentCredential Class]https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
+          ```AZURE_TENANT_ID  The Microsoft Entra tenant(directory) ID. 
+          AZURE_CLIENT_ID The client(application) ID of an App Registration in the tenant. 
+          AZURE_CLIENT_SECRET A client secret that was generated for the App Registration. ````
+          - To create a Client ID and Secret follow the guidance on [Creating a Service Principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+          - After creating the Client ID and Secret, navigate to the Resource Group (or Subscription) that has the Trusted Signing Certificate Profile Signer role and add this App to the role. 
+      - question: What if my Trusted Signing account is suspended?
+        answer: |
+          We suspend accounts and or revoke signing certificates if the certificate is found to be misused or abused per our service's Terms of Use. We engage with you directly in such cases following the Code Signing Baseline Requirements (CSBRs) guidelines. 
+
+##additionalContent: |
+    ## Next steps

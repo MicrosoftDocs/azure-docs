@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) C# SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: 'Form and document processing, data extraction, and analysis using Document Intelligence C# client library SDKs v3.1 or v3.0 '
+description: 'Form and document processing, data extraction, and analysis using Document Intelligence C# client library.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 12/22/2023
+ms.date: 03/25/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
@@ -18,7 +18,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 <!-- markdownlint-disable MD029 -->
 
 :::moniker range="doc-intel-4.0.0"
-[Client library](/dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.DocumentIntelligence/1.0.0-beta.1/index.html) | [REST API reference](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) | [Package](https://www.nuget.org/packages/Azure.AI.DocumentIntelligence/1.0.0-beta.1)| [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples)|[Supported REST API versions](../../sdk-overview-v4-0.md)
+[Client library](/dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.DocumentIntelligence/1.0.0-beta.2/index.html) | [REST API reference](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) | [Package](https://www.nuget.org/packages/Azure.AI.DocumentIntelligence/1.0.0-beta.2)| [Samples]( https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples/README.md)|[Supported REST API versions](../../sdk-overview-v4-0.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -30,7 +30,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 [Client library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples) |[Supported REST API versions](../../sdk-overview-v3-0.md)
 :::moniker-end
 
-In this quickstart, you use the following features to analyze and extract data and values from forms and documents:
+In this quickstart, use the following features to analyze and extract data and values from forms and documents:
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -108,7 +108,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
     :::image type="content" source="../../media/quickstarts/select-doc-intel-nuget-package.png" alt-text="Screenshot of select NuGet prerelease package window in Visual Studio.":::
 
-1. Select the Browse tab and type Azure.AI.DocumentIntelligence. Choose the **Include prerelease** checkbox and select version 1.0.0-beta.1 from the dropdown menu
+1. Select the Browse tab and type Azure.AI.DocumentIntelligence. Choose the **`Include prerelease`** checkbox and select version 1.0.0-beta.1 from the dropdown menu
 
      :::image type="content" source="../../media/quickstarts/doc-intel-preview-package.png" alt-text="Screenshot of select Document Intelligence prerelease NuGet package in Visual Studio.":::
 
@@ -209,7 +209,7 @@ DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpo
 //sample document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -613,7 +613,7 @@ Once you add a code sample to your application, choose the green **Start** butto
 Analyze and extract common fields from specific document types using a prebuilt model. In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
-> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the `analyze` operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
 
 > [!div class="checklist"]
 >
@@ -641,7 +641,7 @@ DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpo
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
-Operation operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
+Operation<AnalyzeResult> operation = await client.AnalyzeDocumentAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
 AnalyzeResult result = operation.Value;
 

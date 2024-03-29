@@ -390,6 +390,12 @@ Terminal Server has been deployed and configured as follows:
    - ct1.eth11: not set by operator during setup
    - ct1.eth18: not set by operator during setup
    - ct1.eth19: not set by operator during setup
+   - Pure Tuneables to be applied:
+     - puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";
+     - puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";
+     - puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";
+     - puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";
+     - puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";
 
 ### Default setup for other devices installed
 

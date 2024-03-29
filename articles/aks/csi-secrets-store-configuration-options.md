@@ -3,6 +3,7 @@ title: Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernete
 description: Learn configuration and troubleshooting options for the Azure Key Vault provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS).
 author: nickomang
 ms.author: nickoman
+ms.subservice: aks-security
 ms.topic: how-to
 ms.date: 10/19/2023
 ms.custom: template-how-to, devx-track-azurecli
