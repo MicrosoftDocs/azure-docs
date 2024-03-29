@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Subscribing to a video that is unavailable
-The application tries to subscribe to a video when [isAvailable](/javascript/api/azure-communication-services/@azure/communication-calling/remotevideostream?view=azure-communication-services-js#@azure-communication-calling-remotevideostream-isavailable) is false.
+The application tries to subscribe to a video when [isAvailable](/javascript/api/azure-communication-services/@azure/communication-calling/remotevideostream#@azure-communication-calling-remotevideostream-isavailable) is false.
 
 Subscribing a video in this case results in failure.
 
