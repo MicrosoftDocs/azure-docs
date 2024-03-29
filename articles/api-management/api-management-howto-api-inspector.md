@@ -70,7 +70,7 @@ In this tutorial, you learn how to:
 
 ## Enable tracing using a REST client 
 
-You can enable tracing for an API when making requests to API Management using `curl`, a REST client such as VSCode with the REST Client extension, or a client app. 
+You can enable tracing for an API when making requests to API Management using `curl`, a REST client such as Visual Studio Code with the REST Client extension, or a client app. 
 
 > [!IMPORTANT]
 > API Management request tracing is no longer enabled by setting the **Ocp-Apim-Trace** header in a request and using the value of the **Ocp-Apim-Trace-Location** header in the response to retrieve the trace.
@@ -83,8 +83,7 @@ Enable tracing by the following flow using calls to the API Management REST API.
 1. Obtain trace credentials by calling the [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. Pass the gateway resource ID in the URI, or use "managed" for the instance's managed gateway.  for cloud in URI, and API that you want to trace in payload. For example:
 
     ```http
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listTrace?api-version=2023-05-01-preview
-    /managed/listDebugCredentials?api-version=2023-05-01-preview
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/managed/listDebugCredentials?api-version=2023-05-01-preview
     ```
     
     Pass the full resource ID of the API in the payload, and specify `purposes` as `tracing`. By default the token credential returned in the response expires after 1 hour, but you can specify a different value in the payload.
