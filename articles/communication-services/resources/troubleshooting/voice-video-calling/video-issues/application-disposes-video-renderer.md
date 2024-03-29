@@ -16,7 +16,7 @@ The `createView` promise API doesn't resolve immediately, as there are multiple 
 
 If the application disposes of the render object while the video subscription is in progress, the `createView` API throws an error.
 
-This is an expected error from SDK's perspective as the application decides to dispose of the renderer object.
+It is an expected error from SDK's perspective as the application decides to dispose of the renderer object.
 ## How to detect
 ### SDK
 You get an error while invoking the `createView` API.
@@ -34,4 +34,4 @@ The error code/subcode is
 The application should verify whether it intends to dispose the renderer or if it is due to an unexpected renderer disposal.
 The unexpected renderer disposal can be triggered when certain UI resources release at the application layer.
 If the application indeed has the potential to dispose of the renderer during video subscription, it should gracefully handle this error thrown by the SDK.
-Therefore, we can ensure that the end user is informed that the video subscription has been cancelled.
+Therefore, we can ensure that the end user is informed that the video subscription has been canceled.
