@@ -24,13 +24,13 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 # [**PowerShell**](#tab/powershell)
 
 - An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -42,7 +42,7 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -54,7 +54,7 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure PowerShell or Azure CLI installed locally to deploy the template. 
 
@@ -89,12 +89,66 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
     }
 }
 ```
+## List installed extensions
+
+# [**Portal**](#tab/portal)
+
+From the virtual machine page in the Azure portal, you can view the installed extension by following these steps:
+
+1. Under **Settings**, select **Extensions + applications**.
+
+1. In the **Extensions** tab, you can see all installed extensions on the virtual machine. If the list is long, you can use the search box to filter the list.
+
+    :::image type="content" source="./media/network-watcher/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher/list-vm-extensions.png":::
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Get-AzVMExtension](/powershell/module/az.compute/get-azvmextension) cmdlet to list all installed extensions on the virtual machine:
+
+```azurepowershell-interactive
+# List the installed extensions on the virtual machine.
+Get-AzVMExtension -VMName 'myVM' -ResourceGroupName 'myResourceGroup' | format-table Name, Publisher, ExtensionType, EnableAutomaticUpgrade 
+```
+
+The output of the cmdlet lists the installed extensions:
+
+```output
+Name                         Publisher                      ExtensionType            EnableAutomaticUpgrade
+----                         ---------                      -------------            ----------------------
+AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentWindows                   True
+AzurePolicyforWindows        Microsoft.GuestConfiguration   ConfigurationforWindows                      True
+```
+
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az vm extension list](/cli/azure/vm/extension#az-vm-extension-list) command to list all installed extensions on the virtual machine:
+
+```azurecli
+# List the installed extensions on the virtual machine.
+az vm extension list --resource-group 'myResourceGroup' --vm-name 'myVM' --out table
+```
+
+The output of the command lists the installed extensions:
+
+```output
+Name                          ProvisioningState    Publisher                       Version    AutoUpgradeMinorVersion
+----------------------------  -------------------  ------------------------------  ---------  -------------------------
+AzureNetworkWatcherExtension  Succeeded            Microsoft.Azure.NetworkWatcher  1.4        True
+AzurePolicyforWindows         Succeeded            Microsoft.GuestConfiguration    1.1        True
+```
+
+# [**Resource Manager**](#tab/arm)
+
+N/A
+
+---
 
 ## Install Network Watcher Agent VM extension
 
 # [**Portal**](#tab/portal)
 
-1. In the Azure portal, go to the virtual machine that you want to install the extension on.
+From the virtual machine page in the Azure portal, you can install the Network Watcher Agent VM extension by following these steps:
 
 1. Under **Settings**, select **Extensions + applications**.
 
@@ -110,25 +164,10 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 # [**PowerShell**](#tab/powershell)
 
-Use [Get-AzVMExtension](/powershell/module/az.compute/get-azvmextension) cmdlet to check if Network Watcher Agent VM extension is installed on the virtual machine:
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to install Network Watcher Agent VM extension on the virtual machine:
 
 ```azurepowershell-interactive
-# List the installed extensions on the virtual machine.
-Get-AzVMExtension -VMName 'myVM' -ResourceGroupName 'myResourceGroup' | format-table Name, Publisher, ExtensionType, EnableAutomaticUpgrade 
-```
-
-If the extension is already installed on the virtual machine, then you can see it listed in the output of the preceding cmdlet:
-
-```output
-Name                         Publisher                      ExtensionType            EnableAutomaticUpgrade
-----                         ---------                      -------------            ----------------------
-AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentWindows                   True
-```
-
-If the extension isn't installed, then use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to install it:
-
-
-```azurepowershell-interactive
+# Install Network Watcher Agent for Windows on the virtual machine.
 Set-AzVMExtension -Name 'AzureNetworkWatcherExtension' -Publisher 'Microsoft.Azure.NetworkWatcher' -ExtensionType 'NetworkWatcherAgentWindows' -EnableAutomaticUpgrade 1 -TypeHandlerVersion '1.4' -ResourceGroupName 'myResourceGroup' -VMName 'myVM' 
 ```
 
@@ -142,23 +181,10 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 # [**Azure CLI**](#tab/cli)
 
-Use [az vm extension list](/cli/azure/vm/extension#az-vm-extension-list) command to check if Network Watcher Agent VM extension is installed on the virtual machine:
+Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command to install Network Watcher Agent VM extension on the virtual machine: 
 
 ```azurecli
-az vm extension list --resource-group 'myResourceGroup' --vm-name 'myVM' --out table
-```
-
-If the extension is already installed on the virtual machine, then you can see it listed in the output of the preceding command:
-
-```output
-Name                          ProvisioningState    Publisher                       Version    AutoUpgradeMinorVersion
-----------------------------  -------------------  ------------------------------  ---------  -------------------------
-AzureNetworkWatcherExtension  Succeeded            Microsoft.Azure.NetworkWatcher  1.4        True
-```
-
-If the extension isn't installed, then use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command to install it: 
-
-```azurecli
+# Install Network Watcher Agent for Windows on the virtual machine.
 az vm extension set --name 'NetworkWatcherAgentWindows' --extension-instance-name 'AzureNetworkWatcherExtension' --publisher 'Microsoft.Azure.NetworkWatcher' --enable-auto-upgrade 'true' --version '1.4' --resource-group 'myResourceGroup' --vm-name 'myVM'
 ```
 
@@ -208,10 +234,12 @@ Use the following Azure Resource Manager template (ARM template) to install Netw
 You can use either Azure PowerShell or Azure CLI to deploy the Resource Manager template:
 
 ```azurepowershell
+# Deploy the JSON template file using Azure PowerShell.
 New-AzResourceGroupDeployment -ResourceGroupName 'myResourceGroup' -TemplateFile 'agent.json'
 ```
 
 ```azurecli
+# Deploy the JSON template file using the Azure CLI.
 az deployment group create --resource-group 'myResourceGroup' --template-file
 ```
 
@@ -237,6 +265,7 @@ From the virtual machine page in the Azure portal, you can uninstall the Network
 Use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet to remove Network Watcher Agent VM extension from the virtual machine:
 
 ```azurepowershell-interactive
+# Uninstall Network Watcher Agent VM extension.
 Remove-AzureVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 'myResourceGroup' -VMName 'myVM'
 ```
 
@@ -245,6 +274,7 @@ Remove-AzureVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 
 Use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) command to remove Network Watcher Agent VM extension from the virtual machine:
 
 ```azurecli-interactive
+# Uninstall Network Watcher Agent VM extension.
 az vm extension delete --name 'AzureNetworkWatcherExtension' --resource-group 'myResourceGroup' --vm-name 'myVM'
 ```
 
