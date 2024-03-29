@@ -330,7 +330,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.md#connection-string-requirements).
+> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.yml#connection-string-requirements).
 >
 
 For the `MONGODB_CONNECTION_STRING` environment variable, replace the placeholders for `<COSMOSDB_ACCOUNT_NAME>` and `<COSMOSDB_PASSWORD>`
