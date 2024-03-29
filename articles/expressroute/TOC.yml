@@ -67,6 +67,8 @@
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: About ExpressRoute Metro
+    href: expressroute-metro.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
   - name: About ExpressRoute limits
