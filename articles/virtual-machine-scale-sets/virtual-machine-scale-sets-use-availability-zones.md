@@ -42,7 +42,7 @@ A regional Virtual Machine Scale Set is when the zone assignment isn't explicitl
 In the rare case of a full zonal outage, any or all instances within the scale set may be impacted.
 
 ### Fault domains and availability zones
-A fault domain a fault isolation group within an availability zone or datacenter of hardware nodes that share the same power, networking, cooling, and platform maintenance schedule. VM instances that are on different fault domains are not likely to be impacted by the same planned or unplanned outage. You can specify how instances are spread across fault domains within a region or zone.
+A fault domain is a fault isolation group within an availability zone or datacenter of hardware nodes that share the same power, networking, cooling, and platform maintenance schedule. VM instances that are on different fault domains are not likely to be impacted by the same planned or unplanned outage. You can specify how instances are spread across fault domains within a region or zone.
 
 - Max spreading (platformFaultDomainCount = 1)
 - Static fixed spreading (platformFaultDomainCount = 5)
