@@ -18,7 +18,7 @@ From an end-to-end perspective, establishing a good voice call requires micropho
 good network connection both on the sending and receiving ends, and proper functioning of the audio output device on the receiving end.
 
 Device and network issues are considered external problems from the perspective of the ACS Calling SDK.
-the application should integrate the [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md)
+the application should integrate the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md)
 to monitor device and network issues and display warning messages accordingly, so that the user is aware of the issue and can troubleshoot on their own.
 
 ## Common issues in audio calls

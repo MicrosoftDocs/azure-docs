@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The user experiences poor audio quality
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot when the user experiences poor audio quality
+description: Learn how to troubleshoot when the user experiences poor audio quality.
 author: enricohuang
 ms.author: enricohuang
 
@@ -26,13 +26,13 @@ Detecting poor audio quality can be challenging because the browser's reported i
 However, if poor audio quality is caused by poor network, you can still detect these issues and display the information to users
 so they are aware of the potential for poor audio quality.
 
-Through [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
 To check the network quality of the audio sending end, look for events with the values of `networkSendQuality`.
 
 To check the network quality of the receiving end, look for events with the values of `networkReceiveQuality`.
 
-The [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) provides several metrics that are indirectly correlated to the network or audio quality,
+The [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) provides several metrics that are indirectly correlated to the network or audio quality,
 such as `packetsLostPerSecond` and `healedRatio`.
 The `healedRatio` is calculated from the concealment count reported by the WebRTC Stats.
 If this value is larger than 0.1, it is likely that the receiver will experience some audio quality degradation.
@@ -48,7 +48,7 @@ It would be more helpful to obtain audio recordings captured by the user's brows
 If the user hears robotic-sounding audio, it is usually caused by packet loss.
 If you suspect the audio quality is coming from the sender device, you can check the audio recordings captured from the sender's side.
 If the sender is using Desktop Edge or Chrome, they can follow the instructions in this document to collect the audio recordings:
-[How to collect diagnostic audio recordings](../references/how-to-collect-diagnostic-audio-recordings.md)
+[How to collect diagnostic audio recordings](../../references/how-to-collect-diagnostic-audio-recordings.md)
 
 The audio recordings include the audio before and after it is processed by the audio processing module.
 By comparing the recordings, you may be able to determine where the issue is coming from.

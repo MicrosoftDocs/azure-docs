@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The volume of the incoming audio is low
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot when the volume of the incoming audio is low
+description: Learn how to troubleshoot when the volume of the incoming audio is low.
 author: enricohuang
 ms.author: enricohuang
 
@@ -19,17 +19,11 @@ If you use raw audio stream, you may also need to check the output volume of the
 
 ## How to detect
 ### SDK
-The [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) provides a way to monitor the incoming audio volume at receiving end.
+The [MediaStats Feature](../../../../../concepts/voice-video-calling/media-quality-sdk.md) provides a way to monitor the incoming audio volume at receiving end.
 
 To check the audio output level, you can look at `audioOutputLevel` value, which ranges from 0 to 65536.
 This value is derived from `audioLevel` in WebRTC Stats. [https://www.w3.org/TR/webrtc-stats/#dom-rtcinboundrtpstreamstats-audiolevel](https://www.w3.org/TR/webrtc-stats/#dom-rtcinboundrtpstreamstats-audiolevel)
 If the `audioOutputLevel` value is very low, it indicates that the volume sent by the sender is also low.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 If the `audioOutputLevel` value is very low, it suggests that the volume sent by the sender is also low.

@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The user experiences delays during the call 
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot when the user experiences delays during the call
+description: Learn how to troubleshoot when the user experiences delays during the call.
 author: enricohuang
 ms.author: enricohuang
 
@@ -25,23 +25,17 @@ The jitter buffer is a mechanism used by the browser to compensate for packet ji
 
 ## How to detect
 ### SDK
-Through [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
 For the network quality of the audio sending end, you can check events with the values of `networkSendQuality`.
 
 For the network quality of the receiving end, you can check events with the values of `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the netowrk and audio quality.
+In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the netowrk and audio quality.
 
 For the quality of the audio sending end, you can check the metrics `rttInMs`.
 
 For the quality of the receiving end, you can check the metrics `jitterInMs`, `jitterBufferDelayInMs`.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.

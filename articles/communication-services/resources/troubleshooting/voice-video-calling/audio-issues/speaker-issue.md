@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The user's speaker has a problem
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot one-way audio issue when the user's speaker has a problem
+description: Learn how to troubleshoot one-way audio issue when the user's speaker has a problem.
 author: enricohuang
 ms.author: enricohuang
 
@@ -18,18 +18,12 @@ When the user's speaker has a problem, they may not be able to hear the audio, r
 ## How to detect
 ### SDK
 There is no way for a web application to detect speaker issues.
-However, the application can use the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) 
+However, the application can use the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) 
 to understand whether the incoming audio is really silent or not.
 
 To check the audio level at the receiving end, look at `audioOutputLevel` value, which also ranges from 0 to 65536.
 This value indicates the volume level of the decoded audio samples.
 If the `audioOutputLevel` value is not always very low but the user cannot hear audio, this indicates there is a problem in the their speaker or output volume settings.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 Speaker issues are considered external problems from the perspective of the ACS Calling SDK.

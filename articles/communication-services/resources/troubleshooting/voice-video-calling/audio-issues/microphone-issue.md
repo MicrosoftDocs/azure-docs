@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The speaking participant's microphone has a problem
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot one-way audio issue when the speaking participant's microphone has a problem
+description: Learn how to troubleshoot one-way audio issue when the speaking participant's microphone has a problem.
 author: enricohuang
 ms.author: enricohuang
 
@@ -17,25 +17,19 @@ When the speaking's participant's microphone has a problem, it may cause the out
 
 ## How to detect
 ### SDK
-The application can use [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md) and register a listener callback to detect the device issue.
+The application can use [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) and register a listener callback to detect the device issue.
 
 There are several events related to the microphone issues, including:
 * `noMicrophoneDevicesEnumerated`: This indicates that no microphone device is available in the system.
 * `microphoneNotFunctioning`: The audio input track is ended by the browser.
 * `microphoneMuteUnexpectedly`: The audio input track is muted by the browser.
 
-In addition, the [MediaStats Feature](../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the audio input or output level.
+In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the audio input or output level.
 
 To check the audio level at the sending end, look at `audioInputLevel` value, which ranges from 0 to 65536 and indicates the volume level of the audio captured by the audio input device.
 
 To check the audio level at the receiving end, look at `audioOutputLevel` value, which also ranges from 0 to 65536. This value indicates the volume level of the decoded audio samples.
 If the `audioOutputLevel` value is very low, it indicates that the volume sent by the sender is also low.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 Microphone issues are considered external problems from the perspective of the ACS Calling SDK.

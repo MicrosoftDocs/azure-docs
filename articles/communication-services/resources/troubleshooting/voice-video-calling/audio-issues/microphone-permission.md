@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The speaking participant doesn't grant the microphone permission
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot one-way audio issue when the speaking doesn't grant the microphone permission
+description: Learn how to troubleshoot one-way audio issue when the speaking doesn't grant the microphone permission.
 author: enricohuang
 ms.author: enricohuang
 
@@ -21,16 +21,10 @@ This can occur if the user denies permission at the browser level or doesn't gra
 When an application requests microphone permission but the permission is denied,
 the `DeviceManager.askDevicePermission` API returns `{ audio: false }`.
 
-To detect this permission issue, the application can register a listener callback through the [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+To detect this permission issue, the application can register a listener callback through the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
 The listener should check for events with the value of `microphonePermissionDenied`.
 
 It's important to note that if the user revokes access permission during the call, this `microphonePermissionDenied`  event will also fire.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 The application should always call the `askDevicePermission` API after the `CallClient` is initialized.

@@ -1,7 +1,7 @@
 ---
 title: Audio issues - There is a network issue in the call
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot one-way audio issue when there is a network issue in the call
+description: Learn how to troubleshoot one-way audio issue when there is a network issue in the call.
 author: enricohuang
 ms.author: enricohuang
 
@@ -18,15 +18,9 @@ When there is a netowrk reconnection in the call on the audio sending end or rec
 This is because shortly before and during the network is reconnecting, audio packets don't flow.
 
 ### SDK
-Through [User Facing Diagnostics Feature](../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
 For the network reconnection, you can check events with the values of `networkReconnect`.
-
-## How to monitor
-### Azure log
-...
-### CDC
-...
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.

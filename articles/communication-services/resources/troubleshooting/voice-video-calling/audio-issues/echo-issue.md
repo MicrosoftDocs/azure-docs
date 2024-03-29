@@ -1,7 +1,7 @@
 ---
 title: Audio issues - The user experiences echo during the call
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to troubleshoot when the user experiences echo during the call
+description: Learn how to troubleshoot when the user experiences echo during the call.
 author: enricohuang
 ms.author: enricohuang
 
