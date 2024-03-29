@@ -65,7 +65,7 @@ The possible error code/subcode are
 | error            |                                                       |
 | code             | 401 (Unauthorized)                                    |
 | subcode          | 44114                                                 |
-| message          | Wrong AccessToken scope format. Scope is expected to be a string that contains 'voip' |
+| message          | Wrong AccessToken scope format. Scope is expected to be a string that contains `voip` |
 | resultCategories | ExpectedError                                         |
 | error            |                                                       |
 | code             | 400 (Bad Request)                                     |
