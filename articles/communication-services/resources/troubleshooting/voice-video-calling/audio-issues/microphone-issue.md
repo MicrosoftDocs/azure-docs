@@ -20,7 +20,7 @@ When the speaking's participant's microphone has a problem, it may cause the out
 The application can use [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) and register a listener callback to detect the device issue.
 
 There are several events related to the microphone issues, including:
-* `noMicrophoneDevicesEnumerated`: There is no microphone device available in the system.
+* `noMicrophoneDevicesEnumerated`: There's no microphone device available in the system.
 * `microphoneNotFunctioning`: The browser ends the audio input track.
 * `microphoneMuteUnexpectedly`: The browser mutes the audio input track.
 
@@ -29,12 +29,12 @@ In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/m
 To check the audio level at the sending end, look at `audioInputLevel` value, which ranges from 0 to 65536 and indicates the volume level of the audio captured by the audio input device.
 
 To check the audio level at the receiving end, look at `audioOutputLevel` value, which also ranges from 0 to 65536. This value indicates the volume level of the decoded audio samples.
-If the `audioOutputLevel` value is very low, it indicates that the volume sent by the sender is also low.
+If the `audioOutputLevel` value is low, it indicates that the volume sent by the sender is also low.
 
 ## How to mitigate or resolve
 Microphone issues are considered external problems from the perspective of the ACS Calling SDK.
 For example, the `noMicrophoneDevicesEnumerated` event indicates that no microphone device is available in the system.
-This usually happens when the user removes the microphone device and there's no other microphone device in the system.
+This problem usually happens when the user removes the microphone device and there's no other microphone device in the system.
 The `microphoneNotFunctioning` event fires when the browser ends the current audio input track,
 which can happen when the operating system or driver layer terminates the audio input session.
 The `microphoneMuteUnexpectedly` event can occur when the audio input track's source is temporarily unable to provide media data.
