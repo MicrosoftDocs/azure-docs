@@ -188,9 +188,9 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     true
     ```
 
-## Use configuration object
+## Load configuration as an object
 
-JSON configuration files are used in some applications, where configuration is loaded into an object. An API `constructConfigurationObject` is available for such applications, which constructs a configuration object based on the key-values loaded from Azure App Configuration. It minimizes necessary code changes to adopt Azure App Configuration.
+Some applications use JSON files to load configuration as an object. An API `constructConfigurationObject` is available for such applications, where a configuration object is created based on the key-values loaded from Azure App Configuration. This approach minimizes the code changes needed to adopt Azure App Configuration.
 
 1. Open *app.js* in the *app-configuration-quickstart* directory and replace its content with below: 
 
