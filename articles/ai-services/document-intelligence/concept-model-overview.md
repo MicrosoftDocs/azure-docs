@@ -71,7 +71,7 @@ The following table shows the available models for each current preview and stab
 |Custom extraction model|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
 |All models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
 
-* - Contains sub-models. See the model specific information for supported variations and sub-types.
+\* - Contains sub-models. See the model specific information for supported variations and sub-types.
 
 |**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
