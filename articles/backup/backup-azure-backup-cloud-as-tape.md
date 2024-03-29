@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 
 # Move your long-term storage from tape to the Azure cloud
 
-This article explains how you can enable backup and retention policies. If you're using tapes to address your long-term-retention needs, Azure Backup provides a powerful and viable alternative with the availability of this feature. The feature is enabled in the Azure Backup service (which is available [here](https://aka.ms/azurebackup_agent)). If you're using System Center DPM, then you must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
+This article describes how you can enable backup and retention policies. If you're using tapes to address your long-term-retention needs, Azure Backup provides a powerful and viable alternative with the availability of this feature. The feature is enabled in the Azure Backup service (which is available [here](https://aka.ms/azurebackup_agent)). If you're using System Center DPM, then you must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
 
 Azure Backup and System Center Data Protection Manager enable you to:
 
@@ -37,7 +37,7 @@ The retention policy specifies the duration for which the backup must be stored.
 
 The total number of “retention points” specified in this policy is 90 (daily points) + 40 (one each quarter for 10 years) = 130.
 
-## Example – Putting both together
+## Example protection policy
 
 ![Screenshot shows the sample protection policy.](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
