@@ -337,27 +337,44 @@ A model deployment is a set of resources required for hosting the model that doe
     In the studio, follow these steps:
 
     1. Navigate to the __Endpoints__ tab on the side menu.
+
     1. Select the tab __Batch endpoints__ > __Create__.
+
     1. Give the endpoint a name, in this case `mnist-batch`. You can configure the rest of the fields or leave them blank.
+
     1. Select __Next__ to go to the "Model" section.
+
     1. Select the model __mnist-classifier-torch__.
+
     1. Select __Next__ to go to the "Deployment" page.
+
     1. Give the deployment a name.
+
     1. For __Output action__, ensure __Append row__ is selected.
+
     1. For __Output file name__, ensure the batch scoring output file is the one you need. Default is `predictions.csv`.
+
     1. For __Mini batch size__, adjust the size of the files that will be included on each mini-batch. This size will control the amount of data your scoring script receives per batch.
+
     1. For __Scoring timeout (seconds)__, ensure you're giving enough time for your deployment to score a given batch of files. If you increase the number of files, you usually have to increase the timeout value too. More expensive models (like those based on deep learning), may require high values in this field.
+
     1. For __Max concurrency per instance__, configure the number of executors you want to have for each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
+
     1. Once done, select __Next__ to go to the "Code + environment" page.
+
     1. For "Select a scoring script for inferencing", browse to find and select the scoring script file *deployment-torch/code/batch_driver.py*.
+
     1. In the "Select environment" section, select the environment you created previously _torch-batch-env_.
+
     1. Select __Next__ to go to the "Compute" page.
+
     1. Select the compute cluster you created in a previous step.
 
         > [!WARNING]
         > Azure Kubernetes cluster are supported in batch deployments, but only when created using the Azure Machine Learning CLI or Python SDK.
 
     1. For __Instance count__, enter the number of compute instances you want for the deployment. In this case, use 2.
+
     1. Select __Next__.
 
 1. Create the deployment:
@@ -382,10 +399,10 @@ A model deployment is a set of resources required for hosting the model that doe
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=set_default_deployment)]
 
     # [Studio](#tab/azure-studio)
-    
+
     In the wizard, select __Create__ to start the deployment process.
-    
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
+
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/review-batch-wizard.png" alt-text="Screenshot of batch endpoints deployment review screen." lightbox="media/how-to-use-batch-model-deployments/review-batch-wizard.png":::
 
     ---
 
@@ -404,14 +421,16 @@ A model deployment is a set of resources required for hosting the model that doe
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=query_deployment)]
 
     # [Studio](#tab/azure-studio)
-    
+
+    After creating the batch endpoint, the endpoint's details page opens up. You can also find this page by following these steps:
+
     1. Navigate to the __Endpoints__ tab on the side menu.
-    
+
     1. Select the tab __Batch endpoints__.
-    
-    1. Select the batch endpoint you want to get details from.
-    
-    1. In the endpoint page, you'll see all the details of the endpoint along with all the deployments available.
+
+    1. Select the batch endpoint you want to view.
+
+    1. The endpoint's **Details** page shows the details of the endpoint along with all the deployments available in the endpoint.
         
         :::image type="content" source="./media/how-to-use-batch-model-deployments/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
@@ -447,19 +466,28 @@ You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning 
 
 1. Select __Create job__.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring." lightbox="media/how-to-use-batch-model-deployments/create-batch-job.png":::
 
-1. On __Deployment__, select the deployment you want to execute.
+1. For __Deployment__, select the deployment to execute.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job.":::
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job." lightbox="media/how-to-use-batch-model-deployments/job-setting-batch-scoring.png":::
+
+1. Select __Next__ to go to the "Select data source" page.
+
+1. For the "Data source type", select __Datastore__.
+
+1. For the "Datastore", select __workspaceblobstore__ from the dropdown menu.
+
+1. For "Path", enter the full URL `https://azuremlexampledata.blob.core.windows.net/data/mnist/sample`. 
+
+    > [!TIP]
+    > This path work only because the given path has public access enabled. In general, youl need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
+
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option." lightbox="media/how-to-use-batch-model-deployments/select-datastore-job.png":::
 
 1. Select __Next__.
 
-1. On __Select data source__, select the data input you want to use. For this example, select __Datastore__ and in the section __Path__ enter the full URL `https://azuremlexampledata.blob.core.windows.net/data/mnist/sample`. Notice that this only works because the given path has public access enabled. In general, you'll need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
-
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option.":::
-
-1. Start the job.
+1. Select __Create__ to start the job.
 
 ---
 
@@ -489,9 +517,9 @@ The following code checks the job status and outputs a link to the Azure Machine
 
 1. Select the batch endpoint you want to monitor.
 
-1. Select the tab __Jobs__.
+1. Select the __Jobs__ tab.
 
-    :::image type="content" source="media/how-to-use-batch-model-deployments/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
+    :::image type="content" source="media/how-to-use-batch-model-deployments/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint." lightbox="media/how-to-use-batch-model-deployments/summary-jobs.png":::
 
 1. You'll see a list of the jobs created for the selected endpoint.
 
@@ -551,23 +579,25 @@ Once you've identified the data store you want to use, configure the output as f
 
 1. Select __Create job__.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring." lightbox="media/how-to-use-batch-model-deployments/create-batch-job.png":::
 
-1. On __Deployment__, select the deployment you want to execute.
+1. For __Deployment__, select the deployment you want to execute.
 
-1. Select __Next__.
-
-1. Check the option __Override deployment settings__.
+1. Select the option __Override deployment settings__.
 
     :::image type="content" source="./media/how-to-use-batch-model-deployments/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
 
 1. You can now configure __Output file name__ and some extra properties of the deployment execution. Just this execution will be affected.
 
-1. On __Select data source__, select the data input you want to use.
+1. Select __Next__.
 
-1. On __Configure output location__, check the option __Enable output configuration__.
+1. On the "Select data source" page, select the data input you want to use.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/configure-output-location.png" alt-text="Screenshot of optionally configuring output location.":::
+1. Select __Next__.
+
+1. On the "Configure output location" page, select the option __Enable output configuration__.
+
+    :::image type="content" source="./media/how-to-use-batch-model-deployments/configure-output-location.png" alt-text="Screenshot of optionally configuring output location." lightbox="media/how-to-use-batch-model-deployments/configure-output-location.png":::
 
 1. Configure the __Blob datastore__ where the outputs should be placed.
 
@@ -605,17 +635,21 @@ When you invoke a batch endpoint, some settings can be overwritten to make best 
 
 1. Select __Create job__.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring.":::
+1. For __Deployment__, select the deployment you want to execute.
 
-1. On __Deployment__, select the deployment you want to execute.
+1. Select the option __Override deployment settings__.
+
+1. Configure the job parameters. Only the current job execution will be affected by this configuration.
 
 1. Select __Next__.
 
-1. Check the option __Override deployment settings__.
+1. On the "Select data source" page, select the data input you want to use.
 
-    :::image type="content" source="./media/how-to-use-batch-model-deployments/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job.":::
+1. Select __Next__.
 
-1. Configure the job parameters. Only the current job execution will be affected by this configuration.
+1. On the "Configure output location" page, select the option __Enable output configuration__.
+
+1. Configure the __Blob datastore__ where the outputs should be placed.
 
 ---
 
@@ -644,20 +678,14 @@ In this example, you add a second deployment that uses a __model built with Kera
     # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Environments__ tab on the side menu.
-    
     1. Select the tab __Custom environments__ > __Create__.
-    
     1. Enter the name of the environment, in this case `keras-batch-env`.
-    
-    1. On __Select environment type__ select __Use existing docker image with conda__.
-    
-    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.0`.
-    
-    1. On __Customize__ section copy the content of the file `deployment-keras/environment/conda.yaml` included in the repository into the portal.
-    
-    1. Select __Next__ and then on __Create__.
-    
-    1. The environment is ready to be used.
+    1. For __Select environment source__, select __Use existing docker image with optional conda file__.
+    1. For __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04`.
+    1. Select **Next** to go to the "Customize" section.
+    1. Copy the content of the file _deployment-keras/environment/conda.yaml_ from the GitHub repo into the portal.
+    1. Select __Next__ until you get to the "Review page".
+    1. Select __Create__ and wait until the environment is ready for use.
     
     ---
     
@@ -697,34 +725,38 @@ In this example, you add a second deployment that uses a __model built with Kera
 
         :::image type="content" source="./media/how-to-use-batch-model-deployments/add-deployment-option.png" alt-text="Screenshot of add new deployment option.":::
 
-    1. On the model list, select the model `mnist` and select __Next__.
+    1. Select __Next__ to go to the "Model" page.
+
+    1. From the model list, select the model `mnist` and select __Next__.
     
     1. On the deployment configuration page, give the deployment a name.
     
-    1. On __Output action__, ensure __Append row__ is selected.
+    1. Unselect the option to __Make this new deployment the default for batch jobs__.
+
+    1. For __Output action__, ensure __Append row__ is selected.
     
-    1. On __Output file name__, ensure the batch scoring output file is the one you need. Default is `predictions.csv`.
+    1. For __Output file name__, ensure the batch scoring output file is the one you need. Default is `predictions.csv`.
     
-    1. On __Mini batch size__, adjust the size of the files that will be included on each mini-batch. This will control the amount of data your scoring script receives per each batch.
+    1. For __Mini batch size__, adjust the size of the files that will be included in each mini-batch. This will control the amount of data your scoring script receives for each batch.
     
-    1. On __Scoring timeout (seconds)__, ensure you're giving enough time for your deployment to score a given batch of files. If you increase the number of files, you usually have to increase the timeout value too. More expensive models (like those based on deep learning), may require high values in this field.
+    1. For __Scoring timeout (seconds)__, ensure you're giving enough time for your deployment to score a given batch of files. If you increase the number of files, you usually have to increase the timeout value too. More expensive models (like those based on deep learning), may require high values in this field.
     
-    1. On __Max concurrency per instance__, configure the number of executors you want to have per each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
-    1. Once done, select __Next__.
+    1. For __Max concurrency per instance__, configure the number of executors you want to have for each compute instance you get in the deployment. A higher number here guarantees a higher degree of parallelization but it also increases the memory pressure on the compute instance. Tune this value altogether with __Mini batch size__.
     
-    1. On environment, go to __Select scoring file and dependencies__ and select __Browse__.
+    1. Select __Next__ to go to the "Code + environment" page.
     
-    1. Select the scoring script file on `deployment-keras/code/batch_driver.py`.
+    1. For __Select a scoring script for inferencing__, browse to select the scoring script file *deployment-keras/code/batch_driver.py*.
     
-    1. On the section __Choose an environment__, select the environment you created a previous step.
-    
-    1. Select __Next__.
-    
-    1. On the section __Compute__, select the compute cluster you created in a previous step.
-    
-    1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we'll use 2.
+    1. For __Select environment__, select the environment you created ina previous step.
     
     1. Select __Next__.
+    
+    1. On the __Compute__ page, select the compute cluster you created in a previous step.
+    
+    1. For __Instance count__, enter the number of compute instances you want for the deployment. In this case, use 2.
+    
+    1. Select __Next__.
+
 
 1. Create the deployment:
 
@@ -804,7 +836,7 @@ Although you can invoke a specific deployment inside an endpoint, you'll typical
     
     :::image type="content" source="./media/how-to-use-batch-model-deployments/update-default-deployment.png" alt-text="Screenshot of updating default deployment.":::
 
-1. On __Select default deployment__, select the name of the deployment you want to be the default one.
+1. On __Select default deployment__, select the name of the deployment you want to set as the default.
 
 1. Select __Update__.
 
