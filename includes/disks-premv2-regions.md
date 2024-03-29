@@ -13,7 +13,7 @@ Currently only available in the following regions:
 - Brazil South (Two availability zones)
 - Canada Central (Three availability zones)
 - Central India (Three availability zones)
-- Central US (One availability zone)
+- Central US (Two availability zones)
 - China North 3 (Three availability zones)
 - East Asia (Three availability zones)
 - East US (Three availability zones)
