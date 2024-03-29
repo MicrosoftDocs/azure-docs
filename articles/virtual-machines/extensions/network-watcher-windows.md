@@ -221,7 +221,7 @@ az deployment group create --resource-group 'myResourceGroup' --template-file
 
 # [**Portal**](#tab/portal)
 
-1. In the Azure portal, go to the virtual machine that you want to install the extension on.
+From the virtual machine page in the Azure portal, you can uninstall the Network Watcher Agent VM extension by following these steps:
 
 1. Under **Settings**, select **Extensions + applications**.
 
@@ -230,12 +230,11 @@ az deployment group create --resource-group 'myResourceGroup' --template-file
     :::image type="content" source="./media/network-watcher/uninstall-extension-windows.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher/uninstall-extension-windows.png":::
 
     > [!NOTE]
-    > In the list of extensions, you might see Network Watcher Agent VM extension named using a different name than **AzureNetworkWatcherExtension**.
-
+    > In the list of extensions, you might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
 
 # [**PowerShell**](#tab/powershell)
 
-Use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet to remove the Network Watcher Agent VM extension from the virtual machine:
+Use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet to remove Network Watcher Agent VM extension from the virtual machine:
 
 ```azurepowershell-interactive
 Remove-AzureVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 'myResourceGroup' -VMName 'myVM'
@@ -243,7 +242,7 @@ Remove-AzureVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 
 
 # [**Azure CLI**](#tab/cli)
 
-Use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet to remove the Network Watcher Agent VM extension from the virtual machine:
+Use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) command to remove Network Watcher Agent VM extension from the virtual machine:
 
 ```azurecli-interactive
 az vm extension delete --name 'AzureNetworkWatcherExtension' --resource-group 'myResourceGroup' --vm-name 'myVM'
