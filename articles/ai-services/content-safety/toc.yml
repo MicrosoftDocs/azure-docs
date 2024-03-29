@@ -23,11 +23,11 @@ items:
     href: quickstart-text.md
   - name: Image moderation
     href: quickstart-image.md
-  - name: Prompt Shields (new)
+  - name: Prompt Shields (preview)
     href: quickstart-jailbreak.md
-  - name: Groundedness detection (new)
+  - name: Groundedness detection (preview)
     href: quickstart-groundedness.md
-  - name: Protected material detection
+  - name: Protected material detection (preview)
     href: quickstart-protected-material.md
 
 - name: Samples 

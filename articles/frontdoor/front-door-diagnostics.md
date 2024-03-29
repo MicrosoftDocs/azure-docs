@@ -170,6 +170,8 @@ To enable and store your diagnostic logs, see [Configure Azure Front Door logs](
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 When using Azure Front Door (classic), you can monitor resources in the following ways:
 
 - **Metrics**. Azure Front Door currently has eight metrics to view performance counters.

@@ -8,7 +8,7 @@ ms.service: operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
 
-#CustomerIntent: As a someone managing an agent that has already been set up, I want to update its configuration so that data products in Azure Operator Insights receive the correct data.
+#CustomerIntent: As a someone managing an agent that has already been set up, I want to update its configuration so that Data Products in Azure Operator Insights receive the correct data.
 ---
 
 # Change configuration for Azure Operator Insights ingestion agents
@@ -19,7 +19,7 @@ In this article, you'll change your ingestion agent configuration and roll back 
 
 ## Prerequisites
 
-- Using the documentation for your data product, check for required or recommended configuration for the ingestion agent.
+- Using the documentation for your Data Product, check for required or recommended configuration for the ingestion agent.
 - See [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md) for full details of the configuration options.
 
 ## Update agent configuration
