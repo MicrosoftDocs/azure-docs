@@ -133,6 +133,16 @@ items:
       - name: Function calling
         href: ./how-to/fine-tuning-functions.md
         displayName: fine-tuning, finetuning
+  - name: Use your data
+    items:
+      - name: Text data
+        href: ./how-to/use-your-data.md
+      - name: Image data (preview)
+        href: ./how-to/use-your-image-data.md
+      - name: Use Azure OpenAI On Your Data securely
+        href: ./how-to/use-your-data-securely.md
+      - name: Best practices
+        href: ./how-to/use-your-data-securely.md
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models
