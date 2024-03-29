@@ -29,7 +29,7 @@ mvn archetype:generate -DgroupId=com.communication.lookup.quickstart -DartifactI
 The 'generate' task creates a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Connect to dev package feed
-The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections which you can add if they do not already exist.
+The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections that you can add if they don't already exist.
 
 ```xml
 <repository>
