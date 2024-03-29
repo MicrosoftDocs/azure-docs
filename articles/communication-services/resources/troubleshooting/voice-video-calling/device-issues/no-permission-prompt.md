@@ -1,7 +1,7 @@
 ---
 title: Device and permission issues - no permission prompt after calling askDevicePermission 
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn why there is no permission prompt after calling askDevicePermission
+description: Learn why there's no permission prompt after calling askDevicePermission.
 author: enricohuang
 ms.author: enricohuang
 
@@ -13,16 +13,17 @@ ms.subservice: calling
 ---
 
 # No permission prompt shows when calling askDevicePermission
-If a user reports that they don't see any permission prompt, it may be because they have previously granted or denied permission and the browser has cached the result.
+If a user reports that they don't see any permission prompt, it may be because they have previously granted or denied permission and the browser caches the result.
 
-This is usually not a problem, but if the user cannot see the device list, it could be because they denied permission before.
+Not showing the permission prompt is not a problem if the browser has required permission.
+However, if the user can't see the device list, it could be because they denied permission before.
 
 Another possible reason for the lack of a permission prompt is that the user's system does not have any microphone or camera devices available,
 causing the browser to skip the prompt even if the permission state is set to 'prompt'.
 
 ## How to detect
 ### SDK
-We cannot detect whether the permission prompt actually shows or not as this is a browser behavior that cannot be detected at JavaScript layer.
+We can't detect whether the permission prompt actually shows or not as this is a browser behavior that can't be detected at JavaScript layer.
 
 ## How to mitigate or resolve
 The application should check the result of `DeviceManager.askDevicePermission` API.
