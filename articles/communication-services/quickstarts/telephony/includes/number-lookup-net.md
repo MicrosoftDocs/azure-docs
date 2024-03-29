@@ -114,7 +114,7 @@ OperatorInformationResult searchResult = await client.SearchOperatorInformationA
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account
+> Using this functionality will incur a charge to your account.
 
 ### Use operator information
 
