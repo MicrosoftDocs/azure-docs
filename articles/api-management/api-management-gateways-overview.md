@@ -56,7 +56,7 @@ API Management offers both managed and self-hosted gateways:
 
 The following tables compare features available in the following API Management gateways:
 
-* **Classic** - the managed gateway available in the Developer, Basic, Standard, and Premium service tiers
+* **Classic** - the managed gateway available in the Developer, Basic, Standard, and Premium service tiers (formerly grouped as *dedicated* tiers)
 * **V2** - the managed gateway available in the Basic v2 and Standard v2 tiers
 * **Consumption** - the managed gateway available in the Consumption tier
 * **Self-hosted** - the optional self-hosted gateway available in select service tiers
