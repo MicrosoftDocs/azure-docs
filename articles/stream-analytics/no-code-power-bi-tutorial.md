@@ -128,7 +128,7 @@ Before you start, make sure you've completed the following steps:
         :::image type="content" source="./media/stream-analytics-no-code/synapse-settings.png" alt-text="Screenshot of the Synapse tile settings." lightbox="./media/stream-analytics-no-code/synapse-settings.png":::
 1. Select **Synapse** tile and see the **Data preview** tab at the bottom of the page. You see the data flowing into the dedicated SQL pool. 
 
-    :::image type="content" source="./media/stream-analytics-no-code/synapse-data-preview.png" alt-text="Screenshot of the Synapse tile settings." lightbox="./media/stream-analytics-no-code/synapse-data-preview.png":::
+    :::image type="content" source="./media/stream-analytics-no-code/synapse-data-preview.png" alt-text="Screenshot that shows Data Preview for the Synapse tile." lightbox="./media/stream-analytics-no-code/synapse-data-preview.png":::
 1. Select **Save** in the top ribbon to save your job and then select **Start**. 
     :::image type="content" source="./media/stream-analytics-no-code/start-job-button.png" alt-text="Screenshot that shows the Start button selected on the command bar." lightbox="./media/stream-analytics-no-code/start-job-button.png":::     
 1. On the **Start Stream Analytics Job** page, select **Start** to run your job. 
