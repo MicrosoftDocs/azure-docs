@@ -146,6 +146,18 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .buildClient();
 ```
 
+Alternatively, you can authenticate using Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID. You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
+<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
+```java
+// You can find your resource name from your resource in the Azure portal
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+
+PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
+    .endpoint(endpoint)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
+```
+
 ### Look up phone number formatting
 
 To look up the national and international formatting for a number, call `searchOperatorInformation` from the `PhoneNumbersClient`.
