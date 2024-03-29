@@ -5,7 +5,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
-ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
 ---
 # Action groups
 
