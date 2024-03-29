@@ -232,16 +232,16 @@ additionalContent:
       # Card
         - title: Disaster recovery
           links:
-          - text: Security solutions for Azure VMware Solution
-            url: ecosystem-security-solutions.md
-          - text: Security recommendations
-            url: security-recommendations.md
-          - text: Security baseline
-            url: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
-          - text: Vulnerability Management
-            url: vulnerability-management.md
-          - text: Rotate cloudadmin credentials
-            url: rotate-cloudadmin-credentials.md
+          - text: Disaster recovery solutions for VMs
+            url: ecosystem-disaster-recovery-vms.md
+          - text: Deploy VMware HCX for disaster recovery
+            url: deploy-disaster-recovery-using-vmware-hcx.md
+          - text: Deploy VMware SRM for disaster recovery
+            url: disaster-recovery-using-vmware-site-recovery-manager.md
+          - text: Deploy Zerto disaster recovery
+            url: deploy-zerto-disaster-recovery.md
+          - text: Deploy disaster recovery using JetStream DR software
+            url: deploy-disaster-recovery-using-jetstream.md
         # Card
         - title: Virtual machines
           links:
