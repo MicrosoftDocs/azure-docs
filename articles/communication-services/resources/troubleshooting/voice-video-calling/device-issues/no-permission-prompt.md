@@ -15,7 +15,7 @@ ms.subservice: calling
 # No permission prompt shows when calling askDevicePermission
 If a user reports that they don't see any permission prompt, it may be because they have previously granted or denied permission and the browser caches the result.
 
-Not showing the permission prompt isn't a problem if the browser has required permission.
+Not showing the permission prompt isn't a problem if the browser has the required permission.
 However, if the user can't see the device list, it could be because they denied permission before.
 
 Another possible reason for the lack of a permission prompt is that the user's system doesn't have any microphone or camera devices available,
@@ -23,11 +23,11 @@ causing the browser to skip the prompt even if the permission state is set to `p
 
 ## How to detect
 ### SDK
-We can't detect whether the permission prompt actually shows or not as this is a browser behavior that can't be detected at JavaScript layer.
+We can't detect whether the permission prompt actually shows or not, as this is a browser behavior that can't be detected at JavaScript layer.
 
 ## How to mitigate or resolve
 The application should check the result of `DeviceManager.askDevicePermission` API.
 If the result is false, it may indicate that user has denied the permission now or previously.
 
-The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions have been granted,
-and verify that their system has the necessary devices installed and configured properly.
+The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions have been granted.
+They also need to verify that their system has the necessary devices installed and configured properly.
