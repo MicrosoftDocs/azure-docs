@@ -5122,7 +5122,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
-            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_url": "/azure/sap/workloads/get-started",
             "redirect_document_id": false
         },
         {

@@ -393,7 +393,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/get-started-android-webview.md",
-            "redirect_URL": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview?pivots=platform-android",
+            "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview?pivots=platform-android",
             "redirect_document_id": false
         },
         {
@@ -403,7 +403,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/tutorials/file-sharing-tutorial.md",
-            "redirect_URL": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
+            "redirect_url": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
             "redirect_document_id": false
         }
     ]
