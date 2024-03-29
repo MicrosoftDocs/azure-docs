@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/22/2023
+ms.date: 03/29/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Publish the changes
 > * View the published portal
 
-For more information about developer portal features and options, see [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+For more information about developer portal features and options, see [Azure API Management developer portal overview](developer-portal-overview.md).
 
 :::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
 
