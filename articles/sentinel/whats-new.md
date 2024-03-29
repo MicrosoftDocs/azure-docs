@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## April 2024
 
-[Unified security operations platform in the Microsoft Defender portal (preview)](unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
+[Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
 
 ### Unified security operations platform in the Microsoft Defender portal (preview)
 
@@ -149,6 +149,8 @@ Use analytics rules together with the [Microsoft Sentinel solution for SAP® app
 - The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
 
 For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+
+[ ](#visualize-data-with-enrichment-widgets-preview)
 
 ## Next steps
 
