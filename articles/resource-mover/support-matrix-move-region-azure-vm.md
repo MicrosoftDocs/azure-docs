@@ -6,8 +6,7 @@ ms.service: resource-mover
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.author: ankitadutta
-ms.custom: engagement-fy23, UpdateFrequency.5
-
+ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---
 
 # Support for moving Azure VMs between Azure regions

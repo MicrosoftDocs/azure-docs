@@ -12,7 +12,7 @@ Cost optimization is about maximizing the value of resources while minimizing un
 
 In this article, you learn about:
 > [!div class="checklist"]
-> * Strategic infrastucture selection
+> * Strategic infrastructure selection
 > * Dynamic rightsizing and autoscaling
 > * Leveraging Azure discounts for substantial savings
 > * Holistic monitoring and FinOps practices 

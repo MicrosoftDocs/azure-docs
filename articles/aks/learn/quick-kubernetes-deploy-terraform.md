@@ -5,7 +5,7 @@ ms.author: schaffererin
 author: schaffererin
 ms.topic: quickstart
 ms.date: 03/22/2024
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 content_well_notification: 
   - AI-contribution
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.

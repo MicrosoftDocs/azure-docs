@@ -2,10 +2,10 @@
 title: View app dependencies with VM insights
 description: This article shows how to use the VM insights Map feature. It discovers application components on Windows and Linux systems and maps the communication between services.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
 ms.date: 09/28/2023
-
 ---
 
 # Use the Map feature of VM insights to understand application components

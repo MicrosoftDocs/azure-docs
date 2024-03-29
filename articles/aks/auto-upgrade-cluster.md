@@ -4,6 +4,7 @@ description: Learn how to automatically upgrade an Azure Kubernetes Service (AKS
 ms.topic: article
 ms.author: nickoman
 author: nickomang
+ms.subservice: aks-upgrade
 ms.date: 05/01/2023
 ---
 

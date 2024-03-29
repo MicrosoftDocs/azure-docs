@@ -4,6 +4,7 @@ description: Learn how to manage node pools for a cluster in Azure Kubernetes Se
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
+ms.subservice: aks-nodes
 ---
 
 # Manage node pools for a cluster in Azure Kubernetes Service (AKS)

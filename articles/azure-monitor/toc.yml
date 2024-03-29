@@ -298,6 +298,10 @@ items:
         items:
         - name: Overview
           href: insights/code-optimizations.md
+        - name: Set up Code Optimizations
+          href: insights/set-up-code-optimizations.md
+        - name: View insights
+          href: insights/view-code-optimizations.md
         - name: Troubleshooting
           href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
@@ -610,9 +614,6 @@ items:
     href: monitor-azure-monitor.md
 - name: Data collection
   items:
-  - name: Overview
-    displayName: data collection, data collection rules
-    href: essentials/data-collection.md
   - name: Data sources
     href: data-sources.md
   - name: Data collection methods
@@ -626,17 +627,16 @@ items:
         displayName: data collection, data collection rules
         href: essentials/data-collection-rule-best-practices.md
       - name: Create and edit
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-create-edit.md
-      - name: Edit tutorial
-        displayName: data collection rules
-        href: essentials/data-collection-rule-edit.md
-      - name: Structure
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-structure.md
-      - name: Monitor
-        displayName: Data collection rules
-        href: essentials/data-collection-monitor.md
+        items:
+        - name: Create
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-create-edit.md
+        - name: Edit tutorial
+          displayName: data collection rules
+          href: essentials/data-collection-rule-edit.md
+        - name: Structure
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -645,19 +645,25 @@ items:
         - name: Structure
           displayName: Transformations
           href: essentials/data-collection-transformations-structure.md
-        - name: Transformation tutorials
+        - name: Tutorial
+          displayName: Custom text logs, transformations
+          href: agents/azure-monitor-agent-transformation.md
+        - name: Workspace transformations
           items:
-          - name: Workspace transformation
-            items:
-            - name: Azure portal
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-portal.md
-            - name: Resource Manager templates
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-api.md
-          - name: Text log transformation
-            displayName: Custom text logs
-            href: agents/azure-monitor-agent-transformation.md
+          - name: Overview
+            displayName: Workspace transformations
+            href: essentials/data-collection-transformations-workspace.md
+          - name: Create in Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Create with ARM templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
+      - name: Monitor
+        displayName: Data collection rules
+        href: essentials/data-collection-monitor.md
+      - name: Samples
+        href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
     - name: Diagnostic Settings
@@ -1435,8 +1441,6 @@ items:
     items:
     - name: Overview
       href: resource-manager-samples.md
-    - name: Agents
-      href: agents/resource-manager-agent.md
     - name: Alerts
       items:
       - name: Log search alert rules
@@ -1451,10 +1455,6 @@ items:
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
-    - name: Data collection rules
-      href: agents/resource-manager-data-collection-rules.md
-    - name: Data collection endpoints
-      href: essentials/data-collection-endpoint-sample.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -1477,8 +1477,6 @@ items:
         href: alerts/alerts-log-alert-query-samples.md
       - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell

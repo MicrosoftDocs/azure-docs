@@ -1,24 +1,24 @@
 ---
-title: Set an external identity source for NSX-T Data Center
-description: Learn how to use Azure VMware Solution to set an external identity source for VMware NSX-T Data Center.
+title: Set an external identity source for VMware NSX
+description: Learn how to use Azure VMware Solution to set an external identity source for VMware NSX.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/06/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
-# Set an external identity source for NSX-T Data Center
+# Set an external identity source for VMware NSX
 
-In this article, learn how to set up an external identity source for VMware NSX-T Data Center in an instance of Azure VMware Solution.
+In this article, learn how to set up an external identity source for VMware NSX in an instance of Azure VMware Solution.
 
-You can set up NSX-T Data Center to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a third-party LDAP server. Then, the account can be assigned an NSX-T Data Center role, like in an on-premises environment, to provide role-based access for NSX-T Data Center users.
+You can set up NSX to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a third-party LDAP server. Then, the account can be assigned an NSX role, like in an on-premises environment, to provide role-based access for NSX users.
 
-:::image type="content" source="media/nsxt/azure-vmware-solution-to-ldap-server.png" alt-text="Screenshot that shows NSX-T Data Center connectivity to the LDAP Windows Server Active Directory server.":::
+:::image type="content" source="media/nsxt/azure-vmware-solution-to-ldap-server.png" alt-text="Screenshot that shows NSX connectivity to the LDAP Windows Server Active Directory server.":::
 
 ## Prerequisites
 
 - A working connection from your Windows Server Active Directory network to your Azure VMware Solution private cloud.
-- A network path from your Windows Server Active Directory server to the management network of the instance of Azure VMware Solution in which NSX-T Data Center is deployed.
+- A network path from your Windows Server Active Directory server to the management network of the instance of Azure VMware Solution in which NSX is deployed.
 - A Windows Server Active Directory domain controller that has a valid certificate. The certificate can be issued by a [Windows Server Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or by a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
 
    We recommend that you use two domain controllers that are located in the same Azure region as the Azure VMware Solution software-defined datacenter.
@@ -27,7 +27,7 @@ You can set up NSX-T Data Center to use an external Lightweight Directory Access
    > Self-signed certificates are not recommended for production environments.
 
 - An account that has Administrator permissions.
-- Azure VMware Solution DNS zones and DNS servers that are correctly configured. For more information, see [Configure NSX-T Data Center DNS for resolution to your Windows Server Active Directory domain and set up DNS forwarder](configure-dns-azure-vmware-solution.md).
+- Azure VMware Solution DNS zones and DNS servers that are correctly configured. For more information, see [Configure NSX DNS for resolution to your Windows Server Active Directory domain and set up DNS forwarder](configure-dns-azure-vmware-solution.md).
 
 > [!NOTE]
 > For more information about Secure LDAP (LDAPS) and certificate issuance, contact your security team or your identity management team.
@@ -77,7 +77,7 @@ You can set up NSX-T Data Center to use an external Lightweight Directory Access
 
 ## Assign roles to Windows Server Active Directory identities
 
-After you add an external identity, you can assign NSX-T Data Center roles to Windows Server Active Directory security groups based on your organization's security controls.
+After you add an external identity, you can assign NSX roles to Windows Server Active Directory security groups based on your organization's security controls.
 
 1. In NSX Manager, go to **System** > **User Management** > **User Role Assignment** > **Add**.
 
@@ -85,7 +85,7 @@ After you add an external identity, you can assign NSX-T Data Center roles to Wi
 
 1. Select **Add** > **Role Assignment for LDAP**.  
 
-   1. Select the external identity provider that you selected in step 3 in the preceding section. For example, **NSX-T External Identity Provider**.
+   1. Select the external identity provider that you selected in step 3 in the preceding section. For example, **NSX External Identity Provider**.
 
    1. Enter the first few characters of the user's name, the user's sign-in ID, or a group name to search the LDAP directory. Then select a user or group from the list of results.
 
@@ -103,6 +103,6 @@ Your users should now be able to sign in to NSX Manager by using their Windows S
 
 ## Related content
 
-- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [Azure VMware Solution identity architecture](architecture-identity.md)
 - [Set an external identity source for vCenter Server](configure-identity-source-vcenter.md)
 - [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)

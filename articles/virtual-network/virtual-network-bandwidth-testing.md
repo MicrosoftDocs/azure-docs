@@ -4,6 +4,7 @@ description: Use the NTTTCP tool to test network bandwidth and throughput perfor
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: allensu

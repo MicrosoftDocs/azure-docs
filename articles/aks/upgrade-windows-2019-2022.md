@@ -2,6 +2,7 @@
 title: Upgrade the OS version for your Azure Kubernetes Service (AKS) Windows workloads
 description: Learn how to upgrade the OS version for Windows workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-upgrade
 ms.custom:
 ms.date: 09/12/2023
 ---

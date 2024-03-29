@@ -10,8 +10,6 @@
         href: classic-overview.md
       - name: Choosing the right load balancer
         href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
-      - name: Front Door and CDN comparison
-        href: front-door-cdn-comparison.md
   - name: CDN
     items: 
         - name: What is Azure Content Delivery Network (Azure CDN)?
@@ -176,6 +174,8 @@
             href: tier-migration.md
           - name: Classic to Standard/Premium mapping
             href: tier-mapping.md
+        - name: Front Door (classic) retirement FAQ
+          href: classic-retirement-faq.md
         - name: Caching
           href: front-door-caching.md?pivots=front-door-classic
         - name: Traffic acceleration
