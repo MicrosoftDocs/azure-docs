@@ -35,7 +35,7 @@ devtunnel create --allow-anonymous
 devtunnel port create -p 8080
 devtunnel host
 ```
-Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels?view=aspnetcore-7.0#create-a-tunnel)
+Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels)
 
 ## Update your application configuration
 
