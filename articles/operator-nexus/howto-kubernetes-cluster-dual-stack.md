@@ -27,6 +27,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 * Single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
 * Admin kubeconfig kube-vip IP is IPv4-only.
+* Kubernetes control plane supports only IPv4, while workload Pods and services can use dual-stack (IPv4/IPv6).
 
 ## Configuration options
 
