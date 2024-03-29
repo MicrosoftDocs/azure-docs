@@ -1,8 +1,8 @@
 ---
 title: Microsoft Azure Data Manager for Agriculture public preview notice
 description: Public Preview Notice for using Microsoft Azure Data Manager for Agriculture service
-author: BlackRider97
-ms.author: ramithar
+author: gourdsay
+ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: include
 ms.date: 07/03/2023
