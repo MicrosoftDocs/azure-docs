@@ -28,5 +28,5 @@ If the `audioOutputLevel` value isn't always low but the user can't hear audio, 
 ## How to mitigate or resolve
 Speaker issues are considered external problems from the perspective of the ACS Calling SDK.
 
-It's recommended that the application implements a remote volume indicator function with the [getVolume API](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/remoteaudiostream?preserve-view=true) provided by SDK.
+It's recommended that the application implements a remote volume indicator function with the [getVolume API](/javascript/api/azure-communication-services/@azure/communication-calling/remoteaudiostream) provided by SDK.
 If the incoming audio isn't silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.
