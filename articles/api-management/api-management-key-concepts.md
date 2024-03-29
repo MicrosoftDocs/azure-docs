@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: overview
-ms.date: 12/13/2023
+ms.date: 03/28/2024
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -47,7 +47,7 @@ Common scenarios include:
 
 ## API Management components
 
-Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
+Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](#api-management-tiers) differing in capacity and features.
 
 :::image type="content" source="media/api-management-key-concepts-experiment/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
 
@@ -100,6 +100,19 @@ Using the developer portal, developers can:
   * Download API definitions
   * Manage API keys
 
+## API Management tiers
+
+API Management is offered in a variety of pricing tiers to meet the needs of different customers. Each tier offers a distinct combination of features, performance, capacity limits, scalability, SLA, and pricing for different scenarios. The tiers are grouped as follows:
+
+* **Classic** - The original API Management offering, including the Developer, Basic, Standard, and Premium tiers. The Premium tier is designed for enterprises requiring access to private backends, enhanced security features, multi-region deployments, availability zones, and high scalability. The Developer tier is an economical option for non-production use, while the Basic, Standard, and Premium tiers are production-ready tiers. 
+* **V2** - A new set of tiers that offer fast provisioning and scaling, including Basic v2 for development and testing, and Standard v2 for production workloads. Standard v2 supports simplified connection to network-isolated backends.   
+* **Consumption** - The Consumption tier is a serverless gateway for managing APIs that scales based on demand and billed per execution. It is designed for applications with serverless compute, microservices-based architectures, and those with variable traffic patterns.
+
+**More information**:
+* [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
+* [V2 service tiers](v2-service-tiers-overview.md)
+* [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
+
 ## Integration with Azure services
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
@@ -116,7 +129,6 @@ API Management integrates with many complementary Azure services to create enter
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-
 
 ## Key concepts
 

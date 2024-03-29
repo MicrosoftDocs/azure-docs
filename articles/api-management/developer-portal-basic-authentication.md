@@ -23,8 +23,6 @@ For an overview of options to secure the developer portal, see [Secure access to
 
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
 
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
-
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 

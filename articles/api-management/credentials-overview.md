@@ -139,7 +139,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the classic and v2 service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 

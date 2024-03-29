@@ -26,7 +26,7 @@ This article provides guidelines for configuring an API in API Management that i
 
 Follow these guidelines when using API Management to reach a backend API that implements SSE. 
 
-* **Choose service tier for long-running HTTP connections** - SSE relies on a long-running HTTP connection. Long-running connections are supported in the dedicated API Management tiers, but not in the Consumption tier.
+* **Choose service tier for long-running HTTP connections** - SSE relies on a long-running HTTP connection that is supported in certain API Management [pricing tiers](api-management-key-concepts.md#api-management-tiers). Long-running connections are supported in the classic and v2 API Management tiers, but not in the Consumption tier.
 
 * **Keep idle connections alive** - If a connection between client and backend could be idle for 4 minutes or longer, implement a mechanism to keep the connection alive. For example, enable a TCP keepalive signal at the backend of the connection, or send traffic from the client side at least once per 4 minutes. 
 
