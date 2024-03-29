@@ -22,9 +22,9 @@ Here's how to implement our integrated vector database:
 
 | | Description |
 | --- | --- |
-| **[Azure Cosmos DB for Mongo DB vCore](#implement-vector-database-functionalities-using-our-api-for-mongodb-vcore)** | Store your application data and vector embeddings together in a single MongoDB-compatible service featuring natively integrated vector database. |
-| **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-our-api-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with natively integrated vector database. |
-| **[Azure Cosmos DB for NoSQL with Azure AI Search](#implement-vector-database-functionalities-using-our-nosql-api-and-ai-search)** | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure AI Search. |
+| **[Azure Cosmos DB for Mongo DB vCore](#how-to-implement-vector-database-functionalities-using-our-api-for-mongodb-vcore)** | Store your application data and vector embeddings together in a single MongoDB-compatible service featuring natively integrated vector database. |
+| **[Azure Cosmos DB for PostgreSQL](#how-to-implement-vector-database-functionalities-using-our-api-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with natively integrated vector database. |
+| **[Azure Cosmos DB for NoSQL with Azure AI Search](#how-to-implement-vector-database-functionalities-using-our-nosql-api-and-ai-search)** | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure AI Search. |
 
 ## What is a vector database?
 
@@ -38,7 +38,7 @@ Besides the above functionalities of a typical vector database, our integrated v
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc. For example, you can use a vector database to:
 
-- identify similar images, documents, and songs based on their contents, themes, sentiments, and styles 
+- identify similar images, documents, and songs based on their contents, themes, sentiments, and styles
 - identify similar products based on their characteristics, features, and user groups
 - recommend contents, products, or services based on individuals' preferences
 - recommend contents, products, or services based on user groups' similarities
@@ -58,7 +58,7 @@ This process involves extracting pertinent information from a custom data source
 
 Here are multiple ways to implement RAG on your data by using our vector database functionalities:
 
-## Implement vector database functionalities using our API for MongoDB vCore
+## How to implement vector database functionalities using our API for MongoDB vCore
 
 Use the natively integrated vector database in [Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
@@ -72,7 +72,7 @@ Use the natively integrated vector database in [Azure Cosmos DB for MongoDB vCor
 - [Python - LlamaIndex integration](https://docs.llamaindex.ai/en/stable/examples/vector_stores/AzureCosmosDBMongoDBvCoreDemo.html)
 - [Python - Semantic Kernel memory integration](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)
   
-## Implement vector database functionalities using our API for PostgreSQL
+## How to implement vector database functionalities using our API for PostgreSQL
 
 Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](postgresql/howto-use-pgvector.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
@@ -80,7 +80,7 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
-## Implement vector database functionalities using our NoSQL API and AI Search
+## How to implement vector database functionalities using our NoSQL API and AI Search
 
 The natively integrated vector database in our NoSQL API will become available in mid-2024. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
@@ -141,3 +141,10 @@ The process of creating good prompts for a scenario is called prompt engineering
 ### Tokens
 
 Tokens are small chunks of text generated by splitting the input text into smaller segments. These segments can either be words or groups of characters, varying in length from a single character to an entire word. For instance, the word hamburger would be divided into tokens such as ham, bur, and ger while a short and common word like pear would be considered a single token. LLMs like ChatGPT, GPT-3.5, or GPT-4 break words into tokens for processing.
+
+## Related content
+
+- [Azure Cosmos DB for MongoDB vCore Integrated Vector Database](mongodb/vcore/vector-search.md)
+- [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
+- [Azure AI Search](../search/search-what-is-azure-search.md)
+- [Open Source Vector Database List](/semantic-kernel/memories/vector-db#available-connectors-to-vector-databases)
