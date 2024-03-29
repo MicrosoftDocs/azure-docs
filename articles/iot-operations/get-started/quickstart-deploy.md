@@ -222,23 +222,36 @@ This helper command checks connectivity to Azure Resource Manager and Microsoft 
 
 In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault, then deploy Azure IoT Operations.
 
+1. Create a key vault. Replace the placeholder parameters with your own information.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
+   | **KEYVAULT_NAME** | A name for a new key vault. |
+
+   ```azurecli
+   az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+   ```
+
+   >[!TIP]
+   > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
+
 1. Run the following CLI command on your development machine or in your codespace terminal. Replace the placeholder parameters with your own information.
 
    | Placeholder | Value |
    | ----------- | ----- |
    | **CLUSTER_NAME** | The name of your connected cluster. |
    | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
-   | **KEYVAULT_NAME** | A name for a new key vault. |
+   | **KEYVAULT_NAME** | The name of your key vault. |
 
    ```azurecli
-   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> $(az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>") --simulate-plc
+   az iot ops init --simulate-plc --mq-mode auto --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
    ```
 
-   >[!TIP]
-   > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
+   If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
    >[!TIP]
-   >If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+   >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
 
 1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
 
