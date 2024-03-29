@@ -1,7 +1,7 @@
 Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ mvn archetype:generate -DgroupId=com.communication.lookup.quickstart -DartifactI
 The 'generate' task creates a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Connect to dev package feed
-The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections.
+The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections which you can add if they do not already exist.
 
 ```xml
 <repository>
@@ -44,7 +44,7 @@ The public preview version of the SDK is published to a dev package feed. To con
 </repository>
 ```
 
-Add or edit the `settings.xml` file in `${user.home}/.m2`
+You may need to add or edit the `settings.xml` file in `${user.home}/.m2`
 
 ```xml
 <server>
@@ -54,7 +54,7 @@ Add or edit the `settings.xml` file in `${user.home}/.m2`
 </server>
 ```
 
-Finally, generate a [Personal Access Token](https://dev.azure.com/azure-sdk/_details/security/tokens) with _Packaging_ read & write scopes and paste it into the `<password>` tag.
+You can generate a [Personal Access Token](https://dev.azure.com/azure-sdk/_details/security/tokens) with _Packaging_ read & write scopes and paste it into the `<password>` tag.
 
 More detailed information and other options for connecting to the dev feed can be found [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/connect).
 
@@ -87,6 +87,16 @@ Add the following dependency elements to the group of dependencies in the **pom.
     <version>1.41.0</version>
   </dependency>
 </dependencies>
+```
+
+Check the `properties` section to ensure your project is targeting Maven version 1.8 or above.
+
+```xml
+<properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
 ```
 
 ## Code examples
@@ -125,21 +135,7 @@ public class App
 
 ### Authenticate the client
 
-## Authenticate the Phone Numbers Client
-
-The `PhoneNumberClientBuilder` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID. You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
-```java
-// You can find your resource name from your resource in the Azure portal
-String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
-    .endpoint(endpoint)
-    .credential(new DefaultAzureCredentialBuilder().build())
-    .buildClient();
-```
-
-Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+The client can be authenticated using a connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
 // This code retrieves your connection string from an environment variable
@@ -180,7 +176,7 @@ OperatorInformation operatorInfo = result.getValue().getValues().get(0);
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account
+> Using this functionality will incur a charge to your account.
 
 ### Use operator information
 
@@ -232,4 +228,4 @@ mvn exec:java -D"exec.mainClass"="com.communication.lookup.quickstart.App" -D"ex
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
