@@ -13,7 +13,7 @@ ms.author: banders
 
 # Azure billing meter ID updates
 
-On March 1, 2024, some Azure billing meters will get updated for improved meter ID metadata. A billing meter is used to determine the cost of using a specific service or resource in Azure. It helps calculate the amount you're charged based on the quantity of the resource consumed. The billing meter varies depending on the type of service or resource used.
+On March 1, 2024, some Azure billing meters were updated for improved meter ID metadata. More updates are underway. A billing meter is used to determine the cost of using a specific service or resource in Azure. It helps calculate the amount you're charged based on the quantity of the resource consumed. The billing meter varies depending on the type of service or resource used.
 
 The meter ID updates result in having only individual unique meters. A unique meter means that every Azure service, resource, and region has its own billing meter ID that precisely reflects its consumption and price. The change ensures that you see the correct meter ID on your invoice, and that you’re charged the correct price for each service or resource consumed.
 
@@ -34,7 +34,7 @@ The following download links are CSV files of the latest meter IDs with their co
 
 ## Recommendations
 
-We recommend you review the list of updated meters and familiarize yourself with the new meter IDs and names that apply to your Azure consumption. You should check reports that you have  for analysis, budgets, and any saved views to see if they use the updated meters. If so, you might need to update them accordingly to for the new meter IDs and names. If you don’t use any meters in the updated meters list, the changes don’t affect you.
+We recommend you review the list of updated meters and familiarize yourself with the new meter IDs and names that apply to your Azure consumption. You should check reports that you have  for analysis, budgets, and any saved views to see if they use the updated meters. If so, you might need to update them accordingly for the new meter IDs and names. If you don’t use any meters in the updated meters list, the changes don’t affect you.
 
 ## See also
 
