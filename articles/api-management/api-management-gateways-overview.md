@@ -20,7 +20,9 @@ Related information:
 
 * For an overview of API Management scenarios, components, and concepts, see [What is Azure API Management?](api-management-key-concepts.md)
 
-* For more information about the API Management service tiers and features, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
+* For more information about the API Management service tiers and features, see:
+    * [API Management tiers](api-management-key-concepts.md#api-management-tiers)
+    * [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
 ## Role of the gateway
 

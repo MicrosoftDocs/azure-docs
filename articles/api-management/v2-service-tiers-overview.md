@@ -11,11 +11,11 @@ ms.author: danlep
 ms.custom: references_regions
 ---
 
-# New Azure API Management tiers
+# Azure API Management v2 tiers
 
 [!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
 
-We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The new tiers are built on a new, more reliable and scalable platform and are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios.
+We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The new tiers are built on a new, more reliable and scalable platform and are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. The v2 tiers are in addition to the existing classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. [Learn more](api-management-key-concepts.md#api-management-tiers).
 
 The following v2 tiers are generally available:
 
@@ -44,19 +44,22 @@ The Standard v2 tier supports VNet integration to allow your API Management inst
 The v2 tiers are supported in API Management API version **2023-05-01-preview** or later.
 
 ### Supported regions
-
 The v2 tiers are available in the following regions:
-
 * South Central US
 * West US
 * France Central
+* Germany West Central
 * North Europe
 * West Europe
 * UK South
+* UK West
 * Brazil South
+* Australia Central
 * Australia East
 * Australia Southeast
 * East Asia
+* Southeast Asia
+* Korea Central
 
 ### Feature availability
 
@@ -86,6 +89,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Delegation of user registration and product subscription
 * Reports
 * Custom HTML code widget and custom widget
+* Self-hosted developer portal
 
 **Gateway**
 * Self-hosted gateway
@@ -140,4 +144,5 @@ A: Yes, a Premium v2 preview is planned and will be announced separately.
 ## Related content
 
 * Compare the API Management [tiers](api-management-features.md).
+* Learn more about the [API Management gateways](api-management-gateways-overview.md)
 * Learn about [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).

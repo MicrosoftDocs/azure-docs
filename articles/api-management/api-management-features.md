@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
+Each API Management [pricing tier](api-management-key-concepts.md#api-management-tiers) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
 > [!IMPORTANT]
 > * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
@@ -53,4 +53,4 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
-<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the dedicated, consumption, and self-hosted gateways. <br/>
+<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, and self-hosted gateways. <br/>

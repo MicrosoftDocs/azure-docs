@@ -58,8 +58,6 @@ As you use Azure resources with API Management, you incur costs, or billable met
 
 ### How you're charged for API Management
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
-
 When you create or use Azure resources with API Management, you'll get charged based on tiers you're working in. Learn more about [choosing the best tier](./api-management-features.md) for you.
 
 | Tiers | Description |
