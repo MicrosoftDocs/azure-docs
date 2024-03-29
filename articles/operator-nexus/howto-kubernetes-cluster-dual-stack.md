@@ -24,6 +24,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 * Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
 * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 * Knowledge of Kubernetes concepts, including deployments and services.
+* The Layer 3 (L3) network used for the `cniNetworkId` must have both IPv4 and IPv6 addresses.
 
 ## Limitations
 
