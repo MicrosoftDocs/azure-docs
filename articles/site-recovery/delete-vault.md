@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 11/05/2019
+ms.date: 03/29/2024
 ms.author: ankitadutta 
 
 ---
@@ -69,4 +69,9 @@ $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 Remove-AzRecoveryServicesVault -Vault $vault
 ```
 
-Learn more about [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), and [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+## Next steps
+
+Learn more about:
+
+-  [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)
+- [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
