@@ -141,7 +141,7 @@ This script automates the following steps:
 
 * Apply all the required configurations for Azure IoT Operations, including:
 
-  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations MQ broker.
+  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
   * Install Storage local-path provisioner.
 
@@ -245,7 +245,7 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
    | **KEYVAULT_NAME** | The name of your key vault. |
 
    ```azurecli
-   az iot ops init --simulate-plc --mq-mode auto --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
+   az iot ops init --simulate-plc --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
    ```
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
