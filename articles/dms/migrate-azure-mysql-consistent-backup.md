@@ -28,7 +28,6 @@ With this feature, we don't take a read lock on the server. We instead read tabl
 Key features of Consistent Snapshot without locks:
     *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
     *Resilient in completing migrations even in the event of failures caused by transient network/server blips that result in loss of all the precreated connections.
-    *Ability to resume migrations upon Data Migration Service (DMS) agent upgrades or restarts.
 
 ### Enable Consistent Snapshot with read lock (GA)
 
@@ -58,6 +57,7 @@ To complete the migration successfully with Consistent Snapshot with read lock e
 ## Known issues and limitations for Enable Consistent Snapshot without locks
 
 - Tables with foreign keys having Cascade or Set Null on delete/on update clause aren't supported.
+- No DDL changes should occur during initial load.
 
 ## Known issues and limitations for Enable Consistent Snapshot with read lock
 
