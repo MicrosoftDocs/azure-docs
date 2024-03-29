@@ -3,7 +3,7 @@ title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/29/2024
 ---
 
 # Deployment technologies in Azure Functions
@@ -40,7 +40,6 @@ Each plan has different behaviors. Not all deployment technologies are available
 | [External package URL](#external-package-url)<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | [Zip deploy](#zip-deploy) |✔|✔|✔|✔|✔|✔|
 | [Docker container](#docker-container) | | | | |✔|✔|
-| [Web Deploy](#web-deploy-msdeploy) |✔|✔|✔| | | |
 | [Source control](#source-control) |✔|✔|✔| |✔|✔|
 | [Local Git](#local-git)<sup>1</sup> |✔|✔|✔| |✔|✔|
 | [FTPS](#ftps)<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -154,9 +153,9 @@ You can deploy a function app running in a Linux container.
 
 ### Source control
 
-Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
+Use source control to connect your function app to a code repository. An update to code in that repository triggers deployment. For more information, see the [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
->__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+>__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).  
 
 >__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
 
@@ -220,7 +219,11 @@ If you need more control over this transition, you should use deployment slots.
 
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](functions-deployment-slots.md) documentation for details.
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. Deploying to a deployment slot and then swapping into production after verification is the recommended way to configure [continuous deployment](./functions-continuous-deployment.md). 
+
+The way that you deploy to a slot depends on the specific deployment tool you use. For example, when using Azure Functions Core Tools, you include the`--slot` option to indicate the name of a specific slot for the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command. 
+
+For more information on deployment slots, see the [Azure Functions Deployment Slots](functions-deployment-slots.md) documentation for details.
 
 ## Next steps
 

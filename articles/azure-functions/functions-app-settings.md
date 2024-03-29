@@ -704,7 +704,7 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a mounted package file.
+Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
