@@ -13,8 +13,8 @@ ms.subservice: calling
 ---
 
 # Overview of audio issues
-Voice calling is a basic and important function in conference calls, and it's more commonly used than video calling.
-To establish a good voice call, several factors must be considered. These include:
+Voice calling is a basic and important function in conference calls, and it's more common than video calling.
+To establish a good voice call, several factors must be considered. These factors include:
 
 - Microphone permission on the sender side.
 - Proper functioning of the microphone device.
