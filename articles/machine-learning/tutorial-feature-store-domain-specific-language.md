@@ -41,7 +41,7 @@ This Tutorial shows how to
 
 Before you proceed with this tutorial, make sure that you cover these prerequisites:
 
-1. An Azure Machine Learning workspace. If you don't have one, visit [Quickstart: Create workspace resources](https://learn.microsoft.com/azure/machine-learning/quickstart-create-resources?view=azureml-api-2) to learn how to create one.
+1. An Azure Machine Learning workspace. If you don't have one, visit [Quickstart: Create workspace resources](./quickstart-create-resources.md?view-azureml-api-2) to learn how to create one.
 1. To perform the steps in this tutorial, your user account needs either the **Owner** or **Contributor** role to the resource group where the feature store will be created.
 
 ## Set up
@@ -130,7 +130,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
       1. You'll see the list of feature stores that you have access to. Select the feature store that you created above
       1. Select the storage account link under **Account name** on the **Offline materialization store** card, to navigate to the ADLS Gen2 storage account for the offline store
          :::image type="content" source="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" lightbox="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" alt-text="This screenshot shows the storage account link for the offline materialization store on the feature store UI.":::
-      1. Visit [this resource](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
+      1. Visit [this resource](../role-based-access-control/role-assignments-portal.md) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
 
 ## Available DSL expressions and benchmarks
 
@@ -244,7 +244,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
    1. `features`: List of features and their datatypes. If you provide transformation code, the code must return a dataframe that maps to the features and data types
    1. `index_columns`: The join keys required to access values from the feature set
 
-   For more information, read the [top level feature store entities document](https://learn.microsoft.com/azure/machine-learning/concept-top-level-entities-in-managed-feature-store) and the [feature set specification YAML reference](https://learn.microsoft.com/azure/machine-learning/reference-yaml-featureset-spec) resources.
+   For more information, read the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set specification YAML reference](./reference-yaml-featureset-spec.md) resources.
 
    As an extra benefit of persisting the feature set specification, it can be source controlled.
 
