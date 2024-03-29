@@ -11,7 +11,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## March 2024
 
-### Well-Architected Framework (WAF) assessments & recommendation
+### Well-Architected Framework (WAF) assessments & recommendations
 
 The Well-Architected Framework (WAF) assessment provides a curated view of a workload’s architecture. Now you can take the WAF assessment and manage recommendations on Azure Advisor to improve resiliency, security, cost, operational excellence, and performance efficiency. As a part of this release, we're announcing two key WAF assessments - [Mission Critical | Well-Architected Review](/assessments/23513bdb-e8a2-4f0b-8b6b-191ee1f52d34/) and [Azure Well-Architected Review](/assessments/azure-architecture-review/).
 
