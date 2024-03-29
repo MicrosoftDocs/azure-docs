@@ -191,7 +191,7 @@ You can use Resource Manager templates to install Azure Monitor Agent on Azure v
 Get sample templates for installing the agent and creating the association from the following resources:
 
 - [Template to install Azure Monitor agent (Azure and Azure Arc)](../agents/resource-manager-agent.md#azure-monitor-agent)
-- [Template to create association with data collection rule](./resource-manager-data-collection-rules.md)
+- [Template to create association with data collection rule](../essentials/data-collection-rule-create-edit.md?tabs=arm#manually-create-a-dcr)
 
 Install the templates by using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md), such as the following commands.
 
@@ -371,9 +371,9 @@ To perform a one-time upgrade of the agent, use the following CLI commands.
 
 - Linux
   ```azurecli
-  az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
+  az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorLinuxAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
   ```
-
+  
  We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#manage-automatic-extension-upgrade) feature by using the following PowerShell commands.
 
 - Windows
@@ -421,7 +421,7 @@ These initiatives above comprise individual policies that:
   - `User-Assigned Managed Identity Name`: If you use your own identity (selected `true`), specify the name of the identity that's assigned to the machines.
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
   - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included.
-  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when 'Bring Your Own User-Assigned Managed Identity' parameter is false.
+  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when `Bring Your Own User-Assigned Managed Identity` parameter is set to `false`.
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 

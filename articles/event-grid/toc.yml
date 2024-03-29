@@ -31,12 +31,12 @@ items:
             href: mqtt-routing-to-event-hubs-cli-namespace-topics.md
           - name: Azure portal
             href: mqtt-routing-to-event-hubs-portal-namespace-topics.md
-        - name: Route MQTT messages to Event Hubs using custom topics
+        - name: Route MQTT messages to Azure Functions using custom topics 
           items:
-          - name: Azure CLI
-            href: mqtt-routing-to-event-hubs-cli.md
           - name: Azure portal
-            href: mqtt-routing-to-event-hubs-portal.md
+            href: mqtt-routing-to-azure-functions-portal.md
+          - name: Azure CLI
+            href: mqtt-routing-to-azure-functions-cli.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts
@@ -143,7 +143,7 @@ items:
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver events using namespace topics
+          - name: Deliver events to Azure Event Hubs using namespace topics
             items:
             - name: Azure CLI
               href: publish-deliver-events-with-namespace-topics.md
@@ -319,6 +319,8 @@ items:
           href: system-topics.md
         - name: Event sources (publishers)
           items:
+          - name: Azure API Center
+            href: event-schema-api-center.md
           - name: Azure API Management
             href: event-schema-api-management.md
           - name: Azure App Configuration

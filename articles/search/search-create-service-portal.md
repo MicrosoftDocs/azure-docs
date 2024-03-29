@@ -1,7 +1,7 @@
 ---
 title: 'Create a search service in the portal'
 titleSuffix: Azure AI Search
-description: Learn how to set up an Azure AI Search resource in the Azure portal. Choose resource groups, regions, and the SKU or pricing tier.
+description: Learn how to set up an Azure AI Search resource in the Azure portal. Choose resource groups, regions, and a pricing tier.
 
 manager: nitinme
 author: HeidiSteen
@@ -61,7 +61,7 @@ A resource group is a container that holds related resources for your Azure solu
 
 Over time, you can track current and projected costs all-up or you can view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see when you combine multiple resources into one group.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" lightbox="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Screenshot of the manage costs page in the portal." border="true":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" lightbox="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Screenshot of the Managing costs page in the portal." border="true":::
 
 > [!TIP]
 > Resource groups simplify cleanup because deleting a resource group deletes everything within it.
@@ -74,9 +74,9 @@ Service name requirements:
 
 + Unique within the search.windows.net namespace
 + Between 2 and 60 characters in length
-+ Consist of lowercase letters, digits, dashes (`-`), or underscores (`_`)
-+ Don't use dashes or underscores in the first 2 characters or as the last single character
-+ Don't use consecutive dashes or underscores anywhere
++ Consist of lowercase letters, digits, or dashes (`-`)
++ Don't use dashes in the first 2 characters or as the last single character
++ Don't use consecutive dashes anywhere
 
 > [!TIP]
 > If you have multiple search services, it helps to include the region (or location) in the service name as a naming convention. A name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
@@ -84,7 +84,7 @@ Service name requirements:
 ## Choose a region
 
 > [!IMPORTANT]
-> Due to high demand, Azure AI Search is currently unavaible for new instances in West Europe. If you don't immediately need semantic ranker or skillsets, choose Sweden Central because it has the most data center capacity. Otherwise, North Europe is another option.
+> Due to high demand, Azure AI Search is currently unavailable for new instances in West Europe. If you don't immediately need semantic ranker or skillsets, choose Sweden Central because it has the most data center capacity. Otherwise, North Europe is another option.
 
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
@@ -105,7 +105,7 @@ Some features are subject to [regional availability](https://azure.microsoft.com
 
 The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates a common regional presence by showing two stacked check marks. An unavailable combination has a missing check mark. The time piece icon indicates future availability.
 
-  :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the regional availability page." border="true":::
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the Regional availability page." border="true":::
 
 ## Choose a tier
 
@@ -125,7 +125,7 @@ After you've provided the necessary inputs, go ahead and create the service.
 
 Your service is deployed within minutes. You can monitor progress through Azure notifications. Consider pinning the service to your dashboard for easy access in the future.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" lightbox="media/search-create-service-portal/monitor-notifications.png" alt-text="Screenshot of the monitor and pin the service page." border="true":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" lightbox="media/search-create-service-portal/monitor-notifications.png" alt-text="Screenshot of the Monitor and pin the service page." border="true":::
 
 ## Configure authentication
 
@@ -136,11 +136,11 @@ Unless you're using the portal, programmatic access to your new service requires
 
 1. When setting up a programmatic connection, you need the search service endpoint. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-   :::image type="content" source="media/search-create-service-portal/get-endpoint.png" lightbox="media/search-create-service-portal/get-endpoint.png" alt-text="Screenshot of the service overview page with URL endpoint." border="true":::
+   :::image type="content" source="media/search-create-service-portal/get-endpoint.png" lightbox="media/search-create-service-portal/get-endpoint.png" alt-text="Screenshot of the service Overview page with URL endpoint." border="true":::
 
 1. To set authentication options, use the **Keys** page. Most quickstarts and tutorials use API keys for simplicity, but if you're setting up a service for production workloads, consider using Azure roles. You can copy keys from this page.
 
-   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
+   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the Keys page with authentication options." border="true":::
 
 An endpoint and key aren't needed for portal-based tasks. The portal is already linked to your Azure AI Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure AI Search index in the portal](search-get-started-portal.md).
 
@@ -161,7 +161,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 1. In the left-navigation pane, select **Settings** > **Scale**.
 1. Use the slidebar to add resources of either type.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" lightbox="media/search-create-service-portal/settings-scale.png" alt-text="Screenshot of the add capacity page." border="true":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" lightbox="media/search-create-service-portal/settings-scale.png" alt-text="Screenshot of the scale page." border="true":::
 
 ## When to add a second service
 
@@ -169,7 +169,7 @@ Most customers use just one service provisioned at a tier [sufficient for expect
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure AI Search doesn't provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure AI Search doesn't provide instant failover if there's an outage.
 
 + [Multitenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -186,23 +186,31 @@ Azure AI Search restricts the [number of resources](search-limits-quotas-capacit
 
 1. Sign in to the Azure portal and find your search service.
 
-1. On the left-navigation pane, scroll down and select **New Support Request.**
+1. On the left-navigation pane, scroll down and select **Support and Troubleshooting**. This experience is fluid, and the options and prompts might vary slightly depending on your inputs.
 
-1. In **Issue type**, choose **Service and subscription limits (quotas).**
+1. In **How can we help?**, type **quota** and then select **Go**.
 
-1. Select the subscription that needs more quota.
+1. You should see **Service and subscription limits (quotas)** as an option. Select it and then select **Next**.
 
-1. Under **Quota type**, select **Search** and then select **Next**.
+   :::image type="content" source="media/search-create-service-portal/support-ticket.png" alt-text="Screenshot of options for increasing a subscription limit.":::
 
-1. In the **Problem details** section, select **Enter details**.
+1. Follow the prompts to select the subscription and resource for which you want to increase the limit.
 
-1. Follow the prompts to select the location and tier for which you want to increase the limit.
+1. Select **Create a support ticket**.
 
-1. Add the number of new services you would like to add to your quota. The value must not be empty and must between 0 to 100. For example, the maximum number of S2 services is 8. If you want 12 services, you would request 4 of S2 services.
+   :::image type="content" source="media/search-create-service-portal/support-ticket-create.png" alt-text="Screenshot of the create support ticket button.":::
 
-1. When you're finished, select **Save and continue** to continue creating your support request.
+1. Select the subscription and set quota type to **Azure AI Search**, and then select **Next**.
 
-1. Provide the additional information required to file the request, and then select **Next**.
+1. In **Problem details**, select **Enter details**.
+
+1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota.  For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
+
+   :::image type="content" source="media/search-create-service-portal/support-ticket-quota-details.png" alt-text="Screenshot of the quota details page.":::
+
+1. Select **Save and continue**.
+
+1. Provide more information, such as contact information, that's required to file the request, and then select **Next**.
 
 1. On **Review + create**, select **Create**. 
 

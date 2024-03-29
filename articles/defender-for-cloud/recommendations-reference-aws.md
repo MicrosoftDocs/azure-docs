@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for AWS resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Amazon Web Services (AWS) resources.
 ms.topic: reference
-ms.date: 06/27/2023
+ms.date: 03/13/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -61,7 +61,7 @@ Enable deletion protection to protect your Application Load Balancer from deleti
 
 ### [AWS accounts should have Azure Arc auto provisioning enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/882a80f0-943f-473e-b6d7-40c7a625540e)
 
-**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](/azure/azure-arc/servers/overview), and [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction).
+**Description**: For full visibility of the security content from Microsoft Defender for servers, EC2 instances should be connected to Azure Arc. To ensure that all eligible EC2 instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the AWS account level. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
 
 **Severity**: High
 
@@ -104,7 +104,7 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 ### [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3)
 
-**Description**: Connect your EC2 instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](/azure/azure-arc/servers/overview), and about [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction) on hybrid-cloud environment.
+**Description**: Connect your EC2 instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
 
 **Severity**: High
 
@@ -114,6 +114,18 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
  Only  instances managed by AWS Systems Manager Patch Manager are checked. Patches that were applied within the 30-day limit prescribed by PCI DSS requirement '6' aren't checked.
 
 **Severity**: Medium
+
+### [EDR configuration issues should be resolved on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/695abd03-82bd-4d7f-a94c-140e8a17666c)
+
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+
+**Severity**: High
+
+### [EDR solution should be installed on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/77d09952-2bc2-4495-8795-cc8391452f85)
+
+**Description**: To protect EC2s, install an Endpoint Detection and Response (EDR) solution. EDRs help prevent, detect, investigate, and respond to advanced threats. Use Microsoft Defender for Servers to deploy Microsoft Defender for Endpoint. If resource is classified as "Unhealthy", it doesn't have a supported EDR solution installed. If you have an EDR solution installed which isn't discoverable by this recommendation, you can exempt it.
+
+**Severity**: High
 
 ### [Instances managed by Systems Manager should have an association compliance status of COMPLIANT](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/67a90ae0-b3d1-44f0-9dcf-a03234ebeb65)
 
@@ -146,7 +158,7 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [Management ports of EC2 instances should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b26b102-ccde-4697-aa30-f0621f865f99)
 
-**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](/azure/defender-for-cloud/just-in-time-access-usage?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation)
+**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](just-in-time-access-usage.md)
 
 **Severity**: High
 
@@ -163,15 +175,15 @@ To learn more about the supported runtimes that this control checks for the supp
 
 **Description**: Microsoft Defender for Containers provides protections for your EKS clusters.
  To monitor your cluster for security vulnerabilities and threats, Defender for Containers needs permissions for your AWS account. These permissions are used to enable Kubernetes control plane logging on your cluster and establish a reliable pipeline between your cluster and Defender for Cloud's backend in the cloud.
- Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/security-center/defender-for-kubernetes-introduction).
+ Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md).
 
 **Severity**: High
 
 ### [EKS clusters should have Microsoft Defender's extension for Azure Arc installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/38307993-84fb-4636-8ce7-3a64466bb5cc)
 
-**Description**: Microsoft Defender's [cluster extension](/azure/azure-arc/kubernetes/extensions) provides security capabilities for your EKS clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
- The extension works with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
-Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks).
+**Description**: Microsoft Defender's [cluster extension](../azure-arc/kubernetes/extensions.md) provides security capabilities for your EKS clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
+Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High
 
@@ -788,7 +800,7 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 ### [Disable direct internet access for Amazon SageMaker notebook instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0991c64b-ccf5-4408-aee9-2ef03d460020)
 
-**Description**: Direct internet access should be disabled for an SageMaker notebook instance.
+**Description**: Direct internet access should be disabled for a SageMaker notebook instance.
  This checks whether the 'DirectInternetAccess' field is disabled for the notebook instance.
  Your instance should be configured with a VPC and the default setting should be Disable - Access the internet through a VPC.
  In order to enable internet access to train or host models from a notebook, make sure that your VPC has a NAT gateway and your security group allows outbound connections. Ensure access to your SageMaker configuration is limited to only authorized users, and restrict users' IAM permissions to modify SageMaker settings and resources.
@@ -953,7 +965,7 @@ IAM database authentication allows authentication to database instances with an 
 
 ### [IAM customer managed policies should not allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d088fb9f-11dc-451e-8f79-393916e42bb2)
 
-**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It doesn't check inline policies or AWS managed policies.
+**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It doesn't check inline policies or AWS managed policies.
 With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the "kms:Decrypt" or "kms:ReEncryptFrom" permissions and only for the keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
 Instead of granting permissions for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow "kms:Decrypt" only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
 
@@ -1017,7 +1029,7 @@ Assigning privileges at the group or role level reduces the complexity of access
 
 ### [IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/18be55d0-b681-4693-af8d-b8815518d758)
 
-**Description**: Checks whether the inline policies that are embedded in your IAM identities (role, user, or group) allow the AWS KMS decryption actions on all KMS keys. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.
+**Description**: Checks whether the inline policies that are embedded in your IAM identities (role, user, or group) allow the AWS KMS decryption actions on all KMS keys. This control uses [Zelkova](https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.
 This control fails if "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys in an inline policy.
 With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the permissions they need and only for keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
 Instead of granting permission for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow the users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow them only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
@@ -1183,7 +1195,7 @@ By default, ALBs aren't configured to drop invalid HTTP header values. Removing 
 **Description**: This control checks whether EC2 instances have a public IP address. The control fails if the "publicIp" field is present in the EC2 instance configuration item. This control applies to IPv4 addresses only.
  A public IPv4 address is an IP address that is reachable from the internet. If you launch your instance with a public IP address, then your EC2 instance is reachable from the internet. A private IPv4 address is an IP address that isn't reachable from the internet. You can use private IPv4 addresses for communication between EC2 instances in the same VPC or in your connected private network.
 IPv6 addresses are globally unique, and therefore are reachable from the internet. However, by default all subnets have the IPv6 addressing attribute set to false. For more information about IPv6, see [IP addressing in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html) in the Amazon VPC User Guide.
-If you have a legitimate use case to maintain EC2 instances with public IP addresses, then you can suppress the findings from this control. For more information about front-end architecture options, see the [AWS Architecture Blog](http://aws.amazon.com/blogs/architecture/) or the [This Is My Architecture series](http://aws.amazon.com/blogs/architecture/).
+If you have a legitimate use case to maintain EC2 instances with public IP addresses, then you can suppress the findings from this control. For more information about front-end architecture options, see the [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/) or the [This Is My Architecture series](https://aws.amazon.com/blogs/architecture/).
 
 **Severity**: High
 

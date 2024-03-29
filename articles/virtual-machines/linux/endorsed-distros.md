@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: srijangupta
 ms.reviewer: cynthn
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Endorsed Linux distributions on Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
@@ -89,5 +89,3 @@ In most cases, you will find these kernels pre-installed on the default images i
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images)
 - [Ubuntu Azure-Tuned Kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 - [Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar-container-linux-corevm-amd64)
-
-

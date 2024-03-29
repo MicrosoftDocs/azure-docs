@@ -13,7 +13,7 @@ ms.custom: security-recommendations
 
 # Security recommendations for Queue Storage
 
-This article contains security recommendations for Queue Storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, see [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+This article contains security recommendations for Queue Storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model.
 
 Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](../../defender-for-cloud/defender-for-cloud-introduction.md).
 
