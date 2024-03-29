@@ -46,6 +46,7 @@ You have three options to create a storage pool that uses Ephemeral Disk:
 Follow these steps to create a storage pool using local NVMe.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
+TODO: Add fiopod.yaml definition with ephemeral volume
 
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
