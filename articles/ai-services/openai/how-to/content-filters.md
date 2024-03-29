@@ -6,7 +6,7 @@ description: Learn how to use content filters (preview) with Azure OpenAI Servic
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 6/5/2023
+ms.date: 03/29/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
