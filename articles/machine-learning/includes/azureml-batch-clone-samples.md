@@ -18,7 +18,7 @@ cd azureml-examples/cli
 # [Python](#tab/python)
 
 ```azurecli
-!git clone https://github.com/Azure/azureml-examples --depth 1
-!cd azureml-examples/sdk/python
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/sdk/python
 ```
 ---

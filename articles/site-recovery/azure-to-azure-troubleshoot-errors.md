@@ -583,4 +583,4 @@ To resolve this issue, wait till system time crosses the skewed future time. Ano
 
 ## Next steps
 
-[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

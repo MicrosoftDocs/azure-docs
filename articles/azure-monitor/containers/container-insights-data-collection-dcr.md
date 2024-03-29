@@ -15,13 +15,15 @@ The DCR is primarily used to configure data collection of performance and invent
 
 Specific configuration you can perform with the DCR includes:
 
-- Enable/disable collection and namespace filtering for performance and inventory data (Use [ConfigMap](./container-insights-data-collection-configmap.md) for namespace filtering of logs.)
+- Enable/disable collection and namespace filtering for performance and inventory data.
 - Define collection interval for performance and inventory data
 - Enable/disable Syslog collection
 - Select log schema
 
-> [!NOTE]
-> See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) to configure data collection using a DCR which allows you to configure different settings.
+> [!IMPORTANT]
+> Complete configuration of data collection in Container insights may require editing of both the DCR and the ConfigMap for the cluster since each method allows configuration of a different set of settings. 
+> 
+> See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for a list of settings and the process to configure data collection using ConfigMap.
 
 ## Prerequisites
 
