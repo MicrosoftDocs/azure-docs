@@ -440,14 +440,14 @@ A model deployment is a set of resources required for hosting the model that doe
     
 ## Run batch endpoints and access results
 
-Invoking a batch endpoint triggers a batch scoring job. The job `name` will be returned from the invoke response and can be used to track the batch scoring progress. When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account.
+Invoking a batch endpoint triggers a batch scoring job. The job `name` is returned from the invoke response and can be used to track the batch scoring progress. When running models for scoring in batch endpoints, you need to specify the path to the input data so that the endpoints can find the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account.
 
-You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning SDK, or REST endpoints. Read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) for details about all the options.
+You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning SDK, or REST endpoints. For more details about these options, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
 
 > [!NOTE]
-> __How does parallelization work?__:
+> __How does parallelization work?__
 > 
-> Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
+> Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this happens regardless of the size of the files involved. If your files are too big to be processed in large mini-batches, we suggest that you either split the files into smaller files to achieve a higher level of parallelism or you decrease the number of files per mini-batch. Currently, batch deployments can't account for skews in a file's size distribution.
 
 # [Azure CLI](#tab/cli)
     
@@ -486,7 +486,7 @@ You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning 
 
 ---
 
-Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
+Batch endpoints support reading files or folders that are located in different locations. To learn more about the supported types and how to specify them, see [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 ### Monitor batch job execution progress
 
@@ -526,9 +526,9 @@ The following code checks the job status and outputs a link to the Azure Machine
 
 ### Check batch scoring results
 
-The job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified. See [Configure the output location](#configure-the-output-location) to know how to change the defaults. Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
+The job outputs are stored in cloud storage, either in the workspace's default blob storage, or the storage you specified. To learn how to change the defaults, see [Configure the output location](#configure-the-output-location). The following steps allow you to view the scoring results in Azure Storage Explorer when the job is completed:
 
-1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
+1. Run the following code to open the batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
 
@@ -546,7 +546,7 @@ The job outputs will be stored in cloud storage, either in the workspace's defau
 
 ### Configure the output location
 
-The batch scoring results are by default stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint.
+By default, the batch scoring results are stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint.
 
 # [Azure CLI](#tab/cli)
     
@@ -556,11 +556,11 @@ Use `output-path` to configure any folder in an Azure Machine Learning registere
 
 # [Python](#tab/python)
 
-Use `params_override` to configure any folder in an Azure Machine Learning registered data store. Only registered data stores are supported as output paths. In this example we will use the default data store:
+Use `params_override` to configure any folder in an Azure Machine Learning registered data store. Only registered data stores are supported as output paths. In this example you use the default data store:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=get_data_store)]
 
-Once you identified the data store you want to use, configure the output as follows:
+Once you've identified the data store you want to use, configure the output as follows:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=start_batch_scoring_job_set_output)]
 
@@ -600,15 +600,15 @@ Once you identified the data store you want to use, configure the output as foll
 > You must use a unique output location. If the output file exists, the batch scoring job will fail.
 
 > [!IMPORTANT]
-> As opposite as for inputs, only Azure Machine Learning data stores running on blob storage accounts are supported for outputs.
+> Unlike inputs, outputs can be stored only in Azure Machine Learning data stores that run on blob storage accounts.
 
-## Overwrite deployment configuration per each job
+## Overwrite deployment configuration for each job
 
-Some settings can be overwritten when invoke to make best use of the compute resources and to improve performance. The following settings can be configured in a per-job basis:
+When you invoke a batch endpoint, some settings can be overwritten to make best use of the compute resources and to improve performance. The following settings can be configured on a per-job basis:
 
-* Use __instance count__ to overwrite the number of instances to request from the compute cluster. For example, for larger volume of data inputs, you may want to use more instances to speed up the end to end batch scoring.
-* Use __mini-batch size__  to overwrite the number of files to include on each mini-batch. The number of mini batches is decided by total input file counts and mini_batch_size. Smaller mini_batch_size generates more mini batches. Mini batches can be run in parallel, but there might be extra scheduling and invocation overhead.
-* Other settings can be overwritten other settings including __max retries__, __timeout__, and __error threshold__. These settings might impact the end to end batch scoring time for different workloads.
+* __Instance count__: use this setting to overwrite the number of instances to request from the compute cluster. For example, for larger volume of data inputs, you may want to use more instances to speed up the end to end batch scoring.
+* __Mini-batch size__: use this setting to overwrite the number of files to include in each mini-batch. The number of mini batches is decided by the total input file counts and mini-batch size. A smaller mini-batch size generates more mini batches. Mini batches can be run in parallel, but there might be extra scheduling and invocation overhead.
+* Other settings, such as __max retries__, __timeout__, and __error threshold__ can be overwritten. These settings might impact the end-to-end batch scoring time for different workloads.
 
 # [Azure CLI](#tab/cli)
 
@@ -642,25 +642,25 @@ Some settings can be overwritten when invoke to make best use of the compute res
 
 ---
 
-## Adding deployments to an endpoint
+## Add deployments to an endpoint
 
-Once you have a batch endpoint with a deployment, you can continue to refine your model and add new deployments. Batch endpoints will continue serving the default deployment while you develop and deploy new models under the same endpoint. Deployments can't affect one to another.
+Once you have a batch endpoint with a deployment, you can continue to refine your model and add new deployments. Batch endpoints will continue serving the default deployment while you develop and deploy new models under the same endpoint. Deployments don't affect one another.
 
-In this example, you'll learn how to add a second deployment __that solves the same MNIST problem but using a model built with Keras and TensorFlow__.
+In this example, you add a second deployment that uses a __model built with Keras and TensorFlow__ to solve the same MNIST problem.
 
-### Adding a second deployment
+### Add a second deployment
 
-1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You'll also need to add the library `azureml-core` as it is required for batch deployments to work. The following environment definition has the required libraries to run a model with TensorFlow.
+1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You also need to add the library `azureml-core`, as it's required for batch deployments to work. The following environment definition has the required libraries to run a model with TensorFlow.
 
     # [Azure CLI](#tab/cli)
    
-    The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
-    
+    The environment definition is included in the deployment definition itself as an anonymous environment.
+
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml" range="12-15":::
    
     # [Python](#tab/python)
    
-    Let's get a reference to the environment:
+    Get a reference to the environment:
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=configure_environment_non_default)]
 
@@ -758,11 +758,11 @@ In this example, you'll learn how to add a second deployment __that solves the s
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_deployment_non_default" :::
 
     > [!TIP]
-    > The `--set-default` parameter is missing in this case. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later.
+    > The `--set-default` parameter is missing in this case. As a best practice for production scenarios, create a new deployment without setting it as default. Then verify it, and update the default deployment later.
     
     # [Python](#tab/python)
 
-    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+    Using the `MLClient` created earlier, create the deployment in the workspace. This command starts the deployment creation and returns a confirmation response while the deployment creation continues.
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=create_deployment_non_default)]
 
@@ -773,19 +773,19 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
 ### Test a non-default batch deployment
 
-To test the new non-default deployment, you'll need to know the name of the deployment you want to run.
+To test the new non-default deployment, you need to know the name of the deployment you want to run.
 
 # [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="test_deployment_non_default" :::
 
-Notice `--deployment-name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
+Notice `--deployment-name` is used to specify the deployment to execute. This parameter allows you to `invoke` a non-default deployment without updating the default deployment of the batch endpoint.
 
 # [Python](#tab/python)
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=test_deployment_non_default)]
 
-Notice `deployment_name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
+Notice `deployment_name` is used to specify the deployment to execute. This parameter allows you to `invoke` a non-default deployment without updating the default deployment of the batch endpoint.
 
 # [Studio](#tab/azure-studio)
 
@@ -805,7 +805,7 @@ Notice `deployment_name` is used to specify the deployment we want to execute. T
 
 ### Update the default batch deployment
 
-Although you can invoke a specific deployment inside of an endpoint, you'll usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+Although you can invoke a specific deployment inside an endpoint, you'll typically want to invoke the endpoint itself and let the endpoint decide which deployment to use—the default deployment. You can change the default deployment (and consequently, change the model serving the deployment) without changing your contract with the user invoking the endpoint. Use the following code to update the default deployment:
 
 # [Azure CLI](#tab/cli)
 
@@ -839,21 +839,21 @@ Although you can invoke a specific deployment inside of an endpoint, you'll usua
 
 # [Azure CLI](#tab/cli)
 
-If you aren't going to use the old batch deployment, you should delete it by running the following code. `--yes` is used to confirm the deletion.
+If you won't be using the old batch deployment, delete it by running the following code. `--yes` is used to confirm the deletion.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_deployment" :::
 
-Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+Run the following code to delete the batch endpoint and all its underlying deployments. Batch scoring jobs won't be deleted.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
-If you aren't going to use the old batch deployment, you should delete it by running the following code. 
+If you won't be using the old batch deployment, delete it by running the following code.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=delete_deployment)]
 
-Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+Run the following code to delete the batch endpoint and all its underlying deployments. Batch scoring jobs won't be deleted.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=delete_endpoint)]
 
@@ -873,7 +873,7 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 
 ---
 
-## Next steps
+## Related content
 
 * [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
 * [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
