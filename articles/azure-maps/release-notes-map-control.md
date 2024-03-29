@@ -587,6 +587,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.2.0]: https://www.npmjs.com/package/azure-maps-control/v/3.2.0
 [3.1.2]: https://www.npmjs.com/package/azure-maps-control/v/3.1.2
 [3.1.1]: https://www.npmjs.com/package/azure-maps-control/v/3.1.1
 [3.1.0]: https://www.npmjs.com/package/azure-maps-control/v/3.1.0
