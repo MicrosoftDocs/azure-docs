@@ -7,4 +7,4 @@ ms.author: danlep
 ---
 
 > [!NOTE]
-> Currently, tracing in the test console isn't supported in the Basic v2 and Standard v2 tiers. 
+> Currently, API request tracing isn't supported in the Basic v2 and Standard v2 tiers. 
