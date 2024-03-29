@@ -21,13 +21,10 @@ Specific configuration you can perform with the ConfigMap includes:
 - Enable/disable multiline logging
 - Ignore proxy settings  
 
-> [!WARNING]
-> Kubernetes clusters can generate a lot of monitoring data, which can result in significant costs if you collect it all. Before you enable monitoring, see the following articles to optimize your monitoring environment for cost and ensure that you don't collect any more data than you require:
->
-> - 
-
-> [!NOTE]
-> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) to configure data collection using a DCR which allows you to configure different settings.
+> [!IMPORTANT]
+> Complete configuration of data collection in Container insights may require editing of both the ConfigMap and the data collection rule (DCR) for the cluster since each method allows configuration of a different set of settings. 
+> 
+> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) for a list of settings and the process to configure data collection using the DCR.
 
 ## Prerequisites 
 - ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. Applying another ConfigMap will overrule the previous ConfigMap collection settings.
