@@ -3900,6 +3900,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/batch/monitoring-overview.md",
+            "redirect_url": "/azure/batch/monitor-batch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-diagnostics.md",
+            "redirect_url": "/azure/batch/monitor-batch",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
             "redirect_document_id": false
