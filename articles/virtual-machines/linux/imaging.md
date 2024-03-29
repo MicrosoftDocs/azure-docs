@@ -4,6 +4,7 @@ description: How to bring your Linux VM images or create new images to use in Az
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: overview
 ms.date: 09/01/2023

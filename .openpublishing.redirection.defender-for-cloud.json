@@ -721,7 +721,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/workflow-automation.md",
+            "source_path_from_root": "/articles/security-center/workflow-automation.yml",
             "redirect_url": "/azure/defender-for-cloud/workflow-automation",
             "redirect_document_id": true
         },

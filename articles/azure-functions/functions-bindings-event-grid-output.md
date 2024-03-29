@@ -450,8 +450,10 @@ import logging
 import azure.functions as func
 import datetime
 
+app = func.FunctionApp()
+
 @app.function_name(name="eventgrid_output")
-@app.route(route="eventgrid_output")
+@app.event_grid_trigger(arg_name="eventGridEvent")
 @app.event_grid_output(
     arg_name="outputEvent",
     topic_endpoint_uri="MyEventGridTopicUriSetting",

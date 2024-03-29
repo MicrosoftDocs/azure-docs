@@ -72,22 +72,31 @@ When you scale up/down in instance size, the amount of IP addresses used by the 
 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
 
->[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (in/out) scale.
->
-> Sample calculation:
->
-> For each App Service plan instance, you need:  
-> 4 Windows Container apps = 4 IP addresses  
-> 1 IP address per App Service plan instance  
-> 4 + 1 = 5 IP addresses
->
-> For 10 instances:  
-> 5 x 10 = 50 IP addresses per App Service plan
->
-> Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
-
 When you want your apps in your plan to reach a virtual network that apps in another plan already connect to, select a different subnet than the one being used by the pre-existing virtual network integration.
+
+### Windows Containers specific limits
+
+Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (in/out) scale.
+
+Sample calculation:
+
+For each App Service plan instance, you need:
+4 Windows Container apps = 4 IP addresses
+1 IP address per App Service plan instance
+4 + 1 = 5 IP addresses
+
+For 10 instances:
+5 x 10 = 50 IP addresses per App Service plan
+
+Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
+
+You are in addition limited by the number of cores available in the worker SKU used. Each core adds three "networking units". The worker itself uses one unit and each virtual network connection uses one unit. The remaining units can be used for apps.
+
+Sample calculation:
+
+App Service plan instance with 4 apps running and using virtual network integration. The Apps are connected to two different subnets (virtual network connections). This will require 7 networking units (1 worker + 2 connections + 4 apps). The minimum size for running this configuration would be I2v2 (4 cores x 3 units = 12 units).
+
+With I1v2 you can run a maximum of 4 apps using the same (1) connection or 3 apps using 2 connections.
 
 ## Permissions
 

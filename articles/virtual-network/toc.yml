@@ -243,7 +243,7 @@
     - name: Migrate a virtual machine public IP address
       href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
     - name: Add or remove network interfaces
-      href: virtual-network-network-interface-vm.md
+      href: virtual-network-network-interface-vm.yml
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell

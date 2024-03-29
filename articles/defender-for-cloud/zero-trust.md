@@ -52,7 +52,7 @@ With Defender for Cloud enabled on your subscription, and Microsoft Defender for
 
 Use [Azure Logic Apps](../logic-apps/index.yml) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
 
-Defender for Cloud's [workflow automation](workflow-automation.md) feature lets you automate responses to Defender for Cloud triggers.
+Defender for Cloud's [workflow automation](workflow-automation.yml) feature lets you automate responses to Defender for Cloud triggers.
 
 This is great way to define and respond in an automated, consistent manner when threats are discovered. For example, to notify relevant stakeholders, launch a change management process, and apply specific remediation steps when a threat is detected.
 
@@ -110,7 +110,7 @@ Use Defender for Cloud's [continuous export](continuous-export.md) feature to co
 
 Learn more in [Stream alerts to monitoring solutions](export-to-siem.md).
 
-This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#configure-continuous-export-from-the-defender-for-cloud-pages-in-azure-portal).
+This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md).
 
 > [!TIP]
 > To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).

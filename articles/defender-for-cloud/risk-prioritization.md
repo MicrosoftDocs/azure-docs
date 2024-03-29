@@ -98,4 +98,4 @@ The risk level is determined by a context-aware risk-prioritization engine that 
 - [Review security recommendations](review-security-recommendations.md)
 - [Remediate security recommendations](implement-security-recommendations.md)
 - [Drive remediation with governance rules](governance-rules.md)
-- [Automate remediation responses](workflow-automation.md)
+- [Automate remediation responses](workflow-automation.yml)

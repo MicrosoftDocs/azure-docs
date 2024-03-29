@@ -7,7 +7,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 03/07/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Prepare source machine for push installation of mobility agent
@@ -72,5 +72,3 @@ If machines you want to replicate have active anti-virus software running, make 
 ## Next steps
 
 After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs](vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
-
-

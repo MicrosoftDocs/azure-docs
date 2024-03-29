@@ -29,7 +29,7 @@ This tab explains how to configure the AWS S3 connector. The process of setting 
     - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
     - **Amazon GuardDuty**: json-line and GZIP formats.
     - **AWS CloudTrail**: .json file in a GZIP format.
-    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.yml).
 
 - You must have write permission on the Microsoft Sentinel workspace.
 - Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).

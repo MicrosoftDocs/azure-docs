@@ -98,7 +98,7 @@ You must repeat this process for every packet core in your mobile network.
 
 **Disconnect the Azure Stack Edge device from the failed region**
 <br></br>
-The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate your Azure Stack Edge device](../databox-online/azure-stack-edge-reset-reactivate-device.md). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate your Azure Stack Edge device](../databox-online/azure-stack-edge-reset-reactivate-device.yml). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
 
 **Connect the Azure Stack Edge device to the new region**
 <br></br>

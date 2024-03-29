@@ -6,6 +6,7 @@ author: ozboms
 ms.topic: article
 ms.date: 01/24/2024
 ms.subservice: aks-storage
+ms.custom: linux-related-content
 ms.author: obboms
 ---
 

@@ -71,7 +71,7 @@ To interact with the Translator service using the client library, you need to cr
 **Translate text**
 
   > [!NOTE]
-  > In this example we are using the global endpoint. If you're using a regional endpoint, see [Create a Text Translation client](../../create-translator-resource.md#create-a-text-translation-client).
+  > In this example we are using the global endpoint. If you're using a regional endpoint, see [Create a Text Translation client](../../create-translator-resource.yml#create-a-text-translation-client).
 
 ```csharp
 
