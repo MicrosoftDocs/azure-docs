@@ -68,7 +68,7 @@ Before you start, make sure you've completed the following steps:
     :::image type="content" source="./media/stream-analytics-no-code/data-preview-fields.png" alt-text="Screenshot showing the preview of data in the event hub and the fields." lightbox="./media/stream-analytics-no-code/data-preview-fields.png":::        
 1. Select **Operations** on the command bar and then select **Group by**. 
 
-    :::image type="content" source="./media/stream-analytics-no-code/select-operations-group-by.png" alt-text="Screenshot showing the Operations -> Group by on the command bar.":::
+    :::image type="content" source="./media/stream-analytics-no-code/select-operations-group-by.png" alt-text="Screenshot showing the Operations menu with Group by selected on the command bar.":::
 1. Select the **Group by** tile on the canvas and connect it to the event hub tile. 
 
     :::image type="content" source="./media/stream-analytics-no-code/connect-group.png" alt-text="Screenshot showing the Group tile connected to the Event Hubs tile." lightbox="./media/stream-analytics-no-code/connect-group.png":::
