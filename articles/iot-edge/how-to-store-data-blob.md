@@ -155,7 +155,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## Configure log files
 
-The default output log level is 'Info'.  To change the output log level, Set the `LogLevel` environment variable for this module in the deployment manifest. `LogLevel` accepts the following values: 
+The default output log level is 'Info'.  To change the output log level, set the `LogLevel` environment variable for this module in the deployment manifest. `LogLevel` accepts the following values: 
 
 * Critical
 * Error
