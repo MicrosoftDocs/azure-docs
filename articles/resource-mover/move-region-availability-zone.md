@@ -4,10 +4,10 @@ description: Learn how to move Azure VMs to availability zones with Azure Resour
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 
-#Customer intent: As an Azure admin,  I want to move Azure VMs to a different Azure region.
+#Customer intent: As an Azure admin,  I want to move Azure VMs to a different Azure region using Azure Resource Mover.
 
 ---
 # Move Azure VMs to an availability zone in another region

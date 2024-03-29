@@ -4,7 +4,7 @@ description: Learn about Azure Resource Mover
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 
