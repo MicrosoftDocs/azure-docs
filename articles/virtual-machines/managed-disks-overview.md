@@ -80,25 +80,39 @@ Azure Disk Encryption allows you to encrypt the OS and Data disks used by an Iaa
 
 ## Disk roles
 
-There are three main disk roles in Azure: the data disk, the OS disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
+There are three main disk roles in Azure: the OS disk, the data disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
 
 ![Disk roles in action](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### OS disk
+
+Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume. Generally, you should only store your OS information on the OS disk, and store all applications, and data on data disks. However, if cost is a concern, you can use the OS disk instead of creating a data disk.
+
+This disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach [data disks](#data-disk) and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
 
 ### Data disk
 
 A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
-
-### OS disk
-
-Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume.
-
-This disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach [data disks](#data-disk) and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
 
 ### Temporary disk
 
 Most VMs contain a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page files, swap files, or SQL Server tempdb. Data on the temporary disk may be lost during a [maintenance event](./understand-vm-reboots.md), when you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or when you stop the VM. During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.yml).
 
 On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted unless (for server side encryption) you enable encryption at host or (for Azure Disk Encryption) with the [VolumeType parameter set to All on Windows](./windows/disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk) or [EncryptFormatAll on Linux](./linux/disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+
+### When to use data disks
+
+Generally, you should use the data disk to store your applications and data. Using that configuration offers the following benefits you can't have if you use the OS disk to store all your applications and data:
+
+- Backup and Disaster Recovery: You can establish backup and disaster recovery strategies tailored to your specific needs. For example, you can back up the data disk more frequently while the OS disk might require less frequent backups, since it mainly contains the operating system and system files. You can have more efficient backup and recovery operations, which may reduce downtime in the event of data loss or system failure. It can be easier to perform these operations when your data isn't on the OS disk.
+
+- Flexibility and Scalability: If you need to expand your data storage capacity, you can add or upgrade data disks without affecting the OS disk, adapting to the changing needs of your business-critical applications. Also, only data disks support live resize. You can't increase the size of OS disks without stopping the VM. 
+
+- Performance Isolation: Separating the OS and data onto different disks helps ensure that disks IOPs from the operating system and the application data don't interfere with each other. This can enhance overall system performance, and prevent contention issues that might happen when both the OS and the application are competing for disk resources.
+
+- Ease of Maintenance and Recovery: If there's a system failure or corruption occurs on the OS disk, you can reimage or reinstall the operating system without affecting the data disk. This reduces the risk of data loss and makes it easier when troubleshooting and for maintenance procedures.
+
+- Improved Security and Access Control: You can apply separate access controls and permissions to the OS disk and the data disk. This separation limits access to critical system files on the OS disk, while providing appropriate access rights to the data disk. This reduces the chances of unauthorized access or accidental modifications to system files, mitigating potential security risks.
 
 ## Managed disk snapshots
 
