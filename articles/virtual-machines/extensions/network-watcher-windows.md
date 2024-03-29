@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/29/2024
 ms.collection: windows
 
-#CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my VMs.
+#CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my virtual machines (VMs).
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Windows
@@ -22,13 +22,13 @@ In this article, you learn about the supported platforms and deployment options 
 
 # [**Portal**](#tab/portal)
 
-- An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
 - Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
 - Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
@@ -40,7 +40,7 @@ In this article, you learn about the supported platforms and deployment options 
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
 - Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
@@ -52,7 +52,7 @@ In this article, you learn about the supported platforms and deployment options 
 
 # [**Resource Manager**](#tab/arm)
 
-- An Azure Windows virtual machine. For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
 - Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
