@@ -9,7 +9,7 @@ ms.author: jushiman
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
 # Run scripts in your Linux VM by using managed Run Commands
 

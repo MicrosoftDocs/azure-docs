@@ -3,7 +3,7 @@ title: Create your first containerized Azure Functions on Azure Container Apps
 description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
 ms.date: 03/07/2024
 ms.topic: quickstart
-ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content
 zone_pivot_groups: programming-languages-set-functions
 ---
 

@@ -33,11 +33,11 @@ items:
     href: quickstart-perform-checks-post-deployment.md
 - name: How-to guides
   items:
-  - name: Configure a network function
+  - name: Configure Azure Operator 5G Core network functions
     href: how-to-configure-network-function.md
-  - name: Deploy a network function on Azure Kubernetes Services or Nexus Azure Kubernetes Service
+  - name: Deploy a network function using Azure CLI
     href: how-to-deploy-network-functions.md
-  - name: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services or Nexus Azure Kubernetes Service
+  - name: Deploy Azure Operator 5G Core observability services
     href: how-to-deploy-observability.md
   - name: Delete a network function deployment or ClusterServices in Azure Operator 5G Core
     href: how-to-delete-network-function-cluster.md

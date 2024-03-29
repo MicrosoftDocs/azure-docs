@@ -2,6 +2,7 @@
 title: Cluster access control with AKS-managed Microsoft Entra integration
 description: Learn how to access clusters when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
+ms.subservice: aks-integration
 ms.date: 04/20/2023
 ms.custom: devx-track-azurecli
 ---

@@ -4,6 +4,7 @@ description: How to obtain help and support for questions or problems when you c
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 11/30/2023
 ---

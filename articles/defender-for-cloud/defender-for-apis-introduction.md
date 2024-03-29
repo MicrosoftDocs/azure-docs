@@ -42,7 +42,7 @@ API endpoint information includes:
 - **Endpoint**: The URL path of the API endpoints, and the HTTP method.
 Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone).
 - **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as *Inactive*.
-- **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as *unauthenticated*.
+- **Authentication**: Shows when a monitored API endpoint has no authentication. For APIs published in Azure API Management, this assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating JWT, client certificates, and Microsoft Entra tokens. If none of these authentication mechanisms are executed during the API call the API is marked as *unauthenticated*
 - **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint.
 - **Data classification**: Classifies API request and response bodies based on supported data types.
 

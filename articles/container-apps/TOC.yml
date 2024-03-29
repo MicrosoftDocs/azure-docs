@@ -126,6 +126,8 @@
           href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Troubleshooting
+      href: troubleshooting.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
@@ -146,6 +148,8 @@
       href: log-monitoring.md
     - name: Alerts
       href: alerts.md
+    - name: OpenTelemetry agents
+      href: opentelemetry-agents.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -154,15 +158,16 @@
       href: tutorial-scaling.md
 - name: Domains & certificates
   items:
-    - name: Custom domains & certificates
-      items:
-        - name: Set up custom domain with a free certificate
-          href: custom-domains-managed-certificates.md
-          displayName: Set up custom domain with a managed certificate
-        - name: Set up custom domain with existing certificate
-          href: custom-domains-certificates.md        
-        - name: Set up environment custom DNS suffix
-          href: environment-custom-dns-suffix.md
+  - name: Overview
+    href: certificates-overview.md
+  - name: Set up custom domain with a free certificate
+    href: custom-domains-managed-certificates.md
+    displayName: Set up custom domain with a managed certificate
+  - name: Set up custom domain with existing certificate
+    href: custom-domains-certificates.md        
+  - name: Set up environment custom DNS suffix
+    href: environment-custom-dns-suffix.md
+
 - name: Authentication
   items:
     - name: Overview

@@ -28,11 +28,11 @@
       href: burstable-tier.md
     - name: Multicloud Solution
       href: multi-cloud.md
-    - name: Vector search
+    - name: Integrated vector database
       items:
-        - name: Vector search overview
+        - name: Integrated vector database overview
           href: vector-search.md
-        - name: Build AI Apps with vector search
+        - name: Build AI Apps with vector database
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md

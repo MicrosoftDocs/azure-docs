@@ -3,7 +3,7 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/26/2024
+ms.date: 03/22/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -249,12 +249,12 @@ provider "azurerm" {
 }
 ```
 
-1. Select an Azure subscription: Specify the subscription ID in the provider configuration or via environment variables.
+2. Select an Azure subscription: Specify the subscription ID in the provider configuration or via environment variables.
 ```
 data "azurerm_subscription" "example" {}
 ```
 
-1. Create a resource group.
+3. Create a resource group.
 ```
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
@@ -262,7 +262,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 ```
-1. Set up an action group for notifications.
+4. Set up an action group for notifications.
 
 ```
 resource "azurerm_monitor_action_group" "example" {
@@ -279,7 +279,7 @@ resource "azurerm_monitor_action_group" "example" {
 
 ```
 
-1. Create a storage account.
+5. Create a storage account.
 ```
 resource "azurerm_storage_account" "example" {
   name                     = "examplestoracc"
@@ -291,7 +291,7 @@ resource "azurerm_storage_account" "example" {
 
 ```
 
-1. Create a storage container.
+6. Create a storage container.
 ```
 resource "azurerm_storage_container" "example" {
   name                  = "examplecontainer"
@@ -299,7 +299,7 @@ resource "azurerm_storage_container" "example" {
 }
 ```
 
-1. Set up subscription cost management export.
+7. Set up subscription cost management export.
 ```
 resource "azurerm_subscription_cost_management_export" "example" {
   name                         = "exampleexport"
@@ -321,7 +321,7 @@ resource "azurerm_subscription_cost_management_export" "example" {
 
 ```
 
-1. Apply the terraform configuration
+8. Apply the terraform configuration
 
 Here's the full code if you'd like to modify it directly from source instead of piecing it together through the steps.
 

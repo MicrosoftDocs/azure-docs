@@ -107,11 +107,11 @@ Use the following steps to show, add, edit, and delete the container registry:
 
 1. Review the values on the **Edit container registry** page.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of the Azure portal that shows the Container registry page with Edit container registry pane open for the current container registry in the list." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of the Azure portal that shows the Container registry page with Edit container registry pane open." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
 
 1. To delete a container registry, select the ellipsis (**...**) button, then select **Delete** to delete the registry. If the container registry is used by build service, it can't be deleted.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png" alt-text="Screenshot of Azure portal that shows the Container registry page with Delete container registry pane open for the current container registry in the list." lightbox="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png" alt-text="Screenshot of Azure portal that shows the Container registry page with Edit container registry pane open and Username and Password boxes highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 

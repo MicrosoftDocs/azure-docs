@@ -51,7 +51,7 @@ The Azure platform provides role-based access (Azure RBAC) to control access to 
 
 To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
-Communication services support Microsoft Entra authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Microsoft Entra documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Communication services supports Microsoft Entra authentication for Communication services resources. You can find more details, about the managed identity support in the [Microsoft Entra documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 Use our [Trusted authentication service hero sample](../samples/trusted-auth-sample.md) to map Azure Communication Services access tokens with your Microsoft Entra ID.
 
