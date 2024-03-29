@@ -21,27 +21,27 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Plan and get started 
+    - title: Architecture and design 
       itemType: get-started
-      url: /azure/azure-vmware/plan-private-cloud-deployment
-    - title: What's new?
-      itemType: whats-new
-      url: /azure/azure-vmware/azure-vmware-solution-platform-updates
-    - title: Azure VMware Solution concepts 
+      url: architecture-network-design-considerations.md
+    - title: Networking
+      itemType: how-to-guide
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - title: Security
+      itemType: how-to-guide
+      url: ecosystem-security-solutions.md
+    - title:  Disaster recovery
+      itemType: how-to-guide
+      url: ecosystem-disaster-recovery-vms.md
+    - title: Migrate
+      itemType: how-to-guide
+      url: architecture-migrate.md
+    - title: Well-Architected Framework (WAF)
       itemType: concept
-      url: /azure/azure-vmware/architecture-identity
-    - title:  Azure native integration
-      itemType: how-to-guide
-      url: /azure/azure-vmware/integrate-azure-native-services
-    - title: Azure VMware Solution network configuration
-      itemType: how-to-guide
-      url: /azure/azure-vmware/integrate-azure-native-services
-    - title: Partner solution ecosystem
-      itemType: how-to-guide
-      url: /azure/azure-vmware/ecosystem-os-vms
-    - title: videos
-      itemType: video
-      url: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+      url: /azure/well-architected/what-is-well-architected-framework
+    - title: Cloud Adoption Framework (CAF)
+      itemType: concept
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
     
 
 # additionalContent section (optional)
@@ -49,7 +49,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Get started, concepts, and tutorials
+    - title: Learn about Azure VMware Solution
       items:
         # Card
         - title: Overview
@@ -63,7 +63,7 @@ additionalContent:
           - text: FAQ
             url: ./faq.yml
         # Card
-        - title: Get started
+        - title: Quickstart
           links:
           - text: 1 - Plan the deployment
             url: plan-private-cloud-deployment.md
@@ -96,8 +96,11 @@ additionalContent:
             url: tutorial-scale-private-cloud.md
           - text: 8 - Delete a private cloud
             url: tutorial-delete-private-cloud.md 
+        
+    - title: Design Azure VMware Solution
+      items:
         # Card
-        - title: Concepts
+        - title: Architecture and design
           links: 
           - text: Access and identity
             url: architecture-identity.md
@@ -119,55 +122,25 @@ additionalContent:
             url: architecture-storage.md
           - text: Migrate
             url: architecture-migrate.md
-
-    - title: Advanced configuration and integration
-      items:
         # Card
-        - title: Configuration
+        - title: WAF - Azure VMware Solution design principles
           links:
-           - text: Configure DHCP server or relay 
-             url: configure-dhcp-azure-vmware-solution.md
-           - text: Configure DHCP on L2 stretched networks
-             url: configure-l2-stretched-vmware-hcx-networks.md
-           - text: Configure DNS forwarder
-             url: configure-dns-azure-vmware-solution.md
-           - text: Configure port mirroring 
-             url: configure-port-mirroring-azure-vmware-solution.md
-           - text: Enable Public IP to the NSX Edge for Azure VMware Solution
-             url: enable-public-ip-nsx-edge.md
-           - text: Configure a site-to-site VPN in vWAN
-             url: configure-site-to-site-vpn-gateway.md
-           - text: Configure Windows Server Failover Cluster
-             url: configure-windows-server-failover-cluster.md
-           - text: Connect multiple private clouds in same region 
-             url: connect-multiple-private-clouds-same-region.md  
-           - text: Configure storage policies
-             url: configure-storage-policy.md
-           - text: Create placement policy
-             url: create-placement-policy.md
-         # Card
-        - title: Azure native integration
-          links:
-           - text: Protect, monitor, and manage VMs
-             url: integrate-azure-native-services.md
-           - text: Integrate Microsoft Defender for Cloud
-             url: azure-security-integration.md
-           - text: Protect web apps with Azure Application Gateway
-             url: protect-azure-vmware-solution-with-application-gateway.md
-           - text: Deploy Traffic Manager to balance workloads
-             url: deploy-traffic-manager-balance-workloads.md
-           - text: Configure alerts and work with metrics 
-             url: configure-alerts-for-azure-vmware-solution.md
-           - text: Configure customer-managed key encryption at rest
-             url: configure-customer-managed-keys.md
-           - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
-             url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
-           - text: "Attach Azure NetApp Files to Azure VMware Solution VMs"
-             url: netapp-files-with-azure-vmware-solution.md
-           - text: Configure Cloud Backup for Azure NetApp Files datastores and VMs
-             url: install-cloud-backup-virtual-machines.md
+          - text: Azure VMware Solution design principles
+            url: /azure/well-architected/azure-vmware/design-principles
+          - text: Infrastructure and provisioning considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/infrastructure
+          - text: Application considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/application-platform
+          - text: Networking considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/networking
+          - text: Monitoring considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/monitoring
+          - text: Security considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/security
+          - text: Operations considerations for Azure VMware Solution workloads
+            url: /azure/well-architected/azure-vmware/operations
         # Card
-        - title: Enterprise-scale for Azure VMware Solution
+        - title: Cloud Adoption Framework (CAF)
           links:
           - text: Enterprise-Scale for Azure VMware Solution
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
@@ -185,99 +158,131 @@ additionalContent:
             url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
           - text: Enterprise-Scale for Azure VMware Solution automation
             url: https://github.com/Azure/Enterprise-Scale-for-AVS
-
-    - title: Disaster recovery, networking, and other resources
+            
+    - title: Build and operate Azure VMware Solution
       items:
-        #card
-        - title: Azure Backup Server and third-party solutions
+        # Card
+        - title: Private cloud infrastructure
           links:
-          - text: Set up Backup Server
+          - text: Create an Azure VMware Solution assessment
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+          - text: Request host quota for Azure VMware Solution
+            url: request-host-quota-azure-vmware-solution.md
+          - text: Plan the deployment
+            url: plan-private-cloud-deployment.md
+          - text: Deploy Azure VMware Solution
+            url: deploy-azure-vmware-solution.md	
+          - text: Deploy vSAN stretched clusters
+            url: deploy-vsan-stretched-clusters.md
+          - text: Create a placement policy
+            url: create-placement-policy.md
+          - text: Protect, monitor, and manage VMs
+            url: integrate-azure-native-services.md          
+      # Card
+        - title: Security
+          links:
+          - text: Security solutions for Azure VMware Solution
+            url: ecosystem-security-solutions.md
+          - text: Security recommendations
+            url: security-recommendations.md
+          - text: Security baseline
+            url: https://learn.microsoft.com/security/benchmark/azure/baselines/azure-vmware-solution-security-baseline
+          - text: Vulnerability Management
+            url: vulnerability-management.md
+          - text: Rotate cloudadmin credentials
+            url: rotate-cloudadmin-credentials.md                            
+      # Card
+        - title: Networking
+          links:
+          - text: Connect to on-premises environment
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: Connect multiple private clouds in same region
+            url: connect-multiple-private-clouds-same-region.md
+          - text: Configure DHCP server or relay
+            url: configure-dhcp-azure-vmware-solution.md
+          - text: Configure DHCP on L2 stretched networks
+            url: configure-l2-stretched-vmware-hcx-networks.md
+          - text: Configure DNS forwarder
+            url: configure-dns-azure-vmware-solution.md
+          - text: Configure VMware HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: VMware HCX Mobility Optimized Networking (MON) guidance
+            url: vmware-hcx-mon-guidance.md
+          - text: Configure NSX network components
+            url: configure-nsx-network-components-azure-portal.md
+          - text: Configure port mirroring
+            url: configure-port-mirroring-azure-vmware-solution.md
+          - text: Configure a site-to-site VPN in vWAN
+            url: configure-site-to-site-vpn-gateway.md
+      # Card
+        - title: Backup and recovery
+          links:
+          - text: Backup solutions for VMs
+            url: ecosystem-back-up-vms.md
+          - text: Set up Azure Backup Server for Azure VMware Solution
             url: set-up-backup-server-for-azure-vmware-solution.md
-          - text: Back up private cloud VMs with Backup Server
-            url: backup-azure-vmware-solution-virtual-machines.md 
-        #card
-        - title: Deploy with JetStream DR, VMware (HCX or SRM)
+          - text: Backup private cloud VMs with Backup Server
+            url: backup-azure-vmware-solution-virtual-machines.md
+      # Card
+        - title: Disaster recovery
           links:
-          - text: Deploy JetStream DR
-            url: deploy-disaster-recovery-using-jetstream.md
+          - text: Disaster recovery solutions for VMs
+            url: ecosystem-disaster-recovery-vms.md
           - text: Deploy VMware HCX for disaster recovery
             url: deploy-disaster-recovery-using-vmware-hcx.md
           - text: Deploy VMware SRM for disaster recovery
             url: disaster-recovery-using-vmware-site-recovery-manager.md
+          - text: Deploy Zerto disaster recovery
+            url: deploy-zerto-disaster-recovery.md
+          - text: Deploy disaster recovery using JetStream DR software
+            url: deploy-disaster-recovery-using-jetstream.md
         # Card
-        - title: VMware solutions
-          links:
-          - text: Configure HCX network extension
-            url: configure-hcx-network-extension.md
-          - text: Configure HCX network extension high availability
-            url: configure-hcx-network-extension-high-availability.md
-          - text: Configure VMware Aria Operations
-            url: vrealize-operations-for-azure-vmware-solution.md
-          - text: Deploy VMware Horizon
-            url: azure-vmware-solution-horizon.md
-          - text: Deploy VMs from the content library
-            url: deploy-vm-content-library.md   
-          - text: Deploy disaster recovery using VMware SRM 
-            url: disaster-recovery-using-vmware-site-recovery-manager.md
-          - text: Deploy disaster recovery using VMware HCX
-            url: deploy-disaster-recovery-using-vmware-hcx.md     
-          - text: Upgrade HCX on Azure VMware Solution
-            url: upgrade-hcx-azure-vmware-solutions.md 
-        # Card
-        - title: Partner solutions ecosystem
+        - title: Virtual machines
           links:
           - text: Operating system support for VMs
             url: ecosystem-os-vms.md
-          - text: Back up solutions for VMs
-            url: ecosystem-back-up-vms.md
-          - text: External storage solutions
-            url: ecosystem-external-storage-solutions.md
-          - text: Migration solutions for VMs
-            url: ecosystem-migration-vms.md
-          - text: Security solutions for Azure VMware Solution
-            url: ecosystem-security-solutions.md
-          - text: Application performance monitoring and troubleshooting solutions
-            url: ecosystem-app-monitoring-solutions.md
+          - text: Configure Windows Server Failover Cluster
+            url: configure-windows-server-failover-cluster.md
+          - text: Deploy VMs from the content library
+            url: deploy-vm-content-library.md
+          - text: Configure GitHub Enterprise Server
+            url: configure-github-enterprise-server.md
           - text: Bitnami appliance deployment
             url: bitnami-appliances-deployment.md
         # Card
-        - title: Resources
+        - title: Migrate
           links:
-          - text: REST API
-            url: /rest/api/avs
-          - text: Azure CLI
-            url: /cli/azure/vmware
-          - text: Azure PowerShell
-            url: /powershell/module/az.vmware
-          - text: Resource Manager template
-            url: /azure/templates/microsoft.avs/privateclouds
-          - text: Terraform Azure provider
-            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
-          - text: Enterprise-Scale for Azure VMware Solution automation
-            url: https://github.com/Azure/Enterprise-Scale-for-AVS
+          - text: Migration solutions for VMs
+            url: ecosystem-migration-vms.md
+          - text: Install and activate VMware HCX in Azure VMware Solution
+            url: install-vmware-hcx.md
+          - text: Configure on-premises VMware HCX Connector
+            url: configure-vmware-hcx.md
+          - text: Configure VMware HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: VMware HCX Mobility Optimized Networking (MON) guidance
+            url: vmware-hcx-mon-guidance.md	
+          - text: Configure VMware HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
+          - text: Enable VMware HCX access over the internet
+            url: enable-hcx-access-over-internet.md
+          - text: Upgrade VMware HCX on Azure VMware Solution
+            url: upgrade-hcx-azure-vmware-solutions.md
+          - text: Use VMware HCX Run Commands
+            url: use-hcx-run-commands.md
+          - text: Uninstall VMware HCX in Azure VMware Solution
+            url: uninstall-vmware-hcx.md
         # Card
-        - title: videos
+        - title: Operate and monitor
           links:
-          - text: Playlist
-            url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-          - text: Integration with Azure Service
-            url: https://youtu.be/m26iLu6DHbU
-          - text: Integration with Azure Application Gateway
-            url: https://youtu.be/BoQYvqzb6Y8
-          - text: Migration and capacity planning
-            url: https://youtu.be/NoNG-hkksrA
-        # Card
-        - title: Move Azure VMware Solution resources
-          links:
-          - text: Move Azure VMware Solution subscriptions
-            url: move-ea-csp-subscriptions.md
-          - text: Move Azure VMware Solution across regions
-            url: move-azure-vmware-solution-across-regions.md
-        # Card
-        - title: Troubleshoot
-          links:
-          - text: Open a support request for deployment failures
-            url: fix-deployment-failures.md
-          - text: VMware tools vix error code = 21009
-            url: https://kb.vmware.com/s/article/2129927
+            - text: Security solutions for Azure VMware Solution
+              url: ecosystem-security-solutions.md
+            - text: Security recommendations
+              url: security-recommendations.md
+            - text: Security baseline
+              url: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
+            - text: Vulnerability Management
+              url: vulnerability-management.md
+            - text: Rotate cloudadmin credentials
+              url: rotate-cloudadmin-credentials.md
 
