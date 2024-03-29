@@ -1272,7 +1272,7 @@
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
-        - name: Workspace Diagnostics
+        - name: Workspace diagnostics
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md

@@ -147,17 +147,17 @@
         },
         {
             "source_path_from_root": "/articles/automanage/windows-server-azure-edition-vnext.md",
-            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_url": "/windows-server/get-started/azure-edition",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/automanage/automanage-hotpatch.md",
-            "redirect_URL": "/windows-server/get-started/hotpatch",
+            "redirect_url": "/windows-server/get-started/hotpatch",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/automanage/automanage-windows-server-services-overview.md",
-            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_url": "/windows-server/get-started/azure-edition",
             "redirect_document_id": false
         },
         {
@@ -3687,27 +3687,27 @@
         },
         {
             "source_path_from_root": "/articles/dotnet-develop-multitenant-applications.md",
-            "redirect_URL": "/azure/architecture/guide/multitenant/overview",
+            "redirect_url": "/azure/architecture/guide/multitenant/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host.md",
-            "redirect_URL": "/azure/bastion/tutorial-protect-bastion-host-ddos",
+            "redirect_url": "/azure/bastion/tutorial-protect-bastion-host-ddos",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/firewall/tutorial-protect-firewall.md",
-            "redirect_URL": "/azure/firewall/tutorial-protect-firewall-ddos",
+            "redirect_url": "/azure/firewall/tutorial-protect-firewall-ddos",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/external-attack-surface-management/data-connections-overview.md",
-            "redirect_URL": "/azure/external-attack-surface-management/index",
+            "redirect_url": "/azure/external-attack-surface-management/index",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/private-multi-access-edge-compute-mec/deploy-metaswitch-fusion-core-solution.md",
-            "redirect_URL": "/azure/private-5g-core",
+            "redirect_url": "/azure/private-5g-core",
             "redirect_document_id": false
         },
         {
@@ -3717,12 +3717,12 @@
         },
         {
             "source_path_from_root": "/articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
-            "redirect_URL": "/azure/private-5g-core",
+            "redirect_url": "/azure/private-5g-core",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/private-5g-core/modify-site-plan.md",
-            "redirect_URL": "/azure/private-5g-core/modify-service-plan",
+            "redirect_url": "/azure/private-5g-core/modify-service-plan",
             "redirect_document_id": false
         },
         {
@@ -3841,7 +3841,7 @@
         },
         {
             "source_path_from_root": "/articles/external-attack-surface-management/labeling-inventory-assets.md",
-            "redirect_URL": "/azure/external-attack-surface-management/modifying-inventory-assets",
+            "redirect_url": "/azure/external-attack-surface-management/modifying-inventory-assets",
             "redirect_document_id": true
         },
         {
@@ -3897,6 +3897,16 @@
         {
             "source_path_from_root": "/articles/key-vault/general/move-region.md",
             "redirect_url": "/azure/operational-excellence/relocation-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/monitoring-overview.md",
+            "redirect_url": "/azure/batch/monitor-batch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/batch/batch-diagnostics.md",
+            "redirect_url": "/azure/batch/monitor-batch",
             "redirect_document_id": false
         },
         {

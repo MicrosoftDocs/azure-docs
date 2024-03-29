@@ -471,7 +471,11 @@ You might have a limited number of voice actions per action group.
 | 56 | Chile |
 | 420 | Czech Republic |
 | 45 | Denmark |
+| 372 | Estonia |
 | 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong |
 | 353 | Ireland |
 | 972 | Israel |
 | 352 | Luxembourg |
@@ -481,9 +485,14 @@ You might have a limited number of voice actions per action group.
 | 64 | New Zealand |
 | 47 | Norway |
 | 351 | Portugal |
+| 40 | Romania |
 | 65 | Singapore |
 | 27 | South Africa |
+| 34 | Spain |
 | 46 | Sweeden |
+| 41 | Switzerland |
+| 886 | Taiwan |
+| 971 | United Arab Emirates |
 | 44 | United Kingdom |
 | 1 | United States |
 
