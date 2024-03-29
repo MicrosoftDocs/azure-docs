@@ -1007,7 +1007,7 @@ items:
         - name: Audio issues
           items:
           - name: Overview
-            href: troubleshooting/voice-video-calling/audio-issues/overview.md
+            href: resources/troubleshooting/voice-video-calling/audio-issues/overview.md
           - name: The user cannot hear sound during the call
             items:
             - name: The speaking participant doesn't grant the microphone permission
