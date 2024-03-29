@@ -132,7 +132,7 @@ To update the DNS record for your custom domain name:
    
    After you configure your custom domain name, it replaces the IP address in the scoring URI. For Kubernetes clusters that use `LoadBalancer` as the inference router service, `azureml-fe` is exposed externally through a cloud provider's load balancer and TLS/SSL termination. The IP address of the Kubernetes online endpoint is the external IP address of the `azureml-fe` service deployed in the cluster. 
 
-   If you use AKS, you can get the IP address from the [Azure portal](https://portal.azure.com/#home). Go to your AKS resource page, go to **Service and ingresses**, and then find the **azureml-fe** service under the **azuerml** namespace. Then you can find the IP address in the **External IP** column.
+   If you use AKS, you can get the IP address from the [Azure portal](https://portal.azure.com/#home). Go to your AKS resource page, go to **Service and ingresses**, and then find the **azureml-fe** service under the **azureml** namespace. Then you can find the IP address in the **External IP** column.
     
    :::image type="content" source="media/how-to-secure-kubernetes-online-endpoint/get-ip-address-from-aks-ui.png" alt-text="Screenshot of adding a new extension to the Azure Arc-enabled Kubernetes cluster from the Azure portal.":::
 

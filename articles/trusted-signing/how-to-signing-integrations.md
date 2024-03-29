@@ -42,7 +42,7 @@ Trusted Signing requires the use of SignTool.exe to sign files on Windows, speci
 
 To download and install SignTool:
 
-1.	Download the latest version of SignTool + Windows Build Tools NuGet at: [Microsft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/)
+1.	Download the latest version of SignTool + Windows Build Tools NuGet at: [Microsoft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/)
 2.	Install SignTool from Windows SDK (min version: 10.0.2261.755)
 
  Another option is to use the latest nuget.exe to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):

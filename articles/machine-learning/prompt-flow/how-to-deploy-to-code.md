@@ -68,7 +68,7 @@ name: basic-chat-model
 path: ../../../../examples/flows/chat/basic-chat
 description: register basic chat flow folder as a custom model
 properties:
-  # In AuzreML studio UI, endpoint detail UI Test tab needs this property to know it's from prompt flow
+  # In AzureML studio UI, endpoint detail UI Test tab needs this property to know it's from prompt flow
   azureml.promptflow.source_flow_id: basic-chat
   
   # Following are properties only for chat flow 
