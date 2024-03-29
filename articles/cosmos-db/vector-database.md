@@ -18,7 +18,7 @@ Vector databases are used in numerous domains and situations across analytical a
 
 Many AI-enhanced systems that emerged in 2023 use standalone vector databases that are distinct from "traditional" databases in their tech stacks. Instead of adding a separate vector database, you can use our integrated vector database when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
 
-Here's how to implement our integrated vector database and take advantage of its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale:
+Here's how to implement our integrated vector database, thereby taking advantage of its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale:
 
 | | Description |
 | --- | --- |
@@ -46,7 +46,7 @@ Vector databases are used in numerous domains and situations across analytical a
 - identify data anomalies or fraudulent activities that are dissimilar from predominant or normal patterns
 - implement persistent memory for AI agents
 
-Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale.
+Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its low latency, high scalability, and high availability.
 
 It's especially popular to use vector databases to enable [retrieval-augmented generation (RAG)](#retrieval-augmented-generation) that harnesses LLMs and custom data or domain-specific information. This approach allows you to:
 
