@@ -16,9 +16,9 @@ ms.date: 03/29/2024
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
-Many AI-enhanced systems that emerged in 2023 use standalone vector databases that are distinct from "traditional" databases in their tech stacks. Instead of adding a separate vector database, you can use our integrated vector database when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale.
+Many AI-enhanced systems that emerged in 2023 use standalone vector databases that are distinct from "traditional" databases in their tech stacks. Instead of adding a separate vector database, you can use our integrated vector database when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
 
-Here's how to implement our integrated vector database:
+Here's how to implement our integrated vector database and take advantage of its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale:
 
 | | Description |
 | --- | --- |
