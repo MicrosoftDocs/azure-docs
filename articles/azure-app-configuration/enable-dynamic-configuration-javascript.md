@@ -34,8 +34,11 @@ Add the following key-value to your Azure App Configuration store. For more info
 > [!NOTE]
 > A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
 
-## Console applications
+## Run applications with refreshable configuration
 
+The following examples show how to use refreshable configuration values in console and web applications. The refresh behavior is configured by `refreshOptions` parameter when calling `load` function. The loaded configuration will be updated when a change is detected on the server.
+
+### [Console App](#tab/console-app)
 
 In this tutorial, you'll create a Node.js console app and load data from your App Configuration store.
 
@@ -70,7 +73,7 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
-                watchedSettings: [{ key: "sentinel" }], // Watche for changes to the key "sentinel" and refreshes the configuration when it changes
+                watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
                 refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
             }
         });
@@ -118,3 +121,85 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     ```console
     Hello World Refreshed!
     ```
+
+### [Express Web App](#tab/express-web-app)
+
+This example shows how to adopt Azure App Configuration in a simplest [Express](https://expressjs.com/) web application.
+
+1. Navigate to an empty folder and install required dependencies:
+
+    ```console
+    npm i express @azure/app-configuration-provider
+    ```
+
+1. Create a new file `app.js` with content:
+
+    ```javascript
+    const { load } = require("@azure/app-configuration-provider");
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+    // Load configuration asynchronizely
+    let appConfig;
+    load(connectionString, {
+        refreshOptions: {
+            enabled: true,
+            watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+            refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
+        }
+    }).then((config) => {
+        appConfig = config;
+        console.log("Configuration loaded successfully");
+    }).catch(console.error);
+
+    // Try refresh configuration every 5 seconds
+    setInterval(() => {
+        appConfig.refresh();
+    }, 5000);
+
+    // Middleware: attach configuration to request object
+    app.use((req, _res, next) => {
+        req.appConfig = appConfig;
+        next();
+    });
+
+    // Route GET /: return configuration value
+    app.get('/', (req, res) => {
+        res.send(req.appConfig?.get("message") ?? "Configuration not loaded yet");
+    });
+
+    // Start and listen on port
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    });
+    ```
+
+1. Run the application with below command:
+
+    ```console
+    node app.js
+    ```
+
+1. Open `http://localhost:3000/` in a browser. The value of key `message` should be displayed.
+
+1. Update the following key-values to the Azure App Configuration store.
+
+    | Key            | Value                        | Label       | Content type       |
+    |----------------|------------------------------|-------------|--------------------|
+    | *message*      | *Hello World from Express!*  | Leave empty | Leave empty        |
+    | *sentinel*     | *3*                          | Leave empty | Leave empty        |
+
+1. Refresh the page and the updated value of key `message` should be displayed.
+
+## Clean up resources
+
+[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+
+In this tutorial, you enabled your JavaScript app to dynamically refresh configuration settings from Azure App Configuration. To learn how to use an Azure managed identity to streamline the access to Azure App Configuration, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
