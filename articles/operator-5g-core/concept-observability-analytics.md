@@ -27,23 +27,23 @@ Azure Operator 5G Core uses the following open source components for observabili
 |Observability parameters    |Open source components |
 |----------------------------|-----------------------|
 |Metrics |Prometheus, AlertManager, Grafana |
-|Logs    |Elasticsearch, FluentD, and Kibana (EFK);  Elastalert |
+|Logs    |Elasticsearch, Fluentd, and Kibana (EFK);  Elastalert |
 |Tracing  |Jaeger, OpenTelemetry Collector |
 
 ## Logging framework
-Elasticsearch, FluentD, and Kibana (EFK) provide a distributed logging system used for collecting and visualizing the logs to troubleshoot microservices.
+Elasticsearch, Fluentd, and Kibana (EFK) provide a distributed logging system used for collecting and visualizing the logs to troubleshoot microservices.
 
 ### Architecture
 The following diagram shows EFK architecture:
 
- [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, FluentD, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture-expanded.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture-expanded.png#lightbox)
 
 > [!NOTE]
 > Sections of the following linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
 
 The logging framework includes the following components:
 
-- **FluentD** - FluentD is an open-source log collector. FluentD allows you to unify data collection and consumption for better use and understanding of the data. FluentD is deployed as a DaemonSet in the Kubernetes cluster. It collects the logs in each K8s node and streams the logs to Elasticsearch. See [Logs supported by FluentD](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Fluentd-logs-supported.htm).
+- **Fluentd** - Fluentd is an open-source log collector. Fluentd allows you to unify data collection and consumption for better use and understanding of the data. Fluentd is deployed as a DaemonSet in the Kubernetes cluster. It collects the logs in each K8s node and streams the logs to Elasticsearch. See [Logs supported by Fluentd](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Fluentd-logs-supported.htm).
 
 - **Elasticsearch** - Elasticsearch is an open source, distributed, real-time search back-end. Elasticsearch stores the logs securely and offers an HTTP web interface for log analysis.
 
@@ -59,11 +59,11 @@ The logging framework includes the following components:
 
 The logging framework provides the following features:
 
-- **Log collection and streaming** - FluentD collects and streams the logs to Elasticsearch. 
+- **Log collection and streaming** - Fluentd collects and streams the logs to Elasticsearch. 
 
-- **Audit logs support** - FluentD reads Kube-Apiserver audit logs from the Kubernetes master node and write those logs to Elasticsearch. The `auditlogEnabled` flag provided in fed-paas-helpers is used to enable/disable reading of audit logs. If the auditlogEnabled flag is set to true, then FluentD is also deployed on the master node along with the worker nodes. 
+- **Audit logs support** - Fluentd reads Kube-Apiserver audit logs from the Kubernetes master node and write those logs to Elasticsearch. The `auditlogEnabled` flag provided in fed-paas-helpers is used to enable/disable reading of audit logs. If the auditlogEnabled flag is set to true, then Fluentd is also deployed on the master node along with the worker nodes. 
 
-- **Event logging** - FluentD creates a separate Elasticsearch index for all the event logs for a particular namespace. This helps to apply rules and search the event logs in a better way. The index starts with the prefix `fluentd-event`. All other regular debug logs go into a separate Elasticsearch index, prefixed with the string `fluentd-*`. 
+- **Event logging** - Fluentd creates a separate Elasticsearch index for all the event logs for a particular namespace. This helps to apply rules and search the event logs in a better way. The index starts with the prefix `fluentd-event`. All other regular debug logs go into a separate Elasticsearch index, prefixed with the string `fluentd-*`. 
 
 - **Log storage and analysis** - Elasticsearch securely stores the logs and offers a query language to search for and analyze the logs. 
 
@@ -86,7 +86,7 @@ Various dashboards are supported, including:
 - Grafana dashboards (see [Logging framework dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/EFK_Dashboards.htm))
 - Kibana dashboards (see [Kibana dashboard overview](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Kibana_Dashboards.htm))
 - Grafana Kibana dashboards (see [Kibana Grafana dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/kibana_grafana_dashboards.md.html))
-- FluentD Operator dashboard (see [FluentD operator Grafana dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/fluentd_operator_grafana_dashboards.md.html))
+- Fluentd Operator dashboard (see [Fluentd operator Grafana dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/fluentd_operator_grafana_dashboards.md.html))
 - Elasticsearch Grafana dashboard (see [Elasticsearch dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/elastic_grafana_dashboards.md.html))
 
 #### Statistics
@@ -95,11 +95,11 @@ For information about supported statistics for EFK components, see:
 
 - [Elasticsearch statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/stats_ElasticSearch.htm)
 - [Other Elasticsearch statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-elastic-elastic-prom.md.html)
-- [FluentD operator statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-fluentd_operator-fluentd-prom.md.html)
+- [Fluentd operator statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-fluentd_operator-fluentd-prom.md.html)
 
 For information about metrics-based alerts, see:
 
-- [FluentD operator metrics-based alerts](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/pod-fluentd_operator-metric_alert_rules.md.html)
+- [Fluentd operator metrics-based alerts](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/pod-fluentd_operator-metric_alert_rules.md.html)
 - [Elastic metric-based alerts](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/pod-elastic-metric_alert_rules.md.html)
 
 #### Events
@@ -108,7 +108,7 @@ For information about Elastic events, see [Elastic events](https://manuals.metas
 
 #### Log visualization
 
-The framework aggregates logs from nodes and applications running inside your Azure Operator 5G Core installation. When logging is enabled, the EFK framework uses FluentD to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
+The framework aggregates logs from nodes and applications running inside your Azure Operator 5G Core installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
 
 ## Metrics framework
 
