@@ -89,7 +89,7 @@ There are many connection parameters for configuring the client for SSL. Few imp
 **Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
 
 > [!NOTE]  
-> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
+> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates. To determine if you are pinning CAs, please refer to [Certificate pinning and Azure services](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application). 
 
 For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
 
@@ -123,7 +123,49 @@ System.setProperty("javax.net.ssl.trustStorePassword","password");
 ```
 6. Replace the original root CA pem file with the combined root CA file and restart your application/client.
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
 
+### Get list of trusted certificates in Java Key Store
+
+As stated above, Java, by default, stores the trusted certificates in a special file named *cacerts* that is located inside  Java installation folder on the client.
+Example below first reads *cacerts* and loads it into *KeyStore* object:
+```java
+private KeyStore loadKeyStore() {
+    String relativeCacertsPath = "/lib/security/cacerts".replace("/", File.separator);
+    String filename = System.getProperty("java.home") + relativeCacertsPath;
+    FileInputStream is = new FileInputStream(filename);
+    KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+    String password = "changeit";
+    keystore.load(is, password.toCharArray());
+
+    return keystore;
+}
+```
+The default password for *cacerts* is *changeit* , but should be different on real client, as administrators recommend changing password immediately after Java installation.
+Once we loaded KeyStore object, we can use the *PKIXParameters* class to read certificates present. 
+```java
+public void whenLoadingCacertsKeyStore_thenCertificatesArePresent() {
+    KeyStore keyStore = loadKeyStore();
+    PKIXParameters params = new PKIXParameters(keyStore);
+    Set<TrustAnchor> trustAnchors = params.getTrustAnchors();
+    List<Certificate> certificates = trustAnchors.stream()
+      .map(TrustAnchor::getTrustedCert)
+      .collect(Collectors.toList());
+
+    assertFalse(certificates.isEmpty());
+}
+```
+### Updating Root certificates when using clients in Azure App Services with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
+
+For Azure App services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios on updating client certificates and it depends on how on you're using SSL with your application deployed to Azure App Services.
+
+* Usually new certificates are added to App Service at platform level prior to changes in Azure Database for PostgreSQL - Flexible Server. If you are using the SSL certificates included on App Service platform in your application, then no action is needed. Consult following [Azure App Service documentation](../../app-service/configure-ssl-certificate.md) for more information. 
+* If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
+
+ ### Updating Root certificates when using clients in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
+
+If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-tls.md).
 
 ## Cipher Suites
 
