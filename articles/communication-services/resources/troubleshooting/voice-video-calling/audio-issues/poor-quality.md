@@ -14,17 +14,20 @@ ms.subservice: calling
 
 # The user experiences poor audio quality
 
-There are many different factors that can affect poor audio quality.
-For example, it may because the network is poor, the speaker's microphone is bad,
-the browser's audio processing module deteriorates the audio quality, or the receiver's speaker is bad.
+There're many different factors that can affect poor audio quality. For instance, it may be due to:
+
+- Poor network connectivity
+- A faulty microphone on the speaker's end
+- Deterioration of audio quality caused by the browser's audio processing module
+- A faulty speaker on the receiver's end
 
 As a result, the user may hear distorted audio, crackling noise, and mechanical sounds.
 
 ## How to detect
 Detecting poor audio quality can be challenging because the browser's reported information doesn't always reflect audio quality.
 
-However, if poor audio quality is caused by poor network, you can still detect these issues and display the information to users
-so they are aware of the potential for poor audio quality.
+However, even if poor audio quality is caused by a poor network connection, you can still detect these issues and display the information to users,
+so they're aware of the potential for poor audio quality.
 
 Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
