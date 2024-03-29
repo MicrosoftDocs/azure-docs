@@ -42,11 +42,11 @@ Additionally, CPU overload on the sender side can also influence the browser's d
 We can see that the whole process involves factors such as the sender's camera device, as well as the network conditions at the sender and receiver ends,
 including bandwidth and packets lost, all of which can potentially impact the video quality perceived by the users.
 
-Here we list several common video issues, along with potential causes for each issue: (TODO link pages)
+Here we list several common video issues, along with potential causes for each issue:
 
 ### The user can't see video from the remote participant
 
-* Subscribing a video that isn't available
+* The sender's video isn't available when the user subscribes to it
 * The remote video becomes unavailable while subscribing the video
 * The application disposes the video renderer while subscribing the video
 * The maximum number of active video subscriptions has been reached
@@ -55,7 +55,7 @@ Here we list several common video issues, along with potential causes for each i
 * The video sender has network issues
 * The receiver has network issues
 * The frames are received but not decoded
-* When a participant enables the camera while waiting in the lobby
+* The participant enables the camera while waiting in the lobby
 
 ### The user only sees black video from the remote participant
 * The video sender's browser is in the background

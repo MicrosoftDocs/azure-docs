@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # The network is poor during the call
 The quality of the network greatly affects video quality, and both the sender and receiver's network quality are both important.
-For example, if the sender's network bandwidth becomes poor, the sender's SDK may adjust the video's encoding resolution and frame rate according the bandwidth estimation.
+For example, if the sender's network bandwidth becomes poor, the sender's SDK may adjust the video's encoding resolution and frame rate according to the bandwidth estimation.
 The browser itself also has degradation rules that could affect the encoding resolution and framerate.
 Therefore, even if the original input resolution is high, it's likely that the final video resolution sent out can be low due to network issues.
 
@@ -40,10 +40,12 @@ For the quality of the receiving end, you can check the metrics `packetsLost`, `
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it's usually necessary to understand the network topology and the nodes causing the problem.
+To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
-However, the ACS Calling SDK and browser can adaptively adjust the video quality according to the network condition. It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly, so that they're aware of any network quality issues and aren't surprised if they experience low-quality video during a call.
+However, the ACS Calling SDK and browser can adaptively adjust the video quality according to the network condition.
+It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly.
+In this way, users can be aware of any network quality issues and aren't surprised if they experience low-quality video during a call.
 
 If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
 
