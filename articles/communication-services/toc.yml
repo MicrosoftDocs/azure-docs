@@ -1007,27 +1007,27 @@ items:
         - name: Video issues
           items:
           - name: Overview
-            href: troubleshooting/voice-video-calling/video-issues/overview.md
+            href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
           - name: The user can not see video from the remote participant
             items:
             - name: Subscribing a video which is not available
-              href: troubleshooting/voice-video-calling/video-issues/subscribing-a-video-not-available.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-a-video-not-available.md
             - name: The remote video becomes unavailable while subscribing the video
-              href: troubleshooting/voice-video-calling/video-issues/remote-video-becomes-unavailable.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/remote-video-becomes-unavailable.md
             - name: The application disposes the video renderer while subscribing the video
-              href: troubleshooting/voice-video-calling/video-issues/application-disposes-video-renderer.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/application-disposes-video-renderer.md
             - name: The maximum number of active video subscriptions has been reached
-              href: troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md
             - name: CreateView timeout
-              href: troubleshooting/voice-video-calling/video-issues/create-view-timeout.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/create-view-timeout.md
           - name: The user experiences poor video quality
             items:
             - name: The network is poor during the call
-              href: troubleshooting/voice-video-calling/video-issues/network-poor.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/network-poor.md
             - name: The video sender has high CPU load
-              href: troubleshooting/voice-video-calling/video-issues/video-sender-has-high-cpu-load.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-sender-has-high-cpu-load.md
             - name: The sender's video is frozen
-              href: troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
 - name: References
   items:
   - name: Reference documentation overview
