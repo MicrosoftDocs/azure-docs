@@ -23,11 +23,11 @@ causing the browser to skip the prompt even if the permission state is set to `p
 
 ## How to detect
 ### SDK
-We can't detect whether the permission prompt actually shows or not, as this is a browser behavior that can't be detected at JavaScript layer.
+We can't detect whether the permission prompt actually shows or not, as this browser behavior can't be detected at JavaScript layer.
 
 ## How to mitigate or resolve
 The application should check the result of `DeviceManager.askDevicePermission` API.
-If the result is false, it may indicate that user has denied the permission now or previously.
+If the result is false, it may indicate that user denied the permission now or previously.
 
 The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions have been granted.
 They also need to verify that their system has the necessary devices installed and configured properly.
