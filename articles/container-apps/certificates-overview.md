@@ -13,6 +13,8 @@ ms.author: cshoe
 
 You can add digital security certificates to secure custom DNS names in Azure Container Apps to support secure communication among your apps.
 
+## Options
+
 The following table lists the options available to add certificates in Container Apps:
 
 | Option | Description |
