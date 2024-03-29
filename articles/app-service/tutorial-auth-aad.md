@@ -7,7 +7,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/31/2023
-ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity
+ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 ---

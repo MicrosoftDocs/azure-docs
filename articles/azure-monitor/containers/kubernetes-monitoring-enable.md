@@ -3,7 +3,7 @@ title: Enable monitoring for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights and Managed Prometheus on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 03/11/2024
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.reviewer: aul
 ---
 
@@ -41,6 +41,9 @@ This article provides onboarding guidance for the following types of clusters. A
     - Microsoft.ContainerService
     - Microsoft.Insights
     - Microsoft.AlertsManagement
+    - Microsoft.Monitor
+  - The following resource providers must be registered in the subscription of the Grafana workspace subscription:
+    - Microsoft.Dashboard
 
 **Arc-Enabled Kubernetes clusters prerequisites**
 

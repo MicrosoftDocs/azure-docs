@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 03/12/2024
+ms.date: 03/28/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -44,7 +44,7 @@ This version contains support for the latest GA features like Whisper, DALL-E 3,
 
 ## Retiring soon
 
-On April 2, 2024 the following API preview releases will be retired and will stop accepting API requests:
+On July 1, 2024 the following API preview releases will be retired and will stop accepting API requests:
 
 - 2023-03-15-preview
 - 2023-07-01-preview

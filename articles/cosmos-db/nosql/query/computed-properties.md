@@ -310,7 +310,7 @@ There are a few considerations for indexing computed properties, including:
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
 
->![NOTE]
+> [!NOTE]
 > When the definition of an indexed computed property is modified, it's not automatically reindexed. To index the modified computed property, you'll first need to drop the computed property from the index. Then after the reindexing is completed, add the computed property back to the index policy.
 >
 > If you want to delete a computed property, you'll first need to remove it from the index policy.

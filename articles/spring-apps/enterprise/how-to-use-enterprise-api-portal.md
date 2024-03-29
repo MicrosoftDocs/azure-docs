@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 

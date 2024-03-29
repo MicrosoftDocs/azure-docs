@@ -4,6 +4,7 @@ description: Learn how to use the Azure Key Vault provider for Secrets Store CSI
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
+ms.subservice: aks-security
 ms.date: 12/06/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---

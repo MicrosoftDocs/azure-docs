@@ -50,7 +50,7 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 | Azure VM egress bandwidth limit | 2000MiB/s (2GiB/s) |
 | Operating system | RHEL 8.4 |
 | Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
-| Mount options | hard,rsize=65536,wsize=65536,vers=3  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results. |
+| Mount options | `hard,rsize=65536,wsize=65536,vers=3`  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results. |
 
 ### 256-KiB sequential workloads (MiB/s) 
 
@@ -77,7 +77,7 @@ The tests in this section were run with the following configuration:
 | Azure VM egress bandwidth limit | 12,500MiB/s (12.2GiB/s)  |
 | Operating system | RHEL 8.4 |
 | Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
-| Mount options | hard,rsize=65536,wsize=65536,vers=3  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results |
+| Mount options | `hard,rsize=65536,wsize=65536,vers=3` <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results |
 
 The graphs in this section show the results for the client-side mount option of `nconnect` with NFSv3. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md#nconnect).
 

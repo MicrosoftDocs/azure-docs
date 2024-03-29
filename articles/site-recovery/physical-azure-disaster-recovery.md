@@ -6,9 +6,7 @@ ms.topic: article
 ms.date: 01/30/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.custom: engagement-fy23
-
-
+ms.custom: engagement-fy23, linux-related-content
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
 

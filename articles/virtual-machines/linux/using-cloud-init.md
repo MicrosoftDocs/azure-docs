@@ -4,6 +4,7 @@ description: Overview of cloud-init capabilities to configure a VM at provisioni
 author: srijang
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/21/2022

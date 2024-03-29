@@ -14,6 +14,8 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door uses CNAME records to validate domain ownership for the onboarding of custom domains. Azure Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door.
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure Front Door. Since using a Front Door profile requires creation of a CNAME record, it isn't possible to point at the Front Door profile from the zone apex.

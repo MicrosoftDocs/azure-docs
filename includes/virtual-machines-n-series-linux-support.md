@@ -7,7 +7,7 @@ author: jushiman
  ms.topic: include
  ms.date: 12/08/2023
 ms.author: jushiman
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Supported distributions and drivers

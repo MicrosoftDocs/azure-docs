@@ -2,6 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about Confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 03/18/2024
 ---
 
