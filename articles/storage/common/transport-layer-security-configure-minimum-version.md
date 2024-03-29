@@ -22,7 +22,7 @@ Communication between a client application and an Azure Storage account is encry
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 > [!TIP]
-> Azure Storage uses Windows implementation that is not based on OpenSSL and therefore is not vulnerable.
+> Azure Storage relies on Windows implementation of SSL that is not based on OpenSSL and therefore is not exposed to OpenSSL related vulnerabilities.
 
 Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
 
