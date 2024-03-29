@@ -50,6 +50,10 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
+    **High Resiliency** - This option provides a single ExpressRoute circuit with redundancy at two peering locations within the same metropolitan area.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
+
     **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
     
     > [!NOTE]
@@ -84,6 +88,10 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
+
+    **High Resiliency**
+
+    For high resiliency, select one of the supported ExpressRoute Metro service provider and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](expressroute-metro.md).
 
     **Standard Resiliency**
 
