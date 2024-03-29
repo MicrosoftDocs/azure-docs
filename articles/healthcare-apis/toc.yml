@@ -53,7 +53,7 @@
     - name: Enable diagnostic logging
       href: logging.md
     - name: Built-in policy definitions
-      href: ahds-policy-reference.md
+      href: azure-health-data-services-policy-reference.md
 - name: Release notes
   expanded: false
   items: 
