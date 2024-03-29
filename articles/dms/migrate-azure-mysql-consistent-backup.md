@@ -23,7 +23,9 @@ When you enable this option, a reconciliation phase will occur after the initial
 
 With this feature, we don't take a read lock on the server. We instead read tables at different point in time, while keeping track of the different binlog positions of each table. This aids to reconcile the tables towards the end of the initial load by performing replication in catchup mode to get a consistent snapshot.
 
-:::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress" lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation.png":::
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/top-pane.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - migration progress" lightbox="media/migrate-azure-mysql-consistent-backup/top-pane.png":::
+
+:::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress" lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png":::
 
 Key features of Consistent Snapshot without locks:
     *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
