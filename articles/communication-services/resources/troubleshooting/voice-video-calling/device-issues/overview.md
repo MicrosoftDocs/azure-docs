@@ -32,12 +32,12 @@ Here are some common issues related to devices and permissions, along with their
 
 ### The getMicrophones API returns an empty array or doesn't return detailed microphone list
 * The microphone device isn't available in the system.
-* The microphone permission has not been granted.
+* The microphone permission isn't granted.
 
 ### The getSpeakers API returns an empty array or doesn't return detailed speaker list
 * The speaker device isn't available in the system.
 * The browser doesn't support speaker enumeration.
-* The microphone permission has not been granted.
+* The microphone permission isn't granted.
 
 ### No permission prompt shows when calling askDevicePermission
 * The browser caches the permission result granted or denied previously and returns it without prompting the user.
