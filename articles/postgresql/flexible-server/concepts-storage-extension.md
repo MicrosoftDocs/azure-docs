@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Extension Preview
-description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible Server - Preview.
+description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible Server.
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
@@ -12,14 +12,13 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL - Flexible Server Azure Storage Extension - Preview
+# Azure Database for PostgreSQL - Flexible Server Azure Storage Extension
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-A common use case for our customers today is need to be able to import/export between Azure Blob Storage and an Azure Database for PostgreSQL flexible server instance. To simplify this use case, we introduced new **Azure Storage Extension** (azure_storage) in Azure Database for PostgreSQL flexible server, currently available in **Preview**.
+A common use case for our customers today is need to be able to import/export between Azure Blob Storage and an Azure Database for PostgreSQL flexible server instance. To simplify this use case, we introduced new **Azure Storage Extension** (azure_storage) in Azure Database for PostgreSQL flexible server.
 
-> [!NOTE]
-> Azure Database for PostgreSQL flexible server supports Azure Storage Extension in Preview.
+
 
 ## Azure Blob Storage
 
