@@ -13,7 +13,7 @@ services: iot-edge
 
 # Networking configuration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article helps you decide which networking option is best for your scenario and provide insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
 
