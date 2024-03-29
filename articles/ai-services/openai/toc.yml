@@ -136,9 +136,9 @@ items:
   - name: Use your data
     items:
       - name: Text data
-        href: ./how-to/use-your-data.md
+        href: ./concepts/use-your-data.md
       - name: Image data (preview)
-        href: ./how-to/use-your-image-data.md
+        href: ./concepts/use-your-image-data.md
       - name: Use Azure OpenAI On Your Data securely
         href: ./how-to/use-your-data-securely.md
       - name: Best practices
