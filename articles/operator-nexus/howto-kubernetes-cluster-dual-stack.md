@@ -13,7 +13,7 @@ ms.custom: template-how-to-pattern, devx-track-bicep
 
 In this article, you learn how to create a dual-stack Nexus Kubernetes cluster. The dual-stack networking feature helps to enable both IPv4 and IPv6 communication in a Kubernetes cluster, allowing for greater flexibility and scalability in network communication. The focus of this guide is on the configuration aspects, providing examples to help you understand the process. By following this guide, you're able to effectively create a dual-stack Nexus Kubernetes cluster.
 
-In a dual-stack Kubernetes cluster, both the nodes and the pods are configured with dual-stack IP addresses. This means that any pod that runs on a dual-stack cluster will be assigned a dual-stack address within the pod, and the cluster nodes' CNI (Container Network Interface) interface will also be assigned a dual-stack IP address. However, any multus interfaces attached, such as SRIOV/DPDK, are the responsibility of the application owner and must be configured accordingly. Network Address Translation (NAT) is configured to enable pods to access resources within the local network infrastructure. The source IP address of the traffic from the pods is translated to the node's primary IP address corresponding to the same IP family (IPv4 to IPv4 and IPv6 to IPv6). This setup ensures seamless connectivity and resource access for the pods within the on-premises environment.
+In a dual-stack Kubernetes cluster, both the nodes and the pods are configured with an IPv4 and IPv6 network address. This means that any pod that runs on a dual-stack cluster will be assigned both IPv4 and IPv6 addresses within the pod, and the cluster nodes' CNI (Container Network Interface) interface will also be assigned both an IPv4 and IPv6 address. However, any multus interfaces attached, such as SRIOV/DPDK, are the responsibility of the application owner and must be configured accordingly. Network Address Translation (NAT) is configured to enable pods to access resources within the local network infrastructure. The source IP address of the traffic from the pods (either IPv4 or IPv6) is translated to the node's primary IP address corresponding to the same IP family (IPv4 to IPv4 and IPv6 to IPv6). This setup ensures seamless connectivity and resource access for the pods within the on-premises environment.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 ## Limitations
 
 * Single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
-* Admin kubeconfig kube-vip IP is IPv4-only.
+* Kubernetes administration API access to the cluster is IPv4 only. Any kubeconfig must be IPv4 because kube-vip for the kubernetes API server only sets up an IPv4 address.
 * Kubernetes control plane supports only IPv4, while workload Pods and services can use dual-stack (IPv4/IPv6).
 
 ## Configuration options
