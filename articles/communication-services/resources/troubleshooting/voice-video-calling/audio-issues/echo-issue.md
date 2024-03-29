@@ -15,10 +15,10 @@ ms.subservice: calling
 # The user experiences echo during the call
 Acoustic echo happens when the microphone picks up the sound from the speakers, creating a loop of sound that results in an echo.
 Modern browsers have built-in acoustic echo cancellation capabilities in their audio processing modules.
-These capabilities are designed to remove near-end echoes, which can help to improve the overall audio quality of WebRTC calls
-However, in some cases, the browser isn't able to remove the echoes.
+These capabilities are designed to remove near-end echoes, which can improve the overall audio quality of WebRTC calls.
+However, the browser isn't able to remove the echoes in some cases.
 For instance, if the delay between the echo and reference signals is beyond the range of the filter, the echoes may persist.
-This can occur when a user joins an ACS call using a remote desktop client and plays the audio through their speakers.
+This problem can occur when a user joins an ACS call using a remote desktop client and plays the audio through their speakers.
 Other scenarios, such as double talk, or two devices in the same call are also in the same room can also affect the result quality of echo cancellation.
 
 ## How to detect
@@ -27,7 +27,7 @@ When the user reports this issue, it's typically described as the user hearing t
 
 ## How to mitigate or resolve
 The fastest solution is to use headphones. The echo exists because the microphone picks up the sound from the speaker.
-Since the sound played from headphone doesn't leak, the microphone won't pick up the far-end signal. 
+Since the sound played from headphone doesn't leak, the microphone doesn't pick up the far-end signal. 
 
 Adjusting the speaker's volume level and the microphone's sensitivity level is another way that may help.
 If the volume level is low enough, it can alleviate the echo issue.
