@@ -103,7 +103,7 @@ Prepare your Azure CLI environment and then view your invitations.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
@@ -119,7 +119,7 @@ Start by preparing your environment for PowerShell. You can either run PowerShel
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-   :::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to connect to your Azure account.
 

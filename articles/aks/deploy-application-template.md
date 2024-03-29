@@ -5,6 +5,7 @@ author: maanasagovi
 ms.author: maanasagovi
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
+ms.subservice: aks-developer
 ms.date: 05/15/2023
 ---
 

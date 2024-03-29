@@ -6,6 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-data-lake-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: normesta

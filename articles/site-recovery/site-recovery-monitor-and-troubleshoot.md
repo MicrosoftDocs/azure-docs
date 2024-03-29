@@ -1,9 +1,9 @@
 ---
-title: Monitor Azure Site Recovery | Microsoft Docs
-description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
+title: Azure Site Recovery dashboard and built-in alerts
+description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 03/22/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

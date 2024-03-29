@@ -4,12 +4,12 @@ description:  Get options to back up Oracle Database instances in an Azure Linux
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: jjaygbay1 
-
 ---
 
 # Backup strategies for Oracle Database on an Azure Linux VM
