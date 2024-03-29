@@ -541,16 +541,18 @@
     href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
-  - name: Monitor and operate backups and disaster recovery using Backup center
-    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-  - name: Monitor Site Recovery
+  - name: Monitor
+    href: monitor-site-recovery.md
+  - name: Use Recovery Services dashboard
     href: site-recovery-monitor-and-troubleshoot.md
-  - name: Monitor Site Recovery with Azure Monitor Logs
+  - name: Use Azure Monitor Logs
     href: monitor-log-analytics.md
-  - name: Monitoring churn patterns on Virtual Machines
+  - name: Monitor churn patterns on virtual machines
     href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
+  - name: Monitor using Backup center
+    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
@@ -597,6 +599,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
     href: /rest/api/site-recovery
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md
 - name: Related
   items:
   - name: Azure Backup
