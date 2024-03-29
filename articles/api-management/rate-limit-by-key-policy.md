@@ -57,7 +57,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) dedicated, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted
 
 ### Usage notes
 
