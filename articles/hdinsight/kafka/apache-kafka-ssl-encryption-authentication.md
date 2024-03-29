@@ -64,7 +64,7 @@ Use the following detailed instructions to complete the broker setup:
     1. SCP the certificate signing request to the CA (headnode0)
 
     ```bash
-    keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
+    keytool -genkey -keystore kafka.server.keystore.jks -keyalg RSA -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -ext SAN=DNS:FQDN_WORKER_NODE -storetype pkcs12
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
@@ -145,6 +145,13 @@ To complete the configuration modification, do the following steps:
    > 1.	ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example, `MyServerPassword123`
    > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
 
+1. To Use TLS 1.3 in Kafka 
+
+   Add follwoing configs to the kafka configs in Ambari  
+    > 1. ssl.enabled.protocols=TLSv1.3 
+    > 1. ssl.protocol=TLSv1.3
+> [!Important]
+> If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
 
     For HDI version 4.0 or 5.0
     
@@ -158,6 +165,7 @@ To complete the configuration modification, do the following steps:
  
 
 1. Restart all Kafka brokers.
+
 
 ## Client setup (without authentication)
 
@@ -210,8 +218,14 @@ These steps are detailed in the following code snippets.
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
+    1.  To Use TLS 1.3 add folloing configs to file `client-ssl-auth.properties`
+   ```config
+   ssl.enabled.protocols=TLSv1.3
+   ssl.protocol=TLSv1.3
+   ``` 
 
 1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section for steps needed to verify the setup using console producer/consumer.
+
 
 ## Client setup (with authentication)
 
@@ -302,6 +316,11 @@ The details of each step are given.
     ssl.keystore.password=MyClientPassword123
     ssl.key.password=MyClientPassword123
     ```
+    1.  To Use TLS 1.3 add folloing configs to file `client-ssl-auth.properties`
+   ```config
+   ssl.enabled.protocols=TLSv1.3
+   ssl.protocol=TLSv1.3
+   ``` 
 
 ## Verification
 
