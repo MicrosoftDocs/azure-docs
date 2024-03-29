@@ -134,7 +134,7 @@ dotnet run
 | [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | An offer to a worker was revoked |
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered (status changed from inactive/draining to active) |
-| [`RouterWorkerUpdated`](#microsoftcommunicationrouterworkerupdated)  | `Worker` | One of the following worker properties has been updated: `AvailableForOffers`, `TotalCapacity`, `QueueAssignments`, `ChannelConfigurations`, `Labels`, `Tags`, `MaxConcurrentOffers` |
+| [`RouterWorkerUpdated`](#microsoftcommunicationrouterworkerupdated)  | `Worker` | One of the following worker properties has been updated: `AvailableForOffers`, `TotalCapacity`, `QueueAssignments`, `ChannelConfigurations`, `Labels`, `Tags` |
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered (status changed from active to inactive/draining) |
 
 ### Microsoft.Communication.RouterJobReceived
