@@ -48,7 +48,7 @@ It would be more helpful to obtain audio recordings captured by the user's brows
 If the user hears robotic-sounding audio, it's usually caused by packet loss.
 If you suspect the audio quality is coming from the sender device, you can check the audio recordings captured from the sender's side.
 If the sender is using Desktop Edge or Chrome, they can follow the instructions in this document to collect the audio recordings:
-[How to collect diagnostic audio recordings](../../references/how-to-collect-diagnostic-audio-recordings.md)
+[How to collect diagnostic audio recordings](../references/how-to-collect-diagnostic-audio-recordings.md)
 
 The audio recordings include the audio before and after it's processed by the audio processing module.
 By comparing the recordings, you may be able to determine where the issue is coming from.
