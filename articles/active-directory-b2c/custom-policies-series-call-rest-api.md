@@ -147,7 +147,7 @@ At this point, you're ready to deploy your Node.js app.
 
 ### Step 1.2 - Deploy the Node.js app in Azure App Service
 
-For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
+For your custom policy to reach your Node.js app, it needs to be reachable, so, you need to deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
 
 Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
 
