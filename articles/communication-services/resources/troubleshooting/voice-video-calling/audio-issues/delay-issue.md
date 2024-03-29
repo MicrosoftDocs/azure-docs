@@ -17,7 +17,7 @@ High round trip time and high jitter buffer delay are the most common causes of 
 
 There are several reasons that can cause high round trip time.
 Besides the long distance or many hops between two endpoints, one common reason is network congestion, which occurs when the network is overloaded with traffic, causing packets to wait in a queue for a long time.
-Another possible reason is a high number of packet resends at the TCP relay layer if the client uses TCP/TLS relay, 
+Another possible reason is a high number of packet resend at the `TCP` layer if the client uses `TCP` or `TLS` relay, 
 which can occur when packets are lost or delayed in transit.
 In addition, the physical medium used to transmit data can also affect the round trip time. For example, Wi-Fi usually has higher network latency than Ethernet, which can lead to higher round trip times.
 
@@ -31,7 +31,7 @@ For the network quality of the audio sending end, you can check events with the 
 
 For the network quality of the receiving end, you can check events with the values of `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the netowrk and audio quality.
+In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and audio quality.
 
 For the quality of the audio sending end, you can check the metrics `rttInMs`.
 
@@ -39,9 +39,9 @@ For the quality of the receiving end, you can check the metrics `jitterInMs`, `j
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it is usually necessary to understand the network topology and the nodes causing the problem.
+To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
 However, the browser can adaptively adjust the audio sending quality according to the network condition.
-It is very important for the application to handle events from the User Facing Diagnostics Feature or to monitor the metrics provided by the MediaStats feature,
- so the users are aware of any network quality issues and are not surprised if they experience low-quality audio during a call.
+It's very important for the application to handle events from the User Facing Diagnostics Feature or to monitor the metrics provided by the MediaStats feature,
+ so the users are aware of any network quality issues and aren't surprised if they experience low-quality audio during a call.
