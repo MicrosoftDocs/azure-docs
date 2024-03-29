@@ -86,12 +86,12 @@ Workers are evaluated based on:
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
-    - a. Select a model that can perform completions
+   1. Select a model that can perform completions
 
        [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
-    - b. Give your model a Deployment name and select “Create”
+   1. b. Give your model a Deployment name and select “Create”
 
-      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating azure OpenAI model.":::
+      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating Azure OpenAI model.":::
 
 5. Once your Azure OpenAI Model is created, copy down the 'Endpoint', 'Keys', and 'Region'
 
@@ -114,11 +114,12 @@ Workers are evaluated based on:
 
 
 7. Go to the Overview blade of your function app. 
-    - a. Select the newly created function.
+
+   1. Select the newly created function.
        
       :::image type="content" source="./media/azure-function-overview.png" alt-text="Screenshot of deployed function."::: 
     
-    - b. Select the "Get Function URL" button and copy down the URL.
+   1. Select the "Get Function URL" button and copy down the URL.
         
       :::image type="content" source="./media/get-function-url.png" alt-text="Screenshot of get function url.":::  
         

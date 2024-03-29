@@ -7,6 +7,7 @@ ms.subservice: sizes
 ms.collection: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
+ms.custom: linux-related-content
 ms.date: 06/01/2022
 ms.author: sasham
 --- 
