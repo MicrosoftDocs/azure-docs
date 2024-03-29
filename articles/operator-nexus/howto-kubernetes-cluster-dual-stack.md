@@ -1,6 +1,6 @@
 ---
 title: Create dual-stack Azure Operator Nexus Kubernetes cluster
-description: Learn how to create dual-stack Azure Operator Nexus Kubernetes cluster
+description: Learn how to create dual-stack Azure Operator Nexus Kubernetes cluster.
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -25,9 +25,8 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 ## Limitations
 
-* Single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
+* Single stack IPv6-only isn't supported for node or pod IP addresses. Workload Pods and services can use dual-stack (IPv4/IPv6).
 * Kubernetes administration API access to the cluster is IPv4 only. Any kubeconfig must be IPv4 because kube-vip for the kubernetes API server only sets up an IPv4 address.
-* Kubernetes control plane supports only IPv4, while workload Pods and services can use dual-stack (IPv4/IPv6).
 
 ## Configuration options
 
@@ -60,7 +59,7 @@ After updating the Pod and Service CIDR configuration to your parameter file, yo
 
 By following these instructions, you can create a dual-stack Nexus Kubernetes cluster with the desired IP pool configuration and take advantage of the dual-stack in your cluster services.
 
-To enable dual-stack `LoadBalancer` services in your cluster, you must ensure that the [IP pools are configured](./howto-kubernetes-service-load-balancer.md) with both IPv4 and IPv6 addresses. This will allow the LoadBalancer service to allocate IP addresses from the specified IP pools for the services, enabling effective communication between the services and the external network.
+To enable dual-stack `LoadBalancer` services in your cluster, you must ensure that the [IP pools are configured](./howto-kubernetes-service-load-balancer.md) with both IPv4 and IPv6 addresses. This allows the LoadBalancer service to allocate IP addresses from the specified IP pools for the services, enabling effective communication between the services and the external network.
 
 ### Example parameters
 
