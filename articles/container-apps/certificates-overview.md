@@ -21,7 +21,7 @@ The following table lists the options available to add certificates in Container
 |---|---|
 | [Create a free Azure Container Apps managed certificate](./custom-domains-managed-certificates.md) | A private certificate that's free of charge and easy to use if you just need to secure your custom domain in Container Apps. |
 | Import a certificate from Key Vault | Useful if you use [Azure Key Vault](../key-vault/index.yml) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). |
-| [Upload a private certificate](./custom-domains-certificates) | You can upload a private certificate if you already have one. |
+| [Upload a private certificate](./custom-domains-certificates.md) | You can upload a private certificate if you already have one. |
 
 ## Next steps
 
