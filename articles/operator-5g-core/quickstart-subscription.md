@@ -20,4 +20,4 @@ Access is currently limited. For now, we're working with customers that have an 
 
 [What is Azure Operator 5G Core?](overview-product.md)
 [Deploy Azure Operator 5G Core](quickstart-deploy-5g-core.md)
-[Deployment order for clusters, network functions, and observability](concept-deployment-order.md)
+[Deployment order for clusters, network functions, and observability.](concept-deployment-order.md)

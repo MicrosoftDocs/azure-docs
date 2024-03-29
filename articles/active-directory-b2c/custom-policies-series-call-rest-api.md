@@ -108,7 +108,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
-    1. To make a POST request similar to the one shown in this example, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
+    1. To make a POST request similar to the one shown in this example, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview).
     
     ```http
         POST http://localhost/validate-accesscode HTTP/1.1
@@ -147,7 +147,7 @@ At this point, you're ready to deploy your Node.js app.
 
 ### Step 1.2 - Deploy the Node.js app in Azure App Service
 
-For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
+For your custom policy to reach your Node.js app, it needs to be reachable, so, you need to deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
 
 Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
 
@@ -155,7 +155,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 
