@@ -1,13 +1,13 @@
 ---
-title: Istio service mesh aks add-on performance
-description: Istio service mesh aks add-on performance
+title: Istio service mesh AKS add-on performance
+description: Istio service mesh AKS add-on performance
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/19/2024
 ms.author: shalierxia
 ---
 
-# **Istio service mesh add-on performance**
+# Istio service mesh add-on performance
 The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load. 
 
 ## Control plane performance
@@ -16,7 +16,7 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 - Pod churn: examines the impact of pod churning on `istiod`. To reduce variables, only one service is used for all sidecars. 
 - Multiple services: examines the impact of multiple services on the maximum sidecars Istiod can manage (sidecar capacity), where each service has `N` sidecars, totaling the overall maximum.
 
-#### Test Specifications
+#### Test specifications
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
 - Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
@@ -27,9 +27,9 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 ### Pod churn
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars Istiod can manage when there's sidecar churning. The churn percent is defined as the percent of sidecars churned down/up during the test. For example, 50% churn for 10,000 sidecars would mean that 5,000 sidecars were churned down, then 5,000 sidecars were churned up. The churn percents tested were determined from the typical churn percentage during deployment rollouts (`maxUnavailable`). The churn rate was calculated by determining the total number of sidecars churned (up and down) over the actual time taken to complete the churning process.
 
-#### Sidecar Capacity and Istiod CPU and Memory
+#### Sidecar capacity and Istiod CPU and memory
 
-**Azure CNI Overlay**
+**Azure CNI overlay**
 
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
@@ -38,7 +38,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 |          50 | 31.2                        |              15000 |                 25.4 |           15 |
 
 
-**Azure CNI Overlay with Cilium**
+**Azure CNI overlay with Cilium**
 
 |   Churn (%) | Churn Rate (sidecars/sec)   |   Sidecar Capacity |   Istiod Memory (GB) |   Istiod CPU |
 |-------------|-----------------------------|--------------------|----------------------|--------------|
@@ -50,13 +50,13 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 ### Multiple services
 The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum number of sidecars `istiod` can manage with 1,000 services. The results can be compared to the 0% churn test (one service) in the pod churn scenario. Each service had `N` sidecars contributing to the overall maximum sidecar count. The API Server resource usage was observed to determine if there was any significant stress from the add-on.
 
-**Sidecar Capacity**
+**Sidecar capacity**
 
 |   Azure CNI Overlay |   Azure CNI Overlay with Cilium |
 |---------------------|---------------------------------|
 |               20000 |                           20000 |
 
-**CPU and Memory**
+**CPU and memory**
 
 | Resource               | Azure CNI Overlay  |   Azure CNI Overlay with Cilium |
 |------------------------|--------------------|---------------------------------|
@@ -71,7 +71,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 
 [Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
 
-#### Test Specifications
+#### Test specifications
 - Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU: Standard D16 v5 (16 vCPU, 64-GB memory)
 - Kubernetes version: 1.28.5
@@ -81,7 +81,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 - `http/1.1` protocol and mutual TLS enabled
 - 26 data points collected
 
-#### CPU and Memory
+#### CPU and memory
 The memory and CPU usage for both the client and server proxy for 16 client connections and 1000 QPS across all network plugin scenarios is roughly 0.4 vCPU and 72 MB. 
 
 #### Latency
