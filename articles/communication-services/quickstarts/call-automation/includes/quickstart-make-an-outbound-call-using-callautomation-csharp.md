@@ -217,9 +217,9 @@ To run the application with VS Code, open a Terminal window and run the followin
 ```bash
 dotnet run
 ```
-Open `http://localhost:8080/swagger/index.html` or your dev tunnel URL in browser. The tunnel URL looks like: `https://0pbvlk3m-7032.usw2.devtunnels.ms/swagger/index.html`
+Open `http://localhost:8080/swagger/index.html` or your dev tunnel URL in browser. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`
 # [Visual Studio](#tab/visual-studio)
 
-Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. The tunnel URL looks like: `https://0pbvlk3m-7032.usw2.devtunnels.ms/swagger/index.html`
+Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`
 
 
