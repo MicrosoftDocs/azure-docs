@@ -81,9 +81,6 @@ When you create a generalized VM to capture to an image, the following issues ca
     - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**.
     - Or run the following PowerShell command: `Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online`
  
-1. Disable the reserved storage state feature in the image by using the following command: 
-      `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.
-
 1. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. 
     - For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
  
