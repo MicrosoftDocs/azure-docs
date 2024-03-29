@@ -21,6 +21,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - Media optimization for Teams is only supported for the Remote Desktop client on machines running Windows 10 or later or macOS 10.14 or later.
 - Use of explicit HTTP proxies defined on the client endpoint device should work, but isn't supported.
 - Zoom in/zoom out of chat windows isn't supported.
+- Teams optimizations is not supported on RAIL for macOS endpoints.
 
 ### Calls and meetings
 
