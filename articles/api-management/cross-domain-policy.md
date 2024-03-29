@@ -39,7 +39,7 @@ Child elements must conform to the [Adobe cross-domain policy file specification
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 

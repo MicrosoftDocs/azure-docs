@@ -119,7 +119,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2
 
 ### Usage notes
 

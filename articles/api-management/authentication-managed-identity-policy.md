@@ -40,7 +40,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 

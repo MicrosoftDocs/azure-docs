@@ -51,7 +51,7 @@ The `validate-headers` policy validates the response headers against the API sch
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 

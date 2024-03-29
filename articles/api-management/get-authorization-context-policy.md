@@ -66,7 +66,7 @@ class Authorization
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 
