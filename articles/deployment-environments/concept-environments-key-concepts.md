@@ -45,7 +45,7 @@ An environment is a collection of Azure resources on which your application is d
 
 ## Identities
 
-in Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
+In Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
 
 The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant Contributor and User Access Administrator access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
 
@@ -64,7 +64,7 @@ Project environment types allow you to automatically apply the right set of poli
 
 ## Catalogs
 
-Catalogs help you provide a set of curated IaC templates for your development teams to create environments. Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample environment defintions. You can attach the quick start catalog to a dev center to make these environment defintions available to all the projects associated with the dev center. You can modify the sample environment definitions to suit your needs. 
+Catalogs help you provide a set of curated IaC templates for your development teams to create environments. Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample environment definitions. You can attach the quick start catalog to a dev center to make these environment definitions available to all the projects associated with the dev center. You can modify the sample environment definitions to suit your needs. 
 
 Alternately, you can attach your own catalog. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a catalog. 
 
