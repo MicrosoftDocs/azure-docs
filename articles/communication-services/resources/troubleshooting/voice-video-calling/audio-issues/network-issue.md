@@ -31,7 +31,7 @@ The application should listen to the `networkReconnect` event and display a warn
 so that the user is aware of the issue and understands that the audio loss is due to network reconnection.
 
 However, if the network reconnection occurs at the sender's side,
-users on the receiving end aren't be able to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
+users on the receiving end are unable to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
 
 In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 
