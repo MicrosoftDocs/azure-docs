@@ -3,7 +3,7 @@ title: Change Data Capture (CDC) of PostgreSQL table using Apache Flink®
 description: Learn how to perform CDC on PostgreSQL table using Apache Flink® 
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/28/2024
+ms.date: 03/29/2024
 ---
 
 # Change Data Capture (CDC) of PostgreSQL table using Apache Flink® 
@@ -187,7 +187,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
       'hostname' = 'flinkpostgres.postgres.database.azure.com',
       'port' = '5432',
       'username' = 'username',
-    ....
+      'password' = 'password',
       'database-name' = 'postgres',
       'schema-name' = 'public',
       'table-name' = 'shipments',
