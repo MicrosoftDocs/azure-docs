@@ -4,25 +4,18 @@ description: Use the Document Intelligence REST API v3.0 to create a forms proce
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom: ignite-2023, linux-related-content
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 03/27/2024
+ms.date: 03/28/2024
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
-
-
-:::moniker range="doc-intel-3.1.0"
-| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../../sdk-overview-v3-1.md) | 
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../../sdk-overview-v3-0.md) | 
-:::moniker-end
 
 > [!NOTE]
 >
-> This project uses the  `cURL` command-line tool to execute REST API calls.
+> This project uses cURL command-line tool to execute REST API calls.
+
+[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure client libraries](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported client libraries](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
