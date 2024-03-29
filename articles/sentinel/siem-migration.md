@@ -6,10 +6,12 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/11/2024
 ms.author: austinmc
+appliesto: 
+- Microsoft Sentinel in the Azure portal
 #customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 ---
 
-# Migrate to Microsoft Sentinel with the SIEM migration experience (preview)
+# Migrate to Microsoft Sentinel with the SIEM migration experience
 
 Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cases. Automated assistance from the SIEM Migration experience simplifies your migration. 
 
@@ -31,35 +33,33 @@ You need the following from the source SIEM:
 You need the following on the target, Microsoft Sentinel:
 
 - The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
-- Ingest security data previously used in your source SIEM into Microsoft Sentinel by enabling an out-of-the-box (OOTB) data connector. 
-    - If the data connector isn't installed yet, find the relevant solution in **Content hub**. 
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Install and enable out-of-the-box (OOTB) data connectors to match your security monitoring estate from your source SIEM.
+    - If the data connectors aren't installed yet, find the relevant solutions in **Content hub**. 
     - If no data connector exists, create a custom ingestion pipeline.<br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
 
 ## Translate Splunk detection rules
 
 At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
 
-Capabilities in public preview:
+Current capabilities:
 
 - Translate simple queries with a single data source
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
 - Review translated query error feedback with edit capability to save time in the detection rule translation process
+- Translated queries feature a completeness status with translation states 
 
 Here are some of the priorities that are important to us as we continue to develop the translation technology:
 
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
-- Translated queries feature a completeness status with translation states 
-- Multiple data sources and index
-- Rule correlations
-- Support for macros
-- Support for lookups 
-- Complex queries with joins
+- Support for Splunk macros
+- Support for Splunk lookups
+- Translation of complex correlation logic that queries and correlates events across multiple data sources
 
 ## Start the SIEM migration experience
 
 1. Navigate to Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 
-1. Select **SIEM Migration (Preview)**. 
+1. Select **SIEM Migration**. 
 
 :::image type="content" source="media/siem-migration/siem-migration-experience.png" alt-text="Screenshot showing content hub with menu item for the SIEM migration experience.":::
 
@@ -89,7 +89,12 @@ Here are some of the priorities that are important to us as we continue to devel
 1. Review the analysis of the Splunk export.
 
     - **Name** is the original Splunk detection rule name.
-    - **Compatibility** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic. 
+    - **Translation Type** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic.
+    - **Translation State** has the following values:
+        - **Fully Translated** queries in this rule were fully translated to KQL
+        - **Partially Translated** queries in this rule weren't fully translated to KQL
+        - **Not Translated** indicates an error in translation
+        - **Manually Translated** when any rule is reviewed and saved
 
     :::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
@@ -100,11 +105,21 @@ Here are some of the priorities that are important to us as we continue to devel
 
 ## Deploy the Analytics rules
 
-1. Select **Deploy** to start the deployment of analytics rules to your Microsoft Sentinel workspace. 
+1. (Optional) Select **Export Templates** to download the Analytics rules as ARM templates for us in your CI/CD or custom deployment processes.
+
+    :::image type="content" source="media/siem-migration/export-templates.png" alt-text="Screenshot showing the Review and Migrate tab highlighting the Export Templates button.":::
+ 
+1. **Deploy** starts the deployment of the selected analytics rules to your Microsoft Sentinel workspace. 
 
    The following resources are deployed:
    - For all OOTB matches, the corresponding solutions with the matched analytics rule are installed, and the matched rules are deployed as active analytics rules.
-   - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules.
+   - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules in the disabled state.
+
+1. Before exiting the SIEM Migration experience, **Download Migration Summary** to keep a summary of the Analytics deployment.
+
+    :::image type="content" source="media/siem-migration/download-migration-summary.png" alt-text="Screenshot showing the Download Migration Summary button from the Review and Migrate tab.":::
+
+## Validate and enable rules
 
 1. View the properties of deployed rules from Microsoft Sentinel **Analytics**.
 
@@ -118,7 +133,7 @@ Here are some of the priorities that are important to us as we continue to devel
      `triggerThreshold`<br>
      `suppressionDuration`
 
-1. Enable rules you've reviewed and verified. 
+1. Enable rules after you review and verify them.
 
 ## Next step
 

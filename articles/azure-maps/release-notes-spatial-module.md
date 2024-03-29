@@ -14,7 +14,7 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Spatial IO Module.
 
-## [0.1.8] (February 22 2024)
+## [0.1.8] (February 22, 2024)
 
 ### Bug fixes (0.1.8)
 
