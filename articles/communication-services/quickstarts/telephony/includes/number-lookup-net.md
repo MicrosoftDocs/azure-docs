@@ -1,7 +1,7 @@
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ dotnet build
 ```
 
 ### Connect to dev package feed
-The public preview version of the SDK is published to a dev package feed. You can add the dev feed using the [NuGet CLI](/nuget/reference/nuget-exe-cli-reference), which adds it to the NuGet.Config file.
+The public preview version of the SDK is published to a dev package feed. You can add the dev feed using the [NuGet CLI](https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference), which adds it to the NuGet.Config file.
 
 ```console
 nuget sources add -Name "Azure SDK for .NET Dev Feed" -Source "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json"
@@ -146,4 +146,4 @@ dotnet run --interactive
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).
