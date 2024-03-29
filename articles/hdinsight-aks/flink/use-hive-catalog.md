@@ -151,7 +151,7 @@ wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.17.
 
 **Moving the planner jar**
 
-Move the jar flink-table-planner_2.12-1.16.0-0.0.18.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader-1.16.0-0.0.18.jar from /lib. Refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
+Move the jar flink-table-planner_2.12-1.17.0-*.*.*.*.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/ from /lib. Refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
 
 ```
 mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
