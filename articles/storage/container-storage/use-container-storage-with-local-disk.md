@@ -191,11 +191,14 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ## Optional: Create storage pool with volume replication (NVMe only)
 
-Applications that use local NVMe can leverage storage replication for improved resiliency. Replication isn't currently supported for local SSD.
+Applications that use local NVMe can leverage storage replication for improved resiliency. Replication isn't currently supported for temp SSD.
 
 Azure Container Storage currently supports three-replica and five-replica configurations. If you specify three replicas, you must have at least three nodes in your AKS cluster. If you specify five replicas, you must have at least five nodes.
 
 Follow these steps to create a storage pool using local NVMe with replication.
+
+> [!NOTE]
+> Because Ephemeral Disk storage pools consume all the available NVMe disks, you must delete any existing Ephemeral Disk local NVMe storage pools before creating a new storage pool with replication.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
