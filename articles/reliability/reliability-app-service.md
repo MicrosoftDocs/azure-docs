@@ -330,7 +330,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 1. Create an Azure Front Door profile with:
     - An endpoint.
-    - Two origins inside the same origin group, each with a priority of 1. The equal priority tells Azure Front Door to route traffic to both regions equally (thus active-active).
+    - Two origin groups, each with a priority of 1. The equal priority tells Azure Front Door to route traffic to both regions equally (thus active-active).
     - A route. 
 
 1. [Limit network traffic to the web apps only from the Azure Front Door instance](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance). 
@@ -339,7 +339,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 1. Deploy code to both the web apps with [continuous deployment](../app-service/deploy-continuous-deployment.md).
 
-[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origin groups in Azure Front Door) give you an *active-active* architecture.
+[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origins in the origin group in Azure Front Door) give you an active-active architecture.
 
 
 ##### Active-passive architecture
@@ -386,7 +386,8 @@ Steps to create an active-passive architecture for your web app in App Service a
 1. Create two instances of your web app, with one in each App Service plan. 
 1. Create an Azure Front Door profile with:
     - An endpoint.
-    - Two origins inside the same origin group, one with a priority of 1 and the other with a priority of 2.
+    - An origin group with a priority of 1 for the primary region.
+    - A second origin group with a priority of 2 for the secondary region. The difference in priority tells Azure Front Door to prefer the primary region when it's online (thus active-passive).
     - A route. 
 1. [Limit network traffic to the web apps only from the Azure Front Door instance](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance). 
 1. Setup and configure all other back-end Azure service, such as databases, storage accounts, and authentication providers. 
