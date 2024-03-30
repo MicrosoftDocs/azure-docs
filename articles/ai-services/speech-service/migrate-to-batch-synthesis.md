@@ -21,7 +21,7 @@ The [Batch synthesis API](batch-synthesis.md) provides asynchronous synthesis of
 
 ## Base path and version
 
-Update the endpoint from `https://YourSpeechRegion.customvoice.api.speech.microsoft.com` to `https://YourSpeechRegion.api.cognitive.microsoft.com` or you can custom domain instead: `https://{customDomainName}.cognitiveservices.azure.com/`.
+Update the endpoint from `https://YourSpeechRegion.customvoice.api.speech.microsoft.com` to `https://YourSpeechRegion.api.cognitive.microsoft.com` or you can use custom domain instead: `https://{customDomainName}.cognitiveservices.azure.com/`.
 
 Update the base path in your code from `/texttospeech/v3.0/longaudiosynthesis` to `/texttospeech/batchsyntheses`.
 
