@@ -149,7 +149,6 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 ### MQTTv3.1.1 current limitations
 
 MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
-- Will Message isn't supported yet. Receiving a CONNECT request with Will Message results in a connection failure.
 - QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
 - Message ordering isn't guaranteed.
 - Keep Alive Maximum is 1,160 seconds.
