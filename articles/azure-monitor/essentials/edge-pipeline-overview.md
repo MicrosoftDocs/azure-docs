@@ -9,26 +9,37 @@ author: bwren
 
 # Overview of Azure Monitor pipeline for edge and multicloud
 
-Azure Monitor pipeline for edge and multicloud extends the Azure Monitor data pipeline beyond the cloud to the edge of your data center and other clouds. It enables at-scale collection, transformation, and routing of telemetry data at the edge of your data center and to the cloud. It extends the Azure Monitor pipeline beyond the 
+Azure Monitor pipeline for edge and multicloud extends the Azure Monitor data pipeline beyond the cloud to the edge of your data center and other clouds. It enables at-scale collection, transformation, and routing of telemetry data at the edge of your data center before your data is delivered to Azure Monitor in the Azure cloud.
 
-- Scalability. 
-- Periodic connectivity.
-- Layered network.
+The specific use case for Azure Monitor edge pipeline are:
 
+- **Scalability**. The edge pipeline can handle large volumes of data from monitored resources  that may be limited by other collection methods such as Azure Monitor agent.
+- **Periodic connectivity**. Some environments may have unreliable connectivity to the cloud, or may have long unexpected periods without connection. The edge pipeline can cache data locally and sync with the cloud when connectivity is restored.
+- **Layered network**. In some environments, the network is segmented and data cannot be sent directly to the cloud. The edge pipeline can be used to collect data from monitored resources without cloud access and act as a proxy connection to Azure Monitor.
 
-It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
+## Basic operation
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an Arc-enabled Kubernetes cluster. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
 
-Azure Monitor Pipeline will be deployed on an Arc-enabled K8s cluster in the customers’ environment.  
-
+The following diagram shows the basic components of the Azure Monitor edge pipeline, including the two configuration files that define the operation of the pipeline. The pipeline configuration file defines the data sources and cache configuration for the edge pipeline, while the data collection rule (DCR) provides the definition of the incoming data for the cloud pipeline and potentially transforms the data before sending it to its destination.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-overview/.png" lightbox="media/edge-pipeline/edge-pipeline-overview/.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
 
+Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data.
 
-## Data plane
+## Cache configuration
 
-Azure Monitor edge pipeline can receive data, including logs, metrics, and traces from a variety of resources. It can send that data to another edge pipeline in the layer above it in a segmented network, Azure Monitor edge, or other endpoints for local observability or to Azure Monitor. During intermittent connectivity, it will cache the collected data streams for up to 72 hours and sync the data with cloud as configured (either FIFO or real-time data first).
+During intermittent connectivity, Azure Monitor edge pipeline will cache collected data for up to 72 hours and sync the data with cloud as configured (either FIFO or real-time data first).
 
-## Configuration processing
+
+
+
+
+
+## Old
+
+Azure Monitor edge pipeline can receive data, including logs, metrics, and traces from a variety of resources. It can send that data to another edge pipeline in the layer above it in a segmented network, Azure Monitor edge, or other endpoints for local observability or to Azure Monitor. 
+
+### Configuration processing
 
 Azure Monitor edge pipeline can collect data from resources using Azure Monitor agent (AMA), or through polling/pulling. You can deploy the required agent configuration to collect the data from your edge resources which then will be emitted to the edge pipeline. In cases where agent cannot be installed, you can define configurations to implement receivers and collect the data and emit to the edge pipeline for forwarding.  
 
