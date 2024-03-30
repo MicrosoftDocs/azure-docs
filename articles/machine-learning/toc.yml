@@ -351,6 +351,9 @@
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
+      - name: Troubleshoot data labeling projects
+        displayName: data, dataset, labeling
+        href: how-to-troubleshoot-data-labeling.md
     - name: Manage labeling projects
       displayName: data, dataset
       href: how-to-manage-labeling-projects.md      
@@ -595,8 +598,6 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to use Azure OpenAI models
-      href: how-to-use-openai-models-in-azure-ml.md
     - name: How to deploy Llama 2 family models
       href: how-to-deploy-models-llama.md
     - name: How to deploy Mistral family models
@@ -673,6 +674,8 @@
               href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+            - name: Advance your maturity level
+              href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
         - name: Transparency note
@@ -1269,7 +1272,7 @@
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
-        - name: Workspace Diagnostics
+        - name: Workspace diagnostics
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
@@ -1358,7 +1361,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor Azure Machine Learning
+    - name: Monitor
       href: monitor-azure-machine-learning.md
     - name: Secure coding
       displayName: security threat
@@ -1594,8 +1597,8 @@
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: Monitor data reference
-      href: monitor-resource-reference.md
+    - name: Monitoring data reference
+      href: monitor-azure-machine-learning-reference.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

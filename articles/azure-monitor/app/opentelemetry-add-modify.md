@@ -516,7 +516,7 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
- ```javascript
+```javascript
     // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics } = require("@opentelemetry/api");
@@ -1725,16 +1725,8 @@ Adding one or more span attributes populates the `customDimensions` field in the
 ```typescript
 // Import the necessary packages.
 const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
 const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
 const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
-
-// Enable Azure Monitor integration.
-useAzureMonitor();
-
-// Get the NodeTracerProvider instance.
-const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
 
 // Create a new SpanEnrichingProcessor class.
 class SpanEnrichingProcessor implements SpanProcessor {
@@ -1755,8 +1747,13 @@ class SpanEnrichingProcessor implements SpanProcessor {
   }
 }
 
-// Add the SpanEnrichingProcessor instance to the NodeTracerProvider instance.
-tracerProvider.addSpanProcessor(new SpanEnrichingProcessor());
+// Enable Azure Monitor integration.
+const options: AzureMonitorOpenTelemetryOptions = {
+    // Add the SpanEnrichingProcessor
+    spanProcessors: [new SpanEnrichingProcessor()] 
+}
+useAzureMonitor(options);
+
 ```
 
 ##### [Python](#tab/python)
@@ -1769,21 +1766,21 @@ Use a custom processor:
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Create a SpanEnrichingProcessor instance.
+span_enrich_processor = SpanEnrichingProcessor()
+
 # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
 # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
+    # Configure the custom span processors to include span enrich processor.
+    span_processors=[span_enrich_processor],
 )
 
-# Create a SpanEnrichingProcessor instance.
-span_enrich_processor = SpanEnrichingProcessor()
-
-# Add the span enrich processor to the current TracerProvider.
-trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 ...
 ```
 
-Add `SpanEnrichingProcessor.py` to your project with the following code:
+Add `SpanEnrichingProcessor` to your project with the following code:
 
 ```python
 # Import the SpanProcessor class from the opentelemetry.sdk.trace module.
@@ -1804,7 +1801,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 #### Set the user IP
 
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You can populate the _client_IP_ field for requests by setting an attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1813,7 +1810,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```C#
 // Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
+activity.SetTag("client.address", "<IP Address>");
 ```
 
 #### [.NET](#tab/net)
@@ -1960,29 +1957,27 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 #### [Node.js](#tab/nodejs)
 
 ```typescript
-    // Import the useAzureMonitor function and the logs module from the @azure/monitor-opentelemetry and @opentelemetry/api-logs packages, respectively.
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { logs } = require("@opentelemetry/api-logs");
-    import { Logger } from "@opentelemetry/sdk-logs";
+    const bunyan = require('bunyan');
 
-    // Enable Azure Monitor integration.
-    useAzureMonitor();
+    // Instrumentations configuration
+    const options: AzureMonitorOpenTelemetryOptions = {
+        instrumentationOptions: {
+            // Instrumentations generating logs
+            bunyan: { enabled: true },
+        }
+    };
 
-    // Get the logger for the "testLogger" logger name.
-    const logger = (logs.getLogger("testLogger") as Logger);
+    // Enable Azure Monitor integration
+    useAzureMonitor(options);
 
-    // Create a new log record.
-    const logRecord = {
-      body: "testEvent",
-      attributes: {
+    var log = bunyan.createLogger({ name: 'testApp' });
+    log.info({
         "testAttribute1": "testValue1",
         "testAttribute2": "testValue2",
         "testAttribute3": "testValue3"
-      }
-    };
+    }, 'testEvent');
 
-    // Emit the log record.
-    logger.emit(logRecord);
 ```
 
 #### [Python](#tab/python)
@@ -2147,18 +2142,28 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
     ```typescript
-    // Import the SpanKind and TraceFlags classes from the @opentelemetry/api package.
+    // Import the necessary packages.
     const { SpanKind, TraceFlags } = require("@opentelemetry/api");
+    const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
 
     // Create a new SpanEnrichingProcessor class.
-    class SpanEnrichingProcessor {
-
-      onEnd(span) {
-        // If the span is an internal span, set the trace flags to NONE.
-        if(span.kind == SpanKind.INTERNAL){
-          span.spanContext().traceFlags = TraceFlags.NONE;
+    class SpanEnrichingProcessor implements SpanProcessor {
+        forceFlush(): Promise<void> {
+            return Promise.resolve();
         }
-      }
+
+        shutdown(): Promise<void> {
+            return Promise.resolve();
+        }
+
+        onStart(_span: Span): void {}
+
+        onEnd(span) {
+            // If the span is an internal span, set the trace flags to NONE.
+            if(span.kind == SpanKind.INTERNAL){
+            span.spanContext().traceFlags = TraceFlags.NONE;
+            }
+        }
     }
     ```
 
@@ -2205,14 +2210,14 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
+        # Configure the custom span processors to include span filter processor.
+        span_processors=[span_filter_processor],
     )
-    
-    # Add a SpanFilteringProcessor to the tracer provider.
-    trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
+
     ...
     ```
     
-    Add `SpanFilteringProcessor.py` to your project with the following code:
+    Add `SpanFilteringProcessor` to your project with the following code:
     
     ```python
     # Import the necessary libraries.

@@ -4,6 +4,7 @@ description: Installations for creating a virtual switch for Azure IoT Edge for 
 author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/30/2021

@@ -57,6 +57,8 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ### [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Redis).
@@ -77,14 +79,14 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
-    ```json
-    {
-      "version": "2.0",
-      "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-        "version": "[4.11.*, 5.0.0)"
-      }
-    }
+   ```json
+   {
+     "version": "2.0",
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+       "version": "[4.11.*, 5.0.0)"
+     }
+   }
    ```
 
    >[!WARNING]

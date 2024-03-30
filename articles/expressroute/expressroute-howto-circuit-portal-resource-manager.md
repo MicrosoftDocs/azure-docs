@@ -43,17 +43,17 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
 1. Select the **Subscription** and **Resource Group** for the circuit. Then select the type of **Resiliency** for your setup.
 
-    **Maximum Resiliency (Recommended)** - This option provides the highest level of resiliency for your ExpressRoute circuit. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute locations.
+    **Maximum Resiliency (Recommended)** - This option provides the highest level of resiliency for your ExpressRoute connectivity. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute locations.
 
     > [!NOTE]
-    > Provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for mission-critical and production workloads.
+    > Maximum Resiliency provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for all critical and production workloads.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
     **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
     
     > [!NOTE]
-    > Doesn't provide protection against location wide outages. This option is recommended for development/test environment and non-production workloads.
+    > Standard Resiliency does not provide protection against location wide outages. This option is suitable for non-critical and non-production workloads.
     
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of standard resiliency for an ExpressRoute connection.":::
 

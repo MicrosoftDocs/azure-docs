@@ -1,6 +1,6 @@
 ---
 title: Enrich your project with active learning
-description: In this tutorial, learn how to enrich your question answering projects with active learning
+description: In this tutorial, learn how to enrich your custom question answering projects with active learning
 ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
@@ -20,13 +20,13 @@ In this tutorial, you learn how to:
 > * Accept/reject active learning suggestions
 > * Add alternate questions
 
-This tutorial shows you how to enhance your question answering project with active learning. If you notice that customers are asking questions, which are not part of your project. There are often variations of questions that are paraphrased differently.
+This tutorial shows you how to enhance your custom question answering project with active learning. If you notice that customers are asking questions, which are not part of your project. There are often variations of questions that are paraphrased differently.
 
 These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the project receives regular user traffic to generate suggestions.
 
 ## Enable active learning
 
-Active learning is turned on by default for question answering enabled resources.
+Active learning is turned on by default for custom question answering enabled resources.
 
 To try out active learning suggestions, you can import the following file as a new project: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv).
 
@@ -40,7 +40,7 @@ curl "https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob
 
 ## Import file
 
-From the edit project pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
+From the edit project pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. Then, select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of edit project menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)

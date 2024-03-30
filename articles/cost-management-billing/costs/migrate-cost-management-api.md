@@ -225,7 +225,7 @@ Use the Price Sheet API to view all Azure Consumption services Price Sheet data 
 
 Using the API returns the price sheet for the entire account. However, you can also get a condensed version of the price sheet in PDF format. The summary includes Azure Consumption and Marketplace consumption services that are billed for a specific invoice. The invoice is identified by the {invoiceId}, which is the same as the **Invoice Number** shown in the Invoice Summary PDF files. Here's an example.
 
-![Example image showing the Invoice Number that corresponds to the InvoiceId](./media/migrate-cost-management-api/invoicesummary.png)
+:::image type="content" border="true" source="./media/migrate-cost-management-api/invoicesummary.png" alt-text="Screenshot showing the Invoice Number that corresponds to the Invoice ID.":::
 
 To view invoice information with the Price Sheet API in CSV format:
 

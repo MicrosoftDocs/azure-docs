@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 2/22/2024
+ms.date: 3/26/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -35,7 +35,11 @@ Since scaling is blocked during the migration, you should scale your environment
 
 We recommend that you use the [Azure portal](how-to-migrate.md?pivots=experience-azp) for the in-place migration experience. If you decide to use the [Azure CLI](/cli/azure/) for the migration, follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
 
-For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/).
+For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. 
+
+> [!NOTE]
+> We recommend that you use a Bash shell to run the commands given in this guide. The commands might not be compatible with PowerShell conventions and escape characters.
+>
 
 ## 1. Get your App Service Environment ID
 
@@ -50,13 +54,19 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate that migration is supported
 
-The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md).
+The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md). This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, you need to start the upgrade yourself. For more information on the premigration upgrade, see [Validate that migration is supported using the in-place migration feature for your App Service Environment](migrate.md#validate-that-migration-is-supported-using-the-in-place-migration-feature-for-your-app-service-environment).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
 ```
 
 If there are no errors, your migration is supported, and you can continue to the next step.
+
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=PreMigrationUpgrade"
+```
 
 ## 3. Generate IP addresses for your new App Service Environment v3 resource
 
@@ -153,7 +163,7 @@ If you're using a user-assigned managed identity for your custom domain suffix c
     "properties": {
         "zoneRedundant": true,
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
         }
@@ -171,7 +181,7 @@ If you're using a system-assigned managed identity for your custom domain suffix
     "location": "westcentralus",
     "properties": {
         "customDnsSuffixConfiguration": {
-            "dnsSuffix": "internal-contoso.com",
+            "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
             "keyVaultReferenceIdentity": "SystemAssigned"
         }
@@ -232,6 +242,8 @@ If your environment isn't supported for migration, a banner appears at the top o
 If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you can't use the migration feature. If your environment [isn't supported for migration with the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md).
 
 :::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows an example portal message that says the migration feature doesn't support the App Service Environment.":::
+
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, you're prompted to start the upgrade. Select **Upgrade** to start the upgrade. When the upgrade completes, you pass validation and can use the migration feature to start your migration.
 
 If migration is supported for your App Service Environment, proceed to the next step in the process. The **Migration** page guides you through the series of steps to complete the migration.
 
@@ -305,7 +317,7 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 >
 > :::image type="content" source="./media/migration/migration-error-2.png" alt-text="Screenshot that shows the potential error notification after migration starts.":::
 
-At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the [Azure CLI section for migrating to App Service Environment v3](#8-migrate-to-app-service-environment-v3-and-check-status).
+At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the Azure CLI section for migrating to App Service Environment v3. You can check the status of the migration with the CLI even if you use the portal to do the migration.
 
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 

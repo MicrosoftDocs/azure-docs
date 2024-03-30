@@ -17,6 +17,9 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
+
 The prompt flow *Vector DB Lookup* tool is a vector search tool that allows users to search top-k similar vectors from vector database. This tool is a wrapper for multiple third-party vector databases. The list of current supported databases is as follows.
 
 | Name | Description |

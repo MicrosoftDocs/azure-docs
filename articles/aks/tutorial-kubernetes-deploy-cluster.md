@@ -72,11 +72,11 @@ You use the Kubernetes CLI, [`kubectl`][kubectl], to connect to your Kubernetes 
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD Environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. The Kubernetes CLI is in the file, along with any ACR images.
+`azd` environments in a codespace automatically download all dependencies found in `./devcontainer/devcontainer.json`. This includes the Kubernetes CLI along with any Azure Container Registry (ACR) images.
 
 * To install `kubectl` locally, use the [`az aks install-cli`][az aks install-cli] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks install-cli
     ```
 
@@ -128,7 +128,7 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-AZD packages the deployment of clusters with the application itself using `azd up`. This command is covered in the next tutorial.
+`azd` packages the deployment of clusters with the application itself using the `azd up` command. This command is covered in the next tutorial.
 
 ---
 
@@ -180,11 +180,9 @@ AZD packages the deployment of clusters with the application itself using `azd u
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-Sign in to your Azure Account through AZD configures your credentials.
+1. Configure authentication to your cluster using the [`azd auth login`][azd-auth-login] command.
 
-1. Authenticate using AZD.
-
-    ```azurecli-interactive
+    ```azdeveloper
     azd auth login 
     ```
 
@@ -196,7 +194,7 @@ Sign in to your Azure Account through AZD configures your credentials.
     kubectl get nodes
     ```
 
-    The following example output shows a list of the cluster nodes.
+    The following example output shows a list of the cluster nodes
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
@@ -244,3 +242,4 @@ In the next tutorial, you learn how to deploy an application to your cluster.
 [install-azaksclitool]: /powershell/module/az.aks/install-azaksclitool
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [aks-k8s-rbac]: azure-ad-rbac.md
+[azd-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login

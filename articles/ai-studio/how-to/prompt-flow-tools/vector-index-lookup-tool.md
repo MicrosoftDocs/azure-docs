@@ -17,6 +17,9 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
+
 The prompt flow *Vector index lookup* tool is tailored for querying within vector index such as Azure AI Search. You can extract contextually relevant information from a domain knowledge base.
 
 ## Build with the Vector index lookup tool

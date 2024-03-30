@@ -156,5 +156,5 @@ After you delete an environment definition, development teams can no longer use 
 
 ## Related content
 
-- [Create and configure a project](./quickstart-create-and-configure-projects.md)
+- [Add and configure a catalog from GitHub or Azure DevOps](how-to-configure-catalog.md)
 - [Create and configure an environment type](quickstart-create-access-environments.md)

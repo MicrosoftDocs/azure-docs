@@ -71,17 +71,14 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 [PhoneNumberIdentifier](/java/api/com.azure.communication.common.phonenumberidentifier)
 
-### Microsoft bot
+### Microsoft Teams Application
 
-> [!NOTE]
-> The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Microsoft Entra bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Microsoft Entra bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+The `MicrosoftTeamsAppIdentifier` interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant with its Microsoft Entra bot object ID. The Teams applications should be configured with a resource account. You can retrieve the Microsoft Entra bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
 
 #### Basic usage
 
 ```java
-// Get the Microsoft bot's ID from Graph APIs
+// Get the Microsoft Teams App's ID from Graph APIs
 var user = graphClient.users()
 	.buildRequest()
 	.filter(filterConditions)
@@ -92,16 +89,15 @@ var user = graphClient.users()
 var bot = getBotFromUsers(users);
 
 // Create an identifier
-var botIdentifier = new MicrosoftBotIdentifier(bot.id);
+var teamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.id);
 
 // If you're not operating in the public cloud, you must also pass the right Cloud type.
-// If you use Azure Bot Framework instead of Teams Voice applications, set property isResourceAccountConfigured to false.
-var gcchBotIdentifier = new MicrosoftBotIdentifier(bot.id, true, CommunicationCloudEnvironment.GCCH);
+var gcchTeamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.id, CommunicationCloudEnvironment.GCCH);
 ```
 
 #### API reference
 
-[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview&preserve-view=true)
+[MicrosoftTeamsAppIdentifier](/java/api/com.azure.communication.common.microsoftteamsappidentifier)
 
 ### Unknown
 

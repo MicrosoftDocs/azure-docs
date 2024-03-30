@@ -5,22 +5,20 @@ description: Learn how to deploy Llama 2 family of large language models with Az
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 3/6/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
-
-#This functionality is also available in Azure Machine Learning: /azure/machine-learning/how-to-deploy-models-llama.md
 ---
 
 # How to deploy Llama 2 family of large language models with Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 In this article, you learn about the Llama 2 family of large language models (LLMs). You also learn how to use Azure AI Studio to deploy models from this set either as a service with pay-as you go billing or with hosted infrastructure in real-time endpoints.
 
 The Llama 2 family of LLMs is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Llama-2-chat.
-
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 ## Deploy Llama 2 models with pay-as-you-go
 
@@ -47,7 +45,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in AI hubs created in **East US 2** and **West US 3** regions.
+    > For Llama 2 family models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
@@ -77,9 +75,9 @@ To create a deployment:
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
+    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
-1. On the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
 
     :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
 

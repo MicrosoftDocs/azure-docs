@@ -66,9 +66,6 @@ To create a compute instance in Azure AI Studio:
     - **Assign a managed identity**: You can attach system assigned or user assigned managed identities to grant access to resources. The name of the created system managed identity will be in the format `/workspace-name/computes/compute-instance-name` in your Microsoft Entra ID.
     - **Enable SSH access**: Enter credentials for an administrator user account that will be created on each compute node. These can be used to SSH to the compute nodes.
 Note that disabling SSH prevents SSH access from the public internet. When a private virtual network is used, users can still SSH from within the virtual network.
-    - **Enable virtual network**:
-        - If you're using an Azure Virtual Network, specify the Resource group, Virtual network, and Subnet to create the compute instance inside an Azure Virtual Network. You can also select No public IP to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these network requirements for virtual network setup.
-        - If you're using a managed virtual network, the compute instance is created inside the managed virtual network. You can also select No public IP to prevent the creation of a public IP address. For more information, see managed compute with a managed network.
 
 1. On the **Applications** page you can add custom applications to use on your compute instance, such as RStudio or Posit Workbench. Then select **Next**.
 1. On the **Tags** page you can add additional information to categorize the resources you create. Then select **Review + Create** or **Next** to review your settings.

@@ -8,6 +8,7 @@ ms.date: 07/25/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
+ms.custom: linux-related-content
 ---
 
 # Azure VM Image Builder networking options

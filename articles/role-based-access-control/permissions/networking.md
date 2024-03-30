@@ -412,7 +412,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/checkTrafficManagerNameAvailability/action | Checks the availability of a Traffic Manager Relative DNS name. |
 > | Microsoft.Network/internalNotify/action | DNS alias resource notification |
 > | Microsoft.Network/getDnsResourceReference/action | DNS alias resource dependency request |
-> | Microsoft.Network/queryExpressRoutePortsBandwidth/action | Queries ExpressRoute Ports Bandwidth |
 > | Microsoft.Network/checkFrontDoorNameAvailability/action | Checks whether a Front Door name is available |
 > | Microsoft.Network/privateDnsZonesInternal/action | Executes Private DNS Zones Internal APIs |
 > | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Get Application Gateway available Request Headers |

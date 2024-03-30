@@ -91,7 +91,7 @@ The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-updat
 During the lifecycle of your IoT solution, you might need to roll over the keys used to authenticate devices. For example, you might need to roll over your keys if you suspect that a key is compromised or if a certificate expires:
 
 - [Roll over the keys used to authenticate devices in IoT Hub and DPS](../iot-dps/how-to-roll-certificates.md)
-- [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-x509-device-certificates)
+- [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-your-x509-device-certificates)
 
 ## Device monitoring
 

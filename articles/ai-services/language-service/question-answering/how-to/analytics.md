@@ -91,7 +91,7 @@ AzureDiagnostics
 | project question_, answer_, score_, kbId_
 ```
 
-### Prebuilt question answering inference calls
+### Prebuilt custom question answering inference calls
 
 ```kusto
 // Show logs from AzureDiagnostics table 
