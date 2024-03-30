@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: PatrickFarley
-author: pafarley
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # Content filtering in Azure AI Studio
