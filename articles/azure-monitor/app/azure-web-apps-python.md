@@ -44,7 +44,7 @@ The easiest way to monitor Python applications on Azure App Services is through 
 Activating monitoring in the Azure portal automatically instruments your application with Application Insights and requires no code changes.
 
 > [!NOTE]
-> You should only use autoinstrumentation on App Service if you are not using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
+> You should only use autoinstrumentation on App Service if you aren't using manual instrumentation of OpenTelemetry in your code, such as the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python) or the [Azure Monitor OpenTelemetry Exporter][azure_monitor_opentelemetry_exporter]. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
 
 ### Autoinstrumentation through Azure portal
 
@@ -138,7 +138,7 @@ You should only use autoinstrumentation on App Service if you are not using manu
 
 ### Missing telemetry
 
-If you are missing telemetry, follow these steps to confirm that autoinstrumentation is enabled correctly.
+If you're missing telemetry, follow these steps to confirm that autoinstrumentation is enabled correctly.
 
 #### Step 1: Check the Application Insights blade on your App Service resource
 
