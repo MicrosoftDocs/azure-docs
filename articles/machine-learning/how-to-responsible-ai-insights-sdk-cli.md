@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: mithigpe
 author: minthigpen
-ms.date: 02/14/2024
+ms.date: 03/29/2024
 ms.custom: responsible-ml, devx-track-python
 ---
 
@@ -81,10 +81,10 @@ The constructor component also accepts the following parameters:
 | `maximum_rows_for_test_dataset` | The maximum number of rows allowed in the test dataset, for performance reasons. | Integer, defaults to 5,000 |
 | `categorical_column_names` | The columns in the datasets, which represent categorical data. | Optional list of strings<sup>1</sup> |
 | `classes` | The full list of class labels in the training dataset. | Optional list of strings<sup>1</sup> |
-| `feature_metadata`| Specifies additional information the dashboard might need depending on task type. For forecasting, this includes specifying which column is the `datetime` column and which column is the `time_series_id` column. For vision, this might include mean pixel value or location data of an image.| |
+| `feature_metadata`| Specifies additional information the dashboard might need depending on task type. For forecasting, this includes specifying which column is the `datetime` column and which column is the `time_series_id` column. For vision, this might include mean pixel value or location data of an image.| Optional list of strings<sup>1</sup> |
 | `use_model_dependency`| Specifies if the model requires a separate docker container to be served in due to conflicting dependencies with the RAI dashboard. For forecasting, this must be enabled. Typically for other scenarios this isn't enabled.  | Boolean |
 
-<sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names` and `classes` inputs.
+<sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names`, `classes`, `feature_metadata` inputs.
 
 The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the `Gather RAI Insights dashboard` component at the end.
 
