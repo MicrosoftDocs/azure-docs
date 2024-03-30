@@ -616,6 +616,45 @@ Can assign existing published blueprints, but cannot create new blueprints. Note
 }
 ```
 
+## Carbon Optimization Reader
+
+/azure/carbon-optimization/permissions
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Carbon](../permissions/management-and-governance.md#microsoftcarbon)/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Carbon Optimization data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "name": "fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Carbon/carbonEmissionReports/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Carbon Optimization Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Cost Management Contributor
 
 Can view costs and manage cost configuration (e.g. budgets, exports)
