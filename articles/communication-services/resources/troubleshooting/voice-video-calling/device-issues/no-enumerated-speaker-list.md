@@ -20,20 +20,19 @@ The way browsers currently work may seem counterintuitive, as the permission to 
 The speaker and microphone enumeration shares the same permission information.
 
 When the microphone permission state is `prompt` or `denied`, the browser doesn't provide detailed information about the microphone devices and speaker devices.
-In this scenario, the `DeviceManager.getSpeakers` API returns an array with one object, where the `id` is set to `speaker:` and the name is set to an empty string.
+In this scenario, thv [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-getspeakers) API returns an array with one object, where the `id` is set to `speaker:` and the name is set to an empty string.
 
-Some platforms, such as iOS Safari, macOS Safari, or earlier versions of Firefox, don't support speaker enumeration.
+Some platforms, such as iOS Safari, macOS Safari, or earlier versions of Firefox don't support speaker enumeration.
 
 It's important to note that this scenario is different from the scenario where a user doesn't have any audio output device.
-In the latter case, the `DeviceManager.getSpeakers` API only returns an empty array, indicating that there's no available audio output device in the user's system.
+In the latter case, the [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-getspeakers) API only returns an empty array, indicating that there's no available audio output device in the user's system.
 
-## How to detect
-### SDK
-`DeviceManager.getSpeakers` API returns an empty array or an array with an object, where  the `id` is set to `speaker:` and the name is set to an empty string.
+## How to detect using the SDK
+[`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-getspeakers) API returns an empty array or an array with an object, where  the `id` is set to `speaker:` and the name is set to an empty string.
 
 Additionally, to detect the scenario where the user removes the speaker during the call and there are no available audio output devices in the system, the application can listen to the `noSpeakerDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md). This event can help the application understand the current situation, and show the warning message on its UI accordingly.
 
-For the platform that doesn't support speaker enumeration, you get an error when calling `DeviceManager.getSpeakers` API.
+For the platform that doesn't support speaker enumeration, you get an error when calling [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-getspeakers) API.
 
 The error code/subcode is
 
@@ -46,7 +45,7 @@ The error code/subcode is
 
 ## How to mitigate or resolve
 The application should always call the `DeviceManager.askDevicePermission` API to ensure that the required permissions are granted.
-If the user doesn't grant the microphone permission, the application should show a warning on its UI, so the user knows that they aren't able to see the speaker device list.
+If the user doesn't grant the microphone permission, the application should show a warning on its user interface, so the user knows that they aren't able to see the speaker device list.
 
-The application should also check whether the speaker list is empty or handle the error when calling `DeviceManager.getSpeakers` API, and show a warning accordingly.
+The application should also check whether the speaker list is empty or handle the error when calling [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-getspeakers) API, and show a warning accordingly.
 Additionally, the application should listen to the `noSpeakerDevicesEnumerated` event and show a message when there are no available speaker devices.

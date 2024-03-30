@@ -6,14 +6,14 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 03/29/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Overview of device and permission issues
-There are two different types of permissions in general: browser permission and system permission.
+Within the WebJS calling SDK there are two general different types of permissions: browser permission and system permission.
 When an application needs to access a user's audio or video input device, it requires permissions granted at both the browser and system level.
 
 If an application doesn't have the required permission, it can't access the device,
@@ -23,7 +23,7 @@ To avoid these issues, it's important for users to grant the necessary permissio
 If a user accidentally denies permission or needs to change their permissions later, they can usually do so through the browser settings.
 
 The permission is also necessary for the application to retrieve detailed device list information.
-The application can call `DeviceManager.askDevicePermission` to trigger the permission prompt UI.
+The application can call [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) to trigger the permission prompt UI.
 However, the browser may cache the permission result and return it without showing the permission prompt UI.
 If the permission result is `denied`, the user needs to update the permission through the browser settings.
 
