@@ -180,6 +180,7 @@ steps:
     artifactName: 'drop'
 ```
 
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 
@@ -473,14 +474,8 @@ steps:
     artifactName: 'drop'
 ```
 
-Please note that for Azure Functions Python applications there are two common build issues that can lead to no Functions found post deployment
-- The Agent Pool must be running on Ubuntu to ensure the packages are restored correctly from the build step.
-- If the Python Function app is not at the root of the repo then the pip install step must reference the correct location to create .python-packages.
-- This location will be case sensitve 
-    - E.G ``` pip install --target="./FunctionApp1/.python_packages/lib/site-packages" -r ./FunctionApp1/requirements.txt```
- - The Archive Files Step must generate an artifact that can be loaded into /home/site/wwwroot
-
-Please check the generated archive to ensure that the deployed file has the right format.
+Please check the generated archive to ensure that the deployed file has the right format. 
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 
