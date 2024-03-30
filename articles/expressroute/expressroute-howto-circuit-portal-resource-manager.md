@@ -91,7 +91,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
     **High Resiliency**
 
-    For high resiliency, select one of the supported ExpressRoute Metro service provider and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](expressroute-metro.md).
+    For high resiliency, select one of the supported ExpressRoute Metro service provider and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](metro.md).
 
     **Standard Resiliency**
 
