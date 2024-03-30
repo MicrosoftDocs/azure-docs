@@ -27,7 +27,7 @@ A vector database is a database designed to store and manage [vector embeddings]
 
 In a vector database, embeddings are indexed and queried through [vector search](#vector-search) algorithms based on their vector distance or similarity. A robust mechanism is necessary to identify the most relevant data. Some well-known vector search algorithms include Hierarchical Navigable Small World (HNSW), Inverted File (IVF), DiskANN, etc.
 
-Besides the above functionalities of a typical vector database, our integrated vector database also converts the existing raw data in your account into embeddings and stores them as vectors. This way, you avoid the extra cost of moving data to a separate vector database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance.
+Besides the above functionalities of a vector database that can only embeddings, an integrated vector database in a NoSQL or relational database converts the existing raw data in your account into embeddings and stores them alongside your original data. This way, you can better achieve data consistency, scale, and performance while avoiding the extra cost of replicating your data in a separate vector database.
 
 ## What are some vector database use cases?
 
@@ -41,7 +41,8 @@ Vector databases are used in numerous domains and situations across analytical a
 - identify data anomalies or fraudulent activities that are dissimilar from predominant or normal patterns
 - implement persistent memory for AI agents
 
-Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its low latency, high scalability, and high availability.
+> [!NOTE]
+> Besides these typical use cases for vector database, our integrated vector database is also an ideal solution for production-level LLM caching thanks to its low latency, high scalability, and high availability.
 
 It's especially popular to use vector databases to enable [retrieval-augmented generation (RAG)](#retrieval-augmented-generation) that harnesses LLMs and custom data or domain-specific information. This approach allows you to:
 
