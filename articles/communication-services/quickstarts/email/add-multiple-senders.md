@@ -10,7 +10,7 @@ ms.date: 03/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-# Quickstart: How to add and remove multiple email sender addresses
+# Quickstart: How to add and remove Multiple Sender Addresses to Email Communication Service
 
 In this quick start, you learn about how to add and remove multiple email sender addresses in Azure Communication Services.
 
