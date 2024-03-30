@@ -53,7 +53,7 @@ This process involves extracting pertinent information from a custom data source
 
 Here are multiple ways to implement RAG on your data by using our vector database functionalities:
 
-## How to implement vector database functionalities
+## How to implement integrated vector database functionalities
 
 ### API for MongoDB
 
