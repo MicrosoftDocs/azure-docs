@@ -16,15 +16,10 @@ ms.date: 03/29/2024
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
-Many AI-enhanced systems that emerged in 2023 use standalone vector databases that are distinct from "traditional" databases in their tech stacks. Instead of adding a separate vector database, you might want to use vector databases integrated into NoSQL or relational databases when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance.
+Many AI-enhanced systems that emerged in 2023 use standalone vector databases that are distinct from "traditional" databases in their tech stacks. Instead of adding a separate vector database, you might want to consider using vector databases integrated into NoSQL or relational databases when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this architecture keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance.
 
-The importance of data consistency, scale, and performance is why OpenAI built its ChatGPT service on top of Azure Cosmos DB. Here's how to implement its integrated vector database, thereby taking advantage of its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale:
-
-| | Description |
-| --- | --- |
-| **[Azure Cosmos DB for Mongo DB vCore](#api-for-mongodb)** | Store your application data and vector embeddings together in a single MongoDB-compatible service featuring natively integrated vector database. |
-| **[Azure Cosmos DB for PostgreSQL](#api-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with natively integrated vector database. |
-| **[Azure Cosmos DB for NoSQL](#nosql-api)** | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure AI Search. |
+> [!NOTE]
+> Data consistency, scale, and performance guarantees are why OpenAI built its ChatGPT service on top of Azure Cosmos DB. You, too, can take advantage of its integrated vector database, as well as its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale by referring to the [How to implement integrated vector database functionalities](#how-to-implement-integrated-vector-database-functionalities) section of this article.
 
 ## What is a vector database?
 
@@ -58,7 +53,7 @@ This process involves extracting pertinent information from a custom data source
 
 Here are multiple ways to implement RAG on your data by using our vector database functionalities:
 
-## How to implement vector database functionalities
+## How to implement integrated vector database functionalities
 
 ### API for MongoDB
 
