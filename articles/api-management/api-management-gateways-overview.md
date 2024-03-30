@@ -149,9 +149,9 @@ For details about monitoring options, see [Observability in Azure API Management
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ |
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ |
 
-<sup>1</sup> The v2 tiers support Azure Monitor-based analytics.
-<sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.
-<sup>2</sup> Tracing is currently unavailable in the v2 tiers.
+<sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
+<sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
+<sup>3</sup> Tracing is currently unavailable in the v2 tiers.
 
 ### Authentication and authorization
 
