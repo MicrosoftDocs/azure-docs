@@ -215,7 +215,7 @@ Azure service: [Container Registry](/azure/container-registry/)
 
 Accelerate your containerized application development without compromising security.
 
-Azure service: [Azure Kubernetes Service (AKS)](azure/aks/intro-kubernetes)
+Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
