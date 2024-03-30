@@ -11,7 +11,7 @@ ms.subservice: core
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 4/28/2023
+ms.date: 03/29/2024
 ---
 # Deploy your pipeline as batch endpoint 
 
