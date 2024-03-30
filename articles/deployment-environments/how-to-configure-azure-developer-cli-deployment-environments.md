@@ -1,19 +1,19 @@
 ---
 title: Configure Azure Developer CLI templates for use with ADE
-description: Understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+description: Understand how ADE and AZD work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
 ms.date: 03/26/2024
 
-# Customer intent: As a platform engineer, I want to use ADE and `azd` together to provision application infrastructure and deploy application code to the new infrastructure.
+# Customer intent: As a platform engineer, I want to use ADE and AZD together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
 # Configure Azure Developer CLI with Azure Deployment Environments
 
-In this article, you create a new environment from an existing Azure Developer CLI (AZD) compatible template by using AZD. You learn how Azure Deployment Environments (ADE) and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+In this article, you create a new environment from an existing Azure Developer CLI (AZD) compatible template by using AZD. You learn how Azure Deployment Environments (ADE) and AZD work together to provision application infrastructure and deploy application code to the new infrastructure.
 
 For more information about how AZD and ADE work together, see [Use Azure Developer CLI with Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md).
 
@@ -24,9 +24,7 @@ For more information about how AZD and ADE work together, see [Use Azure Develop
 
 ## Attach Microsoft quick start catalog
 
-Microsoft provides a quick start catalog that contains a set of AZD-compatible templates that you can use to create environments. You can attach the quick start catalog to your dev center.
-
-Create a new dev center and attach the Microsoft quick start catalog. The quick start catalog contains a set of templates that you can use to create environments. [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+Microsoft provides a quick start catalog that contains a set of AZD-compatible templates that you can use to create environments. You can attach the quick start catalog to your dev center at creation or add it later. The quick start catalog contains a set of templates that you can use to create environments.
 
 ## Examine an AZD-compatible template
 
@@ -71,7 +69,7 @@ When you work with AZD for the first time, there are some one-time setup tasks y
 
 #### Install the Azure Developer CLI extension for Visual Studio Code
 
-When you install azd, the azd tools are installed within azd scope rather than globally, and are removed if azd is uninstalled. You can install azd in Visual Studio Code or from the command line.
+When you install AZD, the AZD tools are installed within an AZD scope rather than globally, and are removed if AZD is uninstalled. You can install AZD in Visual Studio Code or from the command line.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -99,7 +97,7 @@ Sign in to AZD using the command palette:
 
 The output of commands issued from the command palette is displayed in an **azd dev** terminal like the following example:
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/press-any-key.png" alt-text="Screenshot of the azd dev terminal, showing the press any key to close message." lightbox="media/how-to-create-environment-with-azure-developer/press-any-key.png":::
+:::image type="content" source="media/how-to-create-environment-with-azure-developer/press-any-key.png" alt-text="Screenshot of the AZD developer terminal, showing the press any key to close message." lightbox="media/how-to-create-environment-with-azure-developer/press-any-key.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -115,7 +113,7 @@ Sign in to Azure at the CLI using the following command:
 
 #### Enable AZD support for ADE
 
-You can configure AZD to provision and deploy resources to your deployment environments using standard commands such as `azd up` or `azd provision`. When `platform.type` is set to `devcenter`, all AZD remote environment state and provisioning uses dev center components. AZD uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn’t used. 
+When `platform.type` is set to `devcenter`, all AZD remote environment state and provisioning uses dev center components. AZD uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn’t used. 
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -194,9 +192,37 @@ Now you're ready to create an environment to work in. You begin with an existing
 
 ---
 
+## Configure your devcenter 
+
+You can define AZD settings for your dev centers so that you don't need to specify them each time you update an environment. In this example, you define the names of the catalog, dev center, and project that you're using for your environment. 
+
+1. In Visual Studio Code, navigate to the *azure.yaml* file in the root of your project.
+ 
+1. In the azure.yaml file, add the following settings:
+
+   ```yaml
+   platform:
+       type: devcenter
+       config:
+           catalog: MS-cat
+           name: Contoso-DevCenter
+           project: Contoso-Dev-project
+   ```
+
+   :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-yaml-dev-center-settings.png" alt-text="Screenshot of the azure.yaml file with dev center settings highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-yaml-dev-center-settings.png":::
+
+To learn more about the settings you can configure, see [Configure dev center settings](/azure/developer/azure-developer-cli/ade-integration#configure-dev-center-settings).
+
+## Provision your environment
+
+You can use AZD to provision and deploy resources to your deployment environments using commands like `azd up` or `azd provision`. 
+
+To learn more about provisioning your environment, see [Create an environment by using the Azure Developer CLI](how-to-create-environment-with-azure-developer.md#provision-infrastructure-to-azure-deployment-environment).
+
+To how common AZD commands work with ADE, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
+
 
 ## Related content
 
 - [Add and configure an environment definition](./configure-environment-definition.md)
 - [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
-- [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create)
