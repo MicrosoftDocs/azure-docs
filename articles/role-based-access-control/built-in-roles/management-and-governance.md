@@ -618,7 +618,9 @@ Can assign existing published blueprints, but cannot create new blueprints. Note
 
 ## Carbon Optimization Reader
 
-/azure/carbon-optimization/permissions
+Allow read access to Azure Carbon Optimization data
+
+[Learn more](/azure/carbon-optimization/permissions)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
