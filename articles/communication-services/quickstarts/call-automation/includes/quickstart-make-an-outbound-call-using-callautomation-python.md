@@ -43,6 +43,7 @@ devtunnel create --allow-anonymous
 devtunnel port create -p 8080
 devtunnel host
 ```
+Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels)
 
 ## Update your application configuration
 
@@ -188,9 +189,10 @@ To run the application with VS Code, open a Terminal window and run the followin
 ```bash
 python main.py
 ```
+Open `http://localhost:8080` or your dev tunnel URL in browser.
 
 # [Visual Studio](#tab/visual-studio)
 
-Press Ctrl+F5 to run without the debugger.
+Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. To initiate an outbound call, click on the `Place a call!` button.
 
 
