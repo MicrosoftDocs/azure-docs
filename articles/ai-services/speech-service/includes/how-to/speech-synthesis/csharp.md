@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/30/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: devx-track-csharp
 ---
@@ -23,7 +23,7 @@ static async Task SynthesizeAudioAsync()
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     speechConfig.SpeechSynthesisLanguage = "en-US"; 
-    speechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";
+    speechConfig.SpeechSynthesisVoiceName = "en-US-AvaMultilingualNeural";
 }
 ```
 
@@ -160,7 +160,7 @@ To start using SSML for customization, you make a minor change that switches the
 
    ```xml
    <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
        When you're on the freeway, it's a good idea to use a GPS.
      </voice>
    </speak>
@@ -188,7 +188,7 @@ To start using SSML for customization, you make a minor change that switches the
    ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";`.
+> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-AvaMultilingualNeural";`.
 
 ## Subscribe to synthesizer events
 
@@ -213,7 +213,7 @@ class Program
     {
         var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);
          
-        var speechSynthesisVoiceName  = "en-US-JennyNeural";  
+        var speechSynthesisVoiceName  = "en-US-AvaMultilingualNeural";  
         var ssml = @$"<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
             <voice name='{speechSynthesisVoiceName}'>
                 <mstts:viseme type='redlips_front'/>
@@ -310,6 +310,28 @@ class Program
 ```
 
 You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Use a custom endpoint
+
+The custom endpoint is functionally identical to the standard endpoint used for text to speech requests. 
+
+One difference is that the `EndpointId` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+
+```csharp
+var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);     
+speechConfig.SpeechSynthesisVoiceName = "YourCustomVoiceName";
+speechConfig.EndpointId = "YourEndpointId";
+```
+
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="YourCustomVoiceName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
 
 ## Run and use a container
 

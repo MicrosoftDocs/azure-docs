@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/05/2023
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -399,7 +399,8 @@ You can also follow similar steps with a user-assigned managed identity.
       },
       // ...
       "properties": {
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+        "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
       }
     }

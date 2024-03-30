@@ -2,16 +2,20 @@
 title: Define a RESTful technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/08/2022
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer customer-facing apps with Azure Active Directory B2C, I want to learn how to define a REST technical profile, so that I can send and receive data from external services.
+
 ---
 
 # Define a RESTful technical profile in an Azure Active Directory B2C custom policy
@@ -65,7 +69,7 @@ The following example `TechnicalProfile` sends a verification email by using a t
 
 ```xml
 <TechnicalProfile Id="SendGrid">
-  <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+  <DisplayName>Use SendGrid's email API to send the code to the user</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
     <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
@@ -259,7 +263,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | version | Yes | Your REST API version. For example: 1.0.1 |
-| status | Yes | An HTTP response status codes-like number, and must be 409 |
+| status | Yes | An HTTP response status codes-like number, and must be 409. Your REST service can return an HTTP 4XX status code, but the value of the `status` filed in the JSON-formatted response body must be `409`. |
 | code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | userMessage | Yes | An error message that is shown to the user. |
@@ -272,13 +276,13 @@ The following example shows a C# class that returns an error message:
 ```csharp
 public class ResponseContent
 {
-  public string version { get; set; }
-  public int status { get; set; }
-  public string code { get; set; }
-  public string userMessage { get; set; }
-  public string developerMessage { get; set; }
-  public string requestId { get; set; }
-  public string moreInfo { get; set; }
+  public string Version { get; set; }
+  public int Status { get; set; }
+  public string Code { get; set; }
+  public string UserMessage { get; set; }
+  public string DeveloperMessage { get; set; }
+  public string RequestId { get; set; }
+  public string MoreInfo { get; set; }
 }
 ```
 

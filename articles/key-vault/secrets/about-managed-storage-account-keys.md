@@ -3,16 +3,15 @@ title: About Azure Key Vault managed storage account keys - Azure Key Vault
 description: Overview of Azure Key Vault managed storage account keys.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
-ms.date: 10/01/2021
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
-# About Azure Key Vault managed storage account keys
+# About Azure Key Vault managed storage account keys (Legacy)
 
 > [!IMPORTANT]
 > We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs and queues](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 

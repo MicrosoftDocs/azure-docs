@@ -6,7 +6,6 @@ author: an-emma
 ms.author: raan
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.custom: contperf-fy21q2
 ---
 
 # Azure Stream Analytics on IoT Edge
@@ -118,7 +117,7 @@ This version information was last updated on 2020-09-21:
       
       
 ## Get help
-For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

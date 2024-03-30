@@ -4,6 +4,7 @@ description: Learn how to use GitHub Actions to build, test, and deploy containe
 ms.topic: article
 ms.date: 09/12/2023
 ms.custom: github-actions-azure
+ms.subservice: aks-developer
 ---
 
 # Build, test, and deploy containers to Azure Kubernetes Service (AKS) using GitHub Actions
@@ -69,7 +70,7 @@ As an example, you can use GitHub Actions to deploy an application to your AKS c
         --name "ghActionAzureVote" \
         --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
         --role Contributor \
-        --sdk-auth
+        --json-auth
     ```
 
     Your output should look similar to the following example output:

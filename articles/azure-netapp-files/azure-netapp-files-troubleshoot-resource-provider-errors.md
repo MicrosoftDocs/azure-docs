@@ -2,16 +2,8 @@
 title: Troubleshoot Azure NetApp Files Resource Provider errors | Microsoft Docs
 description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-tags:
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 02/09/2022
 ms.author: anfdocs

@@ -2,27 +2,27 @@
 title: Deploy a Spatial Analysis web app
 titleSuffix: Azure AI services
 description: Learn how to use Spatial Analysis in a web application.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
-# How to: Deploy a Spatial Analysis web application
+# Deploy a Spatial Analysis web application
 
-Use this article to learn how to deploy a web app which will collect spatial analysis data(insights) from IotHub and visualize it. This can have useful applications across a wide range of scenarios and industries. For example, if a company wants to optimize the use of its real estate space, they are able to quickly create a solution with different scenarios. 
+Use this article to learn how to deploy a web app that collects Spatial Analysis data/insights from IoT Hub and visualizes it. This can have useful applications across a wide range of scenarios and industries. For example, if a company wants to optimize the use of its real estate space, they can quickly create a solution with different scenarios.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 * Deploy the Spatial Analysis container
 * Configure the operation and camera
-* Configure the IoT Hub connection in the Web Application
-* Deploy and test the Web Application
+* Configure the IoT Hub connection in the web application
+* Deploy and test the web Application
 
-This app will showcase below scenarios:
+The app will showcase the following scenarios:
 
 * Count of people entering and exiting a space/store
 * Count of people entering and exiting a checkout area/zone and the time spent in the checkout line (dwell time)
@@ -33,7 +33,7 @@ This app will showcase below scenarios:
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](../../iot-hub/index.yml)
-* A configured [host computer](spatial-analysis-container.md).
+* A configured [host computer](spatial-analysis-container.md)
 
 ## Deploy the Spatial Analysis container
 
@@ -50,7 +50,7 @@ Fill in the required parameters:
 * IoTHub Name: The name of the IoT Hub you created 
 * Edge Device Name: Create a name for your Edge Device
 
-```azurecli
+```azcli
 az login
 az account set --subscription <name or ID of Azure Subscription>
 az group create --name "<Resource Group Name>" --location "WestUS"
@@ -143,15 +143,15 @@ Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-anal
 
 At this point, the spatial analysis container is running the operation. It emits AI insights for the operations and routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the deployment manifest file and execute the deployment again.
 
-## Spatial Analysis Web Application
+## Build the web application
 
-The Spatial Analysis Web Application enables developers to quickly configure a sample web app, host it in their Azure environment, and use the app to validate E2E events.
+The Spatial Analysis web application enables developers to quickly configure a sample web app, host it in their Azure environment, and use the app to validate E2E events.
 
-## Build Docker Image
+### Build a Docker image
 
 Follow the [guide](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) to build and push the image to an Azure Container Registry in your subscription.
 
-## Setup Steps
+### Set up the docker container
 
 To install the container, create a new Azure App Service and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
@@ -176,7 +176,8 @@ Go to the Azure Service and verify the deployment was successful, and the web ap
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
 ## Get the PersonCount source code
-If you'd like to view or modify the source code for this application, you can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
+
+If you'd like to view or modify the source code for this application, you can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## Next steps
 

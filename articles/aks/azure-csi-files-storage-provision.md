@@ -3,8 +3,9 @@ title: Create a persistent volume with Azure Files in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 10/05/2023
+ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
+ms.date: 03/05/2024
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -28,7 +29,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of one or more shares on Azure Files. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Files file share.
 
-### Dynamic provisioning parameters
+### Storage class parameters for dynamic PersistentVolumes
+
+The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
@@ -150,7 +153,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
 
     ```output
     NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
-    my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   10Gi       RWX            my-azurefile      5m
+    my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   100Gi       RWX            my-azurefile      5m
     ```
 
 ### Use the persistent volume
@@ -178,6 +181,7 @@ The following YAML creates a pod that uses the persistent volume claim *my-azure
           volumeMounts:
             - mountPath: /mnt/azure
               name: volume
+              readOnly: false
       volumes:
        - name: volume
          persistentVolumeClaim:
@@ -244,7 +248,9 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of an existing Azure Files share to use with a workload.
 
-### Static provisioning parameters
+### Static provisioning parameters for PersistentVolume
+
+The following table includes parameters you can use to define a PersistentVolume.
 
 |Name | Meaning | Available Value | Mandatory | Default value |
 |--- | --- | --- | --- | --- |
@@ -343,7 +349,6 @@ Kubernetes needs credentials to access the file share created in the previous st
       storageClassName: azurefile-csi
       csi:
         driver: file.csi.azure.com
-        readOnly: false
         volumeHandle: unique-volumeid  # make sure this volumeid is unique for every identical share in the cluster
         volumeAttributes:
           resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as node
@@ -418,7 +423,7 @@ Kubernetes needs credentials to access the file share created in the previous st
 
     ```bash
     kubectl delete pod mypod
-    
+
     kubectl apply -f azure-files-pod.yaml
     ```
 
@@ -453,11 +458,11 @@ spec:
       volumeMounts:
         - name: azure
           mountPath: /mnt/azure
+          readOnly: false
   volumes:
     - name: azure
-      csi: 
+      csi:
         driver: file.csi.azure.com
-        readOnly: false
         volumeAttributes:
           secretName: azure-secret  # required
           shareName: aksshare  # required

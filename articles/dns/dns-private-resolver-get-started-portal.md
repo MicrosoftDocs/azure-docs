@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 10/20/2023
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -40,7 +40,7 @@ An Azure subscription is required.
 
 Before you can use **Microsoft.Network** services with your Azure subscription, you must register the **Microsoft.Network** namespace:
 
-1. Select the **Subscription** blade in the Azure portal, and then choose your subscription by clicking on it.
+1. Select the **Subscription** blade in the Azure portal, and then choose your subscription.
 2. Under **Settings** select **Resource Providers**.
 3. Select **Microsoft.Network** and then select **Register**.
 
@@ -89,10 +89,6 @@ Next, add a virtual network to the resource group that you created, and configur
 
 3. Select the **Inbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myinboundendpoint).
 4. Next to **Subnet**, select the inbound endpoint subnet you created (ex: snet-inbound, 10.0.0.0/28) and then select **Save**.
-
-> [!NOTE]
-> You can choose a static or dynamic IP address for the inbound endpoint. A dynamic IP address is used by default. Typically the first available [non-reserved](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) IP address is assigned (example: 10.0.0.4). This dynamic IP address does not change unless the endpoint is deleted and reprovisioned (for example using a different subnet). To specify a static address, select **Static** and enter a non-reserved IP address in the subnet.
-
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:
@@ -111,7 +107,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     This example has only one conditional forwarding rule, but you can create many. Edit the rules to enable or disable them as needed.
 
-    ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
+    ![Screenshot of Create resolver - review.](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
     After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two. The status of each component is displayed during deployment.
 
@@ -131,9 +127,7 @@ Create a second virtual network to simulate an on-premises or other environment.
     - Subnet address range: 12.2.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
-    ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
-
-    ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
+    ![Screenshot showing creation of a second vnet.](./media/dns-resolver-getstarted-portal/vnet-create.png)
 
 ## Link your forwarding ruleset to the second virtual network
 
@@ -173,21 +167,21 @@ Individual rules can be deleted or disabled. In this example, a rule is deleted.
 
 Add three new conditional forwarding rules to the ruleset. 
 
-1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+1. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **AzurePrivate**
     - Domain Name: **azure.contoso.com.**
     - Rule State: **Enabled**
-2. Under **Destination IP address** enter 10.0.0.4, and then click **Add**.
-3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+2. Under **Destination IP address** enter 10.0.0.4, and then select **Add**.
+3. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Internal**
     - Domain Name: **internal.contoso.com.**
     - Rule State: **Enabled**
-4. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
-5. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+4. Under **Destination IP address** enter 192.168.1.2, and then select **Add**.
+5. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Wildcard**
     - Domain Name: **.** (enter only a dot)
     - Rule State: **Enabled**
-6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
+6. Under **Destination IP address** enter 10.5.5.5, and then select **Add**.
 
     ![Screenshot of a forwarding ruleset example.](./media/dns-resolver-getstarted-portal/ruleset.png)
 

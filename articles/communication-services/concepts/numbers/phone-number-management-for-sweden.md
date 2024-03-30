@@ -45,35 +45,36 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Sweden phone numbers are available
 | Country/Region |
 | :---------- |
-|Canada|
+|Sweden|
 |Denmark|
 |Ireland|
 |Italy|
 |Puerto Rico|
-|Sweden|
-|United Kingdom|
 |United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where Sweden alphanumeric sender IDs are available
 | Country/Region |
 | :---------- |
-| Australia |
-| Austria |
-| Denmark |
-| France |
-| Germany |
-| India |
-| Ireland |
-| Italy |
-| Netherlands |
-| Poland |
-| Portugal |
-| Puerto Rico |
-| Spain |
-| Sweden |
-| Switzerland |
-| United Kingdom |
-| United States |
+|Australia|
+|Canada|
+|Denmark|
+|France|
+|Germany|
+|Ireland|
+|Italy|
+|Japan|
+|Netherlands|
+|Puerto Rico|
+|Spain|
+|Sweden|
+|United Kingdom|
+|United States|
 
 ## Find information about other countries/regions
 

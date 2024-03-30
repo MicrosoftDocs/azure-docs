@@ -9,7 +9,7 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies. Follow the guidance to [install Npgsql](https://www.npgsql.org/doc/installation.html)
-1. In code, get PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```csharp
     using System;
     using Npgsql;
@@ -24,7 +24,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Install dependencies. Follow the guidance to [install pgJDBC](https://jdbc.postgresql.org/documentation/).
-1. In code, get PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```java
     import java.sql.Connection;
     import java.sql.DriverManager;
@@ -40,7 +40,7 @@ ms.author: wchi
     }
    ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 1. Install the Spring Cloud Azure Starter JDBC PostgreSQL module by adding the following dependencies to your `pom.xml` file. Find the version of Spring Cloud Azure [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
     ```xml
@@ -65,7 +65,7 @@ ms.author: wchi
 ### [Python](#tab/python)
 
 1. Install dependencies. Follow the guidance to [install psycopg2](https://pypi.org/project/psycopg2/).
-1. In code, get MySQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
    ```python
    import os
    import psycopg2
@@ -84,7 +84,7 @@ ms.author: wchi
    pip install django
    pip install psycopg2
    ```
-1. In setting file, get PostgreSQL database information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In setting file, get the PostgreSQL database information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
    ```python
    # in your setting file, eg. settings.py
    host = os.getenv('AZURE_POSTGRESQL_HOST')
@@ -111,7 +111,7 @@ ms.author: wchi
     ```bash
     go get github.com/lib/pq
     ```
-1. In code, get PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection string from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```go
     import (
     "database/sql"
@@ -136,7 +136,7 @@ ms.author: wchi
     ```bash
     npm install pg dotenv
     ```
-1. In code, get PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
    ```javascript
    const { Client } = require('pg');
    
@@ -157,7 +157,7 @@ ms.author: wchi
 
 ### [PHP](#tab/php)
 
-1. In code, get PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```php
     <?php
     $conn_string = getenv('AZURE_POSTGRESQL_CONNECTIONSTRING');
@@ -171,7 +171,7 @@ ms.author: wchi
    ```bash
    gem install pg
    ```
-1. In code, get PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
+1. In code, get the PostgreSQL connection information from environment variables added by Service Connector service. To set TSL configurations for PostgreSQL server, refer to [these steps](/azure/postgresql/single-server/how-to-tls-configurations).
     ```ruby
     require 'pg'
     require 'dotenv/load'
@@ -187,3 +187,6 @@ ms.author: wchi
         connection.close if connection
     end
     ```
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for PostgreSQL with Service Connector](../how-to-integrate-postgres.md).

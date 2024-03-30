@@ -2,9 +2,9 @@
 title: 'Quickstart: Use Apache Kafka with Azure Event Hubs'
 description: 'This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol.'
 ms.topic: quickstart
-ms.date: 02/07/2023
-author: kasun04
-ms.author: kindrasiri
+ms.date: 02/16/2024
+author: spelluru
+ms.author: spelluru
 ms.custom: mode-other, passwordless-java
 ---
 
@@ -96,30 +96,7 @@ Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Even
 ### [Connection string](#tab/connection-string)
 
 1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
-
-1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/producer*.
-
-1. Update the configuration details for the producer in *src/main/resources/producer.config* as follows:
-
-   ```xml
-   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
-   security.protocol=SASL_SSL
-   sasl.mechanism=PLAIN
-   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-   ```
-
-   > [!IMPORTANT]
-   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
-
-1. Run the producer code and stream events into Event Hubs:
-
-   ```shell
-   mvn clean package
-   mvn exec:java -Dexec.mainClass="TestProducer"
-   ```
-
 1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/consumer*.
-
 1. Update the configuration details for the consumer in *src/main/resources/consumer.config* as follows:
 
    ```xml
@@ -131,12 +108,29 @@ Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Even
 
    > [!IMPORTANT]
    > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
-
 1. Run the consumer code and process events from event hub using your Kafka clients:
 
    ```java
    mvn clean package
    mvn exec:java -Dexec.mainClass="TestConsumer"
+   ```
+1. Navigate to *azure-event-hubs-for-kafka/quickstart/java/producer*.
+1. Update the configuration details for the producer in *src/main/resources/producer.config* as follows:
+
+   ```xml
+   bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+   security.protocol=SASL_SSL
+   sasl.mechanism=PLAIN
+   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+   ```
+
+   > [!IMPORTANT]
+   > Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+1. Run the producer code and stream events into Event Hubs:
+
+   ```shell
+   mvn clean package
+   mvn exec:java -Dexec.mainClass="TestProducer"
    ```
 
 If your Event Hubs Kafka cluster has events, you'll now start receiving them from the consumer.

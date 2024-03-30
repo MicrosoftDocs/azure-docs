@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 04/29/2020
+ms.date: 01/19/2024
 ---
 
 > [!Important]

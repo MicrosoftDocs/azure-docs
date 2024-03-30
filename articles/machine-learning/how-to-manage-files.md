@@ -3,13 +3,13 @@ title: Create and manage files in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how create and manage files in your workspace in Azure Machine Learning studio.
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: fkriti
+ms.author: kritifaujdar
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 03/25/2024
 #Customer intent: As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio.
 ---
 

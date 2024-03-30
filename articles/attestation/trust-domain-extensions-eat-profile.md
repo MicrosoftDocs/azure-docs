@@ -88,7 +88,7 @@ The complete definitions of the claims are available in the section A.3.2 TD Quo
 
 ## Attester claims
 
-**attester_tcb_status** - A string value that represents the TCB level status of the platform being evaluated.  See tcbStatus in [Intel® Trusted Services API Management Developer Portal](https://api.portal.trustedservices.intel.com/documentation).
+**attester_tcb_status** - A string value that represents the TCB level status of the platform being evaluated.  See tcbStatus in [Intel® Trusted Services API Management Developer Portal](https://api.portal.trustedservices.intel.com/content/documentation.html).
 
 ## Microsoft specific claims
 

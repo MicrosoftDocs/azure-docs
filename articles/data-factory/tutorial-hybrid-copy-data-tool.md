@@ -6,7 +6,6 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
 ms.date: 08/10/2023
 ---
 
@@ -204,7 +203,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
     :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/author-tab.png" alt-text="Screenshot that shows the Author tab.":::
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from a SQL Server database to Blob storage. You learned how to:
 
 > [!div class="checklist"]

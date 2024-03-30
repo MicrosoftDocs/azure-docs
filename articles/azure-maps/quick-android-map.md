@@ -22,6 +22,12 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 * Reference the Azure Maps libraries from the project.
 * Add an Azure Maps control to the app.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## Prerequisites
 
 1. A subscription to [Microsoft Azure]. If you don't have an Azure subscription, [create a free account] before you begin.
@@ -60,7 +66,7 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 >[!NOTE]
 > For security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing].
 
-:::image type="content" source="./media/quick-android-map/get-key.png" alt-text="A screenshot showing the Azure Maps Primary key in the Azure portal.":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 ## Create a project in Android Studio
 

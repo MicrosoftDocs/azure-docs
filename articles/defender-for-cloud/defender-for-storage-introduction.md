@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Storage - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Storage.
-ms.date: 08/21/2023
+ms.date: 02/08/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
@@ -38,10 +38,10 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](tu
 |----|:----|
 |Release state:|General Availability (GA)|
 |Feature availability:|- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
-|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): $0.15/GB (USD) of data ingested\*\* <br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* Billing begins on September 3, 2023. To limit expenses, use the `Monthly capping` feature to set a cap on the amount of GB scanned per month, per storage account to help you control your costs. |
-| Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+|Pricing:|**Microsoft Defender for Storage** pricing applies to commercial clouds. Learn more about [pricing and availability per region.](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>|
+|<br><br> Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](defender-for-storage-classic.md))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 \* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
 
@@ -101,9 +101,16 @@ Malware Scanning is charged on a per-gigabyte basis for scanned data. To ensure 
 
 By default, the limit is set to 5,000 GB per month per storage account. Once this threshold is exceeded, scanning will cease for the remaining blobs, with a 20-GB confidence interval. For configuration details, refer to [configure Defender for Storage](../storage/common/azure-defender-storage-configure.md).
 
+> [!IMPORTANT]
+> Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day in accordance with the pricing scheme available on the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Malware scanning will also incur additional charges for other Azure services - Azure Storage read operations, Azure Storage blob indexing and Azure Event Grid notifications.
+
 ### Enablement at scale with granular controls
 
 Microsoft Defender for Storage enables you to secure your data at scale with granular controls. You can apply consistent security policies across all your storage accounts within a subscription or customize them for specific accounts to suit your business needs. You can also control your costs by choosing the level of protection you need for each resource. To get started, visit [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md).
+
+### Monitoring your malware scanning cap
+
+To ensure uninterrupted protection while effectively managing costs, there are two informational security alerts related to malware scanning cap usage. The first alert, `Malware Scanning will stop soon: 75% of monthly gigabytes scan cap reached (Preview)`, is triggered as your usage approaches 75% of the set monthly cap, offering a heads-up to adjust your cap if needed. The second alert, `Malware Scanning stopped: monthly gigabytes scan cap reached (Preview)`, notifies you when the cap has been reached and scanning is paused for the month, potentially leaving new uploads unscanned. Both alerts come with details on affected storage accounts to facilitate prompt and informed action, ensuring you can maintain your desired level of security without unexpected expenses.
 
 ## Understanding the differences between Malware Scanning and hash reputation analysis  
 
@@ -125,6 +132,3 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
-
-
-

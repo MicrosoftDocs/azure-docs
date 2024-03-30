@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 10/19/2023
 ms.topic: how-to
-ms.custom: references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022, build-2023
+ms.custom: references_regions, security, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -33,7 +33,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 :::moniker range="azureml-api-2"
-* [Use managed networks](how-to-managed-network.md) (preview)
+* [Use managed networks](how-to-managed-network.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure machine learning registries](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)

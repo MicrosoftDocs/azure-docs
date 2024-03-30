@@ -220,8 +220,6 @@ union *
 
 When you no longer require integration between your Operations Manager management group and the Log Analytics workspace, several steps are required to properly remove the connection and configuration in the management group. The following procedure has you update your Log Analytics workspace by deleting the reference of your management group, deleting the Azure Monitor connectors, and then deleting management packs that support integration with the service.
 
-Management packs for the solutions you've enabled that integrate with Operations Manager and the management packs required to support integration with Azure Monitor can't be easily deleted from the management group. The reason is that some of the Azure Monitor management packs have dependencies on other related management packs. To delete management packs that have a dependency on other management packs, download the script to [remove a management pack with dependencies](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) from TechNet Script Center.
-
 1. Open the Operations Manager command shell with an account that's a member of the Operations Manager Administrators role.
 
     > [!WARNING]

@@ -18,6 +18,9 @@ ms.custom: devx-track-azurecli
 > Key Vault Managed Storage Account Keys (legacy) is supported as-is with no more updates planned. Only Account SAS are supported with SAS definitions signed storage service version no later than 2018-03-28.
 
 > [!IMPORTANT]
+> Support for Managed Storage Account Keys in **Azure CLI was removed in version 2.54**, you must use **Azure CLI version 2.53.1 or former** for commands in this tutorial.
+
+> [!IMPORTANT]
 > We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
 > Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 
@@ -90,7 +93,7 @@ Permissions for storage accounts aren't available on the storage account "Access
 
 ### Create a Key Vault Managed storage account
 
-Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
+Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/powershell/module/az.storage/new-azstorageaccount) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
@@ -139,7 +142,7 @@ For more information about account SAS, see:
 
 ### Set shared access signature definition in Key Vault
 
-Use the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-create) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
+Use the Azure CLI [az keyvault storage sas-definition create](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <sasDefinitionTemplate>
@@ -147,9 +150,9 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### Verify the shared access signature definition
 
-You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-show) command.
+You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault storage sas-definition show](/azure/key-vault/secrets/overview-storage-keys) command.
 
-You can now use the [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az-keyvault-storage-sas-definition-show) command and the `id` property to view the content of that secret.
+You can now use the [az keyvault storage sas-definition show](/azure/key-vault/secrets/overview-storage-keys) command and the `id` property to view the content of that secret.
 
 ```azurecli-interactive
 az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
@@ -159,4 +162,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - Learn more about [keys, secrets, and certificates](/rest/api/keyvault/).
 - Review articles on the [Azure Key Vault team blog](/archive/blogs/kv/).
-- See the [az keyvault storage](/cli/azure/keyvault/storage) reference documentation.
+- See the [az keyvault storage](/azure/key-vault/general/manage-with-cli2) reference documentation.

@@ -7,8 +7,8 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 03/02/2023
+ms.custom: synapse
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -30,7 +30,7 @@ This Azure Cosmos DB for NoSQL connector is supported for the following capabili
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure Cosmos DB for NoSQL connector supports:
 
@@ -498,6 +498,9 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 **Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
 
+> [!Note]
+> To limit the RU usage, please set the Cosmos DB **Throughput(autoscale)** to **Manual**.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
@@ -533,6 +536,6 @@ In addition, Azure Cosmos DB analytical store now supports Change Data Capture (
 
 
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -6,9 +6,8 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -62,7 +61,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
 ### Buy a savings plan in the Azure portal
 
 1. Sign in to the Azure portal.
-2. Select **All services** > **Savings plans**.
+2. In the Search area, enter **Savings plans** and then select **Savings plans**.
 3. Select **Add** to purchase a new savings plan.
 4. Complete all required fields:
     - **Name** – Friendly name for the new savings plan.

@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 12/05/2023
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -31,7 +31,7 @@ Before disallowing Shared Key access on any of your storage accounts:
 - [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
 - [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
 - Consider the need to [disallow Shared Key authorization to use Microsoft Entra Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-- [Transition Azure Files workloads](#transition-azure-files-workloads)
+- [Authorize access to file data or transition Azure Files workloads](#authorize-access-to-file-data-or-transition-azure-files-workloads)
 
 ### Understand how disallowing Shared Key affects SAS tokens
 
@@ -74,11 +74,15 @@ Some Azure tools offer the option to use Microsoft Entra authorization to access
 
 To protect an Azure Storage account with Microsoft Entra [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account.
 
-### Transition Azure Files workloads
+### Authorize access to file data or transition Azure Files workloads
 
-Azure Storage supports Microsoft Entra authorization for requests to Blob Storage, Queue Storage, and Table Storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. The Azure portal always uses Shared Key authorization to access data in Azure Files, so if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
+Azure Storage supports Microsoft Entra authorization for requests to Azure Files, Blob Storage, Queue Storage, and Table Storage. However, by default the Azure portal uses Shared Key authorization to access Azure file shares. If you disallow Shared Key authorization for a storage account that isn't configured with the proper RBAC assignments, requests to Azure Files will fail, and you won't be able to access Azure file shares in the Azure portal.
 
-Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to an account via Shared Key, or do not apply this setting to storage accounts that support Azure Files workloads.
+To mitigate this, we recommend taking one of three approaches:
+
+1. Follow [these steps](../files/authorize-data-operations-portal.md) to authorize access to file data using your Microsoft Entra account, or
+1. Migrate any Azure Files data to a separate storage account before you disallow access to an account via Shared Key, or
+1. Don't apply this setting to storage accounts that support Azure Files workloads.
 
 ## Identify storage accounts that allow Shared Key access
 

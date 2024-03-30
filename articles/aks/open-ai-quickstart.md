@@ -4,6 +4,7 @@ description: Learn how to deploy an application that uses OpenAI on Azure Kubern
 ms.topic: how-to
 ms.date: 10/02/2023
 ms.custom: template-how-to, devx-track-azurecli 
+ms.subservice: aks-developer
 ---
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)
@@ -31,7 +32,7 @@ To access the GitHub codebase for the sample application, see [AKS Store Demo][a
   - If you plan on using Azure OpenAI service, you need to request access to enable it on your Azure subscription using the [Request access to Azure OpenAI Service form][aoai-access].
   - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -132,7 +133,7 @@ The [AKS Store application][aks-store-demo] manifest includes the following Kube
 - **Rabbit MQ**: Message queue for an order queue.
 
 > [!NOTE]
-> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. We use them here here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
+> We don't recommend running stateful containers, such as MongoDB and Rabbit MQ, without persistent storage for production. We use them here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
 1. Review the [YAML manifest](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-all-in-one.yaml) for the application.
 2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
@@ -210,7 +211,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
           nodeSelector:
             "kubernetes.io/os": linux
           containers:
-          - name: order-service
+          - name: ai-service
             image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
             ports:
             - containerPort: 5001
@@ -229,7 +230,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
                 memory: 50Mi
               limits:
                 cpu: 30m
-                memory: 65Mi
+                memory: 85Mi
     ---
     apiVersion: v1
     kind: Service

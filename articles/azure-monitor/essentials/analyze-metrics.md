@@ -350,6 +350,16 @@ The Azure Monitor metrics explorer **Share** menu includes several options for s
 
 :::image type="content" source="media/analyze-metrics/share-chart.png" alt-text="Screenshot that shows the Share menu options for your metric chart in the Azure portal.":::
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+###  Why are metrics from the guest OS of my Azure virtual machine not showing up in metrics explorer?
+
+[Platform metrics](./monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration, though, to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](./collect-custom-metrics-linux-telegraf.md).
+
+[!INCLUDE [prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer](../includes/prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer.md)]
+
 ## Next steps
 
 - [Troubleshoot metrics explorer](metrics-troubleshoot.md)

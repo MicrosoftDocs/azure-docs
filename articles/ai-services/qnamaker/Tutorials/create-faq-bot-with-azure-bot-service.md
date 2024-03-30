@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: tutorial
-ms.date: 08/31/2020
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Tutorial: Create a FAQ bot with Azure AI Bot Service

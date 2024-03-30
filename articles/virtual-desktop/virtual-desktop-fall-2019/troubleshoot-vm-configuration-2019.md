@@ -215,7 +215,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
-## How to fix a Azure Virtual Desktop side-by-side stack that malfunctions
+## How to fix an Azure Virtual Desktop side-by-side stack that malfunctions
 
 There are known circumstances that can cause the side-by-side stack to malfunction:
 
@@ -346,7 +346,7 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in an Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)

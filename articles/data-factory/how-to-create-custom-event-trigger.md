@@ -3,11 +3,11 @@ title: Create custom event triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline in response to a custom event published to Event Grid.
 ms.service: data-factory
 ms.subservice: orchestration
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ---
 
 # Create a custom event trigger to run a pipeline in Azure Data Factory
@@ -155,7 +155,7 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 - When authoring in the data factory (in the development environment for instance), the Azure account signed in needs to have the above permission
 - When publishing through [CI/CD](continuous-integration-delivery.md), the account used to publish the ARM template into the testing or production factory needs to have the above permission.
 
-## Next steps
+## Related content
 
 * Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

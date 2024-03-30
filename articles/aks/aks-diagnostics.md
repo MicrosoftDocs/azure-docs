@@ -4,6 +4,7 @@ description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
 author: rongzhang
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ms.date: 03/10/2023
 ms.author: rongzhang
 ---

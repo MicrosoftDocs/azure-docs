@@ -2,13 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/06/2023
+ms.date: 03/04/2024
 ms.author: glenga
 ---
 
 Binding attributes are defined by decorating specific function code in the *function_app.py* file. You use the `queue_output` decorator to add an [Azure Queue storage output binding](/azure/azure-functions/functions-bindings-triggers-python#azure-queue-storage-output-binding).
 
-By using the `queue_output` decorator, the binding direction is implicitly 'out' and type is Azure Storage Queue. Add the following decorator to your function code in *function_app.py*:
+By using the `queue_output` decorator, the binding direction is implicitly 'out' and type is Azure Storage Queue. Add the following decorator to your function code in *HttpExample\\function_app.py*:
 
 :::code language="python" source="~/functions-docs-python-v2/function_app.py" range="7":::
 

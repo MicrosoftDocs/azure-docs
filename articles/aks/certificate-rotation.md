@@ -2,6 +2,7 @@
 title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 01/19/2023
 ---
@@ -46,7 +47,7 @@ Microsoft maintains all certificates mentioned in this section, except for the c
 * Check the expiration date of the cluster certificate using the `kubectl config view` command.
 
     ```console
-    kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+   kubectl config view --raw -o jsonpath="{.clusters[?(@.name == '')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
     ```
 
 ### Check API server certificate expiration date
@@ -54,7 +55,7 @@ Microsoft maintains all certificates mentioned in this section, except for the c
 * Check the expiration date of the API server certificate using the following `curl` command.
 
     ```console
-    curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+    curl https://{apiserver-fqdn} -k -v 2>&1 | grep expire
     ```
 
 ### Check VMAS agent node certificate expiration date

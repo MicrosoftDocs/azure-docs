@@ -5,7 +5,7 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 author: cephalin
@@ -13,6 +13,9 @@ ms.author: cephalin
 ---
 
 # Configure a Java app for Azure App Service
+
+> [!NOTE]
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
@@ -52,6 +55,8 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 
 ::: zone-end
 
+For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
+
 ## Deploying your app
 
 ### Build Tools
@@ -64,7 +69,7 @@ With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-ma
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
-This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -395,7 +400,6 @@ More configuration may be necessary for encrypting your JDBC connection with cer
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
-- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
@@ -844,23 +848,11 @@ The following example script copies a custom Tomcat to a local folder, performs 
 
 #### Finalize configuration
 
-Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
-
-    ```azurecli-interactive
-    az extension add -–name webapp
-    ```
-
-2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-    ```azurecli-interactive
-    az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-    ```
-
-3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
+```
 
 ---
 
@@ -1000,25 +992,13 @@ An example xsl file is provided below. The example xsl file adds a new connector
 
 Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
 
-1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-    1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
+```
 
-      ```azurecli-interactive
-      az extension add -–name webapp
-      ```
-
-    2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-      ```azurecli-interactive
-      az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-      ```
-
-    3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
-
-2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
+If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
 ### JBoss EAP Data Sources
 
@@ -1106,50 +1086,86 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 
 JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
 
+## Tomcat Baseline Configuration On App Services
+
+Java developers can customize the server settings, troubleshoot issues, and deploy applications to Tomcat with confidence if they know about the server.xml file and configuration details of Tomcat. Some of these may be:
+* Customizing Tomcat configuration: By understanding the server.xml file and Tomcat's configuration details, developers can fine-tune the server settings to match the needs of their applications.
+* Debugging: When an application is deployed on a Tomcat server, developers need to know the server configuration to debug any issues that may arise. This includes checking the server logs, examining the configuration files, and identifying any errors that might be occurring.
+* Troubleshooting Tomcat issues: Inevitably, Java developers will encounter issues with their Tomcat server, such as performance problems or configuration errors. By understanding the server.xml file and Tomcat's configuration details, developers can quickly diagnose and troubleshoot these issues, which can save time and effort.
+* Deploying applications to Tomcat: To deploy a Java web application to Tomcat, developers need to know how to configure the server.xml file and other Tomcat settings. Understanding these details is essential for deploying applications successfully and ensuring that they run smoothly on the server.
+
+As you provision an App Service with Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [Official Apache Tomcat Documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
+
+Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
+
+Please note that the latest versions of Tomcat will have these server.xml. (8.5.58 and 9.0.38 onward). Older versions of Tomcat do not use transforms and may have different behavior as a result.
+
+### Connector
+
+```xml 
+<Connector port="${port.http}" address="127.0.0.1" maxHttpHeaderSize="16384" compression="on" URIEncoding="UTF-8" connectionTimeout="${site.connectionTimeout}" maxThreads="${catalina.maxThreads}" maxConnections="${catalina.maxConnections}" protocol="HTTP/1.1" redirectPort="8443"/>
+ ```
+* `maxHttpHeaderSize` is set to `16384`
+* `URIEncoding` is set to `UTF-8`
+* `conectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`
+* `maxThreads` is set to `WEBSITE_CATALINA_MAXTHREADS`, which defaults to `200`
+* `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
+ 
+> [!NOTE]
+> The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
+
+Following are example CLI commands that you may use to alter the values of conectionTimeout, maxThreads, or maxConnections:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_TOMCAT_CONNECTION_TIMEOUT=120000
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXTHREADS=100
+```
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_CATALINA_MAXCONNECTIONS=5000
+```
+* Connector uses the address of the container instead of 127.0.0.1
+ 
+### Host
+
+```xml
+<Host appBase="${site.appbase}" xmlBase="${site.xmlbase}" unpackWARs="${site.unpackwars}" workDir="${site.tempdir}" errorReportValveClass="com.microsoft.azure.appservice.AppServiceErrorReportValve" name="localhost" autoDeploy="true">
+```
+
+* `appBase` is set to `AZURE_SITE_APP_BASE`, which defaults to local `WebappsLocalPath`
+* `xmlBase` is set to `AZURE_SITE_HOME`, which defaults to `/site/wwwroot`
+* `unpackWARs` is set to `AZURE_UNPACK_WARS`, which defaults to `true`
+* `workDir` is set to `JAVA_TMP_DIR`, which defaults `TMP`
+* errorReportValveClass uses our custom error report valve
+ 
+### Valve
+
+```xml
+<Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
+ ```
+* `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
+* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `0` [forever]
+ 
+On Linux, it has all of the same customization, plus:
+ 
+* Adds some error and reporting pages to the valve:
+ ```xml
+                <xsl:attribute name="appServiceErrorPage">
+                    <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
+                </xsl:attribute>
+ 
+                <xsl:attribute name="showReport">
+                    <xsl:value-of select="'${catalina.valves.showReport}'"/>
+                </xsl:attribute>
+                
+                <xsl:attribute name="showServerInfo">
+                    <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
+                </xsl:attribute>
+ ```
+
+
 ::: zone-end
-
-## Java runtime statement of support
-
-### JDK versions and maintenance
-
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
-
-| Java Version | Linux            | Windows              |
-|--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Adoptium) * | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (Microsoft)   | 11.0.13 (Microsoft)       |
-| Java 17      | 17.0.1 (Microsoft)    | 17.0.1 (Microsoft)        |
-
-\* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK.
-
-If you're [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
-
-Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
-
-Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, see [this support document](/azure/developer/java/fundamentals/java-support-on-azure).
-
-### Security updates
-
-Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
-
-Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
-
-Community support for Java 7 will terminate on July 29, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app running on Java 7, please upgrade to Java 8 or 11 before July 29.
-
-### Deprecation and retirement
-
-If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
-
-- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
-- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
-
-### Local development
-
-Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
-
-### Development support
-
-Product support for the [Microsoft Build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

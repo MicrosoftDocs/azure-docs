@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/18/2023
+ms.date: 01/05/2024
 ms.author: lle
 ---
 
@@ -935,7 +935,7 @@ How to determine whether you're affected:
     If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt). 
 
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 

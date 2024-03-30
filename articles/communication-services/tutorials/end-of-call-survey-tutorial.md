@@ -115,7 +115,7 @@ The API will return the following error messages if data validation fails or the
 
 - \{propertyName\} lowerBound: \{rating.scale?.lowerBound\} and upperBound: \{rating.scale?.upperBound\} should be between 0 and 100.
 
-- Please try again [ACS failed to submit survey, due to network or other error].
+- Please try again [Azure Communication Services failed to submit survey, due to network or other error].
 
 ### We will return any error codes with a message.
 

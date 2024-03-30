@@ -57,7 +57,7 @@ speechRecognizer.Recognized += (object sender, SpeechRecognitionEventArgs e) =>
             Console.WriteLine(String.Format ("Offset in Ticks: {0}", e.Result.OffsetInTicks));
             Console.WriteLine(String.Format ("Duration in Ticks: {0}", e.Result.Duration.Ticks));
                         
-            var detailedResults = speechRecognitionResult.Best();
+            var detailedResults = e.Result.Best();
             if(detailedResults != null && detailedResults.Any())
             {
                 // The first item in detailedResults corresponds to the recognized text.

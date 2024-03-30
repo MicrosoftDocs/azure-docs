@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you learn how to use the bubble layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/14/2022
+ms.date: 12/04/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -34,7 +34,7 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 >
 > **Bubble size scaling retirement**
 >
-> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
 >
 > :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
 >
@@ -81,10 +81,10 @@ The **Category labels** settings enable you to customize font setting such as fo
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
+> [Add a cluster bubble layer](power-bi-visual-cluster-bubbles.md)
 
 > [!div class="nextstepaction"]
-> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
+> [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
 
 Add more context to the map:
 
@@ -93,9 +93,6 @@ Add more context to the map:
 
 > [!div class="nextstepaction"]
 > [Add a tile layer](power-bi-visual-add-tile-layer.md)
-
-> [!div class="nextstepaction"]
-> [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
 
 Customize the visual:
 

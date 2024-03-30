@@ -2,12 +2,12 @@
 title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech service'
 titleSuffix: Azure AI services
 description: Use this guide to set up your platform for C++ on Linux by using the Speech SDK.
-services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 

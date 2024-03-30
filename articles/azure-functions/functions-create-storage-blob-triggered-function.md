@@ -1,15 +1,16 @@
 ---
 title: Create a function in Azure triggered by Blob storage 
 description: Use Azure Functions to create a serverless function that is invoked by items added to a Blob storage container.
-
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: how-to
-ms.date: 10/01/2018
+ms.date: 12/28/2023
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function in Azure that's triggered by Blob storage
 
 Learn how to create a function triggered when files are uploaded to or updated in a Blob storage container.
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
 ## Prerequisites
 
@@ -29,15 +30,11 @@ Next, you create a function in the new function app.
 
 ## Create an Azure Blob storage triggered function
 
-1. Select **Functions**, and then select **+ Add** to add a new function.
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
 
-   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Choose a Function template in the Azure portal." border="true":::
+1. Under **Select a template**, scroll down and choose the **Azure Blob Storage trigger** template.
 
-1. Choose the **Azure Blob Storage trigger** template.
-
-1. Use the settings as specified in the table below the image.
-
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Name and configure the Blob storage triggered function." border="true":::
+1. In **Template details**, configure the new trigger with the settings as specified in this table, then select **Create**:
 
     | Setting | Suggested value | Description |
     |---|---|---|
@@ -45,9 +42,7 @@ Next, you create a function in the new function app.
     | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
-1. Select **Create Function** to create your function.
-
-    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Create the Blob storage triggered function." border="true":::
+    Azure creates the Blob Storage triggered function based on the provided values.
 
 Next, create the **samples-workitems** container.
 

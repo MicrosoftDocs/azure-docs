@@ -34,4 +34,3 @@ To learn more about how to get started with Defender for IoT, see the following 
 - Read the Defender for IoT [overview](overview.md)
 - [Get started with Defender for IoT](getting-started.md)
 - [OT Networks frequently asked questions](faqs-ot.md)
-- [Enterprise IoT networks frequently asked questions](faqs-eiot.md)

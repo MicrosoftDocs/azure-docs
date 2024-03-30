@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 04/20/2023
 ms.author: jacobjaygbay
-ms.custom: mode-other, devx-track-azurecli, devx-track-java, devx-track-javaee
+ms.custom: mode-other, devx-track-azurecli, devx-track-java
 ms.devlang: azurecli
 ---
 

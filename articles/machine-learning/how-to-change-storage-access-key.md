@@ -1,7 +1,7 @@
 ---
 title: Change storage account access keys
 titleSuffix: Azure Machine Learning
-description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models. 
+description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -9,8 +9,7 @@ ms.topic: how-to
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 10/20/2022
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.date: 11/01/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -161,8 +160,18 @@ To update Azure Machine Learning to use the new key, use the following steps:
         :::moniker range="azureml-api-2"
 
         ```python
-        from azure.ai.ml.entities import AzureBlobDatastore
+        from azure.ai.ml.entities import AzureBlobDatastore, AccountKeyConfiguration
         from azure.ai.ml import MLClient
+        from azure.identity import DefaultAzureCredential
+
+        subscription_id = '<SUBSCRIPTION_ID>'
+        resource_group = '<RESOURCE_GROUP>'
+        workspace_name = '<AZUREML_WORKSPACE_NAME>'
+
+        ml_client = MLClient(credential=DefaultAzureCredential(),
+                                subscription_id=subscription_id, 
+                                resource_group_name=resource_group,
+                                workspace_name=workspace_name)
 
         blob_datastore1 = AzureBlobDatastore(
             name="your datastore name",

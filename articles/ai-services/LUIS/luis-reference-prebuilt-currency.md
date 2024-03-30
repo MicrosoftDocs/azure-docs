@@ -2,15 +2,14 @@
 title: Currency Prebuilt entity - LUIS
 titleSuffix: Azure AI services
 description: This article contains currency prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 10/14/2019
+ms.date: 01/19/2024
 ---
 
 # Currency prebuilt entity for a LUIS app
@@ -86,6 +85,6 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 Learn about the [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), and [email](luis-reference-prebuilt-email.md) entities.

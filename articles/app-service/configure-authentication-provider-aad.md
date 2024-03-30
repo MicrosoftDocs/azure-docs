@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 ---
@@ -63,7 +63,7 @@ During creation of the app registration, collect the following information which
 - Client secret (optional, but recommended)
 - Application ID URI
 
-The instructions for creating an app registration depend on if you're using [a workforce tenant](../active-directory/fundamentals/active-directory-whatis.md) or [a customer tenant (Preview)][Azure Active Directory for customers (Preview)]. Use the tabs below to select the right set of instructions for your scenario.
+The instructions for creating an app registration depend on if you're using [a workforce tenant](../active-directory/fundamentals/active-directory-whatis.md) or [a customer tenant][Azure Active Directory for customers (Preview)]. Use the tabs below to select the right set of instructions for your scenario.
 
 To register the app, perform the following steps:
 
@@ -74,7 +74,7 @@ To register the app, perform the following steps:
 
     From the portal menu, select **Microsoft Entra ID**. If the tenant you're using is different from the one you use to configure the App Service application, you'll need to [change directories][Switch your directory] first.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
 
     1. If you do not already have a customer tenant, create one by following the instructions in [Create a customer identity and access management (CIAM) tenant](../active-directory/external-identities/customers/how-to-create-customer-tenant-portal.md).
 
@@ -94,9 +94,9 @@ To register the app, perform the following steps:
 1. In the **Redirect URIs** section, select **Web** for platform and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Select **Register**.
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
-1. Under **Implicit grant and hybrid flows**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service. Select **Save**.
+1. From the left navigation, select **Authentication**. Under **Implicit grant and hybrid flows**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service. Select **Save**.
 1. (Optional) From the left navigation, select **Branding & properties**. In **Home page URL**, enter the URL of your App Service app and select **Save**.
-1. From the left navigation, select **Expose an API** > **Set** > **Save**. This value uniquely identifies the application when it's used as a resource, allowing tokens to be requested that grant access. It's used as a prefix for scopes you create.
+1. From the left navigation, select **Expose an API** > **Add** > **Save**. This value uniquely identifies the application when it's used as a resource, allowing tokens to be requested that grant access. It's used as a prefix for scopes you create.
 
     For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
 
@@ -117,7 +117,7 @@ To register the app, perform the following steps:
 
     No other steps are required for a workforce tenant.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
     
     1. Create a user flow, which defines an authentication experience that can be shared across app registrations in the tenant:
     
@@ -156,7 +156,7 @@ To register the app, perform the following steps:
 
     The **authentication endpoint** for a workforce tenant should be a [value specific to the cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use "https://login.microsoftonline.com" as its authentication endpoint. Make note of the authentication endpoint value, as it's needed to construct the right **Issuer URL**.
 
-    # [Customer tenant (Preview)](#tab/customer-tenant)
+    # [Customer tenant](#tab/customer-tenant)
 
     For a customer tenant, you must manually fill in the configuration values according to the following table.
 
@@ -224,7 +224,7 @@ Within the API object, the Microsoft Entra identity provider configuration has a
 | `defaultAuthorizationPolicy`             | A grouping of requirements that must be met in order to access the app. Access is granted based on a logical `AND` over each of its configured properties. When `allowedApplications` and `allowedPrincipals` are both configured, the incoming request must satisfy both requirements in order to be accepted. |
 | `allowedApplications`                    | An allowlist of string application **client IDs** representing the client resource that is calling into the app. When this property is configured as a nonempty array, only tokens obtained by an application specified in the list will be accepted.<br/><br/>This policy evaluates the `appid` or `azp` claim of the incoming token, which must be an access token. See the [Microsoft identity platform claims reference]. |
 | `allowedPrincipals`                      | A grouping of checks that determine if the principal represented by the incoming request may access the app. Satisfaction of `allowedPrincipals` is based on a logical `OR` over its configured properties. |
-| `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** representing users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See the [Microsoft identity platform claims reference]. |
+| `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** representing users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list. There's a limit of 500 characters total across the list of identities.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See the [Microsoft identity platform claims reference]. |
 
 Additionally, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs (e.g., "559a2f9c-c6f2-4d31-b8d6-5ad1a13f8330,5693f64a-3ad5-4be7-b846-e9d1141bcebc") to require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to "true" or "1" to require the incoming token to include an `oid` claim. This setting is ignored and treated as true if `allowedPrincipals.identities` has been configured (since the `oid` claim is checked against this provided list of identities).
 

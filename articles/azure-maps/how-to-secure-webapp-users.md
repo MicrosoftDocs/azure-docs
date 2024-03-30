@@ -25,7 +25,7 @@ You must create the web application in Microsoft Entra ID for users to sign in. 
 
 1. In the Azure portal, in the list of Azure services, select **Microsoft Entra ID** > **App registrations** > **New registration**.  
 
-    :::image type="content" source="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing App registration." lightbox="./media/how-to-manage-authentication/app-registration.png":::
+    :::image type="content" border="false" source="./media/how-to-manage-authentication/app-registration.png" lightbox="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID.":::
 
 2. Enter a **Name**, choose a **Support account type**, provide a redirect URI that represents the url to which Microsoft Entra ID issues the token, which is the url where the map control is hosted. For more information, see Microsoft Entra ID [Scenario: Web app that signs in users](../active-directory/develop/scenario-web-app-sign-user-overview.md). Complete the provided steps from the Microsoft Entra scenario.  
 

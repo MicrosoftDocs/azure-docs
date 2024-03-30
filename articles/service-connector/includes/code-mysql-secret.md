@@ -24,7 +24,7 @@ ms.author: yungez
 
 ### [Java](#tab/java)
 
-1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
+1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/en/connector-j-installing.html).
 1. In code, get MySQL connection string from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
     ```java
     import java.sql.Connection;
@@ -39,7 +39,7 @@ ms.author: yungez
     }
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 1. Install dependencies. Add following dependencies to your `pom.xml` file.
     ```xml
@@ -73,12 +73,10 @@ ms.author: yungez
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('Azure_MYSQL_NAME')
-   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    cnx = mysql.connector.connect(user=user, password=password,
                                  host=host,
-                                 database=database,
-                                 port=port)
+                                 database=database)
    
    cnx.close()
    ```
@@ -96,7 +94,6 @@ ms.author: yungez
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('AZURE_MYSQL_NAME')
-   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    DATABASES = {
        'default': {
@@ -104,8 +101,7 @@ ms.author: yungez
            'NAME': database,
            'USER': user,
            'PASSWORD': password,
-           'HOST': host,
-           'PORT': port
+           'HOST': host
        }
    }
    ```
@@ -198,7 +194,7 @@ ms.author: yungez
    
    client = Mysql2::Client.new(
      host: ENV['AZURE_MYSQL_HOST'],
-     username: ENV['AZURE_MYSQL_USER'],
+     username: ENV['AZURE_MYSQL_USERNAME'],
      password: ENV['AZURE_MYSQL_PASSWORD'],
      database: ENV['AZURE_MYSQL_DATABASE'],
      # sslca: ca_path
@@ -206,3 +202,6 @@ ms.author: yungez
    
    client.close
    ```
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).

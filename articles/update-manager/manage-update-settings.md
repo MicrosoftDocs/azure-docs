@@ -2,9 +2,10 @@
 title: Manage update configuration settings in Azure Update Manager
 description: The article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager.
 ms.service: azure-update-manager
+ms.custom: linux-related-content
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 03/07/2024
 ms.topic: conceptual
 ---
 
@@ -57,7 +58,7 @@ You can schedule updates from **Overview** or **Machines** on the **Update Manag
 1. Select the checkbox of your machine from the list and select **Update settings**.
 1. Select **Update Settings** to proceed with the type of update for your machine.
 1. On the **Change update settings** pane, select **Add machine** to select the machine for which you want to change the update settings.
-1. On the **Select resources** pane, select the machine and select **Add**. Follow the procedure from step 5 listed in **From Overview pane** of [Configure settings on a single VM](#configure-settings-on-a-single-vm).
+1. On the **Select resources** pane, select the machine and select **Add**. Follow the procedure from step 5 listed in **From Overview blade** of [Configure settings on a single VM](#configure-settings-on-a-single-vm).
 
 # [From a selected VM](#tab/singlevm-schedule-home)
 

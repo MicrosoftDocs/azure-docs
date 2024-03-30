@@ -145,7 +145,7 @@ For more code samples that use the TypeScript REST SDK with Web SDK integration,
 [Azure TypeScript REST SDK]: ./rest-sdk-developer-guide.md#javascripttypescript
 [JavaScript/TypeScript REST SDK Developers Guide]: ./how-to-dev-guide-js-sdk.md
 [MapsSearch]: /javascript/api/@azure-rest/maps-search
-[Azure Active Directory credential]: ./how-to-dev-guide-js-sdk.md#using-an-azure-ad-credential
+[Microsoft Entra credential]: ./how-to-dev-guide-js-sdk.md#using-an-azure-ad-credential
 [Azure Key credential]: ./how-to-dev-guide-js-sdk.md#using-a-subscription-key-credential
 [@azure/identity]: https://www.npmjs.com/package/@azure/identity
 [@azure/core-auth]: https://www.npmjs.com/package/@azure/core-auth

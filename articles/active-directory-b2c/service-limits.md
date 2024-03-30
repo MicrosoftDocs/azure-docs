@@ -1,16 +1,20 @@
 ---
 title: Azure Active Directory B2C service limits and restrictions
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
-services: active-directory-b2c
+
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 12/29/2022
+ms.date: 01/11/2024
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C user, I want to understand the service limits and restrictions, so that I can ensure that my application stays within the allowed usage constraints and request limits.
+
 ---
 
 # Azure Active Directory B2C service limits and restrictions

@@ -3,11 +3,10 @@ title: Azure API Management - v2 tiers (preview)
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. The v2 tiers are in preview.
 services: api-management
 author: dlepow
-editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 01/31/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -86,7 +85,7 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Built-in analytics
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
-* Workspaces
+* Workspaces (*Standard v2*)
 
 **Developer portal**
 * Delegation of user registration and product subscription
@@ -99,6 +98,9 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Cipher configuration
 * Client certificate renegotiation
 * Requests to the gateway over localhost
+
+  > [!NOTE]
+  > Currently the policy document size limit in the v2 tiers is 16 KiB.
 
 ## Deployment
 
@@ -133,3 +135,5 @@ A: Yes, a Premium v2 preview is planned and will be announced separately.
 ## Related content
 
 * Learn more about the API Management [tiers](api-management-features.md).
+
+

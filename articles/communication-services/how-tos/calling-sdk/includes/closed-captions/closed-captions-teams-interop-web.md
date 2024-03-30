@@ -1,7 +1,7 @@
 ---
 title: include file
 description: Web how-to guide for enabling Closed captions during a Teams interop call.
-author: Kunaal
+author: valindrae
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
@@ -57,7 +57,7 @@ if (captionsCallFeature.captions.kind === 'TeamsCaptions') {
 ### Add a listener to receive captions active/inactive status
 ```typescript
 const captionsActiveChangedHandler = () => {
-    if (teamsCaptions.isCaptionsFeatureActive()) {
+    if (teamsCaptions.isCaptionsFeatureActive) {
         /* USER CODE HERE - E.G. RENDER TO DOM */
     }
 }

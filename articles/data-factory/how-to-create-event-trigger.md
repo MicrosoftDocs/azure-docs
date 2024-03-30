@@ -5,11 +5,11 @@ description: Learn how to create a trigger in an Azure Data Factory or Azure Syn
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -160,7 +160,7 @@ There are three noticeable call outs in the workflow related to Event triggering
   * That said, if you have a Copy or other activity inside the pipeline to process the data in Storage account, the service will make direct contact with Storage, using the credentials stored in the Linked Service. Ensure that Linked Service is set up appropriately
   * However, if you make no reference to the Storage account in the pipeline, you do not need to grant permission to the service to access Storage account
 
-## Next steps
+## Related content
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

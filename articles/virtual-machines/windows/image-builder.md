@@ -1,19 +1,19 @@
 ---
-title: Create a Windows VM by using Azure VM Image Builder 
+title: Create a Windows VM by using Azure VM Image Builder
 description: In this article, you learn how to create a Windows VM by using VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
-ms.date: 06/12/2023
+ms.reviewer: jushiman
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli
 ms.collection: windows
 ---
 # Create a Windows VM by using Azure VM Image Builder
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 In this article, you learn how to create a customized Windows image by using Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri): Download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -25,12 +25,12 @@ In this article, you learn how to create a customized Windows image by using Azu
 - `osDiskSizeGB`: Can be used to increase the size of an image.
 - `identity`. Provides an identity for VM Image Builder to use during the build.
 
-Use the following sample JSON template to configure the image: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
+Use the following sample JSON template to configure the image: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json).
 
 > [!NOTE]
 > Windows users can run the following Azure CLI examples on [Azure Cloud Shell](https://shell.azure.com) by using Bash.
 
-## Register the features
+## Register the providers
 
 To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
 
@@ -40,6 +40,7 @@ az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Network | grep registrationState
+az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
 ```
 
 If the output doesn't say *registered*, run the following commands:
@@ -50,6 +51,7 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 
 ## Set variables
@@ -59,7 +61,7 @@ Because you'll be using some pieces of information repeatedly, create some varia
 ```azurecli-interactive
 # Resource group name - we're using myImageBuilderRG in this example
 imageResourceGroup='myWinImgBuilderRG'
-# Region location 
+# Region location
 location='WestUS2'
 # Run output name
 runOutputName='aibWindows'
@@ -85,7 +87,7 @@ az group create -n $imageResourceGroup -l $location
 
 VM Image Builder uses the provided [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) to inject the image into the resource group. In this example, you create an Azure role definition with specific permissions for distributing the image. The role definition is then assigned to the user identity.
 
-## Create a user-assigned managed identity and grant permissions 
+## Create a user-assigned managed identity and grant permissions
 
 Create a user-assigned identity so that VM Image Builder can access the storage account where the script is stored.
 
@@ -144,7 +146,7 @@ vi helloImageTemplateWin.json
 > For the source image, always [specify a version](../linux/image-builder-troubleshoot.md#the-build-step-failed-for-the-image-version). You can't specify `latest` as the version.
 >
 > If you add or change the resource group that the image is distributed to, make sure that the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
- 
+
 ## Create the image
 
 Submit the image configuration to the VM Image Builder service by running the following commands:
@@ -166,7 +168,7 @@ In the background, VM Image Builder also creates a staging resource group in you
 > Don't delete the staging resource group directly. First, delete the image template artifact, which causes the staging resource group to be deleted.
 
 If the service reports a failure when you submit the image configuration template, do the following:
-- See [Troubleshoot the Azure VM Image Builder service](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors). 
+- See [Troubleshoot the Azure VM Image Builder service](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors).
 - Before you try to resubmit the template, delete it by running the following commands:
 
 ```azurecli-interactive
@@ -185,7 +187,7 @@ az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
      -n helloImageTemplateWin01 \
-     --action Run 
+     --action Run
 ```
 
 Wait until the build is complete.

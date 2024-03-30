@@ -170,10 +170,6 @@
   items:
   - name: Develop
     items:
-    - name: Send and receive messages using PHP
-      href: service-bus-php-how-to-use-queues.md
-    - name: Publish and subscribe for messages using PHP
-      href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md
     - name: Message handling

@@ -2,12 +2,11 @@
 title: 'Debug errors when authoring a Custom Commands application (Preview)'
 titleSuffix: Azure AI services
 description: In this article, you learn how to debug errors when authoring Custom Commands application.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -21,13 +20,13 @@ This article describes how to debug when you see errors while building Custom Co
 ## Errors when creating an application
 Custom Commands also creates an application in [LUIS](https://www.luis.ai/) when creating a Custom Commands application. 
 
-[LUIS limits 500 applications per authoring resource](../luis/luis-limits.md). Creation of LUIS application could fail if you are using an authoring resource that already has 500 applications. 
+[LUIS limits 500 applications per authoring resource](../luis/luis-limits.md). Creation of LUIS application could fail if you're using an authoring resource that already has 500 applications. 
 
-Make sure the selected LUIS authoring resource has less than 500 applications. If not, you can create new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
+Make sure the selected LUIS authoring resource has fewer than 500 applications. If not, you can create new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
 
 ## Errors when deleting an application
 ### Can't delete LUIS application
-When deleting a Custom Commands application, Custom Commands may also try to delete the LUIS application associated with the Custom Commands application.
+When you delete a Custom Commands application, Custom Commands might also try to delete the LUIS application associated with the Custom Commands application.
 
 If the deletion of LUIS application failed, go to your [LUIS](https://www.luis.ai/) account to delete them manually.
 
@@ -39,11 +38,11 @@ Refresh your page and try to delete fewer applications.
 ## Errors when modifying an application
 
 ### Can't delete a parameter or a Web Endpoint
-You are not allowed to delete a parameter when it is being used. 
+You aren't allowed to delete a parameter when it's being used. 
 Remove any reference of the parameter in any speech responses, sample sentences, conditions, actions, and try again.
 
 ### Can't delete a Web Endpoint
-You are not allowed to delete a Web Endpoint when it is being used. 
+You aren't allowed to delete a Web Endpoint when it's being used. 
 Remove any **Call Web Endpoint** action that uses this Web Endpoint before removing a Web Endpoint.
 
 ## Errors when training an application
@@ -56,7 +55,7 @@ LUIS has built-in Yes/No intents. Having sample sentences with only "yes", "no" 
 | No | Nope, Not | 
 
 ### Common sample sentences
-Custom Commands does not allow common sample sentences shared among different commands. The training of an application could fail if some sample sentences in one command are already defined in another command. 
+Custom Commands doesn't allow common sample sentences shared among different commands. The training of an application could fail if some sample sentences in one command are already defined in another command. 
 
 Make sure you don't have common sample sentences shared among different commands. 
 
@@ -85,7 +84,7 @@ For best practice of LUIS training, refer [LUIS best practice](../luis/faq.md).
 
 ## Can't update LUIS key
 ### Reassign to E0 authoring resource
-LUIS does not support reassigning LUIS application to E0 authoring resource.
+LUIS doesn't support reassigning LUIS application to E0 authoring resource.
 
 If you need to change your authoring resource from F0 to E0, or change to a different E0 resource, recreate the application. 
 

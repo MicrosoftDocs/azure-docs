@@ -6,9 +6,10 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-custom-vision
 ms.topic: quickstart
-ms.date: 11/03/2022
-ms.devlang: csharp, golang, java, javascript, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api, devx-track-extended-java, devx-track-go
+ms.date: 01/21/2024
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api, devx-track-extended-java, devx-track-go
 keywords: custom vision, image recognition, image recognition app, image analysis, image recognition software
 zone_pivot_groups: programming-languages-set-cusvis
 ---

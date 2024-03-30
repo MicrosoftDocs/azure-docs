@@ -52,7 +52,7 @@ From the Azure Arc data controller create screen, select "Configure custom templ
 
 After ensuring the values are correct, click Apply to proceed with the Azure Arc data controller deployment.
 
-## Next steps
+## Related content
 
 * For direct connectivity mode: [Deploy data controller - direct connect mode (prerequisites)](create-data-controller-direct-prerequisites.md)
 

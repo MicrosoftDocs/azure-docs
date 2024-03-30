@@ -1,7 +1,7 @@
 ---
 title: Monitor pipeline runs using Synapse Studio
 description: Use the Synapse Studio to monitor your workspace pipeline runs.
-services: synapse-analytics 
+ 
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to

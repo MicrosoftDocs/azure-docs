@@ -386,7 +386,7 @@ SELECT * FROM jobs.job_executions WHERE is_active = 1
 ORDER BY start_time DESC
 ```
 
-## Next steps
+## Related content
 
 To manage and monitor your Azure-SSIS IR, see the following articles.
 

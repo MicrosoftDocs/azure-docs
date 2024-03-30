@@ -2,14 +2,14 @@
 title: Custom NER evaluation metrics
 titleSuffix: Azure AI services
 description: Learn about evaluation metrics in Custom Named Entity Recognition (NER)
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.topic: conceptual 
-ms.date: 08/08/2022
-ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
+ms.topic: conceptual
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-ner
 ---
 
 # Evaluation metrics for custom named entity recognition models

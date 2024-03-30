@@ -2,24 +2,21 @@
 title: 'Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# under the .NET Framework for Windows with the Speech SDK.'
-services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
-ms.custom: devx-track-dotnet, ignite-fall-2021
+ms.custom: devx-track-dotnet
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for a .NET Framework (Windows) console app.
 
-### Prerequisites
-
 This guide requires:
 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
 ### Create a Visual Studio project and install the Speech SDK
 
@@ -27,21 +24,21 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 #### Create a helloworld project
 
-1. Open Visual Studio 2019.
+1. Open Visual Studio.
 
-1. In the **Start** window, select **Create a new project**.
+1. Under **Get started**, select **Create a new project**.
 
-1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
+1. In **Create a new project**, choose **Console App (.NET Framework)**, and then select **Next**.
 
-1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
+1. In **Configure your new project**, for **Project name** enter *helloworld*, choose or create the directory path in **Location**, and then select **Create**.
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**. This step opens Visual Studio Installer and displays the **Modifying** dialog box.
 
-1. Check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, select it, and then select **Modify** to start the installation. It might take a few minutes to download and install.
+1. Check whether the **.NET desktop development** workload is available. If the workload isn't installed, select it, and then select **Modify** to start the installation. It might take a few minutes to download and install.
 
    If **.NET desktop development** is already selected, select **Close** to close the dialog box.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png" alt-text="Screenshot that shows enabling .NET desktop development." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload-inline.png" alt-text="Screenshot that shows enabling .NET desktop development." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png":::
 
 1. Close Visual Studio Installer.
 

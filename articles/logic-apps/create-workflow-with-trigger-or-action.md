@@ -6,7 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 01/10/2024
 # As an Azure Logic Apps developer, I want to create a workflow using trigger and action operations in Azure Logic Apps.
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 10/27/2023
+ms.date: 03/20/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -17,6 +17,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-advisorresources](../../../../includes/resource-graph/samples/bytable/advisorresources.md)]
 
+## AppServiceResources
+
+[!INCLUDE [app-service-resources-tls-version](../../includes/resource-graph/query/app-service-resources-tls-version.md)]
+
 ## AuthorizationResources
 
 [!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
@@ -31,6 +35,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
 
+## ComputeResources
+
+[!INCLUDE [vmss-computeresources-uniform-orchestration](../../includes/resource-graph/query/vmss-computeresources-uniform-orchestration.md)]
+
 ## ExtendedLocationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-extendedlocationresources](../../../../includes/resource-graph/samples/bytable/extendedlocationresources.md)]
@@ -43,9 +51,13 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
 
+[!INCLUDE [virtual-instance-sap-solutions-vm-health](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health.md)]
+
 ## HealthResourceChanges
 
 [!INCLUDE [Azure-resource-graph-samples-table-healthresourcechanges](../../../../includes/resource-graph/samples/bytable/healthresourcechanges.md)]
+
+[!INCLUDE [virtual-instance-sap-solutions-vm-health-changes](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health-changes.md)]
 
 ## InsightResources
 
@@ -62,6 +74,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## KubernetesConfigurationResources
 
 [!INCLUDE [azure-resource-graph-samples-table-kubernetesconfigurationresources](../../../../includes/resource-graph/samples/bytable/kubernetesconfigurationresources.md)]
+
+## OrbitalResources
+
+[!INCLUDE [azure-orbitals-contacts-samples](../../includes/resource-graph/query/orbital-resources-contacts.md)]
 
 ## PatchAssessmentResources
 
@@ -84,6 +100,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 [!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../../includes/resource-graph/query/resources-monitor-data-collection-rules.md)]
+
+[!INCLUDE [vmss-resources-flexible-orchestration](../../includes/resource-graph/query/vmss-resources-flexible-orchestration.md)]
 
 ## SecurityResources
 

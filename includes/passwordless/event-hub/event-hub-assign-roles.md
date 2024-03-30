@@ -48,10 +48,10 @@ If you want to create a custom role, see [Rights required for Event Hubs operati
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus namespace show` command. You can filter the output properties using the `--query` parameter. 
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az eventhubs namespace show` command. You can filter the output properties using the `--query` parameter. 
 
 ```azurecli
-az servicebus namespace show -g '<your-event-hub-resource-group>' -n '<your-event-hub-name> --query id
+az eventhubs namespace show -g '<your-event-hub-resource-group>' -n '<your-event-hub-name> --query id
 ```
 
 Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.

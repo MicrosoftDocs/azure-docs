@@ -8,9 +8,8 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 10/13/2023
 ms.author: msangapu
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
-
 ---
 # Open an SSH session to a container in Azure App Service
 
@@ -135,5 +134,4 @@ For more information on Web App for Containers, see:
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md?pivots=container-linux)
-* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ](faq-app-service-linux.yml)

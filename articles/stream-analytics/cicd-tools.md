@@ -1,7 +1,6 @@
 ---
 title: Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
 description: This article describes how to use Azure Stream Analytics CI/CD tools to auto build, test, and deploy an Azure Stream Analytics project.
-services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics

@@ -1,24 +1,25 @@
 ---
 title: Create an experiment using an agent-based fault with the portal
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the portal.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 # Create a chaos experiment that uses an agent-based fault with the Azure portal
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- A Linux VM. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
+- A Linux VM running an operating system in the [version compatibility](chaos-studio-versions.md) list. If you don't have a VM, you can [create one](../virtual-machines/linux/quick-create-portal.md).
 - A network setup that permits you to [SSH into your VM](../virtual-machines/ssh-keys-portal.md).
 - A user-assigned managed identity *that was assigned to the target VM or virtual machine scale set*. If you don't have a user-assigned managed identity, you can [create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
@@ -34,7 +35,7 @@ Virtual machines have two target types. One target type enables service-direct f
 > Prior to finishing the next steps, you must [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Then you assign it to the target VM or virtual machine scale set.
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and move to your VM.
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/tutorial-agent-based-targets.png)

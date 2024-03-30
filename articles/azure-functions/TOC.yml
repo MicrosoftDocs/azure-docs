@@ -359,9 +359,6 @@
           displayName: availability zones, high-availability, zone redundancy, disaster recovery
         - name: Migrate to a zone-redundant plan
           href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json 
-    - name: Monitor function executions
-      href: functions-monitoring.md
-      displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics
       href: functions-diagnostics.md
     - name: Consumption plan costs
@@ -399,7 +396,31 @@
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
-      href: functions-reference-python.md
+      items:
+        - name: Developer reference guide
+          displayName: python
+          href: functions-reference-python.md
+        - name: Programming models 
+          displayName: python
+          href: functions-reference-python.md#programming-model
+        - name: Python worker extensions
+          href: develop-python-worker-extensions.md
+        - name: Scale and performance recommendations 
+          displayName: python
+          href: python-scale-performance-reference.md
+        - name: Troubleshooting
+          items: 
+            - name: General troubleshooting
+              displayName: python
+              href: recover-python-functions.md
+            - name: Memory profiling
+              displayName: python
+              href: python-memory-profiler-reference.md
+        - name: Python library API reference for Functions    
+          href: /python/api/azure-functions/azure.functions
+        - name: Samples
+          displayName: python
+          href: /samples/browse/?products=azure-functions&languages=python
 - name: How-to guides
   items:
     - name: Develop
@@ -426,8 +447,6 @@
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Kotlin using Maven
-                  href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Linux App Service plan
@@ -439,8 +458,6 @@
                 - name: Linux container (Premium)
                   href: functions-deploy-container.md
                   displayName: container, Docker, custom
-                - name: Azure for Students Starter
-                  href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
               href: functions-create-cosmos-db-triggered-function.md
             - name: Blob storage trigger
@@ -512,6 +529,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -543,25 +561,26 @@
           items:
             - name: Migrate to model v4.x
               href: functions-node-upgrade-v4.md
-        - name: Update Java versions
-          href: update-java-versions.md  
+        - name: Update language versions
+          href: update-language-versions.md  
+          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitor function apps with Azure Monitor
+        - name: Monitor
           href: monitor-functions.md
           displayName: monitor metrics
+        - name: Monitor function executions
+          href: functions-monitoring.md
+          displayName: App Insights, Application Insights, logs, logging
         - name: Configure monitoring
           href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
-        - name: Streaming logs
+        - name: Stream execution logs
           href: streaming-logs.md
           displayName: monitoring
-        - name: Diagnostic logs
-          href: functions-monitor-log-analytics.md
-          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -729,15 +748,21 @@
               displayName: Azure Cache for Redis
             - name: Trigger
               items: 
-              - name: Pub Sub Trigger
+              - name: Pub Sub
                 href: functions-bindings-cache-trigger-redispubsub.md
                 displayName: Azure Cache for Redis
-              - name: List Trigger
+              - name: List
                 href: functions-bindings-cache-trigger-redislist.md
                 displayName: Azure Cache for Redis
-              - name: Stream Trigger
+              - name: Stream
                 href: functions-bindings-cache-trigger-redisstream.md
                 displayName: Azure Cache for Redis
+            - name: Input
+              href: functions-bindings-cache-input.md
+              displayName: Azure Cache for Redis
+            - name: Output
+              href: functions-bindings-cache-output.md
+              displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
@@ -915,6 +940,9 @@
             - name: Output
               href: functions-bindings-service-bus-output.md
               displayName: Service Bus
+            - name: Migrate version 4.x to 5.x
+              href: migrate-service-bus-version-4-version-5.md
+              displayName: Service Bus
         - name: SignalR Service
           items:
             - name: Overview
@@ -973,12 +1001,24 @@
           - name: AZFD0005
             href: errors-diagnostics/diagnostic-events/azfd0005.md
           - name: AZFD0006
-            href: errors-diagnostics/diagnostic-events/azfd0006.md            
+            href: errors-diagnostics/diagnostic-events/azfd0006.md        
+          - name: AZFD0007
+            href: errors-diagnostics/diagnostic-events/azfd0007.md 
+          - name: AZFD0008
+            href: errors-diagnostics/diagnostic-events/azfd0008.md  
+          - name: AZFD0009
+            href: errors-diagnostics/diagnostic-events/azfd0009.md     
+          - name: AZFD0010
+            href: errors-diagnostics/diagnostic-events/azfd0010.md
+          - name: AZFD0011
+            href: errors-diagnostics/diagnostic-events/azfd0011.md
+          - name: AZFD0012
+            href: errors-diagnostics/diagnostic-events/azfd0012.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
-    - name: Monitoring data
+    - name: Monitoring data reference
       href: monitor-functions-reference.md  
     - name: Networking FAQ
       href: functions-networking-faq.yml
@@ -990,12 +1030,12 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
-    - name: Pricing
-      href: pricing.md
-    - name: Language support policy
-      href: language-support-policy.md
+    - name: Pricing details
+      href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Quota information
       href: functions-scale.md#service-limits
     - name: Regional availability

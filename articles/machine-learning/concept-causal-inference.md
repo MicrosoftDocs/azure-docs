@@ -1,16 +1,16 @@
 ---
-title: Make data-driven policies and influence decision-making 
+title: Make data-driven policies and influence decision-making
 titleSuffix: Azure Machine Learning
-description: Make data-driven decisions and policies with the Responsible AI dashboard's integration of the causal analysis tool EconML. 
+description: Make data-driven decisions and policies with the Responsible AI dashboard's integration of the causal analysis tool EconML.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 08/17/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.date: 02/27/2024
+ms.custom: responsible-ml
 ---
 
 # Make data-driven policies and influence decision-making
@@ -19,7 +19,7 @@ Machine learning models are powerful in identifying patterns in data and making 
 
 Practitioners have become increasingly focused on using historical data to inform their future decisions and business interventions. For example, how would the revenue be affected if a corporation pursued a new pricing strategy? Would a new medication improve a patient's condition, all else equal?
 
-The *causal inference* component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) addresses these questions by estimating the effect of a feature on an outcome of interest on average, across a population or a cohort, and on an individual level. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from an intervention. Collectively, these functionalities allow decision-makers to apply new policies and effect real-world change.
+The *causal inference* component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md) addresses these questions by estimating the effect of a feature on an outcome of interest on average, across a population or a cohort, and on an individual level. It also helps construct promising interventions by simulating feature responses to various interventions and creating rules to determine which population cohorts would benefit from an intervention. Collectively, these functionalities allow decision-makers to apply new policies and drive real-world change.
 
 The capabilities of this component come from the [EconML](https://github.com/Microsoft/EconML) package. It estimates heterogeneous treatment effects from observational data via the [double machine learning](https://econml.azurewebsites.net/spec/estimation/dml.html) technique.
 

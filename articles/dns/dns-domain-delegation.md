@@ -4,7 +4,7 @@ description: Understand how to change domain delegation and use Azure DNS name s
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ms.topic: conceptual
 ---

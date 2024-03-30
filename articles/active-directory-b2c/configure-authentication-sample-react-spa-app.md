@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in a sample React SPA by using Azure Active Directory B2C
 description: Learn how to use Azure Active Directory B2C to sign in and sign up users in a React SPA.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a React single-page application, I want to configure authentication using Azure Active Directory B2C, so that I can securely sign in users to my application and call a protected web API.
+
 ---
 
 # Configure authentication in a sample React single-page application by using Azure Active Directory B2C
@@ -81,8 +85,7 @@ In this step, you create the registrations for the React SPA and the web API app
 Follow these steps to create the React app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **MyApp**.

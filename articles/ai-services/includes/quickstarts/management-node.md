@@ -1,10 +1,12 @@
 ---
 title: "Quickstart: Azure management client library for Node.js"
 description: In this quickstart, get started with the Azure management client library for Node.js.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: pafarley
@@ -95,8 +97,6 @@ To view all of the resources under your Azure account (across all resource group
 The following function deletes the specified resource from the given resource group.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
-
-If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
 
 ## Run the application
 

@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**:  To check the error details, see [Azure Files help](/rest/api/storageservices/file-service-error-codes). For further help, contact the Azure Files team.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

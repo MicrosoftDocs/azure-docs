@@ -1,10 +1,8 @@
 ---
-title: Build queries with cloud security explorer
-
-description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
+title: Build queries with cloud security explorer in Microsoft Defender for Cloud
+description: Learn how to build queries with cloud security explorer in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.custom: ignite-2022
-ms.date: 08/16/2023
+ms.date: 11/01/2023
 ---
 
 # Build queries with cloud security explorer
@@ -24,7 +22,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 | Release state | GA (General Availability) |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled<br>- Defender for Servers P2 customers can use the explorer UI to query for keys and secrets, but must have Defender CSPM enabled to get the full value of the Explorer. |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds - GCP (Preview) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS, GCP) <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Prerequisites
 
@@ -64,12 +62,12 @@ The cloud security explorer allows you to build queries that can proactively hun
 
     :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
-1. Search for and select a resource from the drop-down menu. 
+1. Search for and select a resource from the drop-down menu.
 
       :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
 
 1. Select **+** to add other filters to your query.
-    
+
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
 
 1. Add subfilters as needed.
@@ -100,4 +98,4 @@ Use the query link to share a query with other people. After creating a query, s
 
 View the [reference list of attack paths and cloud security graph components](attack-path-reference.md).
 
-Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md).

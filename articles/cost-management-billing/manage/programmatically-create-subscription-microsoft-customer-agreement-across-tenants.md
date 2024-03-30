@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 03/21/2024
 ms.reviewer: rygraham
 ms.author: banders
 ---
@@ -18,6 +18,8 @@ The process to create an MCA subscription across tenants is effectively a two-ph
 
 - Source Microsoft Entra ID (source.onmicrosoft.com). It represents the source tenant where the MCA billing account exists.
 - Destination Cloud Microsoft Entra ID (destination.onmicrosoft.com). It represents the destination tenant where the new MCA subscriptions are created.
+
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 
 ## Prerequisites
 

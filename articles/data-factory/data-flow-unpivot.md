@@ -53,6 +53,6 @@ Setting the Column Arrangement to "Normal" will group together all of the new un
 
 The final unpivoted data result set shows the column totals now unpivoted into separate row values.
 
-## Next steps
+## Related content
 
 Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.

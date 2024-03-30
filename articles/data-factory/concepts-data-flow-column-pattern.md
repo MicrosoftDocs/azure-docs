@@ -94,6 +94,6 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 * `position` is the ordinal position of columns in your data flow
 * `origin` is the transformation where a column originated or was last updated
 
-## Next steps
+## Related content
 * Learn more about the mapping data flows [expression language](data-transformation-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

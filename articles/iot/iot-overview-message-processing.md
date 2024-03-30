@@ -6,10 +6,9 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 04/03/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
-
-# As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
 ---
 
 # Message processing in an IoT solution
@@ -64,7 +63,7 @@ To learn more, see [React to IoT Hub events by using Event Grid to trigger actio
 
 ## Enrich or transform messages
 
-To simplify downstream processing, you may want to add data to telemetry messages or modify their structure.
+To simplify downstream processing, you might want to add data to telemetry messages or modify their structure.
 
 ### IoT Hub message enrichments
 
@@ -81,11 +80,11 @@ To learn more, see [Message enrichments for device-to-cloud IoT Hub messages](..
 IoT Central has two options for transforming telemetry messages:
 
 - Use [mappings](../iot-central/core/howto-map-data.md) to transform complex device telemetry into structured data on ingress to IoT Central.
-- Use [transformations](../iot-central/core/howto-transform-data-internally.md) to manipulate the format and structure of the device data before it's exported to a destination.
+- Use [transformations](../iot-central/core/howto-transform-data-internally.md) to manipulate the format and structure of the device data before you export it to a destination.
 
 ## Process messages at the edge
 
-An Azure IoT Edge module can process telemetry from an attached sensor or device before it's sent to an IoT hub. For example, before it sends data to the cloud an IoT Edge module can:
+An Azure IoT Edge module can process telemetry from an attached sensor or device before it sends it to an IoT hub. For example, before it sends data to the cloud an IoT Edge module can:
 
 - [Filter data](../iot-edge/tutorial-deploy-function.md)
 - Aggregate data
@@ -95,7 +94,7 @@ An Azure IoT Edge module can process telemetry from an attached sensor or device
 
 You can use other Azure services to process telemetry messages from your devices. Both IoT Hub and IoT Central can route messages to other services. For example, you can forward telemetry messages to:
 
-[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) is a managed stream processing engine that is designed to analyze and process large volumes of streaming data. Stream Analytics can identify patterns in your data and then trigger actions such as creating alerts, feeding information to a reporting tool, or storing the transformed data. Stream Analytics is also available on the Azure IoT Edge runtime, enabling it to process data at the edge rather than in the cloud.
+[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) is a managed stream processing engine that is designed to analyze and process large volumes of streaming data. Stream Analytics can identify patterns in your data and then trigger actions such as creating alerts, sending information to a reporting tool, or storing the transformed data. Stream Analytics is also available on the Azure IoT Edge runtime, enabling it to process data at the edge rather than in the cloud.
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that lets you run code in response to events. You can use Azure Functions to process telemetry messages from your devices.
 
@@ -107,7 +106,7 @@ To learn more, see:
 
 ## Next steps
 
-Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
+Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include:
 
 - [Extend your IoT solution](iot-overview-solution-extensibility.md)
 - [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)

@@ -1,16 +1,18 @@
 ---
-title: 'Overview of Azure Event Grid’s MQTT broker feature (preview)'
-description: 'Describes the main concepts for the Azure Event Grid’s MQTT broker feature.'
+title: 'Overview of MQTT broker feature in Azure Event Grid'
+description: 'Describes the main concepts for the MQTT broker feature in Azure Event Grid.'
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+ms.subservice: mqtt
 ---
-# Overview of the Azure Event Grid’s MQTT broker feature (Preview)
+
+# Overview of the MQTT broker feature in Azure Event Grid
 
 Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions.
-
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 Azure Event Grid’s MQTT broker feature enables you to accomplish the following scenarios:
 
@@ -27,12 +29,12 @@ The MQTT broker is ideal for the implementation of automotive and mobility scena
 
 
 
-## Key concepts:
+## Key concepts
 The following are a list of key concepts involved in Azure Event Grid’s MQTT broker feature.
 
 ### MQTT
 
-MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It has become the go-to communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
+MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It's the go-to communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
 - MQTT v5 features: 
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
 	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation ID in the request for the client to respond without prior configuration. 
@@ -43,7 +45,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
 	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
 	- **Server-sent disconnect packets** allow your clients to efficiently handle disconnects.
-- MQTT broker is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Will message, Retain flag, Message ordering and QoS 2 aren't supported.
+- MQTT broker is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Will message, Retain flag, Message ordering, and QoS 2 aren't supported.
 
 - MQTT v3.1.1 features: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
@@ -56,7 +58,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 
 The publish-subscribe messaging model provides a scalable and asynchronous communication to clients. It enables clients to offload the burden of handling a high number of connections and messages to the service. Through the Publish-Subscribe messaging model, your clients can communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns. 
 - The one-to-many messaging pattern enables clients to publish only one message that the service replicates for every interested client. 
-- The many-to-one messaging pattern enables clients to offload the burden of managing the high number of connections to MQTT broker. 
+- The many-to-one messaging pattern enables clients to offload the burden of managing the high number of connections to MQTT broker.
 - The one-to-one messaging pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 
 ### Namespace
@@ -87,28 +89,31 @@ Topic spaces also provide granular access control by allowing you to control the
 
 ### Routing
 
-Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid custom topic](custom-topics.md), and configuring [Event Grid event subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
+Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your MQTT messages from your clients to either an [Event Grid namespace topic](concepts-event-grid-namespaces.md#namespace-topics) or an  [Event Grid custom topic](custom-topics.md). Once the messages are in the topic, you can configure an event subscription to consume the messages from the topic. For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
-### MQTT Clients Life Cycle Events 
+### Edge MQTT broker integration
+Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud.  Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID (formerly Azure Active Directory) authentication using system-assigned managed identity, which simplifies credential management. Azure IoT MQ provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations. [Learn more about connecting Azure IoT MQ to Azure Event Grid's MQTT broker](https://aka.ms/iot-mq-eg-bridge).
 
-Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers.Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
+### MQTT Clients Life Cycle Events
+
+Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers. Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
 
 ## Next steps
 
 Use the following articles to learn more about the MQTT broker and its main concepts.
 
-### Quick Start
-
 - [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
+
 
 ### Concepts
 
 - [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 
 - [Access control](mqtt-access-control.md) 
-- [MQTT support](mqtt-support.md) 
+- [MQTT protocol support](mqtt-support.md) 
 - [Routing MQTT messages](mqtt-routing.md) 
 - [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).

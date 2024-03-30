@@ -7,13 +7,13 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
 # Download your savings plan price sheet
 
-This article explains how you can download the price sheet for an Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA). Your price sheet contains pricing for savings plans.
+This article explains how you can download the price sheet for an Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) via the Azure portal. Included in the price sheet is the list of products that are eligible for savings plans, as well as the 1- and 3-year savings plans prices for these products.
 
 ## Download EA price sheet
 

@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager
 description: This article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 02/26/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -59,8 +59,8 @@ To install one-time updates on a single VM:
    
       :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot that shows update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
-   - Select **Include KB ID/package** to include in the updates. Enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example, use `3103696` or `3134815`. For Windows, you can refer to the [MSRC webpage](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base release. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, use `kernel*`, `glibc`, or `libc=1.0.1`. Based on the options specified, Update Manager shows a preview of OS updates under the **Selected Updates** section.
-   - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend selecting this option because updates that aren't displayed here might be installed, as newer updates might be available.
+   - Select **Include KB ID/package** to include in the updates. You can add multiple KB IDs and package names. When you add KB ID/package name, the next row appears. The package can have both name and version. . For example, use `3103696` or `3134815`. For Windows, you can refer to the [MSRC webpage](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base release. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, use `kernel*`, `glibc`, or `libc=1.0.1`. Based on the options specified, Update Manager shows a preview of OS updates under the **Selected Updates** section.
+   - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend selecting this option because updates that aren't displayed here might be installed, as newer updates might be available. You can excludedd multiple KB IDs and package names.
    - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date**. Select the date and select **Add** > **Next**.
    
       :::image type="content" source="./media/deploy-updates/include-patch-publish-date-inline.png" alt-text="Screenshot that shows the patch publish date." lightbox="./media/deploy-updates/include-patch-publish-date-expanded.png":::
@@ -150,10 +150,11 @@ After your scheduled deployment starts, you can see its status on the **History*
 
 :::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot that shows update history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
-**Windows update history** currently doesn't show the updates that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update Manager** > **Manage** > **History**.
+Currently, the **Windows update history** for a VM doesn't show the updates that are installed from Azure Update Manager. To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update manager** > **Manage** > **History**. 
+> - To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
+> - Alternatively, go to **Control Panel** > **Programs** > **Programs and Features** > **Installed Updates** to view the installed CBS updates. This view only shows history of CBS updates [Servicing stack updates - Windows Deployment](/windows/deployment/update/servicing-stack-updates) which can be uninstalled.
  
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 

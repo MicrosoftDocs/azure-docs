@@ -14,6 +14,8 @@
       items:
         - name: Use the Azure CLI
           href: quickstart-azure-cli.md
+        - name: Use Azure PowerShell
+          href: quickstart-azure-powershell.md
         - name: Use the ARM template
           href: quickstart-azure-resource-manager-template.md
         - name: Use Terraform

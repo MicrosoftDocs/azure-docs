@@ -28,8 +28,8 @@ This guide discusses how to secure public applications or devices that can't sec
 Create the device based application in Microsoft Entra ID to enable Microsoft Entra sign-in, which is granted access to Azure Maps REST APIs.
 
 1. In the Azure portal, in the list of Azure services, select **Microsoft Entra ID** > **App registrations** > **New registration**.  
-
-    :::image type="content" source="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID":::
+	
+	:::image type="content" border="false" source="./media/how-to-manage-authentication/app-registration.png" lightbox="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID.":::
 
 2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Supported account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more information, see Microsoft Entra ID [Desktop app that calls web APIs: App registration]. Then **Register** the application.
 

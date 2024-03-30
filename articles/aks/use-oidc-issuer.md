@@ -2,23 +2,27 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 10/27/2023
+ms.date: 03/04/2024
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
 
-[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as an additional authentication protocol issued by Microsoft Entra ID. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
+[OpenID Connect][open-id-connect-overview] (OIDC) extends the OAuth 2.0 authorization protocol for use as another authentication protocol issued by Microsoft Entra ID. You can use OIDC to enable single sign-on (SSO) between your OAuth-enabled applications, on your Azure Kubernetes Service (AKS) cluster, by using a security token called an ID token. With your AKS cluster, you can enable OpenID Connect (OIDC) Issuer, which allows Microsoft Entra ID or other cloud provider identity and access management platform, to discover the API server's public signing keys.
 
 AKS rotates the key automatically and periodically. If you don't want to wait, you can rotate the key manually and immediately. The maximum lifetime of the token issued by the OIDC provider is one day.
 
 > [!WARNING]
-> Enable OIDC Issuer on existing cluster changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable the OIDC Issuer, we recommend you manually restart the pods.
+> Enable OIDC Issuer on existing cluster changes the current service account token issuer to a new value, which can cause down time as it restarts the API server. If your application pods using a service token remain in a failed state after you enable the OIDC Issuer, we recommend you manually restart the pods.
 
 In this article, you learn how to create, update, and manage the OIDC Issuer for your cluster.
 
 > [!IMPORTANT]
 > After enabling OIDC issuer on the cluster, it's not supported to disable it.
+
+> [!IMPORTANT]
+> The token needs to be refreshed periodically. If you use [SDK][sdk], the rotation is automatic, otherwise, you need to refresh the token every 24 hours manually.
 
 ## Prerequisites
 
@@ -130,7 +134,7 @@ The output should resemble the following:
 }
 ```
 
-During key rotation, there is one additional key present in the discovery document.
+During key rotation, there's one other key present in the discovery document.
 
 ## Next steps
 
@@ -142,6 +146,7 @@ During key rotation, there is one additional key present in the discovery docume
 
 <!-- LINKS - internal -->
 [open-id-connect-overview]: ../active-directory/fundamentals/auth-oidc.md
+[sdk]: workload-identity-overview.md#azure-identity-client-libraries
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update

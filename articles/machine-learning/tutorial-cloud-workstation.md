@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 09/27/2023
+ms.date: 11/28/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -58,7 +58,7 @@ In order for your script to run, you need to be working in an environment config
 
     You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.  You'll see contents like this:
 
-    ::: code language="yml" source="~/azureml-examples-main//tutorials/get-started-notebooks/workstation_env.yml" :::
+    ::: code language="yml" source="~/azureml-examples-main/tutorials/get-started-notebooks/workstation_env.yml" :::
 
 * **Create a kernel.**
 

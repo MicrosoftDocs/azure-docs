@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute (MEC) by using an Azure Resource Manager template.
 author: kunaltelang
-ms.author: kutelang
+ms.author: monikama
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
 ms.date: 11/22/2022
@@ -21,7 +21,7 @@ In this quickstart, you learn how to use an Azure Resource Manager (ARM) templat
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
    > [!NOTE]
    > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.

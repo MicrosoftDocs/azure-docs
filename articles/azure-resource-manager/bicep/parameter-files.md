@@ -1,9 +1,9 @@
 ---
 title: Create parameters files for Bicep deployment
-description: Create parameters file for passing in values during deployment of a Bicep file
+description: Create parameters file for passing in values during deployment of a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/10/2023
+ms.date: 03/19/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -11,11 +11,11 @@ ms.date: 10/10/2023
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or newer.
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the [`using` statement](./bicep-using.md) within the Bicep parameters file.
 
-You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file.  See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
+You can compile Bicep parameters files into JSON parameters files to deploy with a Bicep file. See [build-params](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. See [decompile-params](./bicep-cli.md#decompile-params).
 
 ## Parameters file
 
@@ -30,10 +30,39 @@ param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
 ```
 
+You can use the [using statement](./bicep-using.md) with Bicep file, ARM JSON templates, Bicep modules, and template specs. For example:
+
+```bicep
+using './main.bicep'
+...
+```
+
+```bicep
+using './azuredeploy.json'
+...
+```
+
+```bicep
+using 'br/public:storage/storage-account:3.0.1'
+...
+```
+
+```bicep
+using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
+...
+```
+
+```bicep
+using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
+...
+```
+
+For more information, see the [using statement](./bicep-using.md).
+
 You can use expressions with the default value. For example:
 
 ```bicep
-using 'storageaccount.bicep'
+using 'main.bicep'
 
 param storageName = toLower('MyStorageAccount')
 param intValue = 2 + 2
@@ -47,7 +76,7 @@ using './main.bicep'
 param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
 ```
 
-You can define and use variables. Bicep CLI version 0.21.1 or newer is required for using variables in .bicepparam file.  Here are some examples:
+You can define and use variables. [Bicep CLI version 0.21.X or higher](./install.md) is required for using variables in .bicepparam file.  Here are some examples:
 
 ```bicep
 using './main.bicep'
@@ -328,7 +357,7 @@ To generate a parameters file, you have two options: either through Visual Studi
 
 ## Build Bicep parameters file
 
-From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  for more information, see [Build parameters file](./bicep-cli.md#build-params).
+From Bicep CLI, you can build a Bicep parameters file into a JSON parameters file.  For more information, see [Build parameters file](./bicep-cli.md#build-params).
 
 ## Deploy Bicep file with parameters file
 
@@ -336,8 +365,7 @@ From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
-
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
 ```azurecli
 az deployment group create \
@@ -358,7 +386,7 @@ az deployment group create \
 
 ---
 
-For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). 
+For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters).
 
 From Azure PowerShell, pass a local parameters file using the `TemplateParameterFile` parameter.
 
@@ -389,7 +417,7 @@ For more information, see [Deploy resources with Bicep and Azure PowerShell](./d
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. This feature hasn't been implemented for Bicep parameters file.
+You can use inline parameters and a local parameters file in the same deployment operation. For example, you can specify some values in the local parameters file and add other values inline during deployment. If you provide values for a parameter in both the local parameters file and inline, the inline value takes precedence. 
 
 It's possible to use an external parameters file, by providing the URI to the file. When you use an external parameters file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 

@@ -42,7 +42,7 @@ Replace the \<Placeholders\> with your values.
 ```azurepowershell
 $ImageParams = @{
     Name = '<ContainerName>'
-    Image = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+    Image = 'mcr.microsoft.com/k8se/quickstart'
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 

@@ -2,7 +2,8 @@
 title: Create a chaos experiment to shut down all targets in a zone
 description: Use the Azure portal to create an experiment that uses dynamic targeting to select hosts in a zone.
 author: rsgel
-ms.author: carlsonr
+ms.author: abbyweisberg
+ms.reviewer: carlsonr
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 4/19/2023
@@ -22,7 +23,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Enable Chaos Studio on your virtual machine scale sets
 
-Azure Chaos Studio Preview can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
+Azure Chaos Studio can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
 
 Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources also might have many other capabilities.
 

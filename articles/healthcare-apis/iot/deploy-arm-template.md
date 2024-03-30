@@ -3,7 +3,7 @@ title: Deploy the MedTech service using an Azure Resource Manager template - Azu
 description: Learn how to deploy the MedTech service using an Azure Resource Manager template.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.custom: devx-track-arm-template
 ms.topic: quickstart
 ms.date: 07/05/2023
@@ -11,9 +11,6 @@ ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a [JavaScript Object Notation (JSON)](https://www.json.org/) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
@@ -107,7 +104,7 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services workspace.
 
-* Health Data Services Fast Healthcare Interoperability Resources FHIR service.
+* Health Data Services FHIR&reg; service.
 
 * Health Data Services MedTech service with the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) enabled and granted the following access roles:
 
@@ -130,21 +127,10 @@ After you have successfully deployed an instance of the MedTech service, you'll 
 
 ## Next steps
 
-In this quickstart, you learned how to deploy the MedTech service in the Azure portal using an ARM template with the **Deploy to Azure** button. 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about other methods of deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-For an overview of the MedTech service device data processing stages, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-For frequently asked questions (FAQs) about the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

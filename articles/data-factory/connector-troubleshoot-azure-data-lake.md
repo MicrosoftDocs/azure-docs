@@ -131,7 +131,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

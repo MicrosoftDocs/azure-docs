@@ -11,6 +11,7 @@ ms.author: mbaldwin
 ms.date: 10/3/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure key vault and key using Terraform

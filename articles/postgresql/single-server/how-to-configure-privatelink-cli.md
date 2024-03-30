@@ -76,7 +76,7 @@ Note the public IP address of the VM. You will use this address to connect to 
 
 ## Create an Azure Database for PostgreSQL - Single server 
 
-Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above:
+Create an Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above:
 
 ```azurecli-interactive
 # Create a server in the resource group

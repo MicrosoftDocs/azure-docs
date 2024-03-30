@@ -7,8 +7,8 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/06/2023
-ms.author: normesta
+ms.date: 12/08/2023
+ms.author: nachakra
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Object replication asynchronously copies block blobs from a container in one storage account to a container in another storage account. When you configure an object replication policy, you specify the source account and container and the destination account and container. After the policy is configured, Azure Storage automatically copies the results of create, update, and delete operations on a source object to the destination object. For more information about object replication in Azure Storage, see [Object replication for block blobs](object-replication-overview.md).
 
-By default, an authorized user is permitted to configure an object replication policy where the source account is in one Microsoft Entra tenant and the destination account is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is enabled for a storage account unless you explicitly disallow it.
+An authorized user can configure an object replication policy where the source account is in one Microsoft Entra tenant and the destination account is in a different tenant if cross tenant replication is allowed across Microsoft Entra tenants. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow the creation of policies where the source and destination accounts are in different tenants. By default, cross-tenant object replication is disabled for all new storage accounts created after Dec 15, 2023, unless you explicitly allow it.
 
 This article describes how to remediate cross-tenant object replication for your storage accounts. It also describes how to create policies to enforce a prohibition on cross-tenant object replication for new and existing storage accounts.
 
@@ -26,15 +26,15 @@ For more information on how to configure object replication policies, including 
 
 To prevent object replication across Microsoft Entra tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account does not currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted until you delete the existing cross-tenant policies.
 
-Cross-tenant policies are permitted by default for a storage account. However, the **AllowCrossTenantReplication** property is not set by default for a new or existing storage account and does not return a value until you explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true**. Setting the **AllowCrossTenantReplication** property does not incur any downtime on the storage account.
+Cross-tenant policies are not permitted by default for a storage account created after Dec 15, 2023. However, the **AllowCrossTenantReplication** property was not set by default for an existing storage account created before Dec 15, 2023, and does not return a value until you had explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true** for accounts created prior to Dev 15, 2023. For accounts created after that time, the property needs to be set to true. Setting the **AllowCrossTenantReplication** property does not incur any downtime on the storage account.
 
 ### Remediate cross-tenant replication for a new account
 
-To disallow cross-tenant replication for a new storage account, use the Azure portal, PowerShell, or Azure CLI.
+To disallow cross-tenant replication for a new storage account, use the Azure portal, PowerShell, or Azure CLI. The property defaults to false for new accounts created after Dec 15, 2023, even when not set explicitly.
 
 #### [Portal](#tab/portal)
 
-To disallow cross-tenant object replication for a new storage account, follow these steps:
+To disallow cross-tenant object replication for a  storage account, follow these steps:
 
 1. In the Azure portal, navigate to the **Storage accounts** page, and select **Create**.
 1. Fill out the **Basics** tab for the new storage account.

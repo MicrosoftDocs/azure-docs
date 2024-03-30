@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 06/24/2021
 ms.author: akashdubey
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Table design patterns
 

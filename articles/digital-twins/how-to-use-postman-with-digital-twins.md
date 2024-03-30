@@ -8,7 +8,6 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 01/23/2023
-ms.custom: contperf-fy21q4
 ---
 
 # How to send requests to the Azure Digital Twins APIs using Postman

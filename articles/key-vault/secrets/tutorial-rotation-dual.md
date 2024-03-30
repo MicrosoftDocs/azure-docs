@@ -7,9 +7,9 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -162,13 +162,13 @@ az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <
 
 ```azurepowershell
 $tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
-$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
     ProviderAddress='<storageAccountResourceId>'
     ValidityPeriodDays='60'
 }
-Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate
 ```
 ---
 
@@ -269,13 +269,13 @@ az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value 
 
 ```azurepowershell
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddTHH:mm:ssZ")
-$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key2';
     ProviderAddress='<storageAccountResourceId>';
     ValidityPeriodDays='60'
 }
-Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate
 ```
 ---
 

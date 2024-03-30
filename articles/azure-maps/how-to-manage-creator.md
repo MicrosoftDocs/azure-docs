@@ -104,7 +104,7 @@ Learn how to use the Creator services to render indoor maps in your application:
 > [Use the Indoor Maps module]
 
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
-[Azure AD authentication]: azure-maps-authentication.md#azure-ad-authentication
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Azure Maps Creator tutorial]: tutorial-creator-indoor-maps.md
 [Azure Maps pricing]: https://aka.ms/CreatorPricing
 [Azure portal]: https://portal.azure.com

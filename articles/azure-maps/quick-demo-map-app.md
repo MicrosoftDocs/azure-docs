@@ -55,7 +55,7 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** and save it locally to use later in this tutorial.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 >[!NOTE]
 > This quickstart uses the [Shared Key] authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Microsoft Entra ID] authentication.
@@ -107,6 +107,7 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 [Find an address with Azure Maps search service]: how-to-search-for-address.md
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Interactive Search Quickstart.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html
+[Microsoft Entra ID]: /entra/fundamentals/whatis
 [Next Steps]: #next-steps
 [open-source map controls]: open-source-projects.md#third-party-map-control-plugins
 [Search nearby points of interest with Azure Maps]: tutorial-search-location.md

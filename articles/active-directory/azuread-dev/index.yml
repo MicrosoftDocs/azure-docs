@@ -13,9 +13,7 @@ metadata:
   ms.author: celested
   ms.service: active-directory
   ms.subservice: azuread-dev
-  ms.workload: identity
   ROBOTS: NOINDEX
-
 landingContent:
   - title: Azure Active Directory for developers
     linkLists:
