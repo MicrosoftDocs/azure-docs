@@ -64,11 +64,11 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
 1. Set the required variables. Replace the placeholders with the actual values relevant to your Azure environment and Nexus Kubernetes cluster.
 
     ```bash
-    RESOURCE_GROUP="myResourceGroup"
-    CLUSTER_NAME="myNexusK8sCluster"
-    SUBSCRIPTION_ID="<Subscription ID>"
-    USER_NAME="azureuser"
-    SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+    RESOURCE_GROUP="myResourceGroup" # Resource group where the Nexus Kubernetes cluster is deployed
+    CLUSTER_NAME="myNexusK8sCluster" # Name of the Nexus Kubernetes cluster
+    SUBSCRIPTION_ID="<Subscription ID>" # Azure subscription ID
+    ADMIN_USERNAME="azureuser" # Username for the cluster administrator (--admin-username parameter value used during cluster creation)
+    SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>" # Path to the SSH private key file
     MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --output tsv --query managedResourceGroupConfiguration.name)
     ```
 
@@ -98,7 +98,7 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
     az ssh arc --subscription $SUBSCRIPTION_ID \
         --resource-group $MANAGED_RESOURCE_GROUP \
         --name $VM_NAME \
-        --local-user $USER_NAME \
+        --local-user $ADMIN_USERNAME \
         --private-key-file $SSH_PRIVATE_KEY_FILE
     ```
 
@@ -132,7 +132,7 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
 2. Execute the following command to get the IP address of the nodes.
 
-    ```azurecli
+    ```azurecli-interactive
     az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
     ```
 
