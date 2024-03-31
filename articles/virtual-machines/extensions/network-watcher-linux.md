@@ -140,7 +140,7 @@ Use [Get-AzVMExtension](/powershell/module/az.compute/get-azvmextension) cmdlet 
 
 ```azurepowershell-interactive
 # List the installed extensions on the virtual machine.
-Get-AzVMExtension -ResourceGroupName 'myResourceGroup' -VMName 'myVM' | format-table Name, Publisher, ExtensionType, EnableAutomaticUpgrade
+Get-AzVMExtension -ResourceGroupName 'myResourceGroup' -VMName 'myVM' | format-table Name, Publisher, ExtensionType, AutoUpgradeMinorVersion, EnableAutomaticUpgrade
 ```
 
 The output of the cmdlet lists the installed extensions:
