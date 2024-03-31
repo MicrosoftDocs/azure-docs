@@ -3,7 +3,7 @@ title: Reference table for all security alerts
 description: This article lists the security alerts visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 03/17/2024
+ms.date: 03/31/2024
 ai-usage: ai-assisted
 ---
 
@@ -832,6 +832,16 @@ While this action might be legitimate, attackers can try utilizing VM Access ext
 **[MITRE tactics](#mitre-attck-tactics)**: Impact
 
 **Severity**: Low
+
+### **AzureHound tool invocation detected**
+
+(ARM_AzureHound)
+
+**Description**: AzureHound was run in your subscription and performed information gathering operations to enumerate resources. Threat actors use automated tools, like AzureHound, to enumerate resources and use them to access sensitive data or perform lateral movement. This was detected by analyzing Azure Resource Manager operations in your subscription. This operation might indicate that an identity in your organization was breached, and that the threat actor is trying to compromise your environment.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Discovery
+
+**Severity**: Medium
 
 ## Alerts for Linux machines
 
