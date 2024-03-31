@@ -1,10 +1,10 @@
 ---
 title: Regulatory compliance in Defender for Cloud
-description: Learn about regulatory compliance standards and certification in Microsoft Defender for Cloud
+description: Learn about regulatory compliance standards and certification in Microsoft Defender for Cloud, and how it helps ensure compliance with industry regulations.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
-ms.date: 03/26/2024
+ms.date: 03/31/2024
 #customer intent: As a cloud security professional, I want to understand how Defender for Cloud helps me meet regulatory compliance standards, so that I can ensure my organization is compliant with industry standards and regulations.
 ---
 
@@ -70,40 +70,39 @@ The following regulatory standards are available in Defender for Cloud:
 
 | Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
 |--|--|--|
-| Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)| 
-| Brazilian General Personal Data Protection Law (LGPD) | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)| 
-| California Consumer Privacy Act (CCPA) | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls| 
-| Canada Federal PBMM | California Consumer Privacy Act (CCPA) | CIS GCP Foundations| 
-| CIS Azure Foundations | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark| 
-| CIS Controls | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark| 
-| CIS Google Cloud Platform Foundation Benchmark | CSA Cloud Controls Matrix (CCM) | CRI Profile| 
-| CIS Google Kubernetes Engine (GKE) Benchmark | GDPR | CSA Cloud Controls Matrix (CCM)| 
-| CMMC Level 3 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)| 
-| CRI Profile | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)| 
-| CSA Cloud Controls Matrix (CCM) | NIST Cybersecurity Framework (CSF) | GDPR| 
-| Cybersecurity Maturity Model Certification (CMMC) | NIST SP 800-172 | ISO 27001| 
-| FedRAMP H | PCI-DSS | ISO/IEC 27001| 
-| FedRAMP M |  | ISO/IEC 27002| 
-| FFIEC Cybersecurity Assessment Tool (CAT) |   | ISO/IEC 27017| 
-| GDPR |  | NIST 800-53| 
-| HIPAA/HITRUST |  | NIST Cybersecurity Framework (CSF)| 
-| ISO/IEC 27001:2013 |  | NIST SP 800-171| 
-| ISO/IEC 27002 |  | NIST SP 800-172| 
-| ISO/IEC 27017 |  | PCI DSS| 
-| New Zealand ISM Restricted |  | Sarbanes Oxley Act (SOX)| 
-| NIST Cybersecurity Framework (CSF) |  | SOC 2| 
-| NIST SP 800 171 R2 |  | | 
-| NIST SP 800-172 |  | | 
-| NIST SP 800-53 R4 |  | | 
-| NIST SP 800-53 R5 |  | | 
-| PCI DSS |  | | 
-| RMIT Malaysia |  | | 
-| Sarbanes Oxley Act (SOX) |  | | 
-| SOC 2 Type 2 |  | | 
-| SWIFT CSP CSCF |  | | 
-| UK OFFICIAL and UK NHS |  | | 
+ | Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)| 
+ | Brazilian General Personal Data Protection Law (LGPD) | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)| 
+ | California Consumer Privacy Act (CCPA) | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls| 
+ | Canada Federal PBMM | California Consumer Privacy Act (CCPA) | CIS GCP Foundations| 
+ | CIS Azure Foundations | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark| 
+ | CIS Controls | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark| 
+ | CIS Google Cloud Platform Foundation Benchmark | CSA Cloud Controls Matrix (CCM) | CRI Profile| 
+ | CIS Google Kubernetes Engine (GKE) Benchmark | GDPR | CSA Cloud Controls Matrix (CCM)| 
+ | CMMC Level 3 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)| 
+ | CRI Profile | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)| 
+ | CSA Cloud Controls Matrix (CCM) | NIST Cybersecurity Framework (CSF) | GDPR| 
+ | Cybersecurity Maturity Model Certification (CMMC) | NIST SP 800-172 | ISO/IEC 27001| 
+ | FedRAMP H | PCI-DSS | ISO/IEC 27002| 
+ | FedRAMP M |  | ISO/IEC 27017| 
+ | FFIEC Cybersecurity Assessment Tool (CAT) |  | NIST 800-53| 
+ | GDPR |  | NIST Cybersecurity Framework (CSF)| 
+ | HIPAA/HITRUST |  | NIST SP 800-171| 
+ | ISO/IEC 27001:2013 |  | NIST SP 800-172| 
+ | ISO/IEC 27002 |  | PCI DSS| 
+ | ISO/IEC 27017 |  | Sarbanes Oxley Act (SOX)| 
+ | New Zealand ISM Restricted |  | SOC 2| 
+ | NIST Cybersecurity Framework (CSF) |  | | 
+ | NIST SP 800 171 R2 |  | | 
+ | NIST SP 800-172 |  | | 
+ | NIST SP 800-53 R4 |  | | 
+ | NIST SP 800-53 R5 |  | | 
+ | PCI DSS |  | | 
+ | RMIT Malaysia |  | | 
+ | Sarbanes Oxley Act (SOX) |  | | 
+ | SOC 2 Type 2 |  | | 
+ | SWIFT CSP CSCF |  | | 
+ | UK OFFICIAL and UK NHS |  | | 
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
+- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
