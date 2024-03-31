@@ -39,6 +39,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 
 ### Windows container images scanning is now generally available (GA)
+
+March 31, 2024
+
 We are announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
 
 ### Continuous export now includes attack path data
