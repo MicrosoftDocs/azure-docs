@@ -71,10 +71,6 @@ The integration is in public preview. It adds the Python SDK, which is in GA.
 
     :::image type="content"source="./media/azure-web-apps-python/app-service-python.png" alt-text="Screenshot of instrument your application." lightbox="./media/azure-web-apps-python/app-service-python.png":::
 
-
-<!-- TODO: Leave out prior to snippet injection -->
-<!-- ## Enable client-side monitoring
-
 To enable client-side monitoring for your Python application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md). -->
 
 ## Configuration
@@ -103,8 +99,6 @@ To add the community OpenTelemetry Instrumentation Library, install it via your 
 ## Automate monitoring
 
 In order to enable telemetry collection with Application Insights, only the following Application settings need to be set:
-
-<!-- TODO Figure out why Python does not show the same -->
 
 :::image type="content"source="./media/azure-web-apps-python/application-settings-python.png" alt-text="Screenshot of App Service Application Settings with available Application Insights settings." lightbox="./media/azure-web-apps-python/application-settings-python.png":::
 
@@ -183,9 +177,6 @@ If your app uses Django and is either failing to start or using incorrect settin
 ---
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
-
-<!-- TODO: This shared release timeline is not updated -->
-<!-- ## Release notes  
 
 For the latest updates and bug fixes, [consult the release notes](web-app-extension-release-notes.md). -->
 
