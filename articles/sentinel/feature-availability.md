@@ -116,6 +116,12 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 <sup><a name="partialga"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
+## Managing Microsoft Sentinel
+
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Workspace manager](workspace-manager.md) |GA | &#x2705; |&#x2705; |&#10060; |
+
 ## Normalization		
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
