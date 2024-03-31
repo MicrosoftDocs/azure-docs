@@ -16,7 +16,7 @@ For more information, see [Free trial](billing.md#free-trial).
 
 ## Prerequisites
 
-Before you start, all you need is an email address to be used as the contact for your new Microsoft Tenant.
+Before you start, you need an email address to be used as the contact for your new Microsoft Tenant and a Global Admin (Entra role) for the tenant.
 
 You also need to enter credit card details for your new Azure subscription, although you aren't charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan.
 
