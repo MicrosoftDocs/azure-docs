@@ -13,6 +13,8 @@ zone_pivot_groups: front-door-tiers
 
 # Wildcard domains in Azure Front Door
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Wildcard domains allow Azure Front Door to receive traffic for any subdomain of a top-level domain. An example wildcard domain is `*.contoso.com`.
 
 By using wildcard domains, you can simplify the configuration of your Azure Front Door profile. You don't need to modify the configuration to add or specify each subdomain separately. For example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same route and adding the wildcard domain `*.contoso.com`.

@@ -45,7 +45,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
     ```
 
-[!INCLUDE [preview features note](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [preview features note](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy a workload across member clusters of the Fleet resource
 

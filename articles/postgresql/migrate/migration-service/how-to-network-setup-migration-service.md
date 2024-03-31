@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.topic: how-to
 ---
 
-# Network guide for migration service in Azure Database for PostgreSQL Preview
+# Network guide for migration service in Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 

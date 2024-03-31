@@ -281,7 +281,9 @@
             - name: Incidents reference list
               displayName: incidents
               href: incidents-reference.md
-
+        - name: Exporting alerts and recommendations with continuous export
+          displayName: continuous, export, exportable, exportable data
+          href: benefits-of-continuous-export.md
 
 - name: How-to guides
   items:
@@ -419,15 +421,29 @@
             - name: Prepare Azure resources for exporting to Splunk and QRadar
               displayName: azure, resources, Splunk, QRadar
               href: export-to-splunk-or-qradar.md
-            - name: Export to a Log Analytics workspace or Azure Event Hubs
-              displayName: continuous, log analytics, workspace, event hubs, azure
-              href: continuous-export.md
-            - name: Download a CSV report of all alerts
+            - name: Continuous export
+              items:
+              - name: Setup continuous export in the Azure portal
+                displayName: continuous, log analytics, workspace, event hubs, azure
+                href: continuous-export.md
+              - name: Setup continuous export with REST API
+                displayName: continuous, setup, export
+                href: continuous-export-rest-api.md
+              - name: Setup continuous export with Azure policy
+                displayName: continuous, setup, export, policy
+                href: continuous-export-azure-policy.md
+              - name: Continuous export to an event hub behind a firewall
+                displayName: continuous, export, event hub, firewall
+                href: continuous-export-event-hub-firewall.md
+              - name: View exported data in Azure Monitor
+                displayName: continuous, view, exported, data, monitor
+                href: continuous-export-view-data.md
+            - name: Download a CSV report
               displayName: CSV report, alerts
-              href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-            - name: Alerts schemas
-              displayName: Alerts schemas
-              href: alerts-schemas.md
+              href: export-alerts-to-csv.md
+        - name: Alerts schemas
+          displayName: Alerts schemas
+          href: alerts-schemas.md
         - name: Manage security incidents
           displayName: security incidents
           href: incidents.md

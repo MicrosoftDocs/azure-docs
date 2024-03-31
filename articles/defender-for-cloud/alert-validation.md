@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin

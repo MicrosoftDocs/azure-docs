@@ -28,6 +28,8 @@ items:
       href: concept-security.md
     - name: Network Security
       items:
+      - name: Ingress and Egress controls
+        href: ./control-egress-traffic-from-hdinsight-on-aks-clusters.md
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
   - name: Resource management
@@ -36,6 +38,8 @@ items:
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters
     href : ./customize-clusters.md
+  - name: In-place upgrades
+    href : ./in-place-upgrade.md  
 - name: Releases
   items:
   - name: Release notes
@@ -123,6 +127,8 @@ items:
       href: ./trino/trino-add-delta-lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
+    - name: Configure sharded SQL connector
+      href: ./trino/trino-sharded-sql-connector.md
   - name: Cluster management
     items:
     - name: Trino configuration
@@ -205,7 +211,7 @@ items:
         href: ./flink/azure-iot-hub.md  
       - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
-      - name:  Azure Data Factory Managed Airflow
+      - name:  Azure Data Factory Workflow Orchestration Manager
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
@@ -261,7 +267,7 @@ items:
     href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
-    - name:  Azure Data Factory Managed Airflow
+    - name:  Azure Data Factory Workflow Orchestration Manager
       href: ./spark/spark-job-orchestration.md  
     - name: Configuration management
       href: ./spark/configuration-management.md

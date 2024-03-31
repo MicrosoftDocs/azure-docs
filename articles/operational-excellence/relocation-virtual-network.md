@@ -7,8 +7,7 @@ ms.reviewer: anaharris
 ms.date: 03/13/2024
 ms.service: virtual-network
 ms.topic: concept
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 

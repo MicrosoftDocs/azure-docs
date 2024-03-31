@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 03/22/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -68,13 +68,13 @@ This setting can be found in the following place:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## HTTP proxy credentials settings
+## HTTP/HTTPS proxy credentials settings
 
 If you need to configure an HTTP proxy for making outbound requests, use these two arguments:
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTPS_PROXY|string|The proxy to use, for example, `http://proxy:8888`<br>`<proxy-url>`|
+|HTTPS_PROXY|string|The proxy to use, for example, `https://proxy:8888`<br>`<proxy-url>`|
 |HTTP_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, `username:password`. This value **must be in lower-case**. |
 |`<proxy-user>`|string|The user for the proxy.|
 |`<proxy-password>`|string|The password associated with `<proxy-user>` for the proxy.|
@@ -89,7 +89,7 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTP_PROXY=<proxy-url> \
+HTTPS_PROXY=<proxy-url> \
 HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```
 
