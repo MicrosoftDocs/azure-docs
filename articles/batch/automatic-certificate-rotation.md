@@ -143,7 +143,7 @@ Request Body for Windows node
                                 "requireInitialSync": true,
                                 "observedCertificates": [
                                     {
-                                        "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
+                                        "url": "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
                                         "certificateStoreLocation": "LocalMachine",
                                         "keyExportable": true
                                     }
