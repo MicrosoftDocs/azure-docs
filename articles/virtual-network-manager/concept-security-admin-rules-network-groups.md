@@ -5,14 +5,16 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 04/01/2024
 ms.custom: template-concept, engagement-fy23, references_regions
 #customer intent: As a network administrator, I want to deploy security admin rules in Azure Virtual Network Manager. When creating security admin rules, I want to define network groups as the source and destination of traffic.
 ---
 
 # Using network groups with security admin rules
 
-In this article, you learn how to use network groups with security admin rules in Azure Virtual Network Manager. Network groups allow you to create logical groups of virtual networks and subnets that have common attributes, such as environment, region, service type, and more. You can then specify your network groups as the source and/or destination of your security admin rules so that you can enforce the traffic among your grouped network resources. This feature streamlines the process of securing your traffic across workloads and environments, as it removes the manual step of specifying individual Classless Inter-Domain Routing (CIDR) ranges or resource IDs.
+In this article, you learn how to use network groups with security admin rules in Azure Virtual Network Manager (AVNM). Network groups allow you to create logical groups of virtual networks and subnets that have common attributes, such as environment, region, service type, and more. You can then specify your network groups as the source and/or destination of your security admin rules so that you can enforce the traffic among your grouped network resources. This feature streamlines the process of securing your traffic across workloads and environments, as it removes the manual step of specifying individual Classless Inter-Domain Routing (CIDR) ranges or resource IDs.
+
+[!INCLUDE [virtual-network-manager-network-groups-source-destination-preview](../../includes/virtual-network-manager-network-groups-source-destination-preview.md)]
 
 ## Why use network groups with security admin rules?
 
@@ -56,7 +58,7 @@ The following limitations apply when using network groups with security admin ru
 
 - Only supports IPv4 address prefixes in the network group members.
 
-- Role-based access control ownership is inferred from the Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write permission only.
+- Role-based access control ownership is inferred from the `Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write` permission only.
 
 - There's no scope enforcement on the network group members when using clients other than the Azure portal.
 

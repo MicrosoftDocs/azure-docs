@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 03/16/2024
+ms.date: 04/01/2024
 ms.custom: template-how-to
 #Customer intent: As a network administrator, I want to deploy security admin rules using network groups in Azure Virtual Network Manager so that I can define the source and destination of the traffic for the security admin rule.
 ---
@@ -16,45 +16,7 @@ In Azure Virtual Network Manager, you can deploy [security admin rules](./concep
 
 In this article, you learn how to create a security admin rule using network groups in Azure Virtual Network Manager. You use the Azure portal to create a security admin configuration, add a security admin rule, and deploy the security admin configuration.
 
-> [!IMPORTANT]
-> 
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Both Mesh connectivity configurations and the creation of security admin rules with network groups in Azure Virtual Network Manager are in public preview remain in public preview.
->
-> Security configurations with security admin rules is generally available in the following regions:
-> - Australia East
-> - Australia Southeast
-> - Brazil South
-> - Brazil Southeast
-> - East Asia
-> - Europe North
-> - France South
-> - Germany West Central
-> - India Central
-> - India South
-> - India West
-> - Israel Central
-> - Italy North
-> - Japan East
-> - Jio India West
-> - Korea Central
-> - Norway East
-> - Norway West
-> - Poland Central
-> - Qatar Central
-> - South Africa North
-> - South Africa West
-> - Sweden Central
-> - Sweden South
-> - Switzerland North
-> - UAE North
-> - US East
-> - US North
-> - US West Central
-> 
-> All other regions remain in public preview.
-> 
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-network-groups-source-destination-preview.md)]
 
 ## Prerequisites
 
@@ -82,56 +44,57 @@ To create a security admin configuration, follow these steps:
 
     :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-security-admin-configuration.png" alt-text="Screenshot of creation of security admin configuration in Configurations of a network manager.":::
 
-1. In **Create security admin configuration**, enter the following details:
+1. In the **Basics** tab of the **Create security admin configuration** windows, enter the following settings:
   
     | **Setting** | **Value** |
     | --- | --- |
-    | **Name** | Enter a name for the security admin rule. |
-    | **Description** | Enter a description for the security admin rule. |
-    | **Deployment option for NIP virtual networks** | |
-    | **Deployment option** | Select **None**. |
-    | **Address Space Aggregation Options** | Select **Manual**. |
-
-   - **Name**: Enter a name for the security admin rule.
-  
-   - **Description**: Enter a description for the security admin rule.
-
-1. Select **Review + create** and then select **Create**.
-
-## Add a security admin rule
-
-To add a security admin rule, follow these steps:
-
-1. In the **Configurations** window, select the security admin configuration you created. If you don't see the configuration, select **Refresh**.
-
-1. Under **Settings**, select **Rule collections** and **+ Create**.
-
-1. In the **Add a rule collection** window, enter the following details:
-  
-    | **Setting** | **Value** |
-    | --- | --- |
-    | **Name** | Enter a name for the rule collection. |
-    | **Target network groups** | Select the network group that contains the source and destination of the traffic for the security admin rule. |
+    | Name | Enter a name for the security admin rule. |
+    | Description | Enter a description for the security admin rule. |
     
-1. Under **Security admin rules**, select **+ Add**.
 
-1. In the **Add a rule** window, enter the following details:
-   
+1. Select the **Deployment Options** tab or **Next: Deployment Options >** and enter the following settings:
+
     | **Setting** | **Value** |
     | --- | --- |
-    | **Name** | Enter a name for the security admin rule. |
-    | **Description** | Enter a description for the security admin rule. |
-    | **Priority** | Enter a priority for the security admin rule. |
-    | **Direction** | Select the direction for the security admin rule. |
-    | **Protocol** | Select the protocol for the security admin rule. |
-    | **Source** |  |
-    | **Source type** | Select **Network group**. |
-    | **Source port** | Enter the source port for the security admin rule. |
-    | **Destination** |  |
-    | **Destination type** | Select **Network group**. |
-    | **Destination port** | Enter the destination port for the security admin rule. |
+    | **Deployment option for NIP virtual networks** | |
+    | Deployment option | Select **None**. |
+    | **Option to use network group as source and destination** | |
+    | Network group address space aggregation option | Select **Manual**. |
 
-1. Select **Add** and **Add** again to add the security admin rule to the rule collection.
+    :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-configuration-with-aggregation-options.png" alt-text="Screenshot of create a security admin configuration deployment options selecting manual aggregation option.":::
+
+1. Select **Rule collections** or **Next: Rule collections >**.
+2. In the Rule collections tab, select **Add**.
+3. In the **Add a rule collection** window, enter the following settings:
+
+    | **Setting** | **Value** |
+    | --- | --- |
+    | Name | Enter a name for the rule collection. |
+    | Target network groups | Select the network group that contains the source and destination of the traffic for the security admin rule. |
+
+1. Select **Add** and enter the following settings in the **Add a rule** window:
+
+    | **Setting** | **Value** |
+    | --- | --- |
+    | Name | Enter a name for the security admin rule. |
+    | Description | Enter a description for the security admin rule. |
+    | Priority | Enter a priority for the security admin rule. |
+    | Action | Select the action type for the security admin rule. |
+    | Direction | Select the direction for the security admin rule. |
+    | Protocol | Select the protocol for the security admin rule. |
+    | **Source** |  |
+    | Source type | Select **Network group**. |
+    | Source port | Enter the source port for the security admin rule. |
+    | **Destination** |  |
+    | Destination type | Select **Network Group**. |
+    | Network Group | Select the network group ID that you wish to use for dynamically establishing IP address ranges. |
+    | Destination port | Enter the destination port for the security admin rule. |
+
+    :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-network-group-as-source-destination-rule.png" alt-text="Screenshot of add a rule window using network groups as source and destination in rule creation.":::
+
+2. Select **Add** and **Add** again to add the security admin rule to the rule collection.
+
+3. Select **Review + create** and then select **Create**.
 
 ## Deploy the security admin configuration
 
