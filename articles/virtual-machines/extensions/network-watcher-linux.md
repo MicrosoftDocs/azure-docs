@@ -29,7 +29,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**Portal**](#tab/portal)
 
-- An Azure Linux virtual machine (VM). For more information, see [Supported operating systems](#supported-operating-systems).
+- An Azure Linux virtual machine (VM). For more information, see [Supported Linux distributions and versions](#supported-operating-systems).
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
@@ -37,7 +37,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure Linux virtual machine (VM). For more information, see [Supported operating systems](#supported-operating-systems).
+- An Azure Linux virtual machine (VM). For more information, see [Supported Linux distributions and versions](#supported-operating-systems).
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
@@ -51,7 +51,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure Linux virtual machine (VM). For more information, see [Supported operating systems](#supported-operating-systems).
+- An Azure Linux virtual machine (VM). For more information, see [Supported Linux distributions and versions](#supported-operating-systems).
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
@@ -65,7 +65,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**Resource Manager**](#tab/arm)
 
-- An Azure Linux virtual machine (VM). For more information, see [Supported operating systems](#supported-operating-systems).
+- An Azure Linux virtual machine (VM). For more information, see [Supported Linux distributions and versions](#supported-operating-systems).
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
@@ -314,15 +314,12 @@ N/A
 
 ---
 
-## Update Network Watcher Agent VM extension
-
-To learn how to update the Network Watcher Agent VM extension to the latest version, see [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
-
 ## Frequently asked questions (FAQ)
 
 To get answers to most frequently asked questions about Network Watcher Agent, see [Network Watcher Agent FAQ](../../network-watcher/frequently-asked-questions.yml#network-watcher-agent).
 
 ## Related content
 
+- [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
 - [Network Watcher documentation](../../network-watcher/index.yml).
 - [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
