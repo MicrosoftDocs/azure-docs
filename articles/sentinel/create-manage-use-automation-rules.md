@@ -147,7 +147,15 @@ To add one of these conditions based on an incident's tags, take the following s
 
 1. Select the operators drop-down list to reveal the available operators to choose from.
 
-    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule.":::
+    ##### [Onboarded workspaces](#tab/onboarded)
+
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-defender.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for onboarded workspaces.":::
+
+    ##### [Workspaces not onboarded](#tab/not-onboarded)
+
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-azure.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for non-onboarded workspaces.":::
+
+    ---
 
     See how the operators are divided in two categories as described before. Choose your operator carefully based on how you want the tags to be evaluated.
 
