@@ -3,7 +3,7 @@ title: Get started with Cost Management reporting - Azure
 description: This article helps you to get started with Cost Management to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/18/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,6 +13,9 @@ ms.reviewer: micflan
 # Get started with Cost Management reporting
 
 Cost Management includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 ## Cost analysis
 

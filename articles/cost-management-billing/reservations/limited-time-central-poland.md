@@ -8,7 +8,7 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 11/17/2023
 ms.author: banders
-ms.custom: references_regions
+ms.custom: references_regions, linux-related-content
 ---
 
 # Save on select VMs in Poland Central for a limited time

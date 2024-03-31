@@ -13,6 +13,8 @@ This article shows how to use connection strings.
 
 ## Overview
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 Connection strings define where to send telemetry data.
 
 Key-value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights service or product.

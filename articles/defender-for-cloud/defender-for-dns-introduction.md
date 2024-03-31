@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DNS - the benefits and features
-description: Learn about the benefits and features of Microsoft Defender for DNS
-ms.date: 01/10/2023
+description: Learn about the benefits and features of Microsoft Defender for DNS.
+ms.date: 03/11/2024
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
@@ -11,9 +11,9 @@ author: dcurwin
 
 [!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
-Microsoft Defender for DNS provides an additional layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability.
+Microsoft Defender for DNS provides another layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability.
 
-From within Azure DNS, Defender for DNS monitors the queries from these resources and detects suspicious activities without the need for any additional agents on your resources.
+From within Azure DNS, Defender for DNS monitors the queries from these resources and detects suspicious activities without the need for any extra agents on your resources.
 
 ## Availability
 

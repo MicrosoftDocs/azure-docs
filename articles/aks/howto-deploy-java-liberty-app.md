@@ -6,8 +6,9 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
 ms.date: 01/16/2024
+ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -30,14 +31,14 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 * You can use Azure Cloud Shell or a local terminal.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
 >
-> :::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
@@ -59,23 +60,23 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
    
-   Create environment variables in your shell for the resource group names for the cluster and the database.
-
-   ### [Bash](#tab/in-bash)
-
-   ```bash
-   export RESOURCE_GROUP_NAME=<your-resource-group-name>
-   export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
-   ```
-
-   ### [PowerShell](#tab/in-powershell)
-
-   ```powershell
-   $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
-   $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
-   ```
-
-   ---
+    Create environment variables in your shell for the resource group names for the cluster and the database.
+ 
+    ### [Bash](#tab/in-bash)
+ 
+    ```bash
+    export RESOURCE_GROUP_NAME=<your-resource-group-name>
+    export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
+    ```
+ 
+    ### [PowerShell](#tab/in-powershell)
+ 
+    ```powershell
+    $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
+    $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
+    ```
+ 
+    ---
 
 1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. The remaining values do not need to be changed from their default values.
 

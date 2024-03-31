@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
@@ -99,7 +100,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- **Arc only** - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- **Arc only** - Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 - **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
@@ -123,7 +124,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 
 **To simulate a Kubernetes workload security alert**:
 

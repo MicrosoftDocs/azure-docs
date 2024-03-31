@@ -43,7 +43,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Shared**.
 
-    > [!Note]
+    > [!NOTE]
     > If you've already [installed the Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops), it will be listed in the Installed tab.
 
 1. Select **Microsoft Security DevOps**.

@@ -6,7 +6,7 @@ services: private-link
 author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 03/12/2024
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 ---
@@ -14,6 +14,8 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 # Quickstart: Create a private link service using Bicep
 
 In this quickstart, you use Bicep to create a private link service.
+
+:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 

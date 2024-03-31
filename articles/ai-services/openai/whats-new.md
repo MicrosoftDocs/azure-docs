@@ -10,13 +10,50 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 03/07/2024
+ms.date: 03/12/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 ## March 2024
+
+### Risks & Safety monitoring in Azure OpenAI Studio
+
+Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
+
+[Use Risks & Safety monitoring](./how-to/risks-safety-monitor.md)
+
+### Azure OpenAI On Your Data updates
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+- You can use the [chunk size parameter](./concepts/use-your-data.md#chunk-size-preview) during data ingestion to set the maximum number of tokens of any given chunk of data in your index.
+
+### 2024-02-01 general availability (GA) API released
+
+This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.
+
+Features that are still in preview such as Assistants, text to speech (TTS), certain on your data datasources, still require a preview API version. For more information check out our [API version lifecycle guide](./api-version-deprecation.md).
+
+### Whisper general availability (GA)
+
+The Whisper speech to text model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out Whisper by following a [quickstart](./whisper-quickstart.md).
+
+### DALL-E 3 general availability (GA)
+
+DALL-E 3 image generation model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### New regional support for DALL-E 3
+
+You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
+
+### Model deprecations and retirements
+
+We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.
 
 ### 2024-03-01-preview API released
 
@@ -27,13 +64,13 @@ recommendations: false
 
 If you are currently using a preview API version to take advantage of the latest features, we recommend consulting the [API version lifecycle](./api-version-deprecation.md) article to track how long your current API version will be supported.
 
-## February 2024
-
 ### Update to GPT-4-1106-Preview upgrade plans
 
 The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after a stable version of the model is released.  
 
 For more information on the upgrade process refer to the [models page](./concepts/models.md).
+
+## February 2024
 
 ### GPT-3.5-turbo-0125 model available
 

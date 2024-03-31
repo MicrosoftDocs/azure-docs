@@ -1,9 +1,9 @@
 ---
 title: Create your first containerized Azure Functions on Azure Container Apps
 description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
-ms.date: 09/12/2023
+ms.date: 03/07/2024
 ms.topic: quickstart
-ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -91,32 +91,32 @@ Use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 
 # [Azure Container Registry](#tab/acr)
 ::: zone pivot="programming-language-csharp"  
 ```azurecli
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end 
 ::: zone pivot="programming-language-powershell"  
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 ```console
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER>  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 --registry-server <LOGIN_SERVER> --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD> 
 ```
 ::: zone-end
 
@@ -128,36 +128,36 @@ In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) c
 # [Docker Hub](#tab/docker)
 ::: zone pivot="programming-language-csharp"  
 ```azurecli
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <DOCKER_ID>/azurefunctionsimage:v1.0.0 
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-```console
+```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-```console
+```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 ::: zone-end 
 ::: zone pivot="programming-language-powershell"  
-```console
+```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```console
+```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```console
+```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 ::: zone-end
 
-In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. If you are using a private registry, you also need to supply  `--registry-username`, `--registry-password`, and `--registry-server`. 
 
 ---
 

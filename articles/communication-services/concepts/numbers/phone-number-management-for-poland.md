@@ -54,6 +54,8 @@ More details on eligible subscription types are as follows:
 |United Kingdom|
 |United States|
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
 ## Azure subscription billing locations where Poland alphanumeric sender IDs are available
 | Country/Region |
 | :---------- |

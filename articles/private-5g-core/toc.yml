@@ -194,6 +194,8 @@ items:
      href: differentiated-services-codepoint-5qi-mapping.md
    - name: Support lifetime
      href: support-lifetime.md
+   - name: Azure Policy definitions
+     href: azure-policy-reference.md     
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

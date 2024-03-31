@@ -6,14 +6,13 @@ ms.service: resource-mover
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.author: ankitadutta
-ms.custom: engagement-fy23, UpdateFrequency.5
-
+ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---
 
 # Support for moving Azure VMs between Azure regions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes support and prerequisites when you move virtual machines and related network resources across Azure regions using Resource Mover.
 

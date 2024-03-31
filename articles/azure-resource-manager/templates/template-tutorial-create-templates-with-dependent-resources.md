@@ -1,7 +1,7 @@
 ---
 title: Template with dependent resources
 description: Learn how to create an Azure Resource Manager template (ARM template) with multiple resources, and how to deploy it using the Azure portal
-ms.date: 05/23/2023
+ms.date: 03/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

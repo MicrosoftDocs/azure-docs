@@ -282,22 +282,32 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-connect-rigado-cascade-500-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-rigado-cascade-500/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-connect-rigado-cascade-500.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-rigado-cascade-500/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-rigado-cascade-500.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-connect-ruuvi-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-ruuvi/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-connect-ruuvi.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-ruuvi/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-ruuvi.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {

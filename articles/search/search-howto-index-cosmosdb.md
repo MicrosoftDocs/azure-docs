@@ -69,7 +69,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
 
-1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
+1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted. 
 
 <a name="credentials"></a>
 
@@ -336,6 +336,8 @@ When rows are deleted from the collection, you normally want to delete those row
 ```
 
 If you're using a custom query, make sure that the property referenced by `softDeleteColumnName` is projected by the query.
+
+The `softDeleteColumnName` must be a top-level field in the index. Using nested fields within complex data types as the `softDeleteColumnName` is not supported.
 
 The following example creates a data source with a soft-deletion policy:
 
