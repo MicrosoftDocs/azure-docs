@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud security recomm
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 03/31/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -1858,19 +1858,19 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 
 **Severity**: Medium
 
-### [Azure overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dcedec72-5b25-45b3-b8b9-0ed9219f8f29)
+### [Azure overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/d19d5a12-41e9-44e2-b7f5-ee2160f62d62)
 
 **Description**: Overprovisioned identities, or over permissioned identities, don't use many of their granted permissions. Regularly right-size permissions of these identities to reduce the risk of permissions misuse, either accidental or malicious. This action decreases the potential blast radius during a security incident.
 
 **Severity**: Medium
 
-### [Super identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fe7d5a87-36fc-4530-99b5-1848512a3209)
+### [Super identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/e4ba0808-01c2-43c0-a110-03381cc8f3ee)
 
 **Description**: Super Identity is any human or workload identity such as users, Service Principals, and serverless functions that have admin permissions and can perform any action on any resource across the infrastructure. Super Identities are extremely high risk, as any malicious or accidental permissions misuse can result in catastrophic service disruption, service degradation, or data leakage. Super Identities pose a huge threat to cloud infrastructure. Too many super identities can create excessive risks and increase the blast radius during a breach.
 
 **Severity**: Medium
 
-### [Unused identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7af29efb-41cc-47b6-81b8-800a0888f9a2)
+### [Unused identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8b0bd683-bcfe-4ab1-96b9-f15a60eaa89d)
 
 **Description**: Inactive Identities are the identities that have not performed any action on any infrastructure resources in the last 90 days. Inactive identities pose a significant risk to your organization as they could be used by attackers to gain access and execute tasks in your environment.
 

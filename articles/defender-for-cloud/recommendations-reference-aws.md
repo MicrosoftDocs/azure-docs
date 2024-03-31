@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for AWS resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Amazon Web Services (AWS) resources.
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 03/31/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -1125,7 +1125,7 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
 **Severity**: Medium
 
-### [AWS overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2499299f-7149-4af6-8405-d5492cabaa65)
+### [AWS overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/427f7886-bb3c-42f6-a22c-979780b8e5ef)
 
 **Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for non-human accounts that have defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise. Remove unneeded permissions and establish review processes to achieve the least privileged permissions.
 
