@@ -314,12 +314,15 @@ N/A
 
 ---
 
+## Update Network Watcher Agent VM extension
+
+To learn how to update the Network Watcher Agent VM extension to the latest version, see [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
+
 ## Frequently asked questions (FAQ)
 
 To get answers to most frequently asked questions about Network Watcher Agent, see [Network Watcher Agent FAQ](../../network-watcher/frequently-asked-questions.yml#network-watcher-agent).
 
 ## Related content
 
-- [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
 - [Network Watcher documentation](../../network-watcher/index.yml).
 - [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
