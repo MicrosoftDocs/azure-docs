@@ -2,6 +2,7 @@
 title: Chart performance with VM insights
 description: This article discusses the VM insights Performance feature that discovers application components on Windows and Linux systems and maps the communication between services.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
 ms.date: 09/28/2023
@@ -152,5 +153,3 @@ Selecting the pushpin icon in the upper-right corner of a chart pins it to the l
 
 - Learn how to use [workbooks](vminsights-workbooks.md) that are included with VM insights to further analyze performance and network metrics.
 - To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
-
-

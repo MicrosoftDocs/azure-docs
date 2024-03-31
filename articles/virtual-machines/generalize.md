@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: jushiman
-ms.custom: portal
+ms.custom: portal, linux-related-content
 ---
 
 # Remove machine specific information by deprovisioning or generalizing a VM before creating an image

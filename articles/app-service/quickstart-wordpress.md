@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 05/15/2023
 # ms.devlang: wordpress
 ms.author: msangapu
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ---
 # Create a WordPress site
 

@@ -1,7 +1,7 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma

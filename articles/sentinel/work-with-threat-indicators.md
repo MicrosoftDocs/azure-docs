@@ -67,11 +67,7 @@ Imported threat indicators are listed in the **Microsoft Sentinel > ThreatIntell
 
 **To view your threat intelligence indicators in Logs**:
 
-1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-
-1. Select the workspace to which you've imported threat indicators using either threat intelligence data connector.
-
-1. Select **Logs** from the **General** section of the Microsoft Sentinel menu.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
 
 1. The **ThreatIntelligenceIndicator** table is located under the **Microsoft Sentinel** group.
 
