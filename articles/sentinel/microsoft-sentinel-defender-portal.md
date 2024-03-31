@@ -32,7 +32,7 @@ The following table describes the new or improved capabilities available in the 
 
  Most Microsoft Sentinel capabilities are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
 
-This section covers the Microsoft Sentinel capabilities or integrations in the unified SOC platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
 
 ### Defender portal only
 
@@ -50,11 +50,11 @@ The following capabilities are only available in the Azure portal.
 |---------|---------|
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
 |Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
-| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified SOC platform and workspaces that aren't.  <br><br>For more information, see [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](https://aka.ms/unified-soc-automation-lims). |
+| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](https://aka.ms/unified-soc-automation-lims). |
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified SOC platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
 
 The following image shows the **Microsoft Sentinel** menu in the Defender portal:
 

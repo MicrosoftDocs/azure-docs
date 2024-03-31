@@ -92,11 +92,11 @@ Use the options in the **Conditions** area to define conditions for your automat
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
 
-- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified SOC platform:
+- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations platform:
 
-    #### [Onboarded to the unified SOC platform](#tab/onboarded)
+    #### [Onboarded workspaces](#tab/onboarded)
 
-    If your workspace is onboarded to the unified SOC platform, start by selecting one of the following operators, in either the Azure or the Defender portal:
+    If your workspace is onboarded to the unified security operations platform, start by selecting one of the following operators, in either the Azure or the Defender portal:
 
     - **AND**: individual conditions that are evaluated as a group. The rule executes if *all* the conditions of this type are met.
 
@@ -106,11 +106,11 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     For example:
 
-    :::image type="content" source="media/create-manage-use-automation-rules/conditions-onboarded.png" alt-text="Screenshot of automation rule conditions when your workspace is onboarded to the unified SOC platform.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-onboarded.png" alt-text="Screenshot of automation rule conditions when your workspace is onboarded to the unified security operations platform.":::
 
-    #### [Not onboarded to the unified SOC platform](#tab/not-onboarded)
+    #### [Workspaces not onboarded](#tab/not-onboarded)
 
-    If your workspace isn't onboarded to the unified SOC platform, start by defining the following condition properties:
+    If your workspace isn't onboarded to the unified security operations platform, start by defining the following condition properties:
     
     - **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
@@ -128,7 +128,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     For example:
 
-    :::image type="content" source="media/create-manage-use-automation-rules/conditions-not-onboarded.png" alt-text="Screenshot of automation rule conditions when the workspace isn't onboarded to the unified SOC platform.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-not-onboarded.png" alt-text="Screenshot of automation rule conditions when the workspace isn't onboarded to the unified security operations platform.":::
 
     ---
 

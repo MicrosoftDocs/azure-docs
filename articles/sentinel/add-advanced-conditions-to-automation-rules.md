@@ -54,13 +54,13 @@ Let's create a rule that will change the severity of an incoming incident from w
 
 1. Select the trigger **When incident is created**.
 
-1. Under **Conditions**, if you see the **Incident provider** and **Analytics rule name** conditions, leave them as they are. These conditions aren't available if your workspace is onboarded to the unified SOC platform. In either case, we'll add more conditions later in this process.
+1. Under **Conditions**, if you see the **Incident provider** and **Analytics rule name** conditions, leave them as they are. These conditions aren't available if your workspace is onboarded to the unified security operations platform. In either case, we'll add more conditions later in this process.
 
 1. Under **Actions**, select **Change severity** from the drop-down list.
 
 1. Select **High** from the drop-down list that appears below **Change severity**.
 
-For example, the following tabs show samples from a workspace that's onboarded to the unified SOC platform, in either the Azure or Defender portals, and a workspace that isn't:
+For example, the following tabs show samples from a workspace that's onboarded to the unified security operations platform, in either the Azure or Defender portals, and a workspace that isn't:
 
 ### [Onboarded workspaces](#tab/after-onboarding)
 

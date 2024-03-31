@@ -230,7 +230,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
    - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
      > [!IMPORTANT]
-     > If you onboarded Microsoft Sentinel to the unified SOC platform in the Microsoft Defender portal, and this rule is querying and creating alerts from Microsoft 365 or Microsoft Defender sources, you must set this setting to **Disabled**.
+     > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, and this rule is querying and creating alerts from Microsoft 365 or Microsoft Defender sources, you must set this setting to **Disabled**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
