@@ -32,7 +32,7 @@ April 9, 2024
 
 Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers are now Generally Available (GA). For more information, see [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
 
-In addition, there is a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](defender-for-containers-enable.md&pivots=defender-for-container-eks#deploying-the-defender-sensor).
+In addition, there is a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-269845&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks#deploying-the-defender-sensor).
 
 ## March 2024
 
