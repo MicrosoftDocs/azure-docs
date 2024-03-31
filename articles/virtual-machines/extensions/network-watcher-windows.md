@@ -1,22 +1,23 @@
 ---
-title: Manage Network Watcher Agent VM extension - Windows 
+title: Manage Network Watcher Agent VM extension - Windows
 description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
 author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: how-to
-ms.date: 03/29/2024
 ms.collection: windows
+ms.topic: how-to
+ms.date: 03/31/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my virtual machines (VMs).
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Windows
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines (VMs). For more information, see [Network Watcher Agent FAQ](../../network-watcher/frequently-asked-questions.yml#network-watcher-agent).
+The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
 
-In this article, you learn about the supported platforms and deployment options for the Network Watcher Agent VM extension for Windows. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. You can install the extension on virtual machines that you deploy. If the virtual machine is deployed by an Azure service, check the documentation for the service to determine whether or not it permits installing extensions in the virtual machine.
+In this article, you learn how to install and uninstall Network Watcher Agent for Windows. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. If the virtual machine is deployed by an Azure service, check the documentation of the service to determine whether or not it permits installing extensions in the virtual machine.
 
 ## Prerequisites
 
@@ -24,13 +25,17 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 # [**PowerShell**](#tab/powershell)
 
 - An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -42,7 +47,9 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -54,7 +61,9 @@ In this article, you learn about the supported platforms and deployment options 
 
 - An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
 
-- Internet connectivity: some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. For example, without the ability to establish outgoing connections, the Network Watcher Agent can't upload packet captures to your storage account. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
 
 - Azure PowerShell or Azure CLI installed locally to deploy the template. 
 
@@ -107,16 +116,15 @@ Use [Get-AzVMExtension](/powershell/module/az.compute/get-azvmextension) cmdlet 
 
 ```azurepowershell-interactive
 # List the installed extensions on the virtual machine.
-Get-AzVMExtension -VMName 'myVM' -ResourceGroupName 'myResourceGroup' | format-table Name, Publisher, ExtensionType, EnableAutomaticUpgrade 
+Get-AzVMExtension -ResourceGroupName 'myResourceGroup' -VMName 'myVM' | format-table Name, Publisher, ExtensionType, AutoUpgradeMinorVersion, EnableAutomaticUpgrade
 ```
 
 The output of the cmdlet lists the installed extensions:
 
 ```output
-Name                         Publisher                      ExtensionType            EnableAutomaticUpgrade
-----                         ---------                      -------------            ----------------------
-AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentWindows                   True
-AzurePolicyforWindows        Microsoft.GuestConfiguration   ConfigurationforWindows                      True
+Name                         Publisher                      ExtensionType              AutoUpgradeMinorVersion EnableAutomaticUpgrade
+----                         ---------                      -------------              ----------------------- ----------------------
+AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentWindows                    True                   True
 ```
 
 
@@ -135,7 +143,6 @@ The output of the command lists the installed extensions:
 Name                          ProvisioningState    Publisher                       Version    AutoUpgradeMinorVersion
 ----------------------------  -------------------  ------------------------------  ---------  -------------------------
 AzureNetworkWatcherExtension  Succeeded            Microsoft.Azure.NetworkWatcher  1.4        True
-AzurePolicyforWindows         Succeeded            Microsoft.GuestConfiguration    1.1        True
 ```
 
 # [**Resource Manager**](#tab/arm)
@@ -240,7 +247,7 @@ New-AzResourceGroupDeployment -ResourceGroupName 'myResourceGroup' -TemplateFile
 
 ```azurecli
 # Deploy the JSON template file using the Azure CLI.
-az deployment group create --resource-group 'myResourceGroup' --template-file
+az deployment group create --resource-group 'myResourceGroup' --template-file 'agent.json'
 ```
 
 ---
@@ -258,7 +265,7 @@ From the virtual machine page in the Azure portal, you can uninstall the Network
     :::image type="content" source="./media/network-watcher/uninstall-extension-windows.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher/uninstall-extension-windows.png":::
 
     > [!NOTE]
-    > In the list of extensions, you might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
+    > You might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -284,6 +291,9 @@ N/A
 
 ---
 
+## Frequently asked questions (FAQ)
+
+To get answers to most frequently asked questions about Network Watcher Agent, see [Network Watcher Agent FAQ](../../network-watcher/frequently-asked-questions.yml#network-watcher-agent).
 
 ## Related content
 
