@@ -288,7 +288,7 @@ From the virtual machine page in the Azure portal, you can uninstall the Network
     :::image type="content" source="./media/network-watcher/uninstall-extension-linux.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher/uninstall-extension-linux.png":::
 
     > [!NOTE]
-    > In the list of extensions, you might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
+    > You might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
 
 # [**PowerShell**](#tab/powershell)
 
