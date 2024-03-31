@@ -5,8 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: how-to
 ms.collection: linux
+ms.topic: how-to
 ms.date: 03/31/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, linux-related-content
 
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-templ
 # Manage Network Watcher Agent virtual machine extension for Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](../workloads/centos/centos-end-of-life.md).
 
 The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
 
