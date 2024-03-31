@@ -16,128 +16,18 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 
 
 ### Install Kafka Exporter -
-Install the [kafka exporter](https://github.com/danielqsj/kafka_exporter/tree/master) as a deployment and service using the following yaml configuration - 
+Install the [kafka exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) using the helm chart -
 
-> [!NOTE] 
-> The container can be configured with arguments as described in the [Flags](https://github.com/danielqsj/kafka_exporter/tree/master#flags) section.
-Please specify the right server address where the kafka server can be reached. For the following configuration, the server address is set to "my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092" using the argument "kafka.server"
-
-```yaml
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: azmon-kafka-exporter
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azmon-kafka-exporter
-  labels:
-    app.kubernetes.io/instance: azmon-kafka-exporter
-    app.kubernetes.io/name: azmon-kafka-exporter
-  namespace: azmon-kafka-exporter
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app.kubernetes.io/instance: azmon-kafka-exporter
-      app.kubernetes.io/name: azmon-kafka-exporter
-  template:
-    metadata:
-      labels:
-        app.kubernetes.io/instance: azmon-kafka-exporter
-        app.kubernetes.io/name: azmon-kafka-exporter
-    spec:
-      containers:
-      - name: azmon-kafka-exporter
-        args:
-        - --kafka.server=my-cluster-kafka-0.my-cluster-kafka-brokers.kafka.svc:9092
-        image: danielqsj/kafka-exporter:latest
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 1
-          httpGet:
-            path: /healthz
-            port: metrics
-            scheme: HTTP
-          initialDelaySeconds: 3
-          periodSeconds: 30
-          successThreshold: 1
-          timeoutSeconds: 9
-        ports:
-        - containerPort: 9308
-          name: metrics
-          protocol: TCP
-        readinessProbe:
-          failureThreshold: 1
-          httpGet:
-            path: /healthz
-            port: metrics
-            scheme: HTTP
-          initialDelaySeconds: 3
-          periodSeconds: 15
-          successThreshold: 1
-          timeoutSeconds: 9
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/os
-                    operator: In
-                    values:
-                      - linux
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azmon-kafka-exporter
-  namespace: azmon-kafka-exporter
-  labels:
-    app.kubernetes.io/name: azmon-kafka-exporter
-    app.kubernetes.io/instance: azmon-kafka-exporter
-spec:
-  type: ClusterIP
-  ports:
-    - port: 9308
-      targetPort: metrics
-      protocol: TCP
-      name: metrics
-  selector:
-    app.kubernetes.io/name: azmon-kafka-exporter
-    app.kubernetes.io/instance: azmon-kafka-exporter
-```
-
-Once deployed, verify that the service is able to export metrics by running the command - 
 ```bash
-kubectl port-forward svc/azmon-kafka-exporter -n azmon-kafka-exporter 9308
+helm install azmon-kafka-exporter --namespace=azmon-kafka-exporter --create-namespace --version 2.10.0 prometheus-community/prometheus-kafka-exporter --set kafkaServer="{kafka-server.namespace.svc:9092,.....}" --set prometheus.serviceMonitor.enabled=true --set prometheus.serviceMonitor.apiVersion=azmonitoring.coreos.com/v1
 ```
 
-### Deploy Service Monitor
-Deploy the following service monitor to configure azure managed prometheus addon to scrape prometheus metrics from the exporter.
-```yaml
-apiVersion: azmonitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: azmon-kafka-exporter-svc-monitor
-  namespace: azmon-kafka-exporter
-spec:
-  labelLimit: 63
-  labelNameLengthLimit: 511
-  labelValueLengthLimit: 1023
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: azmon-kafka-exporter
-  namespaceSelector:
-    matchNames:
-    - azmon-kafka-exporter
-  endpoints:
-  - port: metrics
-    interval: 30s
-  ```
-
 > [!NOTE] 
+> Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=2.10.0.</br>
+> The [prometheus kafka exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-kafka-exporter/values.yaml) yaml.
+Please specify the right server addresses where the kafka servers can be reached. Set the server address(es) using the argument "kafkaServer".</br>
 > If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
+
 
 ### Import the Grafana Dashboard
 
