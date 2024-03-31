@@ -53,7 +53,7 @@ The following application settings influence the experience:
 - The *Supported account types* property defines whether the application is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines the URI where the authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
 
-For more detailed information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
+For more detailed information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app#register-an-application). 
 
 When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#getting-application-id). This identifier, *Application (client) ID*, is used in the next steps.
 
@@ -141,7 +141,7 @@ The developer's required actions are shown in following diagram:
 
 By using the MSAL, developers can acquire Microsoft Entra user tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Communication Services. The MSAL supports many different application architectures and platforms, including .NET, JavaScript, Java, Python, Android, and iOS.
 
-For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](../../active-directory/develop/msal-overview.md).
+For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](/entra/identity-platform/msal-overview).
 
 > [!NOTE]
 > The following sections describe how to exchange the Microsoft Entra access token for the access token of Teams user for the console application.
