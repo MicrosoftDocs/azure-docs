@@ -79,6 +79,9 @@ When you enable the agentless discovery for Kubernetes extension, the following 
 - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
 - **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation by creating a `ClusterRoleBinding` between the created identity and the Kubernetes `ClusterRole` *aks:trustedaccessrole:defender-containers:microsoft-defender-operator*. The `ClusterRole` is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
 
+> [!NOTE]
+> The copied snapshot remains in the same region as the cluster.
+
 ## [**On-premises / IaaS (Arc)**](#tab/defender-for-container-arch-arc)
 
 ### Architecture diagram of Defender for Cloud and Arc-enabled Kubernetes clusters
@@ -125,6 +128,9 @@ When you enable the agentless discovery for Kubernetes extension, the following 
 
 - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the EKS clusters in your environment using API calls to the API server of EKS.
 
+> [!NOTE]
+> The copied snapshot remains in the same region as the cluster.
+
 ## [**GCP (GKE)**](#tab/defender-for-container-gke)
 
 ### Architecture diagram of Defender for Cloud and GKE clusters
@@ -154,6 +160,9 @@ When you enable the agentless discovery for Kubernetes extension, the following 
   - The built-in role `container.viewer`
 
 - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the GKE clusters in your environment using API calls to the API server of GKE.
+
+> [!NOTE]
+> The copied snapshot remains in the same region as the cluster.
 
 ---
 
