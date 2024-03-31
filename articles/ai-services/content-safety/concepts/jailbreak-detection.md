@@ -24,7 +24,7 @@ Previously called **Jailbreak risk detection**, this shield targets User Prompt 
 
 ### Prompt Shields for Documents
 
-This shield aims to safeguard against attacks that use information not directly supplied by the user or developer, such as external documents or images. Attackers might embed hidden instructions in these materials in order to gain unauthorized control over the LLM session.
+This shield aims to safeguard against attacks that use information not directly supplied by the user or developer, such as external documents. Attackers might embed hidden instructions in these materials in order to gain unauthorized control over the LLM session.
 
 ## Types of input attacks
 
