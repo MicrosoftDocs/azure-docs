@@ -14,6 +14,8 @@ ms.custom: template-concept, engagement-fy23, references_regions
 
 In this article, you learn how to use network groups with security admin rules in Azure Virtual Network Manager (AVNM). Network groups allow you to create logical groups of virtual networks and subnets that have common attributes, such as environment, region, service type, and more. You can then specify your network groups as the source and/or destination of your security admin rules so that you can enforce the traffic among your grouped network resources. This feature streamlines the process of securing your traffic across workloads and environments, as it removes the manual step of specifying individual Classless Inter-Domain Routing (CIDR) ranges or resource IDs.
 
+[!INCLUDE [virtual-network-manager-network-groups-source-destination-preview](../../includes/virtual-network-manager-network-groups-source-destination-preview.md)]
+
 ## Why use network groups with security admin rules?
 
 Using network groups with security admin rules allows you to define the source and destination of the traffic for the security admin rule. This feature streamlines the process of securing your traffic across workloads and environments, as it removes the manual step of specifying individual CIDR ranges or resource IDs.
