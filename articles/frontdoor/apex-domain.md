@@ -45,7 +45,7 @@ For example, suppose you want to use the apex domain `contoso.com` with Azure Fr
 | Record value | *use the value provided by Azure Front Door* |
 | Time to live (TTL) | 1 hour |
 
-## Azure Front Door-managed Transport Layer Security (TLS) certificate rotation
+## Azure Front Door-managed TLS certificate rotation
 
 When you use an Azure Front Door-managed certificate, Azure Front Door attempts to automatically rotate (renew) the certificate. Before it does so, Azure Front Door checks whether the DNS CNAME record is still pointed to the Azure Front Door endpoint. Apex domains don't have a CNAME record pointing to an Azure Front Door endpoint, so the autorotation for managed certificate fails until the domain ownership is revalidated.
 
