@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 03/16/2024
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Customize activities on entity page timelines

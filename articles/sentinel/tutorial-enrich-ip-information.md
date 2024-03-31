@@ -5,7 +5,9 @@ ms.topic: tutorial
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
@@ -52,7 +54,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     1. Clear the **Select all** checkbox, then mark the **Enrichment** checkbox. Select **OK**.
 
-    For example: <!--more screnshots if there's time-->
+    For example:
 
     :::image type="content" source="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png" alt-text="Screenshot of list of playbook templates to be filtered by tags." lightbox="media/tutorial-enrich-ip-information/1-filter-playbook-template-list.png":::
 

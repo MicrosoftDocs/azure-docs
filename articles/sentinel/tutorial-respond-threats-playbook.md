@@ -5,7 +5,9 @@ ms.topic: tutorial
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
@@ -258,7 +260,7 @@ To create an automation rule:
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.
 
-    Your options differ depending on whether your workspace is onboarded to the unified SOC platform. For example:
+    Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
 
     #### [Onboarded workspaces](#tab/after-onboarding)
 
@@ -274,14 +276,14 @@ To create an automation rule:
 
 1. **Conditions:**
 
-    1. If your workspace is not yet onboarded to the unified SOC platform, incidents can have two possible sources:
+    1. If your workspace is not yet onboarded to the unified security operations platform, incidents can have two possible sources:
 
         - Incidents can be created inside Microsoft Sentinel
         - Incidents can be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md). 
 
         If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition.
 
-        This condition will be displayed only if an incident trigger is selected and your workspace isn't onboarded to the unified SOC platform.
+        This condition will be displayed only if an incident trigger is selected and your workspace isn't onboarded to the unified security operations platform.
 
     1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
@@ -348,7 +350,7 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 
 ### Run a playbook manually on an alert
 
-This procedure is not supported in the unified SOC platform.
+This procedure is not supported in the unified security operations platform.
 
 In the Azure portal, select one of the following tabs as needed for your environment:
 
@@ -384,7 +386,7 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 
 ### Run a playbook manually on an incident (Preview)
 
-This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified SOC platform. Select the relevant tab for your environment:
+This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified security operations platform. Select the relevant tab for your environment:
 
 
 # [Azure portal](#tab/azure)
@@ -423,7 +425,7 @@ View the run history for playbooks on an incident by selecting the **Runs** tab 
 
 ### Run a playbook manually on an entity (Preview)
 
-This procedure is not supported in the unified SOC platform.
+This procedure is not supported in the unified security operations platform.
 
 1. Select an entity in one of the following ways, depending on your originating context:
 

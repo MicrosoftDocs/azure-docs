@@ -7,7 +7,9 @@ ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to bulk import indicators from common file types to my threat intelligence (TI), so I can more effectively share TI during an investigation.
 ---
@@ -18,6 +20,8 @@ In this how-to guide, you'll add indicators from a CSV or JSON file into Microso
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 ## Prerequisites
 

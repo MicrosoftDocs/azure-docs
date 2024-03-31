@@ -5,7 +5,9 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to incorporate my watchlists with advanced hunting or detection rules so I can use data I provide in meaningful ways for my security monitoring.
 ---
@@ -15,6 +17,8 @@ ms.collection: usx-security
 Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches.
 
 For optimal query performance, use **SearchKey** as the key for joins in your queries.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Build queries with watchlists
 

@@ -5,7 +5,9 @@ ms.topic: how-to
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---
@@ -19,6 +21,8 @@ This document, along with our guide to [Authenticating playbooks to Microsoft Se
 For an introduction to playbooks, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
 For the complete specification of the Microsoft Sentinel connector, see the [Logic Apps connector documentation](/connectors/azuresentinel/).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Permissions required
 

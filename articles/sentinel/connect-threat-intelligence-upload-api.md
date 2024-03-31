@@ -6,7 +6,9 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 ---
@@ -20,6 +22,7 @@ Many organizations use threat intelligence platform (TIP) solutions to aggregate
 > [!IMPORTANT]
 > The Microsoft Sentinel upload indicators API and **Threat Intelligence Upload Indicators API** data connector are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

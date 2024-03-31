@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 03/19/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
@@ -62,8 +66,6 @@ Each activity is scored with “Investigation Priority Score” – which determ
 See how behavior analytics is used in [Microsoft Defender for Cloud Apps](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
 
 Learn more about [entities in Microsoft Sentinel](entities.md) and see the full list of [supported entities and identifiers](entities-reference.md).
-
-<!-- Is this the "Investigation priority score" that appears on the entity pages in Microsoft Defender? If so, is it coming directly from MDA there, or from UEBA? -->
 
 ### Entity pages
 

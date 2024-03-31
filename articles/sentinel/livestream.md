@@ -6,7 +6,9 @@ ms.date: 03/12/2024
 ms.author: austinmc
 author: austinmccollum
 ms.collection: usx-security
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Detect threats by using hunting livestream in Microsoft Sentinel
@@ -25,6 +27,7 @@ Use hunting livestream to create interactive sessions that let you test newly cr
     
     If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Create a livestream session
 

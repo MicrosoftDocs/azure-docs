@@ -6,7 +6,9 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
 ms.date: 03/12/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
@@ -24,6 +26,8 @@ Use the end to end hunting experience within Microsoft Sentinel to:
 - Act on results by creating new analytic rules, new incidents, new threat indicators, and running playbooks.
 - Keep track of your new, active, and closed hunts in one place.
 - View metrics based on validated hypotheses and tangible results.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 In order to use the hunts feature, you either need to be assigned a built-in Microsoft Sentinel role, or a custom Azure RBAC role. Here are your options:

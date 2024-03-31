@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 06/28/2022
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Microsoft Sentinel UEBA reference
@@ -221,7 +225,7 @@ While the initial synchronization may take a few days, once the data is fully sy
 >
 > - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, in the *Log Analytics* schema, the other serving the Microsoft Defender portal via Microsoft Defender for Identity, in what's known as the *Advanced hunting* schema. Both versions of this table are fed by Microsoft Entra ID, but the Log Analytics version added a few fields.
 > 
->    [The unified SOC platform in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the *Advanced hunting* version of this table, so, to minimize the differences between the versions of the table, most of the unique fields in the Log Analytics version are gradually being added to the *Advanced hunting* version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to nearly all the same information, though there may be a small time lag in synchronization between the versions.
+>    [The unified security operations platform in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the *Advanced hunting* version of this table, so, to minimize the differences between the versions of the table, most of the unique fields in the Log Analytics version are gradually being added to the *Advanced hunting* version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to nearly all the same information, though there may be a small time lag in synchronization between the versions.
 
 The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics in the Azure portal. The fourth column shows the corresponding fields in the *Advanced hunting* version of the table, that Microsoft Sentinel uses in the Defender portal. Field names in boldface are named differently in the *Advanced hunting* schema than they are in the Microsoft Sentinel Log Analytics version.
 

@@ -6,7 +6,9 @@ ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
 ms.date: 03/07/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 

@@ -6,7 +6,9 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to correlate data from meaningful data sources I provide with events so I can watch for more relationships with better visibility.
 ---
@@ -21,7 +23,8 @@ Local file uploads are currently limited to files of up to 3.8 MB in size. A fil
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)] 
 
 ## Upload a watchlist from a local folder
 

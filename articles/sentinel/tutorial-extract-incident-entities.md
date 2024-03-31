@@ -5,7 +5,9 @@ ms.topic: tutorial
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---
@@ -55,7 +57,7 @@ To complete this tutorial, make sure you have:
 1. In the **Create playbook** wizard, under **Basics**, select the subscription and resource group, and give the playbook a name. 
 1. Select **Next: Connections >**.
 
-    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible. For example:<!--create new screenshot if possible-->
+    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible. For example:
 
     :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger.":::
 

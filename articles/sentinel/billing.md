@@ -7,7 +7,9 @@ ms.custom: subject-cost-optimization
 ms.topic: conceptual
 ms.date: 03/07/2024
 ms.collection: usx-security
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 #Customer intent: As a SOC manager, plan Microsoft Sentinel costs so I can understand and optimize the costs of my SIEM.
 ---
 
