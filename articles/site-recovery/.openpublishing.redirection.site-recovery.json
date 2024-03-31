@@ -21,11 +21,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
-            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/site-recovery/vmware-azure-tutorial.md",
             "redirect_url": "/azure/site-recovery/azure-to-azure-tutorial-enable-replication",
             "redirect_document_id": false
