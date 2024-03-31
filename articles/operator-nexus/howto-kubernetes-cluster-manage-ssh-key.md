@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Manage SSH keys in Azure Operator Nexus Kubernetes clusters
 
-This article describes how to configure the SSH key on your Nexus Kubernetes agent pools and control plane (CP), during initial deployment or at a later time.
+This article describes how to configure the SSH key on your Nexus Kubernetes agent pool and control plane nodes.
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 ## Configure Operator Nexus Kubernetes cluster node SSH keys
 
-When you're setting up an Operator Nexus Kubernetes cluster, you need to provide SSH keys for the nodes in the cluster. SSH keys provide a secure method of accessing the nodes in your cluster.
+When configuring an Operator Nexus Kubernetes cluster, you need to provide SSH keys for the nodes in the cluster. SSH keys provide a secure method of accessing these nodes in your cluster.
 
 There are a few different ways that you can provide SSH keys for your cluster nodes.
 
 * If you want to use the same SSH key for all nodes in your cluster, you can provide an array of public keys when you create the cluster. These keys are inserted into all agent pool nodes and control plane nodes.
 * If you want to use different SSH keys for different agent pools or control plane nodes, you can provide a unique public key for each pool, allows you to manage SSH access more granularly, this overrides the cluster wide keys. Any new agent pool gets added to the cluster later without keys use the cluster wide keys, if it has key then it uses the provided key.
-* If you don't provide any SSH keys when creating your cluster, no SSH keys are inserted into the nodes. This means that users can't SSH into the nodes. You can add SSH keys later by updating the cluster configuration, but can't remove those keys once it's added.
+* If you don't provide any SSH keys when creating your cluster, no SSH keys are inserted into the nodes. This means that users can't SSH into the nodes. You can add SSH keys later by updating the cluster configuration, but can't remove those keys once added.
 
 Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) guide for steps to find the cluster node IP address.
 
