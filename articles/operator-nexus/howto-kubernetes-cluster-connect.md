@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Operator Nexus Kubernetes cluster
-description: Learn how to connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks
+description: Learn how to connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks.
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -17,7 +17,7 @@ Throughout the lifecycle of your Azure Operator Nexus Kubernetes cluster, you ev
 
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * SSH private key for the cluster nodes.
-* To SSH using the node IP address, it is necessary to have a jumpbox VM deployed within the same virtual network as the cluster nodes.
+* To SSH using the node IP address, it's necessary to have a jumpbox VM deployed within the same virtual network as the cluster nodes.
 
 ## Access nodes using the Kubernetes API
 
@@ -28,7 +28,7 @@ This method requires usage of `kubectl debug` command.
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
 ### Access to cluster nodes via Azure Arc for Kubernetes
-Once you are connected to a cluster via Arc for Kuberentes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
+Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
 
 1. List the nodes in your Nexus Kubernetes cluster:
 
@@ -51,7 +51,7 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
 
     This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
 
-3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
+3. When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
 
     ```bash
     kubectl delete pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg 
@@ -104,13 +104,13 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
 
 ## Create an interactive shell connection to a node using the IP address
 
-### Conenccting to the cluster node from Azure jumpbox
+### Connecting to the cluster node from Azure jumpbox
 
 Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to set up a direct access to the cluster's CNI network from Azure jumpbox VM. Using this approach, you can SSH into the cluster nodes, also execute `kubectl` commands against the cluster using the `kubeconfig` file.
 
 Reach out to your network administrator to set up a direct connection from Azure jumpbox VM to the cluster's CNI network.
 
-### Conenccting to the cluster node from on-premises jumpbox
+### Connecting to the cluster node from on-premises jumpbox
 
 Establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
 
