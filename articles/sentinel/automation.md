@@ -5,7 +5,9 @@ ms.topic: conceptual
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---
@@ -40,19 +42,19 @@ Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic App
 
 Learn more with this [complete explanation of playbooks](automate-responses-with-playbooks.md).
 
-## After onboarding to the unified SOC platform
+## Automation with the unified security operations platform
 
-After onboarding your Microsoft Sentinel workspace to the unified SOC platform, note the following differences in the way automation functions in your workspace:
+After onboarding your Microsoft Sentinel workspace to the unified security operations platform, note the following differences in the way automation functions in your workspace:
 
 |Functionality   |Description  |
 |---------|---------|
-|**Automation rules with alert triggers**     |  In the unified SOC platform, automation rules with alert triggers act only on Microsoft Sentinel alerts. <br><br>For more information, see [Alert create trigger](automate-incident-handling-with-automation-rules.md#alert-create-trigger).       |
-|**Automation rules with incident triggers**     |  In both the Azure portal and the unified SOC platform, the **Incident provider** condition property is removed, as all incidents have *Microsoft Defender XDR* as the incident provider. <br><br>At that point, any existing automation rules run on both Microsoft Sentinel and Microsoft Defender XDR incidents, including those where the **Incident provider** condition is set to only *Microsoft Sentinel* or *Microsoft 365 Defender*. <br><br>However, automation rules that specify a specific analytics rule name will run only on the incidents that were created by the specified analytics rule. This means that you can define the **Analytic rule name** condition property to an analytics rule that exists only in Microsoft Sentinel to limit your rule to run on incidents only in Microsoft Sentinel. <br><br>For more information, see [Incident trigger conditions](automate-incident-handling-with-automation-rules.md#conditions).       |
+|**Automation rules with alert triggers**     |  In the unified security operations platform, automation rules with alert triggers act only on Microsoft Sentinel alerts. <br><br>For more information, see [Alert create trigger](automate-incident-handling-with-automation-rules.md#alert-create-trigger).       |
+|**Automation rules with incident triggers**     |  In both the Azure portal and the unified security operations platform, the **Incident provider** condition property is removed, as all incidents have *Microsoft Defender XDR* as the incident provider. <br><br>At that point, any existing automation rules run on both Microsoft Sentinel and Microsoft Defender XDR incidents, including those where the **Incident provider** condition is set to only *Microsoft Sentinel* or *Microsoft 365 Defender*. <br><br>However, automation rules that specify a specific analytics rule name will run only on the incidents that were created by the specified analytics rule. This means that you can define the **Analytic rule name** condition property to an analytics rule that exists only in Microsoft Sentinel to limit your rule to run on incidents only in Microsoft Sentinel. <br><br>For more information, see [Incident trigger conditions](automate-incident-handling-with-automation-rules.md#conditions).       |
 |***Updated by* field**     |   - After onboarding your workspace, the **Updated by** field has a [new set of supported values](automate-incident-handling-with-automation-rules.md#incident-update-trigger), which no longer include *Microsoft 365 Defender*. In existing automation rules, *Microsoft 365 Defender* is replaced by a value of *Other* after onboarding your workspace. <br><br>- If multiple changes are made to the same incident in a 5-10 minute period, a single update is sent to Microsoft Sentinel, with only the most recent change. <br><br>For more information, see [Incident update trigger](automate-incident-handling-with-automation-rules.md#incident-update-trigger).      |
 |**Automation rules that add incident tasks**     | If an automation rule add an incident task, the task is shown only in the Azure portal.        |
-|**Microsoft incident creation rules**     |  Microsoft incident creation rules aren't supported in the unified SOC platform. <br><br>For more information, see [Microsoft Defender XDR incidents and Microsoft incident creation rules](microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules).       |
-|**Active playbooks tab**     | After onboarding to the unified SOC platform, by default the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. Add data for other subscriptions using the subscription filter.  <br><br>For more information, see [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md).        |
-|**Running playbooks manually on demand**     |The following procedures are not supported in the unified SOC platform:  <br><br>- [Run a playbook manually on an alert](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-alert) <br>- [Run a playbook manually on an entity](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-entity-preview)    |
+|**Microsoft incident creation rules**     |  Microsoft incident creation rules aren't supported in the unified security operations platform. <br><br>For more information, see [Microsoft Defender XDR incidents and Microsoft incident creation rules](microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules).       |
+|**Active playbooks tab**     | After onboarding to the unified security operations platform, by default the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. Add data for other subscriptions using the subscription filter.  <br><br>For more information, see [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md).        |
+|**Running playbooks manually on demand**     |The following procedures are not supported in the unified security operations platform:  <br><br>- [Run a playbook manually on an alert](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-alert) <br>- [Run a playbook manually on an entity](tutorial-respond-threats-playbook.md?tabs=LAC%2Cincidents#run-a-playbook-manually-on-an-entity-preview)    |
 
 
 ## Next steps

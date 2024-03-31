@@ -5,7 +5,10 @@ author: cwatson-cat
 ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal.
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal.
+ms.collection: usx-security
 #Customer intent: As a security engineer, I want to learn how I can minimize the amount of solution content I have to deploy and manage by using Microsoft essential solutions for Microsoft Sentinel.
 ---
 

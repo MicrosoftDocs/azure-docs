@@ -5,7 +5,9 @@ ms.topic: conceptual
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
 ---
@@ -103,9 +105,9 @@ The **current state** in this context refers to the moment the condition is eval
 
 The conditions evaluated in rules defined using the trigger **When an incident is updated** include all of those listed for the incident creation trigger. But the update trigger includes more properties that can be evaluated.
 
-One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following values, depending on whether you've onboarded your workspace to the unified SOC platform:
+One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following values, depending on whether you've onboarded your workspace to the unified security operations platform:
 
-##### [Onboarded to the unified SOC platform](#tab/onboarded)
+##### [Onboarded workspaces](#tab/onboarded)
 
 - An application, including applications in both the Azure and Defender portals.
 - A user, including changes made by users in both the Azure and Defender portals.
@@ -115,7 +117,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - An automation rule
 - Other, if none of the above values apply
 
-##### [Not onboarded to the unified SOC platform](#tab/not-onboarded)
+##### [Workspaces not onboarded](#tab/not-onboarded)
 
 - An application
 - A Microsoft Sentinel user
@@ -142,7 +144,7 @@ Also, if an incident is updated by an automation rule that ran on the incident's
 If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
 
 > [!NOTE]
-> After onboarding to the unified SOC platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
+> After onboarding to the unified security operations platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
 
 #### Alert create trigger
 
@@ -302,7 +304,7 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
 ## Creating and managing automation rules
 
-You can [create and manage automation rules](create-manage-use-automation-rules.md) from different areas in Microsoft Sentinel or the unified SOC platform, depending on your particular need and use case.
+You can [create and manage automation rules](create-manage-use-automation-rules.md) from different areas in Microsoft Sentinel or the unified security operations platform, depending on your particular need and use case.
 
 - **Automation page**
 

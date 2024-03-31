@@ -4,14 +4,18 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 03/19/2024
-appliesto: Microsoft Sentinel in the Microsoft Defender portal
+ms.date: 03/28/2024
+appliesto: 
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
 
-# Microsoft Sentinel in the Microsoft Defender portal
+# Microsoft Sentinel in the Microsoft Defender portal (preview)
 
 Microsoft Sentinel is available as part of the public preview for the unified security operations platform in the Microsoft Defender portal. This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
+
+> [!IMPORTANT]
+> Information in this article relates to a prerelease product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 ## New and improved capabilities
 
@@ -20,7 +24,6 @@ The following table describes the new or improved capabilities available in the 
 |Capabilities |Description |
 |---------|---------|
 |Advanced hunting | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410).|
-|Attack disrupt      |  Deploy automatic attack disruption in the Microsoft Defender portal for SAP, together with Microsoft Sentinel integrated into the Microsoft Defender portal and the Microsoft Sentinel solution for SAP applications.  <br><br>Attack disrupt for SAP is available in the Defender portal only.<br><br>  For more information, see the following articles: <br> - [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption)  <br>- [Configure automatic attack disruption capabilities in Microsoft Defender XDR](/microsoft-365/security/defender/configure-attack-disruption)<br>- [Microsoft Sentinel solution for SAP® applications overview](/azure/sentinel/sap/solution-overview) <br>- [Deploy automatic attack disruption for SAP](https://go.microsoft.com/fwlink/p/?linkid=2264356)  |
 |Unified entities| Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages).|
 |Unified incidents| Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview).|
 
@@ -30,7 +33,7 @@ The following table describes the new or improved capabilities available in the 
 
  Most Microsoft Sentinel capabilities are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
 
-This section covers the Microsoft Sentinel capabilities or integrations in the unified SOC platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
 
 ### Defender portal only
 
@@ -48,11 +51,11 @@ The following capabilities are only available in the Azure portal.
 |---------|---------|
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
 |Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
-| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified SOC platform and workspaces that aren't.  <br><br>For more information, see [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](https://aka.ms/unified-soc-automation-lims). |
+| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](https://aka.ms/unified-soc-automation-lims). |
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified SOC platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
 
 The following image shows the **Microsoft Sentinel** menu in the Defender portal:
 
@@ -110,8 +113,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |Automation   |   Microsoft Sentinel > Configuration > Automation       |
 |Settings   | System > Settings > Microsoft Sentinel       |
 
-
-
 ## Related content
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+- [Microsoft Defender XDR documentation](/microsoft-365/security/defender)

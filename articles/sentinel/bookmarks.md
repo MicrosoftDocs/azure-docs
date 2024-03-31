@@ -6,7 +6,9 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 03/12/2024
 ms.collection: usx-security
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Keep track of data during hunting with Microsoft Sentinel
@@ -32,6 +34,8 @@ Alternatively, you can view your bookmarked data directly in the **HuntingBookma
 Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Add a bookmark
 

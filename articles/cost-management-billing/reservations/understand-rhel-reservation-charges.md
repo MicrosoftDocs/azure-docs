@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 03/21/2024
 ms.author: banders

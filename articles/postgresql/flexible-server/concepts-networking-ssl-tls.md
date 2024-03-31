@@ -72,7 +72,7 @@ This command prints numerous low-level protocol information, including the TLS v
 By default, PostgreSQL doesn't perform any verification of the server certificate. This means that it's possible to spoof the server identity (for example by modifying a DNS record or by taking over the server IP address) without the client knowing. All SSL options carry overhead in the form of encryption and key-exchange, so there's a trade-off that has to be made between performance and security.
 In order to prevent spoofing, SSL certificate verification on the client must be used.
 There are many connection parameters for configuring the client for SSL. Few important to us are:
-1. **ssl**.  Connect using SSL. This property doesn't need a value associated with it. The mere presence of it specifies a SSL connection. However, for compatibility with future versions, the value "true" is preferred.  In this mode, when establishing an SSL connection the client driver validates the server's identity preventing "man in the middle" attacks. It does this by checking that the server certificate is signed by a trusted authority, and that the host you're connecting to is the same as the hostname in the certificate.
+1. **ssl**.  Connect using SSL. This property doesn't need a value associated with it. The mere presence of it specifies an SSL connection. However, for compatibility with future versions, the value "true" is preferred.  In this mode, when establishing an SSL connection the client driver validates the server's identity preventing "man in the middle" attacks. It does this by checking that the server certificate is signed by a trusted authority, and that the host you're connecting to is the same as the hostname in the certificate.
 2. **sslmode**. If you require encryption and want the connection to fail if it can't be encrypted then set  **sslmode=require**.  This ensures that the server is configured to accept SSL connections for this Host/IP address and that the server recognizes the client certificate. In other words if the server doesn't accept SSL connections or the client certificate isn't recognized the connection will fail. Table below list values for this setting:
 
 | SSL Mode | Explanation | 
@@ -84,12 +84,88 @@ There are many connection parameters for configuring the client for SSL. Few imp
 |verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
 |verify-full| Encryption is used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
 
-3. **sslcert**, **sslkey** and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+3. **sslcert**, **sslkey, and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+
+**Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
 
 > [!NOTE]  
-> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates.
+> Using verify-ca and verify-full **sslmode** configuration settings can also be known as **[certificate pinning](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application)**. In this case root CA certificates on the PostgreSQL server have to match certificate signature and even host name against certificate on the client. Important to remember, you might periodically need to update client stored certificates when Certificate Authorities change or expire on PostgreSQL server certificates. To determine if you are pinning CAs, please refer to [Certificate pinning and Azure services](../../security/fundamentals/certificate-pinning.md#how-to-address-certificate-pinning-in-your-application). 
 
 For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
+
+> [!NOTE]
+>  For clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, they have to accept **both** [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
+
+### Importing Root Certificates in Java Key Store on the client for certificate pinning scenarios
+
+Custom-written Java applications  use a default keystore, called *cacerts*, which contains trusted certificate authority (CA) certificates. It's also often known as Java trust store. A certificates file named *cacerts* resides in the security properties directory, java.home\lib\security, where java.home is the runtime environment directory (the jre directory in the SDK or the top-level directory of the Java™ 2 Runtime Environment).
+You can use following directions to update client root CA certificates for client certificate pinning scenarios with PostgreSQL Flexible Server:
+1.  Make a backup copy of your custom keystore.
+2.	Download Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 certificates from following URIs:
+For Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt. 
+For DigiCert Global Root G2  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem.
+3. Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
+  Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
+4. Generate a combined CA certificate store with both Microsoft RSA Root Certificate Authority 2017 and DigiCertGlobalRootG2 certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users
+
+ ```powershell
+ 
+ 
+ keytool -importcert -alias PostgreSQLServerCACert  -file D:\ DigiCertGlobalRootG2.crt.pem   -keystore truststore -storepass password -noprompt
+
+keytool -importcert -alias PostgreSQLServerCACert2  -file "D:\ Microsoft ECC Root Certificate Authority 2017.crt.pem" -keystore truststore -storepass password  -noprompt
+```
+ 5. Replace the original keystore file with the new generated one:
+ 
+```java
+System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
+System.setProperty("javax.net.ssl.trustStorePassword","password");
+```
+6. Replace the original root CA pem file with the combined root CA file and restart your application/client.
+
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
+
+### Get list of trusted certificates in Java Key Store
+
+As stated above, Java, by default, stores the trusted certificates in a special file named *cacerts* that is located inside  Java installation folder on the client.
+Example below first reads *cacerts* and loads it into *KeyStore* object:
+```java
+private KeyStore loadKeyStore() {
+    String relativeCacertsPath = "/lib/security/cacerts".replace("/", File.separator);
+    String filename = System.getProperty("java.home") + relativeCacertsPath;
+    FileInputStream is = new FileInputStream(filename);
+    KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+    String password = "changeit";
+    keystore.load(is, password.toCharArray());
+
+    return keystore;
+}
+```
+The default password for *cacerts* is *changeit* , but should be different on real client, as administrators recommend changing password immediately after Java installation.
+Once we loaded KeyStore object, we can use the *PKIXParameters* class to read certificates present. 
+```java
+public void whenLoadingCacertsKeyStore_thenCertificatesArePresent() {
+    KeyStore keyStore = loadKeyStore();
+    PKIXParameters params = new PKIXParameters(keyStore);
+    Set<TrustAnchor> trustAnchors = params.getTrustAnchors();
+    List<Certificate> certificates = trustAnchors.stream()
+      .map(TrustAnchor::getTrustedCert)
+      .collect(Collectors.toList());
+
+    assertFalse(certificates.isEmpty());
+}
+```
+### Updating Root certificates when using clients in Azure App Services with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
+
+For Azure App services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios on updating client certificates and it depends on how on you're using SSL with your application deployed to Azure App Services.
+
+* Usually new certificates are added to App Service at platform level prior to changes in Azure Database for PostgreSQL - Flexible Server. If you are using the SSL certificates included on App Service platform in your application, then no action is needed. Consult following [Azure App Service documentation](../../app-service/configure-ssl-certificate.md) for more information. 
+* If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
+
+ ### Updating Root certificates when using clients in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
+
+If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-tls.md).
 
 ## Cipher Suites
 
@@ -102,7 +178,7 @@ A cipher suite is displayed as a long string of seemingly random information—b
 - Message authentication code algorithm (MAC)
 
 Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
-As of this time Azure Database for PostgreSQL flexible server supports a number of cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
 
 ## Troubleshooting SSL\TLS connectivity errors
 

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 06/28/2022
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Microsoft Sentinel UEBA reference
@@ -219,50 +223,51 @@ While the initial synchronization may take a few days, once the data is fully sy
 >
 > - Data about deleted groups, where a user was removed from a group, is not currently supported.
 >
-> - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, the other serving Microsoft Defender for Identity. Both versions of this table are fed by Microsoft Entra ID, but the Sentinel version added a few fields.
+> - There are actually two versions of the *IdentityInfo* table: one serving Microsoft Sentinel, in the *Log Analytics* schema, the other serving the Microsoft Defender portal via Microsoft Defender for Identity, in what's known as the *Advanced hunting* schema. Both versions of this table are fed by Microsoft Entra ID, but the Log Analytics version added a few fields.
 > 
->    [Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the Defender for Identity version of this table, so to equalize the versions of the table, the unique fields in the Sentinel version have been added to the Defender for Identity version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to all the same information, though there may be a small time lag in synchronization between the versions.
+>    [The unified security operations platform in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690) uses the *Advanced hunting* version of this table, so, to minimize the differences between the versions of the table, most of the unique fields in the Log Analytics version are gradually being added to the *Advanced hunting* version as well. Regardless of in which portal you're using Microsoft Sentinel, you'll have access to nearly all the same information, though there may be a small time lag in synchronization between the versions.
 
-The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics.
+The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics in the Azure portal. The fourth column shows the corresponding fields in the *Advanced hunting* version of the table, that Microsoft Sentinel uses in the Defender portal. Field names in boldface are named differently in the *Advanced hunting* schema than they are in the Microsoft Sentinel Log Analytics version.
 
-| Field                           | Type     | Description                                                |
-| ------------------------------- | -------- | ---------------------------------------------------------- |
-| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.    |
-| **AccountCreationTime**         | datetime | The date the user account was created (UTC).               |
-| **AccountDisplayName**          | string   | The display name of the user account.                      |
-| **AccountDomain**               | string   | The domain name of the user account.                       |
-| **AccountName**                 | string   | The user name of the user account.                         |
-| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account.        |
-| **AccountSID**                  | string   | The on-premises security identifier of the user account.   |
-| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.         |
-| **AccountUPN**                  | string   | The user principal name of the user account.               |
-| **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                |
-| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. |
-| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High* |
-| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *UEBA*<br>- *Watchlist*<br>- *FullSync* |
-| **City**                        | string   | The city of the user account.                              |
-| **Country**                     | string   | The country of the user account.                           |
-| **DeletedDateTime**             | datetime | The date and time the user was deleted.                    |
-| **Department**                  | string   | The department of the user account.                        |
-| **GivenName**                   | string   | The given name of the user account.                        |
-| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member. |
-| **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Microsoft Entra ID or not. |
-| **JobTitle**                    | string   | The job title of the user account.                         |
-| **MailAddress**                 | string   | The primary email address of the user account.             |
-| **Manager**                     | string   | The manager alias of the user account.                     |
-| **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
-| **Phone**                       | string   | The phone number of the user account.                      |
-| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values:<br>- *AzureActiveDirectory*<br>- *ActiveDirectory*<br>- *Hybrid* |
-| **State**                       | string   | The geographical state of the user account.                |
-| **StreetAddress**               | string   | The office street address of the user account.             |
-| **Surname**                     | string   | The surname of the user. account.                          |
-| **TenantId**                    | string   | The tenant ID of the user.                                 |
-| **TimeGenerated**               | datetime | The time when the event was generated (UTC).               |
-| **Type**                        | string   | The name of the table.                                     |
-| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<br>- *AccountDisabled*<br>- *HomedirRequired*<br>- *AccountLocked*<br>- *PasswordNotRequired*<br>- *CannotChangePassword*<br>- *EncryptedTextPasswordAllowed*<br>- *TemporaryDuplicateAccount*<br>- *NormalAccount*<br>- *InterdomainTrustAccount*<br>- *WorkstationTrustAccount*<br>- *ServerTrustAccount*<br>- *PasswordNeverExpires*<br>- *MnsLogonAccount*<br>- *SmartcardRequired*<br>- *TrustedForDelegation*<br>- *DelegationNotAllowed*<br>- *UseDesKeyOnly*<br>- *DontRequirePreauthentication*<br>- *PasswordExpired*<br>- *TrustedToAuthenticationForDelegation*<br>- *PartialSecretsAccount*<br>- *UseAesKeys* |
-| **UserState**                   | string   | The current state of the user account in Microsoft Entra ID.<br>Possible values:<br>- *Active*<br>- *Disabled*<br>- *Dormant*<br>- *Lockout* |
-| **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). |
-| **UserType**                    | string   | The user type.                                             |
+| Field name in<br>*Log Analytics* schema | Type     | Description                      | Field name in<br>*Advanced hunting* schema |
+| ------------------------------- | -------- | ---------------------------------------------------------- | ------------------------ |
+| **AccountCloudSID**             | string   | The Microsoft Entra security identifier of the account.    | **CloudSid**             |
+| **AccountCreationTime**         | datetime | The date the user account was created (UTC).               | **CreatedDateTime**      |
+| **AccountDisplayName**          | string   | The display name of the user account.                      | AccountDisplayName       |
+| **AccountDomain**               | string   | The domain name of the user account.                       | AccountDomain            |
+| **AccountName**                 | string   | The user name of the user account.                         | AccountName              |
+| **AccountObjectId**             | string   | The Microsoft Entra object ID for the user account.        | AccountObjectId          |
+| **AccountSID**                  | string   | The on-premises security identifier of the user account.   | AccountSID               |
+| **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.         | --                       |
+| **AccountUPN**                  | string   | The user principal name of the user account.               | AccountUPN               |
+| **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                | --                       |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. | AssignedRoles            |
+| **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High*                                     | --                       |
+| **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*UEBA*<li>*Watchlist*<li>*FullSync*                    | ChangeSource             |
+| **CompanyName**                 |          | The company name to which the user belongs.                | --                       |
+| **City**                        | string   | The city of the user account.                              | City                     |
+| **Country**                     | string   | The country of the user account.                           | Country                  |
+| **DeletedDateTime**             | datetime | The date and time the user was deleted.                    | --                       |
+| **Department**                  | string   | The department of the user account.                        | Department               |
+| **GivenName**                   | string   | The given name of the user account.                        | GivenName                |
+| **GroupMembership**             | dynamic  | Microsoft Entra groups where the user account is a member. | --                       |
+| **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Microsoft Entra ID or not. | IsAccountEnabled |
+| **JobTitle**                    | string   | The job title of the user account.                         | JobTitle                 |
+| **MailAddress**                 | string   | The primary email address of the user account.             | **EmailAddress**         |
+| **Manager**                     | string   | The manager alias of the user account.                     | Manager                  |
+| **OnPremisesDistinguishedName** | string   | The Microsoft Entra ID distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas.                                                  | **DistinguishedName**    |
+| **Phone**                       | string   | The phone number of the user account.                      | Phone                    |
+| **SourceSystem**                | string   | The system where the user is managed. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*Hybrid* | **SourceProvider** |
+| **State**                       | string   | The geographical state of the user account.                | State                    |
+| **StreetAddress**               | string   | The office street address of the user account.             | **Address**              |
+| **Surname**                     | string   | The surname of the user. account.                          | Surname                  |
+| **TenantId**                    | string   | The tenant ID of the user.                                 | --                       |
+| **TimeGenerated**               | datetime | The time when the event was generated (UTC).               | **Timestamp**            |
+| **Type**                        | string   | The name of the table.                                     | --                       |
+| **UserAccountControl**          | dynamic  | Security attributes of the user account in the AD domain. <br> Possible values (may contain more than one):<li>*AccountDisabled*<li>*HomedirRequired*<li>*AccountLocked*<li>*PasswordNotRequired*<li>*CannotChangePassword*<li>*EncryptedTextPasswordAllowed*<li>*TemporaryDuplicateAccount*<li>*NormalAccount*<li>*InterdomainTrustAccount*<li>*WorkstationTrustAccount*<li>*ServerTrustAccount*<li>*PasswordNeverExpires*<li>*MnsLogonAccount*<li>*SmartcardRequired*<li>*TrustedForDelegation*<li>*DelegationNotAllowed*<li>*UseDesKeyOnly*<li>*DontRequirePreauthentication*<li>*PasswordExpired*<li>*TrustedToAuthenticationForDelegation*<li>*PartialSecretsAccount*<li>*UseAesKeys* | --                    |
+| **UserState**                   | string   | The current state of the user account in Microsoft Entra ID.<br>Possible values:<li>*Active*<li>*Disabled*<li>*Dormant*<li>*Lockout* | --                       |
+| **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC). | --                   |
+| **UserType**                    | string   | The user type.                                             | --                       |
 
 ## Next steps
 
