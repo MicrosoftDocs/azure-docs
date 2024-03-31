@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 03/28/2024
 ---
 
 # Configure a vectorizer in a search index
@@ -221,6 +221,10 @@ OperationEvent
 | where TIMESTAMP > ago(30m)
 | where Name == "Query.Search" and AdditionalInfo["QueryMetadata"]["Vectors"] has "TextLength"
 ```
+
+## Best practices
+
+If you are setting up an Azure OpenAI vectorizer, consider the same [best practices](cognitive-search-skill-azure-openai-embedding.md#best-practices) that we recommend for the Azure OpenAI embedding skill.
 
 ## See also
 
