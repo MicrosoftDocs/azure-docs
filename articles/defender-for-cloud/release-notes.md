@@ -34,14 +34,14 @@ The following Unified Disk Encryption recommendations are now generally availabl
 
 | Recommendation name | Assessment key |
 | ---- | ---- |
-| [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](recommendations-reference.md#linux-virtual-machines-should-enable-azure-disk-encryption-or-encryptionathosthttpsmsportalazurecomviewmicrosoft_azure_securitygenericrecommendationdetailsbladeassessmentkeya40cc620-e72c-fdf4-c554-c6ca2cd705c0) | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
-| [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](recommendations-reference.md#windows-virtual-machines-should-enable-azure-disk-encryption-or-encryptionathosthttpsmsportalazurecomviewmicrosoft_azure_securitygenericrecommendationdetailsbladeassessmentkey0cb5f317-a94b-6b80-7212-13a9cc8826af) | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
+| [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0) | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
+| [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af) | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
 
 Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
 
 The recommendations depend on [Guest configuration](/azure/governance/machine-configuration/overview). The recommendations in this document are dependent on the configuration of the guest operating system. To ensure that the recommendations can be properly assessed for compliance, it is necessary to enable the required prerequisites on all virtual machines. 
 
-These recommendations replace the recommendation [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](recommendations-reference.md#virtual-machines-should-encrypt-temp-disks-caches-and-data-flows-between-compute-and-storage-resourceshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyd57a4221-a804-52ca-3dea-768284f06bb7). 
+These recommendations replace the recommendation [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7). 
 
 ## March 2024
 
