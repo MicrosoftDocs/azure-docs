@@ -5,6 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 02/13/2023
 ms.author: radwiv

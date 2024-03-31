@@ -97,7 +97,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
       databaseFormat: delta
       target:
         fabricOneLake:
-          endpoint: https://onelake.dfs.fabric.microsoft.com
+          endpoint: https://msit-onelake.dfs.fabric.microsoft.com
           names:
             workspaceName: <example-workspace-name>
             lakehouseName: <example-lakehouse-name>

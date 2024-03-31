@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/21/2024
+ms.date: 3/26/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -177,9 +177,10 @@ Added token count and token error properties to the `EvaluationProperties` prope
 
 ### Model copy
 
-Added the new `"/operations/models/copy/{id}"` operation. Used for copy models scenario.
-Added the new `"/models/{id}:copy"` operation. Schema in the new copy operation: `"$ref": "#/definitions/ModelCopyAuthorization"` Deprecated the `"/models/{id}:copyto"` operation. Schema in the deprecated copy operation: `"$ref": "#/definitions/ModelCopy"`
-Added the new `"/models:authorizecopy"` operation returns `"$ref": "#/definitions/ModelCopyAuthorization"`. This returned entity can be used in the new `"/models/{id}:copy"` operation.
+The following changes are for the scenario where you copy a model.
+- Added the new [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation. Here's the schema in the new copy operation: `"$ref": "#/definitions/ModelCopyAuthorization"` 
+- Deprecated the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_CopyTo) operation. Here's the schema in the deprecated copy operation: `"$ref": "#/definitions/ModelCopy"`
+- Added the new [Models_AuthorizeCopy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_AuthorizeCopy) operation that returns `"$ref": "#/definitions/ModelCopyAuthorization"`. This returned entity can be used in the new [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation.
 
 Added a new entity definition for `ModelCopyAuthorization`:
 
@@ -252,8 +253,8 @@ Added a new entity definition for `ModelCopyAuthorizationDefinition`:
 ### CustomModelLinks copy properties
 
 Added a new `copy` property.
-copyTo URI: The location to the obsolete model copy action. See operation \"Models_CopyTo\" for more details.
-copy URI: The location to the model copy action. See operation \"Models_Copy\" for more details.
+- `copyTo` URI: The location of the obsolete model copy action. See the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_CopyTo) operation for more details.
+- `copy` URI: The location of the model copy action. See the [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation for more details.
 
 ```json
 "CustomModelLinks": {

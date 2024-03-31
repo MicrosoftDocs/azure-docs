@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/02/2024
-ms.custom: devx-track-java
+ms.custom: devx-track-java, linux-related-content
 ms.author: eur
 ---
 

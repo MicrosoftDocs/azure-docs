@@ -49,12 +49,11 @@ To view the health of your log search alert rule and set up health status alerts
 
 This table describes the possible resource health status values for a log search alert rule:
 
-| Resource health status | Description |Recommended steps|
-|---|---|---|
-|Available|There are no known issues affecting this log search alert rule.|     |
-|Unknown|This log search alert rule is currently disabled or in an unknown state.|Check if this log alert rule has been disabled - Reasons why [Log alert was disabled](alerts-troubleshoot-log.md). 
-If your rule runs less frequently than every 15 minutes (30 minutes, 1 hour, etc.), it won’t provide health status updates. Therefore, be aware that an ‘unavailable’ status is to be expected and is not indicative of an issue.
-If you would like to get health status the frequency should be 15 min or less.|
+|Resource health status|Description|Recommended steps|
+|----|----|----|
+|Available|There are no known issues affecting this log search alert rule.|  |
+|Unknown|This log search alert rule is currently disabled or in an unknown state.|Check if this log alert rule has been disabled. See [Log alert was disabled](alerts-troubleshoot-log.md) for more information. <br>|
+|Unavailable|If your rule runs less frequently than every 15 minutes (for example, if it is set to run every 30 minutes or 1 hour), it won’t provide health status updates. An ‘unavailable’ status is to be expected and is not indicative of an issue.|To get the health status of an alert rule, set the frequency of the alert rule to 15 min or less.|
 |Unknown reason|This log search alert rule is currently unavailable due to an unknown reason.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|
 |Degraded due to unknown reason|This log search alert rule is currently degraded due to an unknown reason.|     |
 |Setting up resource health|Setting up Resource health for this resource.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|

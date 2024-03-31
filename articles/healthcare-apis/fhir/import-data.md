@@ -89,17 +89,17 @@ Content-Type:application/fhir+json
 
 #### Body
 
-| Parameter name      | Description | Cardinality |  Accepted values |
+| Parameter name | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| `inputFormat`      | String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
-| `mode`      | Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
-| `input`   | Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
+| `inputFormat`| String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
+| `mode`| Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
+| `input`| Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
 
 | Input part name   | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| `type`   |  Resource type of the input file.   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
-|`url`   |  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
-| `etag`   |  ETag of the input file in the Azure storage. It's used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file. |
+| `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
+|`url`|  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
+| `etag`|  ETag of the input file in the Azure storage. It's used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file.|
 
 ```json
 {
