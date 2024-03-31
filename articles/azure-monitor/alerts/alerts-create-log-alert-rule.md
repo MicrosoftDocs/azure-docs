@@ -166,6 +166,8 @@ Limitations for log search alert rule queries:
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+       > [!NOTE]
+       > Notice that rule that uses **Identity** cannot have the character ";" in the **Alert rule name**
     1. Select the **Region**.
     1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log search alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 

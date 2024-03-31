@@ -269,6 +269,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Automation](./permissions/management-and-governance.md#microsoftautomation) | Simplify cloud management with process automation. | [Automation](/azure/automation/) |
 > | [Microsoft.Billing](./permissions/management-and-governance.md#microsoftbilling) | Manage your subscriptions and see usage and billing. | [Cost Management + Billing](/azure/cost-management-billing/) |
 > | [Microsoft.Blueprint](./permissions/management-and-governance.md#microsoftblueprint) | Enabling quick, repeatable creation of governed environments. | [Azure Blueprints](/azure/governance/blueprints/) |
+> | [Microsoft.Carbon](./permissions/management-and-governance.md#microsoftcarbon) |  | [Azure carbon optimization](/azure/carbon-optimization/overview) |
 > | [Microsoft.Consumption](./permissions/management-and-governance.md#microsoftconsumption) | Programmatic access to cost and usage data for your Azure resources. | [Cost Management](/azure/cost-management-billing/) |
 > | [Microsoft.CostManagement](./permissions/management-and-governance.md#microsoftcostmanagement) | Optimize what you spend on the cloud, while maximizing cloud potential. | [Cost Management](/azure/cost-management-billing/) |
 > | [Microsoft.Features](./permissions/management-and-governance.md#microsoftfeatures) |  | [Azure Resource Manager](/azure/azure-resource-manager/) |

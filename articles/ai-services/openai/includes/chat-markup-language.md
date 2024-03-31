@@ -23,7 +23,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
@@ -220,7 +220,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # defining a function to create the prompt from the system message and the conversation messages
