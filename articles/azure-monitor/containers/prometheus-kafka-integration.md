@@ -23,10 +23,10 @@ helm install azmon-kafka-exporter --namespace=azmon-kafka-exporter --create-name
 ```
 
 > [!NOTE] 
-> Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=2.10.0.</br>
-> The [prometheus kafka exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-kafka-exporter/values.yaml) yaml.
+> 1. Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=2.10.0.</br>
+> 2. The [prometheus kafka exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-kafka-exporter/values.yaml) yaml.
 Please specify the right server addresses where the kafka servers can be reached. Set the server address(es) using the argument "kafkaServer".</br>
-> If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
+> 3. If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
 
 
 ### Import the Grafana Dashboard
