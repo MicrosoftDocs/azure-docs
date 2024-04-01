@@ -3145,7 +3145,7 @@ groups:
   title: Assess ASP.NET web apps for migration to AKS
   prompt: Choose assessment scenario
   pivots:
-  - id: asp.net
+  - id: asp-net
     title: ASP.NET
   - id: java
     title: Java
