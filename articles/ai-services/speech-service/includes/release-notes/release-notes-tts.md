@@ -11,9 +11,9 @@ ms.custom: references_regions
 
 #### Prebuilt neural voice
 
-- 9 multilingual voices are generally available in all regions: `en-US-AvaMultilingualNeural`, `en-US-AndrewMultilingualNeural`, `en-US-EmmaMultilingualNeural`, `en-US-BrianMultilingualNeural`, `de-DE-FlorianMultilingualNeural`, `de-DE-SeraphinaMultilingualNeural`, `fr-FR-RemyMultilingualNeural`, `fr-FR-VivienneMultilingualNeural`, and `zh-CN-XiaoxiaoMultilingualNeural`. See the [full language and voice list](../../language-support?tabs=tts#multilingual-voices) for more information.
+- 9 multilingual voices are generally available in all regions: `en-US-AvaMultilingualNeural`, `en-US-AndrewMultilingualNeural`, `en-US-EmmaMultilingualNeural`, `en-US-BrianMultilingualNeural`, `de-DE-FlorianMultilingualNeural`, `de-DE-SeraphinaMultilingualNeural`, `fr-FR-RemyMultilingualNeural`, `fr-FR-VivienneMultilingualNeural`, and `zh-CN-XiaoxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
   
-- Introducing a new multilingual voice for public preview: `ja-JP-MasaruMultilingualNeural`. See the [full language and voice list](../../language-support?tabs=tts#multilingual-voices) for more information.
+- Introducing a new multilingual voice for public preview: `ja-JP-MasaruMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
 
 - Additional updates:
   - `en-US-RyanMultilingualNeural` is generally available in all regions.
