@@ -1,6 +1,6 @@
 ---
-title: Pay-as-you-go cost details file schema
-description: Learn about the data fields available in the pay-as-you-go cost details file.
+title: Pay-as-you-go cost and usage details file schema
+description: Learn about the data fields available in the pay-as-you-go cost and usage details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
@@ -10,11 +10,11 @@ ms.date: 03/28/2024
 ms.author: banders
 ---
 
-# Pay-as-you-go cost details file schema
+# Pay-as-you-go cost and usage details file schema
 
-This article applies to the pay-as-you-go cost details file schema. Pay-as-you-go is also called Microsoft Online Services Program (MOSP) and Microsoft Online Subscription Agreement (MOSA).
+This article applies to the pay-as-you-go cost and usage details file schema. Pay-as-you-go is also called Microsoft Online Services Program (MOSP) and Microsoft Online Subscription Agreement (MOSA).
 
-The following information lists the cost details (formerly known as usage details) fields found in the pay-as-you-go cost details file. The cost details file is a data file that contains all of the cost details for the Azure services that were used.
+The following information lists the cost and usage details (formerly known as usage details) fields found in the pay-as-you-go cost and usage details file. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
 ## Version 2019-11-01
 

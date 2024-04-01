@@ -1,6 +1,6 @@
 ---
-title: FOCUS cost details file schema
-description: Learn about the data fields available in the FOCUS cost details file.
+title: FOCUS cost and usage details file schema
+description: Learn about the data fields available in the FOCUS cost and usage details file.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing
@@ -10,9 +10,9 @@ ms.date: 03/28/2024
 ms.author: banders
 ---
 
-# FOCUS cost details file schema
+# FOCUS cost and usage details file schema
 
-This article lists the cost details (formerly known as usage details) fields found in the FOCUS cost details file. The FOCUS-specific version of the cost details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). The cost details file is a data file that contains all of the cost details for the Azure services that were used.
+This article lists the cost details and usage (formerly known as usage details) fields found in the FOCUS cost and usage details file. The FOCUS-specific version of the cost and usage details file differs from other versions. This version adheres to the [FinOps Open Cost and Usage Specification (FOCUS) project specification](https://focus.finops.org/#specification). The file contains contains all of the cost details and usage data for the Azure services that were used.
 
 ## Version 1.0-preview
 
