@@ -1,5 +1,5 @@
 ---
-title: ADE CLI Custom Runner Image reference
+title: ADE CLI reference
 titleSuffix: Azure Deployment Environments
 description: Learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 ms.service: deployment-environments
@@ -11,7 +11,7 @@ ms.topic: reference
 # Customer intent: As a developer, I want to learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 ---
 
-# Azure Deployment Environment CLI Custom Runner Image reference
+# Azure Deployment Environment CLI reference
 
 This article describes the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 

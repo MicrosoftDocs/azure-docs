@@ -1,7 +1,7 @@
 ---
-title: ADE Custom Image Support
+title: ADE extensibility model for custom images
 titleSuffix: Azure Deployment Environments
-description: Learn how to build and utilize custom images within your environment definitions for deployment environments.
+description: Learn how to use the ADE extensibility model to build and utilize custom images within your environment definitions for deployment environments.
 ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
@@ -15,15 +15,15 @@ ms.topic: how-to
 
 In this article, you learn how to build and utilize custom images within your environment definitions for deployments in Azure Deployment Environments (ADE).
 
+ADE uses an extensibility model to enable you to create custom images to use in your environment definitions. By using the extensibility model, you can create your own custom images, and store them in a container registry like the [Microsoft Artifact Registry](https://mcr.microsoft.com/)(also known as the Microsoft Container Registry). You can then reference these images in your environment definitions to deploy your environments.
+
 The ADE team provides a selection of images to get you started, including a core image, and an ARM/Bicep image. You can access these sample images in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md).
 
 ## Prequisites
 
-- Be familiar with the licensing requirements:
-    - [Container License Information](https://aka.ms/mcr/osslegalnotice)
-    - [License terms](https://github.com/Azure/deployment-environments/blob/main/LICENSE)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create and build a Docker image
 
@@ -57,7 +57,7 @@ RUN az bicep install
 
 Within the sample images, operations are determined and executed based on the operation name. Currently, the two operation names supported are `deploy` and `delete`.
 
-To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named `scripts`, and specify two files, `deploy.sh`, and `delete.sh`. The `deploy` shell script runs when your environment is created or redeployed, and the `delete` shell script runs when your environment is deleted. You can see examples of shell scripts in the repository under the Runner-Images folder for the ARM-Bicep image.
+To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named `scripts`, and specify two files, `deploy.sh`, and `delete.sh`. The `deploy` shell script runs when your environment is created or redeployed, and the `delete` shell script runs when your environment is deleted. You can see examples of shell scripts in the repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images/ARM-Bicep) image.
 
 To ensure these shell scripts are executable, add the following lines to your Dockerfile:
 
@@ -69,7 +69,7 @@ RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 
 ### Build the image
 
-To build the image to be pushed to your registry, ensure the Docker Engine is installed on your computer, navigate to the directory of your Dockerfile, and run the following command:
+Before you build the image to be pushed to your registry, ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
 
 ```docker
 docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}
