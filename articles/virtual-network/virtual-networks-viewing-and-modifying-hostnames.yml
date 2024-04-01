@@ -3,14 +3,14 @@
 metadata:
   title: View and Modify hostnames
   description: Learn how to view and modify hostnames for your Azure virtual machines by using the Azure portal or a remote connection.
-  services: virtual-network
   author: asudbring
+  ms.author: allensu
   manager: dcscontentpm
-  ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
+  ms.date: 03/29/2023
   ms.service: virtual-network
   ms.topic: how-to
-  ms.date: 03/29/2023
-  ms.author: allensu
+  ms.custom:
+    - ge-structured-content-pilot
 
 title: |
   View and modify hostnames

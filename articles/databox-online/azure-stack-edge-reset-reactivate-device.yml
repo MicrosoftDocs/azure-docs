@@ -1,10 +1,11 @@
 ### YamlMime:HowTo
 
 metadata:
-  title: Azure Stack Edge device reset and reactivation 
+  title: Azure Stack Edge device reset and reactivation
   description: Learn how to wipe the data from and then reactivate your Azure Stack Edge device.
-  services: databox
   author: v-dalc
+  ms.custom:
+    - ge-structured-content-pilot
 
   ms.service: databox
   ms.subservice: edge

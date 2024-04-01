@@ -5,9 +5,11 @@ metadata:
   description: In this article, you create a Lambda function to send CloudWatch events to an S3 bucket.
   author: limwainstein
   ms.author: lwainstein
+  ms.date: 02/09/2023
   ms.service: microsoft-sentinel
   ms.topic: how-to
-  ms.date: 02/09/2023
+  ms.custom:
+    - ge-structured-content-pilot
 #Customer intent: As a security operator, I want to create a Lambda function to send CloudWatch events to S3 bucket so I can convert the format to the format accepted by Microsoft Sentinel.  
 
 title: |

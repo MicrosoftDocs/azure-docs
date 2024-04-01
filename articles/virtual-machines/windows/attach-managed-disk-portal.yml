@@ -1,14 +1,16 @@
 ### YamlMime:HowTo
 ---
 metadata:
-  title: Attach a managed data disk to a Windows VM - Azure 
+  title: Attach a managed data disk to a Windows VM - Azure
   description: How to attach a managed data disk to a Windows VM by using the Azure portal.
   author: roygara
-  ms.service: azure-disk-storage
-  ms.collection: windows
-  ms.topic: how-to
-  ms.date: 02/06/2020
   ms.author: rogarana
+  ms.date: 02/06/2020
+  ms.service: azure-disk-storage
+  ms.topic: how-to
+  ms.collection: windows
+  ms.custom:
+    - ge-structured-content-pilot
 
 title: |
        Attach a managed data disk to a Windows VM by using the Azure portal

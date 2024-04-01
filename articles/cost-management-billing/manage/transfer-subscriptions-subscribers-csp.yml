@@ -4,12 +4,14 @@ metadata:
   title: Transfer Azure subscriptions between subscribers and CSPs
   description: Learn how you can transfer Azure subscriptions between subscribers and CSPs.
   author: bandersmsft
+  ms.author: banders
   ms.reviewer: sgautam
+  ms.date: 03/29/2023
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
-  ms.date: 03/29/2023
-  ms.author: banders
+  ms.custom:
+    - ge-structured-content-pilot
 title: |
   Transfer Azure subscriptions between subscribers and CSPs
 introduction: |

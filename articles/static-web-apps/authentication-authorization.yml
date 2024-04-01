@@ -3,13 +3,14 @@
 metadata:
   title: Authenticate and authorize Static Web Apps
   description: Learn to use different authorization providers to secure your Azure Static Web Apps.
-  services: static-web-apps
-  ms.custom: engagement-fy23
   author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 12/22/2022
   ms.service: static-web-apps
   ms.topic: how-to
-  ms.date: 12/22/2022
-  ms.author: cshoe
+  ms.custom:
+    - engagement-fy23
+    - ge-structured-content-pilot
 
 title: |
   Authenticate and authorize Static Web Apps

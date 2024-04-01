@@ -3,10 +3,11 @@
 metadata:
   title: Transition to Microsoft Defender Vulnerability Management for servers
   description: Learn how to transition to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
-  services: defender-for-cloud
+  ms.date: 01/09/2024
   ms.service: defender-for-cloud
   ms.topic: how-to
-  ms.date: 01/09/2024
+  ms.custom:
+    - ge-structured-content-pilot
 title: |
   Transition to Microsoft Defender Vulnerability Management for servers
 introduction: |

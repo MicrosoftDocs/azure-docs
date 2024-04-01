@@ -4,10 +4,12 @@ metadata:
   title: Connect using Remote Desktop to an Azure VM running Windows
   description: Learn how to connect using Remote Desktop and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
   author: ju-shim
+  ms.author: jushiman
+  ms.date: 03/22/2024
   ms.service: virtual-machines
   ms.topic: how-to
-  ms.date: 03/22/2024
-  ms.author: jushiman
+  ms.custom:
+    - ge-structured-content-pilot
 
 title: |
   How to connect using Remote Desktop and sign on to an Azure virtual machine running Windows

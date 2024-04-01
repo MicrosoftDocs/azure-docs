@@ -6,11 +6,13 @@ metadata:
   description: Learn about the ways a public IP address is used with Azure Virtual Machines and how to change the configuration.
   author: mbender-ms
   ms.author: mbender
+  ms.date: 08/24/2023
   ms.service: virtual-network
   ms.subservice: ip-services
-  ms.topic: how-to 
-  ms.date: 08/24/2023
-  ms.custom: template-how-to 
+  ms.topic: how-to
+  ms.custom:
+    - template-how-to
+    - ge-structured-content-pilot
 
 title: |
   Manage a public IP address with an Azure Virtual Machine
