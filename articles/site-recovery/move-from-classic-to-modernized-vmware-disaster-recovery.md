@@ -3,7 +3,7 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 04/01/2024
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -190,6 +190,14 @@ So, if there are 10 replicated items, that are replicated using a policy and you
 ### How do I migrate replicated items, which are present in a replication group, also known as multi-vm consistency groups?
 
 All replicated items that are part of a replication group are migrated together. You can select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience is performed for the failed replicated items and the migration process can be triggered again for those items.
+
+### Can I migrate my public endpoint in classic disaster recovery to modernized with private endpoint setup?
+
+No, you can only move *public endpoint* setup classic disaster recovery setup to modernized *public endpoint* setup. 
+Note that:
+
+- Private endpoint enabled setup in classic can't be migrated to modernized private endpoint enabled setup.
+- Public endpoint classic setup can't be migrated to private endpoint enabled modernized setup.
 
 ## Next steps
 
