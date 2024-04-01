@@ -2,7 +2,7 @@
 title: Vector index lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Vector index lookup tool for flows in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023

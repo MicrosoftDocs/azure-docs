@@ -67,6 +67,8 @@ items:
             href: app/azure-web-apps-java.md
           - name: Node.js
             href: app/azure-web-apps-nodejs.md
+          - name: Python
+            href: app/azure-web-apps-python.md
         - name: Azure Functions
           displayName: functions, monitor functions, automation
           href: app/monitor-functions.md
@@ -583,9 +585,9 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Prometheus alert rules
-        href: containers/container-insights-metric-alerts.md
-      - name: Log search alert rules
+      - name: Metric alert rules
+        href: containers/kubernetes-metric-alerts.md
+      - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage

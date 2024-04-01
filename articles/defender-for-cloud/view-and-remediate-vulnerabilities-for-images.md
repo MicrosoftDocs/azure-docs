@@ -39,8 +39,8 @@ If you are using Defender CSPM, first review and remediate vulnerabilities expos
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png" alt-text="Screenshot showing where to select a specific container." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png":::
 
-1. This pane includes a list of the container vulnerabilities. Select each vulnerability to [resolve the vulnerability](#remediate-vulnerabilities).  
-  
+1. This pane includes a list of the container vulnerabilities. Select each vulnerability to [resolve the vulnerability](#remediate-vulnerabilities).
+
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png" alt-text="Screenshot showing the list of container vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png":::
 
 ## View container images affected by a specific vulnerability
