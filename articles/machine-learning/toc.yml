@@ -676,6 +676,8 @@
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Troubleshoot prompt flow deployments
+          href: ./prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md
         - name: Transparency note
           href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
