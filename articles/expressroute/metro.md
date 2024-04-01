@@ -72,4 +72,3 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
 
 * Review [ExpressRoute partners and peering locations](expressroute-locations.md) to understand the available ExpressRoute partners and peering locations.
 * Review [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) to understand the costs associated with ExpressRoute.
-* Review [Design architecture for ExpressRoute resiliency](design-architecture-for-resiliency.md) to understand the design considerations for ExpressRoute.
