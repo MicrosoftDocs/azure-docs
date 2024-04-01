@@ -60,7 +60,7 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
 
 ### Create a Metro ExpressRoute Direct
 
-1. A Metro ExpressRoute Direct ports can be created in the Azure portal. Within the portal, specify one of the Metro peering locations. For more information, see [Create an ExpressRoute Direct](how-to-expressroute-direct-portal.md).
+1. A Metro ExpressRoute Direct port can be created in the Azure portal. Within the portal, specify one of the Metro peering locations. For more information, see [Create an ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
     :::image type="content" source="./media/expressroute-metro/create-metro-circuit.png" alt-text="Screenshot of creating Metro ExpressRoute Direct ports.":::
 
