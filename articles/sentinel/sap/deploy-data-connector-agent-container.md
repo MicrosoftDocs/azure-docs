@@ -6,7 +6,6 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 04/01/2024
-
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent

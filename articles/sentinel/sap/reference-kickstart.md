@@ -130,7 +130,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Parameter values:** `<username>`
 
-**Required:** No. If not suppolied, the user is prompted for the username if they are **not** using SNC (X.509) for authentication.
+**Required:** No. If not supplied, the user is prompted for the username if they are **not** using SNC (X.509) for authentication.
 
 **Explanation:** Username used to authenticate to ABAP server.
 

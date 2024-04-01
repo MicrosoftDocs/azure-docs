@@ -5,6 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 06/19/2023
+appli
 
 # customer intent: As a business user or decision maker, I want to get an overview of how to deploy the Microsoft Sentinel solution for SAP applications so that I know the scope of the information I need and how to access it.
 ---
@@ -12,8 +13,6 @@ ms.date: 06/19/2023
 # Deploy Microsoft Sentinel solution for SAP applications
 
 This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP applications. The full process is detailed in a set of articles linked under [Deployment milestones](#deployment-milestones).
-
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## What is the Microsoft Sentinel solution for SAP applications?
 
