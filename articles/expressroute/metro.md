@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2024
+ms.date: 04/01/2024
 ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
@@ -44,7 +44,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | West Europe | &check; | Megaport<sup>1</sup><br>Equinix<sup>1</sup><br>Console Connect<sup>1</sup> |
 | Zurich Metro | Zurich<br>Zurich2 | Interxion ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<sup>1</sup><br>Digital Reality<sup>1</sup> |
 
-
+<sup>1<sup> These service providers will be available in the future.
 
 > [!NOTE]
 > The naming convention for Metro sites will utilize `City` and `City2` to denote the two unique peering locations within the same metropolitan region. As an illustration, Amsterdam and Amsterdam2 are indicative of the two separate peering locations within the metropolitan area of Amsterdam. In the Azure portal, these locations will be referred to as `Amsterdam Metro`.
@@ -71,3 +71,4 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
 
 * Review [ExpressRoute partners and peering locations](expressroute-locations.md) to understand the available ExpressRoute partners and peering locations.
 * Review [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) to understand the costs associated with ExpressRoute.
+* Review [Design architecture for ExpressRoute resiliency](design-architecture-for-resiliency.md) to understand the design considerations for ExpressRoute.
