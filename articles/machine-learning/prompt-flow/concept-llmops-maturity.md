@@ -26,7 +26,8 @@ Your results from the assessment corresponds to a *LLMOps Maturity Model* rankin
 
 ## <a name="level1"></a>Level 1 - initial
 
-Score from [assessment](): initial (0-9).
+> [!TIP]
+> Score from [assessment](): initial (0-9).
 
 **Description:** Your organization is at the initial foundational stage of LLMOps maturity. You're exploring the capabilities of LLMs but haven't yet developed structured practices or systematic approaches.
 
@@ -49,7 +50,8 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 
 ## <a name="level2"></a> Level 2 - defined
 
-Score from [assessment](): maturing (9-14).
+> [!TIP]
+> Score from [assessment](): maturing (9-14).
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -69,7 +71,8 @@ To improve your capabilities and skills, learn how to develop more complex promp
 
 ## <a name="level3"></a> Level 3 - managed
 
-Score from [assessment](): maturing (15-19).
+> [!TIP]
+> Score from [assessment](): maturing (15-19).
 
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
@@ -84,7 +87,8 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 
 ## <a name="level4"></a> Level 4 - optimized
 
-Score from [assessment](): optimized (19-28).
+> [!TIP]
+> Score from [assessment](): optimized (19-28).
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 
