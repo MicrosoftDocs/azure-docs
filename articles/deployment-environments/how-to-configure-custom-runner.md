@@ -75,7 +75,7 @@ To build the image to be pushed to your registry, ensure the Docker Engine is in
 docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 
-For example, if you want to save your image under a repository within your repo named `customImage`, and upload with the tag version of `1.0.0`, you would run:
+For example, if you want to save your image under a repository within your registry named `customImage`, and upload with the tag version of `1.0.0`, you would run:
 
 ```docker
 docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
