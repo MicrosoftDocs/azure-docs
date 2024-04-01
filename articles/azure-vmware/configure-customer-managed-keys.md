@@ -76,8 +76,8 @@ Before you begin to enable CMK functionality, ensure that the following requirem
     1. Sign in to the Azure portal.
     1. Go to **Key vaults** and locate the key vault you want to use.
     1. On the leftmost pane, under **Settings**, select **Access policies**.
-    1. In **Access policies**, select **Add Access Policy**.
-        1. From the **Key Permissions** dropdown, choose **Select**, **Get**, **Wrap Key**, and **Unwrap Key**.
+    1. In **Access policies**, select **Add Access Policy** and then:
+        1. In the **Key Permissions** dropdown, choose **Select**, **Get**, **Wrap Key**, and **Unwrap Key**.
         1. Under **Select principal**, select **None selected**. A new **Principal** window with a search box opens.
         1. In the search box, paste the **Object ID** from the previous step. Or search for the private cloud name you want to use. Choose **Select** when you're finished.
         1. Select **ADD**.
@@ -195,7 +195,7 @@ Updating CMK settings don't work if the key is expired or the Azure VMware Solut
 
 ## Troubleshooting and best practices
 
-Here are answers to some common issues you might encounter and also best practices to follow.
+Here are troubleshooting tips for some common issues you might encounter and also best practices to follow.
 
 ### Accidental deletion of a key
 
