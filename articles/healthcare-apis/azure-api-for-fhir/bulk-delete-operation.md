@@ -9,7 +9,7 @@ ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-# Bulk delete
+# Bulk delete in Azure API for FHIR
 
 [!INCLUDE [bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
 

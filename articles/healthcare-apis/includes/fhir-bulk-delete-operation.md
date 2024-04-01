@@ -106,7 +106,7 @@ Here's a list of error messages that might occur if the `$bulk-delete` operation
 
 |HTTP Status Code | Details | Recommended action |
 |-----------------|---------|--------------------|
-|500 |Connection to database failed | Create a support ticket to resolve the issue.|
+|500 |Connection to database failed | Create a gitsupport ticket to resolve the issue.|
 |429 |Throttling errors | For Azure API for FHIR, you can increase RUs and retry the job. For Azure Health Data Services FHIR Server, you can try to delete a smaller amount of data at a time. |
 
 ## FAQ
