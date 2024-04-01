@@ -104,7 +104,7 @@ In this step, you enable exclusive authentication mode. As a safety mechanism, T
 >
 > However, nothing in the cluster can detect breaks in external clients that attempt to authenticate using tokens against the newly exclusive default HTTP gateway port.
 
-After you introduce this new setting to your cluster's configuration, you'll lose token-based access to the previous endpoint. You can access Service Fabric Explorer via the new port you defined if you completed the [Define a new endpoint step](#define-a-new-endpoint).
+After you introduce this new setting to your cluster's configuration, you'll lose token-based access to the previous endpoint. You can access Service Fabric Explorer via the new port you defined if you completed the [Define a new HTTP endpoint step](#define-a-new-http-endpoint).
 
 To update the `enableHttpGatewayExclusiveAuthMode` setting, you have two options:
 * Upgrade the configuration of an existing cluster using the new manifest
