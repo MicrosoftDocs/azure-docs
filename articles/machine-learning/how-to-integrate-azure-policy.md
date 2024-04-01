@@ -104,7 +104,7 @@ If the policy is set to __Deny__, then you can't create a workspace that allows 
 
 Controls whether a workspace should enable V1LegacyMode to support network isolation backward compatibility. This policy is useful if you want to keep Azure Machine Learning control plane data inside your private networks. For more information, see [Network isolation change with our new API platform](how-to-configure-network-isolation-with-v2.md).
 
-To configure this policy, set the effect parameter to __Audit__ or __Deny__, or __Disabled__ . If set to __Audit__, you can create a workspace without enabling V1LegacyMode and a warning event is created in the activity log.
+To configure this policy, set the effect parameter to __Audit__ or __Deny__, or __Disabled__. If set to __Audit__, you can create a workspace without enabling V1LegacyMode and a warning event is created in the activity log.
 
 If the policy is set to __Deny__, then you can't create a workspace unless it enables V1LegacyMode.
 
