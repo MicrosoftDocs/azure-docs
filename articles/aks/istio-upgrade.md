@@ -11,6 +11,8 @@ author: shashankbarsin
 
 This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (AKS).
 
+New Istio add-on releases are announced via [AKS release notes](https://github.com/Azure/AKS/releases).
+
 ## Minor revision upgrade
 
 Istio add-on allows upgrading the minor revision using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.

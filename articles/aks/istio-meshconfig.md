@@ -16,7 +16,7 @@ This article walks through how to configure Istio-based service mesh add-on for 
 
 ## Prerequisites
 
-This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster.
+This guide assumes you followed the [documentation](istio-deploy-addon) to enable the Istio add-on on an AKS cluster.
 
 ## Set up configuration on cluster
 
@@ -83,15 +83,15 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 
 ### MeshConfig
 
-| **Field** | **Supported** |
-|-----------|---------------|
+| **Field** | **Supported** | **Notes** |
+|-----------|---------------|-----------|
 | proxyListenPort | false |
 | proxyInboundListenPort | false |
 | proxyHttpPort | false |
-| connectTimeout | false |
-| tcpKeepAlive | false |
-| defaultConfig | true |
-| outboundTrafficPolicy | true |
+| connectTimeout | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-TCPSettings) |
+| tcpKeepAlive | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-TCPSettings) |
+| defaultConfig | true | Used to configure [ProxyConfig](https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig) |
+| outboundTrafficPolicy | true | Also configurable in [Sidecar CR](https://istio.io/latest/docs/reference/config/networking/sidecar/#OutboundTrafficPolicy) |
 | extensionProviders | false |
 | defaultProviders | false |
 | accessLogFile | true |
@@ -102,25 +102,25 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | disableEnvoyListenerLog | true |
 | trustDomain | false |
 | trustDomainAliases | false |
-| caCertificates | false |
+| caCertificates | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ClientTLSSettings) |
 | defaultServiceExportTo | false |
-| defaultVirtualServiceExportTo | false |
-| defaultDestinationRuleExportTo | false |
-| localityLbSetting | false |
+| defaultVirtualServiceExportTo | false | Configurable in [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/#VirtualService) |
+| defaultDestinationRuleExportTo | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#DestinationRule) |
+| localityLbSetting | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings) |
 | dnsRefreshRate | false |
-| h2UpgradePolicy | false |
+| h2UpgradePolicy | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-HTTPSettings) |
 | enablePrometheusMerge | true |
 | discoverySelectors | true |
 | pathNormalization | false |
-| defaultHttpRetryPolicy | false |
+| defaultHttpRetryPolicy | false | Configurable in [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/#HTTPRetry) |
 | serviceSettings | false |
 | meshMTLS | false |
 | tlsDefaults | false |
 
 ### ProxyConfig (meshConfig.defaultConfig)
 
-| **Field** | **Supported** |
-|-----------|---------------|
+| **Field** | **Supported** | **Notes** |
+|-----------|---------------|-----------|
 | tracingServiceName | true |
 | drainDuration | true |
 | statsUdpAddress | false |
