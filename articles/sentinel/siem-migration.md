@@ -101,21 +101,26 @@ Here are some of the priorities that are important to us as we continue to devel
     > [!NOTE]
     > Check the schema of the data types and fields used in the rule logic. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before the rule is enabled. It's also important the fields used in the query are accurate for the defined data type schema.
 
+1. Highlight a rule to resolve translation and select **Edit**. When you are satisfied with the results, select **Save Changes**. 
+
+1. Switch on the **Ready to deploy** toggle for Analytics rules you want to deploy.
+
 1. When the review is complete, select **Review and migrate**.
 
 ## Deploy the Analytics rules
 
-1. (Optional) Select **Export Templates** to download the Analytics rules as ARM templates for us in your CI/CD or custom deployment processes.
+1. Select **Deploy**.
+
+    | Translation Type | Resource deployed |
+    |:----|:---|
+    | Out of the box | The corresponding solutions from **Content hub** that contain the matched analytics rule templates are installed. The matched rules are deployed as active analytics rules in the disabled state. <br><br>For more information, see [Manage Analytics rule templates](manage-analytics-rule-templates.md). |
+    | Custom | Rules are deployed as active analytics rules in the disabled state. |
+
+1. (Optional) Choose Analytics rules and select **Export Templates** to download them as ARM templates for use in your CI/CD or custom deployment processes.
 
     :::image type="content" source="media/siem-migration/export-templates.png" alt-text="Screenshot showing the Review and Migrate tab highlighting the Export Templates button.":::
- 
-1. **Deploy** starts the deployment of the selected analytics rules to your Microsoft Sentinel workspace. 
 
-   The following resources are deployed:
-   - For all OOTB matches, the corresponding solutions with the matched analytics rule are installed, and the matched rules are deployed as active analytics rules.
-   - All custom rules translated to Sentinel analytics rules are deployed as active analytics rules in the disabled state.
-
-1. Before exiting the SIEM Migration experience, **Download Migration Summary** to keep a summary of the Analytics deployment.
+1. Before exiting the SIEM Migration experience, select **Download Migration Summary** to keep a summary of the Analytics deployment.
 
     :::image type="content" source="media/siem-migration/download-migration-summary.png" alt-text="Screenshot showing the Download Migration Summary button from the Review and Migrate tab.":::
 
@@ -134,6 +139,8 @@ Here are some of the priorities that are important to us as we continue to devel
      `suppressionDuration`
 
 1. Enable rules after you review and verify them.
+
+    :::image type="content" source="media/siem-migration/enable-deployed-translated-rules.png" alt-text="Screenshot showing Analytics rules with deployed Splunk rules highlighted ready to be enabled.":::
 
 ## Next step
 
