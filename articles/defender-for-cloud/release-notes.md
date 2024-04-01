@@ -23,19 +23,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 ## April 2024
 |Date | Update |
 |--|--|
-| April 2| [Containers multi cloud recommendations (GA)](#containers-multi-cloud-recommendations-ga) |
+| April 2| [Containers multicloud recommendations (GA)](#containers-multi-cloud-recommendations-ga) |
 
-### Containers multi cloud recommendations (GA)
+### Containers multicloud recommendations (GA)
 
 April 2, 2024
 
-As part of Defender for Containers multi cloud general availability, following recommendations are announced GA as well:
+As part of Defender for Containers multicloud general availability, following recommendations are announced GA as well:
 
 - For Azure
 
 | **Recommendation** | **Description** | **Assessment Key** | 
 | ------------------ | --------------- | ------------------ |
-| Azure registry container images should have vulnerabilities resolved| CContainer image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
+| Azure registry container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
 | Azure running container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
 
 - For GCP
