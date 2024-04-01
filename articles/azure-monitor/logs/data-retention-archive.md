@@ -39,16 +39,16 @@ When you increase the retention setting, the new retention period applies to all
 
 If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
-### What happens when you delete a table in a Log Analytics workspace
+### What happens to data when you delete a table in a Log Analytics workspace
 
-There are several types of tables in Log Analytics and the delete experience is different for each:
+A Log Analytics workspace can contain several [types of tables in Logs tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
 
-|Table type|Delete experience|
-|-|-|
-|[Azure table](../logs/manage-logs-tables.md#table-type-and-schema)| Can't be deleted. Tables that are part of a solution are removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete), but data remains in workspace for the duration of the retention policy defined for the tables, or if not exist, for the duration of the retention policy defined in workspace. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables and previously ingested data become visible again. To avoid charges, define [retention policy for tables in solutions](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the solution.|
-|[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.|
-|[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.|
-|[Custom log table](./create-custom-table.md#create-a-custom-table)(`table_CL`)| Deletes the table definition immediately, but data remains in workspace for the duration of the retention policy defined for the table, or workspace. The retention policy for table is removed in 14-days and workspace retention governs. If custom log table is created with the same name and schema, the table and previously ingested data become visible again. To avoid charges and remove data from table, define [retention policy for table](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the table.|
+|Table type|Data retention|Recommendations|
+|-|-|-|
+|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and cannot be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table or for the default workspace retention, if you do not define table-level retention. |To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you stop streaming logs to the table.|
+|[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
+|[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
+|[Custom log table](./create-custom-table.md#create-a-custom-table)(`table_CL`)| Soft deletes the table immediately, but you can recreate the table and data by creating a table with the same name and schema during the soft delete period. During the soft delete period, and you continue to pay for data retention. The soft delete period ends at the end of the table-level retention period or the default workspace retention period, if you do not define table-level retention. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention. |To minimize charges, set [table-level retention](#configure-retention-and-archive-at-the-table-level) to four days before you delete the table.|
 
 ## Permissions required
 
@@ -57,9 +57,6 @@ There are several types of tables in Log Analytics and the delete experience is 
 | Configure data retention and archive policies for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 | Get the retention and archive policy by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
-| Set data retention for a classic Application Insights resource | `microsoft.insights/components/write` permissions to the classic Application Insights resource, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
-| Purge data from a classic Application Insights resource | `Microsoft.Insights/components/purge/action` permissions to the classic Application Insights resource, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
-
 ## Configure the default workspace retention
 
 You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
