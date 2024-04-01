@@ -44,4 +44,19 @@ To review alerts for Gen-AI applications in Microsoft Defender for Cloud:
 
 1. Select **Security alerts**.
 
-1. 
+1. Select **Add filter**.
+
+1. In the filter field, select **Resource type**.
+
+1. In the value field, select **microsoft.cognitiveservices**.
+
+    :::image type="content" source="media/review-alerts-for-ai/filter-cognitive.png" alt-text="Screenshot that shows the microsoft.cognitveservices button selected.":::
+
+1. Select **Ok**.
+
+A list of alerts for your Gen-AI applications appears. With this list, you should [review the alerts](managing-and-responding-alerts.md#investigate-a-security-alert) and [remediate the alerts](managing-and-responding-alerts.md#respond-to-a-security-alert).
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Remediate alerts](managing-and-responding-alerts.md#respond-to-a-security-alert)
