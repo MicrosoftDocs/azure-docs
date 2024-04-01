@@ -1,10 +1,10 @@
 ---
-title: View the monthly estimated lab cost trend
+title: Track costs associated with a lab in Azure DevTest Labs
 description: This article provides information on how to track the cost of your lab through Azure Cost Management.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/04/2024
+ms.date: 03/28/2024
 ms.custom: UpdateFrequency2
 ---
 

@@ -471,7 +471,7 @@ The following parameters are optional for creating internal networks.
 |`allowASOverride`	|Enable Or Disable allowAS|Enable||
 |`extension`	|extension flag for internal network|NoExtension/NPB|
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
-|`ipv6ListenRangePrefixes`| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/126| |
+|`ipv6ListenRangePrefixes`| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/127| |
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
 |`ipv4NeighborAddress`| IPv4 neighbor address|10.0.0.11| |
 |`ipv6NeighborAddress`| IPv6 neighbor address|10:101:1::11| |
