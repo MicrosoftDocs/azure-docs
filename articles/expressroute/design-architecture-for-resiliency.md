@@ -65,7 +65,7 @@ The following are recommendations to ensure high availability, resiliency, and r
 * [ExpressRoute circuit recommendations](#expressroute-circuit-recommendations)
 * [ExpressRoute Gateway recommendations](#expressroute-gateway-recommendations)
 * [Disaster recovery and high availability recommendations](#disaster-recovery-and-high-availability-recommendations)
-* [Monitoring and alerting recommendations](#monitoring--alerting-recommendations)
+* [Monitoring and alerting recommendations](#monitoring-and-alerting-recommendations)
 
 ### ExpressRoute circuit recommendations
 
@@ -75,7 +75,7 @@ During the initial planning phase, it's crucial to determine whether to configur
 
 #### Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 
-After deploying multi-site redundant ExpressRoute circuits with [maximum resiliency](expressroute-howto-circuit-portal-resource-manager.md#create?pivots=expressroute-preview), it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. To evaluate the resiliency and test the failover of redundant circuits and routes Learn more here. 
+After deploying multi-site redundant ExpressRoute circuits with [maximum resiliency](expressroute-howto-circuit-portal-resource-manager.md), it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. To evaluate the resiliency and test the failover of redundant circuits and routes Learn more here. 
 
 #### Plan for active-active configuration
 
@@ -115,7 +115,7 @@ For disaster recovery planning, we recommend setting up ExpressRoute circuits in
 
 #### Virtual network peering for connectivity between virtual networks
 
-Virtual Network (VNet) Peering provides a more efficient and direct method, enabling Azure services to communicate across virtual networks without the need of a virtual network gateway, extra hops, or transit over the public internet. To establish connectivity between virtual networks, VNet peering should be implemented for the best performance possible. For more information, see [About Virtual Network Peering](/virtual-network/virtual-network-peering-overview.md)  and [Manage VNet peering](/virtual-network/virtual-network-manage-peering.md).
+Virtual Network (VNet) Peering provides a more efficient and direct method, enabling Azure services to communicate across virtual networks without the need of a virtual network gateway, extra hops, or transit over the public internet. To establish connectivity between virtual networks, VNet peering should be implemented for the best performance possible. For more information, see [About Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) and [Manage VNet peering](../virtual-network/virtual-network-manage-peering.md).
 
 ### Monitoring and alerting recommendations 
 
@@ -125,7 +125,7 @@ As a baseline, we recommend configuring [Network Insights](expressroute-network-
 
 #### Configure service health alerts for ExpressRoute circuit maintenance notifications 
 
-ExpressRoute uses [Azure Service Health](/service-health/overview.md) to notify you of planned and upcoming [ExpressRoute circuit maintenance](maintenance-alerts.md). With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suit your needs. In Service Health, you can see Planned & Past maintenance. You can also set alerts within Service Health to be notified of upcoming maintenance. 
+ExpressRoute uses [Azure Service Health](../service-health/overview.md) to notify you of planned and upcoming [ExpressRoute circuit maintenance](maintenance-alerts.md). With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suit your needs. In Service Health, you can see Planned & Past maintenance. You can also set alerts within Service Health to be notified of upcoming maintenance. 
 
 #### Configure connection monitor for ExpressRoute 
 
@@ -133,7 +133,7 @@ ExpressRoute uses [Azure Service Health](/service-health/overview.md) to notify 
 
 #### Configure gateway health monitoring & alerting 
 
-[Setup monitoring](expressroute-monitoring-metrics-alerts.md#expressroute-gateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts/md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
+[Setup monitoring](expressroute-monitoring-metrics-alerts.md#expressroute-gateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
 
 ## Next steps
 
