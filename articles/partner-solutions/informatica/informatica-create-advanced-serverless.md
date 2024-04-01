@@ -71,7 +71,7 @@ In _RunTime Configuration_ pane, the customer properties retrieved from the IDMC
 
 You can specify custom tags for the new Informatica organization by adding custom key-value pairs. Set any required tags in the _Tags_ pane.
 
-  :::image type="content" source="media/informatica-create/informatica-custom-tags.png" alt-text="Screenshot showing the tags pane in the Informatica create experience.":::
+  :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-tags.png" alt-text="Screenshot showing the tags pane in the Informatica create experience.":::
 
   | Property | Description |
   |----------| -------------|
@@ -82,7 +82,7 @@ You can specify custom tags for the new Informatica organization by adding custo
 
 1. Select  **Next: Review + Create** to navigate to the final step for serverless creation. When you get to the **Review + Create** pane, validations are run. Review all the selections made in the _Basics_, and optionally the _Tags_ panes..Review the Informatica and Azure Marketplace terms and conditions.  
 
-    :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-reviewcreate .png" alt-text="Screenshot of review and create informatica resource.":::
+    :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-review-create.png" alt-text="Screenshot of review and create informatica resource.":::
 
 1. After you review all the information, select **Create**. Azure now deploys the Informatica resource.
 
