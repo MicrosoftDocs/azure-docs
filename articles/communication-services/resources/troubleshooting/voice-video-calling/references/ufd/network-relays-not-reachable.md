@@ -37,7 +37,7 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 ```
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of any network setup issues.
-Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../concepts/voice-video-calling/network-requirements.md) document. It is also recommended that the user also checks their NAT settings or whether their firewall policy blocks UDP packets.
+Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../../concepts/voice-video-calling/network-requirements.md) document. It is also recommended that the user also checks their NAT settings or whether their firewall policy blocks UDP packets.
 
-If the organization policy doesn't allow users to connect to Microsoft TURN relay servers, custom TURN servers can be configured to avoid connection failures. See [Force calling traffic to be proxied across your own server](../../../../tutorials/proxy-calling-support-tutorial.md) tutorial document for more information.
+If the organization policy doesn't allow users to connect to Microsoft TURN relay servers, custom TURN servers can be configured to avoid connection failures. See [Force calling traffic to be proxied across your own server](../../../../../tutorials/proxy-calling-support-tutorial.md) tutorial document for more information.
 
