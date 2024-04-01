@@ -4,6 +4,8 @@ metadata:
   title: Azure portal - Enable customer-managed keys with SSE - managed disks
   description: Enable customer-managed keys on your managed disks through the Azure portal.
   author: roygara
+  ms.custom:
+    - ge-structured-content-pilot
 
   ms.date: 02/22/2023
   ms.topic: how-to

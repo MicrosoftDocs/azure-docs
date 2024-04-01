@@ -3,14 +3,19 @@
 ---
 metadata:
   title: Create, change, or delete an Azure virtual network
-  titlesuffix: Azure Virtual Network
+  titleSuffix: Azure Virtual Network
   description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
   author: asudbring
+  ms.author: allensu
+  ms.date: 08/23/2023
   ms.service: virtual-network
   ms.topic: how-to
-  ms.date: 08/23/2023
-  ms.author: allensu
-  ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+  ms.custom:
+    - template-how-to
+    - engagement-fy23
+    - devx-track-azurecli
+    - devx-track-azurepowershell
+    - ge-structured-content-pilot
 
 title: |
   Create, change, or delete a virtual network

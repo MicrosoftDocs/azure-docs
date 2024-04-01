@@ -6,14 +6,12 @@ metadata:
   description: Learn how to add, modify, or delete the address ranges for a peered virtual network without downtime.
   author: asudbring
   ms.author: allensu
-  ms.service: virtual-network
-  ms.topic: how-to 
   ms.date: 03/21/2023
-  ms.custom: template-how-to
-  # - item
-  # - item
-  # - item
-  # - item
+  ms.service: virtual-network
+  ms.topic: how-to
+  ms.custom:
+    - template-how-to
+    - ge-structured-content-pilot
 
   #customer intent: As a <role>, I want <what> so that <why>.
 title: |

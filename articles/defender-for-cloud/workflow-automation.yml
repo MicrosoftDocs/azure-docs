@@ -3,10 +3,12 @@
 metadata:
   title: Workflow automation
   description: Learn how to create and automate workflows in Microsoft Defender for Cloud
-  ms.topic: how-to
   author: dcurwin
   ms.author: dacurwin
   ms.date: 06/18/2023
+  ms.topic: how-to
+  ms.custom:
+    - ge-structured-content-pilot
 title: |
   Automate remediation responses
 introduction: |

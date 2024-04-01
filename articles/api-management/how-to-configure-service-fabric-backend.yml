@@ -1,10 +1,11 @@
 ### YamlMime:HowTo
 
 metadata:
-  title: Set up Service Fabric backend in Azure API Management | Microsoft Docs
+  title: Set up Service Fabric backend in Azure API Management
   description: How to create a Service Fabric service backend in Azure API Management using the Azure portal
-  services: api-management
   author: dlepow
+  ms.custom:
+    - ge-structured-content-pilot
 
   ms.service: api-management
   ms.topic: article

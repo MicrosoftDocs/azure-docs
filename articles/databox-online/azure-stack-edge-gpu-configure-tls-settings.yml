@@ -3,8 +3,9 @@
 metadata:
   title: Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device
   description: Describes how to configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro GPU device.
-  services: databox
   author: alkohli
+  ms.custom:
+    - ge-structured-content-pilot
 
   ms.service: databox
   ms.subservice: edge
