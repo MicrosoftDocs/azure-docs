@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 03/27/2024
+ms.date: 04/01/2024
 
 ---
 
@@ -305,48 +305,62 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
 1. Under **Create a collector agent** on the right, define the agent details:
 
+    |Name |Description  |
+    |---------|---------|
+    |**Agent name**     |  Enter an agent name, including any of the following characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
+    |**Subscription** / **Key vault**     |   Select the **Subscription** and **Key vault** from their respective drop-downs.      |
+    |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.       |
+    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.         |
+    |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected.  <br><br>You must have the managed identity set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
+
+    > [!NOTE]
+    > If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).
+
+    For example:
+
     :::image type="content" source="media/deploy-data-connector-agent-container/create-agent-managed-id.png" alt-text="Screenshot of the Create a collector agent area.":::
 
-    - Enter the **Agent name**. The agent name can include these characters: 
-        - a-z
-        - A-Z 
-        - 0-9 
-        - _ (underscore)
-        - . (period)
-        - \- (dash)
+1. Select **Create** and review the recommendations before you complete the deployment:
 
-    - Select the **Subscription** and **Key Vault** from their respective drop-downs.
-
-    - Under **NWRFC SDK zip file path on the agent VM**, type the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
-
-    - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.
-    
-        > [!NOTE]
-        > Make sure that you select **Enable SNC connection support** at this stage if you want to use an SNC connection. You can't go back and enable an SNC connection after you finish deploying the agent.   
-       
-        Learn more about [deploying the connector over a SNC connection](configure-snc.md).
-
-    - To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected. You must have the managed identity set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).
-
-1. Select **Create** and review the recommendations before you complete the deployment:    
-
+    <!--updated screenshot coming-->
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**. After you've copied the command line, select **Close**.
+<a name=role></a>1. **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Role assignment**. Copy and save the command locally to use when assigning the **Microsoft Sentinel Business Applications Agent Operator** role to your agent's VM identity. For more information, see <xref>.
 
-    The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 
+<a name=agent></a>1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**. After you've copied the command line, select **Close**.
 
-    At this stage, the agent's **Health** status is **"Incomplete installation. Please follow the instructions"**. Once the agent is installed successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
+    The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**.
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
+At this stage, the agent's **Health** status is **"Incomplete installation. Please follow the instructions"**. Once the agent is installed successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. For example:
 
-    The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line will not be displayed here.
+:::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
-1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
+> [!NOTE]
+> The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here.
+>
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
-   
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+### Install the agent on your VM
+
+On the VM where you plan to install the agent, open a terminal and run the **Agent command** [copied at the end of the agent creation process](#agent).
+
+The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
+
+Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+
+If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+
+### Assign the Microsoft Sentinel Business Applications Agent Operator role
+
+Deploying the SAP data connector agent requires specific permissions on the Microsoft Sentinel workspace. The following steps describe how to assign the **Microsoft Sentinel Business Applications Agent Operator** role to your agent's VM identity, and must be run as a resource group owner on your Microsoft Sentinel workspace.
+
+On your agent VM, run the **Role assignment command** [copied towards the end of the agent creation process](#role), replacing the `VM_Identity_Object_ID` placeholder with your VM identity object ID.
+
+To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your app name. Copy the value of the **Object ID** field.
+
+This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
+
+> [!IMPORTANT]
+> While you can also assign the **Microsoft Sentinel Business Applications Agent Operator** role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), for security purposes we recommend that you assign this role only on the scope of your agent's data in the workspace, as specified in the command. Applying this scoped access control is supported only by using the provided command, and not via the Azure portal.
 
 ### Connect to a new SAP system
 
