@@ -22,27 +22,28 @@ ms.custom: "include file"
 > [!NOTE]
 > Bulk delete is a an operation to be used with caution. Resources in FHIR service once deleted cannot be reverted.
 
-Bulk delete operation is currently in public preview. Review disclaimer for details.
-[!INCLUDE [public preview disclaimer](../includes/common-publicpreview-disclaimer.md)]
-
-
 ## Headers
 Bulk-Delete operation requires two header parameters  
 * Accept: application/fhir+json
 * Prefer: respond-async
 
+## Role
+To perform bulk delete operation, user or application needs to be assigned to FHIR Data Contributor role.
+
 ## Query Parameters
-Query parameters allow you to filter raw resources you intend to delete. To support filtering, FHIR service query parameters are: 
+Query parameters allow you to filter raw resources you intend to delete. 
+
+To support filtering, query parameters are: 
 
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
-|_hardDelete|False|For deletion of resource including history version, pass value true.|
+|_hardDelete|False|Allows to hard delete resource.If you don't pass this parameter or set hardDelete to false, the historic versions of the resource will still be available.|
 |_purgeHistory|False|Allows to delete history versions associated with resource.|
 |FHIR service supported search parameters||Allows to specify search criteria and resources matching the search criteria are deleted.Example: address:contains=Meadow subject:Patient.birthdate=1987-02-20|
 
 All the query parameters are optional.
 
-## $bulk-delete Response 
+## Bulk Delete operation response 
 After request is made to bulk delete FHIR resources, in response you should receive Content-Location header with the absolute URL of an endpoint for subsequent status requests, such as a polling endpoint.
 
 **Polling endpoint:**
@@ -67,18 +68,35 @@ Sample response of successfully completed delete job.
             "part": [
                 {
                     "name": "Practitioner",
-                    "valueDecimal": 10.0
+                    "valueInteger64": 10.0
                 },
                 {
                     "name": "Specimen",
-                    "valueDecimal": 7.0
+                    "valueInteger64": 7.0
                 },
                 {
                     "name": "Device",
-                    "valueDecimal": 3.0
+                    "valueInteger64": 3.0
                 }
             ]
         }
     ]
 }
 ```
+## Bulk Delete operation error messages
+
+Here are the list of error messages that can occur if bulk delete operation fails
+
+|HTTP Status Code | Details | Recommended action |
+|-----------------|---------|--------------------|
+|202 |Bulk delete job is stuck | Cancel the bulk delete job and try again.|
+|500 |Connection to database failed | Create support ticket to resolve the issue.|
+|429 |Throttling errors | For Azure API for FHIR, you can increase RUs and retry the job. For Azure Health Data Services FHIR Server, you can try to delete a smaller amount of data at a time. |
+
+## FAQ
+1. Will API interactions see latency impact when bulk delete operation job is executed concurrently?
+
+When running a bulk delete operation there is the possibility to see increased latency on concurrent calls to the service. To avoid latency increase, the recommendation is to cancel the bulk delete job and rerun it during a period of lower traffic.
+> [!NOTE]
+> If you cancel and then restart a bulk delete operation, it will resume the deletion process from where it previously stopped.
+
