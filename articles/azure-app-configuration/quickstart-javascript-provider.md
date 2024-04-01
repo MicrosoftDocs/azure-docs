@@ -13,7 +13,7 @@ ms.author: yanzh
 ---
 # Quickstart: Create a JavaScript app with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
+In this quickstart, you use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
 App Configuration provider for JavaScript is built on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
 It enables access to key-values in App Configuration as a `Map` object.
@@ -38,7 +38,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ## Set up the Node.js app
 
-In this tutorial, you'll create a Node.js console app and load data from your App Configuration store.
+In this tutorial, you create a Node.js console app and load data from your App Configuration store.
 
 1. Create a new directory for the project named *app-configuration-quickstart*.
 
@@ -65,80 +65,80 @@ If your application requires configuration to be consumed as an object, you can 
 This API constructs a configuration object based on the key-values loaded from Azure App Configuration.
 It minimizes the code changes required to integrate Azure App Configuration into your application.
 
-### [Use configuration as a Map](#tab/config-as-map)
+    ### [Use configuration as a Map](#tab/config-as-map)
 
-1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+    1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
 
-    ```javascript
-    const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+        ```javascript
+        const { load } = require("@azure/app-configuration-provider");
+        const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
-    async function run() {
-        let settings;
+        async function run() {
+            let settings;
 
-        // Sample 1: Connect to Azure App Configuration using a connection string and load all key-values with null label.
-        settings = await load(connectionString);
+            // Sample 1: Connect to Azure App Configuration using a connection string and load all key-values with null label.
+            settings = await load(connectionString);
 
-        // Find the key "message" and print its value.
-        console.log(settings.get("message"));  // Output: Message from Azure App Configuration
+            // Find the key "message" and print its value.
+            console.log(settings.get("message"));  // Output: Message from Azure App Configuration
 
-        // Find the key "app.json" as an object, and print its property "myKey".
-        const jsonObject = settings.get("app.json");
-        console.log(jsonObject.myKey);  // Output: myValue
+            // Find the key "app.json" as an object, and print its property "myKey".
+            const jsonObject = settings.get("app.json");
+            console.log(jsonObject.myKey);  // Output: myValue
 
-        // Sample 2: Load all key-values with null label and trim "app." prefix from all keys.
-        settings = await load(connectionString, {
-          trimKeyPrefixes: ["app."]
-        });
+            // Sample 2: Load all key-values with null label and trim "app." prefix from all keys.
+            settings = await load(connectionString, {
+            trimKeyPrefixes: ["app."]
+            });
 
-        // From the keys with trimmed prefixes, find a key with "greeting" and print its value.
-        console.log(settings.get("greeting")); // Output: Hello World
+            // From the keys with trimmed prefixes, find a key with "greeting" and print its value.
+            console.log(settings.get("greeting")); // Output: Hello World
 
-        // Sample 3: Load all keys starting with "app." prefix and null label.
-        settings = await load(connectionString, {
-          selectors: [{
-            keyFilter: "app.*"
-          }],
-        });
+            // Sample 3: Load all keys starting with "app." prefix and null label.
+            settings = await load(connectionString, {
+            selectors: [{
+                keyFilter: "app.*"
+            }],
+            });
 
-        // Print true or false indicating whether a setting is loaded.
-        console.log(settings.has("message")); // Output: false
-        console.log(settings.has("app.greeting")); // Output: true
-        console.log(settings.has("app.json")); // Output: true
-    }
+            // Print true or false indicating whether a setting is loaded.
+            console.log(settings.has("message")); // Output: false
+            console.log(settings.has("app.greeting")); // Output: true
+            console.log(settings.has("app.json")); // Output: true
+        }
 
-    run().catch(console.error);
-    ```
+        run().catch(console.error);
+        ```
 
-### [Use configuration as an object](#tab/config-as-object)
+    ### [Use configuration as an object](#tab/config-as-object)
 
-1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+    1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
 
-    ```javascript
-    const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+        ```javascript
+        const { load } = require("@azure/app-configuration-provider");
+        const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
-    async function run() {
-        // Load all key-values from Azure App Configuration
-        const settings = await load(connectionString);
-        
-        // Construct configuration object from loaded key-values
-        const config = settings.constructConfigurationObject({
-            separator: "."
-        });
+        async function run() {
+            // Load all key-values from Azure App Configuration
+            const settings = await load(connectionString);
+            
+            // Construct configuration object from loaded key-values
+            const config = settings.constructConfigurationObject({
+                separator: "."
+            });
 
-    // Print out the configuration object
-    console.log("Constructed configuration object 'config': ");
-    console.log(config);
+        // Print out the configuration object
+        console.log("Constructed configuration object 'config': ");
+        console.log(config);
 
-    // Use dot-notation to access configuration
-    console.log(`config.message:\t${config.message}`);
-    console.log(`config.app.greeting:\t${config.app.greeting}`);
-    console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
-    }
+        // Use dot-notation to access configuration
+        console.log(`config.message:\t${config.message}`);
+        console.log(`config.app.greeting:\t${config.app.greeting}`);
+        console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
+        }
 
-    run().catch(console.error);
-    ```
+        run().catch(console.error);
+        ```
 
 ## Run the application
 
