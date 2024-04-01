@@ -3,7 +3,7 @@ title: Quickstart Trusted Signing #Required; page title displayed in search resu
 description: Quickstart onboarding to Trusted Signing to sign your files #Required; article description that is displayed in search results. Include the word "quickstart".
 author: mehasharma #Required; your GitHub user alias, with correct capitalization.
 ms.author: mesharm #Required; microsoft alias of author; optional team alias.
-ms.service: azure-code-signing #Required; service per approved list. service slug assigned to your service by ACOM.
+ms.service: trusted-signing #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 ---
