@@ -89,7 +89,7 @@ Azure Container Registry is an Azure offering that stores container images and s
 
 To create a registry, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
 
-To set up your registry to have anonymous image pull enabled, run the following command in the Azure CLI:
+To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 
 ```azurecli
 az login
