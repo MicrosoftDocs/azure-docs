@@ -212,6 +212,22 @@ resource daprExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01'
 }
 ```
 
+Set the following variables, changing the values below to your actual resource group and cluster names.
+
+```azurecli-interactive
+MY_RESOURCE_GROUP=myResourceGroup
+MY_AKS_CLUSTER=myAKScluster
+```
+
+Deploy the Bicep template using the `az deployment group` command. 
+
+```azurecli-interactive
+az deployment group create \
+  --resource-group $MY_RESOURCE_GROUP \
+  --template-file ./my-bicep-file-path.bicep \
+  --parameters clusterName=$MY_AKS_CLUSTER
+```
+
 ### Configuring automatic updates to Dapr control plane
 
 > [!WARNING]
