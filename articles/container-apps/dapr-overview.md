@@ -27,17 +27,15 @@ Configure Dapr for your container apps environment with a [Dapr-enabled containe
 
 ## Supported Dapr APIs and components
 
-In Azure Container Apps, Dapr APIs and components fall into the following support categories. 
-
-| Support terminology | Definition |
-| ------------------- | ---------- |
-| General Availability (GA) | General availability indicates that the API, feature, or component is fully managed and supported for use in production environments. |
-| Preview | Preview APIs, features, or components are available for early testing and aren't recommended for production. |
-| Service Level Agreement (SLA) | SLAs offer a commitment from Microsoft Azure regarding an API, feature, or component's availability and performance.
 
 ### Managed APIs
 
-Azure Container Apps offers managed GA and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
+Azure Container Apps offers managed generally available and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. 
+
+- General Availability (GA): Indicates that the API is fully managed and supported for use in production environments. 
+- Preview: Preview APIs are available for early testing and aren't recommended for production. Preview support is provided at best effort.
+
+To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
@@ -55,7 +53,7 @@ Azure Container Apps offers managed GA and preview versions of Dapr APIs (buildi
 
 ### Managed versus standard components
 
-In Azure Container Apps, support for Dapr components is broken into two levels: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
+In Azure Container Apps, a subset of Dapr components is supported. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
 
 - [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
 - [Standard components:](#standard-components) Built-in components that are supported, but provide a lower SLA guarantee.
@@ -76,7 +74,7 @@ In Azure Container Apps, support for Dapr components is broken into two levels: 
 | --- | --------- | ------ |
 | State management | Azure Table Storage | `state.azure.tablestorage` | 
 | Publish & subscribe | Azure Event Hubs | `pubsub.azure.eventhubs` |
-| Binding | Azure Event Hubs<br>AAzure SignalR<br>Azure Event Grid<br>Azure CosmosDB | `bindings.azure.eventhubs`<br>`bindings.azure.signalr`<br>`bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb` |
+| Binding | Azure Event Hubs<br>Azure SignalR<br>Azure Event Grid<br>Azure CosmosDB | `bindings.azure.eventhubs`<br>`bindings.azure.signalr`<br>`bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb` |
 
 ## Limitations
 
