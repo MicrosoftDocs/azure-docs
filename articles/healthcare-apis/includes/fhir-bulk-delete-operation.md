@@ -120,5 +120,5 @@ Here's a list of error messages that might occur if the `$bulk-delete` operation
   When you run a `$bulk-delete` operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the `$bulk-delete` job, and then rerun it during a period of lower traffic.
 
 > [!NOTE]
-> If you cancel and then restart a `$bulk-delete` operation, it resumes the deletion process from where it previously stopped.
+> If you cancel and then restart a `$bulk-delete` operation, the deletion process resumes from where it was stopped.
 
