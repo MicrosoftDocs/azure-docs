@@ -6,13 +6,13 @@ ms.topic: conceptual
 ---
 # What is applicability in Azure Policy?
 
-When a policy definition is assigned to a scope, Azure Policy determines which resources in that scope should be considered for compliance evaluation. A resource will only be assessed for compliance if it's considered **applicable** to the given policy assignment. 
+When a policy definition is assigned to a scope, Azure Policy determines which resources in that scope should be considered for compliance evaluation. A resource will only be assessed for compliance if it's considered **applicable** to the given policy assignment.
 
 Applicability is determined by several factors:
-- **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).
+- **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure-policy-rule.md#conditions).
 - **Mode** of the policy definition.
-- **Excluded scopes** specified in the assignment. 
-- **Resource selectors** specified in the assignment. 
+- **Excluded scopes** specified in the assignment.
+- **Resource selectors** specified in the assignment.
 - **Exemptions** of resources or resource hierarchies.
 
 Condition(s) in the `if` block of the policy rule are evaluated for applicability in slightly different ways based on the effect.
@@ -73,13 +73,13 @@ Azure Machine Learning component type:
 Policies with mode `Microsoft.Network.Data` are applicable if the `type` and `name` conditions of the policy rule evaluate to true. The `type` refers to  component type:
 - Microsoft.Network/virtualNetworks
 
-## Not Applicable Resources 
+## Not Applicable Resources
 
 There could be situations in which resources are applicable to an assignment based on conditions or scope, but they shouldn't be applicable due to business reasons. At that time, it would be best to apply [exclusions](./assignment-structure.md#excluded-scopes) or [exemptions](./exemption-structure.md). To learn more on when to use either, review [scope comparison](./scope.md#scope-comparison)
 
 > [!NOTE]
 > By design, Azure Policy does not evaluate resources under the `Microsoft.Resources` resource provider (RP) from
-policy evaluation, except for subscriptions and resource groups. 
+policy evaluation, except for subscriptions and resource groups.
 
 ## Next steps
 
