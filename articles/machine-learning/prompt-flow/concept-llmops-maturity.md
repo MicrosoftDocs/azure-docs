@@ -49,7 +49,7 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 
 ## <a name="level2"></a> Level 2 - defined
 
-Score from [assessment](): maturing (9-?).
+Score from [assessment](): maturing (9-14).
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -69,7 +69,7 @@ To improve your capabilities and skills, learn how to develop more complex promp
 
 ## <a name="level3"></a> Level 3 - managed
 
-Score from [assessment](): maturing (?-19).
+Score from [assessment](): maturing (15-19).
 
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
