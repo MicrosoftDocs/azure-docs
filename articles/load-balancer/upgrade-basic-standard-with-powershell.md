@@ -95,10 +95,10 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 ## Use the module
 
-1. Use `Connect-AzAccount` to connect to the required Microsoft Entra tenant and Azure subscription
+1. Use `Connect-AzAccount` to connect to Azure, specifying the Basic Load Balancer's subscription ID if you have more than one subscription.
 
     ```powershell
-    PS C:\> Connect-AzAccount -Tenant <TenantId> -Subscription <SubscriptionId>
+    PS C:\> Connect-AzAccount -Subscription <SubscriptionId>
     ```
 
 2. Find the Load Balancer you wish to upgrade. Record its name and resource group name.
