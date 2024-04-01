@@ -1,5 +1,5 @@
 ---
-title: About ExpressRoute Metro (Preview)
+title: About ExpressRoute Metro (preview)
 description: This article provides an overview of ExpressRoute Metro and how it works.
 services: expressroute
 author: duongau
@@ -10,9 +10,11 @@ ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
 
-# About ExpressRoute Metro (Preview)
+# About ExpressRoute Metro (preview)
 
-[!INCLUDE [Preview note](../includes/preview.md)]
+> [!IMPORTANT]
+> ExpresRoute Metro is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ExpressRoute facilitates the creation of private connections between your on-premises networks and Azure workloads in a designated peering locations. These locations are colocation facilities housing Microsoft Enterprise Edge (MSEE) devices, serving as the gateway to Microsoft's network.
 
@@ -26,7 +28,7 @@ The standard ExpressRoute configuration is set up with a pair of links to enhanc
 
 ## ExpressRoute Metro
 
-ExpressRoute Metro is a high-resiliency configuration designed to provide multi-site redundancy. This configuration allows you to benefit from a dual-homed setup that facilitates diverse connections to two distinct ExpressRoute peering locations within a city. The high resiliency configuration benefits from the redundancy across the two peering locations to offer higher availability and resilience for your connectivity from your on-premises to resources in Azure.
+ExpressRoute Metro (preview) is a high-resiliency configuration designed to provide multi-site redundancy. This configuration allows you to benefit from a dual-homed setup that facilitates diverse connections to two distinct ExpressRoute peering locations within a city. The high resiliency configuration benefits from the redundancy across the two peering locations to offer higher availability and resilience for your connectivity from your on-premises to resources in Azure.
 
 Key features of ExpressRoute Metro include:
 
