@@ -72,7 +72,7 @@ RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 To build the image to be pushed to your registry, ensure the Docker Engine is installed on your computer, navigate to the directory of your Dockerfile, and run the following command:
 
 ```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
+docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}
 ```
 
 For example, if you want to save your image under a repository within your registry named `customImage`, and upload with the tag version of `1.0.0`, you would run:
