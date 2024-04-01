@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus premium messagnig tier
+title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
@@ -16,7 +16,7 @@ Some high-level differences are highlighted in the following table.
 
 | | Premium | Standard |
 |--- | --- | --- |
-| Throughtput | High throughput |Variable throughput |
+| Throughout | High throughput |Variable throughput |
 | Performance | Predictable performance |Variable latency |
 | Pricing | Fixed pricing |Pay as you go variable pricing |
 | Scale | Ability to scale workload up and down |N/A |
@@ -89,10 +89,10 @@ Azure Service Bus premium tier namespaces support the ability to send large mess
 Here are some considerations when sending large messages on Azure Service Bus -
 
 - Supported on Azure Service Bus premium tier namespaces only.
-- Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for these protocols is 1MB.
+- Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for these protocols is 1 MB.
 - Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
 - Sending large messages result in decreased throughput and increased latency.
-- While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
+- While 100-MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
 - Service Bus Explorer doesn't support sending or receiving large messages. 
@@ -127,7 +127,7 @@ Azure Service Bus Premium provides encryption of data at rest with Azure Storage
 ## Partitioning
 There are some differences between the standard and premium tiers when it comes to partitioning.
 
-- Partitioning is available at entity creation for all queues and topics in basic or standard SKUs. A namespace can have both partitioned and non-partitioned entities. Partitioning is available at namespace creation for the premium tier, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in premium namespaces continue to work as expected.
+- Partitioning is available at entity creation for all queues and topics in basic or standard SKUs. A namespace can have both partitioned and nonpartitioned entities. Partitioning is available at namespace creation for the premium tier, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in premium namespaces continue to work as expected.
 - When partitioning is enabled in the Basic or Standard SKUs, Service Bus creates 16 partitions. When partitioning is enabled in the premium tier, the number of partitions is specified during namespace creation.
 
 For more information, see [Partitioning in Service Bus](service-bus-partitioning.md).
