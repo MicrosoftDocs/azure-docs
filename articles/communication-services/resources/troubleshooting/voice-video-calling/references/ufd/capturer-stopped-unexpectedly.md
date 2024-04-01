@@ -1,7 +1,7 @@
 ---
 title: Overview of capturerStoppedUnexpectedly UFD
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Overview and detailed eference of capturerStoppedUnexpectedly UFD
+description: Overview and detailed reference of capturerStoppedUnexpectedly UFD.
 author: sloanster
 ms.author: micahvivion
 
@@ -13,7 +13,9 @@ ms.subservice: calling
 ---
 
 # capturerStoppedUnexpectedly UFD
-The `capturerStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the screensharing track has been muted. This can happen due to external reasons and depends on the browser implementation. For example, if the user shares a window and minimize that window, the `capturerStoppedUnexpectedly` UFD may fire.
+The `capturerStoppedUnexpectedly UFD` with a `true` value occurs when the SDK detects that the screen sharing track has been muted,
+which can happen due to external reasons and depends on the browser implementation.
+For example, if the user shares a window and minimize that window, the `capturerStoppedUnexpectedly` UFD may fire.
 
 | capturerStoppedUnexpectedly | Details                |
 | ----------------------------|------------------------|
@@ -34,5 +36,5 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-Your application should subscribe to events from the User Facing Diagnostics  and display a message on your user interface to alert users of screensharing issues.
-Users can then take steps to resolve the issue on their own, such as checking whether they accidentally minimize the window being shared.
+Your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of screen sharing issues.
+The end users can then take steps to resolve the issue on their own, such as checking whether they accidentally minimize the window being shared.
