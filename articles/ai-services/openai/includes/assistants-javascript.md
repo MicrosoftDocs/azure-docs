@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Use the OpenAI Service via the Python SDK'
+title: 'Quickstart: Use the OpenAI Service via the JavaScript SDK'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the JavaScript SDK. 
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 02/01/2024
+ms.date: 04/01/2024
 ---
 
-<a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
+<a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai-assistants" target="_blank">Library source code</a> | <a href="https://www.npmjs.com/package/@azure/openai-assistants" target="_blank">Package (PyPi)</a> |
 
 ## Prerequisites
 
@@ -18,23 +18,19 @@ ms.date: 02/01/2024
 - Access granted to Azure OpenAI in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
-- The following Python libraries: os, json, openai (Version 1.x is required)
-- [Jupyter Notebooks](https://jupyter.org/)
+- <a href="https://nodejs.org/" target="_blank">Node.js LTS</a>
+- The following npm packages are required: 
 - Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
 - An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example.
 
 ## Set up
 
-Install the OpenAI Python client library with:
+Install the OpenAI Assistants client library for JavaScript with:
 
 ```console
-pip install openai
+npm install @azure/openai-assistants
 ```
-
-> [!NOTE]
-> This library is maintained by OpenAI. Refer to the [release history](https://github.com/openai/openai-python/releases) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 
@@ -71,62 +67,17 @@ An individual assistant can access up to 128 tools including `code interpreter`,
 
 Create and run an assistant with the following:
 
-```python
-import os
-import time
-import json
-from openai import AzureOpenAI
-    
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+#### [TypeScript](#tab/typescript)
 
-# Create an assistant
-assistant = client.beta.assistants.create(
-    name="Math Assist",
-    instructions="You are an AI assistant that can write code to help answer math questions.",
-    tools=[{"type": "code_interpreter"}],
-    model="gpt-4-1106-preview" #You must replace this value with the deployment name for your model.
-)
+<!--- Content here  -->
 
-# Create a thread
-thread = client.beta.threads.create()
 
-# Add a user question to the thread
-message = client.beta.threads.messages.create(
-    thread_id=thread.id,
-    role="user",
-    content="I need to solve the equation `3x + 11 = 14`. Can you help me?"
-)
+#### [JavaScript](#tab/javascript)
 
-# Run the thread
-run = client.beta.threads.runs.create(
-  thread_id=thread.id,
-  assistant_id=assistant.id,
-)
+<!--- Content here  -->
 
-# Retrieve the status of the run
-run = client.beta.threads.runs.retrieve(
-  thread_id=thread.id,
-  run_id=run.id
-)
 
-status = run.status
-
-# Wait till the assistant has responded
-while status not in ["completed", "cancelled", "expired", "failed"]:
-    time.sleep(5)
-    run = client.beta.threads.runs.retrieve(thread_id=thread.id,run_id=run.id)
-    status = run.status
-
-messages = client.beta.threads.messages.list(
-  thread_id=thread.id
-)
-
-print(messages.model_dump_json(indent=2))
-```
+--- 
 
 ## Output
 
@@ -183,29 +134,25 @@ print(messages.model_dump_json(indent=2))
 
 ## Understanding your results
 
-In this example we create an assistant with code interpreter enabled. When we ask the assistant a math question it translates the question into python code and executes the code in sandboxed environment in order to determine the answer to the question. The code the model creates and tests to arrive at an answer is:
+In this example we create an assistant with code interpreter enabled. When we ask the assistant a math question it translates the question into code and executes the code in sandboxed environment in order to determine the answer to the question. The code the model creates and tests to arrive at an answer is:
 
-```python
-    from sympy import symbols, Eq, solve  
-      
-    # Define the variable  
-    x = symbols('x')  
-      
-    # Define the equation  
-    equation = Eq(3*x + 11, 14)  
-      
-    # Solve the equation  
-    solution = solve(equation, x)  
-    solution  
-```
+#### [TypeScript](#tab/typescript)
 
-It is important to remember that while code interpreter gives the model the capability to respond to more complex queries by converting the questions into code and running that code iteratively in the Python sandbox until it reaches a solution, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
+<!--- Content here  -->
 
-<!--We walk through the process of creating assistants with code in much more depth in our [Azure OpenAI Assistants how-to guide](../how-to/assistant.md).-->
+
+#### [JavaScript](#tab/javascript)
+
+<!--- Content here  -->
+
+
+---  
+
+It is important to remember that while the code interpreter gives the model the capability to respond to more complex queries by converting the questions into code and running that code iteratively in JavaScript until it reaches a solution, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
@@ -214,5 +161,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
-
 
