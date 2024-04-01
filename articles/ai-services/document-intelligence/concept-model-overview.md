@@ -267,7 +267,7 @@ Use the marriage certificate model to process U.S. marriage certificates to extr
 
 ***Sample U.S. marriage certificate processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=marriageCertificate.us)***:
 
-:::image type="content" source="./media/studio/marriage-certificate.png" alt-text="Screenshot of a sample marriage certificate." lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/studio/marriage-certificate.png" alt-text="Screenshot of a sample marriage certificate." lightbox="./media/studio/marriage-certificate.png":::
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-marriage-certificate.md)
@@ -280,7 +280,7 @@ Use the credit card model to process credit and debit cards to extract key field
 
 ***Sample credit card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=creditCard)***:
 
-:::image type="content" source="./media/studio/credit-card.png" alt-text="Screenshot of a sample credit card." lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/studio/credit-card.png" alt-text="Screenshot of a sample credit card." lightbox="./media/studio/credit-card.png":::
 
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-credit-card.md)
