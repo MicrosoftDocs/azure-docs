@@ -51,7 +51,7 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 •   Refer to Select or change Trusted Signing pricing tier link to the Pricing Tier How-To article for information about the available pricing tiers.
 11. Select the **Review + Create** button. 
 
-![screenshot-trusted-signing-account](media/trusted-signing-account-creation.png)
+![screenshot of trusted-signing-account.](media/trusted-signing-account-creation.png)
 
 12. After successfully creating your Trusted Signing account, select **Go to resource**.  
 
@@ -152,9 +152,9 @@ Here are the steps to create an Identity Validation request:
 7.  **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8.  Select the **Create** button. 
 
-![screenshot-trusted-signing-identityvalidation-public](media/trusted-signing-identityvalidation-public.png)
+![screenshot of trusted-signing-identityvalidation-public.](media/trusted-signing-identityvalidation-public.png)
 
-![screenshot-trusted-signing-identityvalidation-private](media/trusted-signing-identityvalidation-private.png)
+![screenshot of trusted-signing-identityvalidation-private.](media/trusted-signing-identityvalidation-private.png)
 
 ### Important information for Public Identity Validation:
 
@@ -187,7 +187,7 @@ A certificate profile resource is the logical container of the certificates that
 •   The values in remaining fields are autopopulated based on the selection in Verified CN and O.
 •   Select **Create**.
 
-![screenshot-trusted-signing-certificateprofile-creation](media/trusted-signing-certificateprofile-creation.png)
+![screenshot of trusted-signing-certificateprofile-creation.](media/trusted-signing-certificateprofile-creation.png)
 
 **Certificate Profile naming constraints**:
 - Between 5-100 alphanumeric characters. 
@@ -272,8 +272,8 @@ az codesigning certificate-profile delete -g MyResourceGroup --account-name MyAc
 
 ## Next steps
 In this Quickstart, you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To delve deeper into Trusted Signing and kickstart your signing journey, explore the following articles:
-•   link to How to
-•   link to Service design/business problem it address
+- link to How to Signing Integrations.
+- link to Service design/business problem it addresses.
 
 
 

@@ -1,3 +1,15 @@
+---
+title: Revoke a certificate profile in Trusted Signing #Required; page title displayed in search results. Include the word "quickstart". Include the brand.
+description: How-To revoke a Trusted Signing certificate from Azure portal #Required; article description that is displayed in search results. Include the word "quickstart".
+author: mehasharma #Required; your GitHub user alias, with correct capitalization.
+ms.author: mesharm #Required; microsoft alias of author; optional team alias.
+ms.service: azure-code-signing #Required; service per approved list. service slug assigned to your service by ACOM.
+ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.date: 03/31/2024 #Required; mm/dd/yyyy format.
+---
+
+
+
 # Revoke a certificate profile in Trusted Signing
 
 Certificate revocation is an act of invalidating a certificate. Once a certificate has been successfully revoked, all the files signed with a revoked certificate will become invalid from the selected revocation date and time. 
