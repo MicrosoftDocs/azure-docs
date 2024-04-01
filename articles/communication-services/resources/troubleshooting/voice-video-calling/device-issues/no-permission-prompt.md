@@ -25,7 +25,7 @@ causing the browser to skip the prompt even if the permission state is set to `p
 We can't detect whether the permission prompt actually shows or not, as this browser behavior can't be detected at JavaScript layer.
 
 ## How to mitigate or resolve
-The application should check the result of [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API.
+The application should check the result of [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API.
 If the result is false, it may indicate that user denied the permission now or previously.
 
 The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions have been granted.
