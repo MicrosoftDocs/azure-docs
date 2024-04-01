@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/18/2024
+ms.date: 03/28/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -10,7 +10,7 @@ ms.custom: generated
 |Name |Description |Policies |Version |
 |---|---|---|---|
 |[\[Preview\]: Deploy Microsoft Defender for Endpoint agent](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_MicrosoftDefenderForEndpointAgent.json) |Deploy Microsoft Defender for Endpoint agent on applicable images. |4 |1.0.0-preview |
-|[Configure Advanced Threat Protection to be enabled on open-source relational databases](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_AtpForOssDatabases.json) |Enable Advanced Threat Protection on your non-Basic tier open-source relational databases to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. See [https://aka.ms/AzDforOpenSourceDBsDocu](https://aka.ms/AzDforOpenSourceDBsDocu). |4 |1.1.0 |
+|[Configure Advanced Threat Protection to be enabled on open-source relational databases](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_AtpForOssDatabases.json) |Enable Advanced Threat Protection on your non-Basic tier open-source relational databases to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. See [https://aka.ms/AzDforOpenSourceDBsDocu](https://aka.ms/AzDforOpenSourceDBsDocu). |5 |1.2.0 |
 |[Configure Azure Defender to be enabled on SQL Servers and SQL Managed Instances](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_AzureDefenderForSql.json) |Enable Azure Defender on your SQL Servers and SQL Managed Instances to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. |3 |3.0.0 |
 |[Configure Microsoft Defender for Cloud plans](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_Defender_Full_Plans_DINE.json) |Microsoft Defender for Cloud provides comprehensive, cloud-native protections from development to runtime in multi-cloud environments. Use the policy initiative to configure Defender for Cloud plans and extensions to be enabled on selected scope(s). |11 |1.0.0 |
 |[Configure Microsoft Defender for Databases to be enabled](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_DefenderForDatabases.json) |Configure Microsoft Defender for Databases to protect your Azure SQL Databases, Managed Instances, Open-source relational databases and Cosmos DB. |4 |1.0.0 |

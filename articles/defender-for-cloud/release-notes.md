@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| March 31 | [Windows container images scanning is now generally available (GA)](#windows-container-images-scanning-is-now-generally-available-ga) |
 | March 25 | [Continuous export now includes attack path data](#continuous-export-now-includes-attack-path-data) |
 | March 21 | [Agentless scanning supports CMK encrypted VMs in Azure (preview)](#agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
 | March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
@@ -35,6 +36,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 | March 6 | [(Preview) Compliance standards added to compliance dashboard](#preview-compliance-standards-added-to-compliance-dashboard)  |
 | March 5 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+
+
+### Windows container images scanning is now generally available (GA)
+
+March 31, 2024
+
+We are announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
 
 ### Continuous export now includes attack path data
 
@@ -49,6 +57,7 @@ Learn more about [continuous export](benefits-of-continuous-export.md).
 March 21, 2024
 
 Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we are completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
+
 - Defender for Cloud does not handle the key or decryption process. Key handling and decryption is seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
 - The unencrypted VM disk data is never copied or re-encrypted with another key.
 - The original key is not replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
@@ -58,14 +67,13 @@ During public preview this capability is not automatically enabled. If you are u
 - [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
 - [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)
 
-
 ### New endpoint detection and response recommendations
 
 March 18, 2024
 
-We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps. 
+We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps.
 
-The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported. 
+The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported.
 
 | Recommendation name | Description | Severity |
 |--|
