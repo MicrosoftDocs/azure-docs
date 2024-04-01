@@ -1,7 +1,7 @@
 ---
 title: Understanding cameraFreeze UFD
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Overview and details reference for understanding cameraFreeze UFD
+description: Overview and details reference for understanding cameraFreeze UFD.
 author: sloanster
 ms.author: micahvivion
 
@@ -13,11 +13,11 @@ ms.subservice: calling
 ---
 
 # cameraFreeze UFD
-A `cameraFreeze UFD` event with a `true` value occurs when the SDK detects that the input framerate goes down to 0 frames per second, causing the video output to appear frozen or not changing.
+A `cameraFreeze UFD` event with a `true` value occurs when the SDK detects that the input framerate goes down to zero, causing the video output to appear frozen or not changing.
 
 The underlying issue may indicate issues with a users video camera, or in some cases, the device stops sending video frames.
 For example, on certain Android device models, the browser may trigger the `cameraFreeze` UFD when the user locks the screen or puts the browser in the background.
-In this situation the Android operating system stops sending video frames, and thus on the other end of the call a user may see a `cameraFreeze UFD` event.
+In this situation, the Android operating system stops sending video frames, and thus on the other end of the call a user may see a `cameraFreeze UFD` event.
 
 | cameraFreeze                          | Details                |
 | --------------------------------------|------------------------|
@@ -40,4 +40,4 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ## How to mitigate or resolve
 Your calling application should subscribe to events from the User Facing Diagnostics feature.
 You should also consider displaying a message on your user interface to alert users of potential camera issues.
-Your end users can then take steps to resolve the issue on their own, such as stopping and starting the video again, or switching to other cameras or calling devices.
+The end users can then take steps to resolve the issue on their own, such as stopping and starting the video again, or switching to other cameras or calling devices.
