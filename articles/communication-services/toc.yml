@@ -1007,61 +1007,61 @@ items:
         - name: References
           items:
           - name: How to collect call info
-            href: troubleshooting/voice-video-calling/references/how-to-collect-call-info.md
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-call-info.md
           - name: How to collect diagnostic audio recordings from the browser
-            href: troubleshooting/voice-video-calling/references/how-to-collect-diagnostic-audio-recordings.md
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-diagnostic-audio-recordings.md
           - name: How to collect verbose log from browsers
-            href: troubleshooting/voice-video-calling/references/how-to-collect-browser-verbose-log.md
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-browser-verbose-log.md
           - name: How to collect Windows audio event log
-            href: troubleshooting/voice-video-calling/references/how-to-collect-windows-audio-event-log.md
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-windows-audio-event-log.md
           - name: User Facing Diagnostics
             items:
             - name: Network
               items:
               - name: noNetwork
-                href: troubleshooting/voice-video-calling/references/ufd/no-network.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-network.md
               - name: networkRelaysNotReachable
-                href: troubleshooting/voice-video-calling/references/ufd/network-relays-not-reachable.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-relays-not-reachable.md
               - name: networkReconnect
-                href: troubleshooting/voice-video-calling/references/ufd/network-reconnect.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-reconnect.md
               - name: networkReceiveQuality
-                href: troubleshooting/voice-video-calling/references/ufd/network-receive-quality.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-receive-quality.md
               - name: networkSendQuality
-                href: troubleshooting/voice-video-calling/references/ufd/network-send-quality.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-send-quality.md
             - name: Audio
               items:
               - name: noSpeakerDevicesEnumerated
-                href: troubleshooting/voice-video-calling/references/ufd/no-speaker-devices-enumerated.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-speaker-devices-enumerated.md
               - name: speakingWhileMicrophoneIsMuted
-                href: troubleshooting/voice-video-calling/references/ufd/speaking-while-microphone-is-muted.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/speaking-while-microphone-is-muted.md
               - name: noMicrophoneDevicesEnumerated
-                href: troubleshooting/voice-video-calling/references/ufd/no-microphone-devices-enumerated.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-microphone-devices-enumerated.md
               - name: microphoneNotFunctioning
-                href: troubleshooting/voice-video-calling/references/ufd/microphone-not-functioning.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-not-functioning.md
               - name: microphoneMuteUnexpectedly
-                href: troubleshooting/voice-video-calling/references/ufd/microphone-mute-unexpectedly.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-mute-unexpectedly.md
               - name: microphonePermissionDenied
-                href: troubleshooting/voice-video-calling/references/ufd/microphone-permission-denied.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-permission-denied.md
             - name: Video
               items:
               - name: cameraFreeze
-                href: troubleshooting/voice-video-calling/references/ufd/camera-freeze.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-freeze.md
               - name: cameraStartFailed
-                href: troubleshooting/voice-video-calling/references/ufd/camera-start-failed.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-start-failed.md
               - name: cameraStartTimedOut
-                href: troubleshooting/voice-video-calling/references/ufd/camera-start-timed-out.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-start-timed-out.md
               - name: cameraPermissionDenied
-                href: troubleshooting/voice-video-calling/references/ufd/camera-permission-denied.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-permission-denied.md
               - name: cameraStoppedUnexpectedly
-                href: troubleshooting/voice-video-calling/references/ufd/camera-stopped-unexpectedly.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-stopped-unexpectedly.md
             - name: Screensharing
               items:
               - name: screenshareRecordingDisabled
-                href: troubleshooting/voice-video-calling/references/ufd/screenshare-recording-disabled.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/screenshare-recording-disabled.md
               - name: capturerStartFailed
-                href: troubleshooting/voice-video-calling/references/ufd/capturer-start-failed.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/capturer-start-failed.md
               - name: capturerStoppedUnexpectedly
-                href: troubleshooting/voice-video-calling/references/ufd/capturer-stopped-unexpectedly.md
+                href: resources/troubleshooting/voice-video-calling/references/ufd/capturer-stopped-unexpectedly.md
 - name: References
   items:
   - name: Reference documentation overview
