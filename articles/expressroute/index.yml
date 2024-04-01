@@ -89,6 +89,12 @@ landingContent:
     # Card
   - title: Resiliency
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Design architecture for ExpressRoute resiliency
+            url: design-architecture-for-resiliency.md
+          - text: ExpressRoute Metro
+            url: metro.md
       - linkListType: how-to-guide
         links:
           - text: Create maximum resiliency with ExpressRoute circuits
