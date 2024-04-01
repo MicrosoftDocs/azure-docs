@@ -71,8 +71,6 @@ The integration is in public preview. It adds the Python SDK, which is in GA.
 
     :::image type="content"source="./media/azure-web-apps-python/app-service-python.png" alt-text="Screenshot of instrument your application." lightbox="./media/azure-web-apps-python/app-service-python.png":::
 
-To enable client-side monitoring for your Python application, you need to [manually add the client-side JavaScript SDK to your application](./javascript.md). -->
-
 ## Configuration
 
 You can configure with [OpenTelemetry environment variables][ot_env_vars] such as:
