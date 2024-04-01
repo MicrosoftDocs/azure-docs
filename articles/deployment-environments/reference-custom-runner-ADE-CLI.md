@@ -147,6 +147,8 @@ You can learn more about curating environment definitions and the catalog reposi
 - [Add and Configure an Environment Definition in ADE](/azure/deployment-environments/configure-environment-definition)
 - [Best Practices For Designing Catalogs](/azure/deployment-environments/best-practice-catalog-structure)
 
+Additionally, your files would also be available within the container at '/ade/repository/{YOUR_CATALOG_NAME}/{RELATIVE_DIRECTORY_TO_MANIFEST}'. For example, if within the repository you connected as your catalog, named Catalog1, your manifest file is stored at Folder1/Folder2/environment.yaml, your files would be present within the container at '/ade/repository/Catalog1/Folder1/Folder2'. ADE will add these files automatically to this file location, as it is necessary to execute your deployment or deletion successfully. 
+
 ## ade files command set
 The `ade files` command set allows a customer to upload and download files within the executing operation container for a certain environment to be used later in the container, or in later operation executions. This command set is also used to upload state files generated for certain Infrastructure-as-Code (IaC) providers.
 
