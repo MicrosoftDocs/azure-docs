@@ -3908,6 +3908,11 @@
             "source_path_from_root": "/articles/storage/common/storage-account-move.md",
             "redirect_url": "/azure/operational-excellence/relocation-storage-account",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/resource-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/concepts-resource-propagation",
+            "redirect_document_id": false
         }
     ]
 }

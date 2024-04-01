@@ -336,7 +336,7 @@ If you created a Azure Kubernetes Fleet Manager resource with the hub cluster en
 
 ## Next steps
 
-[Set up Kubernetes resource propagation from hub cluster to member clusters](./resource-propagation.md).
+[Set up Kubernetes resource propagation from hub cluster to member clusters](./quickstart-resource-propagation.md).
 
 <!-- LINKS - external -->
 [fleet-github]: https://github.com/Azure/fleet
