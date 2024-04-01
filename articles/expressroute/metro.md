@@ -34,7 +34,7 @@ Key features of ExpressRoute Metro include:
 
 The following diagram allows for a comparison between the standard ExpressRoute circuit and a ExpressRoute Metro circuit.
 
-:::image type="content" source="./media/expressroute-metro/standard-vs-metro.png" alt-text="Diagram of a standard ExpressRoute circuit and a ExpressRoute Metro circuit.":::
+:::image type="content" source="./media/metro/standard-versus-metro.png" alt-text="Diagram of a standard ExpressRoute circuit and a ExpressRoute Metro circuit.":::
 
 ## ExpressRoute Metro locations
 
@@ -42,9 +42,8 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 |--|--|--|--|--|--|--|
 | Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Equinix AMS8 | 1 | West Europe | &check; | Megaport<br>Equinix<sup>1</sup><br>Colt<sup>1</sup><br>Console Connect<sup>1</sup><br>Digital Reality<sup>1</sup> |
 | Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | West Europe | &check; | Megaport<sup>1</sup><br>Equinix<sup>1</sup><br>Console Connect<sup>1</sup> |
-| Zurich Metro | Zurich<br>Zurich2 | Interxion ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<sup>1</sup>Digital Reality<sup>1</sup> |
+| Zurich Metro | Zurich<br>Zurich2 | Interxion ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<sup>1</sup><br>Digital Reality<sup>1</sup> |
 
-<sup>1<sup> These service providers will be available in the future.
 
 
 > [!NOTE]
@@ -56,17 +55,17 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 You can create an ExpressRoute Metro circuit in the Azure portal in any of the three metropolitan areas. Within the portal, specify one of the Metro peering locations and the corresponding service provider supported in that location. For more information, see [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
 
-:::image type="content" source="./media/expressroute-metro/create-metro-circuit.png" alt-text="Screenshot of creating an ExpressRoute Metro circuit.":::
+:::image type="content" source="./media/metro/create-metro-circuit.png" alt-text="Screenshot of creating an ExpressRoute Metro circuit.":::
 
 ### Create a Metro ExpressRoute Direct
 
 1. A Metro ExpressRoute Direct port can be created in the Azure portal. Within the portal, specify one of the Metro peering locations. For more information, see [Create an ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
-    :::image type="content" source="./media/expressroute-metro/create-metro-circuit.png" alt-text="Screenshot of creating Metro ExpressRoute Direct ports.":::
+    :::image type="content" source="./media/metro/create-metro-direct.png" alt-text="Screenshot of creating Metro ExpressRoute Direct ports.":::
 
 1. One you provisioned the Metro ExpressRoute Direct ports, you can download the LOA (Letter of Authorization), obtain the Meet-Me-Room details, and extend your physical cross-connects.
 
-    :::image type="content" source="./media/expressroute-metro/generate-letter-of-authorization.png" alt-text="Screenshot of generating letter of authorization.":::
+    :::image type="content" source="./media/metro/generate-letter-of-authorization.png" alt-text="Screenshot of generating letter of authorization.":::
 
 ## Next steps
 
