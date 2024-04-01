@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraPermissionDenied UFD
-The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at OS level.
+The `cameraPermissionDenied UFD` event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at OS level.
 
 | cameraPermissionDenied                | Details                |
 | --------------------------------------|------------------------|
@@ -21,7 +21,7 @@ The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK d
 | value type                            | DiagnosticFlag         |
 | possible values                       | true, false            |
 
-## Example code to trap a cameraPermission Denided UFD event
+## Example code to trap a cameraPermissionDenided UFD event
 ```typescript
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraPermissionDenied') {
@@ -34,11 +34,16 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-Your application should invoke `DeviceManager.askDevicePermission` before the call starts to check whether the permission has been granted or not. If the permission to use the camera is denied, the application should display a message on your user interface. Additionally, your application should acquire camera browser permission before listing the available camera devices. If there is no permission granted, the application won't be able to get the detailed information of the camera devices on the user's system.
+Your application should invoke `DeviceManager.askDevicePermission` before the call starts to check whether the permission has been granted or not.
+If the permission to use the camera is denied, the application should display a message on your user interface.
+Additionally, your application should acquire camera browser permission before listing the available camera devices.
+If there is no permission granted, the application won't be able to get the detailed information of the camera devices on the user's system.
 
-The camera permission can also be revoked during a call, so your application should also subscribe to events from the User Facing Diagnostics events and you should consider displaying a message on your user interface to alert users of permission issues. Your end users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the camera access at OS level.
+The camera permission can also be revoked during a call, so your application should also subscribe to events from the User Facing Diagnostics events to display a message on the user interface.
+The end users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the camera access at OS level.
 
 > [!NOTE]
 > Some browser platforms will cache the ask permission results.
 
-If a user denies the permission at browser layer previously, `askDevicePermission` cannot trigger the permission UI prompt, but it can know the permission has been denied. Your application should show instructions and ask the user to reset or grant the browser camera permission manually.
+If a user has denied the permission at browser layer previously, `askDevicePermission` API won't trigger the permission UI prompt, but it can know the permission has been denied.
+Your application should show instructions and ask the user to reset or grant the browser camera permission manually.
