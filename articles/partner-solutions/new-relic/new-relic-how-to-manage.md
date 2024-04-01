@@ -95,18 +95,26 @@ For each virtual machine, the following info appears:
 > [!NOTE]
 > If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
 
-## Monitor virtual machine scale sets by using the New Relic agent
+## Monitor Azure Virtual Machine Scale Sets by using the New Relic agent
 
-You can install New Relic agent on virtual machine scale sets as an extension. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu. In the working pane, you see a list of all virtual machine scale sets in the subscription.
-Virtual Machine Scale Sets (VMSS) is an Azure Compute resource which can be used to deploy and manage a set of identical VMs. Please familiarize yourself with the Azure resource [here](../../virtual-machine-scale-sets/overview.md) and the orchestration modes available [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
+You can install New Relic agent on Azure Virtual Machine Scale Sets as an extension.
 
-The native integration can be used to install agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, will receive the agent extension in the event of a scale-up scenario. VMSS resources in a uniform orchestration mode supports Automatic, Rolling, and Manual upgrade policy while resources in Flexible orchestration mode only supports manual upgrade today. In case, a manual upgrade policy is set for a resource, please upgrade the instances manually by installing the agent extension for the already scaled up instances. The auto-scaling and instance orchestration guide can be found [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#autoscaling-and-instance-orchestration)
+1. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu.
+1. In the working pane, you see a list of all virtual machine scale sets in the subscription.
+
+Virtual Machine Scale Sets is an Azure Compute resource that can be used to deploy and manage a set of identical VMs. For more information, see [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md).
+
+For more information on the orchestration modes available [orchestration modes](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
+
+Use  native integration to install an agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, receive the agent extension during scale-up. Virtual Machine Scale Sets resources in a uniform orchestration mode support _Automatic_, _Rolling_, and _Manual_ upgrade policy. Resources in Flexible orchestration mode only support manual upgrade.
+
+If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#autoscaling-and-instance-orchestration).
 
 > [!NOTE]
-> In manual upgrade policy, pre-existing VM instances will not receive the extension automatically. This will show the agent status as **Partially Installed**. Please upgrade the VM instances by manually installing extension on them from the VM extensions blade or by going to ‘VMSS resource/Instances’ view.
+> In manual upgrade policy, pre-existing VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.
 
 > [!NOTE]
-> The agent installation dashboard will support the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from VMSS Flex resources.
+> The agent installation dashboard supports the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from Virtual Machine Scale Sets Flex resources.
 
 ## Monitor app services by using the New Relic agent
 
@@ -120,7 +128,7 @@ For each app service, the following information appears:
  |--|----|
  | **Resource name**         | App service name.|
  | **Resource status**       | Indicates whether the App service is running or stopped. The New Relic agent can be installed only on app services that are running.|
- | **App Service plan**      | The plan that's configured for the app service.|
+ | **App Service plan**      | The plan configured for the app service.|
  | **Agent status**          | Status of the agent. |
   
 To install the New Relic agent, select the app service and then select **Install Extension**. The application settings for the selected app service are updated, and the app service is restarted to complete the configuration of the New Relic agent.

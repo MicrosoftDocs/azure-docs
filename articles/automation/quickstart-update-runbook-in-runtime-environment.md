@@ -13,7 +13,7 @@ ms.custom: references_regions
 Using the Runtime environment, you can upgrade a runbook from one Runtime version to the other by creating a different Runtime environment and then linking the runbook to it. You can follow similar steps for updating Python runbooks. 
 
 > [!NOTE]
-> [PowerShell 7.1](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3#powershell-end-of-support-dates) and [Python 2.7](https://devguide.python.org/versions/) are no longer supported by their respective parent products PowerShell and Python. We recommend that you update outdated runbooks to latest supported versions using Runtime environment.
+> [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python 2.7](https://devguide.python.org/versions/) are no longer supported by their respective parent products PowerShell and Python. We recommend that you update outdated runbooks to latest supported versions using Runtime environment.
 
 ## Prerequisites
 

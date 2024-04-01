@@ -7,7 +7,6 @@ author: mbender-ms
 manager: KumudD
 ms.service: load-balancer
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 10/25/2023
 ms.author: mbender
 ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
@@ -28,7 +27,7 @@ Using an ARM template takes fewer steps comparing to other deployment methods.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-standard-create%2Fazuredeploy.json)
+:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-standard-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 

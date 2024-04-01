@@ -118,7 +118,7 @@ public async Task CreateResourceWithSystemAssignedManagedIdentity()
         DataLocation = "UnitedStates",
         Identity = identity
     };
-    var communicationServiceLro = await collection.GetCommunicationServiceResources().CreateOrUpdateAsync(WaitUntil.Completed, communicationServiceName, data);
+    var communicationServiceLro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, communicationServiceName, data);
     var resource = communicationServiceLro.Value;
 }
 ```

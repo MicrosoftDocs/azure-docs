@@ -17,7 +17,7 @@ This tutorial describes how to use Defender for IoT's **Firmware analysis** page
 ## Prerequisites
 
 > [!NOTE]
-> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Azure User Roles and Permissions](/azure/role-based-access-control/built-in-roles).
+> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Defender for IoT Firmware Analysis Azure RBAC](defender-iot-firmware-analysis-rbac.md).
 >
 
 To use the **Firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
@@ -28,18 +28,20 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 1 GB in size.
 
+To learn more about what roles you need to perform firmware analysis and share your analysis results, see [Defender for IoT Firmware Analysis Azure RBAC](defender-iot-firmware-analysis-rbac.md).
+
 ## Select the region for storing firmware images
 
 If this is your first interaction with **Firmware analysis,** then you'll need to select a region in which to upload and store your firmware images. 
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot that shows the Defender for IoT portal.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot that shows the Defender for IoT portal." lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
 
 1. Select **Firmware analysis**.
 1. Select a region to use for storage.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/select-region.png" alt-text="Screenshot that shows selecting an Azure Region.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/select-region-updated.png" alt-text="Screenshot that shows selecting an Azure Region." lightbox="media/tutorial-firmware-analysis/select-region-updated.png":::
 
 ## Upload a firmware image for analysis
 
@@ -49,7 +51,7 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
 
 1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within Firmware Analysis.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within Firmware Analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
 
 1. Enter the following details:
 
@@ -70,11 +72,11 @@ The analysis time will vary based on the size of the firmware image and the numb
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/firmware-details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details." lightbox="media/tutorial-firmware-analysis/firmware-details.png":::
     
 1. Select **View results** to drill down for more details.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/overview.png":::
     
 1. The firmware details page shows security analysis results on the following tabs:
 
@@ -88,7 +90,7 @@ The analysis time will vary based on the size of the firmware image and the numb
     |**Certificates**     |   View a list of TLS/SSL certificates found in the firmware.<br><br>Select a specific certificate to view more details.|
     |**Keys**     |   View a list of public and private crypto keys in the firmware.<br><br>Select a specific key to view more details.|
 
-    :::image type="content" source="media/tutorial-firmware-analysis/weaknesses.png" alt-text="Screenshot that shows the weaknesses (CVE) analysis of the firmware image.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/weaknesses.png" alt-text="Screenshot that shows the weaknesses (CVE) analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/weaknesses.png":::
 
 ## Delete a firmware image
 
@@ -102,5 +104,5 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
 

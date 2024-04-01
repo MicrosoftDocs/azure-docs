@@ -71,13 +71,15 @@ This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages
 
 A series of registration steps run before and after the runtime processes the startup class. Therefore, keep in mind the following items:
 
-- *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
+- *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register other dependencies, which can affect how your services operate.
 
-- *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
+- *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are set up in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
+
+- *Configuring ASP.NET authentication isn't supported*. The Functions host configures ASP.NET authentication services to properly expose APIs for core lifecycle operations. Other configurations in a custom `Startup` class can override this configuration, causing unintended consequences. For example, calling `builder.Services.AddAuthentication()` can break authentication between the portal and the host, leading to messages such as [Azure Functions runtime is unreachable](./functions-recover-storage-account.md#aspnet-authentication-overrides).
 
 ## Use injected dependencies
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes for injected services or for your function classes.
+Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you don't use static classes for injected services or for your function classes.
 
 The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
@@ -140,7 +142,7 @@ Application Insights is added by Azure Functions automatically.
 
 ### ILogger\<T\> and ILoggerFactory
 
-The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt-in to additional filters and categories.
+The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt in to extra filters and categories.
 
 The following example demonstrates how to add an `ILogger<HttpTrigger>` with logs that are exposed to the host.
 
@@ -206,7 +208,7 @@ Overriding services provided by the host is currently not supported.  If there a
 
 Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs. Please note that, the functions running on Elastic Premium SKU has this constraint "App setting names can only contain letters, numbers (0-9), periods ("."), colons (":") and underscores ("_")"
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs. For functions running in an Elastic Premium plan, application setting names can only contain letters, numbers (`0-9`), periods (`.`), colons (`:`) and underscores (`_`). For more information, see [App setting considerations](functions-app-settings.md#app-setting-considerations).
 
 Consider the following class that includes a property named consistent with an app setting:
 
@@ -256,11 +258,11 @@ public class HttpTrigger
 }
 ```
 
-Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+For more information, see [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 ## Using ASP.NET Core user secrets
 
-When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+When you develop your app locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
 
 To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
 
@@ -278,9 +280,9 @@ To access user secrets values in your function app code, use `IConfiguration` or
 
 ## Customizing configuration sources
 
-To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
+To specify other configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
 
-The following sample adds configuration values from a base and an optional environment-specific app settings files.
+The following sample adds configuration values from both base and optional environment-specific app settings files.
 
 ```csharp
 using System.IO;
@@ -314,7 +316,7 @@ Add configuration providers to the `ConfigurationBuilder` property of `IFunction
 
 A `FunctionsHostBuilderContext` is obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use this context to retrieve the current environment name and resolve the location of configuration files in your function app folder.
 
-By default, configuration files such as *appsettings.json* are not automatically copied to the function app's output folder. Update your *.csproj* file to match the following sample to ensure the files are copied.
+By default, configuration files such as `appsettings.json` aren't automatically copied to the function app's output folder. Update your `.csproj` file to match the following sample to ensure the files are copied.
 
 ```xml
 <None Update="appsettings.json">

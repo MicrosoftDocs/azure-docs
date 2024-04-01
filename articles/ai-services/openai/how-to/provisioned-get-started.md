@@ -78,7 +78,7 @@ The inferencing code for provisioned deployments is the same a standard deployme
 
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_KEY"),  
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
         api_version="2023-05-15"
     )
 
@@ -138,7 +138,7 @@ from openai import AzureOpenAI
 # Configure the default for all requests:
 client = AzureOpenAI(
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_KEY"),
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
     api_version="2023-05-15",
     max_retries=5,# default is 2
 )

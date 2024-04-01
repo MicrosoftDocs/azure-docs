@@ -150,7 +150,7 @@ The steps to enable geo-redundancy for large file shares will vary based on the 
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
-1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-replication-setting-using-the-portal-powershell-or-the-cli) for your storage account to GRS or GZRS.
+1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
 1. Verify that the [large file shares setting is enabled](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account.
 1. **Optional:** [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB.
 

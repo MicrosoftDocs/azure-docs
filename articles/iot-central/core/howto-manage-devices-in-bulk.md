@@ -7,7 +7,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/24/2023
 ms.topic: how-to
-ms.custom: contperf-fy23q1
+ms.custom: engagement-fy23
 ---
 
 # Manage devices in bulk in your Azure IoT Central application

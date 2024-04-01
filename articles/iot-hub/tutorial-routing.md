@@ -14,7 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 # Tutorial: Send device data to Azure Storage using IoT Hub message routing
 
-Use [message routing](iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining  [routing queries](iot-hub-devguide-routing-query-syntax.md). Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
+Use message routing in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining routing queries. Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
 
 In this tutorial, you perform the following tasks:
 

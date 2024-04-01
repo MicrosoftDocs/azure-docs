@@ -6,7 +6,6 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
 ---
 # Manage an App Service Environment
 

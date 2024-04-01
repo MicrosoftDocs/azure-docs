@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to configure eID-Me as an identity provider (IdP). My goal is to enable users to verify their identity and sign in using eID-Me.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to configure eID-Me as an identity provider (IdP). My goal is to enable users to verify their identity and sign in using eID-Me.
 ---
 
 # Configure Azure Active Directory B2C with Bluink eID-Me for identity verification

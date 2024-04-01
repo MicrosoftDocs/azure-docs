@@ -7,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/27/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contentperf-fy23q1, devx-track-azurecli
+ms.custom: engagement-fy23, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

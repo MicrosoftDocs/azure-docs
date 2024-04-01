@@ -3,7 +3,7 @@ title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 04/18/2023
+ms.date: 03/20/2024
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
@@ -13,13 +13,14 @@ The Kubernetes provider allows you to create Kubernetes resources directly with 
 > [!NOTE]
 > Kubernetes provider is not currently supported for private clusters:
 > 
-> ```json
+> ```bicep
 > resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
+>  ...
 >  properties: {
->   "apiServerAccessProfile": {
->     "enablePrivateCluster": "true"
->     }
+>   apiServerAccessProfile: {
+>     enablePrivateCluster: true
 >   }
+>  }
 > }
 > 
 > ```

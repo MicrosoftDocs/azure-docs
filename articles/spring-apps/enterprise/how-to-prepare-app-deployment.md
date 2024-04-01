@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -153,7 +153,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of commercial support |
 |---------------------|---------------------------------|---------------------------|
-| 3.2.x               | 2022.0.3+ also known as Kilburn | 2026-02-23                |
+| 3.2.x               | 2023.0.x also known as Leyton   | 2026-02-23                |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2025-08-18                |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
@@ -163,7 +163,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of support |
 |---------------------|---------------------------------|----------------|
-| 3.2.x               | 2022.0.3+ also known as Kilburn | 2024-11-23     |
+| 3.2.x               | 2023.0.x also known as Leyton   | 2024-11-23     |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |

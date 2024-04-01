@@ -4,7 +4,6 @@ description: In this article, you learn how to onboard a custom domain to Azure 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.author: duau

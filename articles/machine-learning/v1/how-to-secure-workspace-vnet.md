@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/29/2023
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, tracking-python, security, cliv1, sdkv1, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
@@ -365,5 +365,3 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md)
 * [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md)
 * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
-
-

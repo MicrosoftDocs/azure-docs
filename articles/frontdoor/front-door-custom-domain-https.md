@@ -5,7 +5,6 @@ description: In this tutorial, you learn how to enable and disable HTTPS on your
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.author: duau

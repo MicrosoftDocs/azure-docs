@@ -5,7 +5,6 @@ author: samyaktelsang-msft
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 9/12/2023
 ms.author: satelsan
 ms.custom: devx-track-azurecli

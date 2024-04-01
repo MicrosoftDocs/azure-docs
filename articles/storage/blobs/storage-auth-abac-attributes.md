@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 02/07/2024
 ms.reviewer: nachakra
 ---
 
@@ -524,7 +524,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet |
-> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet configured.* |
+> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet using [service endpoints](../common/storage-network-security.md#grant-access-from-a-virtual-network) configured.* |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |

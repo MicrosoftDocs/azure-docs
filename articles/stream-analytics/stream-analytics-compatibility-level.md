@@ -4,7 +4,6 @@ description: Learn how to set a compatibility level for an Azure Stream Analytic
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---

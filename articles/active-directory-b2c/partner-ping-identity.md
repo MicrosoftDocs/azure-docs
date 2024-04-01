@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
+# Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access

@@ -68,7 +68,6 @@ Here's how to install the client on a per-user basis using a PowerShell script w
    | Name | Enter `Remote Desktop`. |
    | Publisher | Enter `Microsoft Corporation`. |
    | Install command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
-   | Install command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Install.ps1` |
    | Uninstall command | `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File .\Uninstall.ps1` |
    | Install behavior | Select **User**. |
    | Operating system architecture | Select **64-bit** or **32-bit**, depending on the version of the Remote Desktop client you downloaded. |

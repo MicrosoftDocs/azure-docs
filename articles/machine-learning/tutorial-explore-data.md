@@ -60,13 +60,13 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
 1. The terminal window opens in a new tab. 
 1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
 
-    ```
+    ```bash
     cd get-started-notebooks    #  modify this to the path where your notebook is located
     ```
 
 1. Enter these commands in the terminal window to copy the data to your compute instance:
 
-    ```
+    ```bash
     mkdir data
     cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
@@ -179,7 +179,7 @@ An Azure Machine Learning datastore is a *reference* to an *existing* storage ac
 
 Pandas directly support URIs - this example shows how to read a CSV file from an Azure Machine Learning Datastore:
 
-```
+```python
 import pandas as pd
 
 df = pd.read_csv("azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<filename>.csv")

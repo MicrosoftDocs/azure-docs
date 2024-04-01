@@ -5,7 +5,6 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 07/26/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Classify and analyze data using entities in Microsoft Sentinel

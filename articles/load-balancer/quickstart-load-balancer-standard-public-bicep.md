@@ -6,7 +6,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 10/25/2023
 ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep

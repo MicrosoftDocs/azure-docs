@@ -5,7 +5,6 @@ services: api-management
 author: dlepow
  
 ms.service: api-management
-ms.workload: mobile
 ms.topic: how-to
 ms.date: 08/03/2022
 ms.author: danlep

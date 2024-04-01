@@ -3,19 +3,18 @@ title: Deploy from local Git repo
 description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code from your local machine.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
-ms.date: 01/26/2024
+ms.date: 02/29/2024
 ms.reviewer: dariac
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
 ms.author: cephalin
-
 ---
 # Local Git deployment to Azure App Service
 
 This how-to guide shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 
 > [!NOTE]
-> When [basic authentication is disabled](configure-basic-auth-disable.md), Local Git deployment doesn't work, and you can't configure Local Git deployment in the app's Deployment Center.
+> When [SCM basic authentication is disabled](configure-basic-auth-disable.md), Local Git deployment doesn't work, and you can't configure Local Git deployment in the app's Deployment Center.
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 10/19/2023
-ms.custom: template-how-to, devx-track-azurecli, linux-related-content
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options

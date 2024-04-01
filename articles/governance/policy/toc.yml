@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Assign a policy - Portal
+  - name: Assign a policy - Azure portal
     displayName: assign, compliance
     href: ./assign-policy-portal.md
   - name: Assign a policy - Azure CLI
@@ -124,10 +124,6 @@
         href: ./samples/mcfs-baseline-confidential.md
       - name: Microsoft Cloud for Sovereignty Global
         href: ./samples/mcfs-baseline-global.md
-      - name: New Zealand ISM Restricted
-        href: ./samples/new-zealand-ism.md
-      - name: New Zealand ISM Restricted v3.5
-        href: ./samples/nz-ism-restricted-3-5.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-53 Rev. 5

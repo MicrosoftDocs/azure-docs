@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer, and I want to configure Nevis with Azure Active Directory B2C for passwordless authentication. I need to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
+# Customer intent: I'm a developer, and I want to configure Nevis with Azure Active Directory B2C for passwordless authentication. I need to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
 ---
 
 # Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication

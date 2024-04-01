@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developers working with Azure Active Directory B2C. I need videos that provide a deep-dive into the architecture and features of the service. My goal is to gain a better understanding of how to implement and utilize Azure AD B2C in my applications.
+# Customer intent: I'm a developers working with Azure Active Directory B2C. I need videos that provide a deep-dive into the architecture and features of the service. My goal is to gain a better understanding of how to implement and utilize Azure AD B2C in my applications.
 ---
 
 # Microsoft Azure Active Directory B2C external identity video series

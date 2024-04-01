@@ -5,10 +5,9 @@ description: Learn how to build, test, and store containers with some or all of 
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 02/22/2024
 ms.author: aahi
 #Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 ---

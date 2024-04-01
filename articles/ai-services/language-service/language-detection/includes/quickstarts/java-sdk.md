@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.custom: devx-track-java, ignite-fall-2021
+ms.custom: devx-track-java
 ms.author: jboback
 ---
 

@@ -4,7 +4,7 @@ description: Learn about alerts based on metrics for virtual network VPN gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 03/12/2024
 ms.author: cherylmc
 
 ---

@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
 
-#customer intent: As an Azure AD B2C administrator, I want to integrate Deduce with Azure AD B2C authentication. I want to combat identity fraud and create a trusted user experience for my organization.
+# Customer intent: As an Azure AD B2C administrator, I want to integrate Deduce with Azure AD B2C authentication. I want to combat identity fraud and create a trusted user experience for my organization.
 ---
 
 # Configure Azure Active Directory B2C with Deduce to combat identity fraud and create a trusted user experience

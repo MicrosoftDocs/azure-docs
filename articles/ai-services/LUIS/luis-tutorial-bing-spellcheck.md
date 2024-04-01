@@ -6,7 +6,6 @@ description: Correct misspelled words in utterances by adding Bing Spell Check A
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to

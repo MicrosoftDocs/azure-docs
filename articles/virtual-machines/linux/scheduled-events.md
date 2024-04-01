@@ -1,12 +1,11 @@
 ---
-title: Scheduled Events for Linux VMs in Azure 
+title: Scheduled Events for Linux VMs in Azure
 description: Scheduled events using the Azure Metadata Service for your Linux virtual machines.
 author: EricRadzikowskiMSFT
 ms.service: virtual-machines
 ms.subservice: scheduled-events
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-python
 ms.date: 01/25/2023
 ms.author: ericrad

@@ -6,7 +6,6 @@ author: greg-lindsay
 manager: kumudD
 ms.service: dns
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 11/30/2023
 ms.author: greglin
 ---

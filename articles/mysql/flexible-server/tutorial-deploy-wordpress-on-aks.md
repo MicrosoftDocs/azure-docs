@@ -320,8 +320,7 @@ Open a web browser to the external IP address of your service to see your WordPr
 
 > [!NOTE]
 >
-> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
+> - WordPress site isn't configured to use HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](../../aks/app-routing.md).
 
 ## Clean up the resources
 

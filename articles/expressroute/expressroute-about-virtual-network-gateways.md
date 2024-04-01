@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2024
+ms.date: 03/18/2024
 ms.author: duau
 ms.custom: ignite-2023
 ---
@@ -102,6 +102,10 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
 
+## VNet to VNet and VNet to Virtual WAN connectivity
+
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+
 ## <a name="fastpath"></a>FastPath
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
@@ -189,15 +193,18 @@ ErGwScale is free of charge during public preview. For information about Express
 
 | Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
 |--|--|--|--|--|--|
-| 1 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 1-10 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 11-40 | 1 | 100,000 | 7,000 | 1,000 | 100,000 |
 
 #### Sample performance with scale unit
 
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
 |--|--|--|--|--|--|
 | 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
-| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 2,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 4,000,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
+
+<sup>1</sup> Maximum VM connections scales differently beyond 10 scale units. The first 10 scale units will provide capacity for 2,000 VMs per scale unit. Scale units 11 and above will provide 1,000 additional VM capacity per scale unit.
 
 ## Next steps
 

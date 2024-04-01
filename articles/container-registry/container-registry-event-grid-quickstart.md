@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.date: 10/31/2023
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 # Customer intent: As a container registry owner, I want to send events to Event Grid when container images are pushed to or deleted from my container registry so that downstream applications can react to those events.
 ---
 

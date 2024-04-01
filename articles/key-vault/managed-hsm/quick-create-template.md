@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/21/2023
+ms.date: 02/20/2024
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -21,7 +21,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
+:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ You can now deploy the ARM template:
 
 1. Select the following image to sign in to Azure and open a template. The template creates a Managed HSM.
 
-    :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
+    :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json":::
 
 1. Select or enter the following values.  Unless specified, use the default value to create the Managed HSM.
 

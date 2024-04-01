@@ -18,13 +18,10 @@ Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices
 
 This module is useful in scenarios:
 
-* where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
-* when devices are located in a place with limited connectivity.
-* when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
-* when you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
-
-Watch the video for quick introduction
-> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
+* Where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
+* When devices are located in a place with limited connectivity.
+* When you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
+* When you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
 
 This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features.
 

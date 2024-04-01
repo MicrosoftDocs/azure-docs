@@ -4,7 +4,6 @@ description: Learn how to scale changes in throughput in Azure Cosmos DB using P
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: sidandrews

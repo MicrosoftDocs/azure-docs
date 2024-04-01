@@ -4,11 +4,10 @@ description: 'Azure Load Testing is a fully managed load-testing service for gen
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 05/09/2023
 adobe-target: true
-ms.custom: contperf-fy22q4
 ---
 
 # What is Azure Load Testing?

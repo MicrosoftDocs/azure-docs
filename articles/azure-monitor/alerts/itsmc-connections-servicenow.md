@@ -1,10 +1,10 @@
 ---
 title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 6/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Connect ServiceNow with IT Service Management Connector
@@ -120,7 +120,7 @@ Use the following procedure to create a ServiceNow connection.
    | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com* (for example `https://XXXXX.service-now.com/`).|
    | **Username**   | Enter the integration username that you created in the ServiceNow app to support the connection to ITSMC.|
    | **Password**   | Enter the password associated with this username. **Note**: The username and password are used for generating authentication tokens only. They're not stored anywhere within the ITSMC service.  |
-   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://learn.microsoft.com/azure/azure-monitor/alerts/itsmc-connections-servicenow#oauth-setup). |
+   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](/azure/azure-monitor/alerts/itsmc-connections-servicenow#oauth-setup). |
    | **Client Secret**   | Enter the client secret generated for this ID.   |
    | **Data Sync Scope (in Days)** | Enter the number of past days that you want the data from. The limit is 120 days. |
    | **Work Items To Sync**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through ITSMC. The selected values are imported into Log Analytics. Options are incidents and change requests.|
@@ -132,7 +132,7 @@ When you're successfully connected and synced:
 
 - Selected work items from the ServiceNow instance are imported into Log Analytics. You can view the summary of these work items on the **IT Service Management Connector** tile.
 
-- You can create incidents from Log Analytics alerts or log records, or from Azure alerts in this ServiceNow instance.
+- You can create incidents from log search alerts or log records, or from Azure alerts in this ServiceNow instance.
 
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
@@ -143,7 +143,7 @@ The payload that is sent to ServiceNow has a common structure. The structure has
 
 The structure of the payload for all alert types except log search V1 alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts (V1 only), the structure is:
+For Log search alerts (V1 only), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

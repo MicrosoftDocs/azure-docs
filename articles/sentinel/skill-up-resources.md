@@ -119,7 +119,7 @@ There are three common scenarios for side-by-side deployment:
 * Over time, as Microsoft Sentinel covers more workloads, you would ordinarily reverse direction and send alerts from your on-premises SIEM to Microsoft Sentinel. To do so:
     * For Splunk, see [Send data and notable events from Splunk to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237).
     * For QRadar, see [Send QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043).
-    * For ArcSight, see [Common Event Format (CEF) forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
+    * For ArcSight, see [Common Event Format (CEF) forwarding](https://community.microfocus.com/cyberres/arcsight/f/discussions/241072/using-forwarding-connector-to-send-logs-to-esm-and-logger-destination).
 
 You can also send the alerts from Microsoft Sentinel to your third-party SIEM or ticketing system by using the [Graph Security API](/graph/security-integration). This approach is simpler, but it doesn't enable sending other data. 
 

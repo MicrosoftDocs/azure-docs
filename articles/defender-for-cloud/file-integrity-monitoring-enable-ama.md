@@ -1,17 +1,17 @@
 ---
 title: Enable File Integrity Monitoring (Azure Monitor Agent)
-description: Learn how to enable File Integrity Monitor when you collect data with the Azure Monitor Agent (AMA)
+description: Learn how to enable File Integrity Monitor when you collect data with the Azure Monitor Agent (AMA.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 03/12/2024
 ---
 # Enable File Integrity Monitoring when using the Azure Monitor Agent
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Azure Monitor Agent (AMA) collects data from machines according to [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md). When the current state of your system files is compared with the state during the previous scan, FIM notifies you about suspicious modifications.
 
 > [!NOTE]
-> As part of our Defender for Cloud updated strategy, the Azure Monitor Agent will no longer be required to receive all the capabilities of Defender for Servers. All features that currently rely on the Azure Monitor Agent, including those described on this page, will be available through [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), by August 2024. To access the full capabilities of Defender for SQL server on machines, the Azure monitoring Agent (also known as AMA) is required. For more information about the feature road map, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+> As part of our Defender for Cloud updated strategy, the Azure Monitor Agent will no longer be required to receive all the capabilities of Defender for Servers. All features that currently rely on the Azure Monitor Agent, including those described on this page, will be available through [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), by August 2024. To access the full capabilities of Defender for SQL server on machines, the Azure monitoring agent (also known as AMA) is required. For more information about the feature road map, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 File Integrity Monitoring with the Azure Monitor Agent offers:
 
@@ -40,9 +40,9 @@ In this article you'll learn how to:
 
 To track changes to your files on machines with AMA:
 
-- Enable [Defender for Servers Plan 2](defender-for-servers-introduction.md)
+- Enable [Defender for Servers Plan 2](defender-for-servers-introduction.md).
 
-- [Install AMA](auto-deploy-azure-monitoring-agent.md) on machines that you want to monitor
+- [Install AMA](../azure-monitor/vm/monitor-virtual-machine-agent.md) on machines you want to monitor.
 
 ## Enable File Integrity Monitoring with AMA
 
@@ -55,14 +55,14 @@ To enable File Integrity Monitoring (FIM), use the FIM recommendation to select 
     The recommendation fix:
 
     - Installs the `ChangeTracking-Windows` or `ChangeTracking-Linux` extension on the machines.
-    - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
+    - Generates a data collection rule (DCR) for the subscription named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr` that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
     - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
 
     You can update the DCR and Log Analytics workspace settings later.
 
 1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
-    :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
+    :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent." lightbox="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png":::
 
 1. The machines with File Integrity Monitoring enabled are shown.
 

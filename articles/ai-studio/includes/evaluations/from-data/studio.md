@@ -41,7 +41,7 @@ From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Built-
 :::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-flow-page.png" alt-text="Screenshot of how to select builtin evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-flow-page.png":::
 
 #### Basic information
-When you enter the evaluation creation wizard, provide a name for your evaluation run and select the scenario that best aligns with your application's objectives. You need to select a runtime to run the evaluation. A runtime is a compute instance with environment attached. If you don't have any runtime available, navigate to **Build** > **Settings** to create one. We currently offer support for the following scenarios: 
+When you enter the evaluation creation wizard, provide a name for your evaluation run and select the scenario that best aligns with your application's objectives. You need to select a runtime to run the evaluation. A runtime is a compute instance with environment attached. If you don't have any runtime available, navigate to **Build** > **AI project settings** > **Compute instances** to create one. We currently offer support for the following scenarios: 
 
 + **Question answering**: This scenario is designed for applications that involve answering user queries and providing responses. 
 + **Conversation**: This scenario is suitable for applications where the model engages in conversation using a retrieval-augmented approach to extract information from your provided documents and generate detailed responses. 

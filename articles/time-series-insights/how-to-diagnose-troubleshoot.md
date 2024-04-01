@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.custom: seodec18
 ---
 
 # Diagnose and troubleshoot an Azure Time Series Insights Gen2 environment

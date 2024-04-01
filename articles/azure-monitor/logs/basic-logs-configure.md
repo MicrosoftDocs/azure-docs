@@ -3,7 +3,7 @@ title: Set a table's log data plan to Basic Logs or Analytics Logs
 description: Learn how to use Basic Logs and Analytics Logs to reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: adi.biran
+ms.reviewer: osalzberg
 ms.topic: how-to
 ms.date: 12/17/2023
 ---
@@ -182,11 +182,12 @@ All custom tables created with or migrated to the [data collection rule (DCR)-ba
 | Service | Table |
 |:---|:---|
 | Azure Active Directory | [AADDomainServicesDNSAuditsGeneral](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsGeneral)<br> [AADDomainServicesDNSAuditsDynamicUpdates](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsDynamicUpdates)<br>[AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/AADServicePrincipalSignInLogs) |
+| Azure Databricks | [DatabricksBrickStoreHttpGateway](/azure/azure-monitor/reference/tables/databricksbrickstorehttpgateway)<br>[DatabricksDataMonitoring](/azure/azure-monitor/reference/tables/databricksdatamonitoring)<br>[DatabricksFilesystem](/azure/azure-monitor/reference/tables/databricksfilesystem)<br>[DatabricksDashboards](/azure/azure-monitor/reference/tables/databricksdashboards)<br>[DatabricksCloudStorageMetadata](/azure/azure-monitor/reference/tables/databrickscloudstoragemetadata)<br>[DatabricksPredictiveOptimization](/azure/azure-monitor/reference/tables/databrickspredictiveoptimization)<br>[DatabricksIngestion](/azure/azure-monitor/reference/tables/databricksingestion)<br>[DatabricksMarketplaceConsumer](/azure/azure-monitor/reference/tables/databricksmarketplaceconsumer)<br>[DatabricksLineageTracking](/azure/azure-monitor/reference/tables/databrickslineagetracking)
 | API Management | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/ApiManagementGatewayLogs)<br>[ApiManagementWebSocketConnectionLogs](/azure/azure-monitor/reference/tables/ApiManagementWebSocketConnectionLogs) |
 | Application Gateways | [AGWAccessLogs](/azure/azure-monitor/reference/tables/AGWAccessLogs)<br>[AGWPerformanceLogs](/azure/azure-monitor/reference/tables/AGWPerformanceLogs)<br>[AGWFirewallLogs](/azure/azure-monitor/reference/tables/AGWFirewallLogs) |
 | Application Gateway for Containers | [AGCAccessLogs](/azure/azure-monitor/reference/tables/AGCAccessLogs) |
 | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
-| Bare Metal Machines | [NCBMSystemLogs](/azure/azure-monitor/reference/tables/NCBMSystemLogs)<br>[NCBMSecurityLogs](/azure/azure-monitor/reference/tables/NCBMSecurityLogs) |
+| Bare Metal Machines | [NCBMSecurityDefenderLogs](/azure/azure-monitor/reference/tables/ncbmsecuritydefenderlogs)<br>[NCBMSystemLogs](/azure/azure-monitor/reference/tables/NCBMSystemLogs)<br>[NCBMSecurityLogs](/azure/azure-monitor/reference/tables/NCBMSecurityLogs) <br>[NCBMBreakGlassAuditLogs](/azure/azure-monitor/reference/tables/ncbmbreakglassauditlogs)|
 | Chaos Experiments | [ChaosStudioExperimentEventLogs](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
 | Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs) |
 | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
@@ -211,6 +212,7 @@ All custom tables created with or migrated to the [data collection rule (DCR)-ba
 | Managed Lustre | [AFSAuditLogs](/azure/azure-monitor/reference/tables/AFSAuditLogs) |
 | Managed NGINX | [NGXOperationLogs](/azure/azure-monitor/reference/tables/ngxoperationlogs) |
 | Media Services | [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations)<br>[AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests)<br>[AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth)<br>[AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) |
+| Microsoft Graph | [MicrosoftGraphActivityLogs](/azure/azure-monitor/reference/tables/microsoftgraphactivitylogs) |
 | Monitor | [AzureMetricsV2](/azure/azure-monitor/reference/tables/AzureMetricsV2) |
 | Network Devices (Operator Nexus) | [MNFDeviceUpdates](/azure/azure-monitor/reference/tables/MNFDeviceUpdates)<br>[MNFSystemStateMessageUpdates](/azure/azure-monitor/reference/tables/MNFSystemStateMessageUpdates) |
 | Network Managers | [AVNMConnectivityConfigurationChange](/azure/azure-monitor/reference/tables/AVNMConnectivityConfigurationChange)<br>[AVNMIPAMPoolAllocationChange](/azure/azure-monitor/reference/tables/AVNMIPAMPoolAllocationChange) |

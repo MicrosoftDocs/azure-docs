@@ -5,11 +5,11 @@ description: Learn how Azure Machine Learning's AutoML forms lag based features 
 services: machine-learning
 author: ericwrightatwork
 ms.author: vlbejan
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 12/15/2022
 show_latex: true
 ---

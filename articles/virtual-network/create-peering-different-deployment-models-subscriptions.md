@@ -6,7 +6,6 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 06/25/2020
 ms.author: allensu

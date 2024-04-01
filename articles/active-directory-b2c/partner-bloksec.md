@@ -12,7 +12,7 @@ ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
 ---
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication

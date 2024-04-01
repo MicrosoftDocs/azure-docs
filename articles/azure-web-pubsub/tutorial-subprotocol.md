@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 01/02/2024
 ---
 
 # Tutorial: Publish and subscribe messages between WebSocket clients using subprotocol

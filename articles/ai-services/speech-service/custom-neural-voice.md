@@ -48,6 +48,11 @@ Here's an overview of the steps to create a custom neural voice in Speech Studio
 
 You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. Convert text into speech in real-time, or generate audio content offline with text input. You use the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [Speech Studio](https://speech.microsoft.com/audiocontentcreation).
 
+> [!TIP]
+> You can also use the Speech SDK and custom voice REST API to train a custom neural voice.
+> 
+> Check out the code samples in the [Speech SDK repository on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/custom-voice/README.md) to see how to use personal voice in your application.
+
 The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the text to speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
 
 ## Components sequence

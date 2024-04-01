@@ -8,7 +8,7 @@ ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: mazha
+ms.author: erikre
 
 ---
 # Core Reports from Edgio

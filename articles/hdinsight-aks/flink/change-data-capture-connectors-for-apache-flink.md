@@ -28,7 +28,7 @@ The SQLServer CDC connector is a Flink source connector, which reads database sn
 
 ### Single Thread Reading
 
-The SQLServer CDC source can’t work in parallel reading, because there's only one task, which can receive change events. For more information, refer [SQLServer CDC Connector](https://ververica.github.io/flink-cdc-connectors/master/content/connectors/sqlserver-cdc.html).
+The SQLServer CDC source can’t work in parallel reading, because there's only one task, which can receive change events. For more information, refer [SQLServer CDC Connector](https://github.com/apache/flink-cdc).
 
 ### DataStream Source
 

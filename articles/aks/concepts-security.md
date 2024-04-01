@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 author: miwithro
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 01/11/2024
+ms.date: 03/18/2024
 ms.author: miwithro
 ---
 
@@ -55,6 +55,8 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 > * Kubernetes version 1.19 and earlier - Linux node pools use Docker as its container runtime. Windows Server 2019 node pools use Docker for the default container runtime.
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
+
+AKS clusters running Azure Generation 2 VMs includes support for [Trusted Launch][trusted-launch] (preview), which protects against advanced and persistent attack techniques by combining technologies that can be independently enabled, like secure boot and virtualized version of trusted platform module (vTPM). Administrators can deploy AKS worker nodes with verified and signed bootloaders, OS kernels, and drivers to ensure integrity of the entire boot chain of the underlying VM.
 
 ### Node authorization
 
@@ -160,3 +162,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
 [manage-ssh-access]: manage-ssh-node-access.md
+[trusted-launch]: use-trusted-launch.md

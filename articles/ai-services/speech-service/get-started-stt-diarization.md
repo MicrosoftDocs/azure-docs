@@ -1,19 +1,20 @@
 ---
 title: "Real-time diarization quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you convert speech to text continuously from a file. The service transcribes the speech and identifies one or more speakers.
+description: In this quickstart, you convert speech to text continuously from a file. The Speech service transcribes the speech and identifies one or more speakers.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: quickstart
-ms.date: 7/27/2023
+ms.date: 01/30/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software
+#customer intent: As a developer, I want to create speech to text applications that use diarization to improve readability of multiple person conversations.
 ---
 
-# Quickstart: Real-time diarization (Preview)
+# Quickstart: Create real-time diarization (Preview)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/stt-diarization/csharp.md)]
@@ -55,8 +56,7 @@ keywords: speech to text, speech to text software
 [!INCLUDE [CLI include](includes/quickstarts/stt-diarization/cli.md)]
 ::: zone-end
 
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech recognition](how-to-recognize-speech.md)

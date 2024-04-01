@@ -38,6 +38,39 @@ This section provides schemas for the `CreatedOrUpdated` and `Deleted` events.
 
 ### Event schema for CreatedOrUpdated event
 
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+Here's the schema:
+
+```json
+{
+    "id": "string",
+    "source": "string",
+    "subject": "string",
+    "data": {
+        "resourceInfo": {
+            "id": "string",
+            "name": "string",
+            "type": "string",
+            "location": "string",
+            "tags": "string",
+            "properties": {
+                "_comment": "object-unique-to-each-publisher"
+            }
+        },
+        "apiVersion": "string",
+        "operationalInfo": {
+            "resourceEventTime": "datetime"
+        }
+    },
+    "type": "string",
+    "specversion": "string",
+    "time": "string"
+}
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 Here's the schema:
@@ -72,6 +105,10 @@ Here's the schema:
 
 
 
+---
+
+### Event schema for Deleted event
+
 # [Cloud event schema](#tab/cloud-event-schema)
 
 Here's the schema:
@@ -85,14 +122,8 @@ Here's the schema:
         "resourceInfo": {
             "id": "string",
             "name": "string",
-            "type": "string",
-            "location": "string",
-            "tags": "string",
-            "properties": {
-                "_comment": "object-unique-to-each-publisher"
-            }
+            "type": "string"
         },
-        "apiVersion": "string",
         "operationalInfo": {
             "resourceEventTime": "datetime"
         }
@@ -102,10 +133,6 @@ Here's the schema:
     "time": "string"
 }
 ```
-
----
-
-### Event schema for Deleted event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -130,33 +157,6 @@ Here's the schema:
     "dataVersion": "string",
     "metadataVersion": "string",
     "eventTime": "string"
-}
-```
-
-
-
-# [Cloud event schema](#tab/cloud-event-schema)
-
-Here's the schema:
-
-```json
-{
-    "id": "string",
-    "source": "string",
-    "subject": "string",
-    "data": {
-        "resourceInfo": {
-            "id": "string",
-            "name": "string",
-            "type": "string"
-        },
-        "operationalInfo": {
-            "resourceEventTime": "datetime"
-        }
-    },
-    "type": "string",
-    "specversion": "string",
-    "time": "string"
 }
 ```
 
@@ -231,83 +231,6 @@ The `operationalInfo` object has the following properties:
 ### CreatedOrUpdated event 
 This section shows the `CreatedOrUpdated` event generated when an Azure Storage account is created in the Azure subscription on which the system topic is created. 
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-```json
-{
-  "id": "4eef929a-a65c-47dd-93e2-46b8c17c6c17",
-  "topic": "/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
-  "data": {
-    "resourceInfo": {
-      "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
-      "name": "StorageAccount-name",
-      "type": "Microsoft.Storage/storageAccounts",
-      "location": "eastus",
-      "properties": {
-        "privateEndpointConnections": [],
-        "minimumTlsVersion": "TLS1_2",
-        "allowBlobPublicAccess": 1,
-        "allowSharedKeyAccess": 1,
-        "networkAcls": {
-          "bypass": "AzureServices",
-          "virtualNetworkRules": [],
-          "ipRules": [],
-          "defaultAction": "Allow"
-        },
-        "supportsHttpsTrafficOnly": 1,
-        "encryption": {
-          "requireInfrastructureEncryption": 0,
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": 1,
-              "lastEnabledTime": "2023-07-28T20:12:50.6380308Z"
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": 1,
-              "lastEnabledTime": "2023-07-28T20:12:50.6380308Z"
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "accessTier": "Hot",
-        "provisioningState": "Succeeded",
-        "creationTime": "2023-07-28T20:12:50.4661564Z",
-        "primaryEndpoints": {
-          "dfs": "https://{storageAccount-name}.dfs.core.windows.net/",
-          "web": "https://{storageAccount-name}.z13.web.core.windows.net/",
-          "blob": "https://{storageAccount-name}.blob.core.windows.net/",
-          "queue": "https://{storageAccount-name}.queue.core.windows.net/",
-          "table": "https://{storageAccount-name}.table.core.windows.net/",
-          "file": "https://{storageAccount-name}.file.core.windows.net/"
-        },
-        "primaryLocation": "eastus",
-        "statusOfPrimary": "available",
-        "secondaryLocation": "westus",
-        "statusOfSecondary": "available",
-        "secondaryEndpoints": {
-          "dfs": "https://{storageAccount-name} -secondary.dfs.core.windows.net/",
-          "web": "https://{storageAccount-name}-secondary.z13.web.core.windows.net/",
-          "blob": "https://{storageAccount-name}-secondary.blob.core.windows.net/",
-          "queue": "https://{storageAccount-name}-secondary.queue.core.windows.net/",
-          "table": "https://{storageAccount-name}-secondary.table.core.windows.net/"
-        }
-      }
-    },
-    "apiVersion": "2019-06-01",
-    "operationalInfo": {
-      "resourceEventTime": "2023-07-28T20:13:10.8418063Z"
-    }
-  },
-  "eventType": "Microsoft.ResourceNotifications.Resources.CreatedOrUpdated",
-  "dataVersion": "1",
-  "metadataVersion": "1",
-  "eventTime": "2023-07-28T20:13:10.8418063Z"
-}
-```
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -387,10 +310,113 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
 }
 ```
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "4eef929a-a65c-47dd-93e2-46b8c17c6c17",
+  "topic": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+  "data": {
+    "resourceInfo": {
+      "tags": {},
+      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "name": "StorageAccount-name",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "eastus",
+      "properties": {
+        "privateEndpointConnections": [],
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": 1,
+        "allowSharedKeyAccess": 1,
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": 1,
+        "encryption": {
+          "requireInfrastructureEncryption": 0,
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": 1,
+              "lastEnabledTime": "2023-07-28T20:12:50.6380308Z"
+            },
+            "blob": {
+              "keyType": "Account",
+              "enabled": 1,
+              "lastEnabledTime": "2023-07-28T20:12:50.6380308Z"
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot",
+        "provisioningState": "Succeeded",
+        "creationTime": "2023-07-28T20:12:50.4661564Z",
+        "primaryEndpoints": {
+          "dfs": "https://{storageAccount-name}.dfs.core.windows.net/",
+          "web": "https://{storageAccount-name}.z13.web.core.windows.net/",
+          "blob": "https://{storageAccount-name}.blob.core.windows.net/",
+          "queue": "https://{storageAccount-name}.queue.core.windows.net/",
+          "table": "https://{storageAccount-name}.table.core.windows.net/",
+          "file": "https://{storageAccount-name}.file.core.windows.net/"
+        },
+        "primaryLocation": "eastus",
+        "statusOfPrimary": "available",
+        "secondaryLocation": "westus",
+        "statusOfSecondary": "available",
+        "secondaryEndpoints": {
+          "dfs": "https://{storageAccount-name} -secondary.dfs.core.windows.net/",
+          "web": "https://{storageAccount-name}-secondary.z13.web.core.windows.net/",
+          "blob": "https://{storageAccount-name}-secondary.blob.core.windows.net/",
+          "queue": "https://{storageAccount-name}-secondary.queue.core.windows.net/",
+          "table": "https://{storageAccount-name}-secondary.table.core.windows.net/"
+        }
+      }
+    },
+    "apiVersion": "2019-06-01",
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-28T20:13:10.8418063Z"
+    }
+  },
+  "eventType": "Microsoft.ResourceNotifications.Resources.CreatedOrUpdated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-07-28T20:13:10.8418063Z"
+}
+```
+
+
 ---
 
 ### Deleted event 
 This section shows the `Deleted` event generated when an Azure Storage account is deleted in the Azure subscription on which the system topic is created. 
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+
+```json
+{
+  "id": "d4611260-d179-4f86-b196-3a9d4128be2d",
+  "source": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "name": "storageAccount-name",
+      "type": "Microsoft.Storage/storageAccounts"
+    },
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-28T20:11:36.6347858Z"
+    }
+  },
+  "type": "Microsoft.ResourceNotifications.Resources.Deleted",
+  "specversion": "1.0",
+  "time": "2023-07-28T20:11:36.6347858Z"
+}
+```
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -416,29 +442,6 @@ This section shows the `Deleted` event generated when an Azure Storage account i
 }
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-
-```json
-{
-  "id": "d4611260-d179-4f86-b196-3a9d4128be2d",
-  "source": "/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
-  "data": {
-    "resourceInfo": {
-      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
-      "name": "storageAccount-name",
-      "type": "Microsoft.Storage/storageAccounts"
-    },
-    "operationalInfo": {
-      "resourceEventTime": "2023-07-28T20:11:36.6347858Z"
-    }
-  },
-  "type": "Microsoft.ResourceNotifications.Resources.Deleted",
-  "specversion": "1.0",
-  "time": "2023-07-28T20:11:36.6347858Z"
-}
-```
 
 ---
 

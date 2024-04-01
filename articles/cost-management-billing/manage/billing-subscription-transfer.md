@@ -4,13 +4,11 @@ description: Describes how to transfer billing ownership of an MOSP Azure subscr
 keywords: transfer azure subscription, azure transfer subscription, move azure subscription to another account,azure change subscription owner, transfer azure subscription to another account, azure transfer billing
 author: bandersmsft
 ms.reviewer: sgautam
-tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 02/13/2024
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account
@@ -21,7 +19,7 @@ Before you transfer billing ownership for a subscription, read [Azure subscripti
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you're an Enterprise Agreement (EA) customer, your enterprise administrator can transfer billing ownership of your subscriptions between accounts. For more information, [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
+If you're an Enterprise Agreement (EA) customer, your enterprise administrator can transfer billing ownership of your subscriptions between accounts.
 
 Only the billing administrator of an account can transfer ownership of a subscription.
 
@@ -43,11 +41,11 @@ When you send or accept a transfer request, you agree to terms and conditions. F
     > If you choose to move the subscription to the new account's Microsoft Entra tenant, all [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) to access resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. Alternatively, you can clear the **Move subscription tenant** option to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing Azure role assignments to access Azure resources will be maintained.  
 1. Select **Send transfer request**.
 1. The user gets an email with instructions to review your transfer request.  
-   ![Subscription transfer email sent to the recipient](./media/billing-subscription-transfer/billing-receiver-email.png)
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-receiver-email.png" alt-text="Screenshot showing a subscription transfer email tht was sent to the recipient.":::
 1. To approve the transfer request, the user selects the link in the email and follows the instructions. The user then selects a payment method that is used to pay for the subscription. If the user doesn't have an Azure account, they have to sign up for a new account.  
-   ![First subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
-   ![Second subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step2.png)
-   ![Third subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step1.png" alt-text="Screenshot showing the first subscription transfer web page.":::
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step2.png" alt-text="Screenshot showing the second subscription transfer web page.":::
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step3.png" alt-text="Screenshot showing the third subscription transfer web page.":::
 1. Success! The subscription is now transferred.
 
 <a name='transfer-a-subscription-to-another-azure-ad-tenant-account'></a>
@@ -85,7 +83,7 @@ To cancel a transfer request:
 1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for, then select **Transfer billing ownership**.
 1. At the bottom of the page, select **Cancel the transfer request**.
 
-:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Screenshot showing the Transfer billing ownership window with the Cancel the transfer request option." lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## Troubleshooting
 
