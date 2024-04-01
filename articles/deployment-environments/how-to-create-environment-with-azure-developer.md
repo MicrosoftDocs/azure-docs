@@ -141,7 +141,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, and then[Provision infrastructure to Azure Deployment Environment](how-to-create-environment-with-azure-developer.md#provision-infrastructure-to-azure-deployment-environment)[Create an environment by using the Azure Developer CLI](how-to-create-environment-with-azure-developer.md) open the folder that contains your application code.
+1. In Visual Studio Code, and then open the folder that contains your application code.
 
 1. Open the command palette, and enter *Azure Developer CLI init*, then from the list, select **Azure Developer CLI (azd): init**.
  
