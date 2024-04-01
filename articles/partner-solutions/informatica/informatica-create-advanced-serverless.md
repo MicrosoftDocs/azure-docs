@@ -65,7 +65,7 @@ Set the following values in the _Platform Detail_ pane.
 
 In _RunTime Configuration_ pane, the customer properties retrieved from the IDMC environment are shown. New parameters can be added by selecting **Add Property**.
 
-:::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-runtimeconfig.png" alt-text="Screenshot of runtime configurations.":::
+:::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-runtime-configuration.png" alt-text="Screenshot of runtime configurations.":::
 
 ### Tags
 
