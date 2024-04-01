@@ -143,7 +143,7 @@ The following tables list the details of each recommended alert rule. Source cod
 | KubePersistentVolumeErrors | One or more persistent volumes are in a failed or pending phase for the last 5 minutes. | >0 | 5 |
 | KubeContainerWaiting | One or more containers within Kubernetes pods are in a waiting state for the last 60 minutes. | >0 | 60 |
 | KubeDaemonSetNotScheduled | One or more pods are not scheduled on any node for the last 15 minutes. | >0 | 15 |
-| KubeDaemonSetMisScheduled | One or more pods are mis scheduled within the cluster for the last 15 minutes. | >0 | 15 |
+| KubeDaemonSetMisScheduled | One or more pods are misscheduled within the cluster for the last 15 minutes. | >0 | 15 |
 | KubeQuotaAlmostFull | The utilization of Kubernetes resource quotas is between 90% and 100% of the hard limits for the last 15 minutes. | >0.9 <1 | 15 |
 
 
