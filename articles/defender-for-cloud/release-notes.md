@@ -25,6 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 |Date | Update |
 |--|--|
 | March 31 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
+| March 31 | [Windows container images scanning is now generally available (GA)](#windows-container-images-scanning-is-now-generally-available-ga) |
 | March 25 | [Continuous export now includes attack path data](#continuous-export-now-includes-attack-path-data) |
 | March 21 | [Agentless scanning supports CMK encrypted VMs in Azure (preview)](#agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
 | March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
@@ -61,6 +62,12 @@ The previous container vulnerability assessment recommendations are on a depreca
 
 > [!NOTE]
 > Since the new recommendations are temporarily not included in the secure score calculation, this will lead to a temporary increase in the secure score, until the new recommendations are added to the secure score calculation.
+
+### Windows container images scanning is now generally available (GA)
+
+March 31, 2024
+
+We are announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
 
 ### Continuous export now includes attack path data
 
