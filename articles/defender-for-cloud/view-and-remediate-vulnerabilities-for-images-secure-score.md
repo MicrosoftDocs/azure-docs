@@ -1,6 +1,6 @@
 ---
-title: Assess vulnerabilities for images running on your Kubernetes clusters
-description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters
+title: Assess vulnerabilities for images running on your Kubernetes clusters (Secure Score)
+description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters (Secure Score).
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
