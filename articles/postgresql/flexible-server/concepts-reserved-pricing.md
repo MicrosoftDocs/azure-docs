@@ -125,4 +125,4 @@ To learn more about Azure reservations, see the following articles:
 * [Manage Azure reservations](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 * [Understand Azure reservation discounts](../../cost-management-billing/reservations/understand-reservation-charges.md)
 * [Understand reservation usage for your Enterprise Agreement enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
-* [Azure reservations in the Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
+* [Azure reservations in the Partner Center CSP program](/partner-center/azure-reservations)

@@ -57,7 +57,7 @@ By using the built-in PgBouncer feature with Azure Database for PostgreSQL flexi
 
 ### Metrics
 
-Azure Database for PostgreSQL flexible server provides six metrics for monitoring PgBouncer connection pooling.
+Azure Database for PostgreSQL flexible server provides six metrics for monitoring PgBouncer connection pooling:
 
 |Display name                            |Metric ID                |Unit |description                                                                          |Dimension   |Default enabled|
 |----------------------------------------|--------------------------|-----|-------------------------------------------------------------------------------------|------------|---------------|
@@ -127,17 +127,17 @@ Using an application-side pool together with PgBouncer on the database server ca
 
 * If PgBouncer is deployed as a feature, it becomes a potential single point of failure. If the PgBouncer feature is down, it can disrupt the entire database connection pool and cause downtime for the application. To mitigate the single point of failure, you can set up multiple PgBouncer instances behind a load balancer for high availability on Azure VMs.
 
-* PgBouncer is a lightweight application that uses a single-threaded architecture. This design is great for most application workloads. But in applications that create a large number of short-lived connections, it might affect pgBouncer performance and limit your ability to scale your application. You might need to try one of these approaches:
+* PgBouncer is a lightweight application that uses a single-threaded architecture. This design is great for most application workloads. But in applications that create a large number of short-lived connections, this design might affect pgBouncer performance and limit your ability to scale your application. You might need to try one of these approaches:
 
   * Distribute the connection load across multiple PgBouncer instances on Azure VMs.
-  * Consider alternative solutions, including multithreaded solutions like such as [PgCat](https://github.com/postgresml/pgcat), on Azure VMs.
+  * Consider alternative solutions, including multithreaded solutions like [PgCat](https://github.com/postgresml/pgcat), on Azure VMs.
 
 > [!IMPORTANT]
 > The parameter `pgbouncer.client_tls_sslmode` for the built-in PgBouncer feature has been deprecated in Azure Database for PostgreSQL flexible server.
 >
 > When TLS/SSL for connections to Azure Database for PostgreSQL flexible server is enforced via setting the `require_secure_transport` server parameter to `ON`, TLS/SSL is automatically enforced for connections to the built-in PgBouncer feature. This setting is on by default when you create a new Azure Database for PostgreSQL flexible server instance and enable the built-in PgBouncer feature. For more information, see [Networking overview for Azure Database for PostgreSQL - Flexible Server with private access](./concepts-networking.md#tls-and-ssl).
 
-For customers who want simplified management, built-in high availability, easy connectivity with containerized applications, the ability to use the most popular configuration parameters, the built-in PgBouncer feature is a good choice. For customers who want multithreaded scalability, full control of all parameters, and a debugging experience, setting up PgBouncer on Azure VMs might be an alternative.
+For customers who want simplified management, built-in high availability, easy connectivity with containerized applications, and the ability to use the most popular configuration parameters, the built-in PgBouncer feature is a good choice. For customers who want multithreaded scalability, full control of all parameters, and a debugging experience, setting up PgBouncer on Azure VMs might be an alternative.
 
 ## Next steps
 

@@ -127,7 +127,7 @@ The `COPY` command and `blob_get` function  support the following file extension
 | .csv | Comma-separated values format used by PostgreSQL `COPY` |
 | .tsv | Tab-separated values, the default PostgreSQL `COPY` format |
 | binary | Binary PostgreSQL `COPY` format |
-| text | A file that contains a single text value (for example, large JSON or XML) |
+| text | File that contains a single text value (for example, large JSON or XML) |
 
 ## Export data from Azure Database for PostgreSQL flexible server to Azure Blob Storage
 

@@ -77,7 +77,7 @@ Here are requirements for configuring Key Vault:
 
 - The **Days to retain deleted vaults** setting for Key Vault must be **90**. If you configured the existing Key Vault instance with a lower number, you need to create a new Key Vault instance because you can't modify an instance after creation.
 
-- Enable the soft-delete feature in Key Vault to protect from data loss if a key or a Key Vault instance is accidentally deleted. Key Vault retains soft-deleted resources for 90 days unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated with a Key Vault access policy.
+- Enable the soft-delete feature in Key Vault to help protect from data loss if a key or a Key Vault instance is accidentally deleted. Key Vault retains soft-deleted resources for 90 days unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated with a Key Vault access policy.
 
   The soft-delete feature is off by default, but you can turn it on through PowerShell or the Azure CLI. You can't turn it on through the Azure portal.
 
@@ -140,7 +140,7 @@ To monitor the database state, and to turn on alerts for the loss of access to t
 - [Activity log](../../service-health/alerts-activity-log-service-notifications-portal.md): When access to the CMK in the customer-managed Key Vault instance fails, entries are added to the activity log. You can reinstate access if you create alerts for these events as soon as possible.
 - [Action groups](../../azure-monitor/alerts/action-groups.md): Define these groups to receive notifications and alerts based on your preferences.
 
-## Restore operations with a customer's managed key in Key Vault
+## Restoring with a customer's managed key in Key Vault
 
 After Azure Database for PostgreSQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created server copy is also encrypted. You can make this new copy through a [point-in-time restore (PITR)](concepts-backup-restore.md) operation or read replicas.
 
@@ -167,7 +167,7 @@ When you configure data encryption with a CMK in Key Vault, continuous access to
 Some of the reasons why the server state becomes **Inaccessible** are:
 
 - If you delete the Key Vault instance, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the Key Vault instance](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption.
-- If you delete the key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption.
+- If you delete the key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption.
 - If you delete, from Microsoft Entra ID, a [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that's used to retrieve a key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the identity](../../active-directory/fundamentals/recover-from-deletions.md) and revalidate data encryption.
 - If you revoke the Key Vault **list**, **get**, **wrapKey**, and **unwrapKey** access policies from the [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that's used to retrieve a key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. [Add required access policies](../../key-vault/general/assign-access-policy.md) to the identity in Key Vault.
 - If you set up overly restrictive Key Vault firewall rules, Azure Database for PostgreSQL flexible server can't communicate with Key Vault to retrieve keys. When you configure a Key Vault firewall, be sure to select the option to allow [trusted Microsoft services](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services) to bypass the firewall.
@@ -177,14 +177,14 @@ Some of the reasons why the server state becomes **Inaccessible** are:
 >
 > Generally, a server becomes **Inaccessible** within 60 minutes after a key is disabled, deleted, expired, or not reachable. After key the becomes available, the server might take up to 60 minutes to become **Accessible** again.
 
-## Using data encryption with CMK and geo-redundant business continuity features
+## Using data encryption with CMKs and geo-redundant business continuity features
 
-Azure Database for PostgreSQL flexible server supports advanced [data recovery](../flexible-server/concepts-business-continuity.md) features, such as [replicas](../../postgresql/flexible-server/concepts-read-replicas.md) and [geo-redundant backup](../flexible-server/concepts-backup-restore.md). Following are requirements for setting up data encryption with CMK and these features, in addition to [basic requirements for data encryption with CMK](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server):
+Azure Database for PostgreSQL flexible server supports advanced [data recovery](../flexible-server/concepts-business-continuity.md) features, such as [replicas](../../postgresql/flexible-server/concepts-read-replicas.md) and [geo-redundant backup](../flexible-server/concepts-backup-restore.md). Following are requirements for setting up data encryption with CMKs and these features, in addition to [basic requirements for data encryption with CMKs](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server):
 
 - The geo-redundant backup encryption key needs to be created in a Key Vault instance in the region where the geo-redundant backup is stored.
-- The [Azure Resource Manager REST API](../../azure-resource-manager/management/overview.md) version for supporting geo-redundant backup-enabled CMK servers is 2022-11-01-preview. If you want to use [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) to automate the creation of servers that use both encryption with CMK and geo-redundant backup features, use this API version.
-- You can't use the same [user-managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate for the primary database's Key vault instance and the Key Vault instance that holds the encryption key for geo-redundant backup. To maintain regional resiliency, we recommend that you create the user-managed identity in the same region as the geo-redundant backups.
-- If you set up a [read replica database](../flexible-server/concepts-read-replicas.md) to be encrypted with CMK during creation, its encryption key needs to be in a Key Vault instance in the region where the read replica database resides. The [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate against this Key Vault instance needs to be created in the same region.
+- The [Azure Resource Manager REST API](../../azure-resource-manager/management/overview.md) version for supporting geo-redundant backup-enabled CMK servers is 2022-11-01-preview. If you want to use [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) to automate the creation of servers that use both encryption with CMKs and geo-redundant backup features, use this API version.
+- You can't use the same [user-managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate for the primary database's Key Vault instance and the Key Vault instance that holds the encryption key for geo-redundant backup. To maintain regional resiliency, we recommend that you create the user-managed identity in the same region as the geo-redundant backups.
+- If you set up a [read replica database](../flexible-server/concepts-read-replicas.md) to be encrypted with CMKs during creation, its encryption key needs to be in a Key Vault instance in the region where the read replica database resides. The [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate against this Key Vault instance needs to be created in the same region.
 
 ## Limitations
 

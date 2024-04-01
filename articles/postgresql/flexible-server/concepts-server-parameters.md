@@ -35,13 +35,13 @@ Various methods and levels are available to customize your parameters according 
 For altering settings globally at the instance or server level, go to the **Server parameters** pane in the Azure portal. You can also use other available tools such as the Azure CLI, the REST API, Azure Resource Manager templates, or partner tools.
 
 > [!NOTE]
-> Because Azure Database for PostgreSQL is a managed database service, users don't have host or operating system access to view or modify configuration files such as *postgresql.conf*. The content of the file is automatically updated based on parameter changes that you make.
+> Because Azure Database for PostgreSQL is a managed database service, users don't have host or operating system access to view or modify configuration files such as *postgresql.conf*. The content of the files is automatically updated based on parameter changes that you make.
 
 :::image type="content" source="./media/concepts-server-parameters/server-parameters-portal.png" alt-text="Screenshot of the pane for server parameters in the Azure portal.":::
 
 ### Granular levels
 
-You can adjust parameters at more granular levels, which overrides globally set values. The scope and duration of these modifications depend on the level at which you make them:
+You can adjust parameters at more granular levels. These adjustments override globally set values. Their scope and duration depend on the level at which you make them:
 
 * **Database level**: Use the `ALTER DATABASE` command for database-specific configurations.
 * **Role or user level**: Use the `ALTER USER` command for user-centric settings.
@@ -70,7 +70,7 @@ The following sections describe some of the parameters.
 
 The `shared_buffers` configuration parameter determines the amount of system memory allocated to the PostgreSQL database for buffering data. It serves as a centralized memory pool that's accessible to all database processes.
 
-When data is needed, the database process first checks the shared buffer. If the required data is present, it's quickly retrieved, thereby bypassing a more time-consuming disk read. By serving as an intermediary between the database processes and the disk, `shared_buffers` effectively reduces the number of required I/O operations.
+When data is needed, the database process first checks the shared buffer. If the required data is present, it's quickly retrieved and bypasses a more time-consuming disk read. By serving as an intermediary between the database processes and the disk, `shared_buffers` effectively reduces the number of required I/O operations.
 
 ### huge_pages
 
@@ -130,15 +130,15 @@ It's essential to continuously monitor your system's performance and adjust `wor
 
 ##### Granular adjustment
 
-While you're managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value. This approach ensures that you allocate memory judiciously based on the specific needs of different processes and users. It also minimizes the risk of encountering out-of-memory issues. Here's how you can go about it:
+While you're managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value. This approach ensures that you allocate memory judiciously based on the specific needs of processes and users. It also minimizes the risk of encountering out-of-memory issues. Here's how you can go about it:
 
 * **User level**: If a specific user is primarily involved in aggregation or reporting tasks, which are memory intensive, consider customizing the `work_mem` value for that user. Use the `ALTER ROLE` command to enhance the performance of the user's operations.
 
 * **Function/procedure level**: If specific functions or procedures are generating substantial temporary files, increasing the `work_mem` value at the specific function or procedure level can be beneficial. Use the `ALTER FUNCTION` or `ALTER PROCEDURE` command to specifically allocate more memory to these operations.
 
-* **Database level**: Alter `work_mem` at the database level if only specific databases are generating high amounts of temporary files.
+* **Database level**: Alter `work_mem` at the database level if only specific databases are generating high numbers of temporary files.
 
-* **Global level**: If an analysis of your system reveals that most queries are generating small temporary files, while only a few are creating large ones, it might be prudent to globally increase the `work_mem` value. This action would facilitate most queries to process in memory, thus avoiding disk-based operations and improving efficiency. However, always be cautious and monitor the memory utilization on your server to ensure that it can handle the increased `work_mem` value.
+* **Global level**: If an analysis of your system reveals that most queries are generating small temporary files, while only a few are creating large ones, it might be prudent to globally increase the `work_mem` value. This action facilitates most queries to process in memory, so you can avoid disk-based operations and improve efficiency. However, always be cautious and monitor the memory utilization on your server to ensure that it can handle the increased `work_mem` value.
 
 ##### Determining the minimum work_mem value for sorting operations
 

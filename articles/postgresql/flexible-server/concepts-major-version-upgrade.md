@@ -77,7 +77,7 @@ If pre-check operations fail for an in-place major version upgrade, the upgrade 
 
   If you configure network security groups (NSGs) to restrict traffic to or from your flexible server within its deployed subnet, be sure to allow traffic to destination ports 5432 and 6432 within the subnet. Allow traffic to Azure Storage by using the service tag **Azure Storage** as a destination.
 
-  If network rules aren't set up properly, HA is not enabled automatically after a major version upgrade, and you should manually enable HA. Modify your NSG rules to allow traffic for the destination ports and storage, and to enable a high-availability feature on the server.
+  If network rules aren't set up properly, HA is not enabled automatically after a major version upgrade, and you should manually enable HA. Modify your NSG rules to allow traffic for the destination ports and storage, and to enable an HA feature on the server.
 
 - In-place major version upgrades don't support certain extensions, and there are some limitations to upgrading certain extensions. The following extensions are unsupported for all PostgreSQL versions: `Timescaledb`, `pgaudit`, `dblink`, `orafce`, `pg_partman`, `postgres_fdw`.
 

@@ -27,11 +27,11 @@ Benefits of using Microsoft Entra ID include:
 
 <a name='azure-active-directory-authentication-single-server-vs-flexible-server'></a>
 
-## Microsoft Entra feature and capability comparisons between deployment options
+## Microsoft Entra ID feature and capability comparisons between deployment options
 
 Microsoft Entra authentication for Azure Database for PostgreSQL flexible server incorporates our experience and feedback collected from Azure Database for PostgreSQL single server.
 
-The following table lists high-level comparisons of Microsoft Entra features and capabilities between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server.
+The following table lists high-level comparisons of Microsoft Entra ID features and capabilities between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server.
 
 | Feature/Capability | Azure Database for PostgreSQL single server | Azure Database for PostgreSQL flexible server |
 | --- | --- | --- |
@@ -58,9 +58,9 @@ For the steps to configure Microsoft Entra ID with Azure Database for PostgreSQL
 When you turn on Microsoft Entra authentication for your flexible server and add a Microsoft Entra principal as a Microsoft Entra administrator, the account:
 
 - Gets the same privileges as the original PostgreSQL administrator.
-- Can manage other Microsoft Entra ID enabled roles on the server.
+- Can manage other Microsoft Entra roles on the server.
 
-Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
+The PostgreSQL administrator can create only local password-based users. But the Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
 
 The Microsoft Entra administrator can be a Microsoft Entra user, Microsoft Entra group, service principal, or managed identity. Using a group account as an administrator enhances manageability. It permits the centralized addition and removal of group members in Microsoft Entra ID without changing the users or permissions within the Azure Database for PostgreSQL flexible server instance.
 
@@ -71,7 +71,7 @@ You can configure multiple Microsoft Entra administrators concurrently. You have
 > [!NOTE]  
 > A service principal or managed identity can act as fully functional Microsoft Entra administrator in Azure Database for PostgreSQL flexible server. This was a limitation in Azure Database for PostgreSQL single server.
 
-Microsoft Entra administrators that you create via the Azure portal, an API, or SQL have the same permissions as the regular admin user that you created during server provisioning. Database permissions for non-admin Microsoft Entra ID enabled roles are managed similarly to regular roles.
+Microsoft Entra administrators that you create via the Azure portal, an API, or SQL have the same permissions as the regular admin user that you created during server provisioning. Database permissions for non-admin Microsoft Entra roles are managed similarly to regular roles.
 
 <a name='connect-using-azure-ad-identities'></a>
 
@@ -94,7 +94,7 @@ To configure Microsoft Entra ID with Azure Database for PostgreSQL flexible serv
 - If you want the Microsoft Entra principals to assume ownership of the user databases within any deployment procedure, add explicit dependencies within your deployment (Terraform or Azure Resource Manager) module to ensure that Microsoft Entra authentication is turned on before you create any user databases.
 - Multiple Microsoft Entra principals (user, group, service principal, or managed identity) can be configured as a Microsoft Entra administrator for an Azure Database for PostgreSQL flexible server instance at any time.
 - Only a Microsoft Entra administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL flexible server instance by using a Microsoft Entra account. The Active Directory administrator can configure subsequent Microsoft Entra database users.
-- If a Microsoft Entra principal is deleted from Microsoft Entra ID, it remains as a PostgreSQL role but can no longer acquire a new access token. In this case, although the matching role still exists in the database, it isn't able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
+- If a Microsoft Entra principal is deleted from Microsoft Entra ID, it remains as a PostgreSQL role but can no longer acquire a new access token. In this case, although the matching role still exists in the database, it can't authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
   > [!NOTE]  
   > The deleted Microsoft Entra user can still sign in until the token expires (up to 60 minutes from token issuing). If you also remove the user from Azure Database for PostgreSQL flexible server, this access is revoked immediately.
@@ -105,7 +105,7 @@ To configure Microsoft Entra ID with Azure Database for PostgreSQL flexible serv
 
 - **What are the available authentication modes in Azure Database for PostgreSQL flexible server?**
 
-  Azure Database for PostgreSQL flexible server supports three modes of authentication: PostgreSQL authentication only, Microsoft Entra authentication only, and  PostgreSQL and Microsoft Entra authentication.
+  Azure Database for PostgreSQL flexible server supports three modes of authentication: PostgreSQL authentication only, Microsoft Entra authentication only, and  both PostgreSQL and Microsoft Entra authentication.
 
 - **Can I configure multiple Microsoft Entra administrators on my flexible server?**
 
@@ -117,7 +117,7 @@ To configure Microsoft Entra ID with Azure Database for PostgreSQL flexible serv
 
 - **Can a Microsoft Entra administrator create local password-based users?**
 
-  Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
+  A Microsoft Entra administrator has the authority to manage both Microsoft Entra users and local password-based users.
 
 - **What happens when I enable Microsoft Entra authentication on my flexible server?**
 

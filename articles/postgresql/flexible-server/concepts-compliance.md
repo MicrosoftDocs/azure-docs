@@ -19,7 +19,7 @@ Customers experience an increasing demand for highly secure and compliant soluti
 
 To help customers meet their compliance obligations across regulated industries and markets worldwide, Azure Database for PostgreSQL flexible server builds on the Microsoft Azure compliance offerings to provide rigorous compliance certifications. Azure maintains the largest compliance portfolio in the industry in terms of both breadth (total number of offerings) and depth (number of customer-facing services in the assessment scope).
 
-Azure compliance offerings are grouped into four segments: globally applicable, US government, industry-specific, and region/country specific. Compliance offerings are based on various types of assurances, including:
+Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific. Compliance offerings are based on various types of assurances, including:
 
 - Formal certifications, attestations, validations, authorizations, and assessments produced by independent auditing firms.
 - Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft.
