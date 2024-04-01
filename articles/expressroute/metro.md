@@ -1,5 +1,5 @@
 ---
-title: About ExpressRoute Metro
+title: About ExpressRoute Metro (Preview)
 description: This article provides an overview of ExpressRoute Metro and how it works.
 services: expressroute
 author: duongau
@@ -10,7 +10,9 @@ ms.author: duau
 ms.custom: references_regions, ai-usage
 ---
 
-# About ExpressRoute Metro
+# About ExpressRoute Metro (Preview)
+
+[!INCLUDE [Preview note](../includes/preview.md)]
 
 ExpressRoute facilitates the creation of private connections between your on-premises networks and Azure workloads in a designated peering locations. These locations are colocation facilities housing Microsoft Enterprise Edge (MSEE) devices, serving as the gateway to Microsoft's network.
 
