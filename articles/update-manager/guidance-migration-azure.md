@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 04/02/2024
 ms.author: sudhirsneha
 ---
 
@@ -12,26 +12,32 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article provides a guide to start using Azure Update Manager (for update management) for Azure virtual machines that are currently using Microsoft Configuration Manager (MCM). 
+This article provides a guide to start using Azure Update Manager (for update management) for virtual machines that are currently using Microsoft Configuration Manager (MCM). 
 
-Microsoft Configuration Manager (MCM), previously known as System Center Configuration Manager (SCCM), helps you to manage PCs and servers, keep software up to date, set configuration and security policies, and monitor system status.
+Before initiating migration, you need to understand mapping between System Center components and equivalent services in Azure.
 
-MCM supports several [cloud services](/mem/configmgr/core/understand/use-cloud-services) that can supplement on-premises infrastructure and can help solve business problems such as:
-- How to manage clients that roam onto the internet.
-- How to provide content resources to isolated clients or resources on the intranet, outside your firewall.
-- How to scale out infrastructure when the physical hardware isn't available or isn't logically placed to support your needs.
-
-Customers [extend and migrate an on-premises site to Azure](/mem/configmgr/core/support/azure-migration-tool) and create Azure virtual machines (VMs) for Configuration Manager and install the various site roles with default settings. The validation of new roles and removal of the on-premises site system role enables MCM to provide all the on-premises capabilities and experiences in Azure. For more information, see [Configuration Manager on Azure FAQ](/mem/configmgr/core/understand/configuration-manager-on-azure).
-
-
-## Migrate to Azure Update Manager
-
-MCM offers [multiple features and capabilities](/mem/configmgr/core/plan-design/changes/features-and-capabilities) and software [update management](/mem/configmgr/sum/understand/software-updates-introduction) is one of these.By using MCM in Azure, you can continue with the existing investments in MCM and processes to manage update cycle for Windows VMs.
-
-**Specifically for update management or patching**, as per your requirements, you can also use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM that needs maintaining Azure virtual machines for hosting the different Configuration Manager roles. Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need license to use Azure Update Manager.
+| **System Center Component** | **Azure equivalent service** |
+| --- | --- |
+| System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
+| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Guest Config, </br> Azure Automation, </br> Desired State Configuration (DSC), </br> Azure Security Center | 
+| System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
+| System Center Data Protection Manager (SCDPM) | Arc enabled DPM | 
+| System Center Orchestrator (SCORCH) | Arc enabled DPM | 
+| System Center Service Manager (SCSM)  | - |
 
 > [!NOTE]
-> Azure Update Manager does not provide migration support for Azure VMs in MCM. For example, configurations.
+> As part of your migration journey, we recommend the following options:
+> 1. Fully migrate your virtual machines to Azure and replace System Center with Azure native services.
+> 1. Take a hybrid approach and replace System Center with Azure native services. Where both Azure and on-premises virtual machines are managed using Azure native services. For on-premises virtual machines, the capabilities of the Azure platform are extended to on-premises via Azure Arc.
+
+## Migrate to Azure Update Manager
+MCM helps you to manage PCs and servers, keep software up to date, set configuration and security policies, and monitor system status. MCM offers [multiple features and capabilities](/mem/configmgr/core/plan-design/changes/features-and-capabilities) and software [update management](/mem/configmgr/sum/understand/software-updates-introduction) is one of these.
+
+Specifically for update management or patching, as per your requirements, you can use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM that needs maintaining Azure virtual machines for hosting the different Configuration Manager roles. Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need license to use Azure Update Manager.
+
+> [!NOTE]
+> - To manage clients/devices, Intune is the recommended Microsoft solution.
+> - Azure Update Manager does not provide migration support for Azure VMs in MCM. For example, configurations.
 
 ## Software update management capability map
 
@@ -42,7 +48,8 @@ The following table maps the **software update management capabilities** of MCM 
 Synchronize software updates between sites (Central Admin site, Primary, Secondary sites) | The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software update. [Learn more](/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository.
 Synchronize software updates/check for updates (retrieve patch metadata) | You can scan for updates periodically by setting configuration on the Software update point. [Learn more](/mem/configmgr/sum/get-started/synchronize-software-updates#to-schedule-software-updates-synchronization) | You can enable periodic assessment to enable scan of patches every 24 hours. [Learn more](assessment-options.md)|
 Configuring classifications/products to synchronize/scan/assess | You can choose the update classifications (security or critical updates) to synchronize/scan/assess. [Learn more](/mem/configmgr/sum/get-started/configure-classifications-and-products) | There's no such capability here. The entire software metadata is scanned. | 
-Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) and Automatic deployment is mapped to [scheduled updates](scheduled-patching.md) (The [Automatic Deployment Rules (ADRs)](/mem/configmgr/sum/deploy-use/automatically-deploy-software-updates#BKMK_CreateAutomaticDeploymentRule)) can be mapped to schedules. There's no phased deployment option.
+Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | - Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) </br> - Automatic deployment is mapped to [scheduled updates](scheduled-patching.md) </br> - There's no phased deployment option.
+| Deploy software updates on Windows and Linux machines (in Azure or on-prem or other clouds) | SCCM helps manage tracking and applying software updates to Windows machines (Currently, we don't support Linux machines.) | Azure Update Manager supports software updates on both Windows and Linux machines. | 
 
 ## Manage software updates using Azure Update Manager
 
