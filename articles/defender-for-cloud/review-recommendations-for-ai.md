@@ -1,6 +1,6 @@
 ---
 title: Review recommendations for Gen-AI applications
-description: Learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud so that you receive recommendations for your AI resources.
+description: Learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 04/01/2024
 #customer intent: As a user, I want to learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud so that I can improve the security of my Gen-AI applications.
@@ -16,11 +16,11 @@ To view recommendations for Gen-AI applications, you need the following:
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
+- [Enable Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
+
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
-
-- Have some experience building and securing AI-based applications.
 
 ## Review Gen-AI recommendations in Defender for Cloud
 
