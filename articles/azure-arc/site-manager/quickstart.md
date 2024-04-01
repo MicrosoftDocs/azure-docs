@@ -12,8 +12,8 @@ ms.date: 03/06/2024
 
 ---
   
-# Quickstart: Create a site in Azure Arc site manager
- 
+# Quickstart: Create a site in Azure Arc site manager (preview)
+
 In this quickstart, you'll get started with Azure Arc site manager by creating a site for resources grouped within a single resource group. Once you create your first Arc site, you're ready to view your resources within Arc and take actions on the resources, such as viewing inventory, connectivity status, updates, and alerts.
 
 ## Prerequisites
@@ -45,11 +45,11 @@ Create a site to manage geographically related resources.
 
    | Parameter | Description |
    |--|--|
-   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. After defining the scope for a site, all the resources in the scope can be viewed and managed from site manager. |
+   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. All the resources in the scope can be viewed and managed from site manager. |
    | **Site name** | Custom name for site. |
    | **Display name** | Custom display name for site. |
    | **Subscription** | Subscription for the site to be created under. |
-   | **Address** | Physical address for a site. Currently this is required. |
+   | **Address** | Physical address for a site. |
 
 1. Once these details are provided, select **Review + create**.
 
@@ -92,4 +92,4 @@ A new site can be created for the resource group or the subscription after the o
 
 ## Related content
 
-- [Azure Arc.](https://azure.microsoft.com/products/azure-arc/)
+[Azure Arc](https://azure.microsoft.com/products/azure-arc/)

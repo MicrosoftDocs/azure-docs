@@ -15,8 +15,12 @@ ms.custom: references_regions
 
 # What is Azure Arc site manager (preview)?
 
-Azure Arc site manager (preview) allows you to manage and monitor your on-premises environments within Azure Arc. Arc sites layer on top of Azure resource groups or subscriptions and enable you to track connectivity, alerts, and updates across your estate. The experience is tailored for on-premises scenarios where infrastructure is often managed within a common physical boundary, such as a store, restaurant, or factory. Site manager currently supports Arc-enabled servers, Kubernetes clusters, Azure Stack HCI machines, and more Azure Resource Manager (ARM) resources.
- 
+Azure Arc site manager allows you to manage and monitor your on-premises environments within Azure Arc. Arc sites layer on top of Azure resource groups or subscriptions and enable you to track connectivity, alerts, and updates across your estate. The experience is tailored for on-premises scenarios where infrastructure is often managed within a common physical boundary, such as a store, restaurant, or factory. Site manager currently supports Arc-enabled servers, Kubernetes clusters, Azure Stack HCI machines, and more Azure Resource Manager (ARM) resources.
+
+> [!IMPORTANT]
+> Azure Arc site manager is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Setting an Arc site scope
 
 Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
@@ -47,9 +51,7 @@ The following table describes which details are available through site manager f
 | Azure Kubernetes Service (AKS) hybrid | ![Checkmark icon - Inventory status supported for AKS.](./media/overview/yes-icon.svg) | ![Checkmark icon - Connectivity status supported for AKS.](./media/overview/yes-icon.svg) | ![Checkmark icon - Update status supported for AKS.](./media/overview/yes-icon.svg) (only provisioned clusters) | ![Checkmark icon - Alerts supported for AKS.](./media/overview/yes-icon.svg) |
 | Assets | ![Checkmark icon - Inventory status supported for Assets.](./media/overview/yes-icon.svg) |  |  |  |
 
-
-
-Site manager only provides health status aggregation for the supported resource types. Resources of other types that exist in the resource group or subscription aren't managed by site manager, but will continue to function normally otherwise.
+Site manager only provides health status aggregation for the supported resource types. Site manager doesn't manage resources of other types that exist in the resource group or subscription, but those resources continue to function normally otherwise.
 
 ## Supported regions
 
@@ -62,4 +64,5 @@ The suggested state for Azure Arc site manager managed sites is to have the stat
 :::image type="content" source="./media/overview/site-suggested-state.jpeg" alt-text="Screenshot that shows Site manager green and suggested state.":::
 
 ## What does it cost to use Azure Arc site manager?
+
 Site manager doesn't have any fee, so feel free to create and use as many sites as desired. However, the Azure services that integrate with sites and site manager might have a fee. Additionally, alerts used with site manager via monitor might have fees as well.

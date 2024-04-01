@@ -14,7 +14,7 @@ ms.date: 03/24/2024
 
 # Create and manage sites
 
-This how-to will guide you through how to create, modify, and delete a site.
+This article guides you through how to create, modify, and delete a site using Azure Arc site manager (preview).
 
 ## Prerequisites
 
@@ -43,11 +43,11 @@ Create a site to manage geographically related resources.
 
    | Parameter | Description |
    |--|--|
-   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. After defining the scope for a site, all the resources in the scope can be viewed and managed from site manager. |
+   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. All the resources in the scope can be viewed and managed from site manager. |
    | **Site name** | Custom name for site. |
    | **Display name** | Custom display name for site. |
    | **Subscription** | Subscription for the site to be created under. |
-   | **Address** | Physical address for a site. Currently this is required. |
+   | **Address** | Physical address for a site. |
 
 1. Once these details are provided, select **Review + create**.
 
@@ -80,7 +80,7 @@ Once you create a site, you can access it and its managed resources through site
 
 ## Delete a site
 
-If you no longer want to manage a site you can delete it from the site manager. 
+If you no longer want to manage a site, you can delete it from the site manager.
 
 Deleting a site doesn't affect the resources, resource group, or subscription in its scope. After a site is deleted, the resources of that site will still exist but can't be viewed or managed from site manager. You can create a new site for the resource group or the subscription after the original site is deleted.
 
