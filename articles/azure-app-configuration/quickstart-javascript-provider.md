@@ -65,9 +65,9 @@ If your application requires configuration to be consumed as an object, you can 
 This API constructs a configuration object based on the key-values loaded from Azure App Configuration.
 It minimizes the code changes required to integrate Azure App Configuration into your application.
 
-### [Use configuration as a Map](#tab/config-as-map)
-
 1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+
+    ### [Use configuration as a Map](#tab/config-as-map)
 
     ```javascript
     const { load } = require("@azure/app-configuration-provider");
@@ -110,9 +110,7 @@ It minimizes the code changes required to integrate Azure App Configuration into
     run().catch(console.error);
     ```
 
-### [Use configuration as an object](#tab/config-as-object)
-
-1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+    ### [Use configuration as an object](#tab/config-as-object)
 
     ```javascript
     const { load } = require("@azure/app-configuration-provider");
