@@ -13,9 +13,9 @@ ms.date: 03/26/2024
 
 # Configure Azure Developer CLI with Azure Deployment Environments
 
-In this article, you create a new environment from an existing Azure Developer CLI (AZD) compatible template by using AZD. You learn how Azure Deployment Environments (ADE) and AZD work together to provision application infrastructure and deploy application code to the new infrastructure.
+In this article, you create a new environment from an existing Azure Developer CLI (AZD) compatible template by using AZD. You learn how to configure Azure Deployment Environments (ADE) and AZD to work together to provision application infrastructure and deploy application code to the new infrastructure.
 
-For more information about how AZD and ADE work together, see [Use Azure Developer CLI with Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md).
+To learn the key concepts of how AZD and ADE work together, see [Use Azure Developer CLI with Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md).
 
 ## Prerequisites
 
@@ -24,11 +24,11 @@ For more information about how AZD and ADE work together, see [Use Azure Develop
 
 ## Attach Microsoft quick start catalog
 
-Microsoft provides a quick start catalog that contains a set of AZD-compatible templates that you can use to create environments. You can attach the quick start catalog to your dev center at creation or add it later. The quick start catalog contains a set of templates that you can use to create environments.
+Microsoft provides a quick start catalog that contains a set of AZD compatible templates that you can use to create environments. You can attach the quick start catalog to your dev center at creation or add it later. The quick start catalog contains a set of templates that you can use to create environments.
 
-## Examine an AZD-compatible template
+## Examine an AZD compatible template
 
-You can use an existing AZD-compatible template to create a new environment, or you can add an azure.yaml file to your repository. In this section, you examine an existing AZD-compatible template.
+You can use an existing AZD compatible template to create a new environment, or you can add an azure.yaml file to your repository. In this section, you examine an existing AZD compatible template.
 
 AZD provisioning for environments relies on curated templates from the catalog. Templates in the catalog might assign tags to provisioned Azure resources for you to associate your app services with in the azure.yaml file, or specify the resources explicitly. In this example, resources are specified explicitly.
 
@@ -55,13 +55,13 @@ For more information on tagging resources, see [Tagging resources for Azure Depl
 1. In the azure.yaml file, in the **services** section, you see the **web** and **API** services that are defined in the template.
 
 > [!NOTE]
-> Not all AZD-compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the azure.yaml file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers. 
+> Not all AZD compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the azure.yaml file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers. 
 
 If you're working with your own catalog & environment definition, you can create an azure.yaml file in the root of your repository. Use the azure.yaml file to define the services that you want to deploy to the environment.
 
 ## Create an environment from an existing template
 
-Use an existing AZD-compatible template to create a new environment.
+Use an existing AZD compatible template to create a new environment.
 
 ### Prepare to work with AZD 
 

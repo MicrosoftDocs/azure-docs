@@ -53,7 +53,7 @@ items:
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
-    - name: Configure AZD compatibleForm templates
+    - name: Configure AZD-compatible templates
       href: how-to-configure-azure-developer-cli-deployment-environments.md  
 - name: Create and manage environments
   expanded: false
