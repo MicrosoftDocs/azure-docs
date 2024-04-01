@@ -14,10 +14,10 @@ A push notification is the pop-up notification that you get in your device. For 
 The following sections describe how to register for, handle, and show a Windows notification to answer/decline an incoming call. Before you start those tasks, complete these prerequisites:
 
 1. Follow [Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification). After following this tutorial, you have:
-    1. An application that has the `WindowsAzure.Messaging.Managed` and `Microsoft.Toolkit.Uwp.Notifications` packages.
-    2. An Azure PNH (Push Notifications Hub) Hub name referenced as `<AZURE_PNH_HUB_NAME>` and the Azure PNH Connection String referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this quickstart.
+    - An application that has the `WindowsAzure.Messaging.Managed` and `Microsoft.Toolkit.Uwp.Notifications` packages.
+    - An Azure PNH (Push Notifications Hub) Hub name referenced as `<AZURE_PNH_HUB_NAME>` and the Azure PNH Connection String referenced as `<AZURE_PNH_HUB_CONNECTION_STRING>` in this quickstart.
   
-2. To register for a WNS (Windows Notification Service) channel on every application init, make sure you add the initialization code on your App.xaml.cs file:
+3. To register for a WNS (Windows Notification Service) channel on every application init, make sure you add the initialization code on your App.xaml.cs file:
 
 ```C#
 // App.xaml.cs
