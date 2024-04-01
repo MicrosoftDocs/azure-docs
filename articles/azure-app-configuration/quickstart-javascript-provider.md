@@ -58,6 +58,15 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     npm install @azure/app-configuration-provider
     ```
 
+## Connect to an App Configuration store
+
+In the previous example, the key-values stored in Azure App Configuration are loaded as a `Map` object and accessed using their full key names.
+If your application requires configuration to be consumed as an object, you can use the `constructConfigurationObject` API.
+This API constructs a configuration object based on the key-values loaded from Azure App Configuration.
+It minimizes the code changes required to integrate Azure App Configuration into your application.
+
+### [Use configuration as a Map](#tab/config-as-map)
+
 1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
 
     ```javascript
@@ -101,7 +110,37 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     run().catch(console.error);
     ```
 
-## Run the application locally
+### [Use configuration as an object](#tab/config-as-object)
+
+1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+
+    ```javascript
+    const { load } = require("@azure/app-configuration-provider");
+    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+    async function run() {
+        // Load all key-values from Azure App Configuration
+        const settings = await load(connectionString);
+        
+        // Construct configuration object from loaded key-values
+        const config = settings.constructConfigurationObject({
+            separator: "."
+        });
+
+    // Print out the configuration object
+    console.log("Constructed configuration object 'config': ");
+    console.log(config);
+
+    // Use dot-notation to access configuration
+    console.log(`config.message:\t${config.message}`);
+    console.log(`config.app.greeting:\t${config.app.greeting}`);
+    console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
+    }
+
+    run().catch(console.error);
+    ```
+
+## Run the application
 
 1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
 
@@ -137,7 +176,7 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
     ```
 
-1. Print the value of the environment variable to validate that it's set properly with the command below.
+1. Print the value of the environment variable to validate that it's set properly with the following command.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
@@ -179,6 +218,8 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
 
     You should see the following output:
 
+    ### [Use configuration as a Map](#tab/config-as-map)
+
     ```Output
     Message from Azure App Configuration
     myValue
@@ -188,45 +229,7 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     true
     ```
 
-## Load configuration as an object
-
-Some applications use JSON files to load configuration as an object. An API `constructConfigurationObject` is available for such applications, where a configuration object is created based on the key-values loaded from Azure App Configuration. This approach minimizes the code changes needed to adopt Azure App Configuration.
-
-1. Open *app.js* in the *app-configuration-quickstart* directory and replace its content with below: 
-
-    ```javascript
-    const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
-
-    async function run() {
-        // Load all key-values from Azure App Configuration
-        const settings = await load(connectionString);
-        
-        // Construct configuration object from loaded key-values
-        const config = settings.constructConfigurationObject({
-            separator: "."
-        });
-
-    // Print out the configuration object
-    console.log("Constructed configuration object 'config': ");
-    console.log(config);
-
-    // Use dot-notation to access configuration
-    console.log(`config.message:\t${config.message}`);
-    console.log(`config.app.greeting:\t${config.app.greeting}`);
-    console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
-    }
-
-    run().catch(console.error);
-    ```
-
-1. Run the following command to run the app locally:
-
-    ```bash
-    node app.js
-    ```
-
-    You should see the following output:
+    ### [Use configuration as an object](#tab/config-as-object)
 
     ```Output
     Constructed configuration object 'config': 
