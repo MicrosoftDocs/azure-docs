@@ -35,6 +35,12 @@ highlightedContent:
     - title: Azure Networking Solutions
       itemType: deploy
       url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
+    - title: Azure Network Watcher
+      itemType: overview
+      url: ../network-watcher/network-watcher-overview.md
+    - title: Apply Zero Trust principles to encrypting Azure-based network communications
+      itemType: architecture
+      url: /security/zero-trust/azure-networking-encryption
 
 # additionalContent section (optional)
 # Card with links style
