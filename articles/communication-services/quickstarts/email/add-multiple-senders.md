@@ -1,7 +1,7 @@
 ---
 title: How to add and remove multiple email sender addresses.
 titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about how to add multiple email sender addresses in Azure Communication Services.
+description: Learn about how to add multiple email sender addresses in Email Communication Service.
 author: bashan-git
 manager: sundraman
 services: azure-communication-services
