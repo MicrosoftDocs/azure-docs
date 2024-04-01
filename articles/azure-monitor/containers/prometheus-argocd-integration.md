@@ -4,7 +4,8 @@ description: Describes how to configure Argo CD monitoring using Prometheus metr
 ms.topic: conceptual
 ms.date: 3/25/2024
 ms.reviewer: rashmy
-ms.service: managed-prometheus
+ms.service: azure-monitor
+ms.subservice: containers
 ---
 # Argo CD
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state. It automates the deployment of the desired application states in the specified target environments. Application deployments can track updates to branches, tags, or pinned to a specific version of manifests at a Git commit.

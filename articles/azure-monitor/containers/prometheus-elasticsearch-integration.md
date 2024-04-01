@@ -4,7 +4,8 @@ description: Describes how to configure ElasticSearch monitoring using Prometheu
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
-ms.service: managed-prometheus
+ms.service: azure-monitor
+ms.subservice: containers
 ---
 # ElasticSearch
 Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happen.

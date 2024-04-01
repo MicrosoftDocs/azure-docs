@@ -4,7 +4,8 @@ description: Describes how to configure kKfka monitoring using Prometheus metric
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
-ms.service: managed-prometheus
+ms.service: azure-monitor
+ms.subservice: containers
 ---
 # Apache Kafka
 Apache Kafka is an open-source distributed event streaming platform used by high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
@@ -183,7 +184,7 @@ Rich set of alerts based off of strimzi metrics can also be configured by referi
 > [!NOTE] 
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
-### Grafana dashboards for more jmx metrics witb strimzi
+### Grafana dashboards for more jmx metrics with strimzi
 Please also see the [grafana-dashboards-for-strimzi](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics/grafana-dashboards) to view dashboards for metrics exposed by strimzi operator.
 
 
