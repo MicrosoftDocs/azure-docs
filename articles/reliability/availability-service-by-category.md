@@ -76,9 +76,8 @@ Azure services are presented in the following tables by category. Note that some
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg)
->  Strategic                                          |
-> |------------------------------------------------------|
+> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Foundational       |
+> |----------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
 > | Azure AI services                            |
