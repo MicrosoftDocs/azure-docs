@@ -20,8 +20,4 @@ To configure compute on your Azure Stack Edge Pro, you create an IoT Hub resourc
 
    ![Get started with compute 3](./media/azure-stack-edge-gateway-configure-compute/configure-compute-4.png)
 
-   When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
-
 It can take 20-30 minutes to configure compute because, behind the scenes, virtual machines, and a Kubernetes cluster are being created.
-
-After you configure compute in Azure portal, a Kubernetes cluster and a default user associated with the IoT namespace (a system namespace controlled by Azure Stack Edge) exist.
