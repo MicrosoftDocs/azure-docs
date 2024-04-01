@@ -42,7 +42,6 @@ In this section, you see how to create an instance of  _Informatica Intelligent 
     | **Region** | Select the closest region to where you would like to deploy your Informatica Azure Resource. |
     | **Informatica Region** | Select the Informatica region where you want to create Informatica Organization. |
     | **Organization** | Select "Create a new organization" if you want to a new Informatica Organization. Select **Link to an existing organization (with Azure Marketplace Billing)** if you already have an Informatica organization, intend to map it to the  Azure resource, and initiate a new plan with Azure Marketplace. Select **Link to an existing organization (continue with existing Informatica Billing)** if you already have an existing Informatica organization and have a billing contract with Informatica already. |
-
     | **Plan** | Choose the plan you want to subscribe to. |
 
 ### Tags
@@ -66,13 +65,11 @@ You can specify custom tags for the new Informatica resource in Azure by adding 
 
 1. After you review all the information, select **Create**. Azure now deploys the Informatica resource.
 
-   :::image type="content" source="media/informatica-create/informatica-deploy.png" alt-text="Screenshot showing Informatica deployment in process.":::
-
 ## Deployment completed
 
 1. After the create process is completed, select **Go to Resource** to navigate to the specific Informatica resource.
 
-    :::image type="content" source="media/informatica-create/informatica-overview-pane.png" alt-text="Screenshot of a completed Informatica deployment.":::
+    :::image type="content" source="media/informatica-create/informatica-deploy.png" alt-text="Screenshot of a completed Informatica deployment.":::
 
 1. Select **Overview** in the Resource menu to see information on the deployed resources.
 
@@ -81,8 +78,9 @@ You can specify custom tags for the new Informatica resource in Azure by adding 
 ## Next steps
 
 - [Manage the Informatica resource](informatica-manage.md)
-- Get started with Informatica – An Azure Native ISV Service on
 <!-- 
+- Get started with Informatica – An Azure Native ISV Service on
+
 fix  links when marketplace links work.
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)

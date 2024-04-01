@@ -30,8 +30,9 @@ The Informatica integration must be set up by users who have _Owner_ access on t
 ## Next steps
 
 - Learn about [managing your instance](informatica-manage.md) of Informatica.
-- Get started with Informatica – An Azure Native ISV Service on
 <!-- 
+- Get started with Informatica – An Azure Native ISV Service on
+
 fix  links when marketplace links work.
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)

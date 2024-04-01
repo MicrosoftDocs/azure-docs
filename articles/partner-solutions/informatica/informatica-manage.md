@@ -8,13 +8,15 @@ ms.date: 03/29/2024
 
 # Manage your Informatica organization through the portal
 
+n this article, you learn how to manage single sign-on for your organization, and how to delete an Informatica deployment.
+
 ## Single sign-on
 
 Single sign-on (SSO) is already enabled when you created your Informatica Organization. To access Organization through SSO, follow these steps:
 
-1. Navigate to the Overview for your instance of the Informtica Organization. Select the SSO Url, or select the IDMC Account Login.
+1. Navigate to the Overview for your instance of the Informatica organization. Select the SSO UrURLl, or select the IDMC Account Login.
 
-   :::image type="content" source="media/informatica-manage/informatica-sso-overview.png" alt-text="Screenshot showing the Single Sign-on url in the  Overview pane of the Informatica  resource.":::
+   :::image type="content" source="media/informatica-manage/informatica-sso-overview.png" alt-text="Screenshot showing the Single Sign-on URL in the  Overview pane of the Informatica  resource.":::
 
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
@@ -45,8 +47,9 @@ Once the Astro resource is deleted, all billing stops for that resource through 
 ## Next steps
 
 - Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](informatica-troubleshoot.md).
+<!--
 - Get started with Informatica – An Azure Native ISV Service on
-<!-- 
+ 
 fix  links when marketplace links work.
 
     > [!div class="nextstepaction"]
