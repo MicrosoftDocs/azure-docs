@@ -10,9 +10,9 @@ ms.custom: template-tutorial
 zone_pivot_groups: web-apps-assessment-aks
 ---
 
-# Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service (preview)
+# Assess web apps for migration to Azure Kubernetes Service (preview)
 
-::: zone pivot="asp.net"
+::: zone pivot="asp-net"
 
 This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
@@ -27,7 +27,7 @@ This article shows you how to assess Java web apps for migration to [Azure Kuber
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-::: zone pivot="asp.net"
+::: zone pivot="asp-net"
 > * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
 :::zone-end
 ::: zone pivot="java"
@@ -45,7 +45,7 @@ In this tutorial, you'll learn how to:
 
 - Deploy and configure the Azure Migrate appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) or [physical environment](./tutorial-discover-physical.md).
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
-::: zone pivot="asp.net"
+::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
 :::zone-end
 
@@ -83,7 +83,7 @@ In this tutorial, you'll learn how to:
 
 5. Provide a name to this group of servers as well as the assessment.
 1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
-::: zone pivot="asp.net"
+::: zone pivot="asp-net"
 1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
 ::: zone-end
 ::: zone pivot="jave"
