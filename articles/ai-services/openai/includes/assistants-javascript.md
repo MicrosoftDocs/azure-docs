@@ -69,84 +69,25 @@ Create and run an assistant with the following:
 
 #### [TypeScript](#tab/typescript)
 
-<!--- Content here  -->
+```javascript
+JS code here
+```
+
 
 
 #### [JavaScript](#tab/javascript)
 
-<!--- Content here  -->
-
+```typescript
+TS code here
+```
 
 --- 
 
 ## Output
 
 ```json
-{
-  "data": [
-    {
-      "id": "msg_XOL8597uuV6zIEgaqZtI0KD3",
-      "assistant_id": "asst_WKFOCDJ42Ld1bVUfS8w2pt6E",
-      "content": [
-        {
-          "text": {
-            "annotations": [],
-            "value": "The solution to the equation \\(3x + 11 = 14\\) is \\(x = 1\\)."
-          },
-          "type": "text"
-        }
-      ],
-      "created_at": 1705892759,
-      "file_ids": [],
-      "metadata": {},
-      "object": "thread.message",
-      "role": "assistant",
-      "run_id": "run_TSmF4LoU6bX4SD3xp5xDr1ey",
-      "thread_id": "thread_hCOKdEZy1diZAAzwDudRqGRc"
-    },
-    {
-      "id": "msg_F25tb90W5xTPqSn4KgU4aMsb",
-      "assistant_id": null,
-      "content": [
-        {
-          "text": {
-            "annotations": [],
-            "value": "I need to solve the equation `3x + 11 = 14`. Can you help me?"
-          },
-          "type": "text"
-        }
-      ],
-      "created_at": 1705892751,
-      "file_ids": [],
-      "metadata": {},
-      "object": "thread.message",
-      "role": "user",
-      "run_id": null,
-      "thread_id": "thread_hCOKdEZy1diZAAzwDudRqGRc"
-    }
-  ],
-  "object": "list",
-  "first_id": "msg_XOL8597uuV6zIEgaqZtI0KD3",
-  "last_id": "msg_F25tb90W5xTPqSn4KgU4aMsb",
-  "has_more": false
-}
+
 ```
-
-## Understanding your results
-
-In this example we create an assistant with code interpreter enabled. When we ask the assistant a math question it translates the question into code and executes the code in sandboxed environment in order to determine the answer to the question. The code the model creates and tests to arrive at an answer is:
-
-#### [TypeScript](#tab/typescript)
-
-<!--- Content here  -->
-
-
-#### [JavaScript](#tab/javascript)
-
-<!--- Content here  -->
-
-
----  
 
 It is important to remember that while the code interpreter gives the model the capability to respond to more complex queries by converting the questions into code and running that code iteratively in JavaScript until it reaches a solution, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
 
