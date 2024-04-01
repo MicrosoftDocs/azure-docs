@@ -7,13 +7,26 @@ ms.topic: tutorial
 ms.date: 08/24/2023
 ms.service: azure-migrate
 ms.custom: engagement-fy24
+zone_pivot_groups: web-apps-assessment-app-service
 ---
 
 
-# Tutorial: Assess ASP.NET web apps for migration to Azure App Service
+# Tutorial: Assess ASP.NET/Java web apps for migration to Azure App Service
+
+
+::: zone pivot="asp.net"
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
+
+:::zone-end
+
+::: zone pivot="java"
+
+As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
+This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
+
+:::zone-end
 
 In this tutorial, you learn how to: 
 
@@ -70,7 +83,17 @@ To run an assessment, follow these steps:
 1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment.
 1. In **Select or create a group**, select **Create New** and specify a group name. You can also use an existing group.
-1. Select the appliance and select the servers that you want to add to the group. Select **Next**.
+1. Select the appliance.
+
+::: zone pivot="asp.net"
+1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
+::: zone-end
+
+::: zone pivot="java"
+1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
+::: zone-end
+
+1. Select **Next**.
 
    :::image type="content" source="./media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
 
