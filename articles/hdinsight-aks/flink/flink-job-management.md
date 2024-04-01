@@ -79,7 +79,8 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
    | Entry class |	Entry class for job from which job execution starts. |  | Yes |
    | Args | Argument for main program of job. Separate all arguments with spaces. |  |	No |
    | parallelism | Job Flink Parallelism. | 2	| Yes |
-   | savepoint.directory | Savepoint directory for job. it's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints` | No |
+   | savepoint.directory | Savepoint directory for job. It's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints` | No |
+
 
    Once the job is launched, the job status on the portal is **RUNNING**.
 
@@ -233,7 +234,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    |entryClass | Entry class for job from which job execution starts. |  |	Yes |
    | args | Argument for main program of job. Separate arguments with space. |	| No |
    | parallelism | Job Flink Parallelism. | 2 | Yes |
-   | savepoint.directory | Savepoint directory for job. it's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints`| No |
+   | savepoint.directory | Savepoint directory for job. It's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints`| No |
+
 
    Example:
  
@@ -300,7 +302,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    | jobType  | Type of Job. It should be “FlinkJob” | Yes |
    | jobName  | Job Name that is used for launching the job. | Yes |
    | action   | It should be “START” |	Yes |
-   | savePointName | Save point name to start the job. it's optional property, by default start operation take last successful savepoint. | No |
+   | savePointName | Save point name to start the job. It's optional property, by default start operation take last successful savepoint. | No |
+
 
    **Example:**
    
@@ -337,7 +340,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be “UPDATE” always for new job launch. | | Yes |
    | args	  | Job JVM arguments |  | No |
-   | savePointName | Save point name to start the job. it's optional property, by default start operation will take last successful savepoint.| |	No |
+   | savePointName | Save point name to start the job. It's optional property, by default start operation will take last successful savepoint.| |	No |
+
 
    Example: 
    
