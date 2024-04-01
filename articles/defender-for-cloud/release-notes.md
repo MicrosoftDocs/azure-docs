@@ -31,13 +31,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 April 1, 2024
 
-The Azure AI Services category (formerly known as Cognitive Services) added new resource types. As a result, the following recommendations and related policy are updated to comply with the new Azure AI Services naming format and align with the relevant resources.
+The following recommendations have been updated to align with the Azure AI Services category (formerly known as Cognitive Services and Cognitive search) to comply with the new Azure AI Services naming format and align with the relevant resources.
 
 | Old recommendation | Updated recommendation |
 | ---- | ---- |
 | Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
 | Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
-
+| Diagnostic logs in Search services should be enabled | [Diagnostic logs in Azure AI services resources should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e) |
+ 
 See the [list of security recommendations](recommendations-reference.md).
 
 ### Deprecation of Cognitive Services recommendation
