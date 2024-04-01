@@ -204,7 +204,7 @@ The respective Azure Arc servers for GCP virtual machines that no longer exist (
 Ensure that you fulfill the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (Microsoft Defender Vulnerability Management or Qualys)
 

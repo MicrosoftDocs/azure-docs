@@ -497,7 +497,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -1329,7 +1329,7 @@ For more information, see [Update OT system software](update-ot-software.md).
 
 Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-In addition to [migration steps](update-legacy-ot-software.md#migrate-a-cloud-connection-from-the-legacy-method), this new connectivity model requires that you open a new firewall rule. For more information, see:
+In addition to migration steps, this new connectivity model requires that you open a new firewall rule. For more information, see:
 
 - **New firewall requirements**: [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 - **Architecture**: [Sensor connection methods](architecture-connections.md)
