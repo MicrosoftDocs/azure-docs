@@ -32,7 +32,7 @@ There are three ExpressRoute resiliency architectures that can be utilized to en
 
 The maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
 
-:::image type="content" source="./media/design-architecture-for-resiliency/maximum-resiliency.png" alt-text="Diagram illustrating a pair of ExpressRoute circuits, configured at two distinct peering locations, establishing a connection between an on-premises network and Microsoft.":::
+:::image type="content" source="./media/design-architecture-for-resiliency/maximum-resiliency.png" alt-text="Diagram illustrating a pair of ExpressRoute circuits, configured at two distinct peering locations, between an on-premises network and Microsoft.":::
 
 ### High resiliency
 
@@ -42,7 +42,7 @@ High resiliency, also referred to as multi-site or site resiliency, enables the 
 
 ### Standard resiliency
 
-Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Microsoft guarantees an availability [service level agreements (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) of 99.95% for Microsoft Enterprise Edge (MSEE) to the gateway for this configuration. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
+Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Microsoft guarantees an availability [service level agreements (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for Microsoft Enterprise Edge (MSEE) to the gateway for this configuration. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at a single peering location.":::
 
@@ -134,6 +134,4 @@ ExpressRoute uses [Azure Service Health](../service-health/overview.md) to notif
 #### Configure gateway health monitoring & alerting 
 
 [Setup monitoring](expressroute-monitoring-metrics-alerts.md#expressroute-gateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
-
-## Next steps
 
