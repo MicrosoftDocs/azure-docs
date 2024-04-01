@@ -23,6 +23,12 @@ The following metric is available for virtual hub router within a virtual hub:
 | Metric | Description|
 | --- | --- |
 | **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+| **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more details on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
+| **Spoke VM Utilization** | The number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric will display as 50%.  |
+
+> [!NOTE]
+> As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out within the next several weeks, which will ensure the proper values are emitted. 
+>
 
 #### PowerShell steps
 
@@ -88,13 +94,15 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 | Metric | Description|
 | --- | --- |
 | **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| **Gateway Inbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.|
+| **Gateway Outbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.|
 | **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
 | **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
 | **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
-| **Tunnel Flow Count** | Number of distinct flows created per link connection.|
+| **Tunnel Flow Count** | Number of distinct 3-tupe (protocol, local IP address, remote IP address) flows created per link connection.|
 
 ### <a name="p2s-metrics"></a>Point-to-site VPN gateway metrics
 
