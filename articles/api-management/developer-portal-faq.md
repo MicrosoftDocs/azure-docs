@@ -73,7 +73,7 @@ The interactive console makes a client-side API request from the browser. Resolv
 
 ## I'm getting a CORS error when using the custom HTML code widget
 
-When using the custom HTML code widget in your environment, you might see a CORS error when interacting with the IFrame loaded by the widget. This issue occurs because the IFrame is served content from a different origin than the developer portal. To avoid this issue, you can use custom widget instead.
+When using the custom HTML code widget in your environment, you might see a CORS error when interacting with the IFrame loaded by the widget. This issue occurs because the IFrame is served content from a different origin than the developer portal. To avoid this issue, you can use a custom widget instead.
 
 ## What permissions do I need to edit the developer portal?
 
