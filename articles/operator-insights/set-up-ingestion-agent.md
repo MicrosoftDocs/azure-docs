@@ -1,6 +1,6 @@
 ---
 title: Set up the Azure Operator Insights ingestion agent
-description: Set up the ingestion agent for Azure Operator Insights by installing it and configuring it to upload data to data products.
+description: Set up the ingestion agent for Azure Operator Insights by installing it and configuring it to upload data to Data Products.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
@@ -13,7 +13,7 @@ ms.date: 02/29/2024
 
 # Install the Azure Operator Insights ingestion agent and configure it to upload data
 
-When you follow this article, you set up an Azure Operator Insights _ingestion agent_ on a virtual machine (VM) in your network and configure it to upload data to a data product. This ingestion agent supports uploading:
+When you follow this article, you set up an Azure Operator Insights _ingestion agent_ on a virtual machine (VM) in your network and configure it to upload data to a Data Product. This ingestion agent supports uploading:
 
 - Files stored on an SFTP server.
 - Affirmed Mobile Content Cloud (MCC) Event Data Record (EDR) data streams.
@@ -22,7 +22,7 @@ For an overview of ingestion agents, see [Ingestion agent overview](ingestion-ag
 
 ## Prerequisites
 
-From the documentation for your data product, obtain the:
+From the documentation for your Data Product, obtain the:
 - Specifications for the VM on which you plan to install the VM agent.
 - Sample configuration for the ingestion agent.
 
@@ -244,7 +244,7 @@ The configuration you need is specific to the type of source and your Data Produ
     1. For the secret provider with type `file_system` and name `local_file_system`, set the following fields.
         - `secrets_directory` to the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
     
-    You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret providers.
+    You can add more secret providers (for example, if you want to upload to multiple Data Products) or change the names of the default secret providers.
 
     # [MCC EDR sources](#tab/edr)
     
@@ -256,7 +256,7 @@ The configuration you need is specific to the type of source and your Data Produ
             - For a managed identity: set `object_id` to the Object ID of the managed identity that you created in [Use a managed identity for authentication](#use-a-managed-identity-for-authentication).
             - For a service principal: set `tenant_id` to your Microsoft Entra ID tenant, `client_id` to the Application (client) ID of the service principal that you created in [Create a service principal](#create-a-service-principal), and `cert_path` to the file path of the base64-encoded P12 certificate on the VM.
 
-    You can add more secret providers (for example, if you want to upload to multiple data products) or change the names of the default secret provider.
+    You can add more secret providers (for example, if you want to upload to multiple Data Products) or change the names of the default secret provider.
 
     ---
 1. Configure the `pipelines` section using the example configuration and your Data Product's documentation. Each `pipeline` has three configuration sections.

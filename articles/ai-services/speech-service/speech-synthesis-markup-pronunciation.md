@@ -38,21 +38,21 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="tə.ˈmeɪ.toʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -68,7 +68,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-AvaMultilingualNeural">
+     <voice name="en-US-AvaNeural">
         <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
@@ -93,13 +93,13 @@ Usage of the `lexicon` element's attributes are described in the following table
 
 The supported values for attributes of the `lexicon` element were [described previously](#custom-lexicon).
 
-After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. We support lexicon URLs from Azure Blob Storage, Azure Media Services (AMS) Storage, and GitHub. However, note that other public URLs may not be compatible.
+After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. We support lexicon URLs from Azure Blob Storage, Advanced Media Services (AMS) Storage, and GitHub. However, note that other public URLs may not be compatible.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-AvaMultilingualNeural">
+    <voice name="en-US-AvaNeural">
         <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
