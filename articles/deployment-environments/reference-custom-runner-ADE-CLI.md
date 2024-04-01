@@ -15,7 +15,7 @@ ms.topic: reference
 
 This article describes the commands available for building custom images using Azure Deployment Environment (ADE) base images.
 
-By using the ADE CLI, you can interact with information about your environment and specified environment definition, upload, and access previously uploaded files related to the environment, record more logging regarding their executing operation, and upload and access outputs of an environment's deployment.
+By using the ADE CLI, you can interact with information about your environment and specified environment definition, upload, and access previously uploaded files related to the environment, record additional logging regarding their executing operation, and upload and access outputs of an environment's deployment.
 
 ## What commands can I use?
 The ADE CLI currently supports the following commands:
