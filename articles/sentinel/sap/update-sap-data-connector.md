@@ -16,7 +16,6 @@ To get the latest features, you can [enable automatic updates](#automatically-up
 
 Note that the automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
