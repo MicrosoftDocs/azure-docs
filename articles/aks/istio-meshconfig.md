@@ -16,7 +16,7 @@ This article walks through how to configure Istio-based service mesh add-on for 
 
 ## Prerequisites
 
-This guide assumes you followed the [documentation](istio-deploy-addon) to enable the Istio add-on on an AKS cluster.
+This guide assumes you followed the [documentation](./istio-deploy-addon.md) to enable the Istio add-on on an AKS cluster.
 
 ## Set up configuration on cluster
 
