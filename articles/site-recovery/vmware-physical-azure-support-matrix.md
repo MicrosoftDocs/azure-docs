@@ -6,13 +6,13 @@ ms.service: site-recovery
 ms.date: 03/15/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.custom: engagement-fy23 
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 

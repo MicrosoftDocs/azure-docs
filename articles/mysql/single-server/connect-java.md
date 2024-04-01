@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: java
 author: jdubois
 ms.author: judubois
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java, linux-related-content
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java
 ms.date: 05/03/2023
 ---
 

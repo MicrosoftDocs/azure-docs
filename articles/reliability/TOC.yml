@@ -306,12 +306,8 @@
       href: reliability-chaos-studio.md
     - name: Azure Community Training
       href: reliability-community-training.md
-    - name : Azure Cosmos DB for MongoDB vCore
-      items:
-      - name: Availability zones
-        href: /azure/cosmos-db/mongodb/vcore/high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href : ../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cosmos DB for MongoDB vCore
+      href: reliability-cosmos-mongodb.md
     - name: Azure Databox
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Data Manager for Energy

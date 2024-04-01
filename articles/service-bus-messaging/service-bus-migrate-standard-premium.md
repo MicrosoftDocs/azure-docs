@@ -12,7 +12,7 @@ Previously, Azure Service Bus offered namespaces only on the standard tier. Name
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
 >[!WARNING]
-> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading.
+> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. During migration from the standard to the premium level, a DNS pointer will be created that can be used to access the standard service bus. Please note that during migration an alternateName will be created that represents the pointer to the DNS namespace of the old service bus and the operation cannot be undone. Any sort of testing should be done in a testing environment.
 
 Some of the points to note:
 

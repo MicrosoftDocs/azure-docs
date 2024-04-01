@@ -2,6 +2,7 @@
 title: Use a Microsoft Entra Workload ID on Azure Kubernetes Service (AKS)
 description: Learn about Microsoft Entra Workload ID for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: build-2023
 ms.date: 11/17/2023
 ---

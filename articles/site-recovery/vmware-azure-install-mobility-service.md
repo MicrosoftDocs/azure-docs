@@ -7,13 +7,13 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 03/07/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Prepare source machine for push installation of mobility agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server.
 
@@ -72,5 +72,3 @@ If machines you want to replicate have active anti-virus software running, make 
 ## Next steps
 
 After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs](vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
-
-

@@ -6,10 +6,11 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 01/27/2023
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to move an IoT Edge workload from native/managed Azure Stack Edge to a self-service IoT Edge solution on a Linux VM, so that I can efficiently manage my VMs. 
+#Customer intent: As an IT admin, I need to understand how to move an IoT Edge workload from native/managed Azure Stack Edge to a self-service IoT Edge solution on a Linux VM, so that I can efficiently manage my VMs.
 ---
 
 # Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM

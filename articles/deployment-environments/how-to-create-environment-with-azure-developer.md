@@ -25,9 +25,8 @@ Azure Developer CLI (AZD) is an open-source tool that accelerates the time it ta
 
 You should:
 - Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md) and [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
-- Create and configure a dev center with a project, environment types, and a catalog. Use the following articles as guidance:
+- Create and configure a dev center with a project, environment types, and a catalog. Use the following article as guidance:
    - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
-   - [Quickstart: Create and configure an Azure Deployment Environments project](quickstart-create-and-configure-projects.md)
 - A catalog attached to your dev center.
 
 ## Prepare to work with AZD 

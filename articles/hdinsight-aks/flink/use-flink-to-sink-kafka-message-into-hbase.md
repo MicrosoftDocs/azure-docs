@@ -1,9 +1,9 @@
 ---
 title: Write messages to Apache HBase® with Apache Flink® DataStream API
-description: Learn how to write messages to Apache HBase with Apache Flink DataStream API
+description: Learn how to write messages to Apache HBase with Apache Flink DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/25/2024
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
@@ -14,16 +14,16 @@ In this article, learn how to write messages to HBase with Apache Flink DataStre
 
 ## Overview
 
-Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table. 
+Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table.
 
-In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there is a  real time streaming IOT application, the information can be gathered, transformed and optimized. 
+In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there's a  real time streaming IOT application, the information can be gathered, transformed, and optimized. 
 
 
 ## Prerequisites
 
 * [Apache Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
 * [Apache Kafka cluster on HDInsight](../flink/process-and-consume-data.md)
-* [Apache HBase 2.4.11 clusteron HDInsight](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
+* [Apache HBase 2.4.11 cluster on HDInsight](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
   * You're required to ensure HDInsight on AKS cluster can connect to HDInsight cluster, with same virtual network.
 * Maven project on IntelliJ IDEA for development on an Azure VM in the same VNet
 
@@ -166,7 +166,7 @@ hbase:002:0>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <hbase.version>2.4.11</hbase.version>
@@ -349,42 +349,42 @@ public class KafkaSinkToHbase {
 
 ### Submit job on Secure Shell
 
-We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
+We use [Flink CLI](./flink-web-ssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs.
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
 
 ### Monitor job on Flink UI
 
-We can monitor the jobs on Flink Web UI
+We can monitor the jobs on Flink Web UI.
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
 
 ## Validate HBase table data
 
 ```
-hbase:001:0> scan 'user_click_events'
-ROW                                   COLUMN+CELL
- 0000000853                           column=user_info:ts, timestamp=2023-07-11T06:50:08.505, value=07/11/2023 06:39:44
- 0000000853                           column=user_info:userName, timestamp=2023-07-11T06:50:08.505, value=Sean
- 0000000853                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.505, value=https://kafka.apache.org
- 0000000854                           column=user_info:ts, timestamp=2023-07-11T06:50:08.556, value=07/11/2023 06:39:45
- 0000000854                           column=user_info:userName, timestamp=2023-07-11T06:50:08.556, value=Pick
- 0000000854                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.556, value=https://www.bing.com/new
- 0000000855                           column=user_info:ts, timestamp=2023-07-11T06:50:08.609, value=07/11/2023 06:39:45
- 0000000855                           column=user_info:userName, timestamp=2023-07-11T06:50:08.609, value=Pick
- 0000000855                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.609, value=https://kafka.apache.org
- 0000000856                           column=user_info:ts, timestamp=2023-07-11T06:50:08.663, value=07/11/2023 06:39:45
- 0000000856                           column=user_info:userName, timestamp=2023-07-11T06:50:08.663, value=Andrew
- 0000000856                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.663, value=https://hadoop.apache.org
- 0000000857                           column=user_info:ts, timestamp=2023-07-11T06:50:08.714, value=07/11/2023 06:39:45
- 0000000857                           column=user_info:userName, timestamp=2023-07-11T06:50:08.714, value=Machael
- 0000000857                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.714, value=https://flink.apache.org
- 0000000858                           column=user_info:ts, timestamp=2023-07-11T06:50:08.767, value=07/11/2023 06:39:45
- 0000000858                           column=user_info:userName, timestamp=2023-07-11T06:50:08.767, value=Luke
- 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=/azure/
-                                      hdinsight/hdinsight-overview
-859 row(s)
-Took 0.9531 seconds
+hbase:001:0> scan 'user_click_events',{LIMIT=>5}
+ROW                                  COLUMN+CELL
+0000000000                          column=user_info:ts, timestamp=2024-03-20T02:02:46.932, value=03/20/2024 02:02:43
+0000000000                          column=user_info:userName, timestamp=2024-03-20T02:02:46.932, value=Pick
+0000000000                          column=user_info:visitURL, timestamp=2024-03-20T02:02:46.932, value=
+https://hadoop.apache.org
+0000000001                          column=user_info:ts, timestamp=2024-03-20T02:02:46.991, value=03/20/2024 02:02:43
+0000000001                          column=user_info:userName, timestamp=2024-03-20T02:02:46.991, value=Zheng Hu
+0000000001                          column=user_info:visitURL, timestamp=2024-03-20T02:02:46.991, value=/azure/hdinsight/hdinsight-overview
+0000000002                          column=user_info:ts, timestamp=2024-03-20T02:02:47.001, value=03/20/2024 02:02:43
+0000000002                          column=user_info:userName, timestamp=2024-03-20T02:02:47.001, value=Sean
+0000000002                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.001, value=
+https://spark.apache.org
+0000000003                          column=user_info:ts, timestamp=2024-03-20T02:02:47.008, value=03/20/2024 02:02:43
+0000000003                          column=user_info:userName, timestamp=2024-03-20T02:02:47.008, value=Zheng Hu
+0000000003                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.008, value=
+https://kafka.apache.org
+0000000004                          column=user_info:ts, timestamp=2024-03-20T02:02:47.017, value=03/20/2024 02:02:43
+0000000004                          column=user_info:userName, timestamp=2024-03-20T02:02:47.017, value=Chunck
+0000000004                          column=user_info:visitURL, timestamp=2024-03-20T02:02:47.017, value=
+https://github.com
+5 row(s)
+Took 0.9269 seconds
 ```
 
 > [!NOTE]
