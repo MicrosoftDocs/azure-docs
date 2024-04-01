@@ -86,7 +86,7 @@ In this tutorial, you'll learn how to:
 ::: zone pivot="asp-net"
 1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
 ::: zone-end
-::: zone pivot="jave"
+::: zone pivot="java"
 1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
 ::: zone-end
 1. Select the list of servers, which host the web apps to be assessed.
