@@ -254,7 +254,7 @@
     items:
     - name: Create a vector store
       href: vector-search-how-to-create-index.md
-    - name: Configure compression and storage (preview)
+    - name: Configure quantization and storage (preview)
       href: vector-search-how-to-configure-compression-storage.md
     - name: Configure a vectorizer (preview)
       href: vector-search-how-to-configure-vectorizer.md

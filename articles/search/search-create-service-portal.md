@@ -92,19 +92,17 @@ We strongly recommend the following regions because they provide [more storage p
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
-| **United States** | East US​, East US 2, East US 2 EUAP​, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
+| **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
 | **United Kingdom** | UK South​, UK West​ ​ |
 | **United Arab Emirates** | UAE North​​ |
-| **Switzerland** | Switzerland West​, Switzerland North​​ |
+| **Switzerland** | Switzerland West​ |
 | **Sweden** | Sweden Central​​ |
-| **Qatar** | Qatar Central​​ |
 | **Poland** | Poland Central​​ |
 | **Norway** | Norway East​​ |
 | **Korea** | Korea Central, Korea South​ ​ |
 | **Japan** | Japan East, Japan West​ |
 | **Italy** | Italy North​​ |
 | **India** | Central India, Jio India West​ ​ |
-| **Germany** | Germany North​​ |
 | **France** | France Central​​ |
 | **Europe** | North Europe​​ |
 | **Canada** | Canada Central​, Canada East​​ |
@@ -170,7 +168,7 @@ An endpoint and key aren't needed for portal-based tasks. The portal is already 
 
 ## Scale your service
 
-After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). On a billable tier, you can scale the service in two dimensions: replicas and partitions. For the free service, scale isn't available.
+After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). On a billable tier, you can scale the service in two dimensions: replicas and partitions. For the free service, scale up isn't available and replica and partition configuration isn't offered.
 
 ***Partitions*** allow your service to store and search through more documents.
 

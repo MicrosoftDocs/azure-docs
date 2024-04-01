@@ -44,6 +44,8 @@ landingContent:
             url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md
+          - text: Integrated scalar quantization (preview)
+            url: vector-search-how-to-configure-compression-storage.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
       - linkListType: quickstart
