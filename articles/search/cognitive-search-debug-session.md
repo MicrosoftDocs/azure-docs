@@ -80,9 +80,6 @@ Expression Evaluator gives you full interactive access for testing skill context
 
 :::image type="content" source="media/cognitive-search-debug/expression-evaluator.png" alt-text="Screenshot of Expression Evaluator.":::
 
-> [!NOTE] 
-> Debug sessions cannot yet be configured with [customer managed key encryption (CMK)](search-security-manage-encryption-keys.md) through the portal. This means that if the search service has a policy that [enforces CMK](search-manage-rest.md) for resources, debug sessions will become unusable. This shortcoming is temporary and is planned to be corrected in the near future.
-
 ## Next steps
 
 Now that you understand the elements of debug sessions, start your first debug session on an existing skillset.
