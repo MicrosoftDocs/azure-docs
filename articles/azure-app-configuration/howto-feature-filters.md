@@ -27,7 +27,7 @@ You can also create your own custom feature filters to enable features based on 
 
 In this article, you will learn how to add a custom feature filter for your feature flag.
 
-## Add a custom feature filter for the feature flag
+## Add a custom feature filter
 
 1. If you don't have any feature flag, create a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
@@ -80,7 +80,7 @@ In this tutorial, you learn the basic concept of feature filter and how to add a
 To learn how to implement a custom feature filter, continue to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [ASP.NET](./howto-feature-filters-aspnet-core.md)
+> [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
 
 To learn more about the built-in feature filters, continue to the following tutorials:
 
@@ -88,4 +88,4 @@ To learn more about the built-in feature filters, continue to the following tuto
 > [Enable features on a schedule](./howto-timewindow-filter.md)
 
 > [!div class="nextstepaction"]
-> [Roll out features to targeting audience](./howto-targetingfilter.md)
+> [Roll out features to targeted audience](./howto-targetingfilter.md)

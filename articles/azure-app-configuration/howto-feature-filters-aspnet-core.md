@@ -13,14 +13,14 @@ ms.date: 03/28/2024
 
 # Tutorial: Enable conditional features with a custom filter in an ASP.NET Core app
 
-Creating a [feature filter](./howto-feature-filters.md) provides a way to enable features based on criteria that you define. App Configuration offers some built-in feature filters accessible from the portal. These built-in feature filters are designed to cover some basic conditional feature use cases.  For more specialized needs, you have the option to create your own defined criteria to enable a feature. The `Microsoft.FeatureManagement` library supports the development of custom feature filters. You can also add and configure the custom filters for your feature flags in App Configuration.
+Feature flags can use feature filters to enable features conditionally. To learn more about feature filters, see [Tutorial: Enable conditional features with feature filters](./howto-feature-filters.md).
 
-In this tutorial, you'll implement a custom filter to enable a feature based on the browser type. You will add this custom filter to the *Beta* feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+The example used in this tutorial is based on the ASP.NET Core app introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core app with a *Beta* feature flag. Once completed, you will add a custom feature filter to the *Beta* feature flag in your App Configuration store. In this tutorial, you will learn how to implement the custom feature filter and use the feature flag to enable features conditionally.
 
 ## Prerequisites
 
-- Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
-- Finish the [Tutorial: Enable conditional features with feature filters](./howto-feature-filters.md)
+- Create an [ASP.NET Core app with a feature flag](./quickstart-feature-flag-aspnet-core.md).
+- Add a [custom feature filter to the feature flag](./howto-feature-filters.md)
 
 ## Configure a custom feature filter
 
@@ -123,15 +123,6 @@ builder.Services.AddFeatureManagement()
 // Add HttpContextAccessor to the container of services.
 builder.Services.AddHttpContextAccessor();
 ```
-
-> [!TIP]
-> Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
->
-> - `TimeWindowFilter`
-> - `ContextualTargetingFilter`
-> - `PercentageFilter`
->
-> For more information on using `TargetingFilter`, see [Tutorial: Roll out features to targeted audiences in an ASP.NET Core app](./howto-targetingfilter-aspnet-core.md).
 
 ## Feature filter in action
 
