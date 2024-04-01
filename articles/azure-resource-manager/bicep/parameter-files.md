@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/22/2024
+ms.date: 04/01/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -367,7 +367,7 @@ From Azure CLI, you can pass a parameter file with your Bicep file deployment.
 
 # [Bicep parameters file](#tab/Bicep)
 
-With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch.
 
 ```azurecli
 az deployment group create \
@@ -463,10 +463,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile C:\MyTemplates\storage.bicep `
   -TemplateParameterFile C:\MyTemplates\storage.parameters.json `
   -storageAccountType Standard_LRS
-
 ```
-
-
 
 ---
 
