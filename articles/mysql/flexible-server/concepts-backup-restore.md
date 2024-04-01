@@ -161,6 +161,14 @@ Azure Backup and Azure Database for MySQL flexible server services have built an
 - Manage and monitor all the backup-related operations and jobs across servers, resource groups, locations, subscriptions, and tenants from a single pane of glass called the Backup Center. 
 - Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
 
+### Limitations and considerations
+- In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
+- LTR backup is currently not supported for HA-enabled servers. This capability will be added in the future.
+
+- Support for LTR creation and management through Azure CLI is currently not supported.
+
+For more information about performing a long-term backup, visit the [how-to guide](../../backup/backup-azure-mysql-flexible-server.md)
+
 
 ## Frequently Asked Questions (FAQs)
 

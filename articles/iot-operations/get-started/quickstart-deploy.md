@@ -141,7 +141,7 @@ This script automates the following steps:
 
 * Apply all the required configurations for Azure IoT Operations, including:
 
-  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations MQ broker.
+  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
   * Install Storage local-path provisioner.
 
@@ -218,81 +218,49 @@ az iot ops verify-host
 
 This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
 
-## Configure cluster and deploy Azure IoT Operations Preview
+## Deploy Azure IoT Operations Preview
 
-Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
+In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault, then deploy Azure IoT Operations.
 
-In this section, you use the Azure CLI to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+1. Create a key vault. Replace the placeholder parameters with your own information.
 
-### Create a key vault
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
+   | **KEYVAULT_NAME** | A name for a new key vault. |
 
-You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
-
-To create a new key vault, use the following command:
-
-```azurecli
-az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP_NAME>"
-```
-
-### Deploy Azure IoT Operations
-
-In this section, you use the Azure CLI to deploy Azure IoT Operations, but the Azure portal has a helper wizard to build the correct CLI command based on your cluster, cloud resources, and configuration choices.
-
-1. In a web browser, open the [Azure portal](https://portal.azure.com). In the Azure portal search bar, search for and select **Azure Arc**.
-
-1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
-
-   :::image type="content" source="./media/quickstart-deploy/arc-iot-operations.png" alt-text="Screenshot of selecting Azure IoT Operations from Azure Arc.":::
-
-1. Select **Create**.
-
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
-   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-basics.png" alt-text="Screenshot of the basics tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Select **Next: Configuration**.
-
-1. On the **Configuration** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo data that you use in the following quickstarts. |
-   | **Mode** | Set the MQ configuration mode to **Auto**. |
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-configuration.png" alt-text="Screenshot of the configuration tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Select **Next: Automation**.
-
-1. On the **Automation** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
-
-1. Once you select a key vault, the **Automation** tab uses all the information you selected in the previous tabs to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+   ```azurecli
+   az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+   ```
 
    >[!TIP]
-   >If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+   > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
+
+1. Run the following CLI command on your development machine or in your codespace terminal. Replace the placeholder parameters with your own information.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | **CLUSTER_NAME** | The name of your connected cluster. |
+   | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
+   | **KEYVAULT_NAME** | The name of your key vault. |
+
+   ```azurecli
+   az iot ops init --simulate-plc --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
+   ```
+
+   If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+
+   >[!TIP]
+   >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
 
 1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
 
-    > [!IMPORTANT]
-    > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+   > [!IMPORTANT]
+   > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
 
-    ```azurecli
-    az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-    ```
+   ```azurecli
+   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+   ```
 
 ## View resources in your cluster
 
@@ -308,7 +276,7 @@ It can take several minutes for the deployment to complete. Continue running the
 
 To view your cluster on the Azure portal, use the following steps:
 
-1. In the Azure portal, navigate to the resource group that contains your cluster.
+1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains your cluster.
 
 1. From the **Overview** of the resource group, select the name of your cluster.
 

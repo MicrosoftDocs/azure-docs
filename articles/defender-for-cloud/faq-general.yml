@@ -165,7 +165,7 @@ sections:
           - The Azure Management app ID (797f4846-ba00-4fd7-ba43-dac1f8f63013), or all apps, are included in the **Apps** section of your MFA CA policy
           - The Azure Management app ID isn't excluded in the **Apps** section of your MFA CA policy
           - OR condition is used with only MFA, or AND condition is used with MFA 
-          - A Conditional Access policy enforcing MFA through [Authentication Strengths](https://learn.microsoft.com/entra/identity/authentication/concept-authentication-strengths) is currently not supported in our evaluation
+          - A Conditional Access policy enforcing MFA through [Authentication Strengths](/entra/identity/authentication/concept-authentication-strengths) is currently not supported in our evaluation.
  
       - question: |
           We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
