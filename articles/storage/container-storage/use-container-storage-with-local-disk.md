@@ -137,36 +137,35 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Paste in the following code and save the file.
    ```yml
-   kind: 'Pod'
-   apiVersion: 'v1'
+   kind: Pod
+   apiVersion: v1
    metadata:
-     name: 'fiopod'
+     name: fiopod
    spec:
      nodeSelector:
-       acstor.azure.com/io-engine: 'acstor'
+       acstor.azure.com/io-engine: acstor
      containers:
-       - name: 'fio'
-         image: 'nixery.dev/shell/fio'
+       - name: fio
+         image: nixery.dev/shell/fio
          args:
-           - 'sleep'
-           - '1000000'
+           - sleep
+           - "1000000"
          volumeMounts:
-           - mountPath: '/volume'
-             name: 'ephemeralvolume'
+           - mountPath: "/volume"
+             name: ephemeralvolume
      volumes:
-       - name: 'ephemeralvolume'
+       - name: ephemeralvolume
          ephemeral:
            volumeClaimTemplate:
              metadata:
                labels:
-                 type: 'my-ephemeral-volume'
+                 type: my-ephemeral-volume
              spec:
-               accessModes:
-                 - 'ReadWriteOnce'
-               storageClassName: 'acstor-ephemeraldisk-nvme'
+               accessModes: [ "ReadWriteOnce" ]
+               storageClassName: "acstor-ephemeraldisk-nvme" # replace with the name of your storage class if different
                resources:
                  requests:
-                   storage: '1Gi'
+                   storage: 1Gi
    ```
 
 1. Apply the YAML manifest file to deploy the pod.
