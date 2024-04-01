@@ -163,7 +163,7 @@ For the other volumes, the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
