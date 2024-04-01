@@ -39,6 +39,17 @@ When you increase the retention setting, the new retention period applies to all
 
 If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
+### What happens when you delete a table in a Log Analytics workspace
+
+There are several types of tables in Log Analytics and the delete experience is different for each:
+
+|Table type|Delete experience|
+|-|-|
+|[Azure table](../logs/manage-logs-tables.md#table-type-and-schema)| Can't be deleted. Tables that are part of a solution are removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete), but data remains in workspace for the duration of the retention policy defined for the tables, or if not exist, for the duration of the retention policy defined in workspace. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables and previously ingested data become visible again. To avoid charges, define [retention policy for tables in solutions](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the solution.|
+|[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.|
+|[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.|
+|[Custom log table](./create-custom-table.md#create-a-custom-table)(`table_CL`)| Deletes the table definition immediately, but data remains in workspace for the duration of the retention policy defined for the table, or workspace. The retention policy for table is removed in 14-days and workspace retention governs. If custom log table is created with the same name and schema, the table and previously ingested data become visible again. To avoid charges and remove data from table, define [retention policy for table](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the table.|
+
 ## Permissions required
 
 | Action | Permissions required |
@@ -52,6 +63,9 @@ If you change the archive settings on a table with existing data, the relevant d
 ## Configure the default workspace retention
 
 You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
+
+> [!IMPORTANT]
+> Workspaces with a 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, [configure the default workspace retention to 30 days using the API](#api-3) and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
 
 # [Portal](#tab/portal-3)
 
@@ -307,16 +321,6 @@ Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Conto
 
 ---
 
-## Purge retained data
-
-If you set the data retention to 30 days, you can purge older data immediately by using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal.
-
-Workspaces with a 30-day retention might keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
-
-You can also purge data from a workspace by using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can't purge data from archived logs.
-
-> [!IMPORTANT]
-> The Log Analytics [Purge feature](/rest/api/loganalytics/workspacepurge/purge) doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
 
 ## Tables with unique retention periods
 
@@ -341,20 +345,6 @@ Tables related to Application Insights resources also keep data for 90 days at n
 The charge for maintaining archived logs is calculated based on the volume of data you archive, in GB, and the number or days for which you archive the data. Log data that has `_IsBillable == false` is not subject to retention or archive charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-## Set data retention for classic Application Insights resources
-
-Workspace-based Application Insights resources store data in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources have separate retention settings.
-
-The default retention for Application Insights resources is 90 days. You can select different retention periods for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550, or 730 days.
-
-To change the retention, from your Application Insights resource, go to the **Usage and estimated costs** page and select the **Data retention** option.
-
-:::image type="content" source="../app/media/pricing/pricing-005.png" lightbox="../app/media/pricing/pricing-005.png" alt-text="Screenshot that shows where to change the data retention period.":::
-
-A several-day grace period begins when the retention is lowered before the oldest data is removed.
-
-The retention can also be [set programmatically with PowerShell](../app/powershell.md#set-the-data-retention) by using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data by using the `immediatePurgeDataOn30Days` parameter. This approach might be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured by using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Next steps
 
