@@ -20,6 +20,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## April 2024
+|Date | Update |
+|--|--|
+| April 1| [Containers multi cloud recommendations (GA)](#containers-multi-cloud-recommendations-ga) |
+
+
+### Containers multi cloud recommendations (GA)
+
+April 1, 2024
+
+As part of Defender for Containers multi cloud general availability, following recommendations are announced GA as well:
+
+ 
+
 ## March 2024
 
 |Date | Update |
