@@ -454,6 +454,19 @@ Azure service: [Azure Blueprints](/azure/governance/blueprints/)
 > | Microsoft.Blueprint/blueprints/versions/delete | Delete any blueprints |
 > | Microsoft.Blueprint/blueprints/versions/artifacts/read | Read any blueprint artifacts |
 
+## Microsoft.Carbon
+
+Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Carbon/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
+> | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/operations/read | read operations |
+
 ## Microsoft.Consumption
 
 Programmatic access to cost and usage data for your Azure resources.
