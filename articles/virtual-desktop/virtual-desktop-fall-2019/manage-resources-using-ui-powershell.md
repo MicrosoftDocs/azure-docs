@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 manager: femila
 ---
 
