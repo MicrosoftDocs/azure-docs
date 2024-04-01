@@ -86,6 +86,12 @@ For more information, see:
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
 - [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 
+## OT data sharing
+
+Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
+
+- Microsoft Defencer Exposure Mangement
+
 ## On-premises backup file capacity
 
 Both the OT network sensor and the on-premises management console have automated backups running daily.
