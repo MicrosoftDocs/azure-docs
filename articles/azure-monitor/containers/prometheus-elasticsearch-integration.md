@@ -1,9 +1,10 @@
 ---
 title: Configure elastic search integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure elastic search monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+description: Describes how to configure ElasticSearch monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
+ms.service: managed-prometheus
 ---
 # ElasticSearch
 Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happen.
@@ -15,7 +16,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 + Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
-### Install Elastic Search Exporter -
+### Install Elastic Search Exporter
 Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart -
 
 ```bash
@@ -23,11 +24,14 @@ helm install azmon-elasticsearch-exporter --version 5.7.0 prometheus-community/p
 ```
 
 > [!NOTE] 
-> 1. Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=5.7.0.</br>
-> 2. The [prometheus-elasticsearch-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-elasticsearch-exporter/values.yaml) yaml.
-Please specify the right server address where the elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the elasticsearch server. Set the address where elasticsearch is reachable using the argument "es.uri" ex - .</br>
-> 3. You could also use service monitor, instead of pod monitor by using the **--set serviceMonitor.enabled=true** helm chart paramaters. Make sure to use the api version supported by Azure Managed Prometheus using the parameter **serviceMonitor.apiVersion=azmonitoring.coreos.com/v1**.</br>
-> 4. If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
+> Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=5.7.0.
+>
+> The [prometheus-elasticsearch-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-elasticsearch-exporter/values.yaml) yaml.
+Please specify the right server address where the ElasticSearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the ElasticSearch server. Set the address where ElasticSearch is reachable using the argument "es.uri" ex - .
+>
+> You could also use service monitor, instead of pod monitor by using the **--set serviceMonitor.enabled=true** helm chart paramaters. Make sure to use the api version supported by Azure Managed Prometheus using the parameter **serviceMonitor.apiVersion=azmonitoring.coreos.com/v1**.
+>
+> If you want to configure any other service or pod monitors, please follow the instructions [here](prometheus-metrics-scrape-crd.md#create-a-pod-or-service-monitor).
 
 
 ### Deploy Rules
@@ -53,13 +57,16 @@ Please specify the right server address where the elasticsearch server can be re
 
 3. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
 
-4. Once deployed, you can view the rules in the Azure Portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
+4. Once deployed, you can view the rules in the Azure portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
 
 > [!Note] 
-> 1. Review the alert thresholds to make sure it suits your cluster/worklaods and update it accordingly.</br>
-> 2. Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.</br>
-> 3. Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md).</br>
-> 4. If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
+> Review the alert thresholds to make sure it suits your cluster/worklaods and update it accordingly.
+>
+> Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.
+>
+> Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md).
+>
+> If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
 
 ### Import the Grafana Dashboard
 

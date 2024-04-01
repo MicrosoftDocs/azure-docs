@@ -1,9 +1,10 @@
 ---
 title: Configure argocd integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure argocd monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+description: Describes how to configure Argo CD monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/25/2024
 ms.reviewer: rashmy
+ms.service: managed-prometheus
 ---
 # Argo CD
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Argo CD follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state. It automates the deployment of the desired application states in the specified target environments. Application deployments can track updates to branches, tags, or pinned to a specific version of manifests at a Git commit.
@@ -15,7 +16,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 + Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 ### Deploy Service Monitors
-Deploy the following service monitors to configure azure managed prometheus addon to scrape prometheus metrics from the argocd workload.
+Deploy the following service monitors to configure Azure managed prometheus addon to scrape prometheus metrics from the argocd workload.
 
 > [!NOTE] 
 > Please specify the right labels in the matchLabels for the service monitors if they do not match the configured ones in the sample.
@@ -92,13 +93,16 @@ spec:
 
 3. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md).
 
-4. Once deployed, you can view the rules in the Azure Portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
+4. Once deployed, you can view the rules in the Azure portal as described in - [Prometheus Alerts](../essentials/prometheus-rule-groups.md#view-prometheus-rule-groups)
 
 > [!Note] 
-> 1. Review the alert thresholds to make sure it suits your cluster/worklaods and update it accordingly.</br>
-> 2. Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.</br>
-> 3. Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md).</br>
-> 4. If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
+> Review the alert thresholds to make sure it suits your cluster/workloads and update it accordingly.
+>
+> Please note that the above rules are not scoped to a cluster. If you would like to scope the rules to a specific cluster, see [Limiting rules to a specific cluster](../essentials/prometheus-rule-groups.md#limiting-rules-to-a-specific-cluster) for more details.
+>
+> Learn more about [Prometheus Alerts](../essentials/prometheus-rule-groups.md).
+>
+> If you want to use any other OSS prometheus alerting/recording rules please use the converter here to create the azure equivalent prometheus rules [az-prom-rules-converter](https://aka.ms/az-prom-rules-converter)
 
 
 ### Import the Grafana Dashboard
