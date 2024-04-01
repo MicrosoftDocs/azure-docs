@@ -138,7 +138,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**.  You cannot copy files directly to the *root* folder in the storage account. Any folders created under the *PageBlob* share represents containers into which data is uploaded as blobs. Similarly, any sub-folders created within the folders representing access tiers in the *BlockBlob* share also represents a blob storage container. Folders created within the *AzFile* share represent file shares.
 
-    Folders created at the *root* of the *BlockBlob* share will be created as a blob containers. The access tier of these container will be inherited from the storage account.
+    Folders created at the *root* of the *BlockBlob* share will be created as blob containers. The access tier of these container will be inherited from the storage account.
     
 ### Connect on a Linux system
 

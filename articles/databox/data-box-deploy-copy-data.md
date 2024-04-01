@@ -266,7 +266,7 @@ To optimize the performance, use the following robocopy parameters when copying 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Notifications are displayed during the copy porocess to identify errors.
+Notifications are displayed during the copy process to identify errors.
 
 ![A copy error notification in Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
 

@@ -144,7 +144,7 @@ Once the order is created, the device is prepared for shipment.
 
 This step takes roughly 5 minutes.
 
-The Data Box Disk are mailed in a UPS Express Box. Open the box and check that the box has:
+Data Box Disks are mailed in a UPS Express Box. Open the box and check that the box has:
 
 - 1 to 5 bubble-wrapped USB disks.
 - A connecting cable per disk.
