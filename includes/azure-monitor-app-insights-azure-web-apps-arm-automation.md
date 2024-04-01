@@ -43,7 +43,6 @@ To create a Resource Manager template with the default Application Insights sett
 
 1. Select **Review + create**. Then select **Download a template for automation**.
 
-    <!-- TODO: Update for Linux -->
     :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png":::
 
     This option generates the latest Resource Manager template with all required settings configured.
@@ -55,7 +54,6 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
 > [!NOTE]
 > If using Windows, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~2`. If using Linux, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~3`.
 
-<!-- TODO: Change ~2 to ~3 as default when image is changed to Linux -->
 ```json
 {
     "resources": [
@@ -160,7 +158,6 @@ To enable the application monitoring through PowerShell, only the underlying app
 > [!NOTE]
 > If using Windows, set ApplicationInsightsAgent_EXTENSION_VERSION to `~2`. If using Linux, set ApplicationInsightsAgent_EXTENSION_VERSION to `~3`.
 
-<!-- TODO: Change ~2 to ~3 as default when image is changed to Linux -->
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
