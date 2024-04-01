@@ -923,6 +923,9 @@ items:
         - name: Overview
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-overview.md
+        - name: Metrics explorer for Azure Monitor workspaces
+          displayName: Prometheus, metrics explorer
+          href: essentials/metrics-explorer.md  
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md

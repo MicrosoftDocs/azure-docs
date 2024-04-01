@@ -46,7 +46,7 @@ To add a metric using the editor,
 
 
 ## Multiple metrics and charts 
-Each worspace can host multiple charts with each chart containing multiple metrics.
+Each workspace can host multiple charts with each chart containing multiple metrics.
 
 ### Add a metric
 
@@ -58,7 +58,8 @@ You can add up to <<<<<<<10>>>>>>> metrics to a chart. Each metric and query is 
 
 
 ### Add a new chart
-You can create additional charts by selecting **New chart**. Each chart can have multiple metrics and different chart types and settings. 
+
+You can create more charts by selecting **New chart**. Each chart can have multiple metrics and different chart types and settings. 
 
 The time range and granularity are applied to all the charts in the workspace.
 
@@ -66,7 +67,7 @@ The time range and granularity are applied to all the charts in the workspace.
 
 ### Remove a chart
 
-To remove a chart select the **...** options icon and select **Remove**.
+To remove a chart, select the **...** options icon and select **Remove**.
 
 ## Configure time range and granularity
 
@@ -123,7 +124,7 @@ The Azure Monitor metrics explorer Share menu includes several options for shari
 
 :::image type="content" source="./media/metrics-explorer/share-chart.png" lightbox="./media/metrics-explorer/share-chart.png"  alt-text="A screenshot showing the share menu.":::
 
-# Supported PromQL funtions
+# Supported PromQL functions
 
 
 
@@ -136,7 +137,7 @@ The Azure Monitor metrics explorer Share menu includes several options for shari
 
 The metrics explorer for Azure Monitor workspace is in preview and has some limitations. 
 -  The metrics explorer supports up to 10 metrics per chart. <<<<<<>>>>>>>
-- The metrics explorer does not support running both the code editor and query builder on the same chart.
+- The metrics explorer doesn't support running both the code editor and query builder on the same chart.
 
 
 
