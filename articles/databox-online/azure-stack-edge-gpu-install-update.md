@@ -14,7 +14,9 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date.
+This article describes the steps required to install update on your Azure Stack Edge Pro device with GPU via the local web UI and via Azure portal. 
+
+Apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date.
 
 > [!NOTE]
 > The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version. 
