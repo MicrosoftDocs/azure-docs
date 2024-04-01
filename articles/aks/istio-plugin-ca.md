@@ -56,7 +56,7 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     ```
 
     > [!NOTE]
-    > If you created your Key Vault with Azure RBAC Authorization, follow the instructions [here](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli) to create permissions for the managed identity. Add a role assignment for `Key Vault Reader` for the cluster's system-assigned managed identity. 
+    > If you created your Key Vault with Azure RBAC Authorization, follow the instructions [here](https://learn.microsoft.com/azure/key-vault/general/rbac-guide) to create permissions for the managed identity. Add a role assignment for `Key Vault Reader` for the cluster's system-assigned managed identity. 
 
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 

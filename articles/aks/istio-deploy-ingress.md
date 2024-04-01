@@ -14,7 +14,7 @@ ms.author: shasb
 This article shows you how to deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> When performing a [minor revision upgrade](./istio-upgrade.md#minor-version-upgrades-with-the-ingress-gateway) of the Istio add-on, another deployment for the external / internal gateways will be created for the new control plane revision.
+> When performing a [minor revision upgrade](./istio-upgrade.md#minor-revision-upgrades-with-the-ingress-gateway) of the Istio add-on, another deployment for the external / internal gateways will be created for the new control plane revision.
 
 ## Prerequisites
 
