@@ -151,7 +151,7 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 1. Select **Microsoft Entra ID** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 <a name='add-an-external-azure-ad-group'></a>
@@ -208,7 +208,7 @@ In the developer portal, you can sign in with Microsoft Entra ID using the **Sig
 Although a new account will automatically be created when a new user signs in with Microsoft Entra ID, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
-> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Microsoft Entra ID changes to take effect.
+> You need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the Microsoft Entra ID changes to take effect.
 
 ## Related content
 
