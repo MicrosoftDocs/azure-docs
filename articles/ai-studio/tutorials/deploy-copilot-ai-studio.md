@@ -513,12 +513,17 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png" alt-text="Screenshot of the prompt flow deployment endpoint and code samples." lightbox = "../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png":::
 
-
 ## Clean up resources
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
+
+
+## Azure AI Studio enterprise chat solution demo
+
+Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
+> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
 
 ## Next steps
 
