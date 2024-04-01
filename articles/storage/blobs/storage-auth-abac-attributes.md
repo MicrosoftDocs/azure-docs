@@ -340,7 +340,7 @@ The following table summarizes the available attributes by source:
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
-| | [List blob include](#list-blob-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions. |
+| | [List blob include](#list-blob-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions |
 | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
 | | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
 | **Resource**      | | |
@@ -353,7 +353,7 @@ The following table summarizes the available attributes by source:
 | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data            |
 | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob            |
 | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account |
-Restricts information that can be included when listing blobs.
+
 ### Account name
 
 > [!div class="mx-tdCol2BreakAll"]
