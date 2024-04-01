@@ -70,7 +70,7 @@ The following is a high level summary. For more information about grant types, s
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
 |Authorization code + PKCE   | Enhancement to authorization code flow that creates a code challenge that is sent with authorization request       |  Mobile and public clients that can't protect a secret or token      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
+|Implicit (deprecated)     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
 |Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
 |Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that don't require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
