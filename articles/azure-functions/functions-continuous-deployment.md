@@ -3,7 +3,7 @@ title: Continuous deployment for Azure Functions
 description: Use the continuous deployment features of Azure App Service when publishing to Azure Functions.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 04/01/2024
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
 
@@ -13,7 +13,7 @@ You can use Azure Functions to deploy your code continuously by using [source co
 
 Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. 
 
-Steps in this article show you how to configure continuous code deployments to your function app in Azure by using the Deveploment Center in the Azure portal. You can also configure continuous integration using the Azure CLI. 
+Steps in this article show you how to configure continuous code deployments to your function app in Azure by using the Deployment Center in the Azure portal. You can also configure continuous integration using the Azure CLI. 
 
 In the Deployment Center, you must first choose your source code location, which can be one of these options:
 
