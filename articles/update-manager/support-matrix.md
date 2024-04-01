@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/26/2024
+ms.date: 04/01/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -77,11 +77,14 @@ Update Manager doesn't support managing the Configuration Manager client.
 
 Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
 
-# [Azure VMs](#tab/azurevm)
+#### [Azure Public cloud](#tab/public)
+
+### Azure VMs
 
 Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
 
-# [Azure Arc-enabled servers](#tab/azurearc)
+### Azure Arc-enabled servers
+
 
 Azure Update Manager is currently supported in the following regions. It implies that VMs must be in the following regions.
 
@@ -104,6 +107,23 @@ Switzerland | Switzerland North
 UAE | UAE North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
+
+#### [Azure for US Government](#tab/gov)
+
+### FairFax
+
+**Geography** | **Supported regions** | **Details** 
+--- | --- | ---
+United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure and Arc VMs </br> For both Azure and Arc VMs </br> For Azure VMs only
+
+#### [Azure operated by 21Vianet](#tab/21via)
+
+### Mooncake
+
+**Geography** | **Supported regions** | **Details** 
+--- | --- | ---
+China | ChinaEast </br> ChinaEast2 </br> ChinaNorth </br> ChinaNorth2 | For Azure VMs only </br> For both Azure and Arc VMs </br> For Azure VMs only </br> For both Azure and Arc VMs.
+
 
 ---
 
