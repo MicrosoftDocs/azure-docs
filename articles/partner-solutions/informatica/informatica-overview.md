@@ -15,7 +15,7 @@ You can find Informatica Intelligent Data Management Cloud - Azure Native ISV Se
 
 Use this offering to manage your Informatica organization as an Azure Native ISV Service. You can easily run and manage Informatica Organizations and advanced serverless environments as you need and get started through Azure Clients.
 
-You can set up the Informtica organization through a resource provider named `Informatica.DataManagement`. You create and manage the billing, resource creation, and authorization of Informatica resources through the Azure Clients. Informatica owns and runs the Software as a Service (SaaS) application including the Informatica organizations created.
+You can set up the Informatica organization through a resource provider named `Informatica.DataManagement`. You create and manage the billing, resource creation, and authorization of Informatica resources through the Azure Clients. Informatica owns and runs the Software as a Service (SaaS) application including the Informatica organizations created.
 
 Here are the key capabilities provided by the Informatica integration:
 
