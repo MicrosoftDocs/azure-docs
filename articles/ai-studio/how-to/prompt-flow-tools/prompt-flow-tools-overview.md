@@ -2,7 +2,7 @@
 title: Overview of prompt flow tools in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn about prompt flow tools that are available in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: overview
 ms.date: 2/6/2024
