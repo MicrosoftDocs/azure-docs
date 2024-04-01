@@ -4,6 +4,7 @@ description: This article provides supplements to Azure Disk Encryption for Linu
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: security
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin

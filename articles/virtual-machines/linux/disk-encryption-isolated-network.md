@@ -4,6 +4,7 @@ description: In this article, learn about troubleshooting tips for Microsoft Azu
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: security
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin

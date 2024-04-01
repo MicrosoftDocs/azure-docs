@@ -792,7 +792,6 @@ Azure Monitor Workbooks documentation previously resided on an external GitHub r
 | [Collect text and IIS logs with Azure Monitor Agent (preview)](agents/data-collection-text-log.md) | Corrected error in data collection rule. |
 | [Overview of the Azure monitoring agents](agents/agents-overview.md) | Added new OS supported for agent. |
 | [Resource Manager template samples for agents](agents/resource-manager-agent.md) | Added Bicep examples. |
-| [Resource Manager template samples for data collection rules](agents/resource-manager-data-collection-rules.md) | Fixed bug in sample parameter file. |
 | [Rsyslog data not uploaded due to Full Disk space issue on Azure Monitor Agent Linux Agent](agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) | New article. |
 | [Troubleshoot the Azure Monitor Agent on Linux virtual machines and scale sets](agents/azure-monitor-agent-troubleshoot-linux-vm.md) | New article. |
 | [Troubleshoot the Azure Monitor Agent on Windows Arc-enabled server](agents/azure-monitor-agent-troubleshoot-windows-arc.md) | New article. |
