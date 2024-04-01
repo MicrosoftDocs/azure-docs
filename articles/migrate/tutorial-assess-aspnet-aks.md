@@ -53,95 +53,48 @@ In this tutorial, you'll learn how to:
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover Java web apps running on your environment.
 :::zone-end
 
+## Create an assessment
+
+1. On the **Servers, databases and web apps** page, select **Assess** and then select **Web apps on Azure**.
+
+    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
+
+2. On the **Basics** tab, select the **Scenario** dropdown and select **Web apps to AKS**.
+
+    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
+
+3. On the same tab, select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+
+    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
+
+    | Setting | Possible Values | Comments |
+    | --- | --- | --- |
+    | Target Location | All locations supported by AKS | Used to generate regional cost for AKS. |
+    | Environment Type | Production <br> Dev/Test | Allows you to toggle between Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/). |
+    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | Allows you to toggle between Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/). |
+    | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
+    | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
+    | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
+    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
+    | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
+    | AKS pricing tier | Standard | Pricing tier for AKS |
+
+4. After reviewing the assessment settings, select **Next**.
+5. Provide a name to this group of servers as well as the assessment.
+1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
 ::: zone pivot="asp-net"
-## Create an assessment
-
-1. On the **Servers, databases and web apps** page, select **Assess** and then select **Web apps on Azure**.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
-
-2. On the **Basics** tab, select the **Scenario** dropdown and select **Web apps to AKS**.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
-
-3. On the same tab, select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
-
-    | Setting | Possible Values | Comments |
-    | --- | --- | --- |
-    | Target Location | All locations supported by AKS | Used to generate regional cost for AKS. |
-    | Environment Type | Production <br> Dev/Test | Allows you to toggle between Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/). |
-    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | Allows you to toggle between Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/). |
-    | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
-    | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
-    | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
-    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
-    | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
-    | AKS pricing tier | Standard | Pricing tier for AKS |
-
-4. After reviewing the assessment settings, select **Next**.
-5. Provide a name to this group of servers as well as the assessment.
-1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
 1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
-5. Provide a name to this group of servers as well as the assessment.
-1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
-1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
-1. Select the list of servers, which host the web apps to be assessed.
-
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
-
-6. Select **Next** to review the high-level assessment details. Select **Create assessment**.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-review.png" alt-text="Screenshot of reviewing the high-level assessment details before creation.":::
-
 :::zone-end
-
 ::: zone pivot="java"
-## Create an assessment
-
-1. On the **Servers, databases and web apps** page, select **Assess** and then select **Web apps on Azure**.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
-
-2. On the **Basics** tab, select the **Scenario** dropdown and select **Web apps to AKS**.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
-
-3. On the same tab, select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
-
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
-
-    | Setting | Possible Values | Comments |
-    | --- | --- | --- |
-    | Target Location | All locations supported by AKS | Used to generate regional cost for AKS. |
-    | Environment Type | Production <br> Dev/Test | Allows you to toggle between Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/). |
-    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | Allows you to toggle between Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/). |
-    | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
-    | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
-    | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
-    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
-    | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
-    | AKS pricing tier | Standard | Pricing tier for AKS |
-
-4. After reviewing the assessment settings, select **Next**.
-5. Provide a name to this group of servers as well as the assessment.
-1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
-1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
-5. Provide a name to this group of servers as well as the assessment.
-1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
 1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
+:::zone-end
 1. Select the list of servers, which host the web apps to be assessed.
-
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
 
 6. Select **Next** to review the high-level assessment details. Select **Create assessment**.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-review.png" alt-text="Screenshot of reviewing the high-level assessment details before creation.":::
-
-:::zone-end
 
 ## View assessment insights
 
