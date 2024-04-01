@@ -123,6 +123,8 @@ System.setProperty("javax.net.ssl.trustStorePassword","password");
 ```
 6. Replace the original root CA pem file with the combined root CA file and restart your application/client.
 
+For more information on configuring client certificates with PostgreSQL JDBC driver see this [documentation](https://jdbc.postgresql.org/documentation/ssl/)
+
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
 
@@ -166,6 +168,17 @@ For Azure App services, connecting to Azure Database for PostgreSQL, we can have
  ### Updating Root certificates when using clients in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 
 If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-tls.md).
+
+## Testing SSL\TLS Connectivity
+
+Before trying to access your SSL enabled server from client application, make sure you can get to it via psql. You should see output like the following if you have established a SSL connection.
+
+
+*psql (14.5)*
+*SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)*
+*Type "help" for help.*
+
+
 
 ## Cipher Suites
 
