@@ -13,23 +13,25 @@ You can use Azure Functions to deploy your code continuously by using [source co
 
 Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. 
 
-You can configure continuous code deployments to Azure Functions from the following source locations:
+Steps in this article show you how to configure continuous code deployments to your function app in Azure by using the Deveploment Center in the Azure portal. You can also configure continuous integration using the Azure CLI. 
+
+In the Deployment Center, you must first choose your source code location, which can be one of these options:
 
 ### [Azure Repos](#tab/azure-repos)
 
-Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the Azure Pipelines [build provider](#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos).
+Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the [Azure Pipelines build provider](functions-continuous-deployment.md?tabs=azure-repos%2azure-pipelines#build-providers)). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos)
 
 ### [GitHub](#tab/github)
 
-Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).
+Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](functions-continuous-deployment.md?tabs=github%2Cgithub-actions#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).
 
 ### [Bitbucket](#tab/bitbucket)
 
-Maintain your project code in [Bitbucket](https://bitbucket.org/). Requires the App Service build provider.
+Maintain your project code in [Bitbucket](https://bitbucket.org/). Requires the [App Service build provider](functions-continuous-deployment.md?tabs=bitbucket%2Capp-service#build-providers).
 
 ### [Local Git](#tab/local-git)
 
-Maintain your project code in a dedicated Git server hosted in the same App Service plan with your function app. Requires the App Service build provider. For more information, see [Local Git deployment to Azure App Service](../app-service/deploy-local-git.md). 
+Maintain your project code in a dedicated Git server hosted in the same App Service plan with your function app. Requires the [App Service build provider](functions-continuous-deployment.md?tabs=local-git%2Capp-service#build-providers). For more information, see [Local Git deployment to Azure App Service](../app-service/deploy-local-git.md). 
 
 --- 
 
@@ -54,11 +56,11 @@ Functions supports these build providers:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specifically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. For a complete example of how to configure Pipelines for continuous deployment from Azure Repos to Functions, see [Continuous delivery by using Azure Pipelines](./functions-how-to-azure-devops.md).
+Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an `AzureFunctionApp` task designed specifically for deploying to Azure Functions. This task provides you with  control over how the project gets built, packaged, and deployed. 
 
 ### [GitHub Actions](#tab/github-actions)
 
-GitHub Actions is the default build provider for GitHub projects. GitHub Actions provides you with control over how the project gets built, packaged, and deployed. For a complete example of how to configure GitHub Actions for continuous deployment from GitHub to Azure Functions, see [Continuous delivery by using GitHub Actions](functions-how-to-github-actions.md).
+GitHub Actions is the default build provider for GitHub projects. GitHub Actions provides you with control over how the project gets built, packaged, and deployed. 
 
 ### [App Service (Kudu) service](#tab/app-service)
 
@@ -162,13 +164,15 @@ After deployment completes, all code from the specified source is deployed to yo
 
 You should keep these considerations in mind when planning for a continuous deployment strategy:
 
-+ GitHub is the only source that currently supports continuous deployment for Linux apps running on a Consumption plan, which is serverless option for Python hosting.  
++ GitHub is the only source that currently supports continuous deployment for Linux apps running on a Consumption plan, which is a popular hosting option for Python apps.  
 
 + The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time and in the same package. 
 
 + After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the _source of truth_ is known to reside elsewhere.
 
-+ You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots). 
++ You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots).
+
++ To enable continuous deployment for a function app with inbound network restrictions, you need to instead configure the build provider workflow externally and use a self-hosted runner in the same virtual network as the function app that can connect to the source location.
 
 ## Next steps
 
