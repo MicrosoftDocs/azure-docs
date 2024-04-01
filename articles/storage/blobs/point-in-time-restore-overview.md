@@ -90,7 +90,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore isn't supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
 - Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Microsoft Entra tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
-- Point-in-time restore isn't supported when version-level immutability is enabled on a storage account or a container in an account. For more information on version-level immutability, see [Overview of immutable storage for blob data](immutable-storage-overview.md#version-level-scope).
+- Point-in-time restore isn't supported when version-level immutability is enabled on a storage account or a container in an account. For more information on version-level immutability, see [Configure immutability policies for blob versions](immutable-version-level-worm-policies.md).
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.

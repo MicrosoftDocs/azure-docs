@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/18/2022
+ms.date: 03/26/2024
 ms.author: shaas
 ---
 
@@ -17,13 +17,12 @@ ms.author: shaas
 # Doc scores:
 #    11/18/22: 75 (2456/62)
 #    09/01/23: 100 (2159/0)
+-->
 
 ::: zone target="docs"
--->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
-<!--
 ::: zone-end
 
 ::: zone target="chromeless"
@@ -35,13 +34,23 @@ After the disks are connected and unlocked, you can copy data from your source d
 ::: zone-end
 
 ::: zone target="docs"
--->
+
+> [!IMPORTANT]
+> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
+>
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier.
+>
+> The information contained within this section applies to orders placed after April 1, 2024.
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This tutorial describes how to copy data from your host computer and generate checksums to verify data integrity.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Determine appropriate access tiers for block blobs
 > * Copy data to Data Box Disk
 > * Verify data
 
@@ -52,20 +61,48 @@ Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
 - The client computer used to copy data to the disks is running a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-- The intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- The intended storage type for your data matches the [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - You've reviewed [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
+
+## Determine appropriate access tiers for block blobs
+
+> [!IMPORTANT]
+> The information contained within this section applies to orders placed after April 1<sup>st</sup>, 2024.
+
+Azure Storage allows you to store block blob data in multiple access tiers within the same storage account. This ability allows data to be organized and stored more efficiently based on how often it's accessed. The following table contains information and recommendations about Azure Storage access tiers.
+
+| Tier        | Recommendation | Best practice |
+|-------------|----------------|---------------|
+| **Hot**     | Useful for online data accessed or modified frequently. This tier has the highest storage costs, but the lowest access costs. | Data in this tier should be in regular and active use. |
+| **Cool**    | Useful for online data accessed or modified infrequently. This tier has lower storage costs and higher access costs than the hot tier. | Data in this tier should be stored for at least 30 days. |
+| **Cold**    | Useful for online data accessed or modified rarely but still requiring fast retrieval. This tier has lower storage costs and higher access costs than the cool tier.| Data in this tier should be stored for a minimum of 90 days. |
+| **Archive** | Useful for offline data rarely accessed and having lower latency requirements. | Data in this tier should be stored for a minimum of 180 days. Data removed from the archive tier within 180 days is subject to an early deletion charge. |
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
+
+You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box Disk. This process is discussed in greater detail within the [Copy data to disks](#copy-data-to-disks) section.
 
 ## Copy data to disks
 
 Review the following considerations before you copy the data to the disks:
 
-- It is your responsibility to ensure that you copy your local data to the folders that correspond to the appropriate data format. For instance, copy block blob data to the *BlockBlob* folder. Block blobs being archived should be copied to the *BlockBlob_Archive* folder. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
+- It is your responsibility to copy local data to the share which corresponds to the appropriate data format. For instance, copy block blob data to the *BlockBlob* share. Copy VHDs to the *PageBlob* share. If the local data format doesn't match the appropriate folder for the chosen storage type, the data upload to Azure fails in a later step.
+- You can't copy data directly to a share's *root* folder. Instead, create a folder within the appropriate share and copy your data into it.
+    - Folders located at the *PageBlob* share's *root* correspond to containers within your storage account. A new container will be created for any folder whose name does not match an existing container within your storage account.
+    - Folders located at the *AzFile* share's *root* correspond to Azure file shares. A new file share will be created for any folder whose name does not match an existing file share within your storage account.
+    - The *BlockBlob* share's *root* level contains one folder corresponding to each access tier. When copying data to the *BlockBlob* share, create a subfolder within the top-level folder corresponding to the desired access tier. As with the *PageBlob* share, a new containers will be created for any folder whose name doesn't match an existing container. Data within the container will be copied to the tier corresponding to the subfolder's top-level parent.
+    
+      A container will also be created for any folder residing at the *BlockBlob* share's *root*, though the data it will be copied to the container's default access tier. To ensure that your data is copied to the desired access tier, don't create folders at the *root* level.
+
+   > [!IMPORTANT]
+   > Data uploaded to the archive tier remains offline and needs to be rehydrated before reading or modifying. Data copied to the archive tier must remain for at least 180 days or be subject to an early deletion charge. Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
+    
 - While copying data, ensure that the data size conforms to the size limits described within in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md) article.
 - To preserve metadata such as ACLs, timestamps, and file attributes when transferring data to Azure Files, follow the guidance within the [Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk](data-box-disk-file-acls-preservation.md) article.
 - If you use both Data Box Disk and other applications to upload data simultaneously, you may experience upload job failures and data corruption.
 
    > [!IMPORTANT]
-   > Data uploaded to the archive tier remains offline and needs to be rehydrated before reading or modifying. Data copied to the archive tier must remain for at least 180 days or be subject to an early deletion charge. Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts.
+   >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
 
    > [!IMPORTANT]
    >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
@@ -81,23 +118,23 @@ Perform the following steps to connect and copy data from your computer to the D
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and subfolders  |
     |------------------------------|--------------------|-----------------------------|------------------------|
-    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<br>BlockBlob_Archive<br>PageBlob<br>AzureFile |
-    |Storage account               |Blob storage account| NA                          | BlockBlob<br>BlockBlob_Archive |
+    |Storage account               |GPv1 or GPv2        | NA                          | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul>PageBlob<br>AzureFile |
+    |Storage account               |Blob storage account| NA                          | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul> |
     |Managed disks                 |NA                  | GPv1 or GPv2                | ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
-    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<br/>BlockBlob_Archive<br/>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
-    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<br>BlockBlob_Archive<br>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
+    |Storage account<br>Managed disks |GPv1 or GPv2     | GPv1 or GPv2                | BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul>PageBlob<br/>AzureFile<br/>ManagedDisk<ul><li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>|
+    |Storage account <br> Managed disks |Blob storage account | GPv1 or GPv2          |BlockBlob<ul><li>Archive</li><li>Cold</li><li>Cool</li><li>Hot</li></ul>ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul> |
 
     The following screenshot shows an order where a GPv2 storage account and archive tier were specified:
 
     :::image type="content" source="media/data-box-disk-deploy-copy-data/content-sml.png" alt-text="Screenshot of the contents of the disk drive." lightbox="media/data-box-disk-deploy-copy-data/content.png":::
 
-1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs with the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
+1.  Copy VHD or VHDX data to the *PageBlob* folder. All files copied to the *PageBlob* folder are copied into a default `$root` container within the Azure Storage account. A container is created in the Azure storage account for each subfolder within the *PageBlob* folder.
 
-   A container is created in the Azure storage account for each subfolder within the *BlockBlob* and *PageBlob* folders. All files copied to the *BlockBlob* and *PageBlob* folders are copied into a default `$root` container within the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
+    Copy data to be placed in Azure file shares to a subfolder within the *AzureFile* folder. All files copied to the *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
 
-   Copy data to be placed in Azure file shares to a subfolder within the *AzureFile* folder. All files copied to the *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
+    You can't copy files directly to the *BlockBlob*'s *root* folder. Within the root folder, you'll find a sub-folder corresponding to each of the available access tiers. To copy your blob data, you must first select the folder corresponding to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents the container created within the storage account during ingestion. Your data is uploaded to this container as blobs. As with the *AzureFile* share, a new blob storage container will be created for each sub-folder located at the *BlockBlob*'s *root* folder. The data within these folders will be saved according to the storage account's default access tier.
 
-   Before you begin to copy data, you need to move any files and folders that exist in the root directory to a different folder.
+    Before you begin to copy data, you need to move any files and folders that exist in the root directory to a different folder.
 
     > [!IMPORTANT]
     > All the containers, blobs, and filenames should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
@@ -310,10 +347,8 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
 
-<!--
 ::: zone-end
--->
-<!--
+
 ::: zone target="chromeless"
 
 ### Copy data to disks
@@ -348,4 +383,3 @@ Take the following steps to verify your data.
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end
--->
