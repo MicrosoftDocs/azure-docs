@@ -80,7 +80,7 @@ In this tutorial, you learn the basic concept of feature filter and how to add a
 To learn how to implement a custom feature filter, continue to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [ASP.NET](./howto-feature-filter-aspnet-core.md)
+> [ASP.NET](./howto-feature-filters-aspnet-core.md)
 
 To learn more about the built-in feature filters, continue to the following tutorials:
 

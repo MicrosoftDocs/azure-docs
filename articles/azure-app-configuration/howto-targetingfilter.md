@@ -18,7 +18,7 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 - The groups are up to your application to define. For example, when targeting user accounts, you can use Microsoft Entra groups or groups denoting user locations. When targeting machines, you can group them based on rollout stages. Groups can be any common attributes based on which you want to categorize your audience.
 
-The targeting filter is designed for this usage. This feature filter provides the capability to enable a feature for targeted audience. For more information about feature filter, please see this [article](./howto-feature-filters.md#enable-conditional-features-with-feature-filters).
+The targeting filter is designed for this usage. This feature filter provides the capability to enable a feature for targeted audience. For more information about feature filter, please see this [article](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters).
 
 In this article, you will learn how to add and configure a targeting feature filter for your feature flags.
 
@@ -90,7 +90,7 @@ To learn how to use the feature flag with targeting filter in your application, 
 To learn more about the feature filters, continue to the following tutorials:
 
 > [!div class="nextstepaction"]
-> [Enable conditional features with feature filters](./howto-feature-filter.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)

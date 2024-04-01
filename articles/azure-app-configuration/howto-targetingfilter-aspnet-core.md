@@ -202,7 +202,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
 
 ## TargetingFilter in action
 
-Follow the instructions in [Roll out features to targeted audiences](./howto-targeting-filter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+Follow the instructions in [Roll out features to targeted audiences](./howto-targetingfilter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
 
 To see the effects of added targeting filter to the feature flag, build and run the application again. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 

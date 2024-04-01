@@ -55,7 +55,7 @@ using Microsoft.FeatureManagement;
 builder.Services.AddFeatureManagement(Configuration.GetSection("MyFeatureFlags"));
 ```
 
-You can use [feature filters](./howto-feature-filters.md#enable-conditional-features-with-feature-filters) for your feature flags. Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
+You can use [feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) for your feature flags. Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
 
 - `TimeWindowFilter`
 - `ContextualTargetingFilter`

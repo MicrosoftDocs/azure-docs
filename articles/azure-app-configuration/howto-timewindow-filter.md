@@ -12,7 +12,7 @@ ms.date: 03/26/2024
 
 # Tutorial: Enable features on a schedule
 
-[Feature filters](./howto-feature-filters.md#enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled dynamically. For instance, you might want to regulate the feature's availability on a schedule, such as enabling or disabling it until a certain moment. This can be accomplished using the time window filter, which provides the capability to enable a feature based on a time window. 
+[Feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled dynamically. For instance, you might want to regulate the feature's availability on a schedule, such as enabling or disabling it until a certain moment. This can be accomplished using the time window filter, which provides the capability to enable a feature based on a time window. 
 
 The time window filter is one of the built-in filters of the Microsoft `FeatureManagement` libraries. The time window filter can be accessible from the Azure App Configuration portal and you can add it to your feature flags. 
 
@@ -65,7 +65,7 @@ To learn how to use the feature flag with time window in your application, conti
 To learn more about the feature filters, continue to the following tutorials:
 
 > [!div class="nextstepaction"]
-> [Enable conditional features with feature filters](./howto-feature-filter.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeting audience](./howto-targetingfilter.md)
