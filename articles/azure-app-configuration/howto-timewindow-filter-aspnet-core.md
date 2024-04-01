@@ -21,8 +21,6 @@ In this tutorial, you'll use the time window filter to enable a feature on a sch
 
 ## Use the time window filter
 
-Follow the instructions in [Enable features on a schedule](./howto-timewindow-filter.md) to add a time window filter for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
-
 Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
 
 - `TimeWindowFilter`
@@ -38,6 +36,8 @@ You've registered the feature management service in your ASP.NET Core app in the
 // This call will also register built-in filters to the container of services.
 builder.Services.AddFeatureManagement();
 ```
+
+Follow the instructions in [Enable features on a schedule](./howto-timewindow-filter.md) to add a time window filter for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
 
 Relaunch the application. If your current time is earlier than the start time set for the time window filter, the **Beta** menu item will not appear on the toolbar. This is because the **Beta** feature flag is disabled by the time window filter.
 

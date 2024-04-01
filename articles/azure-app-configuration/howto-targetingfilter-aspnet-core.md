@@ -193,6 +193,9 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     builder.Services.AddFeatureManagement()
                     .WithTargeting<ExampleTargetingContextAccessor>();
 
+    // Add HttpContextAccessor to the container of services.
+    builder.Services.AddHttpContextAccessor();
+
     // The rest of existing code in Program.cs
     // ... ...
     ```
@@ -200,9 +203,9 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     > [!NOTE]
     > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
-## TargetingFilter in action
+1. Follow the instructions in [Roll out features to targeted audiences](./howto-targetingfilter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag.
 
-Follow the instructions in [Roll out features to targeted audiences](./howto-targetingfilter.md) to add a targeting filter with a set of targeting rules for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
+## TargetingFilter in action
 
 To see the effects of added targeting filter to the feature flag, build and run the application again. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
