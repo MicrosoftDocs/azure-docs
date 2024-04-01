@@ -10,7 +10,6 @@ ms.date: 03/25/2024
 
 # Alerts schemas
 
-
 Defender for Cloud provides alerts that help you identify, understand, and respond to security threats. Alerts are generated when Defender for Cloud detects suspicious activity or a security-related issue in your environment. You can view these alerts in the Defender for Cloud portal, or you can export them to external tools for further analysis and response.
 
 You can review security alerts from the [overview dashboard](overview-page.md), [alerts](managing-and-responding-alerts.md) page, [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md).
