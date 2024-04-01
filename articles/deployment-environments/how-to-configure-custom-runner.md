@@ -17,7 +17,7 @@ In this article, you learn how to build and utilize custom images within your en
 
 The ADE team provides a selection of images to get you started, including a core image, and an ARM/Bicep image. You can access these sample images in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
 
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to create, delete, and manage your deployments. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md).
+The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md).
 
 ## Prequisites
 
@@ -72,10 +72,10 @@ RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 To build the image to be pushed to your registry, ensure the Docker Engine is installed on your computer, navigate to the directory of your Dockerfile, and run the following command:
 
 ```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
+docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}
 ```
 
-For example, if you want to save your image under a repository within your repo named `customImage`, and upload with the tag version of `1.0.0`, you would run:
+For example, if you want to save your image under a repository within your registry named `customImage`, and upload with the tag version of `1.0.0`, you would run:
 
 ```docker
 docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
@@ -89,7 +89,7 @@ Azure Container Registry is an Azure offering that stores container images and s
 
 To create a registry, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
 
-To set up your registry to have anonymous image pull enabled, run the following command in the Azure CLI:
+To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 
 ```azurecli
 az login
@@ -109,7 +109,7 @@ docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 When authoring environment definitions to use your custom image in their deployment, edit the `runner` property on the manifest file (environment.yaml or manifest.yaml).
 
 ```yaml
-runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 ## Related content
