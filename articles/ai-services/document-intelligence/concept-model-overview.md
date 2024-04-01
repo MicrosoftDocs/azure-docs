@@ -195,9 +195,9 @@ The US mortgage document models analyze and extract key fields including borrowe
   |Model|Description|ModelID|
   |---|---|---|
   |1003 End-User License Agreement (EULA)|Extract loan, borrower, property details.|**prebuilt-mortgage.us.1003**|
-  |1008 Summary document|Extract borrower, seler, property, mortgage and underwriting details.|**prebuilt-mortgage.us.1008**|
+  |1008 Summary document|Extract borrower, seller, property, mortgage and underwriting details.|**prebuilt-mortgage.us.1008**|
   |Closing disclosure|Extract closing, transaction costs and loan details.|**prebuilt-mortgage.us.closingDisclosure**|
-  |Mairrage certificate|Extract mairrage information details for joint loan applicants.|**prebuilt-marriageCertficute.us**|
+  |Marriage certificate|Extract marriage information details for joint loan applicants.|**prebuilt-marriageCertificate**|
   |US Tax W-2|Extract taxable compensation details for income verification.|**prebuilt-tax.us.W-2**|
   
 ***Sample Closing disclosure document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=mortgage.us.closingDisclosure)***:
@@ -291,7 +291,7 @@ Use the credit card model to process credit and debit cards to extract key field
 
 Custom models can be broadly classified into two types. Custom classification models that support classification of a "document type" and custom extraction models that can extract a defined schema from a specific document type.
 
-:::image type="icon" source="media/custom-models.png":::
+:::image type="icon" source="media/custom-models.png" alt-text="Types of custom models and assoicated model build modes.":::
 
 Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
 
