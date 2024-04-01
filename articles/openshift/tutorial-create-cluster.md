@@ -203,6 +203,24 @@ Next, you'll create a virtual network containing two empty subnets. If you have 
      --name worker-subnet \
      --address-prefixes 10.0.2.0/23
    ```
+## Create a service principal
+You need to either create a service principal, or use an existing one, to deploy your cluster. This service principal is used to dynamically create, manage, or access other Azure resources. You should follow the principle of least privilege and limit the scope of the service principal's access to the resource group in which the cluster will be created. To do that, you will need your Azure subscription id. Run the followning commands to get your Azure subscription id and create the service principal and preserve the client id and secret information you will need later to create the cluster.
+
+```azurecli-interactive
+SUBSCRIPTION_ID=$(az account show --query "id" --output tsv)
+SP_INFO=$(az ad sp create-for-rbac \
+    --name $SP_NAME \
+    --role Contributor \
+    --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCEGROUP \
+    --output json)
+```
+
+The JSON output from this command contains the client id and secret. Since you cannot query the service principal later to see the secret data, it is saved in the shell variable SP_INFO. You can use the jq command to extract the appID and password from the JSON data without displaying the secret.
+
+```azurecli-interative
+SP_ID=$(echo ${SP_INFO} | jq -r 'appId')
+SP_SECRET=$(echo ${SP_INFO} | jq -r 'password')
+```
 
 ## Create the cluster
 
@@ -219,7 +237,7 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
 ```
 
 After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
