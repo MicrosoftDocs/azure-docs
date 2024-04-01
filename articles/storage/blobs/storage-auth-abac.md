@@ -62,7 +62,7 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 ## Status of condition features in Azure Storage
 
-Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in the standard storage account performance tier.
+Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in both the standard and premium storage account performance tiers. Currently, the container metadata resource attribute and the list blob include request attribute are in PREVIEW.
 
 The following table shows the current status of ABAC by storage resource type and attribute type. Exceptions for specific attributes are also shown.
 
@@ -71,7 +71,7 @@ The following table shows the current status of ABAC by storage resource type an
 | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>environment<br/>principal | All attributes except those explicitly noted in this table | GA |
 | Data Lake Storage Gen2                      | resource        | snapshot           | Preview |
 | Blobs<br/>Data Lake Storage Gen2            | resource        | container metadata | Preview |
-| Blobs<br/>Data Lake Storage Gen2            | request         | blobs:include      | Preview |
+| Blobs                                       | request         | list blob include  | Preview |
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
