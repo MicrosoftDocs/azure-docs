@@ -141,9 +141,6 @@ To use **Basic** authentication, in addition to the generic properties that are 
 }
 ```
 
-> [!NOTE]
-> Mapping Data Flows only supports Basic authentication.
-
 **Password in Azure Key Vault:**
 
 ```json
@@ -173,6 +170,8 @@ To use **Basic** authentication, in addition to the generic properties that are 
     }
 }
 ```
+> [!NOTE]
+> Mapping Data Flows only supports Basic authentication.
 
 ### Key pair authentication
 
