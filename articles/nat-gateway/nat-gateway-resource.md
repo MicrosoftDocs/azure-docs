@@ -127,7 +127,7 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 
 ## Bandwidth
 
-Each NAT gateway can provide up to 50 Gbps of throughput. This data throughput includes data processed both outbound and inbound (response) through a NAT gateway resource. You can split your deployments into multiple subnets and assign each subnet or group of subnets to a NAT gateway to scale out.
+Each NAT gateway can provide up to a total of 50 Gbps of throughput. Data throughput rate limiting is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per NAT gateway resource. You can split your deployments into multiple subnets and assign each subnet or group of subnets to a NAT gateway to scale out.
 
 ## Performance
 
