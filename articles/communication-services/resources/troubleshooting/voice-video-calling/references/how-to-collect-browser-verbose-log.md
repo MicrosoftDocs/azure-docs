@@ -1,7 +1,7 @@
 ---
 title: References - How to collect verbose log from browsers
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to collect verbose log from browsers
+description: Learn how to collect verbose log from browsers.
 author: enricohuang
 ms.author: enricohuang
 
@@ -24,11 +24,11 @@ To collect the verbose log of the Edge browser, open a command line window and e
 
 For Chrome, replace the executable path in the command with `C:\Program Files\Google\Chrome\Application\chrome.exe`.
 
-Don’t omit the `--user-data-dir` argument. They can modify the value of `--user-data-dir` to specify a different folder where the log will be saved
+Don’t omit the `--user-data-dir` argument. They can modify the value of `--user-data-dir` to specify a different folder where the log is going to be saved.
 
 This command enables verbose logging and saves the log to chrome\_debug.log.
 It is important to have only the necessary pages open in the Edge browser, such as edge://webrtc-internals and the application web page.
-This helps ensure that logs from different web applications won't mix in the same log file.
+This helps ensure that logs from different web applications don't mix in the same log file.
 
 Log file is located at: `C:\edge-debug\chrome_debug.log`
 
