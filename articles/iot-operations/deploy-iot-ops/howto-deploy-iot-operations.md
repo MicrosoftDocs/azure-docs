@@ -29,14 +29,13 @@ Cloud resources:
 
   If you're assigning privileged admin roles to a user or principal in the Azure portal, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
 
-  :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assigment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+  :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
 * An Azure Key Vault that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault. If you need to create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
   ```azurecli
   az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
-  
 
 Development resources:
 
@@ -44,7 +43,7 @@ Development resources:
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  ```bash
+  ```azurecli
   az extension add --upgrade --name azure-iot-ops
   ```
 
@@ -63,18 +62,6 @@ A cluster host:
   ```
 
 ## Deploy extensions
-
-
-
-
-
-
- If you *don't* have role assignment write permissions, take the following additional steps when deploying:
-
-  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
-  * If deploying with the Azure CLI, include the `--disable-rsync-rules`.
-
-
 
 Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
@@ -103,11 +90,17 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_ID>
    ```
 
-   * If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
-   * If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](/howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). 
+   If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
+   
+   If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). 
 
-> [!TIP]
-> You can check the configurations of topic maps, QoS, and message routes with the [CLI extension](/cli/azure/iot/ops#az-iot-ops-check-examples) `az iot ops check --detail-level 2`.
+1. After the deployment is complete, you can use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
+
+   ```azurecli
+   az iot ops check
+   ```
+   
+   You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
 
 ### Configure cluster network (AKS EE)
 
