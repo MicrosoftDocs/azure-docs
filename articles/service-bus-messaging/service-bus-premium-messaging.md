@@ -14,7 +14,7 @@ The *Premium* tier of Service Bus Messaging addresses common customer requests a
 
 Some high-level differences are highlighted in the following table.
 
-| | Premium | Standard |
+| Criteria | Premium | Standard |
 |--- | --- | --- |
 | Throughout | High throughput |Variable throughput |
 | Performance | Predictable performance |Variable latency |
