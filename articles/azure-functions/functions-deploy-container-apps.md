@@ -120,7 +120,7 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 ```
 ::: zone-end
 
-In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the login, and `<ADMIN_PASSWORD>` with the password to your admin account. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the account, and `<ADMIN_PASSWORD>` with the password to your admin account. 
 
 > [!IMPORTANT]
 > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.

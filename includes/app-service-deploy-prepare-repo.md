@@ -24,7 +24,7 @@ To get automated builds from Azure App Service build server, make sure that your
 | Python | _\*.py_, _requirements.txt_, or _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, or _iisstart.htm_ |
 | WebJobs | _\<job_name>/run.\<extension>_ under _App\_Data/jobs/continuous_ for continuous WebJobs, or _App\_Data/jobs/triggered_ for triggered WebJobs. For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| Functions | See [Continuous deployment for Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |
+| Functions | See [Continuous deployment for Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements). |
 
 To customize your deployment, include a *.deployment* file in the repository root. For more information, see [Customize deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
