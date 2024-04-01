@@ -45,7 +45,7 @@ Debug sessions work with all generally available [indexer data sources](search-d
 
 + For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
-Currently, debug sessions can't be configured with [customer managed key encryption (CMK)](search-security-manage-encryption-keys.md) through the portal which means that if the search service is configured with a policy that [enforces CMK](search-manage-rest.md), then debug sessions will be unsuable.
+The portal doesn't support customer-managed key encryption (CMK), which means that portal experiences like debug sessions can't have CMK-encrypted connection strings or other encrypted metadata. If your search service is configured for [CMK enforcement](search-security-manage-encryption-keys.md#6---set-up-policy), debug sessions won't work.
 
 ## Create a debug session
 
