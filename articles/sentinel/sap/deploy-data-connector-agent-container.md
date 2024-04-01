@@ -324,7 +324,9 @@ Create a new agent through the Azure portal, authenticating with a managed ident
     <!--updated screenshot coming-->
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. <a name=role></a>Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Role assignment** command. Copy and save the command locally to use when assigning the **Microsoft Sentinel Business Applications Agent Operator** role to your agent's VM identity. For more information, see <xref>.
+1. <a name=role></a>Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Role assignment** command. 
+
+    Copy and save the command locally to use when assigning the **Microsoft Sentinel Business Applications Agent Operator** role to your agent's VM identity. For more information, see [Assign the Microsoft Sentinel Business Applications Agent Operator role](#assign-the-microsoft-sentinel-business-applications-agent-operator-role).
 
 1. <a name=agent></a>Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command**. After you've copied the command line, select **Close**.
 
