@@ -41,7 +41,7 @@ az spring create \
     --enable-private-storage-access true
 ```
 
-After the deployment, one more resource group is created in your subscription to host the private link resources for the Azure Spring Apps instance. The resource group is named as `ap-pri-link_{service instance name}_{service instance region}`.
+After the deployment, one more resource group is created in your subscription to host the private link resources for the Azure Spring Apps instance. The resource group is named as `ap-res_{service instance name}_{service instance region}`.
 
 > [!IMPORTANT]
 > The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
@@ -65,7 +65,7 @@ To enable private access to underlying storage within your virtual network, the 
 
 ### Is This Feature Billable?
 
-The Azure Spring Apps instance does not incur charges for this feature. However, you will be billed for the private link resources hosted in your subscription that support this feature. For more details, refer to the Azure Private Link Pricing.
+The Azure Spring Apps instance does not incur charges for this feature. However, you will be billed for the private link resources hosted in your subscription that support this feature. For more details, refer to the [Azure Private Link Pricing](https://azure.microsoft.com/en-us/pricing/details/private-link/).
 
 ## Next steps
 
