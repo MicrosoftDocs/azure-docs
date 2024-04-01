@@ -124,7 +124,7 @@ The Azure Monitor metrics explorer Share menu includes several options for shari
 
 :::image type="content" source="./media/metrics-explorer/share-chart.png" lightbox="./media/metrics-explorer/share-chart.png"  alt-text="A screenshot showing the share menu.":::
 
-# Supported PromQL functions
+## Supported PromQL functions
 
 
 
@@ -133,7 +133,7 @@ The Azure Monitor metrics explorer Share menu includes several options for shari
 
 
 
-# Limitations
+## Limitations
 
 The metrics explorer for Azure Monitor workspace is in preview and has some limitations. 
 -  The metrics explorer supports up to 10 metrics per chart. <<<<<<>>>>>>>
