@@ -43,7 +43,7 @@ The camera permission can also be revoked during a call, so your application sho
 The end users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the camera access at OS level.
 
 > [!NOTE]
-> Some browser platforms will cache the permission results.
+> Some browser platforms cache the permission results.
 
 If a user has denied the permission at browser layer previously, invoking `askDevicePermission` API won't trigger the permission UI prompt, but it can know the permission has been denied.
 Your application should show instructions and ask the user to reset or grant the browser camera permission manually.
