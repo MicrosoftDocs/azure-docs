@@ -651,10 +651,14 @@
             href: agentless-vulnerability-assessment-gcp.md
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
-          - name: View and remediate vulnerabilities for registry images
+          - name: View and remediate vulnerabilities for registry images (Risk based)
             href: view-and-remediate-vulnerability-assessment-findings.md
-          - name: View and remediate vulnerabilities for running images
+          - name: View and remediate vulnerabilities for running images (Risk based)
             href: view-and-remediate-vulnerabilities-for-images.md
+          - name: View and remediate vulnerabilities for registry images (Secure score)
+            href: view-and-remediate-vulnerability-assessment-findings-secure-score.md
+          - name: View and remediate vulnerabilities for running images (Secure score)
+            href: view-and-remediate-vulnerabilities-for-images-secure-score.md
           - name: Disable vulnerabilities on images
             href: disable-vulnerability-findings-containers.md
           - name: REST API
