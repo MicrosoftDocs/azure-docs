@@ -1,13 +1,14 @@
 ---
-title: Index lookup tool for flows in Azure AI Studio
+title: Index Lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
-description:  This article introduces the Index Lookup tool for flows in Azure AI Studio.
-author: e-straight
-manager: nitinme
+description: This article introduces the Index Lookup tool for flows in Azure AI Studio.
+manager: scottpolly
 ms.service: azure-ai-studio
-ms.topic: conceptual
-ms.date: 01/18/2024
-ms.author: eur
+ms.topic: how-to
+ms.date: 3/6/2024
+ms.reviewer: estraight
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Index Lookup tool for Azure AI Studio

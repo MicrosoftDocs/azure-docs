@@ -24,7 +24,7 @@ The same Azure Communication Services Call Recording APIs are used to export rec
 
 ## Azure Managed Identities
 
-Bring your own Azure storage uses [Azure Managed Identities](../../../../active-directory/managed-identities-azure-resources/overview.md) to access user-owned resources securely. Azure Managed Identities provides an identity for the application to use when it needs to access Azure resources, eliminating the need for developers to manage credentials.
+Bring your own Azure storage uses [Azure Managed Identities](/entra/identity/managed-identities-azure-resources/overview) to access user-owned resources securely. Azure Managed Identities provides an identity for the application to use when it needs to access Azure resources, eliminating the need for developers to manage credentials.
 
 
 ## Known issues
