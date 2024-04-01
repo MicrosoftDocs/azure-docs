@@ -129,10 +129,6 @@
           href: core/howto-manage-deployment-manifests.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
-        - name: Prepare and connect a RuuviTag device
-          href: core/howto-connect-ruuvi.md
-        - name: Prepare and connect a Rigado Cascade 500
-          href: core/howto-connect-rigado-cascade-500.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
     - name: View and analyze device data

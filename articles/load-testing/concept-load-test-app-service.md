@@ -36,17 +36,13 @@ You can create a load test to simulate traffic to your application on Azure App 
 
 After you create and run a load test, you can [monitor the resource metrics](#monitor) for the web application and all dependent Azure components to identify performance and scalability issues.
 
-### Create a URL-based quick test
+### Create a URL-based load test
 
-You can use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page.
-
-When you create a URL-based test, you specify the endpoint and basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time).
+You can create a URL-based load test directly from your Azure App Service web app in the Azure portal. When you create the load test, you can select a specific deployment slot and use the prepopulated endpoint URL.
 
 The following screenshot shows how to create a URL-based load test in the Azure portal.
 
-:::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that shows the Create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
-
-Get started by [creating a URL-based load test](./quickstart-create-and-run-load-test.md).
+Get started by [creating a URL-based load test for Azure App Service](./how-to-create-load-test-app-service.md).
 
 ### Create a load test by uploading a JMeter script
 
@@ -61,7 +57,7 @@ Azure Load Testing provides high-fidelity support of JMeter. You can create a ne
 
 Get started [create a load test by uploading a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
 
-If you previously created a [URL-based test](#create-a-url-based-quick-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
+If you previously created a [URL-based test](#create-a-url-based-load-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
 <a name="monitor"/>
 ## Monitor your apps for bottlenecks and provisioning issues 
@@ -74,13 +70,13 @@ During a load test, Azure Load Testing collects [metrics](./concept-load-testing
 
 Use the Azure Load Testing dashboard to analyze the test run metrics and identify performance bottlenecks in your application, or find out if you over-provisioned some compute resources. For example, you could evaluate if the service plan instances are right-sized for your workload.
 
-:::image type="content" source="media/concept-load-test-app-service/load-test-results-dashboard.png" alt-text="Screenshot that shows the load test results dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/load-test-results-dashboard.png":::
+:::image type="content" source="./media/concept-load-test-app-service/load-test-results-dashboard.png" alt-text="Screenshot that shows the load test results dashboard in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-results-dashboard.png":::
 
 Learn more about how to [monitor server-side metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
 For applications that are hosted on Azure App Service, you can use [App Service diagnostics](/azure/app-service/overview-diagnostics) to get extra insights into the performance and health of the application. When you add an app service application component to your load test configuration, the load testing dashboard provides a direct link to the App Service diagnostics dashboard for your App service resource.
 
-:::image type="content" source="media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
+:::image type="content" source="./media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="./media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
 
 ## Customize your load test's failure criteria
 
@@ -100,13 +96,12 @@ One example is using a parameter as an environment variable so you can avoid sto
 
 Another use for parameters is when you want to reuse your test script across multiple [Azure App Service deployment slots](/azure/app-service/deploy-staging-slots). Deployment slots are live apps with their own host names and separate URLs. Use a parameter for the application endpoint and then you can set up staging environments for your application. 
 
-:::image type="content" source="media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="media/concept-load-test-app-service/quick-test-parameters.png":::
+:::image type="content" source="./media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="./media/concept-load-test-app-service/quick-test-parameters.png":::
 
 
 ## Next steps
 
 Learn how to:
-- [Start create a URL-based load test](./quickstart-create-and-run-load-test.md).
-- [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
-- [Configure your test for high-scale load](./how-to-high-scale-load.md).
+- [Create a URL-based load test for Azure App Service](./how-to-create-load-test-app-service.md).
 - [Configure automated performance testing](./quickstart-add-load-test-cicd.md).
+- [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
