@@ -13,7 +13,7 @@ This article describes the **Heptagon YB3x** appliance deployment and installati
 |---------|---------|
 |**Hardware profile** | L100 |
 |**Performance** | Max bandwidth: 20-25 Mbps <br> Max devices: 200 |
-|**Physical specifications** | Ports: 6 x 1 GbE ports|
+|**Physical specifications** | Ports: 6 x 1-GbE ports|
 |**Status** | Supported, available as preconfigured |
 
 The following image shows a view of the Heptagon YB3x front panel:
@@ -32,23 +32,23 @@ The following image shows a view of the Heptagon YB3x front panel:
 |Storage |500 GB |
 |Network controller |Intel I210, Intel x553  |
 |Device access | 4x USB 3.0, TPM 2.0, 2x Serial ports |
-|Power Adapter |12VDC or optional 9-28VDC with reverse polarity, <br>Over/under voltage protection  |
+|Power Adapter |12 VDC or optional 9-28 VDC with reverse polarity, <br>Over/under voltage protection  |
 |BMC |BMC AST2600, OpenBMC, IPMI 2.0, iKVM, Virtual Media  |
-|Temperature |-40 to +75 °C |
-|Humidity |95% @ 40°C (non-condensing)  |
+|Temperature |-40 °C to +75 °C |
+|Humidity |95% @ 40°C (noncondensing)  |
 |Shock & Vibration  | ETSI standard ETS 300 019-1-5, 5M2 |
 |Safety |IEC 60950-1, AS/NZS  |
-|EMC |CE, FCC ,AS/NZS |
+|EMC |CE, FCC, AS/NZS |
 
 ## Heptagon YB3x - Bill of Materials
 
 |Description| PN|Quantity|
 |--------------|--------------|---------|
-|CPU: Atom-C3708, 8C, 16MB Cache, 1.7Ghz, 17W, Embedded/Ind. Temp <br> DRAM - Not installed <br> COMM1: COM-4X1: Quad 1G Base-T <br> COMM2: No Comm Module <br> BMC: BMC, based on Aspeed AST2600, with Display port video  |YB3708-0-4T0B |1|
+|CPU: Atom-C3708, 8C, 16 MB Cache, 1.7Ghz, 17 W, Embedded/Ind. Temp <br> DRAM - Not installed <br> COMM1: COM-4X1: Quad 1G Base-T <br> COMM2: No Comm Module <br> BMC: BMC, based on Aspeed AST2600, with Display port video  |YB3708-0-4T0B |1|
 |500G NV2 M.2 2280 PCIe 4.0 NVMe SSD  |SNV2S/500G |1 |
 |Intel X710 Dual Port 10 GbE SFP+ Adapter | 540-BDQZ |1|
-|8GB 2666MT/s DDR4 ECC Reg CL19 DIMM 1Rx8 Hynix D IDT  | KSM26RS8/8HDI  | 2|
-|Power supply, 110-220VAC to 12VDC, 100W, IP 67, Industrial temp   | PS100-12-IP67  | 1 |
+|8 GB 2,666 MT/s DDR4 ECC Reg CL19 DIMM 1Rx8 Hynix D IDT  | KSM26RS8/8HDI  | 2|
+|Power supply, 110-220 VAC to 12 VDC, 100 W, IP 67, Industrial temp   | PS100-12-IP67  | 1 |
 
 ## Heptagon YB3x software setup
 
