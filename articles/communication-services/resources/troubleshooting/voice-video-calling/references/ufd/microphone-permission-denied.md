@@ -35,11 +35,13 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ```
 ## How to mitigate or resolve
 Your application should invoke `DeviceManager.askDevicePermission` before a call starts to check whether the proper permissions have been granted or not.
-If the permission is denied, your application should display a message in the user interface to note this.
+If the permission is denied, your application should display a message in the user interface to note this situation.
 Additionally, your application should acquire browser permission before listing the available microphone devices.
-If there is no permission granted, your application won't be able to get the detailed information of the microphone devices on the user's system.
+If there is no permission granted, your application is unable to get the detailed information of the microphone devices on the user's system.
 
-The permission can also be revoked during the call, your application should also subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any permission issues. Users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the microphone access at OS level.
+The permission can also be revoked during the call.
+Your application should also subscribe to events from the User Facing Diagnostics and display a message on the user interface to alert users of any permission issues. 
+Users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the microphone access at OS level.
 
 > [!NOTE]
 > Some browser platforms cache the permission results.
