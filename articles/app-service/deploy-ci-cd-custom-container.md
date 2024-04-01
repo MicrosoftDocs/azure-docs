@@ -8,7 +8,7 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 # Continuous deployment with custom containers in Azure App Service

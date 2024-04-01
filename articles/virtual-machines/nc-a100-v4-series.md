@@ -5,9 +5,9 @@ author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/19/2023
-
 ---
 
 #  NC A100 v4-series  

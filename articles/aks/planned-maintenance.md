@@ -6,6 +6,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
 ms.author: nickoman
+ms.subservice: aks-upgrade
 author: nickomang
 ---
 

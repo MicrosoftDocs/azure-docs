@@ -265,7 +265,6 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 * PowerShell workflow isn't supported in PowerShell 7+ versions. Hence, the outdated runbooks can't be upgraded.
 * Inefficient handling of parallel execution compared to newer PowerShell 7+ versions.
 * PowerShell Workflow internally works using multiple processes. Hence, modules available in one process may not be available in another and cause exceptions like *command not found*.
-* You must be familiar with PowerShell Workflow.
 * Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.

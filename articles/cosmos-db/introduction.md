@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB – Unified AI Database
-description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL and relational data.
+description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL, relational, and vector data.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -13,6 +13,8 @@ adobe-target: true
 # Azure Cosmos DB – Unified AI Database
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
+
+> OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance.” – Satya Nadella, Microsoft chairman and chief executive officer
 
 Today's applications are required to be highly responsive and always online. They must respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users.
 

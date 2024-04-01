@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with Apache Flink® Data
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/22/2024
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
@@ -155,10 +155,10 @@ In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update 
      <properties>
          <maven.compiler.source>1.8</maven.compiler.source>
          <maven.compiler.target>1.8</maven.compiler.target>
-         <flink.version>1.16.0</flink.version>
+         <flink.version>1.17.0</flink.version>
          <java.version>1.8</java.version>
          <scala.binary.version>2.12</scala.binary.version>
-         <kafka.version>2.4.1</kafka.version> // Replace with 3.2 if you're using HDInsight Kafka 3.2
+         <kafka.version>3.2.0</kafka.version> // Replace with 3.2 if you're using HDInsight Kafka 3.2
      </properties>
      <dependencies>
          <dependency>
@@ -284,6 +284,19 @@ public class mssqlSinkToKafka {
 }
 ```
 
+### Submit job to Flink
+
+* On Webssh pod
+
+  ```
+  bin/flink run -c contoso.example.mssqlSinkToKafka -j FlinkSQLServerCDCDemo-1.0-SNAPSHOT.jar 
+  Job has been submitted with JobID abccf644ae13a8028d7e232b85bd507f
+  ```
+* On Flink UI make the following change.
+
+  :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/flink-ui.png" alt-text="Screenshot showing the Flink UI.":::
+
+
 ### Validation
 
 - Insert four rows into table order on sqlserver, then check on Kafka
@@ -306,7 +319,7 @@ public class mssqlSinkToKafka {
  
     :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for-id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
   
-  -  Delete `product_id=107` on sqlserver
+  -  Delete `product_id=107` on 
 
      :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/delete-product-id-107-on-sql-server.png" alt-text="Screenshot showing how to delete product ID 107.":::
  

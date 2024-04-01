@@ -19,6 +19,8 @@ Your function code runs in a separate .NET worker process. Use with [supported v
 
 ### [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
 ---
@@ -43,7 +45,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level<sup>1</sup> | Expected community EOL date |
+| Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET 7 | GA | [May 14, 2024][dotnet-policy] |
