@@ -1,7 +1,7 @@
 ---
 title: Overview of microphonePermissionDenied UFD
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Overview and detailed reference of microphonePermissionDenied UFD
+description: Overview and detailed reference of microphonePermissionDenied UFD.
 author: sloanster
 ms.author: micahvivion
 
@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # microphonePermissionDenied UFD
-The `microphonePermissionDenied` UFD with a `true` value occurs when the SDK detects that the microphone permission has been denied either at browser layer or at OS level.
+The `microphonePermissionDenied UFD` with a `true` value occurs when the SDK detects that the microphone permission has been denied either at browser layer or at OS level.
 
 | microphonePermissionDenied            | Details                |
 | --------------------------------------|------------------------|
@@ -34,14 +34,15 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-Your application should invoke `DeviceManager.askDevicePermission` before a call starts to check whether the proper permissions has been granted or not. If the permission is denied, your application should display a message in the user interface to note this.
+Your application should invoke `DeviceManager.askDevicePermission` before a call starts to check whether the proper permissions have been granted or not.
+If the permission is denied, your application should display a message in the user interface to note this.
 Additionally, your application should acquire browser permission before listing the available microphone devices.
 If there is no permission granted, your application won't be able to get the detailed information of the microphone devices on the user's system.
 
-The permission can also be revoked during the call, you application should also subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any permission issues. Users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the microphone access at OS level.
+The permission can also be revoked during the call, your application should also subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any permission issues. Users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they have disabled the microphone access at OS level.
 
 > [!NOTE]
-> Some browser platforms will cache the ask permission results.
+> Some browser platforms cache the permission results.
 
-If the user denies the permission at browser layer previously, `askDevicePermission` cannot trigger the permission UI prompt, but it can know the permission has been denied.
-The application should show instructions and ask the user to reset or grant the browser microphone permission manually.
+If a user has denied the permission at browser layer previously, invoking `askDevicePermission` API won't trigger the permission UI prompt, but it can know the permission has been denied.
+Your application should show instructions and ask the user to reset or grant the browser microphone permission manually.
