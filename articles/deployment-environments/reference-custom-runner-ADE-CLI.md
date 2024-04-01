@@ -228,6 +228,7 @@ ade files upload --folder-path "folder1/folder2"
 ## ade log command set
 The `ade log` commands are used to record details regarding the execution of the operation on the environment while within the container. This command offers many different logging levels, which can be then accessed after the operation finishes to analyze, and a customer can specify different files to log to for different logging scenarios.
 
+ADE will log all statements that are outputted to standard output or standard error streams within the container, but this feature can be used to upload logs to customer-specified files that can be viewed separately from the main operation logs. 
 ### Options
 **--content**: A string input containing the information to log. This option is required for this command.
 
