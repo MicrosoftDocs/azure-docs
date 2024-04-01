@@ -43,7 +43,7 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
 | [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
 | [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
-| [Allow list blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | list blob include | |
+| [Allowlist blob operation to include blob metadata, snapshots, or versions](#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions) | | | list blob include | |
 | [Restrict list blob operation to not include blob metadata](#example-restrict-list-blob-operation-to-not-include-blob-metadata) | | | list blob include | |
 | [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
 | [Read blobs with specific encryption scopes](#example-read-blobs-with-specific-encryption-scopes) | | | | Encryption scope name |
@@ -1379,7 +1379,7 @@ Currently no example provided.
 
 ---
 
-### Example: Allow list blob operation to include blob metadata, snapshots, or versions
+### Example: Allowlist blob operation to include blob metadata, snapshots, or versions
 
 This condition allows a user to list blobs in a container and include metadata, snapshot, and version information. The [List blobs include](storage-auth-abac-attributes.md#list-blob-include) attribute is available for storage accounts where hierarchical namespace isn't enabled.
 
