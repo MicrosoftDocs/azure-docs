@@ -20,7 +20,7 @@ The way browsers currently work may seem counterintuitive, as the permission to 
 The speaker and microphone enumeration shares the same permission information.
 
 When the microphone permission state is `prompt` or `denied`, the browser doesn't provide detailed information about the microphone devices and speaker devices.
-In this scenario, thv [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-devicemanager-getspeakers) API returns an array with one object, where the `id` is set to `speaker:` and the name is set to an empty string.
+In this scenario, [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-devicemanager-getspeakers) API returns an array with one object, where the `id` is set to `speaker:` and the name is set to an empty string.
 
 Some platforms, such as iOS Safari, macOS Safari, or earlier versions of Firefox don't support speaker enumeration.
 
@@ -40,7 +40,7 @@ The error code/subcode is
 |------------------|-------------------------------------------------------|
 | code             | 405 (Method Not Allowed)                              |
 | subcode          | 40606                                                 |
-| message          | This device does not support speaker enumeration.     |
+| message          | This device doesn't support speaker enumeration.     |
 | resultCategories | Expected                                              |
 
 ## How to mitigate or resolve

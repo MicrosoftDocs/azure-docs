@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # No permission prompt shows when calling askDevicePermission
-If a user reports that they don't see any permission prompts, it may be because they have previously granted or denied permission and the browser caches the result.
+If a user reports that they don't see any permission prompts, it may be because they previously granted or denied permission and the browser caches the result.
 
 Not showing the permission prompt isn't a problem if the browser has the required permission.
 However, if the user can't see the device list, it could be because they denied permission before.
@@ -28,5 +28,5 @@ We can't detect whether the permission prompt actually shows or not, as this bro
 The application should check the result of [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API.
 If the result is false, it may indicate that user denied the permission now or previously.
 
-The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions have been granted.
+The application should show a warning message and ask the user to check their browser settings to ensure that correct permissions were granted.
 They also need to verify that their system has the necessary devices installed and configured properly.
