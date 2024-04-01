@@ -33,6 +33,18 @@ The following table describes the new or improved capabilities available in the 
 
 Most Microsoft Sentinel capabilities are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
 
+This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+
+### Defender portal only
+
+The following capabilities are only available in the Defender portal.
+
+|Capability  |Learn more  |
+|---------|---------|
+|Attack disrupt for SAP  |  [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption)         |
+
+### Azure portal only
+
 The following capabilities are only available in the Azure portal.
 
 |Capability  |Learn more  |
