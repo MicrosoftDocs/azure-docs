@@ -16,7 +16,7 @@ ms.subservice: calling
 The `cameraStartTimedOut` UFD with a `true` value occurs when the SDK is unable to acquire the camera stream because the browser `getUserMedia` doesn't resolve within a certain period of time.
 This can happen when the user starts a call with video enabled, but the browser displays a UI permission prompt and the user doesn't respond to it.
 
-| cameraStartTimedOut                   |
+| cameraStartTimedOut                   | Details                |
 | --------------------------------------|------------------------|
 | UFD type                              | MediaDiagnostics       |
 | value type                            | DiagnosticFlag         |
