@@ -141,9 +141,6 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 
 Fields present in [open source MeshConfig reference documentation][istio-meshconfig] but not in the above table are blocked. For example, `configSources` is blocked.
 
-> [!NOTE]
-> Some fields (ex: `localityLbSettings`) that are marked unsupported are configurable via Istio custom resources (ex: [`DestinationRules`](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings)) on a namespace or workload scope instead.
-
 > [!CAUTION]
 > **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the support scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
 
