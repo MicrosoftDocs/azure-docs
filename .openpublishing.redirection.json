@@ -3921,7 +3921,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/update-legacy-ot-software.md",
-            "redirect_url": "/organizations/update-ot-software?tabs=portal",
+            "redirect_url": "/azure/defender-for-iot/organizations/update-ot-software?tabs=portal",
             "redirect_document_id": false
         }
     ]
