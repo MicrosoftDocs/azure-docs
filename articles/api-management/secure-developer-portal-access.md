@@ -17,6 +17,9 @@ ms.author: danlep
 
 API Management has a fully customizable, standalone, managed [developer portal](api-management-howto-developer-portal.md), which can be used externally (or internally) to allow developer users to discover and interact with the APIs published through API Management. The developer portal has several options to facilitate secure user sign-up and sign-in. 
 
+> [!NOTE]
+> By default, the developer portal enables anonymous access. This means that anyone can view the portal and content such as APIs without signing in, although functionality such as using the test console is restricted. You can enable a setting that requires users to sign-in to view the developer portal. In the Azure portal, in the left menu of your API Management instance, under **Developer portal**, select **Identities** > **Settings**. Under **Anonymous users**, select (enable) **Redirect anonymous users to sign-in page**.
+
 ## Authentication options
 
 * **External users** - The preferred option when the developer portal is consumed externally is to enable business-to-consumer access control through Azure Active Directory B2C (Azure AD B2C). 
