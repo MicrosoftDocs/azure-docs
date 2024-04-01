@@ -23,7 +23,7 @@ To avoid these issues, it's important for users to grant the necessary permissio
 If a user accidentally denies permission or needs to change their permissions later, they can usually do so through the browser settings.
 
 The permission is also necessary for the application to retrieve detailed device list information.
-The application can call [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) to trigger the permission prompt UI.
+The application can call [`DeviceManager.askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) to trigger the permission prompt UI.
 However, the browser may cache the permission result and return it without showing the permission prompt UI.
 If the permission result is `denied`, the user needs to update the permission through the browser settings.
 
