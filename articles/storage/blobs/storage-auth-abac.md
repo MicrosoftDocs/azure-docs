@@ -69,9 +69,9 @@ The following table shows the current status of ABAC by storage resource type an
 | Resource types | Attribute types    | Attributes                | Availability |
 |---|---|---|---|
 | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>environment<br/>principal | All attributes except those explicitly noted in this table | GA |
-| Data Lake Storage Gen2                      | resource        | snapshot           | Preview |
-| Blobs<br/>Data Lake Storage Gen2            | resource        | container metadata | Preview |
-| Blobs                                       | request         | list blob include  | Preview |
+| Data Lake Storage Gen2                      | resource        | [snapshot](storage-auth-abac-attributes.md#snapshot)           | Preview |
+| Blobs<br/>Data Lake Storage Gen2            | resource        | [container metadata](storage-auth-abac-attributes.md#container-metadata) | Preview |
+| Blobs                                       | request         | [list blob include](storage-auth-abac-attributes.md#list-blob-include)  | Preview |
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -83,6 +83,7 @@ See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.m
 > - [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys)
 > - [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key)
 > - [Version ID](storage-auth-abac-attributes.md#version-id)
+> - [List blob include](storage-auth-abac-attributes.md#list-blob-include)
 
 ## Next steps
 
