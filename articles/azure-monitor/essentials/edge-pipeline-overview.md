@@ -24,11 +24,34 @@ The following diagram shows the basic components of the Azure Monitor edge pipel
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-overview/.png" lightbox="media/edge-pipeline/edge-pipeline-overview/.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
 
-Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data.
+Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data. Once the pipeline extension and instance is installed on your cluster, you configure one or more data flows that define the type of data being collected and where it should be sent. 
+
+
 
 ## Cache configuration
 
-During intermittent connectivity, Azure Monitor edge pipeline will cache collected data for up to 72 hours and sync the data with cloud as configured (either FIFO or real-time data first).
+During intermittent connectivity, Azure Monitor edge pipeline will cache collected data for up to 72 hours and sync the data with cloud.
+
+### Expiration
+Defines the amount of time the data can remain in the cache before it's discarded. 
+
+### Persistent volume limit
+Memory limit for the cache. When the limit is reached, data is removed according to the data sync type.
+
+### Data sync type
+
+| Type | Description |
+|:---|:---|
+| FIFO | First in, first out. When connectivity is restored, the oldest data is sent first, and all data in the queue is sent before any real-time data. This preserves the chronological order and completeness of the data making it ideal for data that is informative and used for SLI/SLOs or business KPIs.  |
+| LIFO | Last in, first out. When connectivity is restored, the newest data is sent first, and all data in the queue is sent before any real-time data. This delivers the most recent and relevant data making it ideal for dynamic and adaptive data such as security events. |
+| Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response,  |
+<!--- With real-time, is FIFO or LIFO used to flush cache? Or is this additional setting? --->
+
+### Filtering
+<!--- Will we have this for public preview? --->
+
+### Aggregation and sampling
+
 
 
 
