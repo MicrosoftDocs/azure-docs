@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Document Intelligence (formerly Form Recognizer) frequently asked questions (FAQ)
-  description: Frequently asked questions about Document Intelligence service.
+  title: Azure AI Document Intelligence (formerly Azure AI Form Recognizer) frequently asked questions (FAQ)
+  description: Get answers to frequently asked questions about the Document Intelligence service.
   author: laujan
   manager: nitinme
   ms.service: azure-ai-document-intelligence
@@ -20,33 +20,31 @@ sections:
   - name: General concepts
     questions:
       - question: |
-          What is Azure AI Document Intelligence and what happened to Form Recognizer?
+          What is Azure AI Document Intelligence and what happened to Azure AI Form Recognizer?
         answer: |
 
-          - Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
-          - Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
+          Document Intelligence is part of Azure AI services. Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
-          - As of July 2023, Form Recognizer is now Azure AI Document Intelligence!
+          The previous name for Document Intelligence was Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
+          
+          There are no changes to pricing. The names Cognitive Services and Azure Applied AI continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
-          -  Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+          There are no breaking changes to APIs or client libraries (SDKs). REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
 
-           - There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
-
-           - There are no breaking changes to application programming interfaces (APIs) or client libraries (SDKs). REST APIs and client libraries (SDKs), 2024-02-29-preview, 2023-10-31-preview and later, will be renamed ```document intelligence```.
-
-           - Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
+          Some platforms are still awaiting the renaming update. In Microsoft documentation, all mentions of Form Recognizer and Document Intelligence refer to the same Azure service.
 
 
 
       - question: |
-          How is Document Intelligence related to Document Generative AI?
+          How is Document Intelligence related to document generative AI?
         answer: |
 
-          A Document Generative AI solution can enable you to chat with your documents, generate captivating content from them and access the power of Azure OpenAI models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural languages, easily find answers and gain valuable insights, effortlessly generate new and engaging content from your existing documents. Check for more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+          You can use a document generative AI solution to chat with your documents, generate captivating content from them, and access Azure OpenAI Service models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages, easily find answers and gain valuable insights, and generate new and engaging content from your existing documents. Find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
       - question: |
-          How is Document Intelligence related to Retrieval Augmented Generation (RAG)?
+          How is Document Intelligence related to retrieval-augmented generation (RAG)?
         answer: |
 
           Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in [Retrieval Augmented Generation](concept-retrieval-augmented-generation.md).
@@ -64,7 +62,7 @@ sections:
           What languages does Document Intelligence support?
         answer: |
 
-           Document Intelligence's deep-learning-based universal models support many languages that can extract multi-lingual text from your images and documents, including text lines with mixed languages.
+           The deep-learning-based universal models in Document Intelligence support many languages that can extract multilingual text from your images and documents, including text lines with mixed languages.
 
            Language support varies by Document Intelligence service functionality. See [language support](language-support.md) for a complete list of the handwritten and printed text supported by Document Intelligence.
 
@@ -91,7 +89,7 @@ sections:
           - [Azure Logic Apps](tutorial-logic-apps.md)
 
       - question: |
-          How is Document Intelligence related to OCR?
+          How is Document Intelligence related to optical character recognition (OCR)?
         answer: |
 
           Azure AI Document Intelligence is a cloud-based Azure AI service that is built using optical character recognition (OCR), Text Analytics, and Custom Text from Azure AI services.
