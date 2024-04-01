@@ -136,7 +136,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
 1. Paste in the following code and save the file.
-
+   ```yml
    kind: 'Pod'
    apiVersion: 'v1'
    metadata:
@@ -167,6 +167,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                resources:
                  requests:
                    storage: '1Gi'
+   ```
 
 1. Apply the YAML manifest file to deploy the pod.
    
