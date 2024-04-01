@@ -16,7 +16,7 @@ In this tutorial, learn how to create a jump box in the resource group that you 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Windows VM to access the Azure VMware Solution vCenter
+> * Create a Windows VM to access the Azure VMware Solution vCenter Server
 > * Sign in to vCenter Server from this VM
 
 ## Create a new Windows virtual machine
