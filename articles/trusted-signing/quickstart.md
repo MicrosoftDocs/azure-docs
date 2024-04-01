@@ -152,9 +152,9 @@ Here are the steps to create an Identity Validation request:
 7.  **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8.  Select the **Create** button. 
 
-![screenshot of trusted-signing-identityvalidation-public.](media/trusted-signing-identityvalidation-public.png)
+![This tutorial will guide you through the process of revoking a certificate profile from a Trusted Signing account.](media/trusted-signing-identity-validation-public.png)
 
-![screenshot of trusted-signing-identityvalidation-private.](media/trusted-signing-identityvalidation-private.png)
+![screenshot of trusted-signing-identityvalidation-private.](media/trusted-signing-identity-validation-private.png)
 
 ### Important information for Public Identity Validation:
 
@@ -187,7 +187,7 @@ A certificate profile resource is the logical container of the certificates that
 •   The values in remaining fields are autopopulated based on the selection in Verified CN and O.
 •   Select **Create**.
 
-![screenshot of trusted-signing-certificateprofile-creation.](media/trusted-signing-certificateprofile-creation.png)
+![screenshot of trusted-signing-certificateprofile-creation.](media/trusted-signing-certificate-profile-creation.png)
 
 **Certificate Profile naming constraints**:
 - Between 5-100 alphanumeric characters. 
