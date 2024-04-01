@@ -290,9 +290,11 @@ To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) po
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
-## Next steps
+## Related content
 
-For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+* For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+
+* Learn more about [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
 
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png

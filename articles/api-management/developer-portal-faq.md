@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 02/04/2022
+ms.date: 04/01/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -71,6 +71,9 @@ Most configuration changes (for example, VNet, sign-in, product terms) require [
 
 The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding a CORS policy on your API(s), or configure the portal to use a CORS proxy. For more information, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
 
+## I'm getting a CORS error when using the custom HTML code widget
+
+When using the custom HTML code widget in your environment, you might see a CORS error when interacting with the IFrame loaded by the widget. This issue occurs because the IFrame is served content from a different origin than the developer portal. To avoid this issue, you can use custom widget instead.
 
 ## What permissions do I need to edit the developer portal?
 
