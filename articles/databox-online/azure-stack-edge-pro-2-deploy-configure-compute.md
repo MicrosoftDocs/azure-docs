@@ -27,8 +27,6 @@ In this tutorial, you learn how to:
 > * Configure compute
 > * Get Kubernetes endpoints
 
-[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
-
 ## Prerequisites
 
 Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
