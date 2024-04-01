@@ -31,7 +31,7 @@ Search-AzGraph -Query "resources | where type == 'microsoft.insights/datacollect
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20summarize%20dcrCount%20%3D%20count%28%29%20by%20subscriptionId%2C%20resourceGroup%2C%20location%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20summarize%20dcrCount%20%3D%20count%28%29%20by%20subscriptionId%2C%20resourceGroup%2C%20location%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.us</a>
@@ -64,7 +64,7 @@ Search-AzGraph -Query "resources | where type == 'microsoft.insights/datacollect
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20summarize%20dcrCount%3Dcount%28%29%20by%20location%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20summarize%20dcrCount%3Dcount%28%29%20by%20location%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.us</a>
@@ -102,7 +102,7 @@ Search-AzGraph -Query "resources | where type == 'microsoft.insights/datacollect
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20extend%20destinations%20%3D%20properties%5B%27destinations%27%5D%0D%0A%7C%20extend%20logAnalyticsWorkspaces%20%3D%20destinations%5B%27logAnalytics%27%5D%0D%0A%7C%20where%20isnotnull%28logAnalyticsWorkspaces%29%0D%0A%7C%20mv-expand%20logAnalyticsWorkspace%20%3D%20logAnalyticsWorkspaces%0D%0A%7C%20extend%20logAnalyticsWorkspaceResourceId%20%3D%20tolower%28tostring%28logAnalyticsWorkspace%5B%27workspaceResourceId%27%5D%29%29%0D%0A%7C%20summarize%20dcrList%20%3D%20make_list%28id%29%2C%20dcrCount%20%3D%20count%28%29%20by%20logAnalyticsWorkspaceResourceId%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20extend%20destinations%20%3D%20properties%5B%27destinations%27%5D%0D%0A%7C%20extend%20logAnalyticsWorkspaces%20%3D%20destinations%5B%27logAnalytics%27%5D%0D%0A%7C%20where%20isnotnull%28logAnalyticsWorkspaces%29%0D%0A%7C%20mv-expand%20logAnalyticsWorkspace%20%3D%20logAnalyticsWorkspaces%0D%0A%7C%20extend%20logAnalyticsWorkspaceResourceId%20%3D%20tolower%28tostring%28logAnalyticsWorkspace%5B%27workspaceResourceId%27%5D%29%29%0D%0A%7C%20summarize%20dcrList%20%3D%20make_list%28id%29%2C%20dcrCount%20%3D%20count%28%29%20by%20logAnalyticsWorkspaceResourceId%0D%0A%7C%20sort%20by%20dcrCount%20desc" target="_blank">portal.azure.us</a>
@@ -137,7 +137,7 @@ Search-AzGraph -Query "resources | where type == 'microsoft.insights/datacollect
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20extend%20destinations%20%3D%20properties%5B%27destinations%27%5D%0D%0A%7C%20extend%20azureMonitorMetrics%20%3D%20destinations%5B%27azureMonitorMetrics%27%5D%0D%0A%7C%20where%20isnotnull%28azureMonitorMetrics%29%0D%0A%7C%20project-away%20destinations%2C%20azureMonitorMetrics" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.insights%2Fdatacollectionrules%27%0D%0A%7C%20extend%20destinations%20%3D%20properties%5B%27destinations%27%5D%0D%0A%7C%20extend%20azureMonitorMetrics%20%3D%20destinations%5B%27azureMonitorMetrics%27%5D%0D%0A%7C%20where%20isnotnull%28azureMonitorMetrics%29%0D%0A%7C%20project-away%20destinations%2C%20azureMonitorMetrics" target="_blank">portal.azure.us</a>

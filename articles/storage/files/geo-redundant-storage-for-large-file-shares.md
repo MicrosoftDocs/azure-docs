@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/29/2024
+ms.date: 04/01/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -88,8 +88,8 @@ Azure Files geo-redundancy for large file shares is generally available in the m
 | Southeast Asia | GA |
 | Sweden Central | GA |
 | Sweden South | GA |
-| Switzerland North | Preview |
-| Switzerland West | Preview |
+| Switzerland North | GA |
+| Switzerland West | GA |
 | UAE Central | GA |
 | UAE North | GA |
 | UK South | GA |

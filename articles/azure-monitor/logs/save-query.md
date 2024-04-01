@@ -40,7 +40,7 @@ Most users should leave the option to **Save to the default query pack**, which 
 :::image type="content" source="media/save-query/save-query-dialog.png" lightbox="media/save-query/save-query-dialog.png" alt-text="Screenshot that shows the Save as query dialog." border="false":::
 
 ## Edit a query
-You might want to edit a query that you've already saved. You might want to change the query itself or modify any of its properties. After you open an existing query in Log Analytics, you can edit it by selecting **Edit query details** from the **Save** dropdown. Now you can save the edited query with the same properties or modify any properties before saving.
+You might want to edit a query that you've already saved. You might want to change the query itself or modify any of its properties. After you open an existing query in Log Analytics and make changes, you can save the edited query with the same properties or modify any properties before saving.
 
 If you want to save the query with a different name, select **Save as query** as if you were creating a new query.
 
