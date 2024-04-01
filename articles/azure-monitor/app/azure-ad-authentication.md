@@ -37,7 +37,6 @@ The following SDKs and features are unsupported for use with Microsoft Entra aut
  Microsoft Entra authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
-- [Certificate/secret-based Microsoft Entra ID](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use managed identities instead.
 - On-by-default [autoinstrumentation/codeless monitoring](codeless-overview.md) (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Profiler](profiler-overview.md).
 
@@ -75,8 +74,6 @@ Application Insights .NET SDK supports the credential classes provided by [Azure
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
   - For system-assigned, use the default constructor without parameters.
   - For user-assigned, provide the client ID to the constructor.
-- We recommend `ClientSecretCredential` for service principals.
-  - Provide the tenant ID, client ID, and client secret to the constructor.
 
 The following example shows how to manually create and configure `TelemetryConfiguration` by using .NET:
 
@@ -114,22 +111,6 @@ import appInsights from "applicationinsights";
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
-appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.config.aadTokenCredential = credential;
-
-```
-
-#### ClientSecretCredential
-
-```javascript
-import appInsights from "applicationinsights";
-import { ClientSecretCredential } from "@azure/identity"; 
- 
-const credential = new ClientSecretCredential(
-    "<YOUR_TENANT_ID>",
-    "<YOUR_CLIENT_ID>",
-    "<YOUR_CLIENT_SECRET>"
-  );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
@@ -180,27 +161,6 @@ The following example shows how to configure the Java agent to use user-assigned
 ```
 
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot that shows user-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
-
-#### Client secret
-
-The following example shows how to configure the Java agent to use a service principal for authentication with Microsoft Entra ID. We recommend using this type of authentication only during development. The ultimate goal of adding the authentication feature is to eliminate secrets.
-
-```JSON
-{ 
-  "connectionString": "App Insights Connection String with IngestionEndpoint",
-  "authentication": { 
-    "enabled": true, 
-    "type": "CLIENTSECRET", 
-    "clientId":"<YOUR CLIENT ID>", 
-    "clientSecret":"<YOUR CLIENT SECRET>", 
-    "tenantId":"<YOUR TENANT ID>" 
-  } 
-} 
-```
-
-:::image type="content" source="media/azure-ad-authentication/client-secret-tenant-id.png" alt-text="Screenshot that shows the client secret with the tenant ID and the client ID." lightbox="media/azure-ad-authentication/client-secret-tenant-id.png":::
-
-:::image type="content" source="media/azure-ad-authentication/client-secret-cs.png" alt-text="Screenshot that shows the Client secrets section with the client secret." lightbox="media/azure-ad-authentication/client-secret-cs.png":::
 
 #### Environment variable configuration
 
@@ -281,27 +241,6 @@ tracer = Tracer(
 )
 ...
 
-```
-
-#### Client secret
-
-```python
-from azure.identity import ClientSecretCredential
-
-from opencensus.ext.azure.trace_exporter import AzureExporter
-from opencensus.trace.samplers import ProbabilitySampler
-from opencensus.trace.tracer import Tracer
-
-tenant_id = "<tenant-id>"
-client_id = "<client-id"
-client_secret = "<client-secret>"
-
-credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
-tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
-    sampler=ProbabilitySampler(1.0)
-)
-...
 ```
 
 ---
@@ -538,20 +477,6 @@ The root cause might be one of the following reasons:
 
 - You've created the resource with a system-assigned managed identity or associated a user-assigned identity with it. However, you might have forgotten to add the Monitoring Metrics Publisher role to the resource (if using SAMI) or the user-assigned identity (if using UAMI).
 - You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (VM or app service) or user-assigned identity with Monitoring Metrics Publisher roles in your Application Insights resource.
-
-#### Invalid Tenant ID
-
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Specified tenant identifier <TENANT-ID> is neither a valid DNS name, nor a valid external domain.`, it indicates the agent wasn't successful in acquiring the access token. The probable reason is that you've provided an invalid or the wrong `tenantId` in your client secret configuration.
-
-#### Invalid client secret
-
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Invalid client secret is provided`, it indicates the agent wasn't successful in acquiring the access token. The probable reason is that you've provided an invalid client secret in your client secret configuration.
-
-#### Invalid Client ID
-
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, it indicates the agent wasn't successful in acquiring the access token. The probable reason is that you've provided an invalid or the wrong client ID in your client secret configuration
-
- If the administrator hasn't installed the application or no user in the tenant has consented to it, this scenario occurs. You may have sent your authentication request to the wrong tenant.
 
 ### [Python](#tab/python)
 
