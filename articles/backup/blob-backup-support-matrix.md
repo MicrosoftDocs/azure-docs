@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 04/01/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
@@ -46,6 +46,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - A blob with an active lease can't be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail automatically. Break any active leases before starting the restore operation.
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - If there are [immutable blobs](../storage/blobs/immutable-storage-overview.md#about-immutable-storage-for-blobs) among those being restored, such immutable blobs won't be restored to their state as per the selected recovery point. However, other blobs that don't have immutability enabled will be restored to the selected recovery point as expected.
+- Blob backup is also supported when the storage account has private endpoints.
 
 # [Vaulted backup](#tab/vaulted-backup)
 
