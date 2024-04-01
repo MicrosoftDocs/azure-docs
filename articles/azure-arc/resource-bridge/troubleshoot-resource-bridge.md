@@ -95,7 +95,7 @@ Arc resource bridge consists of an appliance VM that is deployed to the on-premi
 
 ### Private Link is unsupported
 
-Arc resource bridge doesn'tt support private link. All calls coming from the appliance VM shouldn't be going through your private link setup. The Private Link IPs may conflict with the appliance IP pool range, which isn't configurable on the resource bridge. Arc resource bridge reaches out to [required URLs](network-requirements.md#firewallproxy-url-allowlist) that shouldn't go through a private link connection. You must deploy Arc resource bridge on a separate network segment unrelated to the private link setup.
+Arc resource bridge doesn't support private link. All calls coming from the appliance VM shouldn't be going through your private link setup. The Private Link IPs may conflict with the appliance IP pool range, which isn't configurable on the resource bridge. Arc resource bridge reaches out to [required URLs](network-requirements.md#firewallproxy-url-allowlist) that shouldn't go through a private link connection. You must deploy Arc resource bridge on a separate network segment unrelated to the private link setup.
 
 
 ## Networking issues
