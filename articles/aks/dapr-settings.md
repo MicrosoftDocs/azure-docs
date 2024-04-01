@@ -44,7 +44,7 @@ az k8s-extension create --cluster-type managedClusters \
 ```bicep
 properties: {
   configurationSettings: {
-    'global.ha.enabled': 'true'
+    'global.ha.enabled': true
   }
 }
 ```
@@ -113,7 +113,7 @@ az k8s-extension create --cluster-type managedClusters \
 properties: {
   configurationSettings: {
     'global.clusterType': 'managedclusters'
-    'global.ha.enabled': 'true'
+    'global.ha.enabled': true
     'global.nodeSelector.kubernetes\.io/zone': 'us-east-1c'
     
   }
@@ -126,7 +126,7 @@ For managing OS and architecture, use the [supported versions](https://github.co
 properties: {
   configurationSettings: {
     'global.clusterType': 'managedclusters'
-    'global.ha.enabled': 'true'
+    'global.ha.enabled': true
     'global.daprControlPlaneOs': 'linux'
     'global.daprControlPlaneArch': 'amd64'
   }
@@ -173,7 +173,7 @@ az k8s-extension create --cluster-type managedClusters
 properties: {
   configurationSettings: {
     'dapr_placement.volumeclaims.storageClassName': 'custom-zone-redundant-storage'
-    'global.ha.enabled': 'true'  
+    'global.ha.enabled': true  
   }
 }
 ```
@@ -355,7 +355,7 @@ az k8s-extension update --cluster-type managedClusters \
 ```bicep
 properties: {
   configurationSettings: {
-    'hooks.applyCrds': 'false'
+    'hooks.applyCrds': false
   } 
 }
 ```
