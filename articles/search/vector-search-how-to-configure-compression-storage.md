@@ -117,12 +117,12 @@ The following example shows the fields collection of a search index. Set `stored
 
 ## Option 3: Configure scalar quantization
 
-Built-in scalar quantization is recommended because it reduces memory and disk storage requirements to `Int8`, and it offers ranking and oversampling as mitigations to the smaller index size. Built-in scalar quantization can be applied to vector fields containing `Float32` or `Float16` data.
+Built-in scalar quantization is recommended because it reduces memory and disk storage requirements, and it adds reranking and oversampling to offset the effects of a smaller index. Built-in scalar quantization can be applied to vector fields containing `Float32` or `Float16` data.
 
 To use built-in vector compression:
 
 + Add `vectorSearch.compressions` to a search index. The compression algorithm supported in this preview is *scalar quantization*.
-+ In `vectorSearch.compressions`, set optional properties to mitigate the effects of lossy indexing. Both `rerankWithOriginalVectors` and `defaultOversampling` provide optimizations during query execution.
++ Set optional properties to mitigate the effects of lossy indexing. Both `rerankWithOriginalVectors` and `defaultOversampling` provide optimizations during query execution.
 + Add `vectorSearch.profiles.compression` to a new vector profile.
 + Assign the new vector profile to a new vector field.
 
