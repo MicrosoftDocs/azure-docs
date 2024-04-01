@@ -23,7 +23,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 ## April 2024
 |Date | Update |
 |--|--|
-| April 2| [Containers multicloud recommendations (GA)](#containers-multi-cloud-recommendations-ga) |
+| April 2| [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
 
 ### Containers multicloud recommendations (GA)
 
