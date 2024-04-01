@@ -1,11 +1,11 @@
 ---
-title: Transactional batch operations in Azure Cosmos DB using the .NET or Java SDK 
-description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET or Java SDK to perform a group of point operations that either succeed or fail. 
-author: stefArroyo 
-ms.author: esarroyo
+title: Transactional batch operations in Azure Cosmos DB using the .NET, Java or Python SDK 
+description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET, Java SDK or Python SDK to perform a group of point operations that either succeed or fail. 
+author: stefArroyo, AbhinavTrips
+ms.author: esarroyo, abtripathi
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: devx-track-dotnet, devx-track-extended-java
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.topic: conceptual
 ms.date: 10/27/2020
 ---
