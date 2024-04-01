@@ -53,7 +53,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date of change: April 30, 2024**
 
-The recommendation [`Virtual machines should be migrated to new Azure Resource Manager resources`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/1d84d5fb-01f6-4d12-ba4f-4a26081d403d) is set to be deprecated. There should be no effect on customers as these resources no longer exist.
+The recommendation [Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/12018f4f-3d10-999b-e4c4-86ec25be08a1) is set to be deprecated. There should be no effect on customers as these resources no longer exist.
 
 ## General Availability of Unified Disk Encryption recommendations
 
