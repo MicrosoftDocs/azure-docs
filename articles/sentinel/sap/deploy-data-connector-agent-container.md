@@ -278,7 +278,7 @@ Use one of the following sets of procedures, depending on whether you're using a
 - [Command line options](#command-line-options)
 
 > [!TIP]
-> The Azure portal can only be used with an Azure key vault. If you're using a configuration file instead, use the [command line option](#command-line-options&tabs=deploy-cli-config-file).<!--check to see that this link works-->
+> The Azure portal can only be used with an Azure key vault. If you're using a configuration file instead, use the relevant [command line option](#command-line-options).
 >
 
 ### Azure portal options (Preview)
@@ -330,7 +330,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. <a name=role></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
     To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
