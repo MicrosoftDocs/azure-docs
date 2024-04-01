@@ -6,11 +6,11 @@
 
 When using Active Directory for other Azure Resources, you should be using Managed identities. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](../../../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Azure PowerShell](../../../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../../../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager template](../../../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager SDKs](../../../../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [Azure PowerShell](/entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+- [Azure CLI](/entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+- [Azure Resource Manager template](/entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vm)
+- [Azure Resource Manager SDKs](/entra/identity/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 - [App services](../../../../../app-service/overview-managed-identity.md)
 
 ## Authenticate a registered application in the development environment
