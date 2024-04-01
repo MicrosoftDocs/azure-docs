@@ -16,8 +16,8 @@ When upgrading the OS version of a running Windows workload on Azure Kubernetes 
 When a new version of the Windows Server operating system is released, AKS is committed to supporting it and recommending you upgrade to the latest version to take advantage of the fixes, improvements, and new functionality. AKS provides a five-year support lifecycle for every Windows Server version, starting with Windows Server 2022. During this period, AKS will release a new version that supports a newer version of Windows Server OS for you to upgrade to.
 
 > [!NOTE]
->- Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
->- Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
+> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
+> - Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes].
 
 ## Limitations
 
@@ -102,7 +102,7 @@ Node Selector is the most common and recommended option for placement of Windows
     kubectl get pods -o wide
     ```
 
-    The following example output shows the pods in the `defualt` namespace:
+    The following example output shows the pods in the `default` namespace:
 
     ```output
     NAME                      READY   STATUS    RESTARTS   AGE     IP             NODE              NOMINATED NODE   READINESS GATES
