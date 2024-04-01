@@ -86,10 +86,10 @@ To run an assessment, follow these steps:
 1. Select the appliance.
 ::: zone pivot="asp-net"
 1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
-::: zone-end
+:::zone-end
 ::: zone pivot="java"
 1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
-::: zone-end
+:::zone-end
 1. Select **Next**.
 
    :::image type="content" source="./media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
