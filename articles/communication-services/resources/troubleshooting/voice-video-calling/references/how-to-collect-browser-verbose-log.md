@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # How to collect verbose log from browsers
-The verbose log is useful when there is a suspicion that the issue lies within the underlying layer and when we need more information beyond the web log.
+The verbose log is useful when there's a suspicion that the issue lies within the underlying layer and when we need more information beyond the web log.
 
 To collect the verbose log from the browser, you have to start the browser with specific command line arguments before the collecting the log, and collect the log after closing the browser.
 When collecting the log, you should only keep the necessary tabs in the browser.
@@ -27,7 +27,7 @@ For Chrome, replace the executable path in the command with `C:\Program Files\Go
 Don’t omit the `--user-data-dir` argument. They can modify the value of `--user-data-dir` to specify a different folder where the log is going to be saved.
 
 This command enables verbose logging and saves the log to chrome\_debug.log.
-It is important to have only the necessary pages open in the Edge browser, such as edge://webrtc-internals and the application web page.
+It's important to have only the necessary pages open in the Edge browser, such as edge://webrtc-internals and the application web page.
 This helps ensure that logs from different web applications don't mix in the same log file.
 
 Log file is located at: `C:\edge-debug\chrome_debug.log`
