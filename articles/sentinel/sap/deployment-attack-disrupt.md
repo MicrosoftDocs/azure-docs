@@ -1,6 +1,6 @@
 ---
 title: Automatic attack disruption for SAP | Microsoft Sentinel
-description: This article describes how to deploy automatic attack disruption in the Microsoft Defender portal for SAP.
+description: Learn about deploying automatic attack disruption for SAP with the unified security operations platform.
 author: batamig
 ms.author: bagol
 ms.topic: concept
@@ -20,13 +20,11 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-## Prerequisites
+## Attack disruption with the unified security operations platform
 
-- To deploy automatic attack disruption for SAP in your existing system, make sure that you have all the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+While configuring your system to support attack disruption for SAP is done in the Azure portal and your SAP environment, attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.
 
-- While configuring your system to support attack disruption for SAP is done in the Azure portal and your SAP environment, attack disruption itself surfaces only in the unified SOC platform in the Microsoft Defender portal. Make sure that you've configured the integration between Microsoft Sentinel and Microsoft Defender XDR.
-
-    For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel).
+To use attack disruption for SAP, make sure that you've configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
 
 ## Required SAP data connector agent version and role
 
@@ -58,5 +56,6 @@ If the identity of your data connector agent VM isn't yet assigned to the **Micr
 ## Related content
 
 - [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption)
+- [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
--  [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
