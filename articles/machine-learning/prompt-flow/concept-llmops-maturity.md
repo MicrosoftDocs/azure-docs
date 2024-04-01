@@ -16,7 +16,7 @@ ms.date: 03/25/2024
 
 Large Language Model Operations, or **LLMOps**, describes the operational practices and strategies for managing large language models (LLMs) in production. This article  provides guidance on how to advance your capabilities in LLMOps, based on your organization's current maturity level.
 
-:::image type="content" source="../media/concept-llmops-maturity/llmopsml.png" alt-text="Diagram shows maturity level of LLMOps" lightbox="../media/concept-llmops-maturity/llmopsml.png":::
+:::image type="content" source="../media/concept-llmops-maturity/llmopsml.png" alt-text="Diagram shows maturity level of LLMOps." lightbox="../media/concept-llmops-maturity/llmopsml.png":::
 
 Use the descriptions below to find your *LLMOps Maturity Model* ranking level. These levels provide a general understanding and practical application level of your organization. The guidelines provide you with helpful links to expand your LLMOps knowledge base.  
 
@@ -90,7 +90,7 @@ Score from assessment: 9-?.
 
 As LLMs evolve, you’ll want to maintain your cutting-edge position by staying updated with the latest LLM advancements. Continuously evaluate the alignment of your LLM strategies with evolving business objectives. Ensure that you foster a culture of innovation and continuous learning within your team. Last, but not least, share your knowledge and best practices with the wider community to establish thought leadership in the field.
 
-### Suggested references for advanced techniques
+### ***Suggested references for advanced techniques***
 
 - [***Azure AI Studio Model Catalog***](https://ai.azure.com/explore/models)
 - [***Evaluation of GenAI applications***](/azure/ai-studio/concepts/evaluation-approach-gen-ai)
