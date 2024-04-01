@@ -794,7 +794,7 @@ Applies to: Iot Hub, IoT Central, Digital Twins
 
 ### Model repository REST API
 
-An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to add and search for [device models](#device-model).
+An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to search for and retrieve [device models](#device-model).
 
 Casing rules: Always capitalize as *model repository REST API*.
 

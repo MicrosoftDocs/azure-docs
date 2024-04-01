@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/20/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
-ms.custom: devx-track-python, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Use the Azure Compute Gallery to create a custom image pool

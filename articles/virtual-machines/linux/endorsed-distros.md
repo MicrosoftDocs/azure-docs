@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: srijangupta
 ms.reviewer: cynthn
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Endorsed Linux distributions on Azure
@@ -89,5 +89,3 @@ In most cases, you will find these kernels pre-installed on the default images i
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images)
 - [Ubuntu Azure-Tuned Kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 - [Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar-container-linux-corevm-amd64)
-
-

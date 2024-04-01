@@ -120,7 +120,7 @@ To add an API definition to your version:
         | **Description** | Optionally enter a description. | Description of the API definition. |
         | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
-        |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
+        |**Document**        | Browse to a definition file for the Demo Conference API, or enter a URL.      |  API definition file.     |
 
         :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png" :::
 

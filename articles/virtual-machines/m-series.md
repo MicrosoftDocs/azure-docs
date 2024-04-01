@@ -4,7 +4,7 @@ description: Specifications for the M-series VMs.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: ayshak

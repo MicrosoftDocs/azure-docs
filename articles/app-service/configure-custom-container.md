@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
 ms.date: 10/25/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 

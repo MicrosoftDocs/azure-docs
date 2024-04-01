@@ -13,7 +13,7 @@ ms.date: 03/8/2024
 
 Azure Advisor Resiliency Reviews help you focus on the most important recommendations to optimize your cloud deployments and improve resiliency. Review recommendations are tailored to the needs of your workload and include custom ones curated by your account team using Azure best practices and prioritized automated recommendations.
 
-You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Reviews), which serves as your single-entry point for Microsoft best practices.
+You can find resiliency reviews in [Azure Advisor](https://aka.ms/azureadvisordashboard), which serves as your single-entry point for Microsoft best practices.
 
 In this article, you learn how to enable and access resiliency reviews prepared for you, triage, manage, implement, and track recommendations' lifecycles.
 

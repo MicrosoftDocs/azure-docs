@@ -4,6 +4,7 @@ description: Learn about Kubernetes events, which provide details on pods, nodes
 ms.topic: article
 ms.author: nickoman
 author: nickomang
+ms.subservice: aks-monitoring
 ms.date: 09/07/2023
 ---
 

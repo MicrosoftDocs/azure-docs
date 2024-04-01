@@ -1,6 +1,7 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 02/02/2024
 ms.author: eur
@@ -23,10 +24,10 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 The Speech SDK for Java supports the following distributions on the x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) architectures:
 
-- Ubuntu 18.04/20.04/22.04
+- Ubuntu 18.04/20.04
 - Debian 10/11
 - Red Hat Enterprise Linux (RHEL) 7/8
-- CentOS 7/8
+- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

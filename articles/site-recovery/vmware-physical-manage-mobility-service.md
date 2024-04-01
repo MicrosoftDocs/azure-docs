@@ -4,7 +4,7 @@ description: Manage Mobility Service agent for disaster recovery of VMware VMs a
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 03/07/2024

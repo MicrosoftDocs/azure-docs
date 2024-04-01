@@ -651,6 +651,8 @@
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
               href: istio-upgrade.md
+            - name: Istio service mesh add-on performance
+              href: istio-scale.md
         - name: Open Service Mesh AKS add-on
           items:
             - name: About Open Service Mesh
@@ -703,8 +705,6 @@
       items:
         - name: Upgrade options
           href: upgrade-cluster.md
-        - name: Stop cluster upgrades automatically on API breaking changes
-          href: stop-cluster-upgrade-api-breaking-changes.md
         - name: Perform manual upgrades
           items:
           - name: Upgrade an AKS cluster
@@ -727,7 +727,8 @@
               href: auto-upgrade-node-os-image.md
             - name: Upgrade node OS images automatically with GitHub Actions
               href: node-upgrade-github-actions.md
-
+            - name: Stop cluster upgrades automatically on API breaking changes
+              href: stop-cluster-upgrade-api-breaking-changes.md
     - name: Azure Linux container host for AKS
       items:
         - name: Use Azure Linux for AKS

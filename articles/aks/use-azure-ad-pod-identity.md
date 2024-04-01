@@ -2,6 +2,7 @@
 title: Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)
 description: Learn how to use Microsoft Entra pod-managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 08/15/2023
 ---

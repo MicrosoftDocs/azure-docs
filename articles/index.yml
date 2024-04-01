@@ -1307,13 +1307,6 @@ productDirectory:
         - security
       url: frontdoor/index.yml
     # Card
-    - title: Azure Internet Analyzer (Preview)
-      summary: Test how networking infrastructure changes will impact your customers' performance
-      imageSrc: ./media/index/internet-analyzer.svg
-      azureCategories:
-        - networking
-      url: internet-analyzer/index.yml
-    # Card
     - title: Azure Private Link
       summary: Private access to services hosted on the Azure platform, keeping your data on the Microsoft network
       imageSrc: ./media/index/private-link.svg

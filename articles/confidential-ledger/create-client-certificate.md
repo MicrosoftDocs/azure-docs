@@ -4,7 +4,7 @@ description: Creating a Client Certificate with Microsoft Azure confidential led
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: overview
 ms.date: 04/11/2023
 ms.author: mbaldwin

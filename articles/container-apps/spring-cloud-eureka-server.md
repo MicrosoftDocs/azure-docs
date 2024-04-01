@@ -4,6 +4,7 @@ description: Learn to use a managed Spring Cloud Eureka Server in Azure Containe
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 03/15/2024
 ms.author: cshoe

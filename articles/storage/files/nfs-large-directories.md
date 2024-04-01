@@ -1,14 +1,14 @@
 ---
-title: Working with large directories in NFS Azure file shares
+title: Work with large directories in NFS Azure file shares
 description: Learn recommendations for working with large directories in NFS Azure file shares mounted on Linux clients, including mount options, commands, and operations.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/14/2024
+ms.date: 03/19/2024
 ms.author: kendownie
 ---
 
-# Working with large directories in NFS Azure file shares
+# Work with large directories in NFS Azure file shares
 
 This article provides recommendations for working with NFS directories that contain large numbers of files. It's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories. However, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on NFS Azure file shares that are mounted on Linux clients.
 

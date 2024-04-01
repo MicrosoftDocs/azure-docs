@@ -1,6 +1,7 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 02/02/2024
 ms.author: eur
@@ -13,10 +14,10 @@ ms.author: eur
 
 The Speech SDK for Go supports the following distributions on the x64 architecture:
 
-- Ubuntu 18.04/20.04/22.04
+- Ubuntu 18.04/20.04
 - Debian 9/10/11
 - Red Hat Enterprise Linux (RHEL) 8
-- CentOS 8
+- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.date: 05/03/2023
 ---

@@ -4,7 +4,7 @@ description: Learn how to build, validate, and use a Bicep file or an Azure Reso
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 01/31/2024
-ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
+ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content
 zone_pivot_groups: functions-hosting-plan
 ---
 
