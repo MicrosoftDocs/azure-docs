@@ -48,7 +48,7 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
     :::image type="content" source="media/developer-portal-extend-custom-functionality/configure-html-custom-code.png" alt-text="Screenshot that shows how to configure HTML custom code in the developer portal.":::
 1. Replace the sample **HTML code** with your custom content.
 1. When configuration is complete, close the window.
-1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 > [!NOTE]
 > Microsoft does not support the HTML code you add in the Custom HTML Code widget.
@@ -136,7 +136,7 @@ The custom widget is now deployed to your developer portal. Using the portal's a
 
 ### Publish the developer portal
 
-After you configure the widget in the administrative interface, [republish the portal](api-management-howto-developer-portal-customize.md#publish) to make the widget available in production.
+After you configure the widget in the administrative interface, [republish the portal](developer-portal-overview.md#publish-the-portal) to make the widget available in production.
 
 > [!NOTE]
 > *  If you deploy updated widget code at a later date, the widget used in production doesn't update until you republish the developer portal.

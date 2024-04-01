@@ -375,16 +375,18 @@
       href: api-management-howto-create-or-invite-developers.md
     - name: Manage groups
       href: api-management-howto-create-groups.md
-  - name: Customize the developer portal
+  - name: Manage and customize the developer portal
     items:
     - name: Understand the developer portal
-      href: api-management-howto-developer-portal.md
+      href: developer-portal-overview.md
     - name: Frequently asked questions - developer portal
       href: developer-portal-faq.md
     - name: Automate portal deployments
       href: automate-portal-deployments.md
     - name: Extend portal with custom functionality
       href: developer-portal-extend-custom-functionality.md
+    - name: Enable CORS for interactive console
+      href: enable-cors-developer-portal.md    
     - name: Enable console OAuth support
       href: api-management-howto-oauth2.md
     - name: Integrate Application Insights
