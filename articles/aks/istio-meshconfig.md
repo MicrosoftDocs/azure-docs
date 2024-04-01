@@ -103,7 +103,7 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 | trustDomain | false |
 | trustDomainAliases | false |
 | caCertificates | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ClientTLSSettings) |
-| defaultServiceExportTo | false |
+| defaultServiceExportTo | false | Configurable in [ServiceEntry](https://istio.io/latest/docs/reference/config/networking/service-entry/#ServiceEntry) |
 | defaultVirtualServiceExportTo | false | Configurable in [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/#VirtualService) |
 | defaultDestinationRuleExportTo | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#DestinationRule) |
 | localityLbSetting | false | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings) |
