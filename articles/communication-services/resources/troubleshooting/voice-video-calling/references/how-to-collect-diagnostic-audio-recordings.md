@@ -1,7 +1,7 @@
 ---
 title: References - How to collect diagnostic audio recordings
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to collect diagnostic audio recordings
+description: Learn how to collect diagnostic audio recordings.
 author: enricohuang
 ms.author: enricohuang
 
@@ -15,9 +15,9 @@ ms.subservice: calling
 # How to collect diagnostic audio recordings
 In some cases, we may request audio recordings, especially when investigating audio quality problems, such as distorted audio and echo issues.
 
-To collect diagnostic audio recordings, open the chrome://webrtc-internals(Chrome) or edge://webrtc-internals(Edge) page
+To collect diagnostic audio recordings, open the chrome://webrtc-internals(Chrome) or edge://webrtc-internals(Edge) page.
 
-When you click "Enable diagnostic audio recordings", the browser will prompt a dialog asking for the download file location.
+When you click *Enable diagnostic audio recordings*, the browser prompts a dialog asking for the download file location.
 
 :::image type="content" source="./media/enable-diagnostic-audio-recordings.png" alt-text="Enable diagnostic audio recordings":::
 
@@ -29,7 +29,7 @@ After you finish an ACS call, you should be able to see files saved in the folde
 
 `*.input.M.wav` is the audio input captured from the microphone.
 
-`*.aecdump` contains the necessary wav files for debugging audio after it has been processed by the audio processing module in browsers.
+`*.aecdump` contains the necessary wav files for debugging audio after processed by the audio processing module in browsers.
 
 
 
