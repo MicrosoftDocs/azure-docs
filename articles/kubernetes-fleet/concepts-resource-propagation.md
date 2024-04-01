@@ -332,7 +332,7 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 
 ## Access the Kubernetes API of the Fleet resource cluster
 
-If you created a Azure Kubernetes Fleet Manager resource with the hub cluster enabled, you can use it to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](access-fleet-kubernetes-api.md).
+If you created a Azure Kubernetes Fleet Manager resource with the hub cluster enabled, you can use it to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](./quickstart-access-fleet-kubernetes-api.md).
 
 ## Next steps
 
