@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 03/12/2024
+ms.date: 04/02/2024
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -25,7 +25,6 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
@@ -36,10 +35,11 @@ The following sample shows a C# function that receives a message event from clie
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
+Class based model of SignalR Service bindings in C# isolated worker doesn't optimize how you write SignalR triggers due to the limiation of C# worker model. You can use class based model for SignalR input binding and output bindings. For more information about class based model, see [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model).
 
 # [In-process model](#tab/in-process)
 
-SignalR Service trigger binding for C# has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
+SignalR Service trigger binding for C# in-process model has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
 
 ### With class-based model
 

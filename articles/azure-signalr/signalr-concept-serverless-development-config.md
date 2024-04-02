@@ -4,7 +4,7 @@ description: Details on how to develop and configure serverless real-time applic
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/20/2024
+ms.date: 04/02/2024
 ms.author: lianwei
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
@@ -69,7 +69,127 @@ SignalR has a concept of _hubs_. Each client connection and each message sent fr
 
 ## Class-based model
 
-The class-based model is dedicated for C#. The class-based model provides a consistent SignalR server-side programming experience, with the following features:
+The class-based model is dedicated for C#.
+
+# [Isolated worker model](#tab/isolated-process)
+
+The class-based model provides better programming experience which can replace SignalR input and output bindings, with the following features:
+- More flexible negotiation, sending messages and managing groups experience.
+- More managing functionalities are supported, including closing connections, checking whether a connection, user or group exists.
+- [Strongly-typed hub](https://learn.microsoft.com/aspnet/core/signalr/hubs?#strongly-typed-hubs)
+- Unified connection string setting in one place.
+
+The following code demonstrates how to write SignalR bindings in class-based model:
+
+In the *Functions.cs* file, define your hub, which extends a base class `ServerlessHub`:
+```cs
+[SignalRConnection("AzureSignalRConnectionString")]
+public class Functions : ServerlessHub
+{
+    private const string HubName = nameof(Functions);
+
+    public Functions(IServiceProvider serviceProvider) : base(serviceProvider)
+    {
+    }
+
+    [Function("negotiate")]
+    public async Task<HttpResponseData> Negotiate([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+    {
+        var negotiateResponse = await NegotiateAsync(new() { UserId = req.Headers.GetValues("userId").FirstOrDefault() });
+        var response = req.CreateResponse();
+        response.WriteBytes(negotiateResponse.ToArray());
+        return response;
+    }
+
+    [Function("Broadcast")]
+    public Task Broadcast(
+    [SignalRTrigger(HubName, "messages", "broadcast", "message")] SignalRInvocationContext invocationContext, string message)
+    {
+        return Clients.All.SendAsync("newMessage", new NewMessage(invocationContext, message));
+    }
+
+    [Function("JoinGroup")]
+    public Task JoinGroup([SignalRTrigger(HubName, "messages", "JoinGroup", "connectionId", "groupName")] SignalRInvocationContext invocationContext, string connectionId, string groupName)
+    {
+        return Groups.AddToGroupAsync(connectionId, groupName);
+    }
+}
+```
+
+In the *Program.cs* file, register your serverless hub:
+```cs
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults(b => b.Services
+        .AddServerlessHub<Functions>())
+    .Build();
+```
+
+### Negotiate experience in class-based model
+
+Instead of using SignalR input binding `[SignalRConnectionInfoInput]`, negotiation in class-based model can be more flexible. Base class `ServerlessHub` has a method `NegotiateAsync`, which allows user to customize negotiation options such as `userId`, `claims`, etc.
+
+```cs
+Task<BinaryData> NegotiateAsync(NegotiationOptions? options = null)
+```
+
+
+### Sending messages and managing experience in class-based model
+
+You could send messages, manage groups, or manage clients by accesing the members provided by base class `ServerlessHub`.
+- `ServerlessHub.Clients` for sending messages to clients.
+- `ServerlessHub.Groups` for managing connections with groups, such as adding connections to groups, removing connections from groups.
+- `ServerlessHub.UserGroups` for managing users with groups, such as adding users to groups, removing users from groups.
+- `ServerlessHub.ClientManager` for checking connections existence, closing connections, etc.
+
+### [Strongly-typed Hub](https://learn.microsoft.com/aspnet/core/signalr/hubs?#strongly-typed-hubs)
+
+You can have strongly typed methods when you send messages to clients, by extracting client methods into an interface `T`, and making your hub class derived from `ServerlessHub<T>`.
+
+The following code is an interface sample for client methods.
+```cs
+public interface IChatClient
+{
+    Task newMessage(NewMessage message);
+}
+```
+
+Then you can use the strongly typed methods as follows:
+```cs
+[SignalRConnection("AzureSignalRConnectionString")]
+public class Functions : ServerlessHub<IChatClient>
+{
+    private const string HubName = nameof(Functions);
+
+    public Functions(IServiceProvider serviceProvider) : base(serviceProvider)
+    {
+    }
+
+    [Function("Broadcast")]
+    public Task Broadcast(
+    [SignalRTrigger(HubName, "messages", "broadcast", "message")] SignalRInvocationContext invocationContext, string message)
+    {
+        return Clients.All.newMessage(new NewMessage(invocationContext, message));
+    }
+}
+```
+
+ > You can get a complete project sample from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-ClassBased/).
+
+### Unified connection string setting in one place.
+
+You might have noticed the `SignalRConnection` attribute used on serverless hub classes. It looks like this:
+```cs
+[SignalRConnection("AzureSignalRConnectionString")]
+public class Functions : ServerlessHub<IChatClient>
+```
+
+It allows you to customize where the SignalR Service bindings look for connection string. If it's absent, the default value `AzureSignalRConnectionString` is used.
+
+> Please note that `SignalRConnection` attribute doesn't change the connection string setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub. You should specify the connection string setting for each SignalR trigger if you want to customize it.
+
+# [In-process model](#tab/in-process)
+
+The class-based model provides a consistent SignalR server-side programming experience, with the following features:
 
 - Less configuration work: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
 - Auto parameter binding: `ParameterNames` and attribute `[SignalRParameter]` aren't needed. Parameters are automatically bound to arguments of Azure Function methods in order.
@@ -171,6 +291,8 @@ public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext,
 {
 }
 ```
+
+---
 
 ## Client development
 
