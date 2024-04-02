@@ -43,11 +43,10 @@ Each plan has different behaviors. Not all deployment technologies are available
 | [Source control](#source-control) |✔|✔|✔| |✔|✔|
 | [Local Git](#local-git)<sup>1</sup> |✔|✔|✔| |✔|✔|
 | [FTPS](#ftps)<sup>1</sup> |✔|✔|✔| |✔|✔|
-| [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
+| [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔|✔|
 
 <sup>1</sup> Deployment technologies that require you to [manually sync triggers](#trigger-syncing) aren't recommended.   
-<sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
-<sup>3</sup> In-portal editing is enabled only for HTTP and Timer triggered functions running on Linux in Premium and Dedicated plans.  
+<sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).    
 
 ## Key concepts
 
@@ -70,6 +69,8 @@ You can sync triggers in one of three ways:
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
 When you deploy using an external package URL, you need to manually restart your function app to fully sync your deployment when the package changes without changing the URL, which includes initial deployment.
+
+When your function app is secured by inbound network restrictions, the sync triggers endpoint can only be called from a client inside the virtual network.
 
 ### Remote build
 
@@ -153,11 +154,11 @@ You can deploy a function app running in a Linux container.
 
 ### Source control
 
-Use source control to connect your function app to a code repository. An update to code in that repository triggers deployment. For more information, see the [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+You can enable continuous integration between your function app and a source code repository. With source control enabled, an update to code in the connected source repository triggers deployment of the latest code from the repository. For more information, see the [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
->__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).  
+>__How to use it:__ The easiest way to set up publishing from source control is from the Deployment Center in the Functions area of the portal. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).  
 
->__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
+>__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines. Source control is usually enabled on a staging slot, which can be swapped into production after validation of updates from the repository. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md). 
 
 >__Where app content is stored:__ The app content is in the source control system, but a locally cloned and built app content from is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
@@ -199,16 +200,14 @@ The following table shows the operating systems and languages that support in-po
 
 | Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C# | | | | | |
-| C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
-| F# | | | | | | |
+| C#<sup>1</sup> | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|✔<sup>1</sup>|
-| Python<sup>2</sup> | | | |✔ |✔<sup>1</sup> |✔<sup>1</sup> |
+| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
+| Python<sup>2</sup> | | | |✔ |✔ |✔ |
 | PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>1</sup> In-portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.  
+<sup>1</sup> In-portal editing is only supported for C# script files, which run in-process with the host. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md).   
 <sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
 
 ## Deployment behaviors
