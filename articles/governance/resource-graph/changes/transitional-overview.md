@@ -7,17 +7,17 @@ ms.date: 03/19/2024
 ms.topic: conceptual
 ---
 
-# Azure Monitor Change Analysis vs. Azure Resource Graph Change Analysis (Preview)
+# Azure Monitor Change Analysis vs. Azure Resource Graph Change Analysis (preview)
 
-Change Analysis is in the process of moving from Azure Monitor to Azure Resource Graph. During this transition, you'll see two options for Change Analysis when you search for it in the Azure portal:
+The Azure portal Change Analysis experience is in the process of moving from Azure Monitor to Azure Resource Graph. During this transition, you'll see two options for Change Analysis when you search for it in the Azure portal:
 
 [Need: screenshot, will number each entry to correlate with below numbered links]
 
-1. **Azure Monitor Change Analysis (GA)** 
+1. **Azure Monitor Change Analysis** 
 
     The [Change Analysis (GA) service presented by Azure Monitor](../../../azure-monitor/change/change-analysis.md) requires you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provides a simple API that abstracts resource change data from the Azure Resource Graph. 
     
-    While this service successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has insurmountable [limitations](../../../azure-monitor/change/change-analysis.md#limitations) that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
+    While this service successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has [limitations](../../../azure-monitor/change/change-analysis.md#limitations) that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
 
 1. **Azure Resource Graph Change Analysis (Preview)**  
 
@@ -29,6 +29,8 @@ Change Analysis is in the process of moving from Azure Monitor to Azure Resource
     - More extensive filtering capabilities
     - The ability to export change data to Log Analytics
     - Improved accuracy and relevance of "changed by" change information 
+
+    [Learn how to view the new Change Analysis experience in the portal.](./view-resource-changes.md)
 
 ## Architectural differences
 

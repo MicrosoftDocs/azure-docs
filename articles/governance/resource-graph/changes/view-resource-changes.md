@@ -1,17 +1,19 @@
 ---
-title: Use Change Analysis to view resource changes (preview)
-description: View resource changes in the Azure Resource Graph Change Analysis UX in the Azure portal.
+title: View resource changes in the Azure portal (preview)
+description: View resource changes via the Azure Resource Graph Change Analysis in the Azure portal.
 author: iancarter-msft
 ms.author: iancarter
 ms.date: 03/15/2024
 ms.topic: how-to
 ---
 
-# Use Change Analysis to view resource changes (preview)
+# View resource changes in the Azure portal (preview)
 
 [!INCLUDE [preview](../../includes/resource-graph/preview/change-analysis.md)]
 
-Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. You can view all changes to your applications via the Azure portal. In this guide, you learn where to access Change Analysis in the portal and how to view the results.
+Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal. 
+
+In this guide, you learn where to find Change Analysis in the portal and how to view changes.
 
 ## Access Change Analysis screens
 

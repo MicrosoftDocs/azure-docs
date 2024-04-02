@@ -1,13 +1,13 @@
 ---
-title: Get resource configuration changes
-description: Get resource configuration changes at scale
+title: Get resource changes
+description: Get resource changes at scale using Azure Resource Graph queries.
 author: iancarter-msft
 ms.author: iancarter
 ms.date: 03/11/2024
 ms.topic: how-to
 ---
 
-# Get resource configuration changes
+# Get resource changes
 
 Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. You can:
 
@@ -15,7 +15,7 @@ Resources change through the course of daily use, reconfiguration, and even rede
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
 
-This article shows how to query resource configuration changes through Resource Graph.
+This article shows how to query resource changes through Resource Graph.
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ resourcechanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-#### Latest resource configuration for resources created in the last seven days
+#### Latest resource changes for resources created in the last seven days
 ```kusto
 resourcechanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
@@ -186,7 +186,7 @@ resourcechanges  
 | order by count_ desc  
 ```
 
-#### Latest resource configuration for resources created with a certain tag
+#### Latest resource changes for resources created with a certain tag
 ```kusto
 resourcechanges 
 |extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
@@ -206,7 +206,7 @@ Review the following best practices before querying and analyzing changes in you
 - Keep an up-to-date Configuration Management Database (CMDB). Instead of refreshing all resources and their full property sets on a scheduled frequency, only receive their changes.
 - Understand what other properties may have been changed when a resource changes "compliance state". Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
 - The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command orders the query results by the change time and then limits them to ensure that you get the five most recent results.
-- Resource configuration changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
+- Resource changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
 
 ## Next steps
 

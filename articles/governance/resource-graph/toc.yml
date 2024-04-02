@@ -71,7 +71,7 @@
   - name: Explore your Azure resources with Resource Graph
     displayName: vms, public ip
     href: ./concepts/explore-resources.md
-  - name: Resource changes
+  - name: Change Analysis
     items:
     - name: Overview
       displayName: vms, public ip
@@ -94,7 +94,7 @@
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
     href: ./changes/get-resource-changes.md
-  - name: Use Change Analysis
+  - name: View resource changes in the portal
     displayName: resource, change, history, snapshot, details
     href: ./changes/view-resource-changes.md
 - name: Troubleshoot
