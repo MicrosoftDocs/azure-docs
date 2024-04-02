@@ -3911,7 +3911,7 @@
         },
         {
             "source_path_from_root": "/articles/container-service/container-registry-auth-aci.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-registry-authentication",
+            "redirect_url": "/azure/container-service/container-registry-authentication",
             "redirect_document_id": false
         },
         {
