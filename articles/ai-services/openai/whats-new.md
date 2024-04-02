@@ -26,7 +26,7 @@ Fine-tuning is now available in East US 2 with support for:
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
 
-Check the [models page](concepts/models#fine-tuning-models.md), for the latest information on model availability and fine-tuning support in each region.  
+Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
 
 ## March 2024
 
