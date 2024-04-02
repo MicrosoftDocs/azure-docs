@@ -223,14 +223,14 @@ cd $env:BASE_DIR\java-app
 
 # The following variables will be used for deployment file generation into target.
 $Env:LOGIN_SERVER="<Azure-Container-Registry-Login-Server-URL>"
-$Env:REGISTRY_NAME=<Azure-Container-Registry-name>
-$Env:USER_NAME=<Azure-Container-Registry-username>
-$Env:PASSWORD=<Azure-Container-Registry-password>
-$Env:DB_SERVER_NAME=<server-name>.database.windows.net
-$Env:DB_NAME=<database-name>
-$Env:DB_USER=<server-admin-login>@<server-name>
-$Env:DB_PASSWORD=<server-admin-password>
-$Env:INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
+$Env:REGISTRY_NAME="<Azure-Container-Registry-name>"
+$Env:USER_NAME="<Azure-Container-Registry-username>"
+$Env:PASSWORD="<Azure-Container-Registry-password>"
+$Env:DB_SERVER_NAME="<server-name>.database.windows.net"
+$Env:DB_NAME="<database-name>"
+$Env:DB_USER="<server-admin-login>@<server-name>"
+$Env:DB_PASSWORD="<server-admin-password>"
+$Env:INGRESS_TLS_SECRET="<ingress-TLS-secret-name>"
 
 mvn clean install
 ```
