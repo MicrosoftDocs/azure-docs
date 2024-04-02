@@ -4,7 +4,7 @@ description: Learn how to manage read replicas for Azure Database for PostgreSQL
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 01/17/2024
+ms.date: 04/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: ignite-2023, devx-track-azurecli
@@ -337,6 +337,17 @@ az postgres flexible-server replica create \
 
 Replace `<replica-name>`, `<resource-group>`, `<source-server-name>` and `<location>` with your specific values.
 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by using the [`az postgres flexible-server replica create`](/cli/azure/postgres/flexible-server/replica#az-postgres-flexible-server-replica-list) command. 
+
+```azurecli-interactive
+az postgres flexible-server replica list \
+  --name <source-server-name> \
+  --resource-group <resource-group>
+```
+
+Replace `<source-server-name>`, and `<resource-group>` with your specific values.
+
+
 
 #### [REST API](#tab/restapi)
 
@@ -358,6 +369,94 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 }
 ```
 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET`request by using [](): 
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/replicas?api-version=2022-12-01
+```
+
+Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{sourceserverName}` with your specific Azure subscription ID, the name of your resource group, and the name you assigned to your primary replica, respectively.
+
+```json
+[
+  {
+    "administratorLogin": null,
+    "administratorLoginPassword": null,
+    "authConfig": null,
+    "availabilityZone": null,
+    "backup": {
+      "backupRetentionDays": null,
+      "earliestRestoreDate": "2023-11-23T12:55:33.3443218+00:00",
+      "geoRedundantBackup": "Disabled"
+    },
+    "createMode": null,
+    "dataEncryption": {
+      "geoBackupEncryptionKeyStatus": null,
+      "geoBackupKeyUri": null,
+      "geoBackupUserAssignedIdentityId": null,
+      "primaryEncryptionKeyStatus": null,
+      "primaryKeyUri": null,
+      "primaryUserAssignedIdentityId": null,
+      "type": "SystemManaged"
+    },
+    "fullyQualifiedDomainName": null,
+    "highAvailability": null,
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{replicaserverName}",
+    "identity": null,
+    "location": "eastus",
+    "maintenanceWindow": {
+      "customWindow": "Disabled",
+      "dayOfWeek": 0,
+      "startHour": 0,
+      "startMinute": 0
+    },
+    "minorVersion": null,
+    "name": "{replicaserverName}",
+    "network": {
+      "delegatedSubnetResourceId": null,
+      "privateDnsZoneArmResourceId": null,
+      "publicNetworkAccess": "Disabled"
+    },
+    "pointInTimeUtc": null,
+    "privateEndpointConnections": null,
+    "replica": {
+      "capacity": null,
+      "promoteMode": null,
+      "promoteOption": null,
+      "replicationState": "Active",
+      "role": "AsyncReplica"
+    },
+    "replicaCapacity": null,
+    "replicationRole": "AsyncReplica",
+    "resourceGroup": "{resourceGroupName}",
+    "sku": {
+      "name": "",
+      "tier": null
+    },
+    "sourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+    "state": "Ready",
+    "storage": {
+      "autoGrow": "Disabled",
+      "iops": null,
+      "storageSizeGb": 0,
+      "throughput": null,
+      "tier": null,
+      "type": null
+    },
+    "systemData": {
+      "createdAt": "2023-11-22T17:11:42.2461489Z",
+      "createdBy": null,
+      "createdByType": null,
+      "lastModifiedAt": null,
+      "lastModifiedBy": null,
+      "lastModifiedByType": null
+    },
+    "tags": null,
+    "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+    "version": null
+  }
+]
+```
 ---
 
 - Set the replica server name.
