@@ -25,13 +25,19 @@ Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your 
 ## Enable and configure pipeline
 The following components are required to enable and configure the Azure Monitor edge pipeline. Depending on the method you use to perform the configuration, you may need explicitly create each component, or they may be created for you based on your selections.
 
+> [!NOTE]
+> This list might be too detailed for the portal user. Could combine controller instance with data flows. Or keep this detail and make note in portal section that you don't need to worry about this level of detail.
+
 | Component | Description |
 |:---|:---|
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality. |
+| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of listeners to accept client data and exporters to deliver that data to Azure Monitor. |
+| Data flows | Pairing of receivers and exporters from the controller instance to receive and deliver specific sets of data. |
 | Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
-| data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
+| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 | Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver, processor, and exporter. The receiver listens for incoming data, the processor transforms the data, and the exporter sends the data to the destination. |
-| Pipeline controller extension |  |
-| Custom Location | |
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Configuration details of the dataflow for Azure Monitor edge pipeline."::: 
 
 ### [Portal](#tab/Portal)
 
