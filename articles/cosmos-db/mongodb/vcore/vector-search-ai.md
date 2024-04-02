@@ -15,11 +15,11 @@ ms.date: 04/02/2024
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-When considering vector databases, the open-source options provide numerous advantages. “Open source” means that the software's source code is available freely, enabling users to customize the database according to their specific needs. This flexibility is particularly beneficial for organizations that are subject to unique regulatory requirements on data, such as companies in the financial services industry.
+When developers select vector databases, the open-source options provide numerous benefits. "Open source" means that the software's source code is available freely, enabling users to customize the database according to their specific needs. This flexibility is beneficial for organizations that are subject to unique regulatory requirements on data, such as companies in the financial services industry.
 
 Another advantage of open-source vector databases is the strong community support they enjoy. Active user communities often contribute to the development of these databases, provide support, and share best practices, promoting innovation.
 
-Some individuals also opt for open-source vector databases because they are "free," meaning there is no cost to acquire or use the software. However, to this end users can also leverage the free benefits through the lifetime free tiers offered by managed vector database services. These managed services provide not only cost-free access up to a certain usage limit but also simplify the operational burden by handling maintenance, updates, and scalability. Therefore, users who seek the economic advantages of open-source solutions can achieve similar cost savings with the added benefit of reduced management overhead by using the free tier of managed vector database services. This approach offers a balance between cost efficiency and operational convenience, allowing users to focus more on their core activities rather than on database administration.
+Some individuals also opt for open-source vector databases because they are "free," meaning there is no cost to acquire or use the software. However, for this purpose users can also use the free benefits through the lifetime free tiers offered by managed vector database services. These managed services provide not only cost-free access up to a certain usage limit but also simplify the operational burden by handling maintenance, updates, and scalability. Therefore, users who seek the economic advantages of open-source solutions can achieve similar cost savings using the free tier of managed vector database services, which provide the added benefit of reduced management overhead. This approach offers a balance between cost efficiency and operational convenience, allowing users to focus more on their core activities rather than on database administration.
 
 ## Working Mechanism of Open-source Vector Databases
 
@@ -42,7 +42,7 @@ Vector databases are used in numerous domains and situations across analytical a
 
 ## Selecting the Appropriate Open-source Vector Database
 
-Choosing the best open-source vector database requires considering several factors. Performance and scalability of the database are crucial, as these determine whether the database can handle your specific vector data requirements. Databases with efficient indexing and querying capabilities usually offer optimal performance.
+Choosing the best open-source vector database requires considering several factors. Performance and scalability of the database are crucial, as they impact whether the database can handle your specific workload requirements. Databases with efficient indexing and querying capabilities usually offer optimal performance.
 
 Another factor is the community support and documentation available for the database. A robust community and ample documentation can provide valuable assistance. Comparing different open-source vector database options based on features, supported data types, and compatibility with existing tools and frameworks is critical to finding the best fit for your needs. Ease of installation, configuration, and maintenance should also be considered to ensure smooth integration into your workflow.
 
@@ -65,7 +65,7 @@ Therefore, while free initially, open-source vector databases incur significant 
 
 ## Addressing the Challenges with Open-Source Vector Databases
 
-A fully managed database service, such as the Integrated Vector Database in Azure Cosmos DB for MongoDB vCore, helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database. The life-time free tier allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, switching to paid tier is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco). 
+A fully managed database service helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database. The Integrated Vector Database in Azure Cosmos DB for MongoDB vCore offers a life-time free tier. It allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, upgrading is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco).
 
 ## Next steps
 > [!div class="nextstepaction"]
