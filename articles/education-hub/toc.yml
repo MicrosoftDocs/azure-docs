@@ -78,5 +78,7 @@
       href: find-ids.md
 - name: Troubleshooting
   items:
+  - name: Frequently asked questions
+    href: faq.md
   - name: Login errors
     href: azure-dev-tools-teaching/troubleshoot-login.md
