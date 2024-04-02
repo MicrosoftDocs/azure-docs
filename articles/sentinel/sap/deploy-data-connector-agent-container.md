@@ -330,7 +330,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. <a name=role></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
     To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
@@ -538,13 +538,57 @@ Create a new agent using the command line, authenticating with a managed identit
 
    Note the Docker container name in the script output. You'll use it in the next step.
 
-1. Run the following command to **configure the Docker container to start automatically**.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+
+    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
+
+    Assign the **Microsoft Sentinel Business Applications Agent Operator** role to the VM's identity:
+
+    1. <a name=agent-id-managed></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
+
+        ```bash
+        docker inspect <container_name> | grep -oP '"SENTINEL_AGENT_GUID=\K[^"]+
+        ```
+
+        For example:
+
+        ```bash
+        docker inspect 234fba02-3b34-4c55-8c0e-e6423ceb405b | grep -oP '"SENTINEL_AGENT_GUID=\K[^"]+
+        ```
+
+        To see the list of docker containers on your VM, run:
+
+        ```bash
+        docker ps -a
+        ```
+
+    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
+
+    ```bash
+    az role assignment create --assignee <OBJ_ID> --role "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+    ```
+
+    Replace placeholder values as follows:
+
+    |Placeholder  |Value  |
+    |---------|---------|
+    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM name. Copy the value of the **Object ID** field to use with your copied command.      |
+    |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
+    |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
+    |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+    |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-managed).      |
+
+1. To configure the Docker container to start automatically, run the following command, replacing the `<container-name>` placeholder with the name of your container:
 
     ```bash
     docker update --restart unless-stopped <container-name>
     ```
 
-    To view a list of the available containers use the command: `docker ps -a`.
+    To view a list of the available containers, run:
+
+    ```bash
+    docker ps -a
+    ```
 
 # [Deploy with a registered application](#tab/deploy-cli-registered-application)
 
