@@ -21,7 +21,7 @@ Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/p
 The IoT Edge documentation on this site is available for two different versions of the product. Currently, the two supported versions are:
 
 * **IoT Edge 1.5 (LTS)** is the latest long-term support (LTS) version of IoT Edge and contains content for new features and capabilities that are in the latest stable release. The documentation for this version covers all features and capabilities from all previous versions through 1.5.
-* **IoT Edge 1.4 (LTS)** is the previous long-term support (LTS) version of IoT Edge. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW). The documentation for this version is included with IoT Edge 1.5.
+* **IoT Edge 1.4 (LTS)** is the previous long-term support (LTS) version of IoT Edge and is supported until November 12, 2024. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW). The documentation for this version is included with IoT Edge 1.5.
 
 **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. It is no longer supported. The [documentation has been archived](/previous-versions/azure/iot-edge).
 
@@ -31,7 +31,7 @@ For more information about IoT Edge releases, see [Azure IoT Edge supported syst
 Azure IoT Edge for Linux on Windows (EFLOW) supports the following versions:
 * **EFLOW Continuous Release (CR)** based on the latest non-LTS Azure IoT Edge version, it contains new features and capabilities that are in the latest stable release. For more information, see the [EFLOW release notes](https://github.com/Azure/iotedge-eflow/releases).
 * **EFLOW 1.1 (LTS)** based on Azure IoT Edge 1.1, it's the Long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until Dec 2022 to match the IoT Edge 1.1 LTS release lifecycle.  
-* **EFLOW 1.4 (LTS)** based on Azure IoT Edge 1.4. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until Nov 2024 to match the IoT Edge 1.4 LTS release lifecycle. 
+* **EFLOW 1.4 (LTS)** based on Azure IoT Edge 1.4. It's the latest Long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until Nov 2024 to match the IoT Edge 1.4 LTS release lifecycle. 
 
 All new releases are made available in the [Azure IoT Edge for Linux on Windows project](https://github.com/Azure/iotedge-eflow).
 
@@ -44,7 +44,7 @@ This table provides recent version history for IoT Edge package releases, and hi
 
 | Release notes and assets | Type | Release Date | End of Support Date | Highlights |
 | ------------------------ | ---- | ------------ | ------------------- | ---------- |
-| [1.5]() | Long-term support (LTS) | April 2024 | | |
+| [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 | IoT Edge 1.5 LTS is supported through November 10, 2026 to match the [.NET 8 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) <br> |
 | [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 | IoT Edge 1.4 LTS is supported through November 12, 2024 to match the [.NET 6 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle). <br> Automatic image clean-up of unused Docker images <br> Ability to pass a [custom JSON payload to DPS on provisioning](../iot-dps/how-to-send-additional-data.md#iot-edge-support) <br> Ability to require all modules in a deployment be downloaded before restart <br> Use of the TCG TPM2 Software Stack which enables TPM hierarchy authorization values, specifying the TPM index at which to persist the DPS authentication key, and accommodating more [TPM configurations](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L276-L302) |
 | [1.3](https://github.com/Azure/azure-iotedge/releases/tag/1.3.0) | Stable | June 2022 | August 2022  | Support for Red Hat Enterprise Linux 8 on AMD and Intel 64-bit architectures.<br>Edge Hub now enforces that inbound/outbound communication uses minimum TLS version 1.2 by default<br>Updated runtime modules (edgeAgent, edgeHub) based on .NET 6 |
 | [1.2](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0) | Stable | April 2021 | June 2022 | [IoT Edge devices behind gateways](how-to-connect-downstream-iot-edge-device.md)<br>[IoT Edge MQTT broker (preview)](how-to-publish-subscribe.md)<br>New IoT Edge packages introduced, with new installation and configuration steps.<br>Includes [Microsoft Defender for IoT micro-agent for Edge](../defender-for-iot/device-builders/overview.md).<br> Integration with Device Update. For more information, see [Update IoT Edge](how-to-update-iot-edge.md). |
