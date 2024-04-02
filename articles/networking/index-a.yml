@@ -12,7 +12,7 @@ metadata:
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 03/28/2024
+  ms.date: 04/02/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -32,9 +32,9 @@ highlightedContent:
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Azure Networking Solutions
-      itemType: deploy
-      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
+    - title: Define an Azure network topology
+      itemType: architecture
+      url: /azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology
     - title: Azure Network Watcher
       itemType: overview
       url: ../network-watcher/network-watcher-overview.md
