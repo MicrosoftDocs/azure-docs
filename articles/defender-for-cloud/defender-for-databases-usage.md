@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for open-source relational databases
 description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
-ms.date: 03/21/2024
+ms.date: 04/02/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
