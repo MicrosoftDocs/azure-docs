@@ -4,7 +4,7 @@ description: 'In this article, you create an Azure Container Instance with a pub
 ms.topic: quickstart
 ms.service: container-instances
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, linux-related-content
 author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 

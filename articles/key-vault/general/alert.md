@@ -79,7 +79,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows how you can select a vault.](../media/alert-12.png)
 
-4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds: 
+4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs: 
 
     + Key Vault availability drops below 100 percent (static threshold)
     > [!IMPORTANT]

@@ -178,11 +178,6 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
 
 #### [Red Hat (RHEL)](#tab/rhelAzcliByosConv)
 
-1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
-    ```azurecli
-    az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
-    ```
-
 1. Apply the `RHEL_BYOS` license type to the machine:
 
     ```azurecli
@@ -199,11 +194,6 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
 
 
 #### [SUSE (SLES)](#tab/slesAzcliByosConv)
-
-1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the following command via the Azure CLI:
-    ```azurecli
-    az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
-    ```
 
 1. Apply the `SLES_BYOS` license type to the virtual machine.
 

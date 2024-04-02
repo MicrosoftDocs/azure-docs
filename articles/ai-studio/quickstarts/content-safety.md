@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 11/15/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # QuickStart: Moderate text and images with content safety in Azure AI Studio

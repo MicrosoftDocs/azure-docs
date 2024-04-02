@@ -4,6 +4,7 @@ description: Learn how to resize node pools for a cluster in Azure Kubernetes Se
 ms.topic: how-to
 ms.custom:
 ms.date: 02/08/2023
+ms.subservice: aks-nodes
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
 

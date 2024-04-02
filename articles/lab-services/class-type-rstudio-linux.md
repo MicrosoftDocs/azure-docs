@@ -4,6 +4,7 @@ description: Learn how to set up labs to teach R using RStudio on Linux
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.service: lab-services
+ms.custom: linux-related-content
 ---
 
 # Set up a lab to teach R on Linux

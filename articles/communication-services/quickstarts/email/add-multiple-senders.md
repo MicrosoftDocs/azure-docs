@@ -18,11 +18,14 @@ In this quick start, you learn about how to add and remove multiple sender addre
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
-- An [Azure Managed Domain](../../quickstarts/email/add-azure-managed-domains.md) or [Custom Domain](../../quickstarts/email/add-custom-verified-domains.md) provisioned and ready.
+- A [Custom Domain](../../quickstarts/email/add-custom-verified-domains.md) with higher than default sending limits provisioned and ready.
 
 ## Creating multiple sender usernames   
 When Email Domain is provisioned to send mail, it has default MailFrom address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net or 
 if you have configured custom domain such as "notification.azuremails.net" then the default MailFrom address as "donotreply@notification.azurecommtest.net" added. You can configure and add additional MailFrom addresses and FROM display name to more user friendly value.
+
+> [!NOTE]
+> Sender usernames cannot be enabled for Azure Managed Domains or Custom Domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../concepts/service-limits.md#rate-limits).
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You see list of provisioned domains.

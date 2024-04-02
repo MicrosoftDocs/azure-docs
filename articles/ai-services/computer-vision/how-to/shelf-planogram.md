@@ -250,7 +250,7 @@ This is the text you'll use in your API request body.
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
     ```
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your Vision resource key.
