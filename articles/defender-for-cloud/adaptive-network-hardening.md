@@ -130,7 +130,7 @@ When necessary, you can delete a recommended rule for the current session. For e
 
 To delete an adaptive network hardening rule for your current session:
 
-- In the **Rules** tab, select the three dots (...) at the end of the rule's row, and select **Delete**.  
+- In the **Rules** tab, select the three dots (...) at the end of the rule's row, and select **Delete**.
 
     ![Deleting a rule.](./media/adaptive-network-hardening/delete-hard-rule.png)
 

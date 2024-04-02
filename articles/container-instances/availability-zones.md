@@ -22,7 +22,7 @@ Azure Container Instances (ACI) supports *zonal* container group deployments, me
 ## Limitations
 
 > [!IMPORTANT]
-* Container groups with GPU resources don't support availability zones at this time.
+> Container groups with GPU resources don't support availability zones at this time.
 
 ### Version requirements
 
