@@ -29,7 +29,6 @@ In this tutorial, you'll learn how to:
 ::: zone pivot="asp-net"
 > [!div class="checklist"]
 > * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
-> * Choose a set of discovered Java web apps to assess for migration to AKS.
 > * Provide assessment configurations such as Azure Reserved Instances, target region etc.
 > * Get insights about the migration readiness of their assessed apps.
 > * Get insights on the AKS Node SKUs that can optimally host and run these apps.
@@ -38,7 +37,6 @@ In this tutorial, you'll learn how to:
 
 ::: zone pivot="java"
 > [!div class="checklist"]
-> * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
 > * Choose a set of discovered Java web apps to assess for migration to AKS.
 > * Provide assessment configurations such as Azure Reserved Instances, target region etc.
 > * Get insights about the migration readiness of their assessed apps.
