@@ -17,6 +17,7 @@ Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your 
 ## Prerequisites
 
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
+- Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
 - A data collection process that sends one of the following types data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md).
   - Syslog
   - OLTP
@@ -75,182 +76,37 @@ The **Dataflow** tab allows you to create and edit dataflows for the pipeline in
 | Table Name | The name of the table in the Log Analytics workspace to send the data to. If the table doesn't exist then it will be created  |
 
 
-### [CLI](#tab/CLI)
+### [ARM](#tab/ARM)
 
-### Configure pipeline using Azure CLI
-There are multiple steps to enable and configure the pipeline using CLI. 
-
-
-### Deploy Azure Monitor Pipeline Arc extension
-The first step is to deploy the Azure Monitor Pipeline Arc extension to your Azure Arc-enabled Kubernetes cluster. 
-
-Use the `az k8s-extension create` command with `--extension-type microsoft.monitor.pipelinecontroller` to install the Azure Monitor Pipeline Controller. Provide a name for the extension that's 10 characters or less.
-
-```azurecli
-az k8s-extension create --name <extension-name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train preview --release-namespace <release-namespace> --version 0.1.1-23318.7-privatepreview --debug --auto-upgrade false
-```
-
-### Create data collection rule (DCR)
-The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. See [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md) for different options to create the DCR.
+You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
 
 
-```json
-{
-    "properties": {
-        "dataCollectionEndpointId": "<dce-resource-id>",
-        "streamDeclarations": {
-            "Custom-OTELLogs": {
-                "columns": [
-                    {
-                        "name": "Body",
-                        "type": "string"
-                    },
-                    {
-                        "name": "TimeGenerated",
-                        "type": "datetime"
-                    },
-                    {
-                        "name": "SeverityText",
-                        "type": "string"
-                    }
-                ]
-            },
-            "Custom-Syslog": {
-                "columns": [
-                    {
-                        "name": "Body",
-                        "type": "string"
-                    },
-                    {
-                        "name": "TimeGenerated",
-                        "type": "datetime"
-                    },
-                    {
-                        "name": "SeverityText",
-                        "type": "string"
-                    }
-                ]
-            }
-        },
-        "dataSources": {},
-        "destinations": {
-            "logAnalytics": [
-                {
-                    "workspaceResourceId": "<log-analytics-workspace-resource-id>",
-                    "workspaceId": "<log-analytics-workspace-immutable-id>",
-                    "name": "<destination-name>"
-                }
-            ]
-        },
-        "dataFlows": [
-            {
-                "streams": [
-                    "Custom-OTELLogs"
-                ],
-                "destinations": [
-                    "<destination-name>"
-                ],
-                "transformKql": "source",
-                "outputStream": "Custom-OtelLogs_CL"
-            }
-        ]
-    }
-}
-```
+| Component | Type | Description |
+|:---|:---|:---|
+| Log Analytics workspace | `Microsoft.OperationalInsights/workspaces` | Remove this section if you're using an existing Log Analytics workspace. The only parameter required is the workspace name. The immutable ID for the workspace, which is needed for other components, will be automatically created. |
+| Data collection endpoint (DCE) | `Microsoft.Insights/dataCollectionEndpoints` | Remove this section if you're using an existing DCE. The only parameter required is the DCE name. The logs ingestion URL for the DCE, which is needed for other components, will be automatically created. |
+| Edge pipeline extension | `Microsoft.KubernetesConfiguration/extensions` | The only parameter required is the pipeline extension name. |
+| Custom location | `Microsoft.ExtendedLocation/customLocations` | Custom location of the the Arc-enabled Kubernetes cluster to create the custom |
+| Edge pipeline instance | `Microsoft.monitor/pipelineGroups` | Edgepipeline instasnce that includes configuration of the listener, exporters, and data flows. You must modify the properties of the pipeline instance before deploying the template. |
+| Data collection rule (DCR) | `Microsoft.Insights/dataCollectionRules` | The only parameter required is the DCR name, but you must modify the properties of the DCR before deploying the template. |
 
-### Give the Arc extension access to your DCR
-A system identity is created when you deploy the extension. This identity is used when the pipeline connects to Azure Monitor and requires access to the DCR used in the data collection scenario.
 
-Use the `az k8s-extension show` command with `--cluster-type connectedClusters --query "identity.principalId"` to get the object id of the System Assigned Identity.
-
-```azurecli
-az k8s-extension show --name <name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv
-```
-
-Use the output from this command with `az role assignment create` to allow the Azure Monitor Pipeline to send its telemetry to the DCR.
-
-```azurecli
-az role assignment create --assignee "<extension principal ID>" --role "Monitoring Metrics Publisher" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Insights/dataCollectionRules/<dcr-name>"
-```
-
-Verify access to the DCR from the Access Control (IAM) option for the DCR in the Azure portal. The identity should be listed as a *Monitoring Metrics Publisher*.
-
-### Create edge pipeline configuration file
-The configuration file defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud. Use the template below to create the file using the information in the dollowing table.
+### Edge pipeline configuration
+The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
 
 | Parameter | Description |
 |:---|:--|
-| `namespace` | Namespace provided during deployment of the Arc extension. |
-| `dataCollectionEndpointUrl` | URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.|
-| `stream` | Name of the stream in your DCR. |
-| `dcr` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
-
-> [!NOTE]
-> I converted the JSON configuration in the ARM example to YAML. Not sure if this is the valid format or not.
+| `receivers` | One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
+| `processors` | Reserved for future use. |
+| `exporters` | One entry for each destination that uses the following properties:<br>- `type` - Only currently supported type is `AzureMonitorWorkspaceLogs`.<br>- `name` - Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.<br>- `dataCollectionEndpointUrl`  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>- `dataCollectionRule` - Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>- `stream` - Name of the stream in your DCR that will accept the data.<br>- `schema` - Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
+| `service` | Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. |
 
 
-```yaml
-receivers:
-  - type: OTLP
-    name: receiver-OTLP-4317
-    otlp:
-      endpoint: "0.0.0.0:4317"
-  - type: Syslog
-    name: receiver-Syslog-514
-    syslog:
-      endpoint: "0.0.0.0:514"
-
-processors: []
-
-exporters:
-  - type: AzureMonitorWorkspaceLogs
-    name: exporter-lu7mbr90
-    azureMonitorWorkspaceLogs:
-      api:
-        dataCollectionEndpointUrl: "<dce-logs-ingestion-url>"
-        stream: "<dcr-stream-name>"
-        dataCollectionRule: "<dcr-immutable-id>"
-        schema:
-          recordMap:
-            - from: "body"
-              to: "Body"
-            - from: "severity_text"
-              to: "SeverityText"
-            - from: "time_unix_nano"
-              to: "TimeGenerated"
-
-```
-
-### Deploy the pipeline configuration
-
-Deploy the pipeline configuration to the cluster with the following command:
-
-```azurecli
-kubectl apply -f private-preview-plus-pipeline-config.yaml
-```
-
-Validate that the pipeline is running by first confirming the appropriate Kubernetes pods were created:
-
-```azurecli
-kubectl get pods -n <namespace>
-```
-You should see three pods in the Running state:
-- \<arc extension name\>-pipeline-operator-controller-manager… 
-- Pipeline-0-deployment…
-- Pipeline-nginx-deployment…
-
-You can also query the logs for the namespace to validate that the pipeline is executing with the following command:
-
-```azurecli
-kubectl logs -l component=collector -n <namespace> -f --tail 1000
-```
+### Create data collection rule (DCR)
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. 
 
 
-
-
-### [ARM](#tab/ARM)
-### Configure pipeline using ARM templates
-The following sample ARM template deploys the Azure Monitor pipeline extension and all supporting components.
+### Template file
 
 ```json
 {
@@ -267,6 +123,15 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
             "type": "array"
         },
         "customLocationName": {
+            "type": "string"
+        },
+        "dceName": {
+            "type": "string"
+        },
+        "dcrName": {
+            "type": "string"
+        },
+        "logAnalyticsWorkspaceName": {
             "type": "string"
         },
         "pipelineExtensionName": {
@@ -286,11 +151,11 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
     },
     "resources": [
         {
-            "apiVersion": "2017-03-15-preview",
-            "name": "DefaultWorkspace-westus2",
+            "type": "Microsoft.OperationalInsights/workspaces",            
+            "name": "[parameters('logAnalyticsWorkspaceName')]",
             "location": "[parameters('location')]",
+            "apiVersion": "2017-03-15-preview",
             "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.OperationalInsights/workspaces'), parameters('tagsByResource')['Microsoft.OperationalInsights/workspaces'], json('{}')) ]",
-            "type": "Microsoft.OperationalInsights/workspaces",
             "properties": {
                 "sku": {
                     "name": "pergb2018"
@@ -298,11 +163,11 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
             }
         },
         {
+            "type": "Microsoft.Insights/dataCollectionEndpoints",            
+            "name": "[parameters('dceName')]",
             "location": "[parameters('location')]",
-            "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Insights/dataCollectionEndpoints'), parameters('tagsByResource')['Microsoft.Insights/dataCollectionEndpoints'], json('{}')) ]",
-            "name": "Aep-mytestpl-ZZPXiU05tJ",
-            "type": "Microsoft.Insights/dataCollectionEndpoints",
             "apiVersion": "2021-04-01",
+            "tags": "[ if(contains(parameters('tagsByResource'), 'Microsoft.Insights/dataCollectionEndpoints'), parameters('tagsByResource')['Microsoft.Insights/dataCollectionEndpoints'], json('{}')) ]",
             "properties": {
                 "configurationAccess": {},
                 "logsIngestion": {},
@@ -313,9 +178,9 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
         },
         {
             "type": "Microsoft.Insights/dataCollectionRules",
-            "apiVersion": "2021-09-01-preview",
-            "name": "Aep-mytestpl-ZZPXiU05tJ",
+            "name": "[parameters('dcrName')]",
             "location": "[parameters('location')]",
+            "apiVersion": "2021-09-01-preview",
             "dependsOn": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces', 'DefaultWorkspace-westus2')]",
                 "[resourceId('Microsoft.Insights/dataCollectionEndpoints', 'Aep-mytestpl-ZZPXiU05tJ')]"
@@ -324,7 +189,24 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
             "properties": {
                 "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', 'Aep-mytestpl-ZZPXiU05tJ')]",
                 "streamDeclarations": {
-                    "Custom-DefaultAEPOTelLogs_CL-FqXSu6GfRF": {
+                    "Custom-OTLP": {
+                        "columns": [
+                            {
+                                "name": "Body",
+                                "type": "string"
+                            },
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "SeverityText",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                    "Custom-Syslog": {
                         "columns": [
                             {
                                 "name": "Body",
@@ -345,22 +227,32 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
                 "destinations": {
                     "logAnalytics": [
                         {
+                            "name": "DefaultWorkspace-westus2",
                             "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', 'DefaultWorkspace-westus2')]",
-                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', 'DefaultWorkspace-westus2'))].customerId",
-                            "name": "localDest-DefaultWorkspace-westus2"
+                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', 'DefaultWorkspace-westus2'))].customerId"
                         }
                     ]
                 },
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-DefaultAEPOTelLogs_CL-FqXSu6GfRF"
+                            "Custom-OTLP"
                         ],
                         "destinations": [
                             "localDest-DefaultWorkspace-westus2"
                         ],
                         "transformKql": "source",
-                        "outputStream": "Custom-DefaultAEPOTelLogs_CL"
+                        "outputStream": "Custom-OTelLogs_CL"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Syslog"
+                        ],
+                        "destinations": [
+                            "DefaultWorkspace-westus2"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "Custom-Syslog_CL"
                     }
                 ]
             }
@@ -471,7 +363,7 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
                         {
                             "name": "DefaultOTLPLogs",
                             "receivers": [
-                                "receiver-OTLP-4317"
+                                "receiver-OTLP"
                             ],
                             "processors": [],
                             "exporters": [
@@ -487,6 +379,33 @@ The following sample ARM template deploys the Azure Monitor pipeline extension a
 }
 
 ```
+
+### Sample parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "clusterId": {
+      "value": ""
+    },
+    "workspaceResourceId": {
+      "value": "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
+    },
+    "workspaceRegion": {
+      "value": "<workspaceRegion>"
+    },
+    "workspaceDomain": {
+      "value": "<workspaceDomainName>"
+    }    
+  }
+}
+```
+
 
 
 ---
