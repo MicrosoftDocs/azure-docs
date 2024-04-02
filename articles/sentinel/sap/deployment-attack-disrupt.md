@@ -51,7 +51,7 @@ SAP_HeartBeat_CL
     Current_Agent_Version = agent_ver_s
 ```
 
-If the identity of your data connector agent VM isn't yet assigned to the **Microsoft Sentinel Business Applications Agent Operator** role as part of the deployment process, assign the role manually. For more information, see [Deploy the data connector agent](deploy-data-connector-agent-container.md#role).
+If the identity of your data connector agent VM isn't yet assigned to the **Microsoft Sentinel Business Applications Agent Operator** role as part of the deployment process, assign the role manually. For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md#role).
 
 ## Related content
 
