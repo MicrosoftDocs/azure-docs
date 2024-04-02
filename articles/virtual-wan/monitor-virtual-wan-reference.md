@@ -102,7 +102,7 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
-| **Tunnel Flow Count** | Number of distinct 3-tupe (protocol, local IP address, remote IP address) flows created per link connection.|
+| **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
 
 ### <a name="p2s-metrics"></a>Point-to-site VPN gateway metrics
 
