@@ -315,7 +315,7 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ## Troubleshoot endpoints deployed from prompt flow
 
-## Lack authorization to perform action "Microsoft.MachineLearningService/workspaces/datastores/read"
+### Lack authorization to perform action "Microsoft.MachineLearningService/workspaces/datastores/read"
 
 If your flow contains Index Look Up tool, after deploying the flow, the endpoint needs to access workspace datastore to read MLIndex yaml file or FAISS folder containing chunks and embeddings. Hence, you need to manually grant the endpoint identity permission to do so.
 
@@ -341,14 +341,14 @@ If you deploy your flow with custom environment and encounter the following erro
 
 There are 2 ways to fix this error.
 
-1. (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
+- (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
 
     :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
 
     :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
 
 
-1. You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
+- You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
 
     Following is an example of customized environment definition.
 

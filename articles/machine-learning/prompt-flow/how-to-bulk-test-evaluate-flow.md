@@ -81,6 +81,7 @@ If an evaluation method uses Large Language Models (LLMs) to measure the perform
 
 > [!NOTE]
 > Some evaluation methods require GPT-4 or GPT-3 to run. You must provide valid connections for these evaluation methods before using them.
+> Some evaluation process may take up lots of tokens, so it's recommended to use a model which can support >=16k tokens.
 
 After you finish the input mapping, select on  **"Next"**  to review your settings and select on  **"Submit"**  to start the batch run with evaluation.
 
