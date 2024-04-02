@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/sap/deploy-data-connector-agent-container-other-methods.md",
+            "source_path": "articles/sentinel/sap/deploy-data-connector-agent-container-other-methods.md",
             "redirect_url": "/azure/sentinel/sap/deploy-data-connector-agent-container",
             "redirect_document_id": true
         },
