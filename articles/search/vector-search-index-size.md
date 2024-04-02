@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 04/03/2024
 ---
 
-# Vector index size and staying under vector limits
+# Vector index size and staying under limits
 
 For each vector field, Azure AI Search constructs an internal vector index using the algorithm parameters specified on the field. Because Azure AI Search imposes quotas on vector index size, you should know how to estimate and monitor vector size to ensure you stay under the limits.
 
 > [!NOTE]
-> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article exlains the limits for the physical vector indexes that back each of your vector fields. 
+> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the physical vector indexes that back each of your vector fields. 
 
 > [!TIP]
-> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. You can use smaller data types, apply vector compression, and eliminate some storage requirements if you don't need the data.
+> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. You can use narrow data types, apply scalar quantization, and eliminate some storage requirements if you don't need the data.
 
 ## Key points about quota and vector index size
 
 + Vector index size is measured in bytes.
 
-+ There's no quota at the search index level. Instead vector quotas are enforced at the partition level. Quota varies by service tier (or `SKU`) and the service creation date, with newer services having much higher quotas per partition.
++ There's no quota at the search index level. Instead vector quotas are enforced service-wide at the partition level. Quota varies by service tier (or `SKU`) and the service creation date, with newer services having much higher quotas per partition.
 
   + [Vector quota for services created after April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
   + [Vector quota for services created between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
@@ -38,46 +38,6 @@ For each vector field, Azure AI Search constructs an internal vector index using
 
   For example, on new services in a supported region, the sum total of all vector indexes on a Basic search service can't be more than 15 GB because Basic can have up to three partitions (5-GB quota per partition). On S1, which can have up to 12 partitions, the quota for vector data is 35 GB per partition, or up to 160 GB if you allocate all 12 partitions.
 
-<!-- The size of vector indexes is measured in bytes. The size constraints are based on memory reserved for vector search, but also have implications for storage at the service level. Size constraints vary by service tier (or SKU).
-
-The service enforces a vector index size quota **based on the number of partitions** in your search service, where the quota per partition varies by tier and also by service creation date (see [Vector index size](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
-
-Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
-
-### Vector limits for services created after April 3, 2024
-
-Higher vector limits exist for new services [in supported regions](search-create-service-portal.md#choose-a-region).
-
-| Tier   | Partitions | Partition size (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-| ----- | ------------| -----------------  | ------------------------------------------ | ---------------------------- |
-| Basic | 3           | 15                  | 5                                          | 1,100 million              |
-| S1    | 12          | 160                 | 35                                         | 8,200 million              |
-| S2    | 12          | 350                 | 100                                        | 23,500 million             |
-| S3    | 12          | 700                 | 200                                        | 47,000 million             |
-| L1    | 12          | 1,000               | 12                                         | 2,800 million              |
-| L2    | 12          | 2,000               | 36                                         | 8,400 million              |
-
-L1 and L2 currently have the same quota as services created after July 1, 2023.
-
-### Vector limits for services created between July 1, 2023 and April 3, 2024
-
-The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
-
-| Tier  | Partitions | Partition size (GB)  | Vector quota per partition (GB) | Vector quota per service (GB) |
-| ----- | ---------- | --------------|-------------------------- | ----------------------------------- |
-| Basic | 1          | 2             | 1                         | 1                |
-| S1    | 12         | 25            | 3                         | 36               |
-| S2    | 12         | 100           | 12                        | 144              |
-| S3    | 12         | 200           | 36                        | 432              |
-| L1    | 12         | 1,000         | 12                        | 144              |
-| L2    | 12         | 2,000         | 36                        | 432              |
-
-**Key points**:
-
-+ Overall storage is a product of the number of partitions you provision multiplied by partition size. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have up to 12 partitions, sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
-
-+ Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you allocate just one partition, or up to 36 GB if you allocate all 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md). -->
-
 ## How to check partition size and quantity
 
 If you aren't sure what your search service limits are, here are two ways to get that information:
@@ -88,7 +48,7 @@ If you aren't sure what your search service limits are, here are two ways to get
 
 ## How to check service creation date
 
-Newer services created after April 3, 2024 offer five to ten times more vector storage as older ones at the same tier. If your service is older, consider creating a new service and migrating your content.
+Newer services created after April 3, 2024 offer five to ten times more vector storage as older ones at the same tier billing rate. If your service is older, consider creating a new service and migrating your content.
 
 1. In Azure portal, open the resource group that contains your search service.
 
@@ -106,9 +66,9 @@ Newer services created after April 3, 2024 offer five to ten times more vector s
 
 1. Now that you know the age of your search service, review the vector quota limits based on service creation:
 
-   + [Before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
-   + [After July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
    + [After April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
+   + [Between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
+   + [Before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
 
 ## How to get vector index size
 
@@ -196,7 +156,12 @@ The storage size of one vector is determined by its dimensionality. Multiply the
 
 `raw size = (number of documents) * (dimensions of vector field) * (size of data type)`
 
-For `Edm.Single`, the size of the data type is 4 bytes. For `Collection(Edm.Single)`, the size of the data type is 4 bytes. For `Collection(Edm.Half)` and `Collection(Edm.Int16)`, the size of the data type is 2 bytes. For `Collection(Edm.SByte)`, the data type is 1 byte.
+| EDM data type | Size of the data type |
+|---------------|-----------------------|
+| `Collection(Edm.Single)` | 4 bytes |
+| `Collection(Edm.Half)` | 2 bytes |
+| `Collection(Edm.Int16)`| 2 bytes |
+| `Collection(Edm.SByte)`| 1 byte |
 
 ### Memory overhead from the selected algorithm  
   

@@ -91,6 +91,7 @@ Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 
 The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-providing-larger-partitions).
 
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 |--------|--------------------|--------------------------------------------|------------------------------|
 | Basic | 15                  | 5                                          | 1,100 million              |
 | S1    | 160                 | 35                                         | 8,200 million              |
