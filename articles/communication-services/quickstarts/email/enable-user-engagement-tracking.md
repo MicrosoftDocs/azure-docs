@@ -1,7 +1,7 @@
 ---
 title: How to enable user engagement tracking for an email domain with Azure Communication Services resource.
 titleSuffix: An Azure Communication Services quick start guide
-description: Learn about how to enable user engagement tracking for an email domains with Azure Communication Services resource.
+description: Learn about how to enable user engagement tracking for an email domain with Azure Communication Services resource.
 author: bashan-git
 manager: sundraman
 services: azure-communication-services
