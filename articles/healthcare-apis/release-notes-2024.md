@@ -15,6 +15,24 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## April 2024
+
+### FHIR service
+
+#### The bulk delete operation is generally available
+
+The bulk delete operation allows efficient and customizable deletion of FHIR resources across different levels, enabling healthcare organizations to comply with data retention policies while providing asynchronous processing capabilities. The benefits of the bulk delete operation are:
+
+- **Efficient deletion**: The bulk delete operation allows you to delete resources from the Azure API for FHIR server asynchronously. You can execute bulk delete at different levels:
+    - **System level**: Enables deletion of FHIR resources across all resource types.
+    - **Individual resource type**: Allows deletion of specific FHIR resources.
+- **Data retention compliance**: Healthcare organizations can comply with data retention policies by selectively removing data.
+- **Customizable**: Query parameters allow filtering of raw resources for targeted deletions.
+- **Async processing**: The operation is asynchronous, providing a polling endpoint to track progress.
+
+Learn more:
+- [Bulk delete in the FHIR service](./fhir/fhir-bulk-delete.md)
+
 ## March 2024
 
 ### DICOM service
