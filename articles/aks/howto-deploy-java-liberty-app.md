@@ -115,7 +115,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    ### [PowerShell](#tab/in-powershell)
 
-   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell (excluding the `| base64` portion), append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
     ---
 
