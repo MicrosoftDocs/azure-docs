@@ -81,7 +81,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the (to be added) regions.
+1. Select the project in which you want to deploy your model. To deploy the model your project must be in the (to be added) regions.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
@@ -782,7 +782,7 @@ If you're building a RAG agent, you can also use Cohere's Chat API to get search
 | CLI using CURL and Python web requests    | (to be added)|
 | OpenAI SDK (experimental)    | (to be added)                                    |
 | LangChain      | (to be added)                                 |
-| Mistral AI     | (to be added)                                  |
+| (tbd)     | (to be added)                                  |
 | LiteLLM        | (to be added)
 
 ## Cost and quotas
