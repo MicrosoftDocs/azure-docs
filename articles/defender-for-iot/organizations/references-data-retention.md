@@ -90,7 +90,7 @@ For more information, see:
 
 Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
 
-- Microsoft Security Exposure Mangement
+- Microsoft Security Exposure Management
 
 ## On-premises backup file capacity
 
