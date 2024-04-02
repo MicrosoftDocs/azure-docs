@@ -6,7 +6,7 @@ ms.subservice: spark
 ms.topic: overview
 author: guyhay
 ms.author: guyhay
-ms.date: 03/08/2024 
+ms.date: 04/02/2024 
 ---
 
 # Apache Spark in Azure Synapse Analytics Core Concepts
