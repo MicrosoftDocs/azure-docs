@@ -51,6 +51,7 @@ More details on eligible subscription types are as follows:
 |Germany|
 |Ireland|
 |Italy|
+|Japan|
 |Netherlands|
 |Puerto Rico|
 |Spain|
