@@ -90,11 +90,11 @@ Deployments from GitHub that use Azure Pipelines are defined in the [Azure DevOp
 
 ### [Bitbucket](#tab/bitbucket/azure-pipelines)
 
-You can't deploy from Bitbucket using Azure Pipelines. Instead choose the App Service (Kudu) [build provider](#build-providers). 
+You can't deploy from Bitbucket using Azure Pipelines. Instead choose the [App Service build provider](functions-continuous-deployment.md?tabs=bitbucket%2Capp-service#build-providers). 
 
 ### [Local Git](#tab/local-git/azure-pipelines)
 
-You can't deploy from local git using Azure Pipelines. Instead choose the App Service (Kudu) [build provider](#build-providers). 
+You can't deploy from local git using Azure Pipelines. Instead choose the [App Service build provider](functions-continuous-deployment.md?tabs=local-git%2Capp-service#build-providers). 
 
 ### [Azure Repos](#tab/azure-repos/github-actions)
 
@@ -108,11 +108,11 @@ To learn more about GitHub Action deployments, including other ways to generate 
 
 ### [Bitbucket](#tab/bitbucket/github-actions)
 
-You can't deploy from Bitbucket using GitHub Actions. Instead choose the App Service (Kudu) [build provider](#build-providers).
+You can't deploy from Bitbucket using GitHub Actions. Instead choose the [App Service build provider](functions-continuous-deployment.md?tabs=bitbucket%2Capp-service#build-providers).
 
 ### [Local Git](#tab/local-git/github-actions)
 
-You can't deploy from local git using GitHub Actions. Instead choose the App Service (Kudu) [build provider](#build-providers).
+You can't deploy from local git using GitHub Actions. Instead choose the [App Service build provider](functions-continuous-deployment.md?tabs=local-git%2Capp-service#build-providers).
 
 ### [Azure Repos](#tab/azure-repos/app-service)
 
