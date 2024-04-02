@@ -143,7 +143,7 @@ Create environment variables in your shell for the resource group name for the d
     $Env:DB_RESOURCE_GROUP_NAME="<your-database-resource-group-name>"
     ```
 
-Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
+Now that the database and AKS cluster are created, we can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -175,7 +175,7 @@ git checkout 20240109
 
 ---
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 ```
 java-app
