@@ -10,7 +10,7 @@ ms.date: 04/02/2024
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
+This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
 
 This example is prominent when Engineers prefer real-time aggregated data for analysis. With access to historical aggregated data, you can build machine learning (ML) models to build insights or actions. You can also ingest IoT data into Apache Flink to aggregate data in real-time and store it in Apache Cassandra.
 
@@ -42,12 +42,12 @@ Get credentials uses it on Stream source code:
 
 ### Cloning repository of Azure Samples
 
-Refer GitHub readme to download maven, clone this repository using `Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git` from 
-[Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
+Refer GitHub readme to download maven, and clone this repository using `Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git` from 
+[Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started).
 
 ### Updating maven project for Cassandra
 
-Go to maven project folder **azure-cosmos-db-cassandra-java-getting-started-main** and update the changes required for this example
+Go to maven project folder **azure-cosmos-db-cassandra-java-getting-started-main** and update the changes required for this example.
 
 **maven pom.xml**
 ``` xml
@@ -429,7 +429,7 @@ public class CassandraDemo {
 
 ### Building the project
 
-Run **mvn clean install** from azure-cosmos-db-cassandra-java-getting-started-main folder to build the project. This command generates cosmosdb-cassandra-examples.jar under target folder
+Run **mvn clean install** from azure-cosmos-db-cassandra-java-getting-started-main folder to build the project. This command generates cosmosdb-cassandra-examples.jar under target folder.
 
 ```
 root@flinkvm:/home/flinkvm/azure-cosmos-db-cassandra-java-getting-started-main/target# ll
@@ -464,7 +464,7 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.UserProfile -j cosmosdb-c
 
 ## Sink Kafka Topics into Cosmos DB for Apache Cassandra
 
-Run CassandraDemo class to sink Kafka topic into  Cosmos DB for Apache Cassandra
+Run CassandraDemo class to sink Kafka topic into  Cosmos DB for Apache Cassandra.
 
 ```
 bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb-cassandra-examples.jar
@@ -474,13 +474,13 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb
 
 ## Validate Apache Flink Job Submission
 
-Check job on Flink Web UI on HDInsight on AKS Cluster
+Check job on Flink Web UI on HDInsight on AKS Cluster.
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png" alt-text="Screenshot showing how to check the job on HDInsight on AKS Flink UI." lightbox="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png":::
 
 ## Producing Messages in Kafka
 
-Produce message into Kafka topic
+Produce message into Kafka topic.
 
 ``` python
 sshuser@hn0-flinkd:~$ cat user.py
@@ -549,4 +549,4 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
 * [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
-* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
