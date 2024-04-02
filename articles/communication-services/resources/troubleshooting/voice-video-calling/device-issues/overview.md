@@ -51,4 +51,4 @@ Here are some common issues related to devices and permissions, along with their
 ## Next steps
 
 This overview article provides basic information on device and permission issues you may encounter when using the WebJS calling SDK.
-For more detailed guidance, please follow the links to the pages listed within the `Device and permission issues` section of this troubleshooting guide
+For more detailed guidance, follow the links to the pages listed within the `Device and permission issues` section of this troubleshooting guide.
