@@ -311,9 +311,9 @@ You can now view the [resource health state](../../service-health/resource-healt
 
 1. In the [portal](https://portal.azure.com/), go to the overview of your Prometheus rule group you would like to monitors
 1. From the left pane, under **Help**, select **Resource health**.
-    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-rh.png" alt-text="Screenshot that shows how to view resource health state of a Prometheus rule group.":::
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-resource-health.png" alt-text="Screenshot that shows how to view resource health state of a Prometheus rule group.":::
 1. In the rule group resource health screen, you can see the current availability state of the rule group, as well as a history of recent resource health events, up to 30 days back.
-    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-rh-history.png" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-resource-health-history.png" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
 
 * If the rule group is marked as **Available**, it is working as expected.
 * If the rule group is marked as **Degraded**, one or more rules in the group are not working as expected. This can be due to the rule query being throttled, or to other issues that may cause the rule evaluation to fail. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
