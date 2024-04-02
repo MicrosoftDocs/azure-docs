@@ -92,7 +92,7 @@ The request body includes the values in the following table.
 | --- | --- | --- |
 |`properties.retentionInDays` | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
 |`location`|string| The geo-location of the resource.|
-|`immediatePurgeDataOn30Days`|Flag that indicates whether data is immediately removed after 30 days and is non-recoverable. Applicable only when workspace retention is set to 30 days.|
+|`immediatePurgeDataOn30Days`|boolean|Flag that indicates whether data is immediately removed after 30 days and is non-recoverable. Applicable only when workspace retention is set to 30 days.|
 
 
 **Example**
