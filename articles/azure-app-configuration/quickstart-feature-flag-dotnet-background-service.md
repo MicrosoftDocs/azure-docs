@@ -19,7 +19,7 @@ In this quickstart, you incorporate the feature management capability from Azure
 
 ## Prerequisites
 
-The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the .NET background service app introduced in the dynamic configuration tutorial. Before you continue, finish the following tutorial to create a .NET background service app with dynamic configuration first.
+Feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the .NET background service app introduced in the dynamic configuration tutorial. Before you continue, finish the following tutorial to create a .NET background service app with dynamic configuration first.
 
 - [Tutorial: Use dynamic configuration in a .NET background service](./enable-dynamic-configuration-dotnet-background-service.md)
 
@@ -157,7 +157,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. You should see the following outputs in the console.
 
-    ![Background service with feature flag disabled](./media/quickstarts/dotnet-background-service-feature-flag-disabled.png)
+    ![Screenshot of the console with background service running with feature flag disabled.](./media/quickstarts/dotnet-background-service-feature-flag-disabled.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
@@ -165,7 +165,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Wait a few moments for the refresh interval time window to pass. You will see the updated log message.
 
-    ![Background service with feature flag enabled](./media/quickstarts/dotnet-background-service-feature-flag.png)
+    ![Screenshot of the console with background service running with feature flag enabled.](./media/quickstarts/dotnet-background-service-feature-flag.png)
 
 ## Clean up resources
 
