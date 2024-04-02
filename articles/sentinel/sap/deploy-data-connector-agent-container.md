@@ -96,7 +96,7 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 
 Select one of the following tabs, depending on how you plan to store and access your authentication credentials and configuration data.
 
-# [Managed identity access](#tab/create-managed-identity)
+# [Managed identity](#tab/create-managed-identity)
 
 ### Create a managed identity with an Azure VM
 
@@ -135,7 +135,7 @@ Select one of the following tabs, depending on how you plan to store and access 
 
 1. Copy the **systemAssignedIdentity** GUID, as it will be used in the coming steps. This is your **managed identity**.
 
-# [Registered application access](#tab/create-registered-application)
+# [Registered application](#tab/create-registered-application)
 
 ### Register an application to create an application identity
 
@@ -160,7 +160,7 @@ Select one of the following tabs, depending on how you plan to store and access 
 
 1. Before proceeding any further, create a virtual machine on which to deploy the agent. You can create this machine in Azure, in another cloud, or on-premises.
 
-# [Configuration file access](#tab/create-config-file)
+# [Configuration file](#tab/create-config-file)
 
 ### Use a configuration file
 
@@ -589,12 +589,6 @@ Create a new agent using the command line, authenticating with a managed identit
     docker update --restart unless-stopped <container-name>
     ```
 
-    To view a list of the available containers, run:
-
-    ```bash
-    docker ps -a
-    ```
-
 # [Deploy with a registered application](#tab/deploy-cli-registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
@@ -664,11 +658,6 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     docker update --restart unless-stopped <container-name>
     ```
 
-    To view a list of the available containers, run:
-
-    ```bash
-    docker ps -a
-    ```
 
 # [Deploy with a configuration file](#tab/deploy-cli-config-file)
 
