@@ -369,7 +369,7 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 }
 ```
 
-After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET`request by using [](): 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET` request by using [list by server replicas API](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2022-12-01/Replicas.json): 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/replicas?api-version=2022-12-01
