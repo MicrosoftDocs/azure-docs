@@ -15,7 +15,7 @@ Continuous deployment is a good option for projects where you integrate multiple
 
 Steps in this article show you how to configure continuous code deployments to your function app in Azure by using the Deployment Center in the Azure portal. You can also configure continuous integration using the Azure CLI. 
 
-In the Deployment Center, you must first choose your source code location, which can be one of these options:
+Functions supports these sources for continuous deployment to your app:
 
 ### [Azure Repos](#tab/azure-repos)
 
@@ -73,6 +73,12 @@ Your options for which of these build providers you can use depend on the specif
 ## <a name="credentials"></a>Deployment center
 
 The [Azure portal](https://portal.azure.com) provides a **Deployment center** for your function apps, which makes it easier to configure continuous deployment. The way that you configure continuous deployment depends both on the specific source control in which your code resides and the [build provider](#build-providers) you choose. 
+
+In the [Azure portal](https://portal.azure.com), browse to your function app page and select **Deployment Center** under **Deployment** in the left pane. 
+
+:::image type="content" source="media/functions-continuous-deployment/deployment-center-choose-source.png" alt-text="Function app deployment center in the Azure portal where you choose your source repository.":::
+
+Select the **Source** repository type where your project code is being maintained from one of these supported options:
 
 ### [Azure Repos](#tab/azure-repos/azure-pipelines)
 
