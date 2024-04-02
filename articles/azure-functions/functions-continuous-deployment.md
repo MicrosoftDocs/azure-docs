@@ -23,7 +23,9 @@ Maintain your project code in [Azure Repos](https://azure.microsoft.com/services
 
 ### [GitHub](#tab/github)
 
-Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](functions-continuous-deployment.md?tabs=github%2Cgithub-actions#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).
+Maintain your project code in [GitHub](https://github.com). Supported by all [build providers](functions-continuous-deployment.md?tabs=github%2Cgithub-actions#build-providers). For more information, see [GitHub docs](https://docs.github.com/en/get-started).  
+
+GitHub is the only continuous deployment source supported for apps running on Linux in a [Consumption plan](./consumption-plan.md), which includes serverless Python apps.
 
 ### [Bitbucket](#tab/bitbucket)
 
@@ -38,9 +40,7 @@ Maintain your project code in a dedicated Git server hosted in the same App Serv
 You can also connect your function app to an external Git repository, but this requires a manual synchronization. For more information about deployment options, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
 >[!NOTE] 
->Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment of containers to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure).
->
->GitHub is the only continuous deployment source supported for apps running on Linux in a [Consumption plan](./consumption-plan.md), which includes serverless Python apps. 
+>Continuous deployment options covered in this article are specific to code-only deployments. For containerized function app deployments, see [Enable continuous deployment of containers to Azure](functions-how-to-custom-container.md#enable-continuous-deployment-to-azure). 
 
 ## Requirements
 
