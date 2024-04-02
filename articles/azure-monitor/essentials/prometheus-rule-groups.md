@@ -302,7 +302,7 @@ New-AzPrometheusRuleGroup -ResourceGroupName MyresourceGroup -RuleGroupName MyRu
 You can view your Prometheus rule groups and their included rules in the Azure portal in one of the following ways:
 * In the [portal home page](https://portal.azure.com/), in the search box, look for **Prometheus Rule Groups**.
 * In the [portal home page](https://portal.azure.com/), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**.
-      :::image type="content" source="media/prometheus-metrics-rule-groups/prom-rule-groups-from-alerts.png" alt-text="Screenshot that shows how to view Prometheus rule groups from the alerts screen.":::
+      :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-from-alerts.png" alt-text="Screenshot that shows how to view Prometheus rule groups from the alerts screen.":::
 * In the page of a specific Azure Kubernetes Services resource (AKS), or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
 You can select a rule group from the list to view or edit its details.
 
@@ -311,9 +311,9 @@ You can now view the [resource health state](../../service-health/resource-healt
 
 1. In the [portal](https://portal.azure.com/), go to the overview of your Prometheus rule group you would like to monitors
 1. From the left pane, under **Help**, select **Resource health**.
-    :::image type="content" source="media/prometheus-metrics-rule-groups/prom-rule-groups-rh.png" alt-text="Screenshot that shows how to view resource health state of a Prometheus rule group.":::
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-rh.png" alt-text="Screenshot that shows how to view resource health state of a Prometheus rule group.":::
 1. In the rule group resource health screen, you can see the current availability state of the rule group, as well as a history of recent resource health events, up to 30 days back.
-    :::image type="content" source="media/prometheus-metrics-rule-groups/prom-rule-groups-rh-history.png" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
+    :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-rh-history.png" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
 
 * If the rule group is marked as **Available**, it is working as expected.
 * If the rule group is marked as **Degraded**, one or more rules in the group are not working as expected. This can be due to the rule query being throttled, or to other issues that may cause the rule evaluation to fail. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
