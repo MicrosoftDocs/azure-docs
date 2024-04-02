@@ -44,7 +44,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 | Metro location | Peering locations | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|--|
-| Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Equinix AMS8 | 1 | West Europe | &check; | Megaport<br>Equinix<sup>1</sup><br>Colt<sup>1</sup><br>Console Connect<sup>1</sup><br>Digital Reality<sup>1</sup> |
+| Amsterdam Metro | Amsterdam<br>Amsterdam2 | Equinix AM5<br>Digital Reality AMS8 | 1 | West Europe | &check; | Megaport<br>Equinix<sup>1</sup><br>Colt<sup>1</sup><br>Console Connect<sup>1</sup><br>Digital Reality<sup>1</sup> |
 | Singapore Metro | Singapore<br>Singapore2 | Equinix SG1<br>Global Switch Tai Seng | 2 | West Europe | &check; | Megaport<sup>1</sup><br>Equinix<sup>1</sup><br>Console Connect<sup>1</sup> |
 | Zurich Metro | Zurich<br>Zurich2 | Interxion ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<sup>1</sup><br>Digital Reality<sup>1</sup> |
 
