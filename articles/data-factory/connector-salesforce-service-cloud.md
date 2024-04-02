@@ -338,5 +338,15 @@ Here are steps that help you upgrade your linked service and related queries:
 
 1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
 
+## Differences between Salesforce Service Cloud and Salesforce Service Cloud (legacy)
+
+The differences between Salesforce Service Cloud and Salesforce Service Cloud (legacy) connector are shown in the following table: 
+
+|Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
+|:---|:---|
+|Support SOQL that are supported by [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>Below SOQL queries are not supported:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses. <br>• Aggregate Functions such as COUNT(). (Use Salesforce report as a workaround) <br>• Date functions in GROUP BY clauses. (Date functions in WHERE clauses are supported.) <br>• Compound address fields or compound geolocation fields. (Instead, query the individual components of compound fields.) <br>• Parent-to-child relationship queries. (Child-to-parent relationship queries are supported.)|Support both SQL and SOQL syntax. |
+|Objects that contain binary fields are not supported.|Support objects that contain binary fields, like Attachment object.|
+|Support objects that are supported by Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
+
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
