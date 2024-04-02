@@ -307,7 +307,7 @@ You can view your Prometheus rule groups and their included rules in the Azure p
 You can select a rule group from the list to view or edit its details.
 
 ## View the resource health states of your Prometheus rule groups
-You can now view the [resource health state](../../service-health/resource-health-overview.md) of your Promehteus rule group in the portal. This can allow you to detect problems in your rule groups, such as incorrect configuration, or query throttling problems
+You can now view the [resource health state](../../service-health/resource-health-overview.md) of your Prometheus rule group in the portal. This can allow you to detect problems in your rule groups, such as incorrect configuration, or query throttling problems
 
 1. In the [portal](https://portal.azure.com/), go to the overview of your Prometheus rule group you would like to monitors
 1. From the left pane, under **Help**, select **Resource health**.
@@ -316,8 +316,8 @@ You can now view the [resource health state](../../service-health/resource-healt
     :::image type="content" source="media/prometheus-metrics-rule-groups/prom-rule-groups-rh-history" alt-text="Screenshot that shows how to view the resource health history of a Prometheus rule group.":::
 
 * If the rule group is marked as **Available**, it is working as expected.
-* If the rule group is marked as **Degraded**, one or more rules in the group are not working as expected. This can be due the the rule query being throttled, or to other issues that may cause the rule evaluation to fail. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
-* If the rule group is marked as **Unavailable**, the entire rule group is not working as expected. This can be due the configuration issue (for example, the Azure Monitor Workspace can't be detected) or due to internal service issues. Expand the status entry for more information on the detected problem, , as well as suggestions for mitigation or for further troubleshooting.
+* If the rule group is marked as **Degraded**, one or more rules in the group are not working as expected. This can be due to the rule query being throttled, or to other issues that may cause the rule evaluation to fail. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
+* If the rule group is marked as **Unavailable**, the entire rule group is not working as expected. This can be due the configuration issue (for example, the Azure Monitor Workspace can't be detected) or due to internal service issues. Expand the status entry for more information on the detected problem, as well as suggestions for mitigation or for further troubleshooting.
 * If the rule group is marked as **Unknown**, the entire rule group is disabled or is in an unknown state.
      
 ## Disable and enable rule groups 
