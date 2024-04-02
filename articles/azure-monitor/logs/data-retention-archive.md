@@ -78,7 +78,7 @@ To set the default workspace retention:
 
 # [API](#tab/api-3)
 
-To set the retention and archive duration for a table, call the [Workspaces - Update API](/rest/api/azureml/workspaces/update):
+To set the retention and archive duration for a table, call the [Workspaces - Create Or Update API](/rest/api/loganalytics/workspaces/create-or-update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2023-09-01
@@ -90,23 +90,27 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
+|`properties.retentionInDays` | integer  | The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details. |
+|`location`|string| The geo-location of the resource.|
+|`immediatePurgeDataOn30Days`|Flag that indicates whether data is immediately removed after 30 days and is non-recoverable. Applicable only when workspace retention is set to 30 days.|
+
 
 **Example**
 
-This example sets the workspace's retention to the workspace default of 30 days.
+This example sets the workspace's retention to the workspace default of 30 days and ensures that data is immediately removed after 30 days and is non-recoverable.
 
 **Request**
 
 ```http
-PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685?api-version=2023-09-01
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2023-09-01
 
 {
   "properties": {
     "retentionInDays": 30,
-  }
+    "features": {"immediatePurgeDataOn30Days": true}
+    },
+"location": "australiasoutheast"
 }
-```
 
 **Response**
 
@@ -115,14 +119,17 @@ Status code: 200
 ```http
 {
   "properties": {
+    ...
     "retentionInDays": 30,
-  },
-  "location": "australiasoutheast",
-  "tags": {
-    "tag1": "val1"
-  }
-}
+    "features": {
+      "legacy": 0,
+      "searchVersion": 1,
+      "immediatePurgeDataOn30Days": true,
+      ...
+    },
+    ...
 ```
+
 
 # [CLI](#tab/cli-3)
 
