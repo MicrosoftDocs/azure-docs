@@ -30,7 +30,7 @@ In the latter case, the [`DeviceManager.getSpeakers`](/javascript/api/azure-comm
 ## How to detect using the SDK
 [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-devicemanager-getspeakers) API returns an empty array or an array with an object, where  the `id` is set to `speaker:` and the name is set to an empty string.
 
-Additionally, to detect the scenario where the user removes the speaker during the call and there are no available audio output devices in the system, the application can listen to the `noSpeakerDevicesEnumerated` bad event in the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md). This event can help the application understand the current situation, and show the warning message on its UI accordingly.
+Additionally, to detect the scenario where the user removes the speaker during the call and there are no available audio output devices in the system, the application can listen to the `noSpeakerDevicesEnumerated` event being raised to true in the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md). This event can help the application understand the current situation, and show the warning message on its UI accordingly.
 
 For the platform that doesn't support speaker enumeration, you get an error when calling [`DeviceManager.getSpeakers`](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-devicemanager-getspeakers) API.
 
