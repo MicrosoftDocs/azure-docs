@@ -67,7 +67,7 @@ The ability to access backup storage across regions is an important aspect of bu
 
 When you're using Azure Files with either the Server Message Block (SMB) protocol or the Network File System (NFS) 4.1 protocol to mount as backup storage, Azure Files doesn't support RA-GRS or RA-GZRS.
 
-Azure File Backup storage can scale up to 100 (TiB) with support for LRS,GRS and GZRS redundacy options. 
+Azure Files backup storage can scale up to 100 (TiB), with support for LRS, GRS, and GZRS redundancy options. 
 
 Azure Blob Storage mounted via the NFS 3.0 protocol currently supports only LRS and ZRS redundancy. Azure Blob Storage configured with any redundancy option can be mounted via Blobfuse.
 
