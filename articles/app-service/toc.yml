@@ -156,7 +156,9 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
-        - name: Java with Spring Data
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
           href: tutorial-java-quarkus-postgresql-app.md            

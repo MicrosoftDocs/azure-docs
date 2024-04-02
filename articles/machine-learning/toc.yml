@@ -674,8 +674,12 @@
               href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+            - name: Advance your maturity level
+              href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Troubleshoot prompt flow deployments
+          href: ./prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md
         - name: Transparency note
           href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
@@ -1270,7 +1274,7 @@
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
-        - name: Workspace Diagnostics
+        - name: Workspace diagnostics
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
@@ -1359,7 +1363,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor Azure Machine Learning
+    - name: Monitor
       href: monitor-azure-machine-learning.md
     - name: Secure coding
       displayName: security threat
@@ -1595,8 +1599,8 @@
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: Monitor data reference
-      href: monitor-resource-reference.md
+    - name: Monitoring data reference
+      href: monitor-azure-machine-learning-reference.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

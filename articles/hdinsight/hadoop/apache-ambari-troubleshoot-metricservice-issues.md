@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.author: sairamyeturi
 author: yeturis
 ms.topic: troubleshooting
-ms.date: 08/21/2023
+ms.date: 03/23/2024
 ---
 
 # Apache Ambari Metrics Collector issues in Azure HDInsight

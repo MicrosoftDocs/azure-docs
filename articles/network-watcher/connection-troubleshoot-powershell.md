@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using PowerShell.
@@ -22,8 +22,7 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 - Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-- A virtual machine with Network Watcher agent VM extension installed on it and the following outbound TCP connectivity:
-    - to the storage account over port 443
+- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 

@@ -35,7 +35,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 | Area                         | Azure CNI Overlay                                            | Kubenet                                                                       |
 |------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
-| Cluster scale                | 1000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
+| Cluster scale                | 5000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no extra configurations required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds minor latency                                                  |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                       | Calico                                                                        |
@@ -92,6 +92,7 @@ Azure CNI Overlay has the following limitations:
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
 - Virtual Machine Availability Sets (VMAS) aren't supported for Overlay.
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
+- In case you are using your own subnet to deploy the cluster, the names of the subnet, VNET and resource group which contains the VNET, must be 63 characters or less. This comes from the fact that these names will be used as labels in AKS worker nodes, and are therefore subjected to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
 
 ## Set up Overlay clusters
 
@@ -195,16 +196,13 @@ Since the cluster is already using a private CIDR for pods which doesn't overlap
 > [!NOTE]
 > When upgrading from Kubenet to CNI Overlay, the route table will no longer be required for pod routing. If the cluster is using a customer provided route table, the routes which were being used to direct pod traffic to the correct node will automatically be deleted during the migration operation. If the cluster is using a managed route table (the route table was created by AKS and lives in the node resource group) then that route table will be deleted as part of the migration.
 
-## Dual-stack Networking (Preview)
+## Dual-stack Networking
 
 You can deploy your AKS clusters in a dual-stack mode when using Overlay networking and a dual-stack Azure virtual network. In this configuration, nodes receive both an IPv4 and IPv6 address from the Azure virtual network subnet. Pods receive both an IPv4 and IPv6 address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address of the same family (IPv4 to IPv4 and IPv6 to IPv6).
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Prerequisites
 
   - You must have Azure CLI 2.48.0 or later installed.
-  - You must register the `Microsoft.ContainerService` `AzureOverlayDualStackPreview` feature flag.
   - Kubernetes version 1.26.3 or greater.
 
 ### Limitations
@@ -229,26 +227,6 @@ The following attributes are provided to support dual-stack clusters:
   * The count and order of ranges in this list must match the value provided to `--ip-families`.
   * If no values are supplied, the default value `10.0.0.0/16,fd12:3456:789a:1::/108` is used.
   * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
-
-### Register the `AzureOverlayDualStackPreview` feature flag
-
-1. Register the `AzureOverlayDualStackPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayDualStackPreview"
-```
-
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayDualStackPreview"
-```
-
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a dual-stack AKS cluster
 

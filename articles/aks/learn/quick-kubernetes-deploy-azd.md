@@ -4,7 +4,7 @@ description: Learn how to quickly deploy a Kubernetes cluster and deploy an appl
 ms.author: schaffererin
 author: schaffererin
 ms.topic: quickstart
-ms.date: 03/15/2024
+ms.date: 03/21/2024
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, contperf-fy21q1, mode-api, devx-track-extended-azdevcli
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -39,7 +39,7 @@ You can review the application code in the [Azure-Samples/aks-store-demo GitHub 
 
 The quickstart application includes the following Kubernetes deployments and services:
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Diagram that shows the Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
 
 - **Store front**: Web application for customers to view products and place orders.
 - **Product service**: Shows product information.
@@ -47,7 +47,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 - **Rabbit MQ**: Message queue for an order queue.
 
 > [!NOTE]
-> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure CosmosDB or Azure Service Bus.
+> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure Cosmos DB or Azure Service Bus.
 
 ## Clone the Azure Developer CLI template
 
@@ -67,7 +67,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 The `azd` template contains all the code needed to create the services, but you need to sign in to your Azure account in order to host the application on AKS.
 
-1. Sign in to your account using the [`azd auth login`][az-auth-login] command.
+1. Sign in to your account using the [`azd auth login`][azd-auth-login] command.
 
     ```azdeveloper
     azd auth login
@@ -97,7 +97,7 @@ The `azd` template contains all the code needed to create the services, but you 
 
 ## Create and deploy resources for your cluster
 
-`azd` runs all the hooks inside of the [`azd-hooks` folder](https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks) to preregister, provision, and deploy the application services.
+`azd` runs all the hooks inside of the [`azd-hooks` folder][azd-hooks-folder] to preregister, provision, and deploy the application services.
 
 The `azd` template for this quickstart creates a new resource group with an AKS cluster and an Azure key vault. The key vault stores client secrets and runs the services in the `pets` namespace
 
@@ -135,7 +135,7 @@ The `azd` template for this quickstart creates a new resource group with an AKS 
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed during `azd up`.
 
 1. Set your namespace as the demo namespace `pets` using the [`kubectl set-context`][kubectl-set-context] command.
 
@@ -143,7 +143,11 @@ When the application runs, a Kubernetes service exposes the application front en
     kubectl config set-context --current --namespace=pets
     ```
 
-2. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get-pods] command. Make sure all pods are `Running` before proceeding.
+2. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make sure all pods are `Running` before proceeding.
+
+    ```console
+    kubectl get pods
+    ```
 
 3. Check for a public IP address for the store-front application and monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
@@ -175,7 +179,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 Once you're finished with the quickstart, clean up unnecessary resources to avoid Azure charges.
 
-1. Delete all the resources created in the quickstart using the [`azd down`][az-down] command.
+1. Delete all the resources created in the quickstart using the [`azd down`][azd-down] command.
 
     ```azdeveloper
     azd down
@@ -215,26 +219,18 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
+[azd-hooks-folder]: https://github.com/Azure-Samples/aks-store-demo/tree/main/azd-hooks
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-set-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config-set-context
-[kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get-pods
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[azure-resource-group]: ../../azure-resource-manager/management/overview.md
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
 [azd-init]: /azure/developer/azure-developer-cli/reference#azd-init
 [azd-up]: /azure/developer/azure-developer-cli/reference#azd-up
-[az-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
+[azd-down]: /azure/developer/azure-developer-cli/reference#azd-down
+[azd-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
 [azd-install]: /azure/developer/azure-developer-cli/install-azd
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

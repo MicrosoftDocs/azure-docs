@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.topic: quickstart
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # Quickstart: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 

@@ -245,7 +245,7 @@ You can configure your FQDN using one of the following methods:
 * Set the DNS label using Azure CLI or Azure PowerShell.
 * Set the DNS label using Helm chart settings.
 
-For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#dns-name-label).
+For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#domain-name-label).
 
 #### Set the DNS label using Azure CLI or Azure PowerShell
 

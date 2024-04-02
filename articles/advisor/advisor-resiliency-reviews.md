@@ -13,7 +13,7 @@ ms.date: 03/8/2024
 
 Azure Advisor Resiliency Reviews help you focus on the most important recommendations to optimize your cloud deployments and improve resiliency. Review recommendations are tailored to the needs of your workload and include custom ones curated by your account team using Azure best practices and prioritized automated recommendations.
 
-You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Reviews), which serves as your single-entry point for Microsoft best practices.
+You can find resiliency reviews in [Azure Advisor](https://aka.ms/azureadvisordashboard), which serves as your single-entry point for Microsoft best practices.
 
 In this article, you learn how to enable and access resiliency reviews prepared for you, triage, manage, implement, and track recommendations' lifecycles.
 
@@ -72,7 +72,7 @@ You can find resiliency reviews created by your account team in the left navigat
 
 If there's a new review available to you, you see a notification banner on top of the Advisor pages. A **New** review is one with all recommendations in the *Pending* state.
 
-1. Open the Azure portal and navigate to [Advisor](https://aka.ms/Advisor_Reviews).
+1. Open the Azure portal and navigate to [Advisor](https://aka.ms/azureadvisordashboard).
 Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**.
 1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states shown next, or choose *All* (the default) to see all reviews. If you don’t see a review for your subscription, make sure the review subscription is included in the global portal filter. You might need to update the filter to see the reviews for a subscription.
 
@@ -86,7 +86,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
 > [!NOTE]
-> If you have no reviews, the **Reviews** menu item in the left navigation is greyed out.
+> If you have no reviews, the **Reviews** menu item in the left navigation is hidden.
 
 ### Review recommendations
 

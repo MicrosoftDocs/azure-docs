@@ -52,7 +52,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
 speechConfig.speechSynthesisLanguage = "en-US";
-speechConfig.speechSynthesisVoiceName = "en-US-AvaNeural";   
+speechConfig.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";   
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech," and you select es-ES-ElviraNeural, the text is spoken in English with a Spanish accent.
