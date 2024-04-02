@@ -87,7 +87,8 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 
 ## Limitations
 
-- Private Endpoint can't be used with enterprise-grade edge. 
+- Private Endpoint can't be used with enterprise-grade edge.
+- Custom domains setup using A Records (DNS) are not supported with enterprise-grade edge.
 
 ## Next steps
 
