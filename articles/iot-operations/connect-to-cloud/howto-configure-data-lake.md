@@ -247,7 +247,7 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
         - `guids`: Specifies the GUIDs of the workspace and the lakehouse. Use either this field or `names`. Don't use both. It has the following subfields:
         - `workspaceGuid`: The GUID of the workspace.
         - `lakehouseGuid`: The GUID of the lakehouse.
-        - `fabricePath`: The location of the data in the Fabric workspace. It can be either `tables` or `files`. If it's `tables`, the data is stored in the Fabric OneLake as tables. If it's `files`, the data is stored in the Fabric OneLake as files. If it's `files`, the `databaseFormat` must be `parquet`.
+        - `fabricPath`: The location of the data in the Fabric workspace. It can be either `tables` or `files`. If it's `tables`, the data is stored in the Fabric OneLake as tables. If it's `files`, the data is stored in the Fabric OneLake as files. If it's `files`, the `databaseFormat` must be `parquet`.
         - `authentication`: The authentication field specifies the type and credentials for accessing the Microsoft Fabric OneLake. It can only be `systemAssignedManagedIdentity` for now. It has one subfield:
         - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
             - `audience`: A string for the managed identity token audience and it must be `https://storage.azure.com`.
