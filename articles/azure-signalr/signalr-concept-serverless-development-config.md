@@ -141,7 +141,7 @@ You could send messages, manage groups, or manage clients by accessing the membe
 - `ServerlessHub.UserGroups` for managing users with groups, such as adding users to groups, removing users from groups.
 - `ServerlessHub.ClientManager` for checking connections existence, closing connections, etc.
 
-### [Strongly Typed Hub]
+### Strongly Typed Hub
 
 [Strongly typed hub](/aspnet/core/signalr/hubs?#strongly-typed-hubs) allows you to use strongly typed methods when you send messages to clients. To use strongly typed hub in class based model, extract client methods into an interface `T`, and make your hub class derived from `ServerlessHub<T>`.
 
@@ -173,7 +173,8 @@ public class Functions : ServerlessHub<IChatClient>
 }
 ```
 
- > You can get a complete project sample from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-ClassBased/).
+> [!IMPORTANT]
+> You can get a complete project sample from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-ClassBased/).
 
 ### Unified connection string setting in one place.
 
@@ -185,7 +186,8 @@ public class Functions : ServerlessHub<IChatClient>
 
 It allows you to customize where the SignalR Service bindings look for connection string. If it's absent, the default value `AzureSignalRConnectionString` is used.
 
-> Please note that `SignalRConnection` attribute doesn't change the connection string setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub. You should specify the connection string setting for each SignalR trigger if you want to customize it.
+> [!IMPORTANT]
+> `SignalRConnection` attribute doesn't change the connection string setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub. You should specify the connection string setting for each SignalR trigger if you want to customize it.
 
 # [In-process model](#tab/in-process)
 
@@ -291,7 +293,6 @@ public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext,
 {
 }
 ```
-
 ---
 
 ## Client development

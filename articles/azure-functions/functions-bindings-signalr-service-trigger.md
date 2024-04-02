@@ -35,7 +35,8 @@ The following sample shows a C# function that receives a message event from clie
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
-Class based model of SignalR Service bindings in C# isolated worker doesn't optimize how you write SignalR triggers due to the limitation of C# worker model. You can use class based model for SignalR input binding and output bindings. For more information about class based model, see [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model).
+> [!IMPORTANT]
+> Class based model of SignalR Service bindings in C# isolated worker doesn't optimize how you write SignalR triggers due to the limitation of C# worker model. You can use class based model for SignalR input binding and output bindings. For more information about class based model, see [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model).
 
 # [In-process model](#tab/in-process)
 
