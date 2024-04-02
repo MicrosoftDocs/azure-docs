@@ -19,7 +19,7 @@ This quickstart describes how to use the `az aosm` Azure CLI extension to create
 
 ## Create input file
 
-Create an input file for publishing the Network Service Design. Execute the following command to generate the input configuration file for the Network Service Design (NSD).
+Create an input file for publishing the Network Service Design Version and associated resources. Execute the following command to generate the input configuration file for the Network Service Design Version (NSDV).
 
 ```azurecli
 az aosm nsd generate-config
@@ -97,29 +97,30 @@ Here's a sample **input-cnf-nsd.jsonc**:
   - _type_ - Type of Network Function. Valid values are cnf or vnf.
   - _multiple_instances_ - Valid values are true or false. Controls whether the NSD should allow arbitrary numbers of this type of NF. If set to false only a single instance is allowed. Only supported on VNFs. For CNFs this value must be set to false.
 
-## Build the Network Service Design (NSD)
+## Build the Network Service Design Version (NSDV)
 
-Initiate the build process for the Network Service Definition (NSD) using the following command:
+Initiate the build process for the NSDV using the following command:
 
 ```azurecli
 az aosm nsd build -f input-cnf-nsd.jsonc
 ```
 
-After the build process completes, review the generated files to gain insights into the NSD's architecture and structure.
+The build process generates a folder called `nsd-cli-output`. After the build process completes, review the generated files to gain insights into the NSDV architecture and structure, and that of the associated resources.
 
 These files are created:
 
-| Files                       | Description                                                                                |
-| --------------------------- | ------------------------------------------------------------------------------------------ |
-| **artifact_manifest.bicep** | A bicep template for creating the Publisher and artifact stores.                           |
-| **configMappings**          | Converts the config group values inputs to the deployment parameters required for each NF. |
-| **nsd_definition.bicep**    | A bicep template for creating the NSDV itself.                                             |
-| **schemas**                 | Defines to the inputs required in the config group values for this NSDV.                   |
-| **nginx-nfdg_nf.bicep**     | A bicep template for deploying the NF. Uploaded to the artifact store.                     |
+| Directory/File             | Description                                                                                                                                    |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| nsdDefinition/config-group-schema.json  | Defines the schema for the deployment parameters required to create a Site Network Service (SNS) from this NSDV.                  |
+| nsdDefinition/nginx-nsd-mappings.json   | Maps the parameters for the NSDV to the values required for the NF ARM template.                                                  |
+| nsdDefinition/deploy.bicep              | Bicep template for creating the NSDV itself.                                                                                      |
+| artifacts                               | Contains a bicep template for the NF ARM template, as well as a list of artifacts to be included in the artifact manifest.        |
+| artifactManifest/deploy.bicep           | Bicep template for creating the artifact manifest.                                                                                |
+| base/deploy.bicep                       | Bicep template for creating the publisher, network service design group, and artifact store resources                             |
 
-## Publish the Network Service Design (NSD)
+## Publish the Network Service Design Version (NSDV)
 
-To publish the Network Service Design (NSD) and its associated artifacts, issue the following command:
+To publish the NSDV and its associated artifacts, issue the following command:
 
 ```azurecli
 az aosm nsd publish -f input-cnf-nsd.jsonc
