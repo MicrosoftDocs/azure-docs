@@ -27,8 +27,8 @@ Follow the documents to use dynamic configuration in Azure Kubernetes Service.
 
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
 
 ## Use a feature flag
 
