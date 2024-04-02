@@ -1,16 +1,24 @@
 ---
 title: What's new in Azure Communications Gateway?
-description: Discover what's new in Azure Communications Gateway for Operator Connect, Teams Phone Mobile and Microsoft Teams Direct Routing. Learn how to get started with the latest features.
+description: Discover what's new in Azure Communications Gateway. Learn how to get started with the latest features.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 03/01/2024
+ms.date: 04/03/2024
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## April 2024
+
+### Support for Azure Operator Call Protection Preview
+
+From April 2023, you can use Azure Communications Gateway to provide Azure Operator Call Protection Preview. Azure Operator Call Protection uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed. It's built on Azure Communications Gateway.
+
+For more information about Azure Operator Call Protection, see [What is Azure Operator Call Protection Preview?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json). For deployment instructions, see [Set up Azure Operator Call Protection Preview](../operator-call-protection/set-up-operator-call-protection.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
 
 ## March 2024
 
