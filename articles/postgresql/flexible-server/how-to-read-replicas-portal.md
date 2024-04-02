@@ -351,7 +351,7 @@ Replace `<source-server-name>`, and `<resource-group>` with your specific values
 
 #### [REST API](#tab/restapi)
 
-Initiate an `HTTP PUT` request by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+Initiate an `HTTP PUT` request by using the [servers create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -369,7 +369,7 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 }
 ```
 
-After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET` request by using [list by server replicas API](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2022-12-01/Replicas.json): 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET` request by using [replicas list by server API](/rest/api/postgresql/flexibleserver/replicas/list-by-server): 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/replicas?api-version=2022-12-01
@@ -774,7 +774,7 @@ Replace `<resource-group>`, `<source-server-name>` and `<location>` with your sp
 
 #### [REST API](#tab/restapi)
 
-You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+You can create a secondary read replica by using the [servers create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -990,7 +990,7 @@ az postgres flexible-server delete \
 Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the replica server name you wish to delete.
 
 #### [REST API](#tab/restapi)
-To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+To delete a primary or replica server, use the [servers delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -1028,7 +1028,7 @@ az postgres flexible-server delete \
 Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the primary server name you wish to delete.
 
 #### [REST API](#tab/restapi)
-To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+To delete a primary or replica server, use the [servers delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}?api-version=2022-12-01
