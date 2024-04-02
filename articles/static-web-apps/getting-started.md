@@ -37,7 +37,6 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 1. Select **View** > **Extensions**.
 1. In the **Search Extensions in Marketplace**, type **Azure Static Web Apps**.
 1. Select **Install** for **Azure Static Web Apps**.
-1. The extension installs into Visual Studio Code.
 
 ## Create a static web app
 
@@ -54,8 +53,6 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
 1. Select *Azure Static Web Apps: Create static web app...*.
 
-1. Select configuration values based on choice of framework.
-
 1. Select your Azure subscription.
 
 1. Enter **my-first-static-web-app** for the application name.
@@ -68,41 +65,41 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     | Setting | Value |
     | --- | --- |
-    | Framework | Select **Custom**. |
-    | Location of application code | Enter **/src**. |
-    | Build location | Enter **/src**. |
+    | Framework | Select **Custom** |
+    | Location of application code | Enter `/src` |
+    | Build location | Enter `/src` |
 
     # [Angular](#tab/angular)
 
     | Setting | Value |
     | --- | --- |
-    | Framework | Select **Angular**. |
-    | Location of application code | Enter **/**. |
-    | Build location | Enter **dist/angular-basic**. |
+    | Framework | Select **Angular** |
+    | Location of application code | Enter `/` |
+    | Build location | Enter `dist/angular-basic` |
 
     # [Blazor](#tab/blazor)
 
     | Setting | Value |
     | --- | --- |
-    | Framework | Select **Blazor**. |
-    | Location of application code | Enter **Client**. |
-    | Build location | Enter **wwwroot**. |
+    | Framework | Select **Blazor** |
+    | Location of application code | Enter `Client` |
+    | Build location | Enter `wwwroot` |
 
     # [React](#tab/react)
 
     | Setting | Value |
     | --- | --- |
-    | Framework | Select **React**. |
-    | Location of application code | Enter **/**. |
-    | Build location | Enter **build**. |
+    | Framework | Select **React** |
+    | Location of application code | Enter `/` |
+    | Build location | Enter `build` |
 
     # [Vue](#tab/vue)
 
     | Setting | Value |
     | --- | --- |
-    | Framework | Select **Vue.js**. |
-    | Location of application code | Enter **/**. |
-    | Build location | Enter **dist**. |
+    | Framework | Select **Vue.js** |
+    | Location of application code | Enter `/` |
+    | Build location | Enter `dist` |
 
     ---
 
@@ -110,13 +107,13 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
+    If GitHub presents you with a button labeled **Enable Actions on this repository**, select the button to allow the build action to run on your repository.
+
     As the deployment is in progress, the Visual Studio Code extension reports the build status to you.
 
     :::image type="content" source="media/getting-started/extension-waiting-for-deployment.png" alt-text="Waiting for deployment":::
 
     Once the deployment is complete, you can navigate directly to your website.
-
-    If GitHub presents you with a button labeled **Enable Actions on this repository**, select the button to allow the build action to run on your repository.
 
 1. To view the website in the browser, right-click the project in the Static Web Apps extension, and select **Browse Site**.
 
