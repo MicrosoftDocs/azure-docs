@@ -12,15 +12,56 @@
 
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
-| Resource | Free | Basic <sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
-| -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Service level agreement (SLA) <sup>2</sup>  | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size) <sup>3</sup> | 50&nbsp;MB |2&nbsp;GB or 15&nbsp;GB |25&nbsp;GB or 160&nbsp;GB |100&nbsp;GB or 350&nbsp;GB |200&nbsp;GB or 700&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
-| Partitions | N/A |1 or 3 |12 |12 |12 |3 |12 |12 |
-| Replicas | N/A | 1 or 3 |12 |12 |12 |12 |12 |12 |
+Service level agreements (SLAs) apply to billable services having two or more replicas for query workloads, or three or more replicas for query and indexing workloads. The number of partitions isn't an SLA consideration. For more information, see [Reliability in Azure AI Search](/azure/search/search-reliability#high-availability).
 
-<sup>1</sup> Basic services created after April 3, 2024 can have up to 3 partitions and 3 replicas, and a total of 9 search units (SU) if you want to use the full quota of both.
+Free services don't have fixed partitions or replicas and they share resources with other subscribers.
 
-<sup>2</sup> Service level agreements apply to billable services having dedicated resources. Free services and preview features have no SLA. For billable services, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLAs. Three or more replicas are required for query and indexing (read-write) SLAs. The number of partitions isn't an SLA consideration. See [Reliability in Azure AI Search](/azure/search/search-reliability#high-availability) to learn more about replicas and high availability.
+### Before April 3, 2024
 
-<sup>3</sup> Partition size varies by [service creation date](/azure/search/vector-search-index-size#how-to-determine-service-creation-date). Lower sizes apply to services created before April 3, 2024. Higher partition sizes apply to services created after April 3, 2024 in [supported regions](/azure/search/search-create-service-portal#choose-a-region). 
+| Resource | Free | Basic | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+|----------|-------|------|----|----|----|----------- |----|----|
+| Service level agreement (SLA)| No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
+| Storage (partition size) | 50&nbsp;MB |2&nbsp;GB |25&nbsp;GB |100&nbsp;GB |200&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
+| Partitions | N/A |1 |12 |12 |12 |3 |12 |12 |
+| Replicas | N/A |3 |12 |12 |12 |12 |12 |12 |
+
+### After April 3, 2024
+
+For new services created after April 3, 2024:
+
++ Basic tier can have up to three partitions and three replicas, and a total of nine search units (SU).
++ Basic, S1, S2, S3 have more storage per partition, ranging from 3-7 times more, depending on the tier.
++ Your new search service must be in a [supported region](#supported-regions-providing-larger-partitions) to get the extra capacity for Basic and other tiers.
+
+Currently, there's no in-place upgrade. You should [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
+
+| Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+|----------|------|--------|----|----|----|------------|----|----|
+| Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
+| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 350&nbsp;GB | 700&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
+| Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
+| Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
+
+### Supported regions providing larger partitions
+
+Services created after April 3, 2024 must be in one of the following regions to get the extra storage. Watch for announcements in [What's New in Azure AI Search](/azure/search/whats-new) for expansion to other regions.
+
+| Country | Regions providing extra capacity per partition |
+|---------|------------------------------------------------|
+| **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
+| **United Kingdom** | UK South​, UK West​ ​ |
+| **United Arab Emirates** | UAE North​​ |
+| **Switzerland** | Switzerland West​ |
+| **Sweden** | Sweden Central​​ |
+| **Poland** | Poland Central​​ |
+| **Norway** | Norway East​​ |
+| **Korea** | Korea Central, Korea South​ ​ |
+| **Japan** | Japan East, Japan West​ |
+| **Italy** | Italy North​​ |
+| **India** | Central India, Jio India West​ ​ |
+| **France** | France Central​​ |
+| **Europe** | North Europe​​ |
+| **Canada** | Canada Central​, Canada East​​ |
+| **Bazil** | Brazil South​​ |
+| **Asia Pacific** | East Asia, Southeast Asia​ ​ |
+| **Australia** | Australia East​, Australia Southeast​​ |

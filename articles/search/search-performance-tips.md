@@ -105,7 +105,7 @@ The tier of your search service and the number of replicas/partitions also have 
 
 ### Tip: Create a new high capacity search service
 
-Basic and standard services created [in supported regions](search-create-service-portal.md#choose-a-region) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
+Basic and standard services created [in supported regions]([supported regions](search-limits-quotas-capacity.md#supported-regions-providing-larger-partitions) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
 
 ### Tip: Upgrade to a Standard S2 tier
 
