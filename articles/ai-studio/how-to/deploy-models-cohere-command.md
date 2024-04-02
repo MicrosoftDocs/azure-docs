@@ -28,10 +28,25 @@ You can browse the Cohere family of models in the [Model Catalog](model-catalog.
 
 In this article, you learn how to use Azure AI Studio to deploy the Cohere models as a service with pay-as-you-go billing.
 
-* Cohere Command R 
-(description needed)
-* Cohere Command R+
-(description needed)
+### Cohere Command R 
+Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering. 
+
+Highlight features of Command R include:
+
+* Strong accuracy on RAG and Tool Use applications
+* Optimized for scalability with competitive pricing
+* Strong capabilities across 10 key languages
+* 128k context length
+  
+### Cohere Command R+
+Command R+ is Cohere’s highly performant and scalable generative large language model. It excels at reasoning, summarization, and question answering and can be optimized for a variety of use cases across industries. 
+
+Key features of Command R+ include:
+
+* Strong Accuracy on RAG use cases
+* Extensive Tool Use capabilities
+* Multilingual across 10 key global business languages
+* Context length of 128k tokens
 
 ## Deploy with pay-as-you-go
 
