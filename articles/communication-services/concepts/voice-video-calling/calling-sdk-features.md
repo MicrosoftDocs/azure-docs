@@ -99,7 +99,7 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 | Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 |      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-
+| Notifications    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 <sup>2</sup> The Share Screen capability can be achieved using Raw Media APIs. To learn more visit [the raw media access quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).

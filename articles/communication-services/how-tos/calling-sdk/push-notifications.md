@@ -18,9 +18,17 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 Here, we'll learn how to enable push notifications for Azure Communication Services calls. Setting these up will let your users know when they have an incoming call which they can then answer.
 
+## TTL token
+
+The Time To Live (TTL) token is a setting that determines the length of time a notification token stays valid before becoming invalid.  This setting is useful for applications where user engagement does not require daily interaction but remains critical over longer periods.
+
+The TTL configuration allows the management of push notifications' lifecycle, reducing the need for frequent token renewals while ensuring that the communication channel between the application and its users remains open and reliable for extended durations.
+
+Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**. You can enter this value and adjust it accordingly to your needs.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
