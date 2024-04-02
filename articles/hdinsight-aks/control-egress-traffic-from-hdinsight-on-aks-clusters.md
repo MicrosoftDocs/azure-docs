@@ -40,7 +40,7 @@ In the following sections, we describe each method in detail.
 
 ### Outbound with load balancer
 
-The load balancer is used for egress through an HDInsight on AKS assigned public IP. When you configure the outbound type of loadBalancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
+The load balancer is used for egress through an HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
 
 You can configure the outbound with load balancer configuration using the Azure portal.
 
@@ -68,7 +68,7 @@ You must deploy the HDInsight on AKS cluster into an existing virtual network wi
 
 This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, or proxy, so a public IP assigned to the standard load balancer or appliance can handle the Network Address Translation (NAT). 
 
-HDInsight on AKS doesn't configure outbound public IP address or outbound rules, unlike the Outbound with Loadbalancer type clusters as described in the above section. Your UDR is the only source for egress traffic. 
+HDInsight on AKS doesn't configure outbound public IP address or outbound rules, unlike the Outbound with load balancer type clusters as described in the above section. Your UDR is the only source for egress traffic. 
 
 For inbound traffic, you are required to choose based on the requirements to choose a private cluster (for securing traffic on AKS control plane / API server) and select the private ingress option available on each of the cluster shape to use public or internal loadbalancer based traffic. 
 
