@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 04/02/2024
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -30,9 +30,9 @@ The associated versions for this update are:
 - Device software version: Azure Stack Edge 2403 (3.2.2642.2453).
 - Device Kubernetes version: Azure Stack Kubernetes Edge 2403 (3.2.2642.2453).
 - Device Kubernetes workload profile: Other workloads.
-- Kubernetes server version: v1.26.3.
+- Kubernetes server version: v1.27.8.
 - IoT Edge version: 0.1.0-beta15.
-- Azure Arc version: 1.13.4.
+- Azure Arc version: 1.14.5.
 - GPU driver version: 535.104.05.
 - CUDA version: 12.2.
 
@@ -63,7 +63,7 @@ Supported update paths:
 
 If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2403.
 
-Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2312:
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2403:
 
 1. Update your device version to 2303.
 1. Update your Kubernetes version to 2210.
@@ -86,7 +86,7 @@ The procedure to update an Azure Stack Edge is the same whether it's a single-no
 
 - **Single node** - For a single node device, installing an update or hotfix is disruptive and restarts your device. Your device will experience a downtime for the entire duration of the update.
 
-- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster might experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the device node when update is in progress. 
+- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster might experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the device node when an update is in progress. 
 
     The Kubernetes worker VMs goes down when a node goes down. The Kubernetes master VM fails over to the other node. Workloads continue to run. For more information, see [Kubernetes failover scenarios for Azure Stack Edge](azure-stack-edge-gpu-kubernetes-failover-scenarios.md).
 
@@ -117,11 +117,10 @@ Each of these steps is described in the following sections.
 
 ## Use the Azure portal
 
-We recommend that you install updates through the Azure portal. The device automatically scans for updates once a day. Once the updates are available, you see a notification in the portal. You can then download and install the updates.
+We recommend that you install updates through Azure portal. The device automatically scans for updates once a day. Once the updates are available, you see a notification in the portal. You can then download and install the updates.
 
 > [!NOTE]
 > - Make sure that the device is healthy and status shows as **Your device is running fine!** before you proceed to install the updates.
-
 
 Depending on the software version that you're running, install process might differ slightly. 
 
@@ -278,7 +277,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI isn't accessible in this duration.
    
-6. After the restart is complete, you're taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2312**. 
+6. After the restart is complete, you're taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2403**. 
 
 
 7. You'll now update the Kubernetes software version. Select the remaining two Kubernetes files together (file with the *Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe* suffix) and repeat the above steps to apply update.   

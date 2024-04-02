@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/01/2024
+ms.date: 04/02/2024
 ms.author: alkohli
 ---
 
@@ -117,7 +117,7 @@ The following table provides a summary of known issues carried over from the pre
 |**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is at end of life. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). Although the solution doesn't stop working past end of life, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md#version-history) with the latest updates and features on their Azure Stack Edge, we **recommend** that you deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. For more information, see [Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM](azure-stack-edge-move-to-self-service-iot-edge.md). |
 |**27.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you'll need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
 |**28.**|AKS Update |The AKS Kubernetes update might fail if one of the AKS VMs isn't running. This issue might be seen in the two-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
-|**29.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |
+|**29.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |  |
 
 ## Next steps
 
