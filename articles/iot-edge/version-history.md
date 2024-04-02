@@ -3,7 +3,7 @@ title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/24/2022
+ms.date: 04/02/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ---
@@ -20,8 +20,8 @@ Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/p
 
 The IoT Edge documentation on this site is available for two different versions of the product. Currently, the two supported versions are:
 
-* **IoT Edge 1.5 (LTS)** is the latest long-term support (LTS) version of IoT Edge and contains content for new features and capabilities that are in the latest stable release. The documentation for this version covers all features and capabilities from all previous versions through 1.5. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version.
-* **IoT Edge 1.4 (LTS)** is the previous long-term support (LTS) version of IoT Edge. The documentation for this version is included with IoT Edge 1.5.
+* **IoT Edge 1.5 (LTS)** is the latest long-term support (LTS) version of IoT Edge and contains content for new features and capabilities that are in the latest stable release. The documentation for this version covers all features and capabilities from all previous versions through 1.5.
+* **IoT Edge 1.4 (LTS)** is the previous long-term support (LTS) version of IoT Edge. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW). The documentation for this version is included with IoT Edge 1.5.
 
 **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. It is no longer supported. The [documentation has been archived](/previous-versions/azure/iot-edge).
 
