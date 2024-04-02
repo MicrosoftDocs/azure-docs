@@ -277,29 +277,22 @@ const state = remoteParticipant.state;
 ## Check call properties
 
 Get the unique ID (string) for a call:
-
 ```js
 const callId: string = call.id;
 ```
 
 Get the local participant Id:
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const participantId: string = call.info.participantId;
 ```
 *Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
 
 Retrieve the thread ID if joining a Teams meeting:
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const threadId: string | undefined = call.info.threadId;
 ```
 
 Get information about the call:
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```
