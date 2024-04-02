@@ -23,7 +23,7 @@ You can either grant the endpoint identity **AzureML Data Scientist** on workspa
 
 ## Upstream request timeout issue when consuming the endpoint
 
-If you use CLI or SDK to deploy the flow, you may encounter timeout error. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+If you use CLI or SDK to deploy the flow, you may encounter timeout error. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. To learn more, see [deployment schema](../reference-yaml-deployment-managed-online.md).
 
 ```yaml
 request_settings:
@@ -51,7 +51,7 @@ For any other vulnerabilities of managed online deployments, Azure Machine Learn
 
 ## "MissingDriverProgram Error" or "Could not find driver program in the request"
 
-If you deploy your flow encounter the following error, it might be related to the deployment environment.
+If you deploy your flow and encounter the following error, it might be related to the deployment environment.
 
 ```text
 'error': 
@@ -106,7 +106,7 @@ inference_config:
 
 Sometimes, you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
 
-- Model is not powerful enough (ex. use gpt over text-ada)
+- Model is not powerful enough (example: use gpt over text-ada)
 - Index query is not optimized and taking too long
 - Flow has many steps to process
 
@@ -114,12 +114,12 @@ Consider optimizing the endpoint with above considerations to improve the perfor
 
 ## Unable to fetch deployment schema
 
-After you deploy the endpoint and want to test it in the **Test tab** in the endpoint detail page, if the **Test tab** shows **Unable to fetch deployment schema** like following, you can try the following 2 methods to mitigate this issue:
+After you deploy the endpoint and want to test it in the **Test tab** in the endpoint detail page, if the **Test tab** shows **Unable to fetch deployment schema**, you can try the following two methods to mitigate this issue:
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
-- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-a-runtime-on-the-ui) and rerun the flow in the latest runtime and then deploy the flow again.
+- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. To update the runtime, follow [Update a runtime on the UI](./how-to-create-manage-runtime.md#update-a-runtime-on-the-ui) and rerun the flow in the latest runtime and then deploy the flow again.
 
 ## Access denied to list workspace secret
 
@@ -128,4 +128,4 @@ If you encounter an error like "Access denied to list workspace secret", check w
 ## Next steps
 
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
-- - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
+- Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
