@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.2.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.3.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -21,6 +21,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |Name|Description|Required|Type|
 |---|---|---|---|
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
+|replicaDiscoveryEnabled|The settings for replica discovery. When App Configuration stores with geo-replication enabled, the Kubernetes provider will automatically discover replicas and attempt to connect to them when it fails to connect to user-provided endpoint. If the property is absent, a default value of `true` is used.|false|bool|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
@@ -79,6 +80,7 @@ If the `spec.configuration.selectors` property isn't set, all key-values with no
 |---|---|---|---|
 |keyFilter|The key filter for querying key-values.|true|string|
 |labelFilter|The label filter for querying key-values.|false|string|
+|snapshotName|The snapshot for querying its contained key-values.|false|string|
 
 The `spec.configuration.refresh` property has the following child properties.
 
@@ -99,7 +101,7 @@ The `spec.secret` property has the following child properties. It is required if
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|target|The destination of the retrieved secrets in Kubernetes.|true|object|
+|target|The destination of the retrieved secrets in Kubernetes. `Opaque`, `kubernetes.io/tls` type are supported.|true|object|
 |auth|The authentication method to access Key Vaults.|false|object|
 |refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults is not refreshed unless the corresponding Key Vault references are reloaded.|false|object|
 
@@ -147,6 +149,7 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 |---|---|---|---|
 |keyFilter|The key filter for querying feature flags.|true|string|
 |labelFilter|The label filter for querying feature flags.|false|string|
+|snapshotName|The snapshot for querying its contained feature flags.|false|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
 
@@ -322,6 +325,26 @@ spec:
         labelFilter: common
       - keyFilter: app1*
         labelFilter: development
+```
+
+### Snapshot
+
+Use the `configuration.selectors.snapshotName` property to specify a snapshot and its contained key-values will be downloaded.
+
+The following example downloads key-values from specified snapshot.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - snapshotName: snapshot_app1
 ```
 
 ### Key prefix trimming
