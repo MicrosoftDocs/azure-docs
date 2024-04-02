@@ -51,7 +51,7 @@ To store your connection configuration into an App Configuration, start by conne
 
     :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_auth.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection auth.":::
 
-1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules** when your App Configuration open to public network by default.
+1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules** when your App Configuration is opened to public network by default.
 
     > [!TIP]
     > Service Connector will write configuration to App Configuration directly, so you need to enable the App Configuration public access when using this feature.
