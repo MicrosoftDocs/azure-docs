@@ -1363,7 +1363,7 @@
       href: how-to-manage-optimize-cost.md
     - name: Monitor
       href: monitor-azure-machine-learning.md
-    - name: Secure coding
+    - name: Secure code
       displayName: security threat
       href: concept-secure-code-best-practice.md
     - name: Audit and manage

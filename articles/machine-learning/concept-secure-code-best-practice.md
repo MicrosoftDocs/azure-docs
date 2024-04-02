@@ -12,9 +12,9 @@ ms.reviewer: deeikele
 ms.date: 04/02/2024
 ---
 
-# Best practices for secure code with Azure Machine Learning
+# Best practices for secure code
 
-In Azure Machine Learning, you can upload files and content from any source into Azure. Content within Jupyter notebooks or scripts that you load can potentially read data from your sessions, access data within your organization in Azure, or run malicious processes on your behalf.
+In Azure Machine Learning, you can upload files and content from any source into Azure. Content within Jupyter notebooks or scripts that you load can potentially read data from your sessions, access sensitive data within your organization in Azure, or run malicious processes on your behalf.
 
 > [!IMPORTANT]
 > Only run notebooks or scripts from trusted sources. For example, where you or your security team have reviewed the notebook or script.
@@ -44,7 +44,7 @@ __Mitigations provided by Azure Machine Learning__:
 * __Image URL__ and __markdown links__ are sent to a Microsoft-owned endpoint, which checks for malicious values. If a malicious value is detected, the endpoint rejects the request.
 
 __Recommended actions__:
-* Verify that you trust the contents of files before uploading to the studio. When uploading, you must acknowledge that you're uploading trusted files.
+* Verify that you trust the contents of files before uploading to the studio. You must acknowledge that you're uploading trusted files.
 * When selecting a link to open an external application, you're prompted to trust the application.
 
 ## Azure Machine Learning compute instance
@@ -59,7 +59,7 @@ __Mitigations provided by Azure Machine Learning__:
 * None. Jupyter and JupyterLab are open-source applications hosted on the Azure Machine Learning compute instance.
 
 __Recommended actions__:
-* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you're uploading trusted files.
+* Verify that you trust the contents of files before uploading. You must acknowledge that you're uploading trusted files.
 
 ## Report security issues or concerns
 
