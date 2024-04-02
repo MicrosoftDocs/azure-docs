@@ -26,17 +26,25 @@ This article shows you how to assess Java web apps for migration to [Azure Kuber
 
 In this tutorial, you'll learn how to:
 
-> [!div class="checklist"]
 ::: zone pivot="asp-net"
+> [!div class="checklist"]
 > * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
-::: zone-end
-::: zone pivot="java"
 > * Choose a set of discovered Java web apps to assess for migration to AKS.
-::: zone-end
 > * Provide assessment configurations such as Azure Reserved Instances, target region etc.
 > * Get insights about the migration readiness of their assessed apps.
 > * Get insights on the AKS Node SKUs that can optimally host and run these apps.
 > * Get the estimated cost of running these apps on AKS.
+::: zone-end
+
+::: zone pivot="java"
+> [!div class="checklist"]
+> * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
+> * Choose a set of discovered Java web apps to assess for migration to AKS.
+> * Provide assessment configurations such as Azure Reserved Instances, target region etc.
+> * Get insights about the migration readiness of their assessed apps.
+> * Get insights on the AKS Node SKUs that can optimally host and run these apps.
+> * Get the estimated cost of running these apps on AKS.
+::: zone-end
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible and don't show all possible settings and paths.
@@ -81,20 +89,20 @@ In this tutorial, you'll learn how to:
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
-4. After reviewing the assessment settings, select **Next: Select servers to assessext**.
+4. After reviewing the assessment settings, select **Next: Select servers to assess**.
 
 1. Under the **Select servers to assess** tab, do the following:
-    1. **Assessment name**: Specify a name for the assessment.
-    1. **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
-    1. **Appliance name**: Select the appliance.
+    - **Assessment name**: Specify a name for the assessment.
+    - **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
+    - **Appliance name**: Select the appliance.
     ::: zone pivot="asp-net"
-    1. **Web app type**: Select **ASP.NET**.
+    - **Web app type**: Select **ASP.NET**.
     ::: zone-end
     ::: zone pivot="java"
-    1. **Web app type**: Select **Java**.
+    - **Web app type**: Select **Java**.
     ::: zone-end
-    1. Select the servers, which host the web apps to be assessed from the table.
-    1. Select **Next** to review the high-level assessment details.
+    - Select the servers, which host the web apps to be assessed from the table.
+    - Select **Next** to review the high-level assessment details.
 
         :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
 

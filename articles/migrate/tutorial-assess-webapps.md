@@ -86,17 +86,17 @@ To run an assessment, follow these steps:
     1. Select **Save** if you made any changes.
 1. On the **Create assessment** page, select **Next: Select servers to assessext**.
 1. Under the **Select servers to assess** tab, do the following:
-    1. **Assessment name**: Specify a name for the assessment.
-    1. **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
-    1. **Appliance name**: Select the appliance.
+    - **Assessment name**: Specify a name for the assessment.
+    - **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
+    - **Appliance name**: Select the appliance.
     ::: zone pivot="asp-net"
-    1. **Web app type**: Select **ASP.NET**.
+    - **Web app type**: Select **ASP.NET**.
     ::: zone-end
     ::: zone pivot="java"
-    1. **Web app type**: Select **Java**.
+    - **Web app type**: Select **Java**.
     ::: zone-end
-    1. Select the servers that you want to add to the group from the table.
-    1. Select **Next**.
+    - Select the servers that you want to add to the group from the table.
+    - Select **Next**.
 
    :::image type="content" source="./media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
 
