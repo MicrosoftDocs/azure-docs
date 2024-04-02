@@ -1,25 +1,24 @@
 ---
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
-ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 04/03/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
-> [!NOTE]
-> Based on feedback from users, we've renamed **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
-> All Azure Backup users have now been upgraded to **Instant Restore**.
+This article describes the improved backup and restore performance of  Instant Restore capability in Azure Backup.
 
-The new model for Instant Restore provides the following feature enhancements:
+## Key capabilities
+
+The Instant Restore feature provides the following capabilities:
 
 * Ability to use snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
-* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default snapshot retention value is configurable to any value between 1 to 5 days.
+* Reduces backup and restore times by retaining snapshots locally, for *2 days* using Standard policy and for *7 days* using Enhanced policy by default. This default snapshot retention value is configurable to any value between 1 to *5 days* for Standard policy and *1 to 30 days* for Enhanced policy .
 * Supports disk sizes up to 32 TB. Resizing of disks isn't recommended by Azure Backup.
-* Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
+* Standard policy supports Standard SSD disks along with Standard HDD disks and Premium SSD disks. Enhanced policy supports backup and instant restore of Premium SSD v2 and Ultra Disks, in addition to standard HDD, standard SSD, and Premium SSD v1 disks.
 * Ability to use an unmanaged VMs original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 * For backup of VMs that are using unmanaged premium disks in storage accounts, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space isn't a requirement for backups after the first backup is complete.
 
