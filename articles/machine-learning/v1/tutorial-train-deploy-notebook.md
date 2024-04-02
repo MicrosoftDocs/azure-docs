@@ -94,6 +94,8 @@ This tutorial and accompanying **utils.py** file is also available on [GitHub](h
 > Switch to the Jupyter Notebook now if you want to run the code while you read along.
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins/quickstart-azureml-in-10mins.ipynb -->
+
 ## Import data
 
 Before you train a model, you need to understand the data you're using to train it. In this section, learn how to:
@@ -186,7 +188,7 @@ Train the model using the following code. This code uses MLflow autologging to t
 You'll be using the [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier from the [SciKit Learn framework](https://scikit-learn.org/) to classify the data.
 
 > [!NOTE]
-> The model training takes approximately 2 minutes to complete.**
+> The model training takes approximately 2 minutes to complete.
 
 
 ```python
@@ -217,7 +219,6 @@ clf = LogisticRegression(
 with mlflow.start_run() as run:
     clf.fit(X_train, y_train)
 ```
-
 ## View experiment
 
 In the left-hand menu in Azure Machine Learning studio, select __Jobs__ and then select your job (__azure-ml-in10-mins-tutorial__). A job is a grouping of many runs from a specified script or piece of code. Multiple jobs can be grouped together as an experiment.
@@ -252,8 +253,7 @@ from azureml.core.webservice import AciWebservice
 # get a curated environment
 env = Environment.get(
     workspace=ws, 
-    name="AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference",
-    version=1
+    name="AzureML-sklearn-1.0"
 )
 env.inferencing_stack_version='latest'
 
@@ -342,6 +342,8 @@ service.delete()
 
 If you want to control cost further, stop the compute instance by selecting the "Stop compute" button next to the **Compute** dropdown. Then start the compute instance again the next time you need it.
 
+<!-- nbend -->
+
 ### Delete everything
 
 Use these steps to delete your Azure Machine Learning workspace and all compute resources.
@@ -349,7 +351,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 [!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 
-## Next steps
+## Related resources
 
 + Learn about all of the [deployment options for Azure Machine Learning](../how-to-deploy-online-endpoints.md).
 + Learn how to [authenticate to the deployed model](../how-to-authenticate-online-endpoint.md).
