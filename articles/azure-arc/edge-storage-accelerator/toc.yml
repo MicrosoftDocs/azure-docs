@@ -3,8 +3,6 @@ items:
   href: index.yml
 - name: Overview
   href: overview.md
-- name: Quickstart
-  href: quickstart-ubuntu.md
 - name: How-to
   items:
   - name: Prepare Linux
@@ -19,6 +17,8 @@ items:
     items:
     - name: Install Edge Storage Accelerator
       href: install-edge-storage-accelerator.md
+    - name: Install Edge Storage Accelerator on a single-node cluster
+      href: ubuntu-install.md
     - name: Installation troubleshooting
       href: installation-troubleshooting.md
   - name: Attach applications
