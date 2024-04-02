@@ -32,7 +32,7 @@
       items:
         - name: Integrated vector database overview
           href: vector-search.md
-        - name: Build AI Apps with vector database
+        - name: Open-source vector databases
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md

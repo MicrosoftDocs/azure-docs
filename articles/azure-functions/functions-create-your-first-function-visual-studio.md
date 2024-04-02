@@ -109,7 +109,7 @@ Visual Studio can publish your local project to Azure. Before you can publish yo
 
     The URL that calls your HTTP trigger function is in the following format:
 
-    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
+    `https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
 1. Go to this URL and you see a response in the browser to the remote GET request returned by the function, which looks like the following example:
 
