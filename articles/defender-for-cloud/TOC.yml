@@ -655,13 +655,15 @@
             href: view-and-remediate-vulnerability-assessment-findings.md
           - name: View and remediate vulnerabilities for running images (Risk based)
             href: view-and-remediate-vulnerabilities-for-images.md
+          - name: Disable vulnerabilities on images (Risk based)
+            href: disable-vulnerability-findings-containers.md
           - name: View and remediate vulnerabilities for registry images (Secure score)
             href: view-and-remediate-vulnerability-assessment-findings-secure-score.md
           - name: View and remediate vulnerabilities for running images (Secure score)
             href: view-and-remediate-vulnerabilities-for-images-secure-score.md
-          - name: Disable vulnerabilities on images
-            href: disable-vulnerability-findings-containers.md
-          - name: REST API
+          - name: Disable vulnerabilities on images (Secure score)
+            href: disable-vulnerability-findings-containers-secure-score.md
+          - name: REST API (Secure score)
             href: subassessment-rest-api.md
           - name: Transition to Defender Vulnerability Management
             href: transition-to-defender-vulnerability-management.md

@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/25/2024
+ms.date: 04/02/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,39 +21,66 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 ## April 2024
-|Date | Update |
-|--|--|
-| April 2| [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+| Date    | Update                                                           |
+| ------- | ---------------------------------------------------------------- |
+| April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
+| April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
+| April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+### Update to recommendations to align with Azure AI Services resources
+
+April 2, 2024
+
+The following recommendations have been updated to align with the Azure AI Services category (formerly known as Cognitive Services and Cognitive search) to comply with the new Azure AI Services naming format and align with the relevant resources.
+
+| Old recommendation | Updated recommendation |
+| ---- | ---- |
+| Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
+| Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
+| Diagnostic logs in Search services should be enabled | [Diagnostic logs in Azure AI services resources should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e) |
+
+See the [list of security recommendations](recommendations-reference.md).
+
+### Deprecation of Cognitive Services recommendation
+
+April 2, 2024
+
+The recommendation [`Public network access should be disabled for Cognitive Services accounts`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7) is deprecated. The related policy definition [`Cognitive Services accounts should disable public network access`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) has been removed from the regulatory compliance dashboard.
+
+This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
+
+See the [list of security recommendations](recommendations-reference.md).
 
 ### Containers multicloud recommendations (GA)
 
 April 2, 2024
 
-As part of Defender for Containers multicloud general availability, following recommendations are announced GA as well:
+As part of Defender for Containers multicloud general availability, the following recommendations are announced GA as well:
 
 - For Azure
 
-| **Recommendation** | **Description** | **Assessment Key** | 
+| **Recommendation** | **Description** | **Assessment Key** |
 | ------------------ | --------------- | ------------------ |
 | Azure registry container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
 | Azure running container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
 
 - For GCP
 
-| **Recommendation** | **Description** | **Assessment Key** | 
+| **Recommendation** | **Description** | **Assessment Key** |
 | ------------------ | --------------- | ------------------ |
 | GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure  | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.   | c27441ae-775c-45be-8ffa-655de37362ce  |
 | GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure   | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Google Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 5cc3a2c1-8397-456f-8792-fe9d0d4c9145   |
 
 - For AWS
 
-| **Recommendation** | **Description** | **Assessment Key** | 
+| **Recommendation** | **Description** | **Assessment Key** |
 | ------------------ | --------------- | ------------------ |
 | AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. Scans your AWS registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c27441ae-775c-45be-8ffa-655de37362ce  |
 | AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Elastic Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 682b2595-d045-4cff-b5aa-46624eb2dd8f   |
 
-Please note that those recommendations would affect the secure score calculation. 
- 
+The recommendations affect the secure score calculation.
+
 ## March 2024
 
 |Date | Update |
@@ -85,7 +112,7 @@ To support the new [risk-based prioritization](risk-prioritization.md) experienc
 - [[Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)](recommendations-reference-gcp.md#container-images-in-gcp-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
 - [[Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)](recommendations-reference-gcp.md#containers-running-in-gcp-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc7c1d31d-a604-4b86-96df-63448618e165)
 
-The previous container vulnerability assessment recommendations are on a deprecation path and will be removed at the end of April:
+The previous container vulnerability assessment recommendations are on a retirement path and will be removed when the new recommendations are generally available.
 
 - [[Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)](recommendations-reference.md#azure-registry-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
 - [[Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)](recommendations-reference.md#azure-running-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
@@ -95,19 +122,19 @@ The previous container vulnerability assessment recommendations are on a depreca
 - [GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/GcpContainersRuntimeRecommendationDetailsBlade/assessmentKey/e538731a-80c8-4317-a119-13075e002516)
 
 > [!NOTE]
-> Since the new recommendations are temporarily not included in the secure score calculation, this will lead to a temporary increase in the secure score, until the new recommendations are added to the secure score calculation.
+> The new recommendations are currently in public preview and will not be used for secure score calculation.
 
 ### Windows container images scanning is now generally available (GA)
 
 March 31, 2024
 
-We are announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
+We're announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
 
 ### Continuous export now includes attack path data
 
 March 25, 2024
 
-We are announcing that continuous export now includes attack path data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic deployment model solution.
+We're announcing that continuous export now includes attack path data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic deployment model solution.
 
 Learn more about [continuous export](benefits-of-continuous-export.md).
 
@@ -115,13 +142,13 @@ Learn more about [continuous export](benefits-of-continuous-export.md).
 
 March 21, 2024
 
-Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we are completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
+Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we're completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
 
-- Defender for Cloud does not handle the key or decryption process. Key handling and decryption is seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
+- Defender for Cloud doesn't handle the key or decryption process. Key handling and decryption are seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
 - The unencrypted VM disk data is never copied or re-encrypted with another key.
-- The original key is not replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
+- The original key isn't replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
 
-During public preview this capability is not automatically enabled. If you are using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
+During public preview this capability isn't automatically enabled. If you're using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
 
 - [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
 - [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)
@@ -130,9 +157,9 @@ During public preview this capability is not automatically enabled. If you are u
 
 March 18, 2024
 
-We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps.
+We're announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps.
 
-The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported.
+The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines aren't supported.
 
 | Recommendation name | Description | Severity |
 |--|

@@ -1,5 +1,4 @@
 ---
-
 title: Container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 description: Learn about container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 author: dcurwin
@@ -21,9 +20,9 @@ Azure, AWS, and GCP container registry vulnerabilities sub-assessments are publi
 
 To pull specific sub assessments, you need the assessment key.
 
-* For Azure container vulnerability assessment powered by MDVM, the key is `33422d8f-ab1e-42be-bc9a-38685bb567b9`.
-* For AWS container vulnerability assessment powered by MDVM, the key is `2a139383-ec7e-462a-90ac-b1b60e87d576`.
-* For GCP container vulnerability assessment powered by MDVM, the key is `24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04`.
+* For Azure container vulnerability assessment powered by MDVM, the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
+* For AWS container vulnerability assessment powered by MDVM, the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For GCP container vulnerability assessment powered by MDVM, the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`.
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 
@@ -31,7 +30,7 @@ The following is a generic security sub assessment query example that can be use
 securityresources 
 | where type =~ "microsoft.security/assessments/subassessments" and properties.additionalData.assessedResourceType == "AzureContainerRegistryVulnerability"
 | extend assessmentKey=extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id)
-| where assessmentKey == "33422d8f-ab1e-42be-bc9a-38685bb567b9"
+| where assessmentKey == "c0b7cfc6-3172-465a-b378-53c7ff2cc0d5"
 | extend timeGenerated = properties.timeGenerated
 | where timeGenerated > ago(1h)
 ```
@@ -41,7 +40,7 @@ securityresources
 ```json
 [
   {
-    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.ContainerRegistry/registries/{Registry Name}/providers/Microsoft.Security/assessments/33422d8f-ab1e-42be-bc9a-38685bb567b9/subassessments/{SubAssessmentId}",
+    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.ContainerRegistry/registries/{Registry Name}/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/{SubAssessmentId}",
     "name": "{SubAssessmentId}",
     "type": "microsoft.security/assessments/subassessments",
     "tenantId": "{TenantId}",
@@ -164,7 +163,7 @@ securityresources
     "identity": null,
     "zones": null,
     "extendedLocation": null,
-    "assessmentKey": "33422d8f-ab1e-42be-bc9a-38685bb567b9",
+    "assessmentKey": "c0b7cfc6-3172-465a-b378-53c7ff2cc0d5",
     "timeGenerated": "2023-09-12T13:36:15.0772799Z"
   }
 ]
@@ -175,7 +174,7 @@ securityresources
 ```json
 [
   {
-    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/ microsoft.security/ securityconnectors/{SecurityConnectorName}/ securityentitydata/aws-ecr-repository-{RepositoryName}-{Region}/providers/Microsoft.Security/assessments/2a139383-ec7e-462a-90ac-b1b60e87d576/subassessments/{SubAssessmentId}",
+    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/ microsoft.security/ securityconnectors/{SecurityConnectorName}/ securityentitydata/aws-ecr-repository-{RepositoryName}-{Region}/providers/Microsoft.Security/assessments/c27441ae-775c-45be-8ffa-655de37362ce/subassessments/{SubAssessmentId}",
     "name": "{SubAssessmentId}",
     "type": "microsoft.security/assessments/subassessments",
     "tenantId": "{TenantId}",
@@ -314,7 +313,7 @@ securityresources
     "identity": null,
     "zones": null,
     "extendedLocation": null,
-    "assessmentKey": "2a139383-ec7e-462a-90ac-b1b60e87d576",
+    "assessmentKey": "c27441ae-775c-45be-8ffa-655de37362ce",
     "timeGenerated": "2023-12-11T13:23:58.4539977Z"
   }
 ]
@@ -325,7 +324,7 @@ securityresources
 ```json
 [
   {
-    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/ microsoft.security/ securityconnectors/{SecurityConnectorName}/securityentitydata/gar-gcp-repository-{RepositoryName}-{Region}/providers/Microsoft.Security/assessments/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04/subassessments/{SubAssessmentId}",
+    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/ microsoft.security/ securityconnectors/{SecurityConnectorName}/securityentitydata/gar-gcp-repository-{RepositoryName}-{Region}/providers/Microsoft.Security/assessments/5cc3a2c1-8397-456f-8792-fe9d0d4c9145/subassessments/{SubAssessmentId}",
     "name": "{SubAssessmentId}",
     "type": "microsoft.security/assessments/subassessments",
     "tenantId": "{TenantId}",
@@ -470,7 +469,7 @@ securityresources
     "identity": null,
     "zones": null,
     "extendedLocation": null,
-    "assessmentKey": "24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04",
+    "assessmentKey": "5cc3a2c1-8397-456f-8792-fe9d0d4c9145",
     "timeGenerated": "2023-12-11T10:25:43.8751687Z"
   }
 ]

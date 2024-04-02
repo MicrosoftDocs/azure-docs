@@ -1,6 +1,6 @@
 ---
 title: Assess vulnerabilities for images running on your Kubernetes clusters (Secure Score)
-description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters (Secure Score).
+description: Learn how to view and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score).
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
@@ -24,13 +24,13 @@ Within each recommendation, resources are grouped into tabs:
 - **Unhealthy resources** – resources that are still impacted by the identified issue.  
 - **Not applicable resources** – resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
-If you are using Defender CSPM, first review and remediate vulnerabilities exposed via [attack paths](how-to-manage-attack-path.md), as they pose the greatest risk to your security posture. Then use the following procedures to view, remediate, prioritize, and monitor vulnerabilities for your containers.
+Customers using Defender CSPM should use the risk-based prioritization experience instead.
 
 ## View vulnerabilities on a specific cluster
 
 **To view vulnerabilities for a specific cluster, do the following:**  
 
-1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation.
+1. Open the **Recommendations** page. If you are on the new risk-based page, you can return to the classic view to see secure score. Use the **>** arrow to open the sub-levels.  If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png":::
 
