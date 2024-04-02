@@ -1,8 +1,8 @@
 
 ---
-title: How to deploy Cohere family of models with Azure Machine Learning studio
+title: How to deploy Cohere Embed models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy Cohere family of models with Azure Machine Learning studio.
+description: Learn how to deploy Cohere Embed models with Azure Machine Learning studio.
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -16,11 +16,9 @@ ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---
-# How to deploy Cohere models with Azure Machine Learning studio
-Cohere offers several models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
+# How to deploy Cohere Embed models with Azure Machine Learning studio
+Cohere offers two Embed models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
 
-* Cohere Command R 
-* Cohere Command R+
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
    
@@ -30,10 +28,6 @@ You can browse the Cohere family of models in the model catalog by filtering on 
 
 In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a service with pay-as you go billing.
 
-* Cohere Command R 
-(description needed)
-* Cohere Command R+
-(description needed)
 * Cohere Embed v3 - English
 (description needed)
 * Cohere Embed v3 - Multilingual
@@ -102,140 +96,204 @@ Above mentioned Cohere models can be consumed using the chat API.
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
 1. Copy the **Target** URL and the **Key** token values.
-1. Make an API request using the [`<target_url>/v1/chat/completions`](#chat-api) API.
+1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-   For more information on using the APIs, see the [reference](#reference-for-models-deployed-as-a-service) section.
+   For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
 
-### Reference for models deployed as a service
+## Embed API reference for Cohere Embed models deployed as a service
 
-#### Chat API
+## v1/embeddings Request
 
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
+    POST /v1/embeddings HTTP/1.1
+    Host: <DEPLOYMENT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-type: application/json
 
-__Request__
+### v1/emebeddings Request Schema
 
-```rest
-POST /v1/chat/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
-```
+Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
 
-#### Request schema (to be edited once API alignment done)
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+|`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
 
-Payload is a JSON formatted string containing the following parameters:
+### v1/emebeddings Response Schema
 
-| Key | Type | Default | Description |
-|-----|-----|-----|-----|
-| `messages`    | `string`  | No default. This value must be specified.  | The message or history of messages to use to prompt the model.  |
-| `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
-| `max_tokens`  | `integer` | `8192`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
-| `ignore_eos`          | `boolean` | `False`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `safe_prompt` | `boolean` | `False`  | Whether to inject a safety prompt before all conversations. |
+The response payload is a dictionary with the following fields:
 
-The `messages` object has the following fields:
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | `string` | A unique identifier for the completion. |
+| `object` | `enum`|The object type which is always `list` |
+| `data` | `array` | The Unix timestamp (in seconds) of when the completion was created. |
+| `model` | `string` | The model_id used for creating the embeddings. |
+| `usage` | `object` | Usage statistics for the completion request. |
 
-| Key       | Type      | Value |
-|-----------|-----------|------------|
-| `content` | `string` | The contents of the message. Content is required for all messages. |
-| `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
+The `data` object is a dictionary with the following fields:
 
+| Key | Type | Description |
+| --- | --- | --- |
+| `index` | `integer` |The index of the embedding in the list of embeddings. |
+| `object` | `enum` | The object type, which is always "embedding". |
+| `embedding` | `array` | The embedding vector, which is a list of floats. |
 
-#### Example
+The `usage` object is a dictionary with the following fields:
 
-__Body__
-
-```json
-{
-    "messages":
-    [
-        { 
-        "role": "system", 
-        "content": "You are a helpful assistant that translates English to Italian."
-        },
-        {
-        "role": "user", 
-        "content": "Translate the following sentence from English to Italian: I love programming."
-        }
-    ],
-    "temperature": 0.8,
-    "max_tokens": 512,
-}
-```
-
-#### Response schema
-
-The response payload is a dictionary with the following fields.
-
-| Key       | Type      | Description                                                                |
-|-----------|-----------|----------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                    |
-| `choices` | `array`   | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
-| `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
-| `usage`   | `object`  | Usage statistics for the completion request.                               |
-
-> [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`. 
-
-
-The `choices` object is a dictionary with the following fields. 
-
-| Key     | Type      | Description  |
-|---------|-----------|--------------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
-| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete. |
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
-
-
-The `usage` object is a dictionary with the following fields.
-
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
+| Key | Type | Description |
+| --- | --- | --- |
+| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
 | `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
+| `total_tokens` | `integer` | Total tokens. |
 
-The `logprobs` object is a dictionary with the following fields:
 
-| Key              | Type                    | Value   |
-|------------------|-------------------------|---------|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
-| `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+## Examples
 
-#### Example
+**Request**
 
-The following is an example response:
-
-```json
-{
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "chat.completion",
-    "created": 2012359,
-    "model": "",
-    "choices": [
-        {
-            "index": 0,
-            "finish_reason": "stop",
-            "message": {
-                "role": "assistant",
-                "content": "Sure, I\'d be happy to help! The translation of ""I love programming"" from English to Italian is:\n\n""Amo la programmazione.""\n\nHere\'s a breakdown of the translation:\n\n* ""I love"" in English becomes ""Amo"" in Italian.\n* ""programming"" in English becomes ""la programmazione"" in Italian.\n\nI hope that helps! Let me know if you have any other sentences you\'d like me to translate."
-            }
-        }
-    ],
-    "usage": {
-        "prompt_tokens": 10,
-        "total_tokens": 40,
-        "completion_tokens": 30
+    {	
+    "input": ["hi"]
     }
-}
-```
+
+**Response**
+
+    {
+        "id": "87cb11c5-2316-4c88-af3c-4b2b77ed58f3",
+        "object": "list",
+        "data": [
+            {
+                "index": 0,
+                "object": "embedding",
+                "embedding": [
+                    1.1513672,
+                    1.7060547,
+                    ...
+                ]
+            }
+        ],
+        "model": "tmp",
+        "usage": {
+            "prompt_tokens": 1,
+            "completion_tokens": 0,
+            "total_tokens": 1
+        }
+    }
+
+## v1/embed Request
+
+    POST /v1/embed HTTP/1.1
+    Host: <DEPLOYMENT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-type: application/json
+
+### v1/embed Request Schema
+
+Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embed` API call:
+
+|Key       |Type   |Default   |Description   |
+|---|---|---|---|
+|`texts` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
+|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You should not mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector DB to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
+|`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
+|`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
+
+### v1/embed Response Schema
+
+Cohere Embed v3 - English and Embed v3 - Multilingual include the following fields in the response:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`response_type` |`enum` |The response type. Returns `embeddings_floats` when `embedding_types` is not specified, or returns `embeddings_by_type` when `embeddings_types` is specified. |
+|`id` |`integer` |An identifier for the response. |
+|`embeddings` |`array` or `array of objects` |An array of embeddings, where each embedding is an array of floats with 1024 elements. The length of the embeddings array will be the same as the length of the original texts array.|
+|`texts` |`array of strings` |The text entries for which embeddings were returned. |
+|`meta`   |`string`   |API usage data, including current version and billable tokens.   |
+
+For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed.).
+
+## Examples
+
+### embeddings_floats Response
+
+**Request**
+
+    {
+        "input_type": "clustering",
+        "truncate": "START",
+        "texts":["hi", "hello"]
+    }
+**Response**
+
+    {
+        "id": "da7a104c-e504-4349-bcd4-4d69dfa02077",
+        "texts": [
+            "hi",
+            "hello"
+        ],
+        "embeddings": [
+            [
+                ...
+            ],
+            [
+                ...
+            ]
+        ],
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 2
+            }
+        },
+        "response_type": "embeddings_floats"
+    }
+
+### embeddings_by_types Response
+
+**Request**
+
+    {
+        "input_type": "clustering",
+        "embedding_types": ["int8", "binary"],
+        "truncate": "START",
+        "texts":["hi", "hello"]
+    }
+**Response**
+
+    {
+        "id": "b604881a-a5e1-4283-8c0d-acbd715bf144",
+        "texts": [
+            "hi",
+            "hello"
+        ],
+        "embeddings": {
+            "binary": [
+                [
+                    ...
+                ],
+                [
+                    ...
+                ]
+            ],
+            "int8": [
+                [
+                    ...
+                ],
+                [
+                    ...
+                ]
+            ]
+        },
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 2
+            }
+        },
+        "response_type": "embeddings_by_type"
+    }
 
 #### Additional inference examples
 
