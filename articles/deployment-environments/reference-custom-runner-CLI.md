@@ -205,7 +205,8 @@ This command uploads either a singular file specified, or a zip folder specified
 
 **--folder-path**: The path of where the folder exists from the current directory to upload as a zip file. The resulting accessible file is accessible under the name of the lowest folder. Either this option or the `--file-path` option is required to execute this command. 
 
-**NOTE**: Specifying a file or folder with the same name as an existing accessible file for the environment for this command overwrites the previously saved file (that is, if file1.txt is an existing accessible file, executing `ade files --file-path file1.txt` overwrites the previously saved file).
+> [!Tip]
+> Specifying a file or folder with the same name as an existing accessible file for the environment for this command overwrites the previously saved file (that is, if file1.txt is an existing accessible file, executing `ade files --file-path file1.txt` overwrites the previously saved file).
 
 #### Examples
 The following command uploads a file from the current directory named *file1.txt*:
@@ -268,7 +269,8 @@ ade operation-result --code "ExitCode" --message "The operation failed!"
 
 **--message**: A string detailing the error message for the operation failure.
 
-**NOTE**: This operation should only be used just before exiting the container, as setting the operation in a Failed state doesn't permit other CLI commands to successfully complete.
+> [!Important]
+> This operation should only be used just before exiting the container, as setting the operation in a Failed state doesn't permit other CLI commands to successfully complete.
 
 ## ade outputs command set
 The `ade outputs` command allows a customer to upload outputs from the deployment of an Infrastructure-as-Code (IaC) template to be accessed from the Outputs API for ADE. 

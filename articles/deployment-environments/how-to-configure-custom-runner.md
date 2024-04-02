@@ -19,9 +19,9 @@ ADE uses an extensibility model to enable you to create custom images to use in 
 
 The ADE team provides a selection of images to get you started, including a core image, and an ARM/Bicep image. You can access these sample images in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
 
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md).
+The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](./reference-custom-runner-CLI.md).
 
-## Prequisites
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -114,4 +114,4 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 
 ## Related content
 
-- [ADE CLI Custom Runner Image reference](./reference-custom-runner-ADE-CLI.md)
+- [ADE CLI Custom Runner Image reference](./reference-custom-runner-CLI.md)
