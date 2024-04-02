@@ -79,7 +79,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
 1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
 
-   1. You can optionally customize the **virtual network** and **subnet** into which the deployment places the resources. The remaining values do not need to be changed from their default values.
+   1. You can optionally customize the **virtual network** and **subnet** into which the deployment places the resources. The remaining values don't need to be changed from their default values.
    1. You can provide the **TLS/SSL certificate** presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can select **Enable cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
 
@@ -153,7 +153,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 
-There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
+There are a few samples in the repository. We use *java-app/*. Here's the file structure of the application.
 
 #### [Bash](#tab/in-bash)
 
@@ -379,7 +379,7 @@ Use the following steps to deploy and test the application:
 
     ---
 
-   You'll see the output `secret/db-secret-sql created`.
+   You see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
 
