@@ -60,6 +60,9 @@ items:
   items: 
     - name: Create environments with Azure Developer CLI (AZD)
       href: how-to-create-environment-with-azure-developer.md
+    - name: ADE extensibility model for custom images
+      href: how-to-configure-custom-runner.md
+      displayName: custom image, custom runner, extensibility  
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
