@@ -24,13 +24,14 @@ Azure Monitor Pipeline is deployed on an Arc-enabled K8s cluster in your environ
   - OLTP
 
 
-## [Portal](#tab/Portal)
-Using the Azure portal, you can deploy the Azure Monitor pipeline extension and instance to your Arc-enabled Kubernetes cluster and add dataflows using the same interface.
+## Enable and configure pipeline
+
+
+### [Portal](#tab/Portal)
+
 
 1. From the **Monitor** menu in the Azure portal, select **Pipelines**.
 2. Click **Create Azure Monitor pipeline extension**.
-
-### Pipeline instance
 
 The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
 
@@ -45,8 +46,6 @@ The **Basic** tab prompts you for the following information to deploy the extens
 | Arc K8 Cluster | Select your Arc-enabled Kubernetes cluster. |
 | Custom Location | Custom location for your Arc-enabled Kubernetes cluster. |
 
-### Data flows
-
 The **Dataflow** tab allows you to create and edit dataflows for the pipeline instance. Each dataflow includes the following details:
 
 :::image type="content" source="media/edge-pipeline/create-dataflow.png" lightbox="media/edge-pipeline/create-dataflow.png" alt-text="Screenshot of Create add dataflow screen.":::
@@ -60,17 +59,17 @@ The **Dataflow** tab allows you to create and edit dataflows for the pipeline in
 | Log Analytics Workspace | Log Analytics workspace to send the data to. |
 | Table Name | The name of the table in the Log Analytics workspace to send the data to. If the table doesn't exist then it will be created  |
 
-## [CLI](#tab/CLI)
 
-### Pipeline installation
+### [CLI](#tab/CLI)
+There are multiple steps to enable and configure the pipeline using CLI. 
 
-The following three components must be installed and configured for the Azure Monitor Pipeline.
+| Component | Description |
+|:---|:---|
+| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
+| data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
+| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver, processor, and exporter. The receiver listens for incoming data, the processor transforms the data, and the exporter sends the data to the destination. |
 
-1. Install Azure Monitor Pipeline Controller Arc extension on your Kubernetes cluster.
-2. Grant the Arc extension permission to send telemetry to your Log Analytics Workspace via DCR
-3. Deploy the Azure Monitor Pipeline Configuration to the cluster.
-
-## Deploy Azure Monitor Pipeline Arc extension
+### Deploy Azure Monitor Pipeline Arc extension
 The first step is to deploy the Azure Monitor Pipeline Arc extension to your Azure Arc-enabled Kubernetes cluster. 
 
 Use the `az k8s-extension create` command with `--extension-type microsoft.monitor.pipelinecontroller` to install the Azure Monitor Pipeline Controller. Provide a name for the extension that's 10 characters or less.
@@ -79,7 +78,75 @@ Use the `az k8s-extension create` command with `--extension-type microsoft.monit
 az k8s-extension create --name <extension-name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train preview --release-namespace <release-namespace> --version 0.1.1-23318.7-privatepreview --debug --auto-upgrade false
 ```
 
-## Give the Arc extension access to your DCR
+### Create data collection rule (DCR)
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. See [Create a data collection rule in Azure Monitor](./data-collection-rule-create.md) for different options to create the DCR.
+
+
+```json
+{
+    "properties": {
+        "dataCollectionEndpointId": "<dce-resource-id>",
+        "streamDeclarations": {
+            "Custom-OTELLogs": {
+                "columns": [
+                    {
+                        "name": "Body",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "SeverityText",
+                        "type": "string"
+                    }
+                ]
+            },
+            "Custom-Syslog": {
+                "columns": [
+                    {
+                        "name": "Body",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "SeverityText",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "dataSources": {},
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "<log-analytics-workspace-resource-id>",
+                    "workspaceId": "<log-analytics-workspace-immutable-id>",
+                    "name": "<destination-name>"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Custom-OTELLogs"
+                ],
+                "destinations": [
+                    "<destination-name>"
+                ],
+                "transformKql": "source",
+                "outputStream": "Custom-OtelLogs_CL"
+            }
+        ]
+    }
+}
+```
+
+### Give the Arc extension access to your DCR
 A system identity is created when you deploy the extension. This identity is used when the pipeline connects to Azure Monitor and requires access to the DCR used in the data collection scenario.
 
 Use the `az k8s-extension show` command with `--cluster-type connectedClusters --query "identity.principalId"` to get the object id of the System Assigned Identity.
@@ -96,19 +163,55 @@ az role assignment create --assignee "<extension principal ID>" --role "Monitori
 
 Verify access to the DCR from the Access Control (IAM) option for the DCR in the Azure portal. The identity should be listed as a *Monitoring Metrics Publisher*.
 
-
-### Deploy the Azure Monitor Pipeline Configuration to the cluster
-
-The configuration file defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud. 
+### Create edge pipeline configuration file
+The configuration file defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud. Use the template below to create the file using the information in the dollowing table.
 
 | Parameter | Description |
 |:---|:--|
 | `namespace` | Namespace provided during deployment of the Arc extension. |
-| `dcr_endpoint` | Endpoint of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>Example: `https://example-dce-82qc.eastus-1.ingest.monitor.azure.com` |
-| `stream_name` | Name of the stream in your DCR. From the JSON view of your DCR, copy the value of the stream name in the **Data sources** section.<br>Example: Custom-TestData_CL |
-| `dcr` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>Example: dcr-00000000-0000-0000-0000-000000000000. |
+| `dataCollectionEndpointUrl` | URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.|
+| `stream` | Name of the stream in your DCR. |
+| `dcr` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
 
-Once the yaml file has been updated, deploy it to the cluster with the following command:
+> [!NOTE]
+> I converted the JSON configuration in the ARM example to YAML. Not sure if this is the valid format or not.
+
+
+```yaml
+receivers:
+  - type: OTLP
+    name: receiver-OTLP-4317
+    otlp:
+      endpoint: "0.0.0.0:4317"
+  - type: Syslog
+    name: receiver-Syslog-514
+    syslog:
+      endpoint: "0.0.0.0:514"
+
+processors: []
+
+exporters:
+  - type: AzureMonitorWorkspaceLogs
+    name: exporter-lu7mbr90
+    azureMonitorWorkspaceLogs:
+      api:
+        dataCollectionEndpointUrl: "<dce-logs-ingestion-url>"
+        stream: "<dcr-stream-name>"
+        dataCollectionRule: "<dcr-immutable-id>"
+        schema:
+          recordMap:
+            - from: "body"
+              to: "Body"
+            - from: "severity_text"
+              to: "SeverityText"
+            - from: "time_unix_nano"
+              to: "TimeGenerated"
+
+```
+
+### Deploy the pipeline configuration
+
+Deploy the pipeline configuration to the cluster with the following command:
 
 ```azurecli
 kubectl apply -f private-preview-plus-pipeline-config.yaml
@@ -117,9 +220,8 @@ kubectl apply -f private-preview-plus-pipeline-config.yaml
 Validate that the pipeline is running by first confirming the appropriate Kubernetes pods were created:
 
 ```azurecli
-kubectl get pods -n <insert namespace>
+kubectl get pods -n <namespace>
 ```
-
 You should see three pods in the Running state:
 - \<arc extension name\>-pipeline-operator-controller-manager… 
 - Pipeline-0-deployment…
@@ -131,63 +233,7 @@ You can also query the logs for the namespace to validate that the pipeline is e
 kubectl logs -l component=collector -n <namespace> -f --tail 1000
 ```
 
-| Section | Description |
-|:---|:---|
-| `receivers` |  |
-| `processors` | Reserved for future functionality. |
-| `exporters` | |
 
-
-```json
-{
-    "receivers": [
-        {
-            "type": "OTLP",
-            "name": "receiver-OTLP-4317",
-            "otlp": {
-                "endpoint": "0.0.0.0:4317"
-            }
-        },
-        {
-            "type": "Syslog",
-            "name": "receiver-Syslog-514",
-            "syslog": {
-                "endpoint": "0.0.0.0:514"
-            }
-        }
-    ],
-    "processors": [],
-    "exporters": [
-        {
-            "type": "AzureMonitorWorkspaceLogs",
-            "name": "exporter-lu7mbr90",
-            "azureMonitorWorkspaceLogs": {
-                "api": {
-                    "dataCollectionEndpointUrl": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints','Aep-mytestpl-ZZPXiU05tJ')).logsIngestion.endpoint]",
-                    "stream": "Custom-DefaultAEPOTelLogs_CL-FqXSu6GfRF",
-                    "dataCollectionRule": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'Aep-mytestpl-ZZPXiU05tJ')).immutableId]",
-                    "schema": {
-                        "recordMap": [
-                            {
-                                "from": "body",
-                                "to": "Body"
-                            },
-                            {
-                                "from": "severity_text",
-                                "to": "SeverityText"
-                            },
-                            {
-                                "from": "time_unix_nano",
-                                "to": "TimeGenerated"
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    ]
-}
-```
 
 
 ## [ARM](#tab/ARM)
@@ -495,6 +541,26 @@ The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317.
 ## Cache configuration
 Edge devices in some environments may experience intermittent connectivity due to various factors such as network congestion, signal interference, power outage, or mobility. In these environments, you can configure the Azure Monitor edge pipeline to cache data to persistent disk and configure the queue to backfill cached data using a strategy most applicable to your environment.
 
-
 During disconnected periods, the edge pipeline will write collected data as files in the persistent volume.
+
+
+### Expiration
+Defines the amount of time the data can remain in the cache before it's discarded. 
+
+### Persistent volume limit
+Memory limit for the cache. When the limit is reached, data is removed according to the data sync type.
+
+### Data sync type
+
+| Type | Description |
+|:---|:---|
+| FIFO | First in, first out. When connectivity is restored, the oldest data is sent first, and all data in the queue is sent before any real-time data. This preserves the chronological order and completeness of the data making it ideal for data that is informative and used for SLI/SLOs or business KPIs.  |
+| LIFO | Last in, first out. When connectivity is restored, the newest data is sent first, and all data in the queue is sent before any real-time data. This delivers the most recent and relevant data making it ideal for dynamic and adaptive data such as security events. |
+| Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response,  |
+<!--- With real-time, is FIFO or LIFO used to flush cache? Or is this additional setting? --->
+
+### Filtering
+<!--- Will we have this for public preview? --->
+
+### Aggregation and sampling
 
