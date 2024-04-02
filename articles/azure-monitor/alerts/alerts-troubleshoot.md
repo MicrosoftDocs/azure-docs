@@ -268,7 +268,7 @@ If you received an error while trying to create, update or delete an [alert proc
 
 1. **Check the alert processing rule parameters.**
 
-    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](https://learn.microsoft.com/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
+    Check the [alert processing rule documentation](./alerts-processing-rules.md), or the [alert processing rule PowerShell Set-AzAlertProcessingRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
 
 ## Next steps
 
