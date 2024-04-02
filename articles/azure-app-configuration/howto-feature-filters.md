@@ -29,35 +29,25 @@ In this article, you will learn how to add a custom feature filter for your feat
 
 ## Add a custom feature filter
 
-1. If you don't have any feature flag, create a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
-
-1. In the Azure portal, go to your configuration store and select **Feature manager**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, selecting the Edit option for the **Beta** feature flag, under Feature manager.](./media/feature-filters/edit-beta-feature-flag.png)
-
-1. On the line with the **Beta** feature flag you created in the quickstart, select the context menu and then **Edit**.
+1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select **Custom filter**.
+1. The pane **Create a new filter** opens. Under **Filter type**, select **Custom filter** and enter the name *RandomFilter* for your custom filter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, creating a new custom filter.](./media/feature-filters/add-custom-filter.png)
 
-1. Enter the name of your custom filter.
+1. Add a parameter called **Percentage** with value `50`.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, entering name for the custom filter.](./media/feature-filters/add-custom-filter-name.png)
-
+    > ![Screenshot of the Azure portal, adding paramters for the custom filter.](./media/feature-filters/add-custom-filter-parameter.png)
 
     > [!TIP]
-    > Some feature filters require parameters to decide whether a feature should be turned on or not. For example, a browser feature filter may turn on a feature for a certain set of browsers. It may be desired that Edge and Firefox browsers enable a feature, while Chrome does not. To do this a feature filter can be designed to expect parameters. You can specify any number of parameters for your custom filter in the portal.
-    >
-    > ![Screenshot of the Azure portal, adding paramters for the custom filter.](./media/feature-filters/add-custom-filter-parameter.png)
+    > Some feature filters require parameters to decide whether a feature should be turned on or not. For example, a browser feature filter may turn on a feature for a certain set of browsers. It may be desired that Edge enables a feature, while other browsers do not. To do this a feature filter can be designed to expect parameters. You can specify any number of parameters for your custom filter in the portal.
 
 1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
