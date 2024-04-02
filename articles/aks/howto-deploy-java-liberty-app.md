@@ -38,7 +38,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Ensure [Git](https://git-scm.com) is intalled.
+* Ensure [Git](https://git-scm.com) is installed.
 * Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 > [!NOTE]
@@ -79,7 +79,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
 1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
 
-   1. You can optionally customize the **virtual network** and **subnet** into which the deployment will place the resources. The remaining values do not need to be changed from their default values.
+   1. You can optionally customize the **virtual network** and **subnet** into which the deployment places the resources. The remaining values do not need to be changed from their default values.
    1. You can provide the **TLS/SSL certificate** presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can select **Enable cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
 
@@ -92,7 +92,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
 ## Capture selected information from the deployment
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, go to the newly created resource group and skip to the third step.
+If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, go to the newly created resource group and skip to the third step.
 
 1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
@@ -101,7 +101,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Save aside the values for **Login server**, **Registry name**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
 1. Navigate again to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
-1. Select the bottom-most deployment in the list. The **Deployment name** will match the publisher ID of the offer. It will contain the string `ibm`.
+1. Select the bottom-most deployment in the list. The **Deployment name** matches the publisher ID of the offer. It contains the string `ibm`.
 1. In the left pane, select **Outputs**.
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
@@ -110,15 +110,15 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    ### [Bash](#tab/in-bash)
 
-   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command outputs the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
    ### [PowerShell](#tab/in-powershell)
 
-   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell (excluding the `| base64` portion), append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell (excluding the `| base64` portion), append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command outputs the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
     ---
 
-These values will be used later in this article. Note that several other useful commands are listed in the outputs.
+These values are used later in this article. Note that several other useful commands are listed in the outputs.
 
 > [!NOTE]
 > You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
@@ -214,7 +214,7 @@ Now that you've gathered the necessary properties, you can build the application
 
 ```bash
 cd $BASE_DIR/java-app
-# The following variables will be used for deployment file generation into target.
+# The following variables are used for deployment file generation into target.
 export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
 export REGISTRY_NAME=<Azure-Container-Registry-name>
 export USER_NAME=<Azure-Container-Registry-username>
@@ -233,7 +233,7 @@ mvn clean install
 ```powershell
 cd $env:BASE_DIR\java-app
 
-# The following variables will be used for deployment file generation into target.
+# The following variables are used for deployment file generation into target.
 $Env:LOGIN_SERVER="<Azure-Container-Registry-Login-Server-URL>"
 $Env:REGISTRY_NAME="<Azure-Container-Registry-name>"
 $Env:USER_NAME="<Azure-Container-Registry-username>"
@@ -253,7 +253,7 @@ mvn clean install
 
 You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
+1. Start the application using `liberty:run`. `liberty:run` also uses the environment variables defined in the previous step.
 
    #### [Bash](#tab/in-bash)
 
@@ -442,7 +442,7 @@ Use the following steps to deploy and test the application:
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
 
-   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
+   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command creates an environment variable whose value you can paste straight into the browser.
 
       #### [Bash](#tab/in-bash)
 
