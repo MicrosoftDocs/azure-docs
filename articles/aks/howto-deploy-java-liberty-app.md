@@ -59,20 +59,18 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
    
-    Create environment variables in your shell for the resource group names for the cluster and the database.
+    Create environment variables in your shell for the resource group name for the cluster.
  
     ### [Bash](#tab/in-bash)
  
     ```bash
     export RESOURCE_GROUP_NAME=<your-resource-group-name>
-    export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
     ```
  
     ### [PowerShell](#tab/in-powershell)
  
     ```powershell
     $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
-    $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
     ```
  
     ---
@@ -130,6 +128,20 @@ These values will be used later in this article. Note that several other useful 
 ## Create an Azure SQL Database
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
+
+Create environment variables in your shell for the resource group name for the database.
+ 
+    ### [Bash](#tab/in-bash)
+ 
+    ```bash
+    export DB_RESOURCE_GROUP_NAME=<your-database-resource-group-name>
+    ```
+ 
+    ### [PowerShell](#tab/in-powershell)
+ 
+    ```powershell
+    $Env:DB_RESOURCE_GROUP_NAME="<your-database-resource-group-name>"
+    ```
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
