@@ -24,13 +24,7 @@ In this article, you will learn how to add and configure a targeting feature fil
 
 ## Add a time window filter to a feature flag
 
-1. If you don't have any feature flag, create a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
-
-1. In the Azure portal, go to your configuration store and select **Feature manager**.
-
-    ![Screenshot of the Azure portal, selecting the Edit option for the **Beta** feature flag, under Feature manager.](./media/feature-filters/edit-beta-feature-flag.png)
-
-1. On the line with the **Beta** feature flag you created in the quickstart, select the context menu and then **Edit**.
+1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
