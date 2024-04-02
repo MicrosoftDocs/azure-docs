@@ -1,15 +1,15 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 03/02/2024
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Place a call
 
-To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services identity SDK.
+To create and start a call, use one of the APIs on `callAgent` and provide a user that you created through the Communication Services identity SDK.
 
 Call creation and start are synchronous. The `call` instance allows you to subscribe to call events.
 
@@ -111,7 +111,7 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with video off, and a cameraStartFailed: true call diagnostic will be raised.
+When starting, joining, or accepting a call with video on, if the camera is being used by another process or if it's disabled in the operating system, the call starts with video off, and a cameraStartFailed: true call diagnostic is raised.
 
 ## Hold and resume call
 
@@ -124,17 +124,17 @@ To hold the call
 ```js
 await call.hold();
 ```
-When `hold` API will resolve, call state will be set to 'LocalHold' , if this is a 1:1 call, other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold', That participant may further put its call on hold, which would result in state change to 'LocalHold'
-If this is a group call - hold is just a local operation, it won't hold the call for other participants of that call.
+When `hold` API resolves, the call state will be set to `LocalHold`, if this is a 1:1 call, the other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold'. The other participant may further put its call on hold, which would result in state change to `LocalHold`.
+If this is a group call - the `hold` is just a local operation, it won't hold the call for other participants of that call.
 To fully resume that call all users who initiated hold must resume it.
 
 To resume call from hold:
 ```
 await call.resume();
 ```
-When `resume` API will resolve, call state will be set again to 'Connected'
+When the `resume` API resolves, the call state will be set again to `Connected`.
 
-## Mute and unmute
+## Mute and unmute a call
 
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
@@ -158,7 +158,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio won't play in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant client SDK will still receive the call audio (remote participant's audio). The call audio won't be heard in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Mute other participants
 > [!NOTE]
@@ -176,7 +176,7 @@ await call.remoteParticipants[0].mute();
 
 ## Manage remote participants
 
-All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance.
+All remote participants are detailed in  the `RemoteParticipant` API and available through the `remoteParticipants` collection on a call instance.
 
 ### List the participants in a call
 
@@ -188,7 +188,7 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 
 ### Add a participant to a call
 
-To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
+To add a participant (either a user or a phone number) to a call, you can use the `addParticipant` API. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 
 ```js
 const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
@@ -344,7 +344,7 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
-Inspect active video streams and active screen sharing streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+Inspect the active video streams and active screen sharing streams by checking the `localVideoStreams` collection. The `localVideoStreams` API returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
 
 ```js
 const localVideoStreams = call.localVideoStreams;
