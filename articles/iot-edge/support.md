@@ -89,6 +89,7 @@ The systems listed in the following table are considered compatible with Azure I
 | [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) | [June 2024](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
 | [Ubuntu 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
 | [Ubuntu 22.04 <sup>2</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Core Snaps <sup>3</sup>](https://snapcraft.io/azure-iot-edge) |  | ![Ubuntu Core Snaps + AMD64](./media/support/green-check.png) | ![Ubuntu Core Snaps + ARM64](./media/support/green-check.png)  | |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
 | [Yocto](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2024](https://wiki.yoctoproject.org/wiki/Releases) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) |  |
@@ -96,6 +97,8 @@ The systems listed in the following table are considered compatible with Azure I
 <sup>1</sup> With the release of 1.3, there are new system calls that cause crashes in Debian 10. To see the workaround, view the [Known issue: Debian 10 (Buster) on ARMv7](https://github.com/Azure/azure-iotedge/releases) section of the 1.3 release notes for details.
 
 <sup>2</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
+<sup>3</sup> Snaps is fully supported but the automated testing currently happens on Ubuntu 22.04LTS. 
 
 > [!NOTE]
 > When a *Tier 2* operating system reaches its end of support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
