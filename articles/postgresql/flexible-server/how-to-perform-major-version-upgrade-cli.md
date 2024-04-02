@@ -49,10 +49,12 @@ You can run the following command to perform major version upgrade on an existin
 ```azurecli
 az postgres flexible-server upgrade --version {16, 15, 14, 13, 12}
                                     [--ids]
-                                    [--name]
-                                    [--resource-group]
+                                    [--name] [-n]
+                                    [--resource-group] [-g]
                                     [--subscription]
-                                    [--yes]
+                                    [--version] [-v]
+                                    [--yes] [-y]
+                                    
 ```
 
 ### Example
@@ -60,7 +62,7 @@ az postgres flexible-server upgrade --version {16, 15, 14, 13, 12}
 **Upgrade server 'testsvr' to PostgreSQL major version 16**
 
 ```azurecli
-az postgres flexible-server upgrade -g testgroup -n testsvr -v 16
+az postgres flexible-server upgrade -g testgroup -n testsvr -v 16 -y
 
 ```
 
