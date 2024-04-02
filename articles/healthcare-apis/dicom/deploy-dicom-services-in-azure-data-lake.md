@@ -13,7 +13,7 @@ ms.custom: mode-api, devx-track-arm-template
 # Deploy the DICOM service with Azure Data Lake Storage
 
 Deploying the [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md) enables organizations to store and process imaging data in a standardized, secure, and scalable way.
-
+.
 After deployment completes, you can use the Azure portal to see the details about the DICOM service, including the service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the API version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
 ## Prerequisites
@@ -206,11 +206,24 @@ Use the Azure portal to **Deploy a custom template** and then use the sample ARM
 
 1. When prompted, select the values for the workspace name, DICOM service name, region, storage account name, storage account SKU, and container name.  
 
-1. Select **Review + create** to deploy the DICOM service.  
+1. Select **Review + create** to deploy the DICOM service.
+
+## Troubleshooting
+
+### Connectivity
+
+To be alerted to store health and connectivity failures, please sign up for [Resource Health alerts](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide).
+
+### 424 Failed Dependency
+
+When the response status code is `424 Failed Dependency`, the issue lies with a dependency configured with DICOM and if may be the DataLake store.
+The response body will indicate which dependency failed and provide more context on the failure. For DataLake store failures, an error code will be provided which was received when attempting to interact with the store. For further information on what these error may mean, please refer to [Azure Blob Storage error codes](https://learn.microsoft.com/en-us/rest/api/storageservices/blob-service-error-codes).
+Note that a code of `ConditionNotMet` typically indicates the blob file has been moved, deleted or modified somehow outside without using DICOM APIs. The best way to mitigate such a situation is to use the DICOM API to DELETE the instance to remove the index and then reupload the modified file. This will enable you to continue to reference and inteact with the file through DICOM APIs.
 
 ## Next steps
-
+* [Receive Resource Health alerts](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide).
 * [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+* [Review DICOM service conformance statement](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
 * [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
 * [Enable audit and diagnostic logging in the DICOM service](enable-diagnostic-logging.md)
 
