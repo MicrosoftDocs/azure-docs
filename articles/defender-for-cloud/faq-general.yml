@@ -142,6 +142,7 @@ sections:
           - Default IP Filter Policy should be Deny
           - EDR configuration issues should be resolved on virtual machines
           - EDR solution should be installed on Virtual Machines
+          - File integrity monitoring should be enabled on machines
           - Immutable (read-only) root filesystem should be enforced for containers
           - IoT Devices - Open Ports On Device
           - IoT Devices - Permissive firewall policy in one of the chains was found
