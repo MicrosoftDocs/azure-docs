@@ -14,7 +14,9 @@ ms.author: duau
 
 When you use Azure Front Door for application delivery, a custom domain is necessary if you want your own domain name to be visible in your user requests. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
-After you create an Azure Front Door Standard/Premium profile, the default front-end host has the subdomain `azurefd.net`. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your back end by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of a domain name that Azure Front Door owns. An example is `https://www.contoso.com/photo.png`.
+After you create an Azure Front Door Standard/Premium profile, the default front-end host has the subdomain `azurefd.net`. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your back end by default. An example is `https://contoso-frontend.azurefd.net/activeusers.htm`.
+
+For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of a domain name that Azure Front Door owns. An example is `https://www.contoso.com/photo.png`.
 
 ## Prerequisites
 
@@ -44,7 +46,7 @@ A custom domain is configured on the **Domains** pane of the Azure Front Door pr
         :::image type="content" source="../media/how-to-add-custom-domain/pre-validated-custom-domain.png" alt-text="Screenshot that shows Pre-validated custom domains on the Add a domain pane.":::
 
     > [!NOTE]
-    > * Azure Front Door supports both Azure managed certificates and Bring Your Own Certificates (BYOCs). For a Non-Azure validated domain, the Azure managed certificate is issued and managed by Azure Front Door. For an Azure pre-validated domain, the Azure managed certificate gets issued and is managed by the Azure service that validates the domain. To use your own certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
+    > * Azure Front Door supports both Azure-managed certificates and Bring Your Own Certificates (BYOCs). For a non-Azure validated domain, the Azure-managed certificate is issued and managed by Azure Front Door. For an Azure prevalidated domain, the Azure-managed certificate gets issued and is managed by the Azure service that validates the domain. To use your own certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
     > * Azure Front Door supports Azure prevalidated domains and Azure DNS zones in different subscriptions.
     > * Currently, Azure prevalidated domains only support domains validated by Azure Static Web App.
 
@@ -53,9 +55,9 @@ A custom domain is configured on the **Domains** pane of the Azure Front Door pr
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot that shows the domain validation state as Submitting.":::
 
     > [!NOTE]
-    > * Starting September 2023, Azure Front Door supports BYOC-based domain ownership validation. Azure Front Door automatically approves the domain ownership so long as the Certificate Name (CN) or Subject Alternative Name (SAN) of the provided certificate matches the custom domain. When you select Azure managed certificate, the domain ownership continues to be valdiated via the DNS TXT record.
-    > * For custom domains created before BYOC-based validation is supported and the domain validation status is anything but **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting **Validation State** and then select **Revalidate** in the portal. If you're using the command-line tool, you can trigger domain validation by sending an empty `PATCH` request to the domain API.
-    > * An Azure prevalidated domain has a validation state of **Pending**. It automatically changes to **Approved** after a few minutes. After validation gets approved, skip to [**Associate the custom domain to your Front Door endpoint**](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and finish the remaining steps.
+    > * Starting September 2023, Azure Front Door supports BYOC-based domain ownership validation. Azure Front Door automatically approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the provided certificate matches the custom domain. When you select **Azure managed certificate**, the domain ownership continues to be validated via the DNS TXT record.
+    > * For custom domains created before BYOC-based validation is supported and the domain validation status is anything but **Approved**, you need to trigger the auto-approval of the domain ownership validation by selecting **Validation State** > **Revalidate** in the portal. If you're using the command-line tool, you can trigger domain validation by sending an empty `PATCH` request to the domain API.
+    > * An Azure prevalidated domain has a validation state of **Pending**. It automatically changes to **Approved** after a few minutes. After validation gets approved, skip to [Associate the custom domain to your Front Door endpoint](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and finish the remaining steps.
 
     After a few minutes, the validation state changes to **Pending**.
 
@@ -73,7 +75,7 @@ For more information about domain validation states, see [Domains in Azure Front
 
 ## Associate the custom domain with your Azure Front Door endpoint
 
-After you validate your custom domain, you can associate it to your Azure Front Door Standard/Premium endpoint.
+After you validate your custom domain, you can associate it with your Azure Front Door Standard/Premium endpoint.
 
 1. Select the **Unassociated** link to open the **Associate endpoint and routes** pane. Select an endpoint and the routes with which you want to associate the domain. Then select **Associate** to update your configuration.
 
@@ -88,13 +90,13 @@ After you validate your custom domain, you can associate it to your Azure Front 
     :::image type="content" source="../media/how-to-add-custom-domain/dns-state-link.png" alt-text="Screenshot that shows the DNS state link.":::
 
     > [!NOTE]
-    > For an Azure prevalidated domain, go to the DNS hosting service and manually update the CNAME record for this domain from the other Azure service endpoint to Azure Front Door endpoint. This step is required, regardless of whether the domain is hosted with Azure DNS or with another DNS service. The link to update the CNAME from the DNS State column isn't available for this type of domain.
+    > For an Azure prevalidated domain, go to the DNS hosting service and manually update the CNAME record for this domain from the other Azure service endpoint to Azure Front Door endpoint. This step is required, regardless of whether the domain is hosted with Azure DNS or with another DNS service. The link to update the CNAME from the **DNS state** column isn't available for this type of domain.
 
 1. The **Add or update the CNAME record** pane appears with the CNAME record information that must be provided before traffic can start flowing. If you're using Azure DNS hosted zones, the CNAME records can be created by selecting **Add** on the pane. If you're using another DNS provider, you must manually enter the CNAME record name and value as shown on the pane.
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Screenshot that shows the Add or update the CNAME record pane.":::
 
-1. After the CNAME record is created and the custom domain is associated to the Azure Front Door endpoint, traffic starts flowing.
+1. After the CNAME record is created and the custom domain is associated with the Azure Front Door endpoint, traffic starts flowing.
 
     > [!NOTE]
     > * If HTTPS is enabled, certificate provisioning and propagation might take a few minutes because propagation is being done to all edge locations.
@@ -112,4 +114,4 @@ Lastly, validate that your application content is getting served by using a brow
 
 * Learn how to [enable HTTPS for your custom domain](how-to-configure-https-custom-domain.md).
 * Learn more about [custom domains in Azure Front Door](../domain.md).
-* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).
+* Learn about [end-to-end TLS with Azure Front Door](../end-to-end-tls.md).
