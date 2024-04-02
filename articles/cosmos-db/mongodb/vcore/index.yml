@@ -28,13 +28,13 @@ landingContent:
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
-  - title: Vector search and AI
+  - title: Vector database
     linkLists:
       - linkListType: concept
         links:
-          - text: Vector search
+          - text: Integrated vector database
             url: vector-search.md
-          - text: Build AI apps with vector search
+          - text: Open-source vector database
             url: vector-search-ai.md
   - title: Develop applications
     linkLists:
