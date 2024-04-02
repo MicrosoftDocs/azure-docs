@@ -146,4 +146,4 @@ The natively integrated vector database in our NoSQL API will become available i
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
 - [Azure AI Search](../search/search-what-is-azure-search.md)
-- [Open Source Vector Database List](/semantic-kernel/memories/vector-db#available-connectors-to-vector-databases)
+- [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)
