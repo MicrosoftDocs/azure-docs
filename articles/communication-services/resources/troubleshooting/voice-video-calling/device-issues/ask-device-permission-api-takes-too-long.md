@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # The askDevicePermission API takes too long
 The [`askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API prompts the end user via the browser asking if they allow permission to use camera or microphone.
-If the end users approves camera or microphone usage, then those devices are available to be used in a call. The devices availability is reflected in available device list.
+If the end user approves camera or microphone usage, then those devices are available to be used in a call. The devices availability is reflected in available device list.
 
 User taking a long time to approve the permission can cause delay in the API response.
 
@@ -26,7 +26,7 @@ To detect this issue, you can measure the time difference between when you call 
 
 ## How to mitigate or resolve
 If the [`askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API fails due to the user not responding to the UI permission prompt,
-the application can retry the API again and the user should see the UI permission prompt .
+the application can retry the API again and the user should see the UI permission prompt.
 
 If the device list update step takes a long time, the user should check their audio device list and see if there's any device that could potentially be causing this issue.
 They may need to update or remove the problematic device to resolve the issue.
