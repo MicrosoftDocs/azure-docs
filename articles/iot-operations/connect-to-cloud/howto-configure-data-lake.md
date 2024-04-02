@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
@@ -75,8 +75,8 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 1. Select **Contributor** as the role, then select **Add**.
 
 1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
-
-    - `target.fabriceOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`, don't use both.
+    - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from the **Properties** of one of your precreated lakehouse folders in Microsoft Fabric. The URL should look like `https://xyz.dfs.fabric.microsoft.com`.
+    - `target.fabricOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`, don't use both.
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse. 
 
