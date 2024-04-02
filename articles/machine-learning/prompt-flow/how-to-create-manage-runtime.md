@@ -278,6 +278,8 @@ You can also customize the environment that you use to run this flow by adding p
 > You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
 >
 > Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
+> 
+> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
 
 #### Add packages in a private feed in Azure DevOps
 

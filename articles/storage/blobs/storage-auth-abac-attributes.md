@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---
 
@@ -340,6 +340,7 @@ The following table summarizes the available attributes by source:
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
+| | [List blob include](#list-blob-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions |
 | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
 | | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
 | **Resource**      | | |
@@ -348,6 +349,7 @@ The following table summarizes the available attributes by source:
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
 | | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource         |
 | | [Container name](#container-name)         | Name of a storage container or file system                         |
+| | [Container metadata](#container-metadata) | Metadata key/value pair associated with a container                |
 | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data            |
 | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob            |
 | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account |
@@ -436,6 +438,18 @@ The following table summarizes the available attributes by source:
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
+### Container metadata
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Container metadata |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'`<br/>[Example: Read blobs in a container with specific metadata](storage-auth-abac-examples.md#example-read-blobs-in-container-with-specific-metadata)<br/>[Example: Write or delete blobs in container with specific metadata](storage-auth-abac-examples.md#example-write-or-delete-blobs-in-container-with-specific-metadata) |
+
 ### Encryption scope name
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -488,6 +502,18 @@ The following table summarizes the available attributes by source:
 > | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
 > | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Require private link access to read blobs with high sensitivity](storage-auth-abac-examples.md#example-require-private-link-access-to-read-blobs-with-high-sensitivity) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
+### List blob include
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | List blob include |
+> | **Description** | Information that can be included with a [List Blobs](/rest/api/storageservices/list-blobs) operation, such as metadata, snapshots, or versions.<br/>Use when you want to allow or restrict values for the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation.<br/>*Currently in preview. Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>`@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAllValues:StringNotEquals {'metadata'}`<br/>[Example: Allow list blob operation to include blob metadata, snapshots, or versions](storage-auth-abac-examples.md#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions)<br/>[Example: Restrict list blob operation to not include blob metadata](storage-auth-abac-examples.md#example-restrict-list-blob-operation-to-not-include-blob-metadata) |
 
 ### Private endpoint
 
