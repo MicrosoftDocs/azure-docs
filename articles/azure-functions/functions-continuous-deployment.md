@@ -178,7 +178,7 @@ You should keep these considerations in mind when planning for a continuous depl
 
 + You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots).
 
-+ To enable continuous deployment for a function app with inbound network restrictions, you need to instead configure the build provider workflow externally in GitHub or Azure Pipelines and use a virtual machine in the same virtual network as the function app as either a [self-hosted agent (Pipelines)](/azure/devops/pipelines/agents/agents#self-hosted-agents) or a [self-hosted runner (GitHub)](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
++ The Deployment Center doesn't support enabling continuous deployment for a function app with inbound network restrictions. You need instead configure the build provider workflow directly in GitHub or Azure Pipelines. These workflows also require you to use a virtual machine in the same virtual network as the function app as either a [self-hosted agent (Pipelines)](/azure/devops/pipelines/agents/agents#self-hosted-agents) or a [self-hosted runner (GitHub)](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## Next steps
 
