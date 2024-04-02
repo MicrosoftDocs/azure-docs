@@ -295,8 +295,7 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
-| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
+| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/aiservices/accountmanagement/accounts/list-keys) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -496,7 +495,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+Returns an object representing a resource's runtime state. The output and behavior of the `reference` function highly relies on how each resource provider (RP) implements its PUT and GET responses. 
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
