@@ -4,11 +4,10 @@ description: This article describes how to perform a major version upgrade in Az
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
-ms.author: kabharati
-author: rajsell
-ms.reviewer: ""
+author: varun-dhawan
+ms.author: varundhawan
 ms.topic: how-to
-ms.date: 01/02/2024
+ms.date: 04/02/2024
 ---
 
 #  Major version upgrade of Azure Database for PostgreSQL - Flexible Server with Azure CLI
@@ -46,18 +45,22 @@ You can run the following command to perform major version upgrade on an existin
 > Major Version Upgrade action is irreversible. Please perform a point-in-time recovery (PITR) of your production server and test the upgrade in the non-production environment.
 
 
-**Usage**
+**Upgrade the major version of a flexible server.**
 ```azurecli
-az postgres flexible-server upgrade --source-server
-                                 [--resource-group]
-                                 [--postgres-version]
+az postgres flexible-server upgrade --version {16, 15, 14, 13, 12}
+                                    [--ids]
+                                    [--name]
+                                    [--resource-group]
+                                    [--subscription]
+                                    [--yes]
 ```
 
-**Example:**
-Upgrade a server from this PG 11 to PG 14
+### Example
+
+**Upgrade server 'testsvr' to PostgreSQL major version 16**
 
 ```azurecli
-az postgres server upgrade -g myresource-group -n myservername -v mypgversion
+az postgres flexible-server upgrade -g testgroup -n testsvr -v 16
 
 ```
 
