@@ -191,13 +191,10 @@ So, if there are 10 replicated items, that are replicated using a policy and you
 
 All replicated items that are part of a replication group are migrated together. You can select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience is performed for the failed replicated items and the migration process can be triggered again for those items.
 
-### Can I migrate my public endpoint in classic disaster recovery to modernized with private endpoint setup?
+### Can I migrate my classic setup with public endpoint to modernized setup with private endpoint?
 
-No, you can only move *public endpoint* setup classic disaster recovery setup to modernized *public endpoint* setup. 
-Note that:
-
-- Private endpoint enabled setup in classic can't be migrated to modernized private endpoint enabled setup.
-- Public endpoint classic setup can't be migrated to private endpoint enabled modernized setup.
+No, you can only move classic disaster recovery setup with public endpoint to modernized public endpoint setup. 
+Note that, classic disaster recovery setup with private endpoint can't be migrated to modernized disaster recovery setup with private endpoint.
 
 ## Next steps
 
