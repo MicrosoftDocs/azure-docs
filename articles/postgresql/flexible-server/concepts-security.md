@@ -55,10 +55,7 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 - Recommended actions for how to investigate and mitigate the threat
 - Options for continuing your investigations with Microsoft Sentinel
 
-> [!NOTE]  
-> Microsoft Defender for Azure Database for PostgreSQL - Flexible Server currently has following limitations:
-> - No Azure CLI or PowerShell support.
-> - No ability to enable Cloud Defender for Azure Database for PostgreSQL - Flexible Server on subscription level.
+
 
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
