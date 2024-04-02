@@ -75,7 +75,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 1. Select **Contributor** as the role, then select **Add**.
 
 1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
-    - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from the **Properties** of one of your precreated lakehouse folders in Microsoft Fabric. The URL should look like `https://xyz.dfs.fabric.microsoft.com`.
+    - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from the **Properties** of your lakehouse folder in Microsoft Fabric. The URL should look like `https://onelake.dfs.fabric.microsoft.com`.
     - `target.fabricOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`, don't use both.
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse. 
@@ -97,7 +97,8 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
       databaseFormat: delta
       target:
         fabricOneLake:
-          endpoint: https://msit-onelake.dfs.fabric.microsoft.com
+          # Example: https://onelake.dfs.fabric.microsoft.com
+          endpoint: <example-endpoint-url>
           names:
             workspaceName: <example-workspace-name>
             lakehouseName: <example-lakehouse-name>
@@ -238,7 +239,7 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
         - `accessTokenSecretName`: The name of the Kubernetes secret for using shared access token authentication for the Data Lake Storage account. This field is required if the type is `accessToken`.
         - `systemAssignedManagedIdentity`: For using system managed identity for authentication. It has one subfield
             - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
-    - `fabriceOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
+    - `fabricOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
         - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. Don't include any trailing slash `/`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
         - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`, don't use both. It has the following subfields:
         - `workspaceName`: The name of the workspace.
@@ -291,49 +292,49 @@ spec:
     messagePayloadType: "json"
     maxMessagesPerBatch: 10
     clientId: id
-    mqttSourceTopic: "orders"
+    mqttSourceTopic: "azure-iot-operations/data/opc-ua-connector-de/thermostat-de"
     qos: 1
     table:
-      tableName: "orders"
+      tableName: dlc
       schema:
-      - name: "orderId"
-        format: int32
-        optional: false
-        mapping: "data.orderId"
-      - name: "item"
+      - name: externalAssetId
         format: utf8
         optional: false
-        mapping: "data.item"
-      - name: "clientId"
+        mapping: $property.externalAssetId
+      - name: assetName
         format: utf8
         optional: false
-        mapping: "$client_id"
-      - name: "mqttTopic"
-        format: utf8
+        mapping: DataSetWriterName
+      - name: CurrentTemperature
+        format: float32
         optional: false
-        mapping: "$topic"
-      - name: "timestamp"
+        mapping: Payload.temperature.Value
+      - name: Pressure
+        format: float32
+        optional: true
+        mapping: "Payload.Tag 10.Value"
+      - name: Timestamp
         format: timestamp
         optional: false
-        mapping: "$received_time"
+        mapping: $received_time
 ```
 
-Escaped JSON like `{"data": "{\"orderId\": 181, \"item\": \"item181\"}"}` isn't supported and causes the connector to throw a "convertor found a null value" error. An example message for the `orders` topic that works with this schema:
+Escaped JSON like `{\"externalAssetId\": \"47e06be8-28f3-4d4b\", \"assetName\": \"thermostat-de\"}, \"CurrentTemperature\": 36, \"Pressure\": 42}` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
 
 ```json
 {
-  "data": {
-    "orderId": 181,
-    "item": "item181"
-  }
+  "externalAssetId": "47e06be8-28f3-4d4b",
+  "assetName": "thermostat-de",
+  "CurrentTemperature": 36,
+  "Pressure": 42
 }
 ```
 
 Which maps to:
 
-| orderId | item    | clientId | mqttTopic | timestamp                      |
-| ------- | ------- | -------- | --------- | ------------------------------ |
-| 181     | item181 | id       | orders    | 2023-07-28T12:45:59.324310806Z |
+| externalAssetId         | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
+| ----------------------- | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
+| 47e06be8-28f3-4d4b      | thermostat-de   | 36                 | 42       | dlc                           | 2023-07-28T12:45:59.324310806Z |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
