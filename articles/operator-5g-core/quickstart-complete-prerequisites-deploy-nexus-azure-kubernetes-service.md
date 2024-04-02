@@ -132,7 +132,7 @@ az networkfabric internalnetwork create –resource-name "$intnwDefCni" \
 {peerASN:$peerAsn,allowAS:0,defaultRouteOriginate:True,ipv4ListenRangePrefixes:['$ipv4ListenRangePrefix']}" 
 ```
 
-## Create internal networks for User Plane Functions (N3, N6) and Access and Mobility Management Function (N2) interfaces 
+## Create internal networks for User Plane Function (N3, N6) and Access and Mobility Management Function (N2) interfaces 
 
 When you're creating User Plane Function (UPF) internal networks, dual stack IPv4/IPv6 is supported. You don't need to configure the Border Gateway Protocol (BGP) fabric-side Autonomous System Number (ASN) because ASN is included in network fabric resource creation. Use the following commands to create these internal networks. 
 
@@ -286,8 +286,7 @@ az networkcloud trunkednetwork create --name $trunkName \
 --interface-name "trunk-ulb" \ 
 --subscription $subscriptionId
 ```
-To view the trunked network resource created, enter the following commands: 
-
+To view the trunked network resource created, enter the following command: 
 
 ```azurecli
 export subscriptionId="<SUBSCRIPTION-ID>" 
@@ -297,7 +296,6 @@ export trunkName="<TRUNK-NAME>"
 az networkcloud trunkednetwork show -n $trunkName -g $rgCompute --subscription $subscriptionId
 ```
 
-
 ## Configure the Cloud Services Network proxy and allowlisted domains 
 
 A Cloud Services Network proxy (CSN proxy) is used to access Azure and internet destinations. You must explicitly add these domains to an allowlist in the CSN configuration for a NAKS cluster to access Azure services and for Arc integration. 
@@ -306,31 +304,31 @@ A Cloud Services Network proxy (CSN proxy) is used to access Azure and internet 
 
 Add the following egress points for Network Function Manager (NFM) based deployment support (HybridNetwork Resource Provider (RP), CustomLocation RP reachability, ACR, Arc):
 
-.azurecr.io / port 80 
-.azurecr.io / port 443 
-.mecdevice.azure.com / port 443 
-eastus-prod.mecdevice.azure.com / port 443 
-.microsoftmetrics.com / port 443 
-crprivatemobilenetwork.azurecr.io / port 443 
-.guestconfiguration.azure.com / port 443 
-.kubernetesconfiguration.azure.com / port 443 
-eastus.obo.arc.azure.com / port 8084 
-.windows.net / port 80 
-.windows.net / port 443 
-.k8connecthelm.azureedge.net / port 80 
-.k8connecthelm.azureedge.net / port 443 
-.k8sconnectcsp.azureedge.net / port 80 
-.k8sconnectcsp.azureedge.net / port 443 
-.arc.azure.net / port 80 
-.arc.azure.net / port 443
+- .azurecr.io / port 80 
+- .azurecr.io / port 443 
+- .mecdevice.azure.com / port 443 
+- eastus-prod.mecdevice.azure.com / port 443 
+- .microsoftmetrics.com / port 443 
+- crprivatemobilenetwork.azurecr.io / port 443 
+- .guestconfiguration.azure.com / port 443 
+- .kubernetesconfiguration.azure.com / port 443 
+- eastus.obo.arc.azure.com / port 8084 
+- .windows.net / port 80 
+- .windows.net / port 443 
+- .k8connecthelm.azureedge.net / port 80 
+- .k8connecthelm.azureedge.net / port 443 
+- .k8sconnectcsp.azureedge.net / port 80 
+- .k8sconnectcsp.azureedge.net / port 443 
+- .arc.azure.net / port 80 
+- .arc.azure.net / port 443
 
 
 ### Python Cloud Services Networks endpoints
 
 For python packages installation (part of the fed-kube_addons pod-node_config command list used for NAKS), add the following endpoints: 
 
-pypi.org / port 443 
-files.pythonhosted.org / port 443
+- pypi.org / port 443 
+- files.pythonhosted.org / port 443
 
 > [!NOTE]
 > Additional Azure Detat Explorer (ADX) endpoints may need to be included in the allowlist if there is a requirement to inject data into ADX. 
@@ -339,27 +337,27 @@ files.pythonhosted.org / port 443
 
 Use the following destination to run containers that have their endpoints stored in public container registries or to install more packages for the auxiliary virtual machines: 
 
-.ghcr.io / port 80 
-.ghcr.io / port 443 
-.k8s.gcr.io / port 80 
-.k8s.gcr.io / port 443 
-.k8s.io / port 80 
-.k8s.io / port 443 
-.docker.io / port 80 
-.docker.io / port 443 
-.docker.com / port 80 
-.docker.com / port 443 
-.pkg.dev / port 80 
-.pkg.dev / port 443 
-.ubuntu.com / port 80 
-.ubuntu.com / port 443
+- .ghcr.io / port 80 
+- .ghcr.io / port 443 
+- .k8s.gcr.io / port 80 
+- .k8s.gcr.io / port 443 
+- .k8s.io / port 80 
+- .k8s.io / port 443 
+- .docker.io / port 80 
+- .docker.io / port 443 
+- .docker.com / port 80 
+- .docker.com / port 443 
+- .pkg.dev / port 80 
+- .pkg.dev / port 443 
+- .ubuntu.com / port 80 
+- .ubuntu.com / port 443
 
 ## Create Cloud Services Networks
 
 You must create a separate CSN instance for each NAKS cluster when you deploy Azure Operator 5G Core Preview on the Nexus platform. 
 
 > [!NOTE]
-> Adjust the `additional-egress-endpoints` list based on the description and lists provided in the previouss sections. 
+> Adjust the `additional-egress-endpoints` list based on the description and lists provided in the previous sections. 
 
 ```azurecli
 export subscriptionId="<SUBSCRIPTION-ID>" 
@@ -494,7 +492,7 @@ Azure Operator 5G Core is a telecommunications workload that enables you to offe
 ### Edge NFVI functions (running on Azure Operator Nexus)  
 
 > [!NOTE]
-> The Edge NFVI related services may be updated occasionally. Refer to the specific service's documentation for additional information.
+> The Edge NFVI related services may be updated occasionally. For more information about these services, see the specific service's documentation. 
 
 - **Azure Operator Nexus** - Azure Operator Nexus is a carrier-grade, next-generation hybrid cloud platform for telecommunication operators. Azure Operator Nexus is purpose-built for operators' network-intensive workloads and mission-critical applications.  
  
@@ -507,9 +505,6 @@ Azure Operator 5G Core is a telecommunications workload that enables you to offe
 - **EntraID** - Provides identity and access management for Azure Operator 5G Core users and administrators across Azure and on-premises environments.  
 
 - **Azure Key Vault** -  Provides a secure and centralized store for managing encryption keys and secrets for Azure Operator 5G Core across Azure and on-premises environments. 
-
-> [!NOTE]
-> Microsoft may update these Edge NFVI related services.
 
 ## Related content
 
