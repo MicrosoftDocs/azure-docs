@@ -134,7 +134,7 @@ Conversely, if your tasks each have many files unique to that task, resource fil
 
 ### Number of resource files per task
 
-When a task specifies several hundred resource files, Batch might reject the task as being too large. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
+When a task specifies a large number of resource files, Batch might reject the task as being too large. This depends on the total length of the filenames or URLs (as well as identity reference) for all the files added to the task. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
 
 If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use one of the methods described above to generate resource files as needed.
 
