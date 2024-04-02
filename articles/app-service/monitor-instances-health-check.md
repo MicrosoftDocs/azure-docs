@@ -11,6 +11,8 @@ ms.author: msangapu
 
 # Monitor App Service instances using Health check
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging every minute a path of your web application of your choice. 
 
 ![Health check failure][1]

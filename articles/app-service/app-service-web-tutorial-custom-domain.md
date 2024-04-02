@@ -13,6 +13,8 @@ author: msangapu-msft
 
 # Map an existing custom DNS name to Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure](manage-custom-dns-migrate-domain.md).
 
 The DNS record type you need to add with your domain provider depends on the domain you want to add to App Service.

@@ -11,6 +11,8 @@ ms.custom: msangapu
 
 # Using Private Endpoints for App Service apps
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 > [!IMPORTANT]
 > Private endpoint is available for Windows and Linux apps, containerized or not, hosted on these App Service plans : **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 

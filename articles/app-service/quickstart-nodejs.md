@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Deploy a Node.js web app in Azure
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.

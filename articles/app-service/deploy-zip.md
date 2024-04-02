@@ -10,6 +10,8 @@ ms.author: cephalin
 
 # Deploy files to App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to deploy your code as a ZIP, WAR, JAR, or EAR package to [Azure App Service](overview.md). It also shows how to deploy individual files to App Service, separate from your application package.
 
 ## Prerequisites
