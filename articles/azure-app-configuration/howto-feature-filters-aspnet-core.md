@@ -15,126 +15,73 @@ ms.date: 03/28/2024
 
 Feature flags can use feature filters to enable features conditionally. To learn more about feature filters, see [Tutorial: Enable conditional features with feature filters](./howto-feature-filters.md).
 
-The example used in this tutorial is based on the ASP.NET Core app introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core app with a *Beta* feature flag. Once completed, you need to add a custom feature filter to the *Beta* feature flag in your App Configuration store. 
+The example used in this tutorial is based on the ASP.NET Core app introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core app with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store. 
 
 In this tutorial, you will learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
 
 ## Prerequisites
 
 - Create an [ASP.NET Core app with a feature flag](./quickstart-feature-flag-aspnet-core.md).
-- Add a [custom feature filter to the feature flag](./howto-feature-filters.md)
-
-## Configure a custom feature filter
-
-1. Open the *Edit feature flag* pane for the *Beta* feature flag you created in the quickstart.
-
-1. You've added a custom filter for the feature flag if you finish the prerequisites. On the line with that feature filters, select the *Edit* button.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, selecting the Edit option for feature filter.](./media/feature-filters/edit-a-feature-filter.png)
-
-1. Rename the feature filter to `Browser` and add a parameter called **AllowedBrowsers** with value `["Edge", "Firefox"]`
-
-    The feature filter screen will look like this.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, configuring a custom browser filer.](./media/feature-filters/edit-browser-filter.png)
-
-1. Select *Apply* to save the new filter settings and return to the Edit feature flag screen.
-
-1. Select *Apply* to save the change for the feature flag.
+- [Add a custom feature filter to the feature flag](./howto-feature-filters.md)
 
 ## Implement a custom feature filter
 
-To implement the *Browser* filter you just added for your feature flag, you need to implement the `IFeatureFilter` interface provided by the `Microsoft.FeatureManagement` library. The `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns true it means the feature should be enabled.
+You've added a custom filter called *Random* filter with a configurable parameter *Pecentage* for your feature flag in the prerequisites. In this example, you will implement it to enable the feature flag at the random rate specified by the *Percentage* parameter.
 
-```csharp
-public interface IFeatureFilter : IFeatureFilterMetadata
-{
-    Task<bool> EvaluateAsync(FeatureFilterEvaluationContext context);
-}
-```
+1. Add `RandomFilter.cs` file.
 
-Some feature filters require parameters to decide whether a feature should be turned on or not. These parameters would be specified in the feature configuration, and in code would be accessible via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
+    ```csharp
+    using Microsoft.FeatureManagement;
 
-```csharp
-public class FeatureFilterEvaluationContext
-{
-    /// The name of the feature being evaluated.
-    public string FeatureName { get; set; }
-
-    /// The settings provided for the feature filter to use when evaluating whether the feature should be enabled.
-    public IConfiguration Parameters { get; set; }
-}
-```
-
-You've added a parameter called `AllowedBrowsers` for the *Browser* filter. When implementing the *Browser* filter, you can determine whether a feature should be turned on or not based on the browser names listed in the parameter.
-
-Add `BrowserFilter.cs` file. Here is an example of how to implement a browser filter based on the `User-Agent` information retrieved from the httpcontext.
-
-```csharp
-using Microsoft.FeatureManagement;
-
-namespace TestAppConfig
-{
-    [FilterAlias("Browser")]
-    public class BrowserFilter : IFeatureFilter
+    namespace TestAppConfig
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public BrowserFilter(IHttpContextAccessor httpContextAccessor)
+        [FilterAlias("Random")]
+        public class RandomFilter : IFeatureFilter
         {
-            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
-        }
+            private readonly Random _random;
 
-        public Task<bool> EvaluateAsync(FeatureFilterEvaluationContext context)
-        {
-            List<string> AllowedBrowsers = context.Parameters.GetSection("AllowedBrowsers").Get<List<string>>();
+            public RandomFilter()
+            {
+                _random = new Random();
+            }
 
-            string userAgent = _httpContextAccessor.HttpContext.Request.Headers["User-Agent"];
+            public Task<bool> EvaluateAsync(FeatureFilterEvaluationContext context)
+            {
+                int percentage = context.Parameters.GetSection("Percentage").Get<int>();
 
-            return Task.FromResult(
-                AllowedBrowsers.Any(browser => {
-                    switch (browser)
-                    {
-                        case "Edge":
-                            return userAgent.Contains("edg", StringComparison.OrdinalIgnoreCase);
-                        case "Chrome":
-                            return userAgent.Contains("chrome", StringComparison.OrdinalIgnoreCase) &&
-                                !userAgent.Contains("edg", StringComparison.OrdinalIgnoreCase);
-                        case "Firefox":
-                            return userAgent.Contains("firefox", StringComparison.OrdinalIgnoreCase);
-                        default:
-                            return false;
-                    }
-            }));
+                int randomNumber = _random.Next(100);
+
+                return Task.FromResult(randomNumber <= percentage);
+            }
         }
     }
-}
-```
+    ```
 
-## Register the custom feature filter
+    *RandomFilter* implements the `IFeatureFilter` interface provided by the `Microsoft.FeatureManagement` library. The `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns true it means the feature should be enabled.
 
-You can register the *Browser* filter by calling the `AddFeatureFilter` method. Register the `HttpContextAccessor` by calling the `AddHttpContextAccessor` method. The *Browser* filter will use it to access the httpcontext.
+1. Open the *Program.cs" and register the *Random* filter by calling the `AddFeatureFilter` method. 
 
-```csharp
-// The rest of existing code in Program.cs
-// ... ...
+    ```csharp
+    // The rest of existing code in Program.cs
+    // ... ...
 
-// Add feature management to the container of services.
-builder.Services.AddFeatureManagement()
-                .AddFeatureFilter<BrowserFilter>();
+    // Add feature management to the container of services.
+    builder.Services.AddFeatureManagement()
+                    .AddFeatureFilter<RandomFilter>();
 
-// Add HttpContextAccessor to the container of services.
-builder.Services.AddHttpContextAccessor();
-
-// The rest of existing code in Program.cs
-// ... ...
-```
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
 
 ## Feature filter in action
 
-Relaunch the application you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). If your browser is not Edge or Firefox browser, the **Beta** menu item will not appear on the toolbar. This is because the **Beta** feature flag is disabled by the browser filter.
+Relaunch the application you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). This time, you don't toggle the *Beta* feature flag anymore. The *Beta* menu will show up based on the filter condition. Refresh the browser a few times, and you will see that sometimes the *Beta* menu appears and sometimes it does not.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of browser with Beta menu hidden.](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of browser with Beta menu.](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
 ## Next steps
 
