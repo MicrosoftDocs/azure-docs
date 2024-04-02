@@ -546,9 +546,9 @@ Create a new agent using the command line, authenticating with a managed identit
 
    Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
-        ```bash
-        docker ps -a
-        ```
+    ```bash
+    docker ps -a
+    ```
 
     You'll use the name of the docker container in the next step.
 
@@ -622,9 +622,9 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
    Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
-        ```bash
-        docker ps -a
-        ```
+    ```bash
+    docker ps -a
+    ```
 
     You'll use the name of the docker container in the next step.
 
@@ -697,9 +697,9 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
    Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
-        ```bash
-        docker ps -a
-        ```
+    ```bash
+    docker ps -a
+    ```
 
     You'll use the name of the docker container in the next step.
 
