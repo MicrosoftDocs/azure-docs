@@ -30,7 +30,7 @@ You can use the data lake connector to send data from Azure IoT MQ Preview broke
 | Delta format                              | Supported |
 | Parquet format                            | Supported |
 | JSON message payload                      | Supported |
-| Create new container if doesn't exist     | Supported |
+| Create new container if it doesn't exist  | Supported |
 | Signed types support                      | Supported |
 | Unsigned types support                    | Not Supported |
 
@@ -76,7 +76,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 
 1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
     - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from the **Properties** of your lakehouse folder in Microsoft Fabric. The URL should look like `https://onelake.dfs.fabric.microsoft.com`.
-    - `target.fabricOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`, don't use both.
+    - `target.fabricOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`. Don't use both.
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse. 
 
@@ -124,7 +124,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
     - `dataLakeConnectorRef`: The name of the DataLakeConnector resource that you created earlier.
     - `clientId`: A unique identifier for your MQTT client.
     - `mqttSourceTopic`: The name of the MQTT topic that you want data to come from.
-    - `table.tableName`: The name of the table that you want to append to in the lakehouse. If the table doesn't exist, it's created automatically.
+    - `table.tableName`: The name of the table that you want to append to in the lakehouse. The table is created automatically if doesn't exist.
     - `table.schema`: The schema of the Delta table that should match the format and fields of the JSON messages that you send to the MQTT topic.
 
 1. Apply the DataLakeConnector and DataLakeConnectorTopicMap resources to your Kubernetes cluster using `kubectl apply -f datalake-connector.yaml`.
@@ -241,10 +241,10 @@ The spec field of a *DataLakeConnector* resource contains the following subfield
             - `audience`: A string in the form of `https://<my-account-name>.blob.core.windows.net` for the managed identity token audience scoped to the account level or `https://storage.azure.com` for any storage account.
     - `fabricOneLake`: Specifies the configuration and properties of the Microsoft Fabric OneLake. It has the following subfields:
         - `endpoint`: The URL of the Microsoft Fabric OneLake endpoint. It's usually `https://onelake.dfs.fabric.microsoft.com` because that's the OneLake global endpoint. If you're using a regional endpoint, it's in the form of `https://<region>-onelake.dfs.fabric.microsoft.com`. Don't include any trailing slash `/`. To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
-        - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`, don't use both. It has the following subfields:
+        - `names`: Specifies the names of the workspace and the lakehouse. Use either this field or `guids`. Don't use both. It has the following subfields:
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse.
-        - `guids`: Specifies the GUIDs of the workspace and the lakehouse. Use either this field or `names`, don't use both. It has the following subfields:
+        - `guids`: Specifies the GUIDs of the workspace and the lakehouse. Use either this field or `names`. Don't use both. It has the following subfields:
         - `workspaceGuid`: The GUID of the workspace.
         - `lakehouseGuid`: The GUID of the lakehouse.
         - `fabricePath`: The location of the data in the Fabric workspace. It can be either `tables` or `files`. If it's `tables`, the data is stored in the Fabric OneLake as tables. If it's `files`, the data is stored in the Fabric OneLake as files. If it's `files`, the `databaseFormat` must be `parquet`.
