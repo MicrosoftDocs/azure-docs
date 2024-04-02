@@ -97,19 +97,19 @@ az upgrade [--all {false, true}]
 ```
 az group create --name MyResourceGroup --location EastUS
 ```
-- To list accounts under the resource group, use the `az codesigning list -g MyResourceGroup` command.
+- To list accounts under the resource group, use the `trustedsigning list -g MyResourceGroup` command.
 
 7.  Create a unique Trusted Signing account using the following command. (See the below Certificate Profile naming constraints for naming requirements.) 
 ```
-az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
+trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
 ```
 Or 
 ```
-az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
+trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
 - Refer to Select or change Trusted Signing pricing tier link to the Pricing Tier How-To article for information about the available pricing tiers.
 
-8.  Verify your Trusted Signing account using the `az codesigning show -g MyResourceGroup -n MyAccount` command.
+8.  Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
  
 **Trusted Signing account naming constraints**:
 - Between 3-24 alphanumeric characters. 
@@ -118,9 +118,9 @@ az codesigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 - Case insensitive (“Abc” is the same as “abc”).
 
 **Helpful commands**:
-- Show help commands and detailed options:  `az codesigning -h`
-- Show the details of an account: `az codesigning show -n MyAccount  -g MyResourceGroup`
-- Update tags:  `az codesigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`
+- Show help commands and detailed options:  `trustedsigning -h`
+- Show the details of an account: `trustedsigning show -n MyAccount  -g MyResourceGroup`
+- Update tags:  `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`
 
 ---
 
@@ -129,7 +129,7 @@ You can complete your own Identity Validation by filing out the request form wit
 
 Here are the steps to create an Identity Validation request:
 1.  Navigate to your new Trusted Signing account in the Azure portal.
-2.  Confirm you have the **Code Signing Identity Verifier role**. 
+2.  Confirm you have the **Trusted Signing Identity Verifier role**. 
 •   For role Based Access management (RBAC) access management, see link to RBAC and role assignment.
 3.  From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
 4.  Select **New Identity Validation** > Public or Private. 
@@ -203,21 +203,20 @@ To create a certificate profile with Azure CLI, follow these steps:
 1.  Create a certificate profile using the following command: 
 
 ```
-az codesigning certificate-profile create -g MyResourceGroup --a
+trustedsigning certificate-profile create -g MyResourceGroup --a
     account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 - See the below Certificate Profile naming constraints for naming requirements. 
 
 2.  Create a certificate profile that includes optional fields (street address or postal code) in subject name of certificate using the following command:
 ``` 
-az codesigning certificate-profile create -g MyResourceGroup --a
-   account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-   validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
+    trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
 ```
 
 3.  Verify you successfully created a certificate profile by getting the Certificate Profile details using the following command: 
 
 ```
-az codesigning certificate-profile show -g myRG --account-name MyAccount -n          MyProfile
+trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
 ```
 
 **Certificate Profile naming constraints**:
@@ -228,9 +227,9 @@ az codesigning certificate-profile show -g myRG --account-name MyAccount -n     
 - Case insensitive (“Abc” is the same as “abc”) .
 
 **Helpful commands**:
-- Show help for sample commands and detailed parameter descriptions:   `az codesigning certificate-profile create -–help`
-- List certificate profile under a Trusted Signing account:  `az codesigning certificate-profile list -g MyResourceGroup --account-name MyAccount`
-- Get details of a profile:  `az codesigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`
+- Show help for sample commands and detailed parameter descriptions:   `trustedsigning certificate-profile create -–help`
+- List certificate profile under a Trusted Signing account:  `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`
+- Get details of a profile:  `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`
 
 ---
 
@@ -259,14 +258,14 @@ az codesigning certificate-profile show -g myRG --account-name MyAccount -n     
 - Delete the Trusted Signing account:
 
 ```
-az codesigning delete -n MyAccount -g MyResourceGroup
+trustedsigning delete -n MyAccount -g MyResourceGroup
 ```
 **Note**: This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
 
 - Delete the certificate profile:
 
  ```
-az codesigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
 ```
 **Note**: This action halts any signing associated with the corresponding certificate profiles.
 
