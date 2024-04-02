@@ -7,7 +7,7 @@ ms.date: 01/22/2023
 
 # Data retention and sharing across Microsoft Defender for IoT
 
-Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors. 
+Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors.
 
 Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
@@ -90,7 +90,7 @@ For more information, see:
 
 Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
 
-- Microsoft Defencer Exposure Mangement
+- Microsoft Security Exposure Mangement
 
 ## On-premises backup file capacity
 
