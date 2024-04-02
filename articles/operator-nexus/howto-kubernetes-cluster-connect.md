@@ -116,7 +116,7 @@ Reach out to your network administrator to set up a direct connection from Azure
 
 ### Connecting to the cluster node from on-premises jumpbox
 
-Establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
+Establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises jumpbox. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
 
 Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
