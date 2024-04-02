@@ -1,7 +1,7 @@
 ---
 title: What is Defender for open-source databases
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
-ms.date: 03/21/2024
+ms.date: 04/02/2024
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
@@ -56,9 +56,9 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 
 Threat intelligence enriched security alerts are triggered when there are:
 
-- **Anomalous database access and query patterns** - For example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
-- **Suspicious database activities** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
-- **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
+- **Anomalous database access and query patterns** - For example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt).
+- **Suspicious database activities** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server.
+- **Brute-force attacks** – With the ability to separate simple brute force or a successful brute force.
 
 > [!TIP]
 > View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
