@@ -19,7 +19,7 @@ At its core, DFS Namespaces provides a mapping between a user-friendly UNC path,
 
 - Extend a logical set of data across size, IO, or other scale thresholds. This is common when dealing with user directories, where every user gets their own folder on a share, or with scratch shares, where users get arbitrary space to handle temporary data needs. With DFS Namespaces, you stitch together multiple folders into a cohesive namespace. For example, `\\contoso\shares\UserShares\user1` maps to `\\storageaccount.file.core.windows.net\user1`, `\\contoso\shares\UserShares\user2` maps to `\\storageaccount.file.core.windows.net\user2`, and so on.  
 
-You can see an example of how to use DFS Namespaces with your Azure Files deployment in the following video overview.
+You can see an example of how to use DFS Namespaces with your Azure Files deployment in the following video overview. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
 [![Demo on how to set up DFS-N with Azure Files - click to play!](./media/files-manage-namespaces/video-snapshot-dfsn.png)](https://www.youtube.com/watch?v=jd49W33DxkQ)
 > [!NOTE]  
