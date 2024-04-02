@@ -29,10 +29,17 @@ You can browse the Cohere family of models in the [Model Catalog](model-catalog.
 
 In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as a service with pay-as-you-go billing.
 
-* Cohere Embed v3 - English
-(description needed)
-* Cohere Embed v3 - Multilingual
-(description needed)
+### Cohere Embed v3 - English
+Cohere Embed English is the market’s leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on a variety of industries such as Finance, Legal, and General-Purpose Corpora.
+
+* Embed English has 1024 dimensions.
+* Context window of the model is 512 tokens
+
+### Cohere Embed v3 - Multilingual
+Cohere Embed Multilingual is the market’s leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (e.g., search with a French query on French documents) and across languages (e.g., search with an English query on Chinese documents). Embed multilingual has SOTA performance on multilingual benchmarks such as Miracl.
+
+* Embed Multilingual has 1024 dimensions.
+* Context window of the model is 512 tokens
 
 ## Deploy with pay-as-you-go
 
