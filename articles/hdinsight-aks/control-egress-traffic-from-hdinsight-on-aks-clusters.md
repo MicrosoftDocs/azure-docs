@@ -215,8 +215,11 @@ Once the cluster pool is created, you can observe in the MC Group that there's n
 
 With private AKS, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet document](https://datatracker.ietf.org/doc/html/rfc1918). By using this option of private AKS, you can ensure network traffic between your API server and your HDInsight on AKS workload clusters remains on the private network only. 
 
-> [!IMPORTANT]
-> By default, a private DNS zone with a private FQDN and a public DNS zone with a public FQDN are created when you enable private AKS. The agent nodes use the A record in the private DNS zone to find the private IP address of the private endpoint to communicate with the API server. The HDInsight on AKS Resource provider adds the A record to the private DNS zone automatically for private ingress.
+:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing the enabled private AKS." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
+
+When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an additional public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. 
+
+As HDInsight on AKS will automatically insert the record to the private DNS zone in the HDInsight on AKS created managed group, for private ingress. 
 
 ### Clusters with private ingress 
 
