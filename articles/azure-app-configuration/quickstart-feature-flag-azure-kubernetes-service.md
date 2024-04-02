@@ -1,6 +1,6 @@
 ---
 title: Quickstart for using Azure App Configuration Feature Management in Azure Kubernetes Service
-description: "In this quickstart, create an ASP.NET core web app and use feature flag in it running in AKS and use the Azure App Configuration Kubernetes Provider to load key-values and feature flags from App Configuration store."
+description: In this quickstart, create an ASP.NET core web app and use feature flag in it running in AKS and use the Azure App Configuration Kubernetes Provider to load key-values and feature flags from App Configuration store.
 services: azure-app-configuration
 author: linglingye
 ms.service: azure-app-configuration
@@ -18,7 +18,17 @@ In this quickstart, you'll create a feature flag in Azure App Configuration and 
 
 ## Prerequisites
 
-Finish the tutorial: [Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
+Follow the documents to use dynamic configuration in Azure Kubernetes Service.
+
+* [Quickstart: Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md)
+* [Tutorial: Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
+
+## Create a feature flag
+
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
 
 ## Use a feature flag
 
@@ -30,7 +40,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *program.cs* and add feature management to the service collection of your app by calling `AddFeatureManagement`.
+1. Open *program.cs*, and add feature management to the service collection of your app by calling `AddFeatureManagement`.
 
     ```csharp   
     // Existing code in Program.cs
@@ -47,6 +57,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     // The rest of existing code in program.cs
     // ... ...
     ```
+    
     Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
 
 1. Add a new empty Razor page named **Beta** under the *Pages* directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
@@ -97,15 +108,11 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
 1. [Containerize the application](./quickstart-azure-kubernetes-service.md#containerize-the-application) and [Push the image to Azure Container Registry](./quickstart-azure-kubernetes-service.md#push-the-image-to-azure-container-registry). 
 
-1. [Deploy the application](./quickstart-azure-kubernetes-service.md#deploy-the-application)
+1. [Deploy the application](./quickstart-azure-kubernetes-service.md#deploy-the-application). Refresh the browser and the web page will look like this:
+
+    ![Screenshot showing Kubernetes Provider after using configMap without feature flag.](./media/quickstarts/kubernetes-provider-feature-flag-nobeta-home.png)
 
 ## Use Kubernetes Provider to load feature flags
-
-1. Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
-
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
-
 
 1. Update the *appConfigurationProvider.yaml* file located in the *Deployment* directory with the following content.
    
@@ -134,15 +141,11 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     > [!TIP]
     > When no `selectors` are specified in `featureFlag` section, the Kubernetes Provider will not load feature flags from your App Configuration store. The default refresh interval of feature flags is 30 seconds when `featureFlag.refresh` enabled. You can customize this behavior via the `featureFlag.refresh.interval` parameter.
 
-1. Run the following command to deploy the application to the AKS cluster.
+1. Run the following command to apply the changes.
 
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
-
-1. Refresh the browser. The page shows updated content.
-
-    ![Screenshot showing Kubernetes Provider after using configMap without feature flag.](./media/quickstarts/kubernetes-provider-feature-flag-nobeta.png)
 
 1. Update the **Beta** feature flag in your App Configuration store. Enable the flag by selecting the checkbox under **Enabled**.
 
@@ -152,7 +155,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
 1. Select the **Beta** menu. It will bring you to the beta website that you enabled dynamically.
 
-    ![Screenshot showing beta page Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-beta.png)
+    ![Screenshot showing beta page Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-feature-flag-beta-page.png)
 
 ## Clean up resources
 
@@ -174,3 +177,11 @@ In this quickstart, you:
 * Ran the application with dynamic configuration from your App Configuration store without changing your application code.
 
 To learn more about the Azure App Configuration Kubernetes Provider, see [Azure App Configuration Kubernetes Provider reference](./reference-kubernetes-provider.md).
+
+To learn more about feature management capability, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Use feature filters for conditional feature flags](./howto-feature-filters-aspnet-core.md)
