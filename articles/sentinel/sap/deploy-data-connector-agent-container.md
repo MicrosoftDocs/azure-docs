@@ -94,7 +94,7 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 > This procedure may need to be performed by another team in your organization, but must be performed before the other procedures in this article.
 >
 
-Select one of the following tabs, depending on how you plan to access your key vault:
+Select one of the following tabs, depending on how you plan to store and access your authentication credentials and configuration data.
 
 # [Managed identity access](#tab/create-managed-identity)
 
@@ -162,16 +162,20 @@ Select one of the following tabs, depending on how you plan to access your key v
 
 # [Configuration file access](#tab/create-config-file)
 
-### Create a configuration file
+### Use a configuration file
 
 Key Vault is the recommended method to store your authentication credentials and configuration data.
 
-If you are prevented from using Azure Key Vault, you can use a configuration file instead. See the appropriate reference file:
+If you are prevented from using Azure Key Vault, you can use a configuration file instead:
 
-- [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023).
+1. Create a virtual machine on which to deploy the agent.
+1. Continue with deploying the data connector agent using the configuration file. For more information, see 
+[Command line options](#command-line-options).
+
+The configuration file is generated during the agent deployment. For more information, see:
+
 - [Systemconfig.json file reference](reference-systemconfig-json.md) (for versions deployed June 22 or later).
-
-Once you have the file prepared, but before proceeding any further, create a virtual machine on which to deploy the agent. Then, skip the Key Vault steps below and go directly to the step after them&mdash;[Deploy the data connector agent](#deploy-the-data-connector-agent).
+- [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023).
 
 ---
 
@@ -556,11 +560,6 @@ Create a new agent using the command line, authenticating with a managed identit
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-        To see the list of docker containers on your VM, run:
-
-        ```bash
-        docker ps -a
-        ```
 
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
 
@@ -631,12 +630,6 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-        To see the list of docker containers on your VM, run:
-
-        ```bash
-        docker ps -a
-        ```
-
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
 
     ```bash
@@ -690,15 +683,9 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output. You'll use it in the next step.
+   Note the Docker container name in the script output.
 
-1. Run the following command to **configure the Docker container to start automatically**.
-
-    ```bash
-    docker update --restart unless-stopped <container-name>
-    ```
-
-    To view a list of the available containers use the command: `docker ps -a`.
+    You'll use it in the next step.
 
 1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
@@ -714,11 +701,6 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-        To see the list of docker containers on your VM, run:
-
-        ```bash
-        docker ps -a
-        ```
 
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
 
@@ -735,6 +717,13 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
     |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
     |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-file).      |
+
+
+1. Run the following command to configure the Docker container to start automatically.
+
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
 
 ---
 
