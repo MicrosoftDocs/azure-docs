@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 04/01/2024
+ms.date: 04/02/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
