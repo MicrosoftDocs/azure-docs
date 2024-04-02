@@ -11,7 +11,7 @@ ms.reviewer: khdownie
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. StorSimple 8010 and 8020 virtual appliances are also covered in this migration guide. It's possible to migrate the data from either of these appliances to Azure file shares with optional Azure File Sync. Azure File Sync is the default and strategic long-term Azure service that replaces the StorSimple on-premises functionality. This article provides the necessary background knowledge and migration steps for a successful migration to Azure File Sync.
+The StorSimple 8000 series includes either the 8100 or the 8600 physical, on-premises appliances and their cloud service components. StorSimple 8010 and 8020 virtual appliances are also covered in this migration guide. It's possible to migrate the data from either of these appliances to Azure file shares with optional Azure File Sync. Azure File Sync is the default and strategic long-term Azure service that replaces the StorSimple on-premises functionality. This article provides the necessary background knowledge and migration steps for a successful migration to Azure File Sync.
 
 > [!NOTE]
 > The StorSimple Service (including the StorSimple Device Manager for 8000 and 1200 series and StorSimple Data Manager) has reached the end of support. The end of support for StorSimple was published in 2019 on the [Microsoft LifeCycle Policy](/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were sent via email and posted on the Azure portal and in the [StorSimple overview](../../storsimple/storsimple-overview.md). Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
@@ -65,10 +65,10 @@ When you begin planning your migration, first identify all the StorSimple applia
 
 Migrations to Azure file shares from StorSimple volumes via migration jobs in a StorSimple Data Manager resource are free of charge. Other costs might be incurred during and after a migration:
 
-* **Network egress:** Your StorSimple files live in a storage account within a specific Azure region. If you provision the Azure file shares you migrate into a storage account that's located in the same Azure region, no egress cost will occur. However, if you move your files to a storage account in a different region as part of this migration, egress costs will apply.
-* **Azure file share transactions:** When files are copied into an Azure file share (as part of a migration or outside of one), transaction costs apply as files and metadata are being written. As a best practice, start your Azure file share on the transaction optimized tier during the migration. Switch to your desired tier after the migration is finished. The phases described in this article will call this out at the appropriate point.
-* **Change an Azure file share tier:** Changing the tier of an Azure file share costs transactions. In most cases, it will be more cost efficient to follow the advice from the previous point.
-* **Storage cost:** When this migration starts copying files into an Azure file share, storage is consumed and billed. Migrated backups will become [Azure file share snapshots](storage-snapshots-files.md). File share snapshots only consume storage capacity for the differences they contain.
+* **Network egress:** Your StorSimple files live in a storage account within a specific Azure region. If you provision the Azure file shares you migrate into a storage account in the same Azure region, no egress cost occur. However, if you move your files to a storage account in a different region as part of this migration, egress costs will apply.
+* **Azure file share transactions:** When files are copied into an Azure file share (as part of a migration or outside of one), transaction costs apply as files and metadata are being written. As a best practice, start your Azure file share on the transaction optimized tier during the migration. Switch to your desired tier after the migration is finished. The phases described in this article call this out at the appropriate point.
+* **Change an Azure file share tier:** Changing the tier of an Azure file share costs transactions. In most cases, it is more cost efficient to follow the advice from the previous point.
+* **Storage cost:** When this migration starts copying files into an Azure file share, storage is consumed and billed. Migrated backups become [Azure file share snapshots](storage-snapshots-files.md). File share snapshots only consume storage capacity for the differences they contain.
 * **StorSimple:** Until you deprovision the StorSimple devices and storage accounts, StorSimple cost for storage, backups, and appliances will continue to occur.
 
 ### Direct-share-access vs. Azure File Sync
@@ -124,18 +124,18 @@ If none of the limitations in [Known limitations](#known-limitations) prevent a 
 
 File fidelity refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target Azure file share.
 
-[Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). Windows ACLs, common metadata, and some timestamps will be migrated. 
+[Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). Windows ACLs, common metadata, and some timestamps are migrated.
 
 The following items won't prevent a migration but will cause per-item issues during a migration:
 
 * Timestamps: File change time won't be set. It's currently read-only over the REST protocol. Last access timestamp on a file won't be moved, as it isn't a supported attribute on files stored in an Azure file share.
-* [Alternative Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams will be stripped from the file in the process.
-* Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs will list each skipped item and a reason.
-* EFS encrypted files will fail to copy. Copy logs will show the item failed to copy with "Access is denied".
+* [Alternative Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams are stripped from the file in the process.
+* Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs list each skipped item and a reason.
+* EFS encrypted files fail to copy. Copy logs show the item failed to copy with "Access is denied".
 * Corrupt files are skipped. The copy logs might list different errors for each item that is corrupt on the StorSimple disk: "The request failed due to a fatal device hardware error" or "The file or directory is corrupted or unreadable" or "The access control list (ACL) structure is invalid".
 * Individual files larger than 4 TiB are skipped.
-* File path lengths must be equal to or fewer than 2048 characters. Files and folders with longer paths will be skipped.
-* Reparse points will be skipped. Any Microsoft Data Deduplication / SIS reparse points or those of third parties can't be resolved by the migration engine and will prevent a migration of the affected files and folders.
+* File path lengths must be equal to or fewer than 2048 characters. Files and folders with longer paths are skipped.
+* Reparse points are skipped. Any Microsoft Data Deduplication / SIS reparse points or those of third parties can't be resolved by the migration engine and will prevent a migration of the affected files and folders.
 
 The [troubleshooting section](#troubleshooting) at the end of this article has more details for item level and migration job level error codes and where possible, their mitigation options.
 
@@ -145,7 +145,7 @@ StorSimple offers differential backups on the volume level. Azure file shares al
 
 Your migration jobs can only move backups, never data from the live volume. Therefore the most recent backup is closest to the live data and thus should always be part of the list of backups to be moved in a migration.
 
-Decide if you need to move any older backups during your migration. It's a best practice to keep this list as small as possible so your migration jobs will complete faster.
+Decide if you need to move any older backups during your migration. It's a best practice to keep this list as small as possible so your migration jobs complete faster.
 
 To identify critical backups that must be migrated, make a checklist of your backup policies. For example:
 
@@ -155,7 +155,7 @@ To identify critical backups that must be migrated, make a checklist of your bac
 
 When you create your migration jobs, you can use this list to identify the exact StorSimple volume backups that must be migrated to satisfy your requirements.
 
-It's best to suspend all StorSimple backup retention policies before you select a backup for migration. Migrating your backups can take several days or weeks. StorSimple offers backup retention policies that will delete backups. Backups you've selected for this migration might get deleted before they've had a chance to be migrated.
+It's best to suspend all StorSimple backup retention policies before you select a backup for migration. Migrating your backups can take several days or weeks. StorSimple offers backup retention policies that delete backups. Backups you've selected for this migration might get deleted before they've had a chance to be migrated.
 
 > [!CAUTION]
 > Selecting more than **50** StorSimple volume backups isn't supported.
@@ -172,7 +172,7 @@ If your file shares are highly active (utilized by many users or applications), 
 
 These considerations apply more to [direct cloud access](#direct-share-access-vs-azure-file-sync) (through an Azure VM or service) than to Azure File Sync. If you plan to exclusively use Azure File Sync on these shares, grouping several into a single Azure storage account is fine. In the future, you might want to lift and shift an app into the cloud that would then directly access a file share, as this scenario would benefit from having higher IOPS and throughput. Or you could start using a service in Azure that would also benefit from having higher IOPS and throughput.
 
-After you've made a list of your shares, map each share to the storage account where it will reside. Decide on an Azure region, and ensure each storage account and Azure File Sync resource matches the region you selected.
+After making a list of your shares, map each share to the storage account where it will reside. Decide on an Azure region, and ensure each storage account and Azure File Sync resource matches the region you selected.
 
 > [!IMPORTANT]
 > Don't configure network and firewall settings for the storage accounts now. Making these configurations at this point would make a migration impossible. Configure these Azure storage settings after the migration is complete.
@@ -238,7 +238,7 @@ The name of your storage account will become part of a URL used to access your f
 
 #### Location
 
-The Azure region of a storage account is very important. If you use Azure File Sync, all of your storage accounts must be in the same region as your Storage Sync Service resource. The Azure region you pick should be close or central to your local servers and users. After you deploy your resource, you can't change its region.
+The Azure region of a storage account is important. If you use Azure File Sync, all your storage accounts must be in the same region as your Storage Sync Service resource. The Azure region you pick should be close or central to your local servers and users. After you deploy your resource, you can't change its region.
 
 You can pick a different region from where your StorSimple data (storage account) currently resides, however, if you do, [egress charges will apply](https://azure.microsoft.com/pricing/details/bandwidth) during the migration. Data will leave the StorSimple region and enter your new storage account region. No bandwidth charges apply if you stay within the same Azure region.
 
@@ -271,11 +271,11 @@ There are several replication settings available. Only choose from the following
     :::column-end:::
 :::row-end:::
 
-Opting for the large, 100 TiB capacity file shares has several benefits:
+Using large file shares has several benefits:
 
-* Your performance is greatly increased as compared to the smaller 5 TiB file shares (for example, 10 times the IOPS).
-* Your migration will finish significantly faster.
-* You ensure that a file share will have enough capacity to hold all the data you'll migrate into it, including the storage capacity that differential backups require.
+* Performance is greatly increased as compared to the smaller 5 TiB file shares (for example, 10 times the IOPS).
+* Your migration will finish faster.
+* You ensure that a file share has enough capacity to hold all the data you'll migrate into it, including the storage capacity that differential backups require.
 * Future growth is covered.
 
 > [!IMPORTANT]
@@ -296,7 +296,7 @@ After creating your storage accounts, go to the **File share** section of the st
 
 ### StorSimple Data Manager
 
-The Azure resource that will hold your migration jobs is called a **StorSimple Data Manager**. Select **New resource**, and search for it. Then select **Create**.
+The Azure resource that holds your migration jobs is called a **StorSimple Data Manager**. Select **New resource**, and search for it. Then select **Create**.
 
 This temporary resource is used for orchestration. You deprovision it after your migration completes. Make sure to deploy it in the same subscription, resource group, and region as your StorSimple storage account.
 
@@ -355,7 +355,7 @@ To get started, go to your StorSimple Data Manager, find **Job definitions** on 
 There are important aspects around choosing backups that need to be migrated:
 
 * Your migration jobs can only move backups, not live volume data. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration. When you open the Backup selection dialog, it's selected by default.
-* Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share will improve your migration experience. If this delta can be zero, meaning that no more changes to the StorSimple volume happened after the newest backup was taken in your list, then the user cut-over will be drastically simplified and sped up.
+* Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share improves your migration experience. If this delta can be zero, meaning that no more changes to the StorSimple volume happened after the newest backup was taken in your list, then the user cut-over will be drastically simplified and sped up.
 * Backups must be played back into the Azure file share **from oldest to newest**. An older backup can't be "sorted into" the list of backups on the Azure file share after running a migration job. Therefore you must ensure that your list of backups is complete *before* you create a job.
 * This list of backups in a job can't be modified once the job is created, even if the job never ran.
 * In order to select backups, the StorSimple volume you want to migrate must be online.
@@ -445,8 +445,8 @@ Sorts multiple source locations into a new directory structure:
    Invalid target path overlap example:</br>
    *\\folder > \\*</br>
    *\\folder2 > \\*</br>
-* Source folders that don't exist will be ignored.
-* Folder structures that don't exist on the target will be created.
+* Source folders that don't exist are ignored.
+* Folder structures that don't exist on the target are created.
 * Like Windows, folder names are case insensitive but case preserving.
 
 > [!NOTE]
@@ -474,7 +474,7 @@ In the job blade that opens, you can see your job's current status and a list of
 
 The migration jobs have two columns in the list of backups that list any issues that might have occurred during the copy:
 
-* Copy errors </br>This column lists files or folders that should have been copied but weren't. These errors are often recoverable. When a backup lists item issues in this column, review the copy logs. If you need to migrate these files, select **Retry backup**. This option will become available once the backup finished processing. The [Managing a migration job](#manage-a-migration-job) section explains your options in more detail.
+* Copy errors </br>This column lists files or folders that should have been copied but weren't. These errors are often recoverable. When a backup lists item issues in this column, review the copy logs. If you need to migrate these files, select **Retry backup**. This option becomes available once the backup finishes processing. The [Managing a migration job](#manage-a-migration-job) section explains your options in more detail.
 * Unsupported files </br>This column lists files or folders that can't be migrated. Azure Storage has limitations in file names, path lengths, and file types that currently or logically can't be stored in an Azure file share. A migration job won't pause for these kinds of errors. Retrying migration of the backup won't change the result. When a backup lists item issues in this column, review the copy logs and take note. If such issues arise in your last backup and you found in the copy log that the failure was due to a file name, path length, or other issue you have influence over, you might want to remedy the issue in the live StorSimple volume, take a StorSimple volume backup, and create a new migration job with just that backup. You can then migrate this remedied namespace and it will become the most recent / live version of the Azure file share. This is a manual and time consuming process. Review the copy logs carefully and evaluate if it's worth it.
 
 These copy logs are *\*.csv* files listing namespace items succeeded and items that failed to get copied. The errors are further split into the previously discussed categories. From the log file location, you can find logs for failed files by searching for "failed". The result should be a set of logs for files that failed to copy. Sort these logs by size. There might be extra logs produced at 17 bytes in size. They are empty and can be ignored. With a sort, you can focus on the logs with content.
