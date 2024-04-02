@@ -46,7 +46,7 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2024-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"

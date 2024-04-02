@@ -174,7 +174,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
 
 - Wildcards are required for tracking multiple files.
-- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or` /etc/*.conf`
+- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or `/etc/*.conf`
 - If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
 - When setting the path, avoid general paths such as `c:\*.*`, which results in too many folders being traversed.
 
@@ -239,7 +239,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
 
     In the following example, we're retrieving all changes in the last 14 days in the categories of registry and files:
 
-    ```
+    ```kusto
     ConfigurationChange
     | where TimeGenerated > ago(14d)
     | where ConfigChangeType in ('Registry', 'Files')
@@ -251,7 +251,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
     1. Remove **Files** from the **where** clause.
     1. Remove the summarization line and replace it with an ordering clause:
 
-    ```
+    ```kusto
     ConfigurationChange
     | where TimeGenerated > ago(14d)
     | where ConfigChangeType in ('Registry')

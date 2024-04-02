@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 01/13/2023
+ms.date: 03/12/2024
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -44,7 +44,7 @@ SignalR Service trigger binding for C# has two programming models. Class based m
 See [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model) for details.
 
 ```cs
-public class SignalRTestHub : ServerlessHub
+public class HubName1 : ServerlessHub
 {
     [FunctionName("SignalRTest")]
     public async Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
@@ -84,26 +84,28 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 SignalR trigger isn't currently supported for Java.
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-python,programming-language-powershell"
 
-Here's binding data in the *function.json* file:
-
-```json
-{
-    "type": "signalRTrigger",
-    "name": "invocation",
-    "hubName": "SignalRTest",
-    "category": "messages",
-    "event": "SendMessage",
-    "parameterNames": [
-        "message"
-    ],
-    "direction": "in"
-}
-```
+[!INCLUDE [functions-bindings-signalr-trigger-function-json](../../includes/functions-bindings-signalr-trigger-function-json.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
+
+# [Model v4](#tab/nodejs-v4)
+
+```javascript
+app.generic("function1",
+    {
+        trigger: { "type": "signalRTrigger", "name": "invocation", "direction": "in", "hubName": "hubName1", "event": "SendMessage", "category": "messages" },
+        handler: (triggerInput, context) => {
+            context.log(`Receive ${context.Arguments[0]} from ${triggerInput.ConnectionId}.`)
+        }
+    })
+```
+
+# [Model v3](#tab/nodejs-v3)
+
+[!INCLUDE [functions-bindings-signalr-trigger-function-json](../../includes/functions-bindings-signalr-trigger-function-json.md)]
 
 Here's the JavaScript code:
 
@@ -171,7 +173,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 
 There isn't currently a supported Java annotation for a SignalR trigger.
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-powershell,programming-language-python"
 
 ## Configuration
 

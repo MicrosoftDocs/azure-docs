@@ -158,7 +158,7 @@ VM Image Builder has extended support for TrustedLaunchSupported and Confidentia
 
 VM Image Builder is a fully managed Azure service that's accessible to Azure resource providers. Resource providers configure it by specifying a source image, a customization to perform, and where the new image is to be distributed. A high-level workflow is illustrated in the following diagram:
 
-![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-overview/image-builder-flow.png)
+<img width="1361" alt="AIB Conceptual Overview" src="https://github.com/MicrosoftDocs/azure-docs-pr/assets/12863757/59dd5ccb-15fa-4805-9631-23cef26f4653">
 
 You can pass template configurations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager templates, or by using a VM Image Builder DevOps task. When you submit the configuration to the service, Azure creates an *image template resource*. When the image template resource is created, a *staging resource group* is created in your subscription, in the following format: `IT_\<DestinationResourceGroup>_\<TemplateName>_\(GUID)`. The staging resource group contains files and scripts, which are referenced in the File, Shell, and PowerShell customization in the ScriptURI property.
 

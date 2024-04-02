@@ -3,12 +3,12 @@ title: What's new in Azure AI Language?
 titleSuffix: Azure AI services
 description: Find out about new releases and features for the Azure AI Language.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
 ms.date: 02/26/2024
-ms.author: aahi
+ms.author: jboback
 ---
 
 # What's new in Azure AI Language?

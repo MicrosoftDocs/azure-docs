@@ -183,6 +183,35 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
         [parameter(Mandatory = $true)][string]$releaseName,
         [parameter(Mandatory = $false)]$releaseProperties = @()
     )
+
+    # Function to ensure all Unicode characters in a JSON string are properly escaped
+    function Convert-UnicodeToEscapeHex {
+      param (
+        [parameter(Mandatory = $true)][string]$JsonString
+      )
+      $JsonObject = ConvertFrom-Json -InputObject $JsonString
+      foreach ($property in $JsonObject.PSObject.Properties) {
+        $name = $property.Name
+        $value = $property.Value
+        if ($value -is [string]) {
+          $value = [regex]::Unescape($value)
+          $OutputString = ""
+          foreach ($char in $value.ToCharArray()) {
+            $dec = [int]$char
+            if ($dec -gt 127) {
+              $hex = [convert]::ToString($dec, 16)
+              $hex = $hex.PadLeft(4, '0')
+              $OutputString += "\u$hex"
+            }
+            else {
+              $OutputString += $char
+            }
+          }
+          $JsonObject.$name = $OutputString
+        }
+      }
+      return ConvertTo-Json -InputObject $JsonObject -Compress
+    }
     
     $annotation = @{
         Id = [GUID]::NewGuid();
@@ -192,7 +221,11 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
         Properties = ConvertTo-Json $releaseProperties -Compress
     }
     
-    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
+    $annotation = ConvertTo-Json $annotation -Compress
+    $annotation = Convert-UnicodeToEscapeHex -JsonString $annotation  
+ 
+    $body = $annotation -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
+
     az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
 
     # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios

@@ -34,17 +34,17 @@ Let's look at some examples why.
 
 In the following example image for the selected recommendation, Azure recommends a purchase quantity of 6.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Example showing a reservation purchase recommendation" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Screenshot showing a reservation purchase recommendation." lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
 More information about the recommendation appears when you select **See details**. The following image shows details about the recommendation. The quantity recommended is calculated for the highest possible usage and it's based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. In the example, notice that utilization fluctuated over time. The cost of the reservation, possible savings, and utilization percentage is shown.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Example showing details for a reservation purchase recommendation " :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Screenshot showing details for a reservation purchase recommendation ." :::
 
 The chart and estimated values change when you increase the recommended quantity. When you increase the reservation quantity, your savings are reduced because you end up with reduced reservation use. In other words, you pay for reservations that aren't fully used.
 
 If you lower the reservation quantity, your savings are also reduced. Although utilization is increased, there might be periods when your reservations don't fully cover your use. Usage beyond your reservation quantity is used by more expensive pay-as-you-go resources. The following example image illustrates the point. We've manually reduced the reservation quantity to 4. The reservation utilization is increased, but the overall savings are reduced because pay-as-you-go costs are present.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Example showing changed reservation purchase recommendation details" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Screenshot showing changed reservation purchase recommendation details." :::
 
 To maximize savings with reservations, try to purchase reservations as close to the recommendation as possible.
 

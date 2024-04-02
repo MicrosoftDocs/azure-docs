@@ -4,7 +4,7 @@ description: Specifications for the M-series VMs.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: ayshak
@@ -13,7 +13,7 @@ ms.author: ayshak
 # M-series
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

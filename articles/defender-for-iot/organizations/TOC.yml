@@ -354,6 +354,8 @@
       href: best-practices/sample-connectivity-models.md
     - name: Networking requirements
       href: networking-requirements.md
+    - name: End User License Agreement
+      href: /legal/defender-for-iot/sensor-software-eula?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
     - name: OT monitoring appliances
       items:
       - name: Overview
@@ -379,6 +381,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
           href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: DELL XE4 SFF
+          href: appliance-catalog/dell-xe4-sff.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi) 

@@ -181,7 +181,7 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
-    - name: Web SDK v1 migration guide
+    - name: Web SDK migration guide
       href: web-sdk-migration-guide.md
     - name: Map control
       items:
@@ -283,6 +283,8 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
+    - name: Android SDK migration guide
+      href: android-sdk-migration-guide.md
     - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
@@ -319,6 +321,8 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
+    - name: iOS SDK migration guide
+      href: ios-sdk-migration-guide.md
     - name: The iOS map control
       href: how-to-use-ios-map-control-library.md
     - name: Change the style of a map
@@ -367,6 +371,8 @@ items:
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a cluster bubble layer
+      href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a 3D column layer
@@ -383,6 +389,8 @@ items:
       href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
+    - name: Power BI Azure Maps Visual Data Residency
+      href: power-bi-visual-data-residency.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
     - name: Use Azure Maps in Power Apps
@@ -419,77 +427,11 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
-    - name: Overview
-      href: /rest/api/maps
-    - name: Data
-      href: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
-    - name: Data V2
-      href: /rest/api/maps/data
-    - name: Data Registry
-      href: /rest/api/maps/data-registry
-    - name: Geolocation
-      href: /rest/api/maps/geolocation
-    - name: Render
-      href: /rest/api/maps/render?view=rest-maps-1.0&preserve-view=true
-    - name: Render V2
-      href: /rest/api/maps/render
-    - name: Route
-      href: /rest/api/maps/route
-    - name: Route V2 (Preview)
-      href: /rest/api/maps/route?view=rest-maps-2023-10-01-preview&preserve-view=true
-    - name: Search
-      href: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-    - name: Search V2
-      href: /rest/api/maps/search
-    - name: Spatial
-      href: /rest/api/maps/spatial
-    - name: Timezone
-      href: /rest/api/maps/timezone
-    - name: Traffic
-      href: /rest/api/maps/traffic
-    - name: Weather
-      href: /rest/api/maps/weather
-    - name: Maps Creator
-      items:
-      - name: Overview
-        href: /rest/api/maps-creator/
-      - name: 2023-03-01-preview
-        items:
-        - name: Alias
-          href: /rest/api/maps-creator/alias?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Conversion
-          href: /rest/api/maps-creator/conversion?view=rest-maps-creator-2023-03-01-preview&preserve-view=true	
-        - name: Dataset
-          href: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Feature State
-          href: /rest/api/maps-creator/feature-state?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Features
-          href: /rest/api/maps-creator/features?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Map configuration
-          href: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Routeset
-          href: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Style
-          href: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Tileset
-          href: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-        - name: Wayfinding
-          href: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
-      - name: V2
-        items:
-          - name: Alias
-            href: /rest/api/maps-creator/alias
-          - name: Conversion
-            href: /rest/api/maps-creator/conversion
-          - name: Dataset
-            href: /rest/api/maps-creator/dataset
-          - name: Feature State
-            href: /rest/api/maps-creator/feature-state
-          - name: Tileset
-            href: /rest/api/maps-creator/tileset
-          - name: WFS
-            href: /rest/api/maps-creator/wfs
-    - name: Maps account management
+    - name: Maps API
+      href: rest-api-azure-maps.md
+    - name: Maps Creator API
+      href: rest-api-creator.md
+    - name: Maps Management API
       href: /rest/api/maps-management/
   - name: JavaScript
     items:

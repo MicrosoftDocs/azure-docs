@@ -13,7 +13,7 @@ ms.date: 2/22/2024
 To create an Azure AI project in [Azure AI Studio](https://ai.azure.com), follow these steps:
 
 1. Select the **Build** tab at the top of the page.
-1. Select **+ New project**.
+1. Select **+ New AI project**.
 
     :::image type="content" source="../media/how-to/projects/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible." lightbox="../media/how-to/projects/projects-create-new.png":::
 
@@ -39,10 +39,12 @@ To create an Azure AI project in [Azure AI Studio](https://ai.azure.com), follow
 
     :::image type="content" source="../media/how-to/projects/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/how-to/projects/projects-create-resource.png":::
 
-1. On the **Review and finish** page, you see the **AI Services** provider for you to access the Azure AI services such as Azure OpenAI.
+1. On the **Review and finish** page, you see the Azure OpenAI Service resource name and other settings to review.
 
     :::image type="content" source="../media/how-to/projects/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects/projects-create-review-finish.png":::
 
-1. Review the project details and then select **Create a project**. 
+1. Review the project details and then select **Create an AI project**. You see progress of resource creation and the project is created when the process is complete.
+
+    :::image type="content" source="../media/how-to/projects/projects-create-review-finish-progress.png" alt-text="Screenshot of the resource creation progress within the create project dialog." lightbox="../media/how-to/projects/projects-create-review-finish-progress.png":::
 
 Once a project is created, you can access the **Tools**, **Components**, and **AI project settings** assets in the left navigation panel. For a project that uses an Azure AI hub with support for Azure OpenAI, you see the **Playground** navigation option under **Tools**. 

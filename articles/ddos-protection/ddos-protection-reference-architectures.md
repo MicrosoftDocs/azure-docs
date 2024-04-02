@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: conceptual
 ms.date: 06/15/2023
 ms.author: abell
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, linux-related-content
 ---
 
 # Azure DDoS Protection reference architectures

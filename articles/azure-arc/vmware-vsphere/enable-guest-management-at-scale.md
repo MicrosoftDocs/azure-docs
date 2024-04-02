@@ -2,7 +2,7 @@
 title: Install Arc agent at scale for your VMware VMs
 description: Learn how to enable guest management at scale for Arc enabled VMware vSphere VMs. 
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 03/27/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -43,7 +43,12 @@ An admin can install agents for multiple machines from the Azure portal if the m
 
 4. If you want to connect the Arc agent via proxy, provide the proxy server details.
 
-5. Provide the administrator username and password for the machine. 
+5. If you want to connect Arc agent via private endpoint, follow these [steps](../servers/private-link-security.md) to set up Azure private link. 
+
+      >[!Note]
+      > Private endpoint connectivity is only available for Arc agent to Azure communications. For Arc resource bridge to Azure connectivity, Azure private link isn't supported.
+
+6. Provide the administrator username and password for the machine. 
 
 > [!NOTE]
 > For Windows VMs, the account must be part of local administrator group; and for Linux VM, it must be a root account.

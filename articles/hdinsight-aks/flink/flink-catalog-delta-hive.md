@@ -3,7 +3,7 @@ title: Table API and SQL - Use Delta Catalog type with Hive with Apache Flink® 
 description: Learn about how to create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 03/14/2024
 ---
 
 # Create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
@@ -23,11 +23,12 @@ In this article, we learn how Apache Flink SQL/TableAPI is used to implement a D
 Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Delta table managed in Hive catalog.
 
    ```
- wget https://repo1.maven.org/maven2/io/delta/delta-standalone_2.12/3.0.0rc1/delta-standalone_2.12-3.0.0rc1.jar -P $FLINK_HOME/lib
- wget https://repo1.maven.org/maven2/io/delta/delta-flink/3.0.0rc1/delta-flink-3.0.0rc1.jar -P $FLINK_HOME/lib
- wget https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.4/shapeless_2.12-2.3.4.jar -P $FLINK_HOME/lib
- wget https://repo1.maven.org/maven2/org/apache/flink/flink-parquet/1.16.0/flink-parquet-1.16.0.jar -P $FLINK_HOME/lib
- wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-hadoop-bundle/1.12.2/parquet-hadoop-bundle-1.12.2.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/io/delta/delta-storage/3.0.0/delta-storage-3.0.0.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/io/delta/delta-standalone_2.12/3.0.0/delta-standalone_2.12-3.0.0.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/io/delta/delta-flink/3.0.0/delta-flink-3.0.0.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.4/shapeless_2.12-2.3.4.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/org/apache/flink/flink-parquet/{flink.version}/flink-parquet-{flink.version}.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-hadoop-bundle/1.12.2/parquet-hadoop-bundle-1.12.2.jar -P $FLINK_HOME/lib 
    ```
 
 ### Start the Apache Flink SQL Client
@@ -51,11 +52,12 @@ Using the delta catalog
 #### Add dependencies to server classpath
 
 ```sql
-  ADD JAR '/opt/flink-webssh/lib/delta-flink-3.0.0rc1.jar';
-  ADD JAR '/opt/flink-webssh/lib/delta-standalone_2.12-3.0.0rc1.jar';
+  ADD JAR '/opt/flink-webssh/lib/delta-standalone_2.12-3.0.0.jar';
+  ADD JAR '/opt/flink-webssh/lib/delta-storage-3.0.0.jar';
+  ADD JAR '/opt/flink-webssh/lib/delta-flink-3.0.0.jar';
   ADD JAR '/opt/flink-webssh/lib/shapeless_2.12-2.3.4.jar';
   ADD JAR '/opt/flink-webssh/lib/parquet-hadoop-bundle-1.12.2.jar';
-  ADD JAR '/opt/flink-webssh/lib/flink-parquet-1.16.0.jar';
+  ADD JAR '/opt/flink-webssh/lib/flink-parquet-1.17.0.jar';
 ```
 #### Create Table
 

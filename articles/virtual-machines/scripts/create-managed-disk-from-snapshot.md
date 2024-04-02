@@ -9,7 +9,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.date: 01/19/2024
 ms.author: ramankum
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Create a managed disk from a snapshot with CLI (Linux)
@@ -18,7 +18,7 @@ This article contains two scripts for creating a managed disk from a snapshot. T
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

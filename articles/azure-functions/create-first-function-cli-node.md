@@ -159,6 +159,12 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
 ## Next steps
-
+<!--- Revert this after we get Node.js v4 support added to the follow-on quickstarts -->
+::: zone pivot="nodejs-model-v3"  
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript)
+::: zone-end  
+::: zone pivot="nodejs-model-v4"   
+> [!div class="nextstepaction"]
+> [Learn more about JavaScript functions](./functions-reference-node.md)
+::: zone-end  

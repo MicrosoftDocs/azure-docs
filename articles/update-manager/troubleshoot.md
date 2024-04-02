@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/21/2024
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -16,7 +16,10 @@ This article describes the errors that might occur when you deploy or use Azure 
 
 The following troubleshooting steps apply to the Azure virtual machines (VMs) related to the patch extension on Windows and Linux machines.
 
-### Azure Linux VM
+
+#### [Azure Virtual Machines](#tab/azure-machines)
+
+##### Azure Linux VM
 
 To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
 
@@ -27,7 +30,7 @@ To review the logs related to all actions performed by the extension, check for 
 * `<seq number>.core.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
 * `<Date and Time>_<Handler action>.ext.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
 
-### Azure Windows VM
+##### Azure Windows VM
 
 To verify if the VM agent is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
 
@@ -36,7 +39,8 @@ To review the logs related to all actions performed by the extension, check for 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
 * `CommandExecution.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
 
-### Azure Arc-enabled servers
+#### [Arc-enabled Servers](#tab/azure-arc)
+
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](../azure-arc/servers/troubleshoot-vm-extensions.md) for general troubleshooting steps.
 
@@ -45,6 +49,23 @@ To review the logs related to all actions performed by the extension, on Windows
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
 * `cmd_excution_<numeric>_stderr.txt`
+
+---
+
+## Policy remediation tasks are failing for gallery images and for images with encrypted disks
+
+### Issue
+There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it is currently not part of the Virtual Machine Contributor role.
+
+  :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
+
+### Cause
+The Virtual Machine Contributor role doesn’t have enough permissions.
+
+### Resolution
+-	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
+-	For any previous assignments if you are experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
+-	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
 ### Unable to generate periodic assessment for Arc-enabled servers

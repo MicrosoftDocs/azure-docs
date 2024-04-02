@@ -1,12 +1,9 @@
 ---
 title: Conditional deployment with Bicep
 description: Describes how to conditionally deploy a resource in Bicep.
-
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/20/2023
+ms.date: 03/20/2024
 ---
 
 # Conditional deployments in Bicep with the if expression

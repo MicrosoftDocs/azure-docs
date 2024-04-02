@@ -1924,6 +1924,11 @@
             "source_path_from_root": "/articles/resource-manager-policy.md",
             "redirect_url": "/azure/governance/policy/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
+            "redirect_URL": "bicep-import",
+            "redirect_document_id": false
         }
     ]
 }

@@ -5,9 +5,9 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 03/20/2024
 ms.author: duau
-ms.custom: mvc, linux-related-content
+ms.custom: mvc
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ---
 
@@ -15,9 +15,9 @@ ms.custom: mvc, linux-related-content
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint.
 
-The HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site’s certificate. The browser verifies it’s issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+The HTTPS protocol on your custom domain (for example, HTTPS:\//www.contoso.com), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site's certificate. The browser verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
-Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled.
+Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as HTTPS:\//Contoso.azureedge.net), HTTPS is automatically enabled.
 
 Some of the key attributes of the custom HTTPS feature are:
 
@@ -26,8 +26,8 @@ Some of the key attributes of the custom HTTPS feature are:
 - Simple enablement: One-click provisioning is available from the [Azure portal](https://portal.azure.com). You can also use REST API or other developer tools to enable the feature.
 
 - Complete certificate management is available:
-    * All certificate procurement and management is handled for you.
-    * Certificates are automatically provisioned and renewed before expiration.
+    - All certificate procurement and management is handled for you.
+    - Certificates are automatically provisioned and renewed before expiration.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -68,9 +68,9 @@ To enable HTTPS on a custom domain, follow these steps:
 1. Go to the [Azure portal](https://portal.azure.com) to find a certificate managed by your Azure CDN. Search for and select **CDN profiles**.
 
 2. Choose your profile:
-    * **Azure CDN Standard from Microsoft**
-    * **Azure CDN Standard from Edgio**
-    * **Azure CDN Premium from Edgio**
+    - **Azure CDN Standard from Microsoft**
+    - **Azure CDN Standard from Edgio**
+    - **Azure CDN Premium from Edgio**
 
 3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
@@ -92,33 +92,32 @@ To enable HTTPS on a custom domain, follow these steps:
 
 7. Continue to [Validate the domain](#validate-the-domain).
 
-
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
 > This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Edgio** profiles.
 >
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Edgio, any valid CA will be accepted.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected. If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Edgio, any valid CA will be accepted.
 
-### Prepare your Azure Key vault account and certificate
+### Prepare your Azure Key Vault account and certificate
 
-1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don’t have one.
+1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don't have one.
 
 2. Azure Key Vault certificates: If you have a certificate, upload it directly to your Azure Key Vault account. If you don't have a certificate, create a new certificate directly through Azure Key Vault.
 
 > [!NOTE]
-> * Azure CDN only supports PFX certificates.
-> * The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> - Azure Content Delivery Network only supports PFX certificates.
+> - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Register Azure CDN
 
 Register Azure CDN as an app in your Microsoft Entra ID.
 
 > [!NOTE]
-> * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
-> * You need to have the **Global Administrator** role to run this command.
-> * The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
+> - `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
+> - You need to have the **Global Administrator** role to run this command.
+> - The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
 
 #### Azure PowerShell
 
@@ -135,15 +134,15 @@ Register Azure CDN as an app in your Microsoft Entra ID.
     ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8,
 				https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
     ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-    ObjectType            : ServicePrincipal
-    DisplayName           : Microsoft.AzureFrontDoor-Cdn
-    Id                    : abcdef12-3456-7890-abcd-ef1234567890
+    ObjectType            : ServicePrincipal DisplayName           : Microsoft.AzureFrontDoor-Cdn Id                    : abcdef12-3456-7890-abcd-ef1234567890
     Type                  :
     ```
 
-#### Azure CLI
+<a name='azure-cli'></a>
 
-1. If needed, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+#### The Azure CLI
+
+1. If needed, install the [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
 1. Use the Azure CLI to run the following command:
 
@@ -157,19 +156,19 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 1. In your key vault in the **Settings** section, select **Access policies**. In the right pane, select **+ Add Access Policy**:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Create keyvault access policy for CDN" border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Screenshot of create a Key Vault access policy for Azure Content Delivery Network." border="true":::
 
-2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**.  Choose **Select**:
+2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**. Choose **Select**:
 
 3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
 
-4. Select **Certificate permissions**. Select the check box for **Get** to allow CDN permissions to get the certificates.
+4. Select **Certificate permissions**. Select the checkbox for **Get** to allow CDN permissions to get the certificates.
 
-5. Select **Secret permissions**. Select the check box for **Get** to allow CDN permissions to get the secrets:
+5. Select **Secret permissions**. Select the checkbox for **Get** to allow CDN permissions to get the secrets:
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Screenshot of select permissions for Azure Content Delivery Network to Key Vault." border="true":::
 
 6. Select **Add**.
 
@@ -191,13 +190,13 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 4. Select a key vault, Certificate/Secret, and Certificate/Secret version.
 
     Azure CDN lists the following information:
-    - The key vault accounts for your subscription ID.
+    - The Key Vault accounts for your subscription ID.
     - The certificates/secrets under the selected key vault.
     - The available certificate/secret versions.
 
     > [!NOTE]
-    > * Azure CDN only supports PFX certificates.
-    > * In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed. Only Standard Microsoft SKU supports certificate auto rotation.
+    > - Azure Content Delivery Network only supports PFX certificates.
+    > - In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed. Only Standard Microsoft SKU supports certificate auto rotation.
 
 5. Select **On** to enable HTTPS.
 
@@ -207,7 +206,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 ## Validate the domain
 
-If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record).
+If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your Content Delivery Network endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record).
 
 Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-isnt-mapped-to-your-cdn-endpoint).
 
@@ -221,8 +220,8 @@ If you're using your own certificate, domain validation isn't required.
 
 Your CNAME record should be in the following format:
 
-* *Name* is your custom domain name.
-* *Value* is your CDN endpoint hostname.
+- *Name* is your custom domain name.
+- *Value* is your content delivery network endpoint hostname.
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
@@ -232,10 +231,10 @@ For more information about CNAME records, see [Create the CNAME DNS record](./cd
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Continue to [Wait for propagation](#wait-for-propagation).
 
-Automatic validation typically takes a few hours. If you don’t see your domain validated in 24 hours, open a support ticket.
+Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
 
 >[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CA(s) for authorization. DigiCert is the CA for Microsoft and Edgio profiles. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+> If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CAs for authorization. DigiCert is the CA for Microsoft and Edgio profiles. For information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ### Custom domain isn't mapped to your CDN endpoint
 
@@ -243,11 +242,11 @@ If the CNAME record entry contains the cdnverify subdomain, follow the rest of t
 
 DigiCert sends a verification email to the following email addresses. Verify that you can approve directly from one of the following addresses:
 
-* **admin@your-domain-name.com**
-* **administrator@your-domain-name.com**
-* **webmaster@your-domain-name.com**
-* **hostmaster@your-domain-name.com**
-* **postmaster@your-domain-name.com**
+- **admin@your-domain-name.com**
+- **administrator@your-domain-name.com**
+- **webmaster@your-domain-name.com**
+- **hostmaster@your-domain-name.com**
+- **postmaster@your-domain-name.com**
 
 You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
 
@@ -280,7 +279,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | 1 Submitting request | Submitting request |
 | | Your HTTPS request is being submitted. |
 | | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | Domain is automatically validated if it's CNAME mapped to the CDN Endpoint. Otherwise, a verification request will be sent to the email listed in your domain’s registration record (WHOIS registrant).|
+| 2 Domain validation | Domain is automatically validated if it's CNAME mapped to the CDN Endpoint. Otherwise, a verification request will be sent to the email listed in your domain's registration record (WHOIS registrant).|
 | | Your domain ownership has been successfully validated. |
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS won't be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS won't be enabled on your domain. * |
@@ -296,8 +295,6 @@ If an error occurs before the request is submitted, the following error message 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
-
-
 
 ## Clean up resources - disable HTTPS
 
@@ -341,10 +338,10 @@ The following table shows the operation progress that occurs when you disable HT
 
     A dedicated certificate provided by Digicert is used for your custom domain for:
 
-    * **Azure CDN from Edgio**
-    * **Azure CDN from Microsoft**
+    - **Azure Content Delivery Network from Edgio**
+    - **Azure Content Delivery Network from Microsoft**
 
-2. *Do you use IP-based or SNI TLS/SSL?*
+2. *Do you use IP-based or Server Name Indication (SNI) TLS/SSL?*
 
     Both **Azure CDN from Edgio** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
 
@@ -356,7 +353,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 
-	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
 
 5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
@@ -370,9 +367,9 @@ The following table shows the operation progress that occurs when you disable HT
 
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
-    To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
+    To ensure a newer certificate is deployed to POP infrastructure, upload your new certificate to Azure Key Vault. In your TLS settings on Azure Content Delivery Network, choose the newest certificate version and select save. Azure Content Delivery Network will then propagate your new updated cert.
 
-    For **Azure CDN from Edgio** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
+    For **Azure CDN from Edgio** profiles, if you use the same Azure Key Vault certificate on several custom domains (such as a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 
 ## Next steps
 

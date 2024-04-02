@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -195,11 +195,14 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforMySQL/register/action | Register MySQL Resource Provider |
 > | Microsoft.DBforMySQL/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
-> | Microsoft.DBforMySQL/flexibleServers/resetGtid/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/write | Creates a server with the specified parameters or updates the properties or tags for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/delete | Deletes an existing server. |
+> | Microsoft.DBforMySQL/flexibleServers/validateEstimateHighAvailability/action |  |
+> | Microsoft.DBforMySQL/flexibleServers/getReplicationStatusForMigration/action | Return whether the replication is able to migration. |
+> | Microsoft.DBforMySQL/flexibleServers/resetGtid/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/checkServerVersionUpgradeAvailability/action |  |
+> | Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforMySQL/flexibleServers/backupAndExport/action | Creates a server backup for long term with specific backup name and export it. |
 > | Microsoft.DBforMySQL/flexibleServers/validateBackup/action | Validate that the server is ready for backup. |
 > | Microsoft.DBforMySQL/flexibleServers/checkHaReplica/action |  |
@@ -216,6 +219,8 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/advancedThreatProtectionSettings/write | Update the server's advanced threat protection setting. |
 > | Microsoft.DBforMySQL/flexibleServers/backups/write | Creates a server backup with specific backup name. |
 > | Microsoft.DBforMySQL/flexibleServers/backups/read | Returns the list of backups for a server or gets the properties for the specified backup. |
+> | Microsoft.DBforMySQL/flexibleServers/backupsv2/write |  |
+> | Microsoft.DBforMySQL/flexibleServers/backupsv2/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/configurations/read | Returns the list of  MySQL server configurations or gets the configurations for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/configurations/write | Updates the configuration of a MySQL server. |
 > | Microsoft.DBforMySQL/flexibleServers/databases/read | Returns the list of databases for a server or gets the properties for the specified database. |
@@ -243,6 +248,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for MySQL servers |
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 > | Microsoft.DBforMySQL/flexibleServers/replicas/read | Returns the list of read replicas for a MySQL server |
+> | Microsoft.DBforMySQL/flexibleServers/supportedFeatures/read | Return the list of the MySQL Server Supported Features |
 > | Microsoft.DBforMySQL/locations/checkVirtualNetworkSubnetUsage/action | Checks the subnet usage for speicifed delegated virtual network. |
 > | Microsoft.DBforMySQL/locations/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
 > | Microsoft.DBforMySQL/locations/listMigrations/action | Return the List of MySQL scheduled auto migrations |
@@ -353,6 +359,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/testConnectivity/action |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action | Start long term backup for a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
+> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionsApproval/action | Determines if the user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Return the list of server administrators or gets the properties for the specified server administrator. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/delete | Deletes an existing PostgreSQL server administrator. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Creates a server administrator with the specified parameters or update the properties or tags for the specified server administrator. |
@@ -377,13 +384,11 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | Gets the properties for the specified migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | List of migration workflows for the specified database server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/write | Update the properties for the specified migration. |
-> | Microsoft.DBforPostgreSQL/flexibleServers/migrations/delete | Deletes an existing migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/read | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy resource. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/write | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/validate/action | Validates a private endpoint connection create call from NRP side |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
-> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/delete | Deletes an existing private endpoint connection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateLinkResources/read | Return a list containing private link resource or gets the specified private link resource. |
@@ -412,6 +417,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionOperationResults/read | Gets the result for a private endpoint connection operation |
 > | Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionProxyAzureAsyncOperation/read | Gets the result for a private endpoint connection proxy operation |
 > | Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionProxyOperationResults/read | Gets the result for a private endpoint connection proxy operation |
+> | Microsoft.DBforPostgreSQL/locations/resourceType/usages/read | Gets the quota usages of a subscription |
 > | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | Return the list of Server threat detection operation result. |
 > | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | Return the list of Server threat detection operation result. |
 > | Microsoft.DBforPostgreSQL/locations/serverKeyAzureAsyncOperation/read | Gets in-progress operations on data encryption server keys |
@@ -902,7 +908,6 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Lists the long term retention backups for a database |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Deletes a long term retention backup |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/changeAccessTier/action | Change long term retention backup access tier operation. |
-> | Microsoft.Sql/locations/managedDatabaseMoveAzureAsyncOperation/read | Gets Managed Instance database move Azure async operation. |
 > | Microsoft.Sql/locations/managedDatabaseMoveOperationResults/read | Gets Managed Instance database move operation result. |
 > | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Completes managed database restore operation |
 > | Microsoft.Sql/locations/managedInstanceAdvancedThreatProtectionAzureAsyncOperation/read | Retrieve results of the managed instance Advanced Threat Protection settings write operation |

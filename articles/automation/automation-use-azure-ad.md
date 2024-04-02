@@ -4,7 +4,7 @@ description: This article tells how to use Microsoft Entra ID within Azure Autom
 services: automation
 ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure
@@ -22,7 +22,9 @@ You can enable Microsoft Entra ID through the following PowerShell modules:
 * Microsoft Entra ID for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
 
 >[!NOTE]
->PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module. 
+>PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module.
+
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 ### Preinstallation
 

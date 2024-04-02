@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
@@ -99,7 +100,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- **Arc only** - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- **Arc only** - Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 - **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
@@ -123,7 +124,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 
 **To simulate a Kubernetes workload security alert**:
 
@@ -168,7 +169,7 @@ You can also learn more about defending your Kubernetes nodes and clusters with 
 
 ## Simulate alerts for App Service
 
-You can simulate alerts for resources running on [App Service](/azure/app-service/overview).
+You can simulate alerts for resources running on [App Service](../app-service/overview.md).
 
 1. Create a new website and wait 24 hours for it to be registered with Defender for Cloud, or use an existing web site.
 
@@ -207,7 +208,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 
 ## Validate Azure Key Vault Threat Detection
 
-1. If you don’t have a Key Vault created yet, make sure to [create one](/azure/key-vault/general/quick-create-portal).
+1. If you don’t have a Key Vault created yet, make sure to [create one](../key-vault/general/quick-create-portal.md).
 1. After finishing creating the Key Vault and the secret, go to a VM that has Internet access and [download the TOR Browser](https://www.torproject.org/download/).
 1. Install the TOR Browser on your VM.
 1. Once you finished the installation, open your regular browser, sign-in to the Azure portal, and access the Key Vault page. Select the highlighted URL and copy the address.

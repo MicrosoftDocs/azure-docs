@@ -1,6 +1,6 @@
 ---
 title: Agentless container posture in Defender CSPM
-description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for containers without installing an agent on your machines.
+description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for containers without installing a sensor on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 12/12/2023
@@ -17,7 +17,7 @@ Agentless container posture provides easy and seamless visibility into your Kube
 
 Agentless container posture provides the following capabilities:
 
-- **[Agentless discovery for Kubernetes](/azure/defender-for-cloud/defender-for-containers-enable#enablement-method-per-capability)** - provides zero footprint, API-based discovery of your Kubernetes clusters, their configurations, and deployments.
+- **[Agentless discovery for Kubernetes](defender-for-containers-enable.md#enablement-method-per-capability)** - provides zero footprint, API-based discovery of your Kubernetes clusters, their configurations, and deployments.
 - **[Comprehensive inventory capabilities](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer)** - enables you to explore resources, pods, services, repositories, images, and configurations through [security explorer](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) to easily monitor and manage your assets.
 - **[Agentless vulnerability assessment](agentless-vulnerability-assessment-azure.md)** - provides vulnerability assessment for all container images, including recommendations for registry and runtime, near real-time scans of new images, daily refresh of results, exploitability insights, and more. Vulnerability information is added to the security graph for contextual risk assessment and calculation of attack paths, and hunting capabilities.
 - **[Attack path analysis](concept-attack-path.md)** - Contextual risk assessment exposes exploitable paths that attackers might use to breach your environment and are reported as attack paths to help prioritize posture issues that matter most in your environment.

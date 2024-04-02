@@ -228,7 +228,7 @@ Use the following example to set automatic extension upgrade on the extension wi
                      "properties": {
                           "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
                           "type": "DependencyAgentWindows",
-                          "typeHandlerVersion": "9.5"
+                          "typeHandlerVersion": "9.5",
                           "autoUpgradeMinorVersion": true,
                           "enableAutomaticUpgrade": true,
                      }

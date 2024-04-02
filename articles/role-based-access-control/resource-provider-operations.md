@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -249,7 +249,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.AlertsManagement](./permissions/monitor.md#microsoftalertsmanagement) | Analyze all of the alerts in your Log Analytics repository. | [Azure Monitor](/azure/azure-monitor/) |
 > | [Microsoft.Dashboard](./permissions/monitor.md#microsoftdashboard) |  | [Azure Managed Grafana](/azure/managed-grafana/) |
 > | [Microsoft.Insights](./permissions/monitor.md#microsoftinsights) | Full observability into your applications, infrastructure, and network. | [Azure Monitor](/azure/azure-monitor/) |
-> | [Microsoft.Monitor](./permissions/monitor.md#microsoftmonitor) |  | [Azure Monitor](/azure/azure-monitor/) |
+> | [microsoft.monitor](./permissions/monitor.md#microsoftmonitor) |  | [Azure Monitor](/azure/azure-monitor/) |
 > | [Microsoft.OperationalInsights](./permissions/monitor.md#microsoftoperationalinsights) |  | [Azure Monitor](/azure/azure-monitor/) |
 > | [Microsoft.OperationsManagement](./permissions/monitor.md#microsoftoperationsmanagement) | A simplified management solution for any enterprise. | [Azure Monitor](/azure/azure-monitor/) |
 
@@ -293,10 +293,13 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.AzureStack](./permissions/hybrid-multicloud.md#microsoftazurestack) | Build and run innovative hybrid applications across cloud boundaries. | [Azure Stack](/azure-stack/) |
 > | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Stack HCI](/azure-stack/hci/) |
+> | [Microsoft.ExtendedLocation](./permissions/hybrid-multicloud.md#microsoftextendedlocation) |  | [Custom locations](/azure/azure-arc/platform/conceptual-custom-locations) |
 > | [Microsoft.HybridCompute](./permissions/hybrid-multicloud.md#microsofthybridcompute) |  | [Azure Arc](/azure/azure-arc/) |
 > | [Microsoft.HybridConnectivity](./permissions/hybrid-multicloud.md#microsofthybridconnectivity) |  |  |
+> | [Microsoft.HybridContainerService](./permissions/hybrid-multicloud.md#microsofthybridcontainerservice) |  |  |
 > | [Microsoft.Kubernetes](./permissions/hybrid-multicloud.md#microsoftkubernetes) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.KubernetesConfiguration](./permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
+> | [Microsoft.ResourceConnector](./permissions/hybrid-multicloud.md#microsoftresourceconnector) |  |  |
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: Configure network functions in Azure Operator 5G Core
-description: This tutorial outlines the process to configure specific network functions--including SMF, UPF, AMF, NRF, and NSSF--in Azure Operator 5G Core.
+title: Configure network functions in Azure Operator 5G Core Preview
+description: This tutorial outlines the process to configure specific network functions--including SMF, UPF, AMF, NRF, and NSSF--in Azure Operator 5G Core Preview.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: tutorial #required; leave this attribute/value as-is
-ms.date: 02/22/2024
+ms.date: 03/21/2024
 
 ---
 
@@ -19,9 +19,7 @@ This article describes how to configure a network function following deployment.
 
 ## Configure a Session Management Function (SMF)
 
-Use the procedures described in:
-- [SMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
-- [Interface Manager Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/SMF_Specific/Config/interface_mgr-cna-interface-mgr_config.html)
+Use the procedures described in [SMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
 
 ## Configure a User Plane Function (UPF)
 
@@ -42,6 +40,6 @@ Use the procedure described in [NSSF Configuration](https://manuals.metaswitch.c
 
 ## Related content
 
-- [Quickstart: Configure a network function in Azure Operator 5G Core](quickstart-configure-network-function.md)
-- [Quickstart: Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Configure a network function in Azure Operator 5G Core Preview](how-to-configure-network-function.md)
+- [Deploy a network function on Azure Kubernetes Services (AKS)](how-to-deploy-network-functions.md)
 

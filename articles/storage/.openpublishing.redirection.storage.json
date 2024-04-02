@@ -2229,7 +2229,16 @@
             "source_path_from_root": "/articles/vs-azure-tools-storage-manage-with-storage-explorer.md",
             "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
             "redirect_document_id": true
-        }
-                        
+        },
+        {
+             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+             "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
+             "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+             "redirect_document_id": false
+        }                  
     ]
 }

@@ -2,10 +2,11 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: conceptual
-ms.date: 03/10/2023
+ms.date: 03/21/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Overview of Azure Blob backup
@@ -20,7 +21,11 @@ This article gives you an understanding about configuring the following types of
 
 You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Backup center](backup-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
-## How the operational backup works?
+## How the Azure Blobs backup works?
+
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
 
 Operational backup uses blob platform capabilities to protect your data and allow recovery when required:
 
@@ -30,7 +35,7 @@ Operational backup uses blob platform capabilities to protect your data and allo
 
 For information about the limitations of the current solution, see the [support matrix](blob-backup-support-matrix.md).
 
-## How the vaulted backup works?
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
 Vaulted backup (preview) uses the platform capability of object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs between a source storage account and a destination storage account. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
 
@@ -38,9 +43,13 @@ When you configure protection, Azure Backup allocates a destination storage acco
 
 For information about the limitations of the current solution, see the [support matrix](blob-backup-support-matrix.md).
 
+---
+
 ## Protection
 
-### Protection using operational backup
+**Choose a backup tier for protection**:
+
+# [Operational backup](#tab/operational-backup)
 
 Operational backup is configured and managed at the **storage account** level, and applies to all block blobs within the storage account. Operational backup uses a **backup policy** to manage the duration for which the backup data (including older versions and deleted blobs) is to be retained, in that way defining the period up to which you can restore your data from. The backup policy can have a maximum retention of 360 days, or equivalent number of complete weeks (51) or months (11).
 
@@ -59,7 +68,7 @@ To allow Backup to enable these properties on the storage accounts to be protect
 >[!NOTE]
 >Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
 
-### Protection using vaulted backup (in preview)
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
 Vaulted backup is configured at the storage account level. However, you can exclude containers that don't need backup. If your storage account has *>100* containers, you need to mandatorily exclude containers to reduce the count to *100* or below. For vaulted backups, the schedule and retention are managed via backup policy. You can set the frequency as *daily* or *weekly*, and specify when the backup recovery points need to be created. You can also configure different retention values for backups taken every day, week, month, or year. The retention rules are evaluated in a predetermined order of priority. The *yearly* rule has the priority compared to *monthly* and *weekly* rule. Default retention settings are applied if other rules don't qualify.
 
@@ -73,6 +82,8 @@ Once you have enabled backup on a storage account, a Backup Instance is created 
 
 Both operational and vaulted backups integrate directly with Backup Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Backup Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
+---
+
 ## Restore
 
 You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state, and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
@@ -81,7 +92,9 @@ Operational backup gives you the option to restore all block blobs in the storag
 
 ## Pricing
 
-### Operational backup
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
 
 You won't incur any management charges or instance fee when using operational backup for blobs. However, you'll incur the following charges:
 
@@ -89,9 +102,11 @@ You won't incur any management charges or instance fee when using operational ba
 
 - Retention of data because of [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), and [Blob versioning](../storage/blobs/versioning-overview.md).
 
-### Vaulted backup (preview)
+# [Vaukted backup (preview)](#tab/vaulted-backup)
 
 You won't incur backup storage charges or instance fees during the preview. However, you'll incur the source side cost, [associated with Object replication](../storage/blobs/object-replication-overview.md#billing), on the backed-up source account.
+
+---
 
 ## Next steps
 

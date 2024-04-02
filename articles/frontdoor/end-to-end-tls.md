@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 03/15/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -35,6 +35,10 @@ Azure Front Door supports four versions of the TLS protocol: TLS versions 1.0,
 Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in RFC 5246, currently, Azure Front Door doesn't support client/mutual authentication (mTLS) yet.
 
 You can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2. As such, specifying TLS 1.2 as the minimum version controls the minimum acceptable TLS version Azure Front Door will accept from a client. For minimum TLS version 1.2 the negotiation will attempt to establish TLS 1.3 and then TLS 1.2, while for minimum TLS version 1.0 all four versions will be attempted. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.0, TLS 1.1, TLS 1.2 and TLS 1.3.
+
+> [!NOTE]
+> * Clients with TLS 1.3 enabled are required to support one of the Microsoft SDL compliant EC Curves, including Secp384r1, Secp256r1, and Secp521, in order to successfully make requests with Azure Front Door using TLS 1.3.
+> * It is recommended that clients use one of these curves as their preferred curve during requests to avoid increased TLS handshake latency, which may result from multiple round trips to negotiate the supported EC curve.
 
 ## Supported certificates
 

@@ -2,8 +2,8 @@
 title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 02/16/2024
-
+ms.date: 03/14/2024
+ms.subservice: aks-storage
 ---
 
 # Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
@@ -23,8 +23,6 @@ The CSI storage driver support on AKS allows you to natively use:
 
 > [!NOTE]
 > It is recommended to delete the corresponding PersistentVolumeClaim object instead of the PersistentVolume object when deleting a CSI volume. The external provisioner in the CSI driver will react to the deletion of the PersistentVolumeClaim and based on its reclamation policy, it issues the DeleteVolume call against the CSI volume driver commands to delete the volume. The PersistentVolume object is then deleted.
->
-> Azure Disks CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

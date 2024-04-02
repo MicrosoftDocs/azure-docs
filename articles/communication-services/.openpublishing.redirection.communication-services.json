@@ -274,6 +274,137 @@
             "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/get-started-live-stream.md",
             "redirect_url": "/azure/communication-services/",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-infrastructure.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/certified-session-border-controllers.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/certified-session-border-controllers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-provisioning.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-provisioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/plan-solution.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/plan-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/telephony-concept.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/telephony-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/get-phone-number.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/get-phone-number",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/port-phone-number.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+            "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
+            "redirect_url": "/azure/communication-services/concepts/sms/concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/messaging-policy.md",
+            "redirect_url": "/azure/communication-services/concepts/sms/messaging-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sdk-features.md",
+            "redirect_url": "/azure/communication-services/concepts/sms/sdk-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sms-faq.md",
+            "redirect_url": "/azure/communication-services/concepts/sms/sms-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/handle-sms-events.md",
+            "redirect_url": "/azure/communication-services/quickstarts/sms/handle-sms-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/logic-app.md",
+            "redirect_url": "/azure/communication-services/quickstarts/sms/logic-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/send.md",
+            "redirect_url": "/azure/communication-services/quickstarts/sms/send",
+            "redirect_document_id": false
+        },
+        
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+            "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+            "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
+            "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity.md",
+            "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity-from-cli.md",
+            "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal-from-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
+            "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/call-logs-azure-monitor.md",
+            "redirect_url": "/azure/communication-services/concepts/analytics/call-logs-azure-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/get-started-android-webview.md",
+            "redirect_URL": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview?pivots=platform-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
+            "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/tutorials/file-sharing-tutorial.md",
+            "redirect_URL": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
+            "redirect_document_id": false
         }
     ]
 }

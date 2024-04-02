@@ -14,7 +14,7 @@ ms.devlang: azurecli
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This document describes version 3.0 and newer of the Linux diagnostic extension (LAD).
 

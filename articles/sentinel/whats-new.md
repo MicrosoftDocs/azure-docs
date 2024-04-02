@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
-description: This article describes new features in Microsoft Sentinel from the past few months.
+description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
-ms.date: 01/11/2024
+ms.topic: concept
+ms.date: 03/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -21,12 +21,68 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## March 2024
+
+- [Amazon Web Services S3 connector now generally available (GA)](#amazon-web-services-s3-connector-now-generally-available-ga)
+- [Codeless Connector builder (preview)](#codeless-connector-builder-preview)
+- [SIEM migration experience (preview)](#siem-migration-experience-preview)
+- [Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+
+### Amazon Web Services S3 connector now generally available (GA)
+
+Microsoft Sentinel has released the AWS S3 data connector to general availability (GA). You can use this connector to ingest logs from several AWS services to Microsoft Sentinel using an S3 bucket and AWS's simple message queuing service.
+
+Concurrent with this release, this connector's configuration has changed slightly for Azure Commercial Cloud customers. User authentication to AWS is now done using an OpenID Connect (OIDC) web identity provider, instead of through the Microsoft Sentinel application ID in combination with the customer workspace ID. Existing customers can continue using their current configuration for the time being, and will be notified well in advance of the need to make any changes.
+
+To learn more about the AWS S3 connector, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+
+### Codeless connector builder (preview)
+
+We now have a workbook to help navigate the complex JSON involved in deploying an ARM template for codeless connector platform (CCP) data connectors. Use the friendly interface of the **codeless connector builder** to simplify your development. 
+
+See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
+
+For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
+
+### SIEM migration experience (preview)
+
+The new Microsoft Sentinel Migration experience helps customers and partners to automate the process of migrating their security monitoring use cases hosted in non-Microsoft products into Microsoft Sentinel.
+- This first version of the tool supports migrations from Splunk
+
+For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md)
+
+### Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)
+
+Microsoft Sentinel has released two more data connectors based on the Azure Monitor Agent (AMA) to general availability. You can now use these connectors to deploy Data Collection Rules (DCRs) to Azure Monitor Agent-installed machines to collect Syslog messages, including those in Common Event Format (CEF).
+
+To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF logs with the Azure Monitor Agent](connect-cef-syslog-ama.md).
+
 ## February 2024
 
+- [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
 - [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Microsoft Sentinel solution for Microsoft Power Platform preview available
+
+The Microsoft Sentinel solution for Power Platform (preview) allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following activities:
+
+- Power Apps execution from unauthorized geographies
+- Suspicious data destruction by Power Apps
+- Mass deletion of Power Apps
+- Phishing attacks made possible through Power Apps
+- Power Automate flows activity by departing employees
+- Microsoft Power Platform connectors added to the environment
+- Update or removal of Microsoft Power Platform data loss prevention policies
+
+Find this solution in the Microsoft Sentinel content hub.
+
+For more information, see:
+- [Microsoft Sentinel solution for Microsoft Power Platform overview](business-applications/power-platform-solution-overview.md)
+- [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](business-applications/power-platform-solution-security-content.md)
+- [Deploy the Microsoft Sentinel solution for Microsoft Power Platform](business-applications/deploy-power-platform-solution.md)
 
 ### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
 
@@ -37,6 +93,7 @@ The Google Cloud Platform (GCP) Security Command Center is a robust security and
 The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
 
 - Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
+
 
 ### Incident tasks now generally available (GA)
 
@@ -55,7 +112,7 @@ Incident tasks, which help you standardize your incident investigation and respo
 
 Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
 
-The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+The configurations for these connectors for Azure Government customers differ slightly from the public cloud configuration. See the relevant documentation for details:
 
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
 - [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)

@@ -4,8 +4,9 @@ titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: quickstart
-ms.date: 2/1/2024
+ms.date: 3/19/2024
 ms.reviewer: v-baolianzou
 ms.author: eur
 author: eric-urban
@@ -23,7 +24,7 @@ The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to 
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
-- An Azure OpenAI resource created in the North Central US or West Europe regions with the `whisper` model deployed. For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
+- An Azure OpenAI resource with a `whisper` model deployed in a supported region. [Whisper model regional availability](./concepts/models.md#whisper-models). For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
@@ -93,7 +94,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [REST API quickstart](includes/whisper-python.md)]
+[!INCLUDE [Python quickstart](includes/whisper-python.md)]
 
 ::: zone-end
 

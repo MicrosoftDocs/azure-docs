@@ -1,21 +1,19 @@
 ---
-title: Azure Files geo-redundancy for large file shares (preview)
-description: Azure Files geo-redundancy for large file shares (preview) significantly improves standard SMB file share capacity and performance limits when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options.
+title: Azure Files geo-redundancy for large file shares
+description: Azure Files geo-redundancy for large file shares significantly improves standard SMB file share capacity and performance limits when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 03/26/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Azure Files geo-redundancy for large file shares (preview)
+# Azure Files geo-redundancy for large file shares
 
-Azure Files geo-redundancy for large file shares (preview) significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. 
+Azure Files geo-redundancy for large file shares significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. 
 
-Azure Files has supported large file shares for several years, which not only provides file share capacity up to 100 TiB but also improves IOPS and throughput. Large file shares are widely adopted by customers using locally redundant storage (LRS) and zone-redundant storage (ZRS), but they haven't been available for geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) until now.
-
-Azure Files geo-redundancy for large file shares (the "preview") is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You may use the preview in production environments.
+Azure Files has offered 100 TiB standard SMB shares for years with locally redundant storage (LRS) and zone-redundant storage (ZRS). However, geo-redundant file shares had a 5 TiB capacity limit and were sometimes throttled due to IO operations per second (IOPS) and throughput limits. Now, geo-redundant standard SMB file shares support up to 100 TiB capacity with significantly improved IOPS and throughput limits.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -26,7 +24,7 @@ Azure Files geo-redundancy for large file shares (the "preview") is subject to t
 
 ## Geo-redundant storage options
 
-Azure maintains multiple copies of your data to ensure durability and high availability. For protection against regional outages, you can configure your storage account for GRS or GZRS to copy your data asynchronously in two geographic regions that are hundreds of miles apart. This preview adds GRS and GZRS support for standard storage accounts that have the large file shares feature enabled.
+Azure maintains multiple copies of your data to ensure durability and high availability. For protection against regional outages, you can configure your storage account for GRS or GZRS to copy your data asynchronously in two geographic regions that are hundreds of miles apart. This feature adds GRS and GZRS support for standard storage accounts that have the large file shares feature enabled.
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 
@@ -41,84 +39,90 @@ If the primary region becomes unavailable for any reason, you can [initiate an a
 
 Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increases your standard file share capacity and performance limits: 
 
-| **Attribute** | **Current limit** | **Large file share limit** |
+| **Attribute** | **Previous limit** | **New limit** |
 |---------------|-------------------|---------------|
 | Capacity per share | 5 TiB | 100 TiB (20x increase) |
-| Max IOPS per share | 1,000 IOPS | 20,000 IOPS (20x increase) |
-| Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) |
+| Max IOPS per share | 1,000 IOPS | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (20x increase) |
+| Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (150x increase) |
 
 ## Region availability
+Azure Files geo-redundancy for large file shares is generally available in the majority of regions that support geo-redundancy. Use the table below to see which regions are generally available (GA) or still in preview.
 
-Azure Files geo-redundancy for large file shares preview is currently available in the following regions:
+| **Region** | **Availability** |
+|---------------|-------------------|
+| Australia Central | GA |
+| Australia Central 2 | GA |
+| Australia East | GA |
+| Australia Southeast | GA |
+| Brazil South | Preview |
+| Brazil Southeast | Preview |
+| Canada Central | Preview |
+| Canada East | Preview |
+| Central India | Preview |
+| Central US | GA |
+| China East | Preview |
+| China East 2 | Preview |
+| China East 3 | GA |
+| China North | Preview |
+| China North 2 | Preview |
+| China North 3 | GA |
+| East Asia | GA |
+| East US | Preview |
+| East US 2 | GA |
+| France Central | GA |
+| France South | GA |
+| Germany North | GA |
+| Germany West Central | GA |
+| Japan East | GA |
+| Japan West | GA |
+| Korea Central | GA |
+| Korea South | GA |
+| North Central US | Preview |
+| North Europe | Preview |
+| Norway East | GA |
+| Norway West | GA |
+| South Africa North | Preview |
+| South Africa West | Preview |
+| South Central US | Preview |
+| South India | Preview |
+| Southeast Asia | GA |
+| Sweden Central | GA |
+| Sweden South | GA |
+| Switzerland North | Preview |
+| Switzerland West | Preview |
+| UAE Central | GA |
+| UAE North | GA |
+| UK South | GA |
+| UK West | GA |
+| US DoD Central | GA |
+| US DoD East | GA |
+| US Gov Arizona | Preview |
+| US Gov Texas | Preview |
+| US Gov Virginia | Preview |
+| West Central US | GA |
+| West Europe | Preview |
+| West India | Preview |
+| West US | Preview |
+| West US 2 | GA |
+| West US 3 | Preview |
 
-- Australia Central
-- Australia Central 2
-- Australia East
-- Australia Southeast
-- Brazil South
-- Brazil Southeast
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- China East 2
-- China East 3
-- China North 2
-- China North 3
-- East Asia
-- East US
-- East US 2
-- France Central
-- France South
-- Germany North
-- Germany West Central
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- North Central US
-- North Europe
-- Norway East
-- Norway West
-- South Africa North
-- South Africa West
-- South Central US
-- South India
-- Southeast Asia
-- Sweden Central
-- Sweden South
-- Switzerland North
-- Switzerland West
-- UAE Central
-- UAE North
-- UK South
-- UK West
-- US DoD Central
-- US DoD East
-- US Gov Arizona
-- US Gov Texas
-- US Gov Virginia
-- West Central US
-- West Europe
-- West India
-- West US
-- West US 2
-- West US 3
+> [!NOTE]  
+> Azure Files geo-redundancy for large file shares (the "preview") is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You may use the preview in production environments.
 
 ## Pricing
 
 Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## Register for the preview
+## Register for the feature
 
-To get started, register for the preview using the Azure portal or PowerShell.
+To get started, register for the feature using Azure portal or PowerShell. This step is required for regions that are generally available or in preview.
 
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 2. Search for and select **Preview features**.
 3. Click the **Type** filter and select **Microsoft.Storage**.
-4. Select **Azure Files geo-redundancy for large file shares preview** and click **Register**.
+4. Select **Azure Files geo-redundancy for large file shares** and click **Register**.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -132,7 +136,7 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 
 ## Enable geo-redundancy and large file shares for standard SMB file shares
 
-With Azure Files geo-redundancy for large file shares preview, you can enable geo-redundancy and large file shares for new and existing standard SMB file shares.
+With Azure Files geo-redundancy for large file shares, you can enable geo-redundancy and large file shares for new and existing standard SMB file shares.
 
 ### Create a new storage account and file share
 
@@ -176,14 +180,12 @@ It's important to understand the following about the Last Sync Time property:
 This section lists considerations that might impact your ability to fail over to the secondary region.
 
 - Storage account failover will be blocked if a system snapshot doesn't exist in the secondary region.
-
+- Storage account failover will be blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
 - File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
-
 - File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
-
 - Copy operations in progress will be aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
-To test storage account failover, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+To failover a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
 
 ## See also
 
