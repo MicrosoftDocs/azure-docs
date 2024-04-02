@@ -2,7 +2,7 @@
 title: Tracking your secure score
 description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 03/13/2024
 ---
 
 # Track secure score
@@ -14,7 +14,7 @@ You can find your overall secure score, and your score per subscription, through
 
 ## Get your secure score from the portal
 
-Defender for Cloud displays your score prominently in the portal. When you select the Secure score tile on the overview page, you're taken to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential effect that remediating them will have on the subscription's score.
+Defender for Cloud displays your score prominently in the portal. When you select the secure score tile on the overview page, you're taken to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential effect that remediating them will have on the subscription's score.
 
 Your secure score is shown in the following locations in Defender for Cloud's portal pages.
 
@@ -24,16 +24,16 @@ Your secure score is shown in the following locations in Defender for Cloud's po
 
 - In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Defender for Cloud's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Defender for Cloud's secure score page" lightbox="media/secure-score-security-controls/score-on-dedicated-dashboard.png":::
 
-    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Defender for Cloud's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Defender for Cloud's secure score page"  lightbox="media/secure-score-security-controls/secure-score-management-groups.png":::
 
     > [!NOTE]
     > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.”
 
 - At the top of the **Recommendations** page:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Defender for Cloud's recommendations page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Defender for Cloud's recommendations page"  lightbox="media/secure-score-security-controls/score-on-recommendations-page.png":::
 
 ## Get your secure score from the REST API
 
@@ -51,7 +51,7 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
 1. From the Azure portal, open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer recommendation page."  lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
 
 1. Enter your Kusto query (using the following examples for guidance).
 

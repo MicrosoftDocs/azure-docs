@@ -171,7 +171,11 @@
   - name: Backup center
     href: backup-center-overview.md
   - name: Azure VM backup
-    href: backup-azure-vms-introduction.md
+    items:
+    - name: Overview
+      href: backup-azure-vms-introduction.md
+    - name: Agentless multi-disk crash-consistent VM backup
+      href: backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview
@@ -258,6 +262,8 @@
         href: backup-during-vm-creation.md
       - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
+      - name: Back up Azure VM with agentless multi-disk crash-consistent backup
+        href: backup-azure-vms-agentless-multi-disk-crash-consistent.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
       - name: Set up a vault and enable backup for Azure VMs
@@ -777,6 +783,10 @@
       href: backup-sql-server-azure-troubleshoot.md
     - name: Azure Database for PostgreSQL
       href: backup-azure-database-postgresql-troubleshoot.md
+    - name: Azure Database for PostgreSQL - Flexible server backup
+      href: backup-azure-database-postgresql-flex-troubleshoot.md
+    - name: Azure Database for MySQL - Flexible Server
+      href: backup-azure-mysql-flexible-server-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: SAP HANA database instance backup in Azure VM

@@ -11,7 +11,7 @@ ms.date: 09/06/2023
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
-To provide findings for the recommendation, Defender for Cloud uses [agentless discovery for Kubernetes](defender-for-containers-introduction.md) or the [Defender agent](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) to create a full inventory of your Kubernetes clusters and their workloads and correlates that inventory with the vulnerability reports created for your registry images. The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and remediation steps.
+To provide findings for the recommendation, Defender for Cloud uses [agentless discovery for Kubernetes](defender-for-containers-introduction.md) or the [Defender sensor](tutorial-enable-containers-azure.md#deploy-the-defender-sensor-in-azure) to create a full inventory of your Kubernetes clusters and their workloads and correlates that inventory with the vulnerability reports created for your registry images. The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and remediation steps.
 
 Defender for Cloud presents the findings and related information as recommendations, including related information such as remediation steps and relevant CVEs. You can view the identified vulnerabilities for one or more subscriptions, or for a specific resource.
 
@@ -39,8 +39,8 @@ If you are using Defender CSPM, first review and remediate vulnerabilities expos
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png" alt-text="Screenshot showing where to select a specific container." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png":::
 
-1. This pane includes a list of the container vulnerabilities. Select each vulnerability to [resolve the vulnerability](#remediate-vulnerabilities).  
-  
+1. This pane includes a list of the container vulnerabilities. Select each vulnerability to [resolve the vulnerability](#remediate-vulnerabilities).
+
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png" alt-text="Screenshot showing the list of container vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png":::
 
 ## View container images affected by a specific vulnerability

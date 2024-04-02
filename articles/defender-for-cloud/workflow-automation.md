@@ -4,7 +4,7 @@ description: Learn how to create and automate workflows in Microsoft Defender fo
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/18/2023
+ms.date: 03/20/2024
 ---
 # Automate remediation responses
 
@@ -16,6 +16,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 - You need **Security admin role** or **Owner** on the resource group.
 - You must also have write permissions for the target resource.
+- The workflow automation feature supports consumption logic app workflows and not standard logic app workflows.
 - To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:
 
   - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)

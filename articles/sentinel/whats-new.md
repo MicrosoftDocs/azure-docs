@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
-description: This article describes new features in Microsoft Sentinel from the past few months.
+description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
-ms.date: 02/28/2024
+ms.topic: concept
+ms.date: 03/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -23,7 +23,36 @@ The listed features were released in the last three months. For information abou
 
 ## March 2024
 
-[Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+- [SIEM migration experience now generally available (GA)](#siem-migration-experience-now-generally-available-ga)
+- [Amazon Web Services S3 connector now generally available (GA)](#amazon-web-services-s3-connector-now-generally-available-ga)
+- [Codeless Connector builder (preview)](#codeless-connector-builder-preview)
+- [Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
+
+### SIEM migration experience now generally available (GA)
+
+At the beginning of the month, we announced the SIEM migration preview. Now at the end of the month, it's already GA! The new Microsoft Sentinel Migration experience helps customers and partners automate the process of migrating their security monitoring use cases hosted in non-Microsoft products into Microsoft Sentinel.
+- This first version of the tool supports migrations from Splunk
+
+For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md)
+
+Join our Security Community for a [webinar](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_0A4IaJRDNBnp8pjCkWnwhUM1dFNFpVQlZJREdEQjkwQzRaV0RZRldEWC4u) showcasing the SIEM migration experience on May 2nd, 2024. 
+
+### Amazon Web Services S3 connector now generally available (GA)
+
+Microsoft Sentinel has released the AWS S3 data connector to general availability (GA). You can use this connector to ingest logs from several AWS services to Microsoft Sentinel using an S3 bucket and AWS's simple message queuing service.
+
+Concurrent with this release, this connector's configuration has changed slightly for Azure Commercial Cloud customers. User authentication to AWS is now done using an OpenID Connect (OIDC) web identity provider, instead of through the Microsoft Sentinel application ID in combination with the customer workspace ID. Existing customers can continue using their current configuration for the time being, and will be notified well in advance of the need to make any changes.
+
+To learn more about the AWS S3 connector, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+
+### Codeless connector builder (preview)
+
+We now have a workbook to help navigate the complex JSON involved in deploying an ARM template for codeless connector platform (CCP) data connectors. Use the friendly interface of the **codeless connector builder** to simplify your development. 
+
+See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
+
+For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
+
 
 ### Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)
 
@@ -86,7 +115,7 @@ Incident tasks, which help you standardize your incident investigation and respo
 
 Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
 
-The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+The configurations for these connectors for Azure Government customers differ slightly from the public cloud configuration. See the relevant documentation for details:
 
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
 - [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)

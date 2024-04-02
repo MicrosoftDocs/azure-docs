@@ -253,7 +253,7 @@ Follow these steps to use the Azure CLI to configure the managed identity.
 
 * Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. In the portal, note the object (principal) ID of the managed identity.
 
-* [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)] 
+* [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)] 
 
 
 ### Azure CLI script to configure the managed identity

@@ -2,13 +2,13 @@
 title: Troubleshoot private endpoint connection
 titleSuffix: Azure AI Studio
 description: 'Learn how to troubleshoot connectivity problems to a project that is configured with a private endpoint.'
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
+ms.date: 01/19/2024
+ms.reviewer: meerakurup
 ms.author: larryfr 
 author: Blackmist 
-ms.reviewer: meerakurup
-manager: scottpolly
-ms.date: 01/19/2024
 ---
 
 # Troubleshoot connection to a project with a private endpoint

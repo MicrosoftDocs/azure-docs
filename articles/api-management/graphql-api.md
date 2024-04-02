@@ -25,7 +25,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
 - Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 - Azure PowerShell

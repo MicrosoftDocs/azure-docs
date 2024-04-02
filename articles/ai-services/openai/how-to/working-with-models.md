@@ -122,7 +122,7 @@ New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} 
 
 # [REST](#tab/rest)
 
-To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null, you won't see a `versionUpgradeOption` property.
+To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/aiservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null, you won't see a `versionUpgradeOption` property.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
@@ -221,7 +221,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/aiservices/accountmanagement/deployments/create-or-update).
 
 |Parameter|Type| Description |
 |--|--|--|

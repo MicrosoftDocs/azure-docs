@@ -1,42 +1,50 @@
 ---
-title: "Quickstart: Deploy Azure IoT Operations"
+title: "Quickstart: Deploy Azure IoT Operations Preview"
 description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 01/31/2024
+ms.date: 03/15/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
+# Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you will deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations Preview is a digital operations suite of services that includes Azure IoT Orchestrator. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that's generating sample data to use in the following quickstarts.
+In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services that includes Azure IoT Orchestrator Preview. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator](../deploy-custom/overview-orchestrator.md)
-* [Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
-* [Azure IoT OPC UA broker](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure IoT Data Processor](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
-* [Azure IoT Akri](../manage-devices-assets/overview-akri.md)
-* [Azure Device Registry](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
-* [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
+* [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
+* [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
+* [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
+* [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
+* [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md)
+* [Azure Device Registry Preview](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
+* [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
-The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+
+## Before you begin
+
+This series of quickstarts is intended to give you an opportunity to evaluate an end-to-end scenario with Azure IoT Operations. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks might require elevated permissions.
+
+For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts. We also recommend using GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines. For more information about these options, continue to the prerequisites.
+
+Once you're ready to learn more about the individual roles and tasks, the how-to guides provide more specific implementation and permissions details.
 
 ## Prerequisites
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use Azure Kubernetes Service (AKS) Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+For this quickstart, we recommend using a virtual environment (GitHub Codespaces) as a quick way to get started without installing new tools.
 
-As part of this quickstart, you create a cluster in either Codespaces, AKS Edge Essentials, or Linux. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+As part of this quickstart, you create a cluster in either GitHub Codespaces, AKS Edge Essentials, or K3s on Ubuntu Linux. If you want to rerun this quickstart with a cluster that already has Azure IoT Operations deployed to it, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 # [Virtual](#tab/codespaces)
 
@@ -44,11 +52,13 @@ As part of this quickstart, you create a cluster in either Codespaces, AKS Edge 
 
 * A [GitHub](https://github.com) account.
 
+* Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
+
 # [Windows](#tab/windows)
 
-* You'll use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. Ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
-
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Ensure that your machine has a minimum of 10-GB RAM, 4 vCPUs, and 40-GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -131,7 +141,7 @@ This script automates the following steps:
 
 * Apply all the required configurations for Azure IoT Operations, including:
 
-  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations MQ broker.
+  * Enable a firewall rule and port forwarding for port 8883 to enable incoming connections to Azure IoT Operations  broker.
 
   * Install Storage local-path provisioner.
 
@@ -208,82 +218,49 @@ az iot ops verify-host
 
 This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
 
-## Configure cluster and deploy Azure IoT Operations
+## Deploy Azure IoT Operations Preview
 
-Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
+In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault, then deploy Azure IoT Operations.
 
-Use the Azure CLI to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+1. Create a key vault. Replace the placeholder parameters with your own information.
 
-### Create a key vault
-
-You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
-
-To create a new key vault, use the following command:
-
-```azurecli
-az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group that contains your Kubernetes cluster>"
-```
-
-### Deploy Azure IoT Operations
-
-1. In the Azure portal search bar, search for and select **Azure Arc**.
-
-1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
-
-   :::image type="content" source="./media/quickstart-deploy/arc-iot-operations.png" alt-text="Screenshot of selecting Azure IoT Operations from Azure Arc.":::
-
-1. Select **Create**.
-
-1. On the **Basic** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
-   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-basics.png" alt-text="Screenshot of the basics tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Select **Next: Configuration**.
-
-1. On the **Configuration** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
-   | **Mode** | Set the MQ configuration mode to **Auto**. |
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-configuration.png" alt-text="Screenshot of the configuration tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Select **Next: Automation**.
-
-1. On the **Automation** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
-
-1. Once you select a key vault, the **Automation** tab uses all the information you've selected so far to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
+   | **KEYVAULT_NAME** | A name for a new key vault. |
 
    ```azurecli
-   az login
+   az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
    ```
 
-   > [!NOTE]
-   > When using a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
-   >
-   > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
-   > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+   >[!TIP]
+   > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
 
-1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+1. Run the following CLI command on your development machine or in your codespace terminal. Replace the placeholder parameters with your own information.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | **CLUSTER_NAME** | The name of your connected cluster. |
+   | **RESOURCE_GROUP** | The name of your resource group that contains the connected cluster. |
+   | **KEYVAULT_NAME** | The name of your key vault. |
+
+   ```azurecli
+   az iot ops init --simulate-plc --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id $(az keyvault show --name <KEYVAULT_NAME> -o tsv --query id)
+   ```
+
+   If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
    >[!TIP]
-   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
+   >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
+
+1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
+
+   > [!IMPORTANT]
+   > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+
+   ```azurecli
+   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+   ```
 
 ## View resources in your cluster
 
@@ -299,11 +276,13 @@ It can take several minutes for the deployment to complete. Continue running the
 
 To view your cluster on the Azure portal, use the following steps:
 
-1. In the Azure portal, navigate to the resource group that contains your cluster.
+1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains your cluster.
 
 1. From the **Overview** of the resource group, select the name of your cluster.
 
-1. On your cluster, select **Extensions** from the menu.
+1. On your cluster, select **Extensions** from the **Settings** section of the menu.
+
+   :::image type="content" source="./media/quickstart-deploy/view-extensions.png" alt-text="Screenshot that shows the deployed extensions on your Arc-enabled cluster.":::
 
    You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
 
@@ -317,11 +296,19 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. In your cluster on the Azure portal, select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**.
+If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. 
+
+1. In your resource group in the Azure portal, select your cluster.
+1. On your cluster resource page, select **Extensions**.
+1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. 
+
+   Keep the secrets provider extension on your cluster.
+
+1. Return to your resource group and select the custom location resource, then select **Delete**.
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+> [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)

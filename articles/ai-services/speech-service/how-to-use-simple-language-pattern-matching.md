@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 1/21/2024
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-thirteen
-ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java
+ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java, linux-related-content
 ---
 
 # How to recognize intents with simple language pattern matching

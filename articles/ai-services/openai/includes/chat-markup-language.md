@@ -14,7 +14,7 @@ keywords: ChatGPT
 ## Working with the Chat models
 
 > [!IMPORTANT]
-> Using GPT-35-Turbo models with the completion endpoint remains in preview. Due to the potential for changes to the underlying ChatML syntax, we strongly recommend using the Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the GPT-35-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
+> Using GPT-35-Turbo models with the completion endpoint as described in this article remains in preview and is only possible with gpt-35-turbo verision (0301). We strongly recommend using the GA Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the GPT-35-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
 
 The following code snippet shows the most basic way to use the GPT-35-Turbo models with ChatML. If this is your first time using these models programmatically we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
@@ -23,7 +23,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
@@ -220,7 +220,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # defining a function to create the prompt from the system message and the conversation messages

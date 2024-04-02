@@ -104,7 +104,7 @@ Once the named value is created, you can edit it by selecting the name. If you c
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command:
 

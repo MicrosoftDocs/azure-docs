@@ -22,6 +22,30 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## March 2024
+### Azure Policy support
+
+**Type:** New feature
+
+**Date available:** March 26, 2024
+
+You can now use [Azure Policy](../governance/policy/overview.md) to enforce security-related settings in your AP5GC deployment. Azure Policy allows you to ensure compliance with organizational standards across supported Azure services. AP5GC has built-in policy definitions for:
+
+- using Microsoft Entra ID to access local monitoring tools
+- using customer-managed keys to encrypt SIM groups.
+
+See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-reference.md) for details.
+
+### SUPI concealment
+
+**Type:** New feature
+
+**Date available:** March 22, 2024
+
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure Portal and provision SIMs with public keys.
+
+For more information, see [Enable SUPI concealment](supi-concealment.md).
+
 ## February 2024
 ### New Entra ID user role needed for distributed tracing tool
 

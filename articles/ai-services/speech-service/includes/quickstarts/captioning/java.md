@@ -43,7 +43,7 @@ Before you can do anything, you need to [install the Speech SDK](~/articles/ai-s
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.35.0</version>
+            <version>1.36.0</version>
             </dependency>
         </dependencies>
     </project>

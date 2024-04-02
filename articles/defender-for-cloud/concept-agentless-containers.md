@@ -1,6 +1,6 @@
 ---
 title: Agentless container posture in Defender CSPM
-description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for containers without installing an agent on your machines.
+description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for containers without installing a sensor on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 12/12/2023

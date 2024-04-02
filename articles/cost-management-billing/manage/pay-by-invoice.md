@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 03/20/2024
 ms.author: banders
 ---
 
@@ -38,7 +38,8 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 ## Request to pay by wire transfer
 
 > [!NOTE]
-> Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - After you're approved to pay by wire transfer, you can't switch back to credit card except for one-time payments.
 
 1. Sign in to the Azure portal.
     - If you have a pay-as-you-go subscription, navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
@@ -63,8 +64,8 @@ If you're not automatically approved, you can submit a request to Azure support 
 1. Select **New support request**.  
     :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Screenshot of the New support request link." lightbox="./media/pay-by-invoice/help-and-support.png" :::
 1. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by wire transfer, select a support plan, and then select **Next**.
-1. Select **Payment** as the **Problem Type**. The *problem type* is the support request subcategory.
-1. Select **Switch to Pay by Invoice** as the **Problem subtype**.
+1. Select **Manage Payment Methods** as the **Problem Type**. The *problem type* is the support request subcategory.
+1. Select **Switch to pay by invoice as my default payment method** as the **Problem subtype**.
 1. Enter the following information in the **Details** box, and then select **Next**.
     - New or existing customer:
     - If existing, current payment method:
