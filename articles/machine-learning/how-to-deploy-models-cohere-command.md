@@ -1,7 +1,7 @@
 ---
-title: How to deploy Cohere family of models with Azure Machine Learning studio
+title: How to deploy Cohere Command models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy Cohere family of models with Azure Machine Learning studio.
+description: Learn how to deploy Cohere Command models with Azure Machine Learning studio.
 manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -15,27 +15,21 @@ ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---
-# How to deploy Cohere models with Azure Machine Learning studio
-Cohere offers several models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
+# How to deploy Cohere Command models with Azure Machine Learning studio
+Cohere offers two Command models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
 
 * Cohere Command R 
 * Cohere Command R+
-* Cohere Embed v3 - English
-* Cohere Embed v3 - Multilingual
    
 You can browse the Cohere family of models in the model catalog by filtering on the Cohere collection. 
 
 ## Models
 
-In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a service with pay-as you go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere Command models as a service with pay-as you go billing.
 
 * Cohere Command R 
 (description needed)
 * Cohere Command R+
-(description needed)
-* Cohere Embed v3 - English
-(description needed)
-* Cohere Embed v3 - Multilingual
 (description needed)
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
@@ -101,140 +95,643 @@ Above mentioned Cohere models can be consumed using the chat API.
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
 1. Copy the **Target** URL and the **Key** token values.
-1. Make an API request using the [`<target_url>/v1/chat/completions`](#chat-api) API.
+1. Cohere exposes two routes for inference with the Command R and Command R+ models. `v1/chat/completions` adheres to the Azure AI Generative Messages API schema, and `v1/chat` supports Cohere's native API schema.
 
-   For more information on using the APIs, see the [reference](#reference-for-models-deployed-as-a-service) section.
+   For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-command-models-deployed-as-a-service) section.
 
-### Reference for models deployed as a service
+## Chat API reference for cohere command models deployed as a service
 
-#### Chat API
+## v1/chat/completions Request
 
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
+    POST /v1/chat/completions HTTP/1.1
+    Host: <DEPLOYMENT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-type: application/json
 
-__Request__
+### v1/chat/completions Request Schema
 
-```rest
-POST /v1/chat/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
-```
+Cohere Command R and Command R+ accept the following parameters for a `v1/chat/completions` response inference call:
 
-#### Request schema (to be edited once API alignment done)
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `messages` | `array` | `None` | Text input for the model to respond to. |
+| `max_tokens` | `integer` | `None` | The maximum number of tokens the model will generate as part of the response. Note: Setting a low value may result in incomplete generations. If not specified, will generate tokens until end of sequence. |
+| `stop` | `array of strings` | `None` | The generated text will be cut at the end of the earliest occurrence of a stop sequence. The sequence will be included the text.|
+| `stream` | `boolean` | `False` | When `true`, the response will be a JSON stream of events. The final event will contain the complete response, and will have an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated. |
+| `temperature` | `float` | `0.3` |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2. |
+| `top_p` | `float` |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
+| `frequency_penalty` | `float` | `0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
+| `presence_penalty` | `float` |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
+| `seed` | `integer` |`None`   |If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.|
+| `tools` | `list[Tool]` | `None` | A list of available tools (functions) that the model may suggest invoking before producing a text response. |
 
-Payload is a JSON formatted string containing the following parameters:
+`response_format` and `tool_choice` are not yet supported parameters for the Command R and Command R+ models.
 
-| Key | Type | Default | Description |
-|-----|-----|-----|-----|
-| `messages`    | `string`  | No default. This value must be specified.  | The message or history of messages to use to prompt the model.  |
-| `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
-| `max_tokens`  | `integer` | `8192`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
-| `ignore_eos`          | `boolean` | `False`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `safe_prompt` | `boolean` | `False`  | Whether to inject a safety prompt before all conversations. |
+<br/>
 
-The `messages` object has the following fields:
+#### System or User Message
+A System or User Message supports the following properties:
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `role` | `enum` | Required | `role=system` or `role=user`. |
+|`content` |`string` |Required |Text input for the model to respond to. |
 
-| Key       | Type      | Value |
-|-----------|-----------|------------|
-| `content` | `string` | The contents of the message. Content is required for all messages. |
-| `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
+#### Assistant Message
+An Assistant Message supports the following properties:
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `role` | `enum` | Required | `role=assistant`|
+|`content` |`string` |Required |The contents of the assistant message. |
+|`tool_calls` |`array` |None |The tool calls generated by the model, such as function calls. |
 
+#### Tool Message
+A Tool Message supports the following properties:
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `role` | `enum` | Required | `role=tool`|
+|`content` |`string` |Required |The contents of the tool message. |
+|`tool_call_id` |`string` |None |Tool call that this message is responding to. |
 
-#### Example
+<br/>
 
-__Body__
+### v1/chat/completions Response Schema
 
-```json
-{
-    "messages":
-    [
-        { 
-        "role": "system", 
-        "content": "You are a helpful assistant that translates English to Italian."
-        },
-        {
-        "role": "user", 
-        "content": "Translate the following sentence from English to Italian: I love programming."
-        }
-    ],
-    "temperature": 0.8,
-    "max_tokens": 512,
-}
-```
+The response payload is a dictionary with the following fields:
 
-#### Response schema
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | `string` | A unique identifier for the completion. |
+| `choices` | `array` | The list of completion choices the model generated for the input messages. |
+| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
+| `model` | `string` | The model_id used for completion. |
+| `object` | `string` | chat.completion. |
+| `usage` | `object` | Usage statistics for the completion request. |
 
-The response payload is a dictionary with the following fields.
+The `choices` object is a dictionary with the following fields:
 
-| Key       | Type      | Description                                                                |
-|-----------|-----------|----------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                    |
-| `choices` | `array`   | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
-| `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
-| `usage`   | `object`  | Usage statistics for the completion request.                               |
+| Key | Type | Description |
+| --- | --- | --- |
+| `index` | `integer` | Choice index. |
+| `messages` or `delta` | `string` | Chat completion result in messages object. When streaming mode is used, delta key is used. |
+| `finish_reason` | `string` | The reason the model stopped generating tokens. |
 
-> [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`. 
+The `usage` object is a dictionary with the following fields:
 
-
-The `choices` object is a dictionary with the following fields. 
-
-| Key     | Type      | Description  |
-|---------|-----------|--------------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
-| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete. |
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
-
-
-The `usage` object is a dictionary with the following fields.
-
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
+| Key | Type | Description |
+| --- | --- | --- |
+| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
 | `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
+| `total_tokens` | `integer` | Total tokens. |
 
-The `logprobs` object is a dictionary with the following fields:
 
-| Key              | Type                    | Value   |
-|------------------|-------------------------|---------|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
-| `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+### Examples
 
-#### Example
+**Request**
 
-The following is an example response:
-
-```json
-{
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "chat.completion",
-    "created": 2012359,
-    "model": "",
-    "choices": [
+    "messages": [
         {
-            "index": 0,
-            "finish_reason": "stop",
-            "message": {
+        "role": "user",
+        "content": "What is the weather like in Boston?"
+        },
+            {
                 "role": "assistant",
-                "content": "Sure, I\'d be happy to help! The translation of ""I love programming"" from English to Italian is:\n\n""Amo la programmazione.""\n\nHere\'s a breakdown of the translation:\n\n* ""I love"" in English becomes ""Amo"" in Italian.\n* ""programming"" in English becomes ""la programmazione"" in Italian.\n\nI hope that helps! Let me know if you have any other sentences you\'d like me to translate."
+                "tool_calls": [
+                        {
+                            "id": "call_ceRrx0tP7bYPTClugKrOgvh4",
+                            "type": "function",
+                            "function": {
+                                "name": "get_current_weather",
+                                "arguments": "{\"location\":\"Boston\"}"
+                            }
+                        }
+                    ]
+            },
+            {
+                "role": "tool",
+                "content": "{\"temperature\":30}",
+                "tool_call_id": "call_ceRrx0tP7bYPTClugKrOgvh4"
+            }
+    ]
+
+**Response**
+
+    {
+        "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
+        "choices": [
+            {
+                "index": 0,
+                "finish_reason": "stop",
+                "message": {
+                    "role": "assistant",
+                    "content": "Right now, the weather in Boston is cool, with temperatures of around 30°F. Stay warm!"
+                }
+            }
+        ],
+        "created": 1711734274,
+        "model": "command-r",
+        "object": "chat.completion",
+        "usage": {
+            "prompt_tokens": 744,
+            "completion_tokens": 23,
+            "total_tokens": 767
+        }
+    }
+
+## v1/chat Request
+
+    POST /v1/chat HTTP/1.1
+    Host: <DEPLOYMENT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-type: application/json
+
+### v1/chat Request Schema
+
+Cohere Command R and Command R+ accept the following parameters for a `v1/chat` response inference call:
+
+|Key       |Type   |Default   |Description   |
+|---|---|---|---|
+|`message`   |`string`   |Required   |Text input for the model to respond to.   |
+|`chat_history`   |`array of messages`   |`None`   |A list of previous messages between the user and the model, meant to give the model conversational context for responding to the user's message.    |
+|`documents`   |`array`   |`None `  |A list of relevant documents that the model can cite to generate a more accurate reply. Each document is a string-string dictionary. Keys and values from each document will be serialized to a string and passed to the model. The resulting generation will include citations that reference some of these documents. Some suggested keys are "text", "author", and "date". For better generation quality, it is recommended to keep the total word count of the strings in the dictionary to under 300 words. An `_excludes` field (array of strings) can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields will still show up in the citation object. The "_excludes" field will not be passed to the model. See [Document Mode](https://docs.cohere.com/docs/retrieval-augmented-generation-rag#document-mode) guide from Cohere docs.    |
+|`search_queries_only`   |`boolean`  |`false`   |When `true`, the response will only contain a list of generated search queries, but no search will take place, and no reply from the model to the user's `message` will be generated.|
+|`stream`   |`boolean`   |`false`   |When `true`, the response will be a JSON stream of events. The final event will contain the complete response, and will have an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.|
+|`max_tokens`   |`integer`   |None   |The maximum number of tokens the model will generate as part of the response. Note: Setting a low value may result in incomplete generations. If not specified, will generate tokens until end of sequence.|
+|`temperature`   |`float`   |`0.3`   |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2.   |
+|`p`   |`float`   |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
+|`k`   |`float`   |`0`   |Specify the number of token choices the model uses to generate the next token. If both p and k are enabled, p acts after k. Min value is 0, max value is 500.|
+|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt will be constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With `prompt_truncation` set to "OFF", no elements will be dropped.|
+|`stop_sequences`  |`array of strings`  |`None`  |The generated text will be cut at the end of the earliest occurrence of a stop sequence. The sequence will be included the text.  |   
+|`frequency_penalty`   |`float`   |`0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
+|`presence_penalty`   |`float`   |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
+|`seed`   |`integer`   |`None`   |If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.|
+|`return_prompt`   |`boolean `  |`false `  |Returns the full prompt that was sent to the model when `true`.   |
+|`tools`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of available tools (functions) that the model may suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response will be `""` and the `tool_calls` field in the response will be populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array will be empty.|
+|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and will be referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, as well as a list of outputs in the form of dictionaries. Cohere’s unique fine-grained citation logic requires the output to be a list. In case the output is just one item, e.g. `{"status": 200}`, please still wrap it inside a list.   |
+
+The `chat_history` object requires the following fields:
+|Key       |Type   |Description   |
+|---|---|---|
+|`role`   |`enum string`   |Takes `USER`, `SYSTEM`, or `CHATBOT`.   |
+|`message`   |`string`   |Text contents of the message.   |
+
+The `documents` object has the following optional fields:
+
+|Key       |Type   |Default| Description   |
+|---|---|---|---|
+|`id`   |`string`   |`None` |Can be supplied to identify the document in the citations. This field will not be passed to the model.   |
+|`_excludes`   |`array of strings`   |`None`| Can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields will still show up in the citation object. The `_excludes` field will not be passed to the model.   |
+
+### v1/chat Response Schema
+
+Response fields are fully documented on [Cohere's Chat API reference](https://docs.cohere.com/reference/chat). The response object will always contain: 
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`response_id`   |`string`   |Unique identifier for chat completion.   |
+|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere’s platform.   |
+|`text`   |`string`   |Model’s response to chat message input.    |
+|`finish_reason`   |`enum string`   |Why the generation was completed. Can be any of the following: `COMPLETE`, `ERROR`, `ERROR_TOXIC`, `ERROR_LIMIT`, `USER_CANCEL` or `MAX_TOKENS`   |
+|`token_count`   |`integer`   |Count of tokens used.   |
+|`meta`   |`string`   |API usage data, including current version and billable tokens.   |
+
+<br/>
+
+### Documents
+If `documents` are specified in the request, there will be two additional fields in the response:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`documents `  |`array of objects`   |Lists the documents that were cited in the response.   |
+|`citations`   |`array of objects`   |Specifies which part of the answer was found in a given document.    |
+
+`citations` is an array of objects with the following required fields:
+|Key       |Type   |Description   |
+|---|---|---|
+|`start`   |`integer`   |The index of text that the citation starts at, counting from zero. For example, a generation of `Hello, world!` with a citation on `world` would have a start value of `7`. This is because the citation starts at `w`, which is the seventh character.   |
+|`end`   |`integer`   |The index of text that the citation ends after, counting from zero. For example, a generation of `Hello, world!` with a citation on `world` would have an end value of `11`. This is because the citation ends after `d`, which is the eleventh character.   |
+|`text`   |`string`   |The text of the citation. For example, a generation of `Hello, world!` with a citation of `world` would have a text value of `world`.   |
+|`document_ids`   |`array of strings`   |Identifiers of documents cited by this section of the generated reply.   |
+
+### Tools
+If `tools` are specified and invoked by the model, there will be an additional field in the response:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`tool_calls `  |`array of objects`   |Contains the tool calls generated by the model. Use it to invoke your tools.   |
+
+`tool_calls` is an array of objects with the following fields:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`name`  |`string`   |Name of the tool to call.   |
+|`parameters`   |`object`   |The name and value of the parameters to use when invoking a tool. |
+
+### Search_queries_only
+If `search_queries_only=TRUE` is specified in the request, there will be two additional fields in the response:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`is_search_required`  |`boolean`   |Instructs the model to generate a search query.   |
+|`search_queries`   |`array of objects`   |Object that contains a list of search queries. |
+
+`search_queries` is an array of objects with the following fields:
+
+|Key       |Type   |Description   |
+|---|---|---|
+|`text`  |`string`   |The text of the search query.   |
+|`generation_id`   |`string`   |Unique identifier for the generated search query. Useful for submitting feedback. |
+
+### Examples
+
+### Chat - Completions
+The following is a sample request call to get chat completions from the Cohere Command model. Use when generating a chat completion.
+
+**Request**
+
+    {
+        "chat_history": [
+            {"role":"USER", "message": "What is an interesting new role in AI if I don't have an ML background"},
+            {"role":"CHATBOT", "message": "You could explore being a prompt engineer!"}
+        ],
+        "message": "What are some skills I should have"
+    }
+
+**Response**
+
+    {
+        "response_id": "09613f65-c603-41e6-94b3-a7484571ac30",
+        "text": "Writing skills are very important for prompt engineering. Some other key skills are:\n- Creativity\n- Awareness of biases\n- Knowledge of how NLP models work\n- Debugging skills\n\nYou can also have some fun with it and try to create some interesting, innovative prompts to train an AI model that can then be used to create various applications.",
+        "generation_id": "6d31a57f-4d94-4b05-874d-36d0d78c9549",
+        "finish_reason": "COMPLETE",
+        "token_count": {
+            "prompt_tokens": 99,
+            "response_tokens": 70,
+            "total_tokens": 169,
+            "billed_tokens": 151
+        },
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 81,
+                "output_tokens": 70
             }
         }
-    ],
-    "usage": {
-        "prompt_tokens": 10,
-        "total_tokens": 40,
-        "completion_tokens": 30
     }
-}
-```
+
+
+### Chat - Grounded Generation and RAG Capabilities
+
+Command R and Command R+ have been specifically trained for RAG via a mixture of supervised fine-tuning and preference fine-tuning, using a specific prompt template. We introduce that prompt template via the `documents` parameter. The document snippets should be chunks, rather than long documents, typically around 100-400 words per chunk. Document snippets consist of key-value pairs. The keys should be short descriptive strings, the values can be text or semi-structured.
+
+**Request**
+
+    {
+    "message": "Where do the tallest penguins live?",
+    "documents": [
+        {
+        "title": "Tall penguins",
+        "snippet": "Emperor penguins are the tallest."
+        },
+        {
+        "title": "Penguin habitats",
+        "snippet": "Emperor penguins only live in Antarctica."
+        }
+    ]
+    }
+
+**Response**
+
+    {
+        "response_id": "d7e72d2e-06c0-469f-8072-a3aa6bd2e3b2",
+        "text": "Emperor penguins are the tallest species of penguin and they live in Antarctica.",
+        "generation_id": "b5685d8d-00b4-48f1-b32f-baebabb563d8",
+        "finish_reason": "COMPLETE",
+        "token_count": {
+            "prompt_tokens": 615,
+            "response_tokens": 15,
+            "total_tokens": 630,
+            "billed_tokens": 22
+        },
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 7,
+                "output_tokens": 15
+            }
+        },
+        "citations": [
+            {
+                "start": 0,
+                "end": 16,
+                "text": "Emperor penguins",
+                "document_ids": [
+                    "doc_0"
+                ]
+            },
+            {
+                "start": 69,
+                "end": 80,
+                "text": "Antarctica.",
+                "document_ids": [
+                    "doc_1"
+                ]
+            }
+        ],
+        "documents": [
+            {
+                "id": "doc_0",
+                "snippet": "Emperor penguins are the tallest.",
+                "title": "Tall penguins"
+            },
+            {
+                "id": "doc_1",
+                "snippet": "Emperor penguins only live in Antarctica.",
+                "title": "Penguin habitats"
+            }
+        ]
+    }
+
+
+### Chat - Tool Use
+
+If invoking tools or generating a response based on tool results, use the following parameters. 
+
+**Request**
+
+    {
+        "message":"I'd like 4 apples and a fish please",
+        "tools":[
+            {
+                "name":"personal_shopper",
+                "description":"Returns items and requested volumes to purchase",
+                "parameter_definitions":{
+                    "item":{
+                        "description":"the item requested to be purchased, in all caps eg. Bananas should be BANANAS",
+                        "type": "str",
+                        "required": true
+                    },
+                    "quantity":{
+                        "description": "how many of the items should be purchased",
+                        "type": "int",
+                        "required": true
+                    }
+                }
+            }
+        ],
+        
+    "tool_results": [
+        {
+        "call": {
+            "name": "personal_shopper",
+            "parameters": {
+                "item": "Apples",
+                "quantity": 4
+            },
+            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
+        },
+        "outputs": [
+            {
+            "response": "Sale completed"
+            }
+        ]
+        },
+        {
+        "call": {
+            "name": "personal_shopper",
+            "parameters": {
+            "item": "Fish",
+            "quantity": 1
+            },
+            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
+        },
+        "outputs": [
+            {
+            "response": "Sale not completed"
+            }
+        ]
+        }
+    ]
+    }
+
+
+**Response**
+
+    {
+        "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+        "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
+        "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
+        "chat_history": [
+            {
+                "message": "I'd like 4 apples and a fish please",
+                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+                "generation_id": "a4c5da95-b370-47a4-9ad3-cbf304749c04",
+                "role": "User"
+            },
+            {
+                "message": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
+                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+                "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
+                "role": "Chatbot"
+            }
+        ],
+        "finish_reason": "COMPLETE",
+        "token_count": {
+            "prompt_tokens": 644,
+            "response_tokens": 31,
+            "total_tokens": 675,
+            "billed_tokens": 41
+        },
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 10,
+                "output_tokens": 31
+            }
+        },
+        "citations": [
+            {
+                "start": 5,
+                "end": 23,
+                "text": "completed the sale",
+                "document_ids": [
+                    ""
+                ]
+            },
+            {
+                "start": 113,
+                "end": 132,
+                "text": "currently no stock.",
+                "document_ids": [
+                    ""
+                ]
+            }
+        ],
+        "documents": [
+            {
+                "response": "Sale completed"
+            }
+        ]
+    }
+
+Once you have run your function and received tool outputs, you can pass them back to the model to generate a response for the user.
+
+**Request**
+
+    {
+        "message":"I'd like 4 apples and a fish please",
+        "tools":[
+            {
+                "name":"personal_shopper",
+                "description":"Returns items and requested volumes to purchase",
+                "parameter_definitions":{
+                    "item":{
+                        "description":"the item requested to be purchased, in all caps eg. Bananas should be BANANAS",
+                        "type": "str",
+                        "required": true
+                    },
+                    "quantity":{
+                        "description": "how many of the items should be purchased",
+                        "type": "int",
+                        "required": true
+                    }
+                }
+            }
+        ],
+        
+    "tool_results": [
+        {
+        "call": {
+            "name": "personal_shopper",
+            "parameters": {
+                "item": "Apples",
+                "quantity": 4
+            },
+            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
+        },
+        "outputs": [
+            {
+            "response": "Sale completed"
+            }
+        ]
+        },
+        {
+        "call": {
+            "name": "personal_shopper",
+            "parameters": {
+            "item": "Fish",
+            "quantity": 1
+            },
+            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
+        },
+        "outputs": [
+            {
+            "response": "Sale not completed"
+            }
+        ]
+        }
+    ]
+    }
+
+
+**Response**
+
+    {
+        "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+        "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
+        "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
+        "chat_history": [
+            {
+                "message": "I'd like 4 apples and a fish please",
+                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+                "generation_id": "a4c5da95-b370-47a4-9ad3-cbf304749c04",
+                "role": "User"
+            },
+            {
+                "message": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
+                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
+                "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
+                "role": "Chatbot"
+            }
+        ],
+        "finish_reason": "COMPLETE",
+        "token_count": {
+            "prompt_tokens": 644,
+            "response_tokens": 31,
+            "total_tokens": 675,
+            "billed_tokens": 41
+        },
+        "meta": {
+            "api_version": {
+                "version": "1"
+            },
+            "billed_units": {
+                "input_tokens": 10,
+                "output_tokens": 31
+            }
+        },
+        "citations": [
+            {
+                "start": 5,
+                "end": 23,
+                "text": "completed the sale",
+                "document_ids": [
+                    ""
+                ]
+            },
+            {
+                "start": 113,
+                "end": 132,
+                "text": "currently no stock.",
+                "document_ids": [
+                    ""
+                ]
+            }
+        ],
+        "documents": [
+            {
+                "response": "Sale completed"
+            }
+        ]
+    }
+
+
+### Chat - Search Queries
+If you are building a RAG agent, you can also use Cohere’s Chat API to get search queries from Command. Simply specify `search_queries_only=TRUE` in your request.
+
+
+**Request**
+
+    {
+    "message": "Which lego set has the greatest number of pieces?",
+    "search_queries_only": true
+    }
+
+
+**Response**
+
+    {
+        "response_id": "5e795fe5-24b7-47b4-a8bc-b58a68c7c676",
+        "text": "",
+        "finish_reason": "COMPLETE",
+        "meta": {
+            "api_version": {
+                "version": "1"
+            }
+        },
+        "is_search_required": true,
+        "search_queries": [
+            {
+                "text": "lego set with most pieces",
+                "generation_id": "a086696b-ad8e-4d15-92e2-1c57a3526e1c"
+            }
+        ]
+    }
 
 #### Additional inference examples
 
