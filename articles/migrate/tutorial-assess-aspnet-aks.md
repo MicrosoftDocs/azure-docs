@@ -48,22 +48,24 @@ In this tutorial, you'll learn how to:
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
 :::zone-end
-
 ::: zone pivot="java"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover Java web apps running on your environment.
 :::zone-end
 
 ## Create an assessment
 
-1. On the **Servers, databases and web apps** page, select **Assess** and then select **Web apps on Azure**.
+1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+2. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
 
-2. On the **Basics** tab, select the **Scenario** dropdown and select **Web apps to AKS**.
+2. On the **Create assessment** page, under **Basics** tab, do the following:
+    1. **Scenario**: Select **Web apps to AKS**.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-3. On the same tab, select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    3. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 
@@ -79,20 +81,24 @@ In this tutorial, you'll learn how to:
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
-4. After reviewing the assessment settings, select **Next**.
-5. Provide a name to this group of servers as well as the assessment.
-1. Select an appliance to filter web apps discovered by a specific appliance, in case your project has more than one.
-::: zone pivot="asp-net"
-1. Select the Web app type as **ASP.NET**, and then select the servers that you want to add to the group.
-:::zone-end
-::: zone pivot="java"
-1. Select the Web app type as **Java**, and then select the servers that you want to add to the group.
-:::zone-end
-1. Select the list of servers, which host the web apps to be assessed.
+4. After reviewing the assessment settings, select **Next: Select servers to assessext**.
 
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
+1. Under the **Select servers to assess** tab, do the following:
+    1. **Assessment name**: Specify a name for the assessment.
+    1. **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
+    1. **Appliance name**: Select the appliance.
+    ::: zone pivot="asp-net"
+    1. **Web app type**: Select **ASP.NET**.
+    :::zone-end
+    ::: zone pivot="java"
+    1. **Web app type**: Select **Java**.
+    :::zone-end
+    1. Select the servers, which host the web apps to be assessed from the table.
+    1. Select **Next** to review the high-level assessment details.
 
-6. Select **Next** to review the high-level assessment details. Select **Create assessment**.
+        :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
+
+6. Under **Review + create assessment** tab, review the assessment details, and select **Create assessment** to create the group and run the assessment.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-review.png" alt-text="Screenshot of reviewing the high-level assessment details before creation.":::
 
@@ -100,11 +106,13 @@ In this tutorial, you'll learn how to:
 
 The assessment can take around 10 minutes to complete.
 
-1. On the **Servers, databases and web apps** page, select the hyperlink next to **Web apps on Azure**.
+1. 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
+1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of clicking the hyperlink to see the list of web app assessments.":::
 
-2. On the **Assessments** page, use the search bar to filter for your assessment. It should be in the **Ready** state.
+2. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-list.png" alt-text="Screenshot of filtering for the created assessment.":::
 
@@ -116,7 +124,13 @@ The assessment can take around 10 minutes to complete.
 
 ### Assessment overview
 
+::: zone pivot="asp-net"
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-overview.png" alt-text="Screenshot of the assessment overview.":::
+:::zone-end
+
+::: zone pivot="java"
+:::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-overview-java.png" alt-text="Screenshot of the assessment overview for Java.":::
+:::zone-end
 
 On the **Overview** page, you're provided with the following details:
 
