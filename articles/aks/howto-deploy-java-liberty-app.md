@@ -76,7 +76,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
  
     ---
 
-1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. The remaining values do not need to be changed from their default values.
+1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. For our purposes, just keep all the defaults on this pane.
 
 1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
 
