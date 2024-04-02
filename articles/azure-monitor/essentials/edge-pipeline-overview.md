@@ -22,7 +22,7 @@ The Azure Monitor edge pipeline is a containerized solution that is deployed on 
 
 The following diagram shows the basic components of the Azure Monitor edge pipeline, including the two configuration files that define the operation of the pipeline. The pipeline configuration file defines the data sources and cache configuration for the edge pipeline, while the data collection rule (DCR) provides the definition of the incoming data for the cloud pipeline and potentially transforms the data before sending it to its destination.
 
-:::image type="content" source="media/edge-pipeline/edge-pipeline-overview/.png" lightbox="media/edge-pipeline/edge-pipeline-overview.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
+:::image type="content" source="media/edge-pipeline/edge-pipeline-overview.png" lightbox="media/edge-pipeline/edge-pipeline-overview.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
 
 Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data. Once the pipeline extension and instance is installed on your cluster, you configure one or more data flows that define the type of data being collected and where it should be sent. 
 
