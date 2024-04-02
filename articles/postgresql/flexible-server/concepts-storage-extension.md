@@ -233,4 +233,4 @@ SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
 
 ## Next steps
 
-- If you don't see an extension that you want to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+- If you don't see an extension that you want to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://aka.ms/pgfeedback).
