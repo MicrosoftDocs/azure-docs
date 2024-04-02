@@ -75,7 +75,7 @@ Configure a data lake connector to connect to Microsoft Fabric OneLake using man
 1. Select **Contributor** as the role, then select **Add**.
 
 1. Create a [DataLakeConnector](#datalakeconnector) resource that defines the configuration and endpoint settings for the connector. You can use the YAML provided as an example, but make sure to change the following fields:
-    - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from the **Properties** of your lakehouse folder in Microsoft Fabric. The URL should look like `https://onelake.dfs.fabric.microsoft.com`.
+    - `target.fabricOneLake.endpoint`: The endpoint of the Microsoft Fabric OneLake account. You can get the endpoint URL from Microsoft Fabric lakehouse under **Files** > **Properties**. The URL should look like `https://onelake.dfs.fabric.microsoft.com`.
     - `target.fabricOneLake.names`: The names of the workspace and the lakehouse. Use either this field or `guids`. Don't use both.
         - `workspaceName`: The name of the workspace.
         - `lakehouseName`: The name of the lakehouse. 
