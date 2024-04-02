@@ -79,7 +79,7 @@ The following tables provide links to each Azure service relocation document. Th
 | Product  | Relocation with data | Relocation without data | Resource Mover | 
 | --- | --- | --- | ---|
 [Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
-[Azure IoT Hub](/iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+[Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ❌ | ✅| ❌ |
 
 
