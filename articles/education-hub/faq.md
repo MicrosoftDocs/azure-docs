@@ -9,10 +9,12 @@ ms.date: 4/2/2024
 ms.custom: template-tutorial
 ---
 
+# Azure for Education Frequently Asked Questions
+
 ## Azure for Students
 
 ### What happens after I use my $100 credit or I'm at the end of 12 months?
-If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) in the Azure portal. If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../cost-management-billing/manage/upgrade-azure-subscription.md) in the Azure portal. If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
 ### Who is eligible for Azure for Students?
 Azure for Students is available only to students who meet the following requirements:
@@ -51,7 +53,7 @@ Yes, as a benefit of your Azure for Students subscription, you may use Windows 1
 Yes! You can renew your Azure for Students subscription after one year. We send you emails reminding you to renew just before your anniversary. To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
 
 ### Why did I receive an invoice from Microsoft?
-You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students. Don’t worry, you don't have to pay for that usage – it’s all covered by the credit provided by Azure for Students. To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation.
+You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students. Don’t worry, you don't have to pay for that usage – it’s all covered by the credit provided by Azure for Students. To learn more about invoices and how they work, check out the [article](../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation.
 
 ### What are subscriptions, and how do they relate to Azure for Students?
 Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you're 12 months in) or upgrade to a pay-as-you-go subscription.
