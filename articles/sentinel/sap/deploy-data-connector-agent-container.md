@@ -544,7 +544,13 @@ Create a new agent using the command line, authenticating with a managed identit
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output. You'll use it in the next step.
+   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
+
+        ```bash
+        docker ps -a
+        ```
+
+    You'll use the name of the docker container in the next step.
 
 1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
@@ -614,7 +620,13 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output. You'll use it in the next step.
+   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
+
+        ```bash
+        docker ps -a
+        ```
+
+    You'll use the name of the docker container in the next step.
 
 1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
@@ -683,9 +695,14 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output.
+   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
-    You'll use it in the next step.
+        ```bash
+        docker ps -a
+        ```
+
+    You'll use the name of the docker container in the next step.
+
 
 1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
