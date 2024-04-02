@@ -18,8 +18,7 @@ ms.custom: devx-track-azurecli
 
 ## Permissions
 
-In order to complete these prerequisites for Operator and Containerized Network Function, you 
-need an Azure subscription where you have the *Contributor* role (in order to create a Resource Group) and you need to be able to attain the *Owner* or *User Access Administrator* role over this Resource Group. Alternatively, you need an existing Resource Group where you have the ‘Owner’ or ‘User Access Administrator’ Role.
+In order to complete these prerequisites for Operator and Containerized Network Function, you need an Azure subscription where you have the *Contributor* role (in order to create a Resource Group) and you need to be able to attain the *Owner* or *User Access Administrator* role over this Resource Group. Alternatively, you need an existing Resource Group where you have the ‘Owner’ or ‘User Access Administrator’ Role.
 
 You also need the *Owner* or *User Access Administrator* role in the Network Function Definition Publisher Resource Group. The Network Function Definition Publisher Resource Group was created in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md) and named nginx-publisher-rg in the input.json file.
 
@@ -54,7 +53,6 @@ az group create -n ${resourceGroup} -l ${location}
 
 Follow the instructions here [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md) to create the Azure Kubernetes Service (AKS) cluster within the previously created Resource Group.
 
-
 > [!NOTE]
 > Ensure that `agentCount` is set to 1. Only one node is required at this time.
 
@@ -64,10 +62,11 @@ az aks create -g ${resourceGroup} -n ${clusterName} --node-count 1 --generate-ss
 
 ## Enable Azure Arc
 
-Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in 
+Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in
 [Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
 ## Retrieve the config file for AKS cluster
+
 ```azurecli
 az aks get-credentials --resource-group ${resourceGroup} --name ${clusterName}
 ``````
@@ -81,12 +80,12 @@ az connectedk8s connect --name ${clusterName} --resource-group ${resourceGroup}
 ``````
 
 ## Register your subscription
+
 Register your subscription to the Microsoft.ExtendedLocation resource provider:
 
 ```azurecli
 az provider register --namespace Microsoft.ExtendedLocation
 ``````
-
 
 ### Enable custom locations
 
@@ -130,7 +129,6 @@ Search for the name of the Custom location (customLocationId) in the Azure porta
 
 :::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties  information.":::
 
-
 > [!TIP]
 > The full Resource ID has a format of: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.extendedlocation/customlocation/{customLocationName}
 
@@ -141,8 +139,8 @@ Search for the name of the Custom location (customLocationId) in the Azure porta
     ```azurecli
     param location string = resourceGroup().location
     param identityName string = 'identity-for-nginx-sns'
-    
-    
+
+
     resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
       name: identityName
       location: location
@@ -156,7 +154,7 @@ Search for the name of the Custom location (customLocationId) in the Azure porta
      az deployment group create --name prerequisites --resource-group ${resourceGroup}  --template-file prerequisites.bicep
      ```
 
-1. The script creates a managed identity.  
+1. The script creates a managed identity.
 
 ## Retrieve Resource ID for managed identity
 
