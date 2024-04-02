@@ -50,7 +50,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you have an Azure Container Registry and an Azure Kubernetes Service cluster for deploying your containerized application.
 
-1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM Liberty on AKS*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 
 1. Select **Create**.
 
