@@ -109,9 +109,10 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     from mlflow.deployments import get_deploy_client
     ```
 
-1. Configure the deployment client
+1. Configure the MLflow client and the deployment client:
 
     ```python
+    mlflow_client = mlflow.MLflowClient()
     deployment_client = get_deploy_client(mlflow.get_tracking_uri())    
     ```
 
