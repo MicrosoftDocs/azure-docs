@@ -39,7 +39,7 @@ Highlight features of Command R include:
 * 128k context length
   
 ### Cohere Command R+
-Command R+ is Cohere’s highly performant and scalable generative large language model. It excels at reasoning, summarization, and question answering and can be optimized for a variety of use cases across industries. 
+Command R+ is Cohere's highly performant and scalable generative large language model. It excels at reasoning, summarization, and question answering and can be optimized for a variety of use cases across industries. 
 
 Key features of Command R+ include:
 
@@ -121,10 +121,12 @@ These models can be consumed using the chat API.
 
 ## v1/chat/completions Request
 
+```
     POST /v1/chat/completions HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/chat/completions Request Schema
 
@@ -284,7 +286,7 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat` 
 |`seed`   |`integer`   |`None`   |If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.|
 |`return_prompt`   |`boolean `  |`false `  |Returns the full prompt that was sent to the model when `true`.   |
 |`tools`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of available tools (functions) that the model may suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response will be `""` and the `tool_calls` field in the response will be populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array will be empty.|
-|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and will be referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, as well as a list of outputs in the form of dictionaries. Cohere’s unique fine-grained citation logic requires the output to be a list. In case the output is just one item, e.g. `{"status": 200}`, please still wrap it inside a list.   |
+|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and will be referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, as well as a list of outputs in the form of dictionaries. Cohere's unique fine-grained citation logic requires the output to be a list. In case the output is just one item, e.g. `{"status": 200}`, please still wrap it inside a list.   |
 
 The `chat_history` object requires the following fields:
 |Key       |Type   |Description   |
@@ -306,8 +308,8 @@ Response fields are fully documented on [Cohere's Chat API reference](https://do
 |Key       |Type   |Description   |
 |---|---|---|
 |`response_id`   |`string`   |Unique identifier for chat completion.   |
-|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere’s platform.   |
-|`text`   |`string`   |Model’s response to chat message input.    |
+|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere's platform.   |
+|`text`   |`string`   |Model's response to chat message input.    |
 |`finish_reason`   |`enum string`   |Why the generation was completed. Can be any of the following: `COMPLETE`, `ERROR`, `ERROR_TOXIC`, `ERROR_LIMIT`, `USER_CANCEL` or `MAX_TOKENS`   |
 |`token_count`   |`integer`   |Count of tokens used.   |
 |`meta`   |`string`   |API usage data, including current version and billable tokens.   |
@@ -720,7 +722,7 @@ Once you have run your function and received tool outputs, you can pass them bac
 
 
 ### Chat - Search Queries
-If you are building a RAG agent, you can also use Cohere’s Chat API to get search queries from Command. Simply specify `search_queries_only=TRUE` in your request.
+If you are building a RAG agent, you can also use Cohere's Chat API to get search queries from Command. Simply specify `search_queries_only=TRUE` in your request.
 
 
 **Request**
