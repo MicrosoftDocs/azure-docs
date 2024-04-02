@@ -11,6 +11,7 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 04/03/2024
+ms.custom: references_regions
 ---
 
 # Create an Azure AI Search service in the portal
