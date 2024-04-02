@@ -16,23 +16,23 @@ zone_pivot_groups: web-apps-assessment-aks
 
 This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
-:::zone-end
+::: zone-end
 
 ::: zone pivot="java"
 
 This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
-:::zone-end
+::: zone-end
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 ::: zone pivot="asp-net"
 > * Choose a set of discovered ASP.NET web apps to assess for migration to AKS.
-:::zone-end
+::: zone-end
 ::: zone pivot="java"
 > * Choose a set of discovered Java web apps to assess for migration to AKS.
-:::zone-end
+::: zone-end
 > * Provide assessment configurations such as Azure Reserved Instances, target region etc.
 > * Get insights about the migration readiness of their assessed apps.
 > * Get insights on the AKS Node SKUs that can optimally host and run these apps.
@@ -47,10 +47,10 @@ In this tutorial, you'll learn how to:
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
-:::zone-end
+::: zone-end
 ::: zone pivot="java"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover Java web apps running on your environment.
-:::zone-end
+::: zone-end
 
 ## Create an assessment
 
@@ -89,10 +89,10 @@ In this tutorial, you'll learn how to:
     1. **Appliance name**: Select the appliance.
     ::: zone pivot="asp-net"
     1. **Web app type**: Select **ASP.NET**.
-    :::zone-end
+    ::: zone-end
     ::: zone pivot="java"
     1. **Web app type**: Select **Java**.
-    :::zone-end
+    ::: zone-end
     1. Select the servers, which host the web apps to be assessed from the table.
     1. Select **Next** to review the high-level assessment details.
 
@@ -126,11 +126,11 @@ The assessment can take around 10 minutes to complete.
 
 ::: zone pivot="asp-net"
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-overview.png" alt-text="Screenshot of the assessment overview.":::
-:::zone-end
+::: zone-end
 
 ::: zone pivot="java"
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-overview-java.png" alt-text="Screenshot of the assessment overview for Java.":::
-:::zone-end
+::: zone-end
 
 On the **Overview** page, you're provided with the following details:
 

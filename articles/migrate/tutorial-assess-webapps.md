@@ -20,7 +20,7 @@ As part of your migration journey to Azure, assess your on-premises workloads to
 
 This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
-:::zone-end
+::: zone-end
 
 ::: zone pivot="java"
 
@@ -28,7 +28,7 @@ As part of your migration journey to Azure, assess your on-premises workloads to
 
 This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
-:::zone-end
+::: zone-end
 
 In this tutorial, you learn how to: 
 
@@ -91,10 +91,10 @@ To run an assessment, follow these steps:
     1. **Appliance name**: Select the appliance.
     ::: zone pivot="asp-net"
     1. **Web app type**: Select **ASP.NET**.
-    :::zone-end
+    ::: zone-end
     ::: zone pivot="java"
     1. **Web app type**: Select **Java**.
-    :::zone-end
+    ::: zone-end
     1. Select the servers that you want to add to the group from the table.
     1. Select **Next**.
 
