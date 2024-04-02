@@ -14,7 +14,8 @@ ms.subservice: calling
 
 # networkReceiveQuality UFD
 The `networkReceiveQuality` UFD with `Bad` value indicates that there are network quality issues for incoming streams, as detected by the ACS Calling SDK. 
-This suggests that there may be problems with the network connection between the local endpoint and remote endpoint. When this UFD fires, the user may experience degraded audio quality. A `Bad` value happens with the receive network experiences a 50% or greater packet loss on the internet connection.
+This suggests that there may be problems with the network connection between the local endpoint and remote endpoint.
+When this UFD fires with the `Bad` value, the user may experience degraded audio quality.
 
 | networkReceiveQualityUFD | Details                |
 | -------------------------|------------------------|
