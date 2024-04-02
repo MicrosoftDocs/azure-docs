@@ -52,10 +52,6 @@ This recommendation is already being covered by another networking recommendatio
 
 See the [list of security recommendations](recommendations-reference.md).
 
-|Date | Update |
-|--|--|
-
-
 ### Containers multicloud recommendations (GA)
 
 April 2, 2024
