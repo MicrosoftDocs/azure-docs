@@ -17,18 +17,19 @@ Throughout the lifecycle of your Azure Operator Nexus Kubernetes cluster, you ev
 
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * SSH private key for the cluster nodes.
-* To SSH using the node IP address, it's necessary to have a jumpbox VM deployed within the same virtual network as the cluster nodes.
+* To SSH using the node IP address, you must deploy a jumpbox VM on the same Container Network Interface (CNI) network as the cluster nodes.
 
 ## Access nodes using the Kubernetes API
 
 This method requires usage of `kubectl debug` command.
 
-### Azure Arc for Kubernetes
+### Access to Kubernetes API via Azure Arc for Kubernetes
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
 ### Access to cluster nodes via Azure Arc for Kubernetes
-Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
+
+Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes node using the `kubectl debug` command to run a privileged container on your node.
 
 1. List the nodes in your Nexus Kubernetes cluster:
 
@@ -49,7 +50,7 @@ Once you're connected to a cluster via Arc for Kubernetes, you can connect to in
     root [ / ]#
     ```
 
-    This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
+    This privileged container gives access to the node. Execute commands on the cluster node by running `chroot /host` at the command line. 
 
 3. When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
 
@@ -59,7 +60,10 @@ Once you're connected to a cluster via Arc for Kubernetes, you can connect to in
 
 ## Access to cluster nodes via Azure Arc for servers
 
-The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
+The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, making it a quick and efficient method for remote management.
+
+> [!NOTE]
+> Operator Nexus Kubernetes cluster nodes are Arc connected servers by default.
 
 1. Set the required variables. Replace the placeholders with the actual values relevant to your Azure environment and Nexus Kubernetes cluster.
 
