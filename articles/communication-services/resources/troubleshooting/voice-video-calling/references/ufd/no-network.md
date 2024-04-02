@@ -1,7 +1,7 @@
 ---
 title: Overview of noNetwork UFD
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Overview and detailec reference of noNetwork UFD
+description: Overview and detailed reference of noNetwork UFD
 author: sloanster
 ms.author: micahvivion
 
@@ -13,7 +13,9 @@ ms.subservice: calling
 ---
 
 # noNetwork UFD
-The `noNetwork` UFD with `true` value occurs when there is no network available for ICE candiates being gathered. This may indicate that there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable. Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this can also result in `noNetwork` UFD.
+The `noNetwork` UFD with `true` value occurs when there's no network available for ICE candidates being gathered,
+which means there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable.
+Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this can also result in `noNetwork` UFD.
 
 | noNetwork UFD        | Details                 |
 | ---------------------|------------------------|
@@ -37,4 +39,4 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 Your application should subscribe to events from the User Facing Diagnostics and display a message in your user interface to alert users of any network setup issues.
 Users can then take steps to resolve the issue on their own.
 
-The end user should also check if they have disabled the network adapaters or whether they have an available network.
+The end user should also check if they have disabled the network adapters or whether they have an available network.
