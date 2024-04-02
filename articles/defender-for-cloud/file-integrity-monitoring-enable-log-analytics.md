@@ -184,12 +184,12 @@ Use wildcards to simplify tracking across directories. The following rules apply
 
 ### Enable built-in recursive registry checks
 
-The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
+The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.
 
 ![Registry.](./media/file-integrity-monitoring-enable-log-analytics/baselines-registry.png)
 
 >[!NOTE]
-> Recursive checks apply only to recommended security hives and not to custom registry paths.  
+> Recursive checks apply only to recommended security hives and not to custom registry paths.
 
 ### Add a custom registry check
 
@@ -233,7 +233,7 @@ In the example in the following figure, **Contoso Web App** resides in the D:\ d
 
 ### Retrieve change data
 
-File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.  
+File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.
 
 1. Set a time range to retrieve a summary of changes by resource.
 
@@ -258,7 +258,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
     | order by Computer, RegistryKey
     ```
 
-Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
+Reports can be exported to CSV for archival and/or channeled to a Power BI report.
 
 ![FIM data.](./media/file-integrity-monitoring-enable-log-analytics/baselines-data.png)
 
