@@ -70,38 +70,27 @@ The following regulatory standards are available in Defender for Cloud:
 
 | Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
 |--|--|--|
- | Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)| 
- | Brazilian General Personal Data Protection Law (LGPD) | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)| 
- | California Consumer Privacy Act (CCPA) | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls| 
- | Canada Federal PBMM | California Consumer Privacy Act (CCPA) | CIS GCP Foundations| 
- | CIS Azure Foundations | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark| 
- | CIS Controls | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark| 
- | CIS Google Cloud Platform Foundation Benchmark | CSA Cloud Controls Matrix (CCM) | CRI Profile| 
- | CIS Google Kubernetes Engine (GKE) Benchmark | GDPR | CSA Cloud Controls Matrix (CCM)| 
- | CMMC Level 3 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)| 
- | CRI Profile | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)| 
- | CSA Cloud Controls Matrix (CCM) | NIST Cybersecurity Framework (CSF) | GDPR| 
- | Cybersecurity Maturity Model Certification (CMMC) | NIST SP 800-172 | ISO/IEC 27001| 
- | FedRAMP H | PCI-DSS | ISO/IEC 27002| 
- | FedRAMP M |  | ISO/IEC 27017| 
- | FFIEC Cybersecurity Assessment Tool (CAT) |  | NIST 800-53| 
- | GDPR |  | NIST Cybersecurity Framework (CSF)| 
- | HIPAA/HITRUST |  | NIST SP 800-171| 
- | ISO/IEC 27001:2013 |  | NIST SP 800-172| 
- | ISO/IEC 27002 |  | PCI DSS| 
- | ISO/IEC 27017 |  | Sarbanes Oxley Act (SOX)| 
- | New Zealand ISM Restricted |  | SOC 2| 
- | NIST Cybersecurity Framework (CSF) |  | | 
- | NIST SP 800 171 R2 |  | | 
- | NIST SP 800-172 |  | | 
- | NIST SP 800-53 R4 |  | | 
- | NIST SP 800-53 R5 |  | | 
- | PCI DSS |  | | 
- | RMIT Malaysia |  | | 
- | Sarbanes Oxley Act (SOX) |  | | 
- | SOC 2 Type 2 |  | | 
- | SWIFT CSP CSCF |  | | 
- | UK OFFICIAL and UK NHS |  | | 
+| Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)|
+| Canada Federal PBMM | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)|
+| CIS Azure Foundations | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls|
+| CMMC | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
+| FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark|
+| HIPAA/HITRUST | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark|
+| ISO 27001 | CSA Cloud Controls Matrix (CCM) | CRI Profile|
+| New Zealand ISM Restricted | GDPR | CSA Cloud Controls Matrix (CCM)|
+| NIST SP 800-171 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)|
+| NIST SP 800-53 | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)|
+| PCI-DSS | NIST Cybersecurity Framework (CSF) | GDPR|
+| RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27001|
+| SOC | PCI-DSS | ISO/IEC 27002|
+| SWIFT CSP CSCF | | ISO/IEC 27017|
+| UK OFFICIAL and UK NHS | | NIST 800-53|
+| | | NIST Cybersecurity Framework (CSF)|
+| | | NIST SP 800-171|
+| | | NIST SP 800-172|
+| | | PCI DSS|
+| | | Sarbanes Oxley Act (SOX)|
+| | | SOC 2|
 
 ## Related content
 
