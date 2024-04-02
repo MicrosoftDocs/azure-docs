@@ -41,13 +41,15 @@ If Call Protection is **Disabled**, update it to **Enabled** and notify your Mic
 
 ## Provision subscribers
 
+Provisioning subscribers requires creating an account for each group of subscribers and then adding the details of each number to the account. 
+
 [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 
-You should use Azure Communications Gateway's Number Management Portal to provision subscribers.
+The following steps describe provisioning subscribers using the Number Management Portal.
 
-### Create an Account
+### Create an account
 
-You must create an *Account* for each group of subscribers that you manage with the Number Management Portal.
+You must create an *account* for each group of subscribers that you manage with the Number Management Portal.
 
 1. From the overview page for your Communications Gateway resource, find the **Number Management (Preview)** section in the sidebar.
 1. Select **Accounts**.
@@ -60,17 +62,29 @@ You must create an *Account* for each group of subscribers that you manage with 
 
 1. In the sidebar, locate the **Number Management (Preview)** section and select **Accounts**. Select the **Account name**.
 1. Select **View numbers** to go to the number management page.
-1. To upload new numbers:
-    1. Select **Upload numbers**.
-    1. In **Add numbers**, add each number individually.
-    1. Select **Enable Azure Operator Call Protection**.
-    1. The **Custom SIP header value** is not used by Azure Operator Call Protection - leave it blank.
-    1. Select **Review and upload** and **Upload**.
-    1. When the order status is **Complete**, the numbers are available.
+1. To add new numbers:
+    - To configure the numbers directly in the Number Management Portal:
+        1. Select **Manual input**.
+        1. Select **Enable Azure Operator Call Protection**.
+        1. The **Custom SIP header value** is not used by Azure Operator Call Protection - leave it blank.
+        1. Add the numbers in **Telephone Numbers**.
+        1. Select **Create**.
+    - To upload a CSV containing multiple numbers:
+        1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
+
+            | Heading | Description  | Valid values |
+            |---------|--------------|--------------|
+            | `telephoneNumber`|The number to upload | E.164 numbers, including the country code |
+            | `accountName` | The account to upload the number to | The name of an account you've already created |
+            | `serviceDetails_azureOperatorCallProtection_enabled`| Whether Azure Operator Call Protection is enabled | `true` or `false`|
+
+        1. Select **File Upload**.
+        1. Select the `.csv` file that you prepared.
+        1. Select **Upload**.
 1. To remove numbers:
     1. Select the numbers.
     1. Select **Delete numbers**.
-    1. When the order status is **Complete**, the numbers have been removed.
+    1. Wait 30 seconds, then select **Refresh** to confirm that the numbers have been removed.
 
 ## Carry out integration testing and request changes
 

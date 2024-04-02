@@ -22,9 +22,9 @@ You must start the onboarding process with Zoom to become a Zoom Phone Cloud Pee
 
 You must [deploy Azure Communications Gateway](deploy.md).
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). If you didn't configure the Provisioning API in the Azure portal as part of deploying, you also need to know:
-- The IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to the Provisioning API, as a comma-separated list.
-- (Optional) The name of any custom SIP header that Azure Communications Gateway should add to messages entering your network.
+Using Azure Communications Gateway for Zoom Phone Cloud Peering requires provisioning the details of your customers and the numbers that you assign to them on Azure Communications Gateway. You can do this with Azure Communications Gateway's Provisioning API (preview) or its Number Management Portal (preview). If you're planning to use the Provisioning API:
+- Your organization must [integrate with the API](integrate-with-provisioning-api.md)
+- You must know the IP addresses or address ranges (in CIDR format) in your network that should be allowed to connect to the Provisioning API
 
 You must allocate "service verification" test numbers for Zoom. Zoom use these numbers for continuous call testing.
 - If you selected the service you're setting up as part of deploying Azure Communications Gateway, you've allocated numbers for the service already.

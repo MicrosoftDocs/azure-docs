@@ -1,11 +1,11 @@
 ---
 title: Overview of Microsoft Teams Direct Routing with Azure Communications Gateway
-description: Understand how Azure Communications Gateway works with Microsoft Teams Direct Routing and your fixed network
+description: Understand how Azure Communications Gateway works with Microsoft Teams Direct Routing and your fixed network.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 03/31/2024
 ms.custom: template-concept
 ---
 
@@ -66,21 +66,21 @@ For each customer, you must:
     - Not contain a wildcard or multiple labels separated by `.`.
     > [!IMPORTANT]
     > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1-r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
-2. Configure Azure Communications Gateway with this information, as part of "account" configuration available over the Provisioning API.
+2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
 3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
-As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it with Azure Communications Gateway's Provisioning API to generate the DNS TXT records that verify the domain.
+As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal (preview) or the Provisioning API (preview). This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
 
 > [!TIP]
 > For a walkthrough of setting up a customer tenant and numbers for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md) and [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask your customer to carry out the steps that need access to their tenant.
 
 ## Support for caller ID screening
 
-Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user in their tenant, even if you haven't assigned that number to them in your network. This lack of validation presents a risk of caller ID spoofing.
+Microsoft Teams Direct Routing allows a customer admin to assign any phone number to a user in their tenant, even if you don't assign that number to them in your network. This lack of validation presents a risk of caller ID spoofing.
 
-To prevent caller ID spoofing, Azure Communications Gateway screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you have assigned to them. However, you can disable this screening on a per-customer basis, as part of "account" configuration available over the Provisioning API.
+To prevent caller ID spoofing, Azure Communications Gateway screens all Direct Routing calls originating from Microsoft Teams. This screening ensures that customers can only place calls from numbers that you assigned to them. However, you can disable this screening on a per-customer basis, as part of "account" configuration available in the Number Management Portal (preview) and the Provisioning API (preview).
 
-The following diagram shows the call flow for an INVITE from a number that has been assigned to a customer. In this case, Azure Communications Gateway's configuration for the number also includes custom header configuration, so Azure Communications Gateway adds a custom header with the contents.
+The following diagram shows the call flow for an INVITE from a number that is assigned to a customer. In this case, Azure Communications Gateway's configuration for the number also includes custom header configuration, so Azure Communications Gateway adds a custom header with the contents.
 
 :::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-teams-direct-routing-call-screening-allowed.svg" alt-text="Call flow showing outbound call from Microsoft Teams permitted by call screening and custom header configuration.":::
     Call flow diagram showing an invite from a number assigned to a customer. Azure Communications Gateway checks its internal database to determine if the calling number is assigned to a customer. The number is assigned, so Azure Communications Gateway allows the call. The number configuration on Azure Communications Gateway includes custom header contents. Azure Communications Gateway adds the header contents as an X-MS-Operator-Content header before forwarding the call to the operator network.
@@ -89,7 +89,7 @@ The following diagram shows the call flow for an INVITE from a number that has b
 > [!NOTE]
 > The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
 
-The following diagram shows the call flow for an INVITE from a number that hasn't been assigned to a customer. Azure Communications Gateway rejects the call with a 403.
+The following diagram shows the call flow for an INVITE from a number that isn't assigned to a customer. Azure Communications Gateway rejects the call with a 403.
 
 :::image type="complex" source="media/interoperability-direct-routing/azure-communications-gateway-teams-direct-routing-call-screening-rejected.svg" alt-text="Call flow showing outbound call from Microsoft Teams rejected by call screening.":::
     Call flow diagram showing an invite from a number not assigned to a customer. Azure Communications Gateway checks its internal database to determine if the calling number is assigned to a customer. The number isn't assigned, so Azure Communications Gateway rejects the call with 403.
@@ -99,7 +99,7 @@ The following diagram shows the call flow for an INVITE from a number that hasn'
 
 The Microsoft Phone System uses the domains in the Contact header of messages to identify the tenant for each message. Azure Communications Gateway automatically rewrites Contact headers on messages towards the Microsoft Phone System so that they include the appropriate per-customer domain. This process removes the need for your core network to map between numbers and per-customer domains.
 
-You must provision Azure Communications Gateway with each number assigned to a customer for Direct Routing. This provisioning uses Azure Communications Gateway's Provisioning API.
+You must provision Azure Communications Gateway with each number assigned to a customer for Direct Routing. This provisioning uses Azure Communications Gateway's Provisioning API (preview) or Number Management Portal (preview).
 
 The following diagram shows how Azure Communications Gateway rewrites Contact headers on messages sent from the operator network to the Microsoft Phone System with Direct Routing.
 
@@ -109,23 +109,23 @@ The following diagram shows how Azure Communications Gateway rewrites Contact he
 
 ## SIP signaling
 
-Azure Communications Gateway automatically interworks calls to support requirements for Direct Routing:
+Azure Communications Gateway automatically interworks calls to support requirements for Direct Routing, including:
 
 - Updating Contact headers to route messages correctly, as described in [Identifying the customer tenant for Microsoft Phone System](#identifying-the-customer-tenant-for-microsoft-phone-system).
-- SIP over TLS
-- X-MS-SBC header (describing the SBC function)
-- Strict rules on a= attribute lines in SDP bodies
-- Strict rules on call transfer handling
+- SIP over TLS.
+- X-MS-SBC headers (describing the SBC function).
+- Strict rules on a= attribute lines in SDP bodies.
+- Strict rules on call transfer handling.
 
 These features are part of Azure Communications Gateway's [compliance with Certified SBC specifications](#compliance-with-certified-sbc-specifications) for Microsoft Teams Direct Routing.
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
-- Advanced SIP header or SDP message manipulation
-- Support for reliable provisional messages (100rel)
-- Interworking between early and late media
-- Interworking away from inband DTMF tones
-- Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters
+- Advanced SIP header or SDP message manipulation.
+- Support for reliable provisional messages (100rel).
+- Interworking between early and late media.
+- Interworking away from inband DTMF tones.
+- Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters.
 
 [!INCLUDE [microsoft-phone-system-requires-e164-numbers](includes/communications-gateway-e164-for-phone-system.md)]
 
@@ -145,9 +145,9 @@ Microsoft Teams Direct Routing requires core networks to support ringback tones 
 
 Azure Communications Gateway offers multiple media interworking options. For example, you might need to:
 
-- Change handling of RTCP
-- Control bandwidth allocation
-- Prioritize specific media traffic for Quality of Service
+- Change handling of RTCP.
+- Control bandwidth allocation.
+- Prioritize specific media traffic for Quality of Service.
 
 For full details of the media interworking features available in Azure Communications Gateway, raise a support request.
 
