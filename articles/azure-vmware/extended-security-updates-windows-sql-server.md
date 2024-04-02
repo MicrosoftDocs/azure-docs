@@ -38,9 +38,9 @@ When you contact support, the ticket should be raised under the category of Azur
 
 ### SQL Server
 For SQL Server environments running in a VM in Azure VMware Solution, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
-1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the Azure VMware Solution environment.  
+1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the Azure VMware Solution environment. You will need to enable guest management for the VMs running SQL Server and make sure the Azure Extension for SQL Server is installed.
 
-2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc) to subscribe to Extended Security Updates through the SQL Server Configuration experience. 
+2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-instances-for-esus) to subscribe to Extended Security Updates through the SQL Server Configuration experience. 
 
 > [!WARNING]
 > If you register SQL Server instances in a different manner than documented in this step it will not be integrated into Azure VMware Solution and result in you being billed for ESUs.
