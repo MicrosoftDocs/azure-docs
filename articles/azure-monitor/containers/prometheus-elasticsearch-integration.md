@@ -1,24 +1,24 @@
 ---
-title: Configure elastic search integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure ElasticSearch monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+title: Configure Elasticsearch integration for Prometheus metrics in Azure Monitor
+description: Describes how to configure Elasticsearch monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
 ms.service: azure-monitor
 ms.subservice: containers
 ---
-# ElasticSearch
+# Elasticsearch
 Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack. It is where the indexing, search, and analysis magic happen.
 This article describes how to configure Azure Managed Prometheus with Azure Kubernetes Service(AKS) to monitor elastic search clusters by scraping prometheus metrics. 
 
 ## Prerequisites
 
-+ ElasticSearch cluster running on AKS
++ Elasticsearch cluster running on AKS
 + Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
 ### Install Elastic Search Exporter
-Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart -
+Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart.
 
 ```bash
 helm install azmon-elasticsearch-exporter --version 5.7.0 prometheus-community/prometheus-elasticsearch-exporter --set es.uri="https://username:password@elasticsearch-service.namespace:9200" --set podMonitor.enabled=true --set podMonitor.apiVersion=azmonitoring.coreos.com/v1
@@ -28,7 +28,7 @@ helm install azmon-elasticsearch-exporter --version 5.7.0 prometheus-community/p
 > Managed prometheus pod/service monitor configuration with helm chart installation is only supported with the helm chart version >=5.7.0.
 >
 > The [prometheus-elasticsearch-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) helm chart can be configured with [values](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-elasticsearch-exporter/values.yaml) yaml.
-Please specify the right server address where the ElasticSearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the ElasticSearch server. Set the address where ElasticSearch is reachable using the argument "es.uri" ex - .
+Please specify the right server address where the Elasticsearch server can be reached. Based on your configuration set the username,password or certs used to authenticate with the Elasticsearch server. Set the address where Elasticsearch is reachable using the argument "es.uri" ex - .
 >
 > You could also use service monitor, instead of pod monitor by using the **--set serviceMonitor.enabled=true** helm chart paramaters. Make sure to use the api version supported by Azure Managed Prometheus using the parameter **serviceMonitor.apiVersion=azmonitoring.coreos.com/v1**.
 >

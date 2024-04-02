@@ -512,7 +512,7 @@ items:
         items:
         - name: Argo CD
           displayName: Prometheus
-          href: containers/prometheus-argocd-integration.md
+          href: containers/prometheus-argo-cd-integration.md
         - name: Elastic Search
           displayName: Prometheus
           href: containers/prometheus-elasticsearch-integration.md

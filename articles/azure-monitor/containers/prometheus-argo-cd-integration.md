@@ -1,5 +1,5 @@
 ---
-title: Configure argocd integration for Prometheus metrics in Azure Monitor
+title: Configure Argo CD integration for Prometheus metrics in Azure Monitor
 description: Describes how to configure Argo CD monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/25/2024
@@ -14,7 +14,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 ## Prerequisites
 
 + Argo CD running on AKS
-+ Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
++ Azure Managed Prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 ### Deploy Service Monitors
 Deploy the following service monitors to configure Azure managed prometheus addon to scrape prometheus metrics from the argocd workload.

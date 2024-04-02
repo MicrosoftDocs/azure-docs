@@ -1,6 +1,6 @@
 ---
 title: Configure Kafka integration for Prometheus metrics in Azure Monitor
-description: Describes how to configure kKfka monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
+description: Describes how to configure Kafka monitoring using Prometheus metrics in Azure Monitor to Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.reviewer: rashmy
@@ -18,7 +18,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 
 
 ### Install Kafka Exporter
-Install the [Kafka Exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) using the helm chart -
+Install the [Kafka Exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter) using the helm chart.
 
 ```bash
 helm install azmon-kafka-exporter --namespace=azmon-kafka-exporter --create-namespace --version 2.10.0 prometheus-community/prometheus-kafka-exporter --set kafkaServer="{kafka-server.namespace.svc:9092,.....}" --set prometheus.serviceMonitor.enabled=true --set prometheus.serviceMonitor.apiVersion=azmonitoring.coreos.com/v1
@@ -184,7 +184,7 @@ Rich set of alerts based off of strimzi metrics can also be configured by referi
 > [!NOTE] 
 > If using any other way of exposing the jmx_exporter on your kafka cluster, please follow the instructions [here](prometheus-metrics-scrape-crd.md) on how to configure the pod or service monitors accordingly.
 
-### Grafana dashboards for more jmx metrics with strimzi
+### Grafana Dashboards for more jmx metrics with strimzi
 Please also see the [grafana-dashboards-for-strimzi](https://github.com/strimzi/strimzi-kafka-operator/tree/main/examples/metrics/grafana-dashboards) to view dashboards for metrics exposed by strimzi operator.
 
 
