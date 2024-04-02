@@ -3913,7 +3913,7 @@
             "source_path_from_root": "/articles/container-service/container-registry-auth-aci.md",
             "redirect_url": "/azure/container-service/kubernetes/container-registry-authentication",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
