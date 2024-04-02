@@ -89,7 +89,7 @@ Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 
 ### Vector limits on services created after April 3, 2024 in supported regions
 
-The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-providing-larger-partitions).
+The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 |--------|--------------------|--------------------------------------------|------------------------------|

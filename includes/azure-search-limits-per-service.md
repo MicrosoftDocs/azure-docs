@@ -10,6 +10,8 @@
  ms.custom: include file
 ---
 
+Search service limits for storage, partitions, and replicas vary by service creation data, with higher limits for newer services in supported regions.
+
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
 Service level agreements (SLAs) apply to billable services having two or more replicas for query workloads, or three or more replicas for query and indexing workloads. The number of partitions isn't an SLA consideration. For more information, see [Reliability in Azure AI Search](/azure/search/search-reliability#high-availability).
@@ -31,7 +33,7 @@ For new services created after April 3, 2024:
 
 + Basic tier can have up to three partitions and three replicas, and a total of nine search units (SU).
 + Basic, S1, S2, S3 have more storage per partition, ranging from 3-7 times more, depending on the tier.
-+ Your new search service must be in a [supported region](#supported-regions-providing-larger-partitions) to get the extra capacity for Basic and other tiers.
++ Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra capacity for Basic and other tiers.
 
 Currently, there's no in-place upgrade. You should [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
 
@@ -42,7 +44,7 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 
-### Supported regions providing larger partitions
+### Supported regions with higher storage limits
 
 Services created after April 3, 2024 must be in one of the following regions to get the extra storage. Watch for announcements in [What's New in Azure AI Search](/azure/search/whats-new) for expansion to other regions.
 
