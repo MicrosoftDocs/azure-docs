@@ -76,7 +76,8 @@ These SKUs are available in Azure regions that have Azure availability zones. Fo
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 
-Migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
+* VPN gateway - migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
+* ExpressRoute gateway - migrating your existing ExpressRoute virtual network gateway to a zone-redundant or zonal gateway is currently in public preview. For more information, see [Migrate to an availability zone enabled ExpressRoute virtual network gateway](../expressroute/gateway-migration.md).
 
 ### Can I deploy both VPN and ExpressRoute gateways in same virtual network?
 
