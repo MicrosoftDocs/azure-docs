@@ -35,12 +35,20 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 - You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. These permissions allow the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. Direct copy is the fastest method of transferring images from one ACR to another.
   - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but doesn't require subscription scoped permissions.
 
-### Helm packages
+### Helm packages and container images
 
-The Helm packages you intend to onboard must be present on the local storage of the machine from which you're executing the CLI.
+- The Helm packages you intend to onboard must be present on the local storage of the machine from which you're executing the CLI.
+  - The Azure CLI AOSM extension will use the `values.yaml` file in the helm package by default. The CLI supports overriding this with an alternative `values.yaml`. This alternative file must exist on the local storage of the machine from which you're executing the CLI.
 
 > [!NOTE]
 > It is strongly recommended that the Helm package contains a schema for the helm values and that the helm package templates as you expect when `helm template` is run using the values.yaml you intend to use when onboarding to AOSM.
+
+- Your container images must be present in either:
+  - A reference to existing Azure Container Registries that contain the images for your CNF.
+  - A reference to other Container Registries that contain the images for your CNF.
+
+> [!IMPORTANT]
+> Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands.
 
 ### Helm and Docker engine
 
@@ -81,53 +89,45 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
 
 1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso CNF.
 
-```json
+```jsonc
 {
-    // Azure location to use when creating resources e.g uksouth
-    "location": "eastus",
-    // Name of the Publisher resource you want your definition published to.
-    // Will be created if it does not exist.
-    "publisher_name": "contoso",
-    // Resource group for the Publisher resource.
-    // Will be created if it does not exist.
-    "publisher_resource_group_name": "contoso",
-    // Name of the ACR Artifact Store resource.
-    // Will be created if it does not exist.
-    "acr_artifact_store_name": "contoso-artifact-store",
-    // Name of the network function.
-    "nf_name": "contoso-cnf-nfd",
-    // Version of the network function definition in 1.1.1 format (three integers separated by dots).
-    "version": "1.0.0",
-    // Source of container images to be included in the CNF. Currently only one source is supported.
-    "images": {
-        // Login server of the source acr registry from which to pull the image(s).
-        // For example sourceacr.azurecr.io.
-        "source_registry": "contoso.azurecr.io",
-        // Optional. Namespace of the repository of the source acr registry from which to pull.
-        // For example if your repository is samples/prod/nginx then set this to samples/prod.
-        // Leave as empty string if the image is in the root namespace.
-        // See https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces for further details.
-        "source_registry_namespace": ""
-    },
-    // List of Helm packages to be included in the CNF.
-    "helm_packages": [
-        {
-            // The name of the Helm package.
-            "name": "contoso-helm-package",
-            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-            "path_to_chart": "/home/cnf-onboard/contoso-cnf-helm-chart-0-1-0.tgz",
-            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-            "default_values": "",
-            // Names of the Helm packages this package depends on.
-            // Leave as an empty array if there are no dependencies.
-            "depends_on": [
-            ]
-        }
-    ]
+  // Azure location to use when creating resources e.g uksouth
+  "location": "eastus",
+  // Name of the Publisher resource you want your definition published to.
+  // Will be created if it does not exist.
+  "publisher_name": "contoso",
+  // Resource group for the Publisher resource.
+  // You should create this before running the publish command
+  "publisher_resource_group_name": "contoso",
+  // Name of the ACR Artifact Store resource.
+  // Will be created if it does not exist.
+  "acr_artifact_store_name": "contoso-artifact-store",
+  // Name of NF definition.
+  "nf_name": "contoso-cnf-nfd",
+  // Version of the NF definition in 1.1.1 format (three integers separated by dots).
+  "version": "1.0.0",
+  // List of registries from which to pull the image(s).
+  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For non Azure Container Registries, ensure you have run a docker login command before running build.
+  "image_sources": ["contoso.azuercr.io/contoso", "docker.io"],
+  // List of Helm packages to be included in the CNF.
+  "helm_packages": [
+      {
+          // The name of the Helm package.
+          "name": "contoso-helm-package",
+          // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
+          // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
+          "path_to_chart": "/home/cnf-onboard/contoso-cnf-helm-chart-0-1-0.tgz",
+          // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+          // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
+          "default_values": "",
+          // Names of the Helm packages this package depends on.
+          // Leave as an empty array if there are no dependencies.
+          "depends_on": [
+          ]
+      }
+  ]
 }
-```
 
 >[!NOTE]
 > AOSM supports CNFs which are composed of multiple independent helm charts. AOSM installs and upgrades helm charts in the order they are specified in the list of helm packages if no dependencies are specified in the `depends_on` parameter. If dependencies are specified, AOSM calculates the ordering and installs and upgrades the helm charts in that order. AOSM deletes the helm charts in the reverse order in both cases.  This example shows a fictional Contoso CNF made of three helm charts, `contoso-a`, `contoso-b`, and `contoso-c`.
