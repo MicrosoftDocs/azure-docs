@@ -82,6 +82,10 @@ Migrating your existing virtual network gateways to zone-redundant or zonal gate
 
 Coexistence of both VPN and ExpressRoute gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
 
+### Which configuration, zone-redundant or zonal, is recommended to achieve the highest availability for the virtual network gateway infrastructure?
+
+Zone-redundant. With this configuration, the virtual network gateway instances are spread across Azure availability zones, removing a single Azure availability zone as a single point of failure.
+
 ## Next steps
 
 [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md)
