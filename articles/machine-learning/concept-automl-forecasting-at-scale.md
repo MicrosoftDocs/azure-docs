@@ -30,9 +30,7 @@ The many models training component applies AutoML's [model sweeping and selectio
 
 You can configure the data partitioning, the [AutoML settings](how-to-auto-train-forecast.md#configure-experiment) for the models, and the degree of parallelism for many models training jobs. For examples, see our guide section on [many models components](how-to-auto-train-forecast.md#forecasting-at-scale-many-models).        
 
-## Hierarchical time series forecasting (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](./includes/machine-learning-preview-generic-disclaimer.md)]
+## Hierarchical time series forecasting
 
 It's common for time series in business applications to have nested attributes that form a hierarchy. Geography and product catalog attributes are often nested, for instance. Consider an example where the hierarchy has two geographic attributes, state and store ID, and two product attributes, category and SKU: 
 
