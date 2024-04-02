@@ -173,10 +173,10 @@ public class Functions : ServerlessHub<IChatClient>
 }
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > You can get a complete project sample from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-ClassBased/).
 
-### Unified connection string setting in one place.
+### Unified connection string setting in one place
 
 You might have noticed the `SignalRConnection` attribute used on serverless hub classes. It looks like this:
 ```cs
