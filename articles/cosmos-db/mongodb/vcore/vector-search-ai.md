@@ -1,7 +1,7 @@
 ---
-title: Open-Source Vector Databases
+title: Open-source vector databases
 titleSuffix: 
-description: Open-Source Vector Databases
+description: Open-source vector databases
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 04/02/2024
 ---
 
-# Open-Source Vector Databases
+# Open-source vector databases
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -31,14 +31,14 @@ In a vector database, embeddings are indexed and queried through vector search a
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc. For example, you can use a vector database to:
 
-- identify similar images, documents, and songs based on their contents, themes, sentiments, and styles
-- identify similar products based on their characteristics, features, and user groups
-- recommend contents, products, or services based on individuals' preferences
-- recommend contents, products, or services based on user groups' similarities
-- identify the best-fit potential options from a large pool of choices to meet complex requirements
-- identify data anomalies or fraudulent activities that are dissimilar from predominant or normal patterns
-- implement persistent memory for AI agents
-- enable retrieval-augmented generation (RAG)
+- Identify similar images, documents, and songs based on their contents, themes, sentiments, and styles
+- Identify similar products based on their characteristics, features, and user groups
+- Recommend contents, products, or services based on individuals' preferences
+- Recommend contents, products, or services based on user groups' similarities
+- Identify the best-fit potential options from a large pool of choices to meet complex requirements
+- Identify data anomalies or fraudulent activities that are dissimilar from predominant or normal patterns
+- Implement persistent memory for AI agents
+- Enable retrieval-augmented generation (RAG)
 
 ## Selecting the best open-source vector database
 
