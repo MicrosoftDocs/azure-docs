@@ -915,7 +915,7 @@ Using this configuration, the function is now addressable with the following rou
 https://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
+This configuration allows the function code to support two parameters in the address, _category_ and _ID_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 

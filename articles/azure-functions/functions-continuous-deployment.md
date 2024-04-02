@@ -76,7 +76,7 @@ The [Azure portal](https://portal.azure.com) provides a **Deployment center** fo
 
 In the [Azure portal](https://portal.azure.com), browse to your function app page and select **Deployment Center** under **Deployment** in the left pane. 
 
-:::image type="content" source="media/functions-continuous-deployment/deployment-center-choose-source.png" alt-text="Function app deployment center in the Azure portal where you choose your source repository.":::
+:::image type="content" source="media/functions-continuous-deployment/deployment-center-choose-source.png" alt-text="Screenshot of Function app deployment center in the Azure portal where you choose your source repository.":::
 
 Select the **Source** repository type where your project code is being maintained from one of these supported options:
 

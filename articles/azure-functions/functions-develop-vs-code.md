@@ -116,7 +116,7 @@ The Functions extension lets you create the required function app project at the
 
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
-   :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting H T T P trigger.":::
+   :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting HTTP trigger.":::
 
    > [!TIP]
    > You can view additional templates by selecting the **Change template filter** option and setting the value to **Core** or **All**.

@@ -311,7 +311,7 @@ This error is a result of how extensions are loaded from the bundle locally. To 
 
 ## Functions not found after deployment  
 
-There are several common build issues that can cause Python functions to not be found by the host after an apparently sucessful deployment:
+There are several common build issues that can cause Python functions to not be found by the host after an apparently successful deployment:
 
 * The agent pool must be running on Ubuntu to guarantee that packages are restored correctly from the build step. Make sure your deployment template requires an Ubuntu environment for build and deployment.
 
