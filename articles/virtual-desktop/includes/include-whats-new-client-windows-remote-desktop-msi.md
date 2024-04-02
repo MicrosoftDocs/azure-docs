@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 04/01/2024
+ms.date: 04/02/2024
 ---
 
 ## Supported client versions
@@ -28,7 +28,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.5255
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Co), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Cn), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j9dS)
 
 *Date published: March 11, 2024*
 
