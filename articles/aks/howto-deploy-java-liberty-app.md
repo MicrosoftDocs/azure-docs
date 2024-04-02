@@ -347,7 +347,7 @@ Use the following steps to deploy and test the application:
 
 1. Connect to the AKS cluster.
 
-   Paste the value of **cmdToConnectToCluster** into a Bash shell and execute.
+   Paste the value of **cmdToConnectToCluster** into a shell and execute.
 
 1. Apply the DB secret.
 
