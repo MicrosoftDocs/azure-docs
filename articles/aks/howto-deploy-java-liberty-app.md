@@ -222,7 +222,7 @@ mvn clean install
 cd $env:BASE_DIR\java-app
 
 # The following variables will be used for deployment file generation into target.
-$Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
+$Env:LOGIN_SERVER="<Azure-Container-Registry-Login-Server-URL>"
 $Env:REGISTRY_NAME=<Azure-Container-Registry-name>
 $Env:USER_NAME=<Azure-Container-Registry-username>
 $Env:PASSWORD=<Azure-Container-Registry-password>
