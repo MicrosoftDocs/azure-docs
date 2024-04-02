@@ -2,7 +2,7 @@
 author: santiagxf
 ms.service: machine-learning
 ms.topic: include
-ms.date: 03/19/2024
+ms.date: 04/02/2024
 ms.author: fasantia
 ---
 
@@ -10,13 +10,13 @@ Before you follow the steps in this article, make sure you have the following pr
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../how-to-manage-workspace.md) to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../how-to-manage-workspace.md) article to create one.
 
-* Ensure you have the following permissions in the workspace:
+* To perform the following tasks, ensure that you have these permissions in the workspace:
 
-    * Create/manage batch endpoints and deployments: Use roles Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
+    * To create/manage batch endpoints and deployments: Use owner role, contributor role, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
 
-    * Create ARM deployments in the workspace resource group: Use roles Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
+    * To create ARM deployments in the workspace resource group: Use owner role, contributor role, or a custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
 
 * You need to install the following software to work with Azure Machine Learning:
 

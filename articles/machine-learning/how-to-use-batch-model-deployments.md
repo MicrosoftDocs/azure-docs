@@ -9,7 +9,7 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.date: 03/29/2024
+ms.date: 04/02/2024
 ms.custom: how-to, devplatv2, update-code
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
@@ -56,7 +56,7 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 
 # [Python](#tab/python)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to the workspace in which you'll perform deployment tasks.
 
 1. Import the required libraries:
 
@@ -261,13 +261,21 @@ A model deployment is a set of resources required for hosting the model that doe
     In the [Azure Machine Learning studio](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Environments__ tab on the side menu.
+
     1. Select the tab __Custom environments__ > __Create__.
+
     1. Enter the name of the environment, in this case `torch-batch-env`.
-    1. For __Select environment source__ select __Use existing docker image with optional conda file__.
+
+    1. For __Select environment source__, select __Use existing docker image with optional conda file__.
+
     1. For __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04`.
+
     1. Select **Next** to go to the "Customize" section.
+
     1. Copy the content of the file _deployment-torch/environment/conda.yaml_ from the GitHub repo into the portal.
+
     1. Select __Next__ until you get to the "Review page".
+
     1. Select __Create__ and wait until the environment is ready for use.
 
     ---
@@ -481,7 +489,7 @@ You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning 
 1. For "Path", enter the full URL `https://azuremlexampledata.blob.core.windows.net/data/mnist/sample`. 
 
     > [!TIP]
-    > This path work only because the given path has public access enabled. In general, youl need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
+    > This path works only because the given path has public access enabled. In general, you need to register the data source as a __Datastore__. See [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md) for details.
 
     :::image type="content" source="./media/how-to-use-batch-model-deployments/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option." lightbox="media/how-to-use-batch-model-deployments/select-datastore-job.png":::
 
@@ -521,11 +529,9 @@ The following code checks the job status and outputs a link to the Azure Machine
 
     :::image type="content" source="media/how-to-use-batch-model-deployments/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint." lightbox="media/how-to-use-batch-model-deployments/summary-jobs.png":::
 
-1. You'll see a list of the jobs created for the selected endpoint.
+1. From the displayed list of the jobs created for the selected endpoint, select the last job that is running.
 
-1. Select the last job that is running.
-
-1. You'll be redirected to the job monitoring page.
+1. You're now redirected to the job monitoring page.
 
 ---
 
@@ -678,13 +684,21 @@ In this example, you add a second deployment that uses a __model built with Kera
     # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Environments__ tab on the side menu.
+
     1. Select the tab __Custom environments__ > __Create__.
+
     1. Enter the name of the environment, in this case `keras-batch-env`.
+
     1. For __Select environment source__, select __Use existing docker image with optional conda file__.
+
     1. For __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04`.
+
     1. Select **Next** to go to the "Customize" section.
+
     1. Copy the content of the file _deployment-keras/environment/conda.yaml_ from the GitHub repo into the portal.
+
     1. Select __Next__ until you get to the "Review page".
+
     1. Select __Create__ and wait until the environment is ready for use.
     
     ---
@@ -731,7 +745,7 @@ In this example, you add a second deployment that uses a __model built with Kera
     
     1. On the deployment configuration page, give the deployment a name.
     
-    1. Unselect the option to __Make this new deployment the default for batch jobs__.
+    1. Undo the selection for the option: __Make this new deployment the default for batch jobs__.
 
     1. For __Output action__, ensure __Append row__ is selected.
     
@@ -747,7 +761,7 @@ In this example, you add a second deployment that uses a __model built with Kera
     
     1. For __Select a scoring script for inferencing__, browse to select the scoring script file *deployment-keras/code/batch_driver.py*.
     
-    1. For __Select environment__, select the environment you created ina previous step.
+    1. For __Select environment__, select the environment you created in a previous step.
     
     1. Select __Next__.
     
@@ -806,7 +820,7 @@ Notice `deployment_name` is used to specify the deployment to execute. This para
 
 1. Select __Create job__.
 
-1. On __Deployment__, select the deployment you want to execute. In this case, `mnist-keras`.
+1. For __Deployment__, select the deployment you want to execute. In this case, `mnist-keras`.
 
 1. Complete the job creation wizard to get the job started.
 
@@ -836,7 +850,7 @@ Although you can invoke a specific deployment inside an endpoint, you'll typical
     
     :::image type="content" source="./media/how-to-use-batch-model-deployments/update-default-deployment.png" alt-text="Screenshot of updating default deployment.":::
 
-1. On __Select default deployment__, select the name of the deployment you want to set as the default.
+1. For __Select default deployment__, select the name of the deployment you want to set as the default.
 
 1. Select __Update__.
 

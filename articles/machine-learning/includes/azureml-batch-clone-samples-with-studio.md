@@ -2,7 +2,7 @@
 author: santiagxf
 ms.service: machine-learning
 ms.topic: include
-ms.date: 03/19/2024
+ms.date: 04/02/2024
 ms.author: fasantia
 ---
 
@@ -29,7 +29,7 @@ To follow along with this example in a Jupyter Notebook, in the cloned repositor
 1. On the left navigation bar, select the option __Notebooks__.
 1. Select __Samples__.
 1. Navigate to the folder _SDK v2/sdk/python/endpoints/batch/deploy-models/mnist-classifier_.
-1. Select the notebook __mnist-batch.ipynb__ .
+1. Select the notebook __mnist-batch.ipynb__.
 1. Select __Clone this notebook__.
 
 ---
