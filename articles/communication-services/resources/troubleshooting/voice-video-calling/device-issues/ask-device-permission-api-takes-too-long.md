@@ -28,5 +28,5 @@ To detect this issue, you can measure the time difference between when you call 
 If the [`askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API fails due to the user not responding to the UI permission prompt,
 the application can retry the API again and the user should see the UI permission prompt.
 
-If the device list update step takes a long time, the user should check their audio device list and see if there's any device that could potentially be causing this issue.
+As for other reasons, such as the device list updating taking too long to complete, the user should check their devices and see if there's any device that could potentially be causing this issue.
 They may need to update or remove the problematic device to resolve the issue.
