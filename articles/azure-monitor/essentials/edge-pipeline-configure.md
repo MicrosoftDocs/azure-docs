@@ -476,12 +476,11 @@ Edge devices in some environments may experience intermittent connectivity due t
 
 During disconnected periods, the edge pipeline will write collected data as files in the persistent volume.
 
+| Setting | Description |
+|:---|:---|
+| Expiration | Defines the amount of time the data can remain in the cache before it's discarded. |
+| Persistent volume limit | Memory limit for the cache. When the limit is reached, data is removed according to the data sync type. |
 
-### Expiration
-Defines the amount of time the data can remain in the cache before it's discarded. 
-
-### Persistent volume limit
-Memory limit for the cache. When the limit is reached, data is removed according to the data sync type.
 
 ### Data sync type
 
@@ -489,11 +488,8 @@ Memory limit for the cache. When the limit is reached, data is removed according
 |:---|:---|
 | FIFO | First in, first out. When connectivity is restored, the oldest data is sent first, and all data in the queue is sent before any real-time data. This preserves the chronological order and completeness of the data making it ideal for data that is informative and used for SLI/SLOs or business KPIs.  |
 | LIFO | Last in, first out. When connectivity is restored, the newest data is sent first, and all data in the queue is sent before any real-time data. This delivers the most recent and relevant data making it ideal for dynamic and adaptive data such as security events. |
-| Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response,  |
-<!--- With real-time, is FIFO or LIFO used to flush cache? Or is this additional setting? --->
-
-### Filtering
-<!--- Will we have this for public preview? --->
-
-### Aggregation and sampling
-
+| Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response. |
+|  Filtering You can filter out certain data during data synchronization depending on the application requirements and the data characteristics. |
+| Aggregation and sampling | Aggregate and sample data depending on its category to reduce the amount of data to be synced and optimize the bandwidth. |
+| Data sync duration | Specify a time slot for data sync to ensure the optimum bandwidth consumption. For example, a retail customer may require to pick an after-store-hour time slot for data synchronization so that the data sync does not interfere with the regular store activities. |
+| Bandwidth allocation | Allocate a percentage of bandwidth to sync the cached data to prioritize the real-time data to be ingested to cloud. |
