@@ -24,7 +24,8 @@ Trial Matcher uses patient information to match relevant patient(s) with the cli
 - JSON key/value
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview.
+> The examples below are based on API version: 2023-03-01-preview. There might be changes between
+API versions. For a specific API version, please use the reference to the REST API to see full description.
 
 ## Unstructured clinical note
 

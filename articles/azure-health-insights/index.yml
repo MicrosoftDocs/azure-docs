@@ -25,6 +25,11 @@ landingContent:
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
+          - text: Deploy using Azure CLI
+            url: deploy-cli.md   
+          - text: Deploy using Azure PowerShell
+            url: deploy-powershell.md   
+
       - linkListType: how-to-guide
         links:
           - text: How to Use Azure AI Health Insights with containers 

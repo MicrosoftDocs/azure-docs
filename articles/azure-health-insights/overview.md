@@ -35,8 +35,7 @@ The [Radiology Insights](./radiology-insights/overview.md) model receives patien
 
 ## Architecture
 
-![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png) 
-    [ ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png)](media/architecture.png#lightbox)
+[ ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png)](media/architecture.png#lightbox)
 
 Azure AI Health Insights service receives patient data in different modalities, such as unstructured healthcare data, FHIR resources or specific JSON format data. In addition, the service receives a model configuration, such as ```includeEvidence``` parameter. 
 With these input patient data and configuration, the service can run the data through the selected health insights AI model, such as Trial Matcher, Onco-Phenotype or Radiology Insights.  
@@ -46,7 +45,10 @@ With these input patient data and configuration, the service can run the data th
 Review the following information to learn how to deploy Azure AI Health Insights and to learn additional information about each of the models:
 
 >[!div class="nextstepaction"]
-> [Deploy Azure AI Health Insights](deploy-portal.md) 
+> [Deploy Azure AI Health Insights using Azure portal](deploy-portal.md) 
+
+>[!div class="nextstepaction"]
+> [Deploy Azure AI Health Insights using commandline](deploy-command-line.md)
 
 >[!div class="nextstepaction"]
 > [Onco-Phenotype](oncophenotype/overview.md) 
