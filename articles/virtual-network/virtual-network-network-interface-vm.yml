@@ -4,14 +4,16 @@
 metadata:
   title: Add network interfaces to or remove from Azure VMs
   description: Learn how to add network interfaces to or remove network interfaces from virtual machines.
-  services: virtual-network
   author: asudbring
+  ms.author: allensu
   manager: mtillman
+  ms.date: 11/16/2022
   ms.service: virtual-network
   ms.topic: how-to
-  ms.date: 11/16/2022
-  ms.author: allensu
-  ms.custom: template-how-to, engagement-fy23
+  ms.custom:
+    - template-how-to
+    - engagement-fy23
+    - ge-structured-content-pilot
 
 title: |
   Add network interfaces to or remove network interfaces from virtual machines

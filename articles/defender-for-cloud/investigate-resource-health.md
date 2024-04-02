@@ -83,7 +83,7 @@ To ensure your resource is hardened according to the policies applied to your su
     > [!TIP]
     > The instructions for fixing issues raised by security recommendations differ for each of Defender for Cloud's recommendations.
     >
-    > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md).c
+    > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md).
 
 ### Investigate a security alert
 

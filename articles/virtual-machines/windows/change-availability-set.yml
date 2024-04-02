@@ -7,15 +7,12 @@ metadata:
   author: ju-shim
   ms.author: jushiman
   ms.reviewer: mimckitt
-  ms.service: virtual-machines
-  ms.topic: how-to #Don't change
   ms.date: 3/8/2021
-  ms.custom: devx-track-azurepowershell
-  # appliesTo: <optional> leave commented out.
-  # - item
-  # - item
-  # - item
-  # - item
+  ms.service: virtual-machines
+  ms.topic: how-to
+  ms.custom:
+    - devx-track-azurepowershell
+    - ge-structured-content-pilot
 
   #customer intent: As a <role>, I want <what> so that <why>.
 

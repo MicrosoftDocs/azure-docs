@@ -4,12 +4,15 @@ metadata:
   title: List Azure role definitions - Azure RBAC
   description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
   author: rolyon
+  ms.author: rolyon
   manager: amycolannino
+  ms.date: 03/28/2023
   ms.service: role-based-access-control
   ms.topic: how-to
-  ms.date: 03/28/2023
-  ms.author: rolyon
-  ms.custom: devx-track-azurepowershell, devx-track-azurecli
+  ms.custom:
+    - devx-track-azurepowershell
+    - devx-track-azurecli
+    - ge-structured-content-pilot
   ms.devlang: azurecli
 
 title: |
