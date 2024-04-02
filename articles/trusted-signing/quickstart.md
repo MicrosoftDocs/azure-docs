@@ -51,7 +51,7 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 •   Refer to Select or change Trusted Signing pricing tier link to the Pricing Tier How-To article for information about the available pricing tiers.
 11. Select the **Review + Create** button. 
 
-![screenshot of trusted-signing-account.](media/trusted-signing-account-creation.png)
+:::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 
 12. After successfully creating your Trusted Signing account, select **Go to resource**.  
 
@@ -152,9 +152,9 @@ Here are the steps to create an Identity Validation request:
 7.  **Review and accept Trusted Signing Terms of Use**.  Terms of Use can be downloaded for review.  
 8.  Select the **Create** button. 
 
-![This tutorial will guide you through the process of revoking a certificate profile from a Trusted Signing account.](media/trusted-signing-identity-validation-public.png)
+:::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot of trusted-signing-identityvalidation-public." lightbox="media/trusted-signing-identity-validation-public.png":::
 
-![screenshot of trusted-signing-identityvalidation-private.](media/trusted-signing-identity-validation-private.png)
+:::image type="content" source="media/trusted-signing-identity-validation-private.png" alt-text="Screenshot of trusted-signing-identityvalidation-private." lightbox="media/trusted-signing-identity-validation-private.png":::
 
 ### Important information for Public Identity Validation:
 
@@ -187,7 +187,7 @@ A certificate profile resource is the logical container of the certificates that
 •   The values in remaining fields are autopopulated based on the selection in Verified CN and O.
 •   Select **Create**.
 
-![screenshot of trusted-signing-certificateprofile-creation.](media/trusted-signing-certificate-profile-creation.png)
+:::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot of trusted-signing-certificateprofile-creation." lightbox="media/trusted-signing-certificate-profile-creation.png":::
 
 **Certificate Profile naming constraints**:
 - Between 5-100 alphanumeric characters. 
