@@ -314,7 +314,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 # [Isolated process](#tab/isolated-process)
 
-isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
+Isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
 
 |Parameter | Description|
 |---------|----------------------|
