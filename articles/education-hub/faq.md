@@ -11,6 +11,8 @@ ms.custom: template-tutorial
 
 # Azure for Education Frequently Asked Questions
 
+Discover all you need to know about Azure for Education in our FAQ section. Find answers to common queries on eligibility, benefits, and usage to optimize your experience.
+
 ## Azure for Students
 
 ### What happens after I use my $100 credit or I'm at the end of 12 months?
