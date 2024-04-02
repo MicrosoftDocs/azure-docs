@@ -3,7 +3,7 @@ title: Using Azure Cosmos DB for Apache Cassandra® with HDInsight on AKS for Ap
 description: Learn how to Sink Apache Kafka® message into Azure Cosmos DB for Apache Cassandra®, with Apache Flink® running on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 04/02/2024
 ---
 
 # Sink Apache Kafka® messages into Azure Cosmos DB for Apache Cassandra, with Apache Flink® on HDInsight on AKS
@@ -16,7 +16,7 @@ This example is prominent when Engineers prefer real-time aggregated data for an
 
 ## Prerequisites
 
-* [Apache Flink 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+* [Apache Flink 1.17.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
 * An Ubuntu VM for maven project development environment in the same VNet as HDInsight on AKS cluster.
@@ -51,106 +51,105 @@ Go to maven project folder **azure-cosmos-db-cassandra-java-getting-started-main
 
 **maven pom.xml**
 ``` xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.azure.cosmosdb.cassandra</groupId>
-    <artifactId>cosmosdb-cassandra-examples</artifactId>
-    <version>1.0-SNAPSHOT</version>
-   <dependencies>
-             <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-java</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-clients</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-files</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-core</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-mapping</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-extras</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <finalName>cosmosdb-cassandra-examples</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.azure.cosmosdb.cassandra</groupId>
+  <artifactId>cosmosdb-cassandra-examples</artifactId>
+   <version>1.0-SNAPSHOT</version>
+  <dependencies>
+            <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-java</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-streaming-java</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-clients</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-connector-files</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>org.apache.flink</groupId>
+          <artifactId>flink-connector-kafka</artifactId>
+           <version>1.17.0</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-core</artifactId>
+          <version>3.3.0</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-mapping</artifactId>
+          <version>3.1.4</version>
+       </dependency>
+       <dependency>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-extras</artifactId>
+          <version>3.1.4</version>
+       </dependency>
+       <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.5</version>
+       </dependency>
+       <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.7.5</version>
+       </dependency>
+   </dependencies>
+ 
+   <build>
+       <plugins>
+           <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+               <configuration>
+                   <descriptorRefs>
+                      <descriptorRef>jar-with-dependencies</descriptorRef>
+                   </descriptorRefs>
+                  <finalName>cosmosdb-cassandra-examples</finalName>
+                  <appendAssemblyId>false</appendAssemblyId>
+               </configuration>
+               <executions>
+                   <execution>
+                      <id>make-assembly</id>
+                      <phase>package</phase>
+                       <goals>
+                          <goal>single</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+           <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+               <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+               </configuration>
+           </plugin>
+       </plugins>
+   </build>
+ 
 </project>
-
 ```
+
 **Cosmos DB for Apache Cassandra's connection configuration**
 
 You're required to update your host-name and user-name, and keys in the below snippet.
