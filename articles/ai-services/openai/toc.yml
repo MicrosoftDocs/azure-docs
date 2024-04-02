@@ -207,14 +207,27 @@ items:
   items:
     - name: Assistants API Reference
       items:
-       - name: Assistants
-         href: ./assistants-reference.md
-       - name: Threads
-         href: ./assistants-reference-threads.md
-       - name: Messages
-         href: ./assistants-reference-messages.md
-       - name: Runs
-         href: ./assistants-reference-runs.md     
+        - name: Python/REST
+          items:
+          - name: Assistants
+            href: ./assistants-reference.md
+          - name: Threads
+            href: ./assistants-reference-threads.md
+          - name: Messages
+            href: ./assistants-reference-messages.md
+          - name: Runs
+            href: ./assistants-reference-runs.md 
+        - name: SDK 
+          items:
+          - name: C#
+            href: /dotnet/api/overview/azure/ai.openai.assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: Go
+            href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+          - name: Java
+            href: /java/api/overview/azure/ai-openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: JavaScript
+            href: /javascript/api/overview/azure/openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          
     - name: Azure OpenAI On Your Data API Reference
       items:
         - name: Azure OpenAI On Your Data
