@@ -49,11 +49,11 @@ Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
 
-## An AI database for more than just AI applications
+## An AI database for more than just AI apps
 
 Besides AI database, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
-## An AI database that is reliable and flexible
+## An AI database with unmatched reliability and flexibility
 
 ### Guaranteed speed at any scale
 
