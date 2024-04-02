@@ -44,7 +44,7 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Above mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -55,7 +55,7 @@ Above mentioned Cohere models can be deployed as a service with pay-as-you-go, a
     > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in (to be added) regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
+- Azure role-based access controls are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
@@ -73,10 +73,10 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the (to be added) regions.
+1. Select the project in which you want to deploy your model. To deploy the model, your project must be in the (to be added) regions.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
+1. If it is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png":::
 
@@ -157,7 +157,7 @@ The `usage` object is a dictionary with the following fields:
 | `total_tokens` | `integer` | Total tokens. |
 
 
-## Examples
+## v1/embeddings examples
 
 **Request**
 
@@ -209,7 +209,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 |Key       |Type   |Default   |Description   |
 |---|---|---|---|
 |`texts` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
-|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You shouldn't mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector DB to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
+|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You shouldn't mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector database to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
 |`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
 |`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
 
@@ -227,7 +227,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual include the following fiel
 
 For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed.).
 
-## Examples
+## v1/embed examples
 
 ### embeddings_floats Response
 

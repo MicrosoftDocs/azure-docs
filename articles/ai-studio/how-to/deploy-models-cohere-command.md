@@ -263,10 +263,12 @@ The `usage` object is a dictionary with the following fields:
 
 ## v1/chat Request
 
+```
     POST /v1/chat HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/chat Request Schema
 

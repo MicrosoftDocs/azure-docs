@@ -154,7 +154,7 @@ The `usage` object is a dictionary with the following fields:
 | `total_tokens` | `integer` | Total tokens. |
 
 
-## Examples
+## v1/embeddings examples
 
 **Request**
 
@@ -222,9 +222,9 @@ Cohere Embed v3 - English and Embed v3 - Multilingual include the following fiel
 |`texts` |`array of strings` |The text entries for which embeddings were returned. |
 |`meta`   |`string`   |API usage data, including current version and billable tokens.   |
 
-For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed.).
+For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed).
 
-## Examples
+## v1/embed examples
 
 ### embeddings_floats Response
 

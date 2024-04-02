@@ -291,6 +291,7 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat` 
 |`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and is referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, and a list of outputs in the form of dictionaries. Cohere's unique fine-grained citation logic requires the output to be a list. In case the output is just one item, for example, `{"status": 200}`, still wrap it inside a list.   |
 
 The `chat_history` object requires the following fields:
+
 |Key       |Type   |Description   |
 |---|---|---|
 |`role`   |`enum string`   |Takes `USER`, `SYSTEM`, or `CHATBOT`.   |
@@ -323,10 +324,11 @@ If `documents` are specified in the request, there are two other fields in the r
 
 |Key       |Type   |Description   |
 |---|---|---|
-|`documents `  |`array of objects`   |Lists the documents that were cited in the response.   |
+|`documents`  |`array of objects`   |Lists the documents that were cited in the response.   |
 |`citations`   |`array of objects`   |Specifies which part of the answer was found in a given document.    |
 
 `citations` is an array of objects with the following required fields:
+
 |Key       |Type   |Description   |
 |---|---|---|
 |`start`   |`integer`   |The index of text that the citation starts at, counting from zero. For example, a generation of `Hello, world!` with a citation on `world` would have a start value of `7`. This is because the citation starts at `w`, which is the seventh character.   |
