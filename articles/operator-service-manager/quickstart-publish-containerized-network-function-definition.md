@@ -33,7 +33,7 @@ Execution of the preceding command generates an cnf-input.jsonc file.
 > [!NOTE]
 > Edit the cnf-input.jsonc file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.jsonc**.
 > [!NOTE]
-> You can use multiple Container Registries as sources for your images in the AOSM CLI. The images to be copied from these Registries are populated automatically based on the helm package schema. To configure these source Registries, fill in `image_sources` list in the cnf-input.jsonc file. When using ACRs, you must have Reader/AcrPull permissions. When using other private Registries, you must run `docker login` to authenticate with all non-ACR Registries before running the `az aosm nfd build` command. In this CLI we use `docker.io` as the image source Registry. This is a public Registry and does not require authentication.
+> You can use multiple Container Registries as sources for your images in the AOSM CLI. The images to be copied from these Registries are populated automatically based on the helm package schema. To configure these source Registries, fill in `image_sources` list in the cnf-input.jsonc file. When using ACRs, you must have Reader/AcrPull permissions. When using other private Registries, you must run `docker login` to authenticate with all non-ACR Registries before running the `az aosm nfd build` command. In this quickstart we use `docker.io` as the image source Registry. This is a public Registry and does not require authentication.
 
 Here's sample input-cnf-nfd.jsonc file:
 
@@ -89,7 +89,7 @@ Here's sample input-cnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build -f input-cnf-nfd.json --definition-type cnf
+az aosm nfd build -f input-cnf-nfd.jsonc --definition-type cnf
 ```
 
 **TODO: The helm template validation generates some warnings from the above command because there is one invalid image in the template used**
@@ -110,6 +110,9 @@ Once the build is complete, examine the generated files to gain a better underst
 ## Publish the Network Function Definition and upload artifacts
 
 Execute the following command to publish the Network Function Definition (NFD) and upload the associated artifacts:
+
+> [!NOTE]
+> If you are using Windows, you must have Docker Desktop running during the publish step.
 
 ```azurecli
 az aosm nfd publish -b cnf-cli-output --definition-type cnf
