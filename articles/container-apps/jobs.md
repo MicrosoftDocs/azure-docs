@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 04/02/2024
 ms.author: cshoe
 ---
 
