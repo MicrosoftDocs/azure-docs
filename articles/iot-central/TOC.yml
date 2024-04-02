@@ -80,8 +80,6 @@
       href: core/howto-faq.yml
     - name: Architecture
       href: core/concepts-architecture.md
-    - name: Industrial IoT patterns
-      href: core/concepts-iiot-architecture.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
@@ -108,6 +106,8 @@
       href: core/concepts-faq-scalability-availability.md
     - name: What are IoT Central's scale limits?
       href: core/concepts-quotas-limits.md
+    - name: Industrial IoT patterns
+      href: core/concepts-iiot-architecture.md
 
 - name: How-to guides
   items:
