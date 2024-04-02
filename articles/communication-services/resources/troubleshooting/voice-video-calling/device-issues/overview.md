@@ -47,3 +47,8 @@ Here are some common issues related to devices and permissions, along with their
 ### The askDevicePermission API takes too long
 * The user doesn't grant or deny the permission prompt.
 * The device driver layer responds slowly.
+
+## Next steps
+
+This overview article provides basic information on device and permission issues you may encounter when using the WebJS calling SDK.
+For more detailed guidance, please follow the links to the pages listed within the `Device and permission issues` section of this troubleshooting guide
