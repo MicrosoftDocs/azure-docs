@@ -13,11 +13,11 @@ ms.subservice: calling
 ---
 
 # Overview of device and permission issues
-Within the WebJS calling SDK there are two general different types of permissions: browser permission and system permission.
+In the WebJS calling SDK, there are two types of permissions: browser permissions and system permissions.
 When an application needs to access a user's audio or video input device, it requires permissions granted at both the browser and system level.
 
 If an application doesn't have the required permission, it can't access the device,
-which means that other participants in the call are unable to see or hear the user. 
+which means that other participants in the call are unable to see or hear the user.
 
 To avoid these issues, it's important for users to grant the necessary permissions when prompted by the browser.
 If a user accidentally denies permission or needs to change their permissions later, they can usually do so through the browser settings.
