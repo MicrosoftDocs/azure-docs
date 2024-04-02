@@ -28,7 +28,7 @@ Feature management support extends the dynamic configuration feature in App Conf
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md).
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+> ![Screenshot showing fields to enable a feature flag named Beta.](media/add-beta-feature-flag.png)
 
 ## Use the feature flag
 
