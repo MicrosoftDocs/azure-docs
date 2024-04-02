@@ -3,7 +3,7 @@ title: Control network traffic from HDInsight on AKS Cluster pools and cluster
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 04/02/2024
 ---
 
 # Control network traffic from HDInsight on AKS Cluster pools and clusters
@@ -145,7 +145,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     
     1. Configure the route table like the following example: 
     
-       :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png" alt-text="Screenshot showing create cluster basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png"::: 
+       :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png" alt-text="Screenshot showing how to create route table." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png"::: 
     
         Make sure you select the same region as the firewall you created. 
 
