@@ -182,6 +182,30 @@ For MSI token expiration:
 
 - Deactivate then activate the pool in order to clear the token cache. Engage Microsoft Support Team for assistance.
 
+### Storage access issues due to authorization header being too long
+
+You would observe a generic storage access error (when running a query) like below. Please note that the issue might occur for a user in a group of workspaces while querying would work properly in other workspaces. This behavior is expected as the token size that users are seeing in their console is not the only thing that is passed to SQL. It depends on the length of MSI token as well, which is not visible on user end.
+
+Example error messages:
+
+- File {path} cannot be opened because it does not exist or it is used by another process.
+- Content of directory on path {path} cannot be listed.
+- WaitIOCompletion call failed. HRESULT = {code}'. File/External table name: {path}
+
+Please check the  AAD token length by running the following command in PowerShell. Please note that the -ResourceUrl parameter value will be different for non-public clouds. If the token length is close to 11000 or longer, please proceed to the "Mitigation" section.
+
+```azurepowershell-interactive
+(Get-AzAccessToken -ResourceUrl https://database.windows.net).Token.Length
+```
+
+**Workaround**: 
+
+Suggested workarounds are:
+- Switch to Managed Identity storage authorization as described in the [storage access control](https://learn.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity) or
+- Decrease number of security groups (having 90 or fewer security groups results with a token that is of compatible length) or
+- Increase number of security groups over 200 (as that changes how token is constructed, it will contain a MS Graph API URI instead of a full list of groups). It could be achieved by adding dummy/artificial groups in AAD by following [managed groups](https://learn.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity), subsequently you would need to add users to newly created groups.
+
+  
 ## Recently closed known issues
 
 |Synapse Component|Issue|Status|Date Resolved|
