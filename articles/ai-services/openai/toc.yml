@@ -70,10 +70,6 @@ items:
       displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data - text
-      href: ./concepts/use-your-data.md
-    - name: Using your data - image (preview)
-      href: ./concepts/use-your-image-data.md
     - name: Legacy models
       href: ./concepts/legacy-models.md
 - name: How-to 
