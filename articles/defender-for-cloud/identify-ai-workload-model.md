@@ -32,7 +32,7 @@ If you have multiple Gen-AI workloads and models running in your environment, yo
 
 1. Select the **AI workloads and models in use** query template.
 
-    :::image type="content" source="media/identify-ai-workload-model/ai-worload-query.png" alt-text="Screenshot that shows where to locate the AI workloads and models in use query template in the Cloud Security Explorer page." lightbox="media/identify-ai-workload-model/ai-worload-query.png":::
+    :::image type="content" source="media/identify-ai-workload-model/ai-workload-query.png" alt-text="Screenshot that shows where to locate the AI workloads and models in use query template in the Cloud Security Explorer page." lightbox="media/identify-ai-workload-model/ai-worload-query.png":::
 
 1. Select **Search**.
 

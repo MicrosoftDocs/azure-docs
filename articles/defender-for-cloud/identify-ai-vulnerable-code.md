@@ -32,11 +32,15 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 
 1. Select the **Gen-AI vulnerable code repositories that provision Azure OpenAI** query template.
 
-    :::image type="content" source="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable code repositories that provision Azure OpenAI query template in the Cloud Security Explorer page." lightbox="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png":::
+    :::image type="content" source="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable code repositories query." lightbox="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png":::
 
 1. Select **Search**.
 
 1. Select a result to review its details.
+
+    :::image type="content" source="media/identify-ai-vulnerable-code/vulnerable-results.png" alt-text="Screenshot that shows a sample of results for the query." lightbox="media/identify-ai-vulnerable-code/vulnerable-results.png":::
+
+1. Review the results.
 
 ## Next step
 
