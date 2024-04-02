@@ -2,9 +2,8 @@
 title: Microsoft Entra authentication for Application Insights
 description: Learn how to enable Microsoft Entra authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.devlang: csharp
-# ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
 
@@ -26,12 +25,12 @@ The following preliminary steps are required to enable Microsoft Entra authentic
   - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
   - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
-- Have an Owner role to the resource group to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+- Have an Owner role to the resource group if you want to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 - Understand the [unsupported scenarios](#unsupported-scenarios).
 
 ## Unsupported scenarios
 
-The following SDKs and features are unsupported for use with Microsoft Entra authenticated ingestion:
+The following Software Development Kits (SDKs) and features are unsupported for use with Microsoft Entra authenticated ingestion:
 
 - [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps).<br />
  Microsoft Entra authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
@@ -261,7 +260,7 @@ You can disable local authentication by using the Azure portal or Azure Policy o
 
    :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot that shows local authentication with the Enabled/Disabled button.":::
 
-1. After your resource has disabled local authentication, you'll see the corresponding information in the **Overview** pane.
+1. After disabling local authentication on your resource, you'll see the corresponding information in the **Overview** pane.
 
    :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot that shows the Overview tab with the Disabled (select to change) local authentication button.":::
 
@@ -389,7 +388,7 @@ If you're using sovereign clouds, you can find the audience information in the c
 
 *InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}*
 
-The audience parameter, AADAudience, may vary depending on your specific environment.
+The audience parameter, AADAudience, can vary depending on your specific environment.
 
 ## Troubleshooting
 
@@ -401,7 +400,7 @@ The ingestion service returns specific errors, regardless of the SDK language. N
 
 #### HTTP/1.1 400 Authentication not supported
 
-This error indicates that the resource is configured for Microsoft Entra-only. The SDK hasn't been correctly configured and is sending to the incorrect API.
+This error shows the resource is set for Microsoft Entra-only. You need to correctly configure the SDK because it's sending to the wrong API.
 
 > [!NOTE]
 > "v2/track" doesn't support Microsoft Entra ID. When the SDK is correctly configured, telemetry will be sent to "v2.1/track".
@@ -416,9 +415,9 @@ Next, you should identify exceptions in the SDK logs or network errors from Azur
 
 #### HTTP/1.1 403 Unauthorized
 
-This error indicates that the SDK is configured with credentials that haven't been given permission to the Application Insights resource or subscription.
+This error means the SDK uses credentials without permission for the Application Insights resource or subscription.
 
-Next, you should review the Application Insights resource's access control. The SDK must be configured with a credential that's been granted the Monitoring Metrics Publisher role.
+First, check the Application Insights resource's access control. You must configure the SDK with credentials that have the Monitoring Metrics Publisher role.
 
 ### Language-specific troubleshooting
 
@@ -453,30 +452,36 @@ You can inspect network traffic by using a tool like Fiddler. To enable the traf
 }
 ```
 
-Or add the following JVM args while running your application: `-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
+Or add the following Java Virtual Machine (JVM) args while running your application: `-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
 
 If Microsoft Entra ID is enabled in the agent, outbound traffic includes the HTTP header `Authorization`.
 
 #### 401 Unauthorized
 
-If the following WARN message is seen in the log file `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 401, please check your credentials`, it indicates the agent wasn't successful in sending telemetry. You probably haven't enabled Microsoft Entra authentication on the agent, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you're passing in a valid credential and that it has permission to access your Application Insights resource.
+If you see the message, `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 401, please check your credentials` in the log, it means the agent couldn't send telemetry. You likely didn't enable Microsoft Entra authentication on the agent, while your Application Insights resource has `DisableLocalAuth: true`. Ensure you pass a valid credential with access permission to your Application Insights resource.
 
 If you're using Fiddler, you might see the response header `HTTP/1.1 401 Unauthorized - please provide the valid authorization token`.
 
 #### CredentialUnavailableException
 
-If the following exception is seen in the log file `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established`, it indicates the agent wasn't successful in acquiring the access token. The probable reason is that you've provided an invalid client ID in your User-Assigned Managed Identity configuration.
+If you see the exception, `com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established` in the log file, it means the agent failed to acquire the access token. The likely cause is an invalid client ID in your User-Assigned Managed Identity configuration.
 
 #### Failed to send telemetry
 
-If the following WARN message is seen in the log file `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 403, please check your credentials`, it indicates the agent wasn't successful in sending telemetry. This warning might be because the provided credentials don't grant access to ingest the telemetry into the component
+If you see the message, `WARN c.m.a.TelemetryChannel - Failed to send telemetry with status code: 403, please check your credentials` in the log, it means the agent couldn't send telemetry. The likely reason is that the credentials used don't allow telemetry ingestion.
 
-If you're using Fiddler, you might see the response header `HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component`.
+Using Fiddler, you might notice the response `HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component`.
 
-The root cause might be one of the following reasons:
+The issue could be due to:
 
-- You've created the resource with a system-assigned managed identity or associated a user-assigned identity with it. However, you might have forgotten to add the Monitoring Metrics Publisher role to the resource (if using SAMI) or the user-assigned identity (if using UAMI).
-- You've provided the right credentials to get the access tokens, but the credentials don't belong to the right Application Insights resource. Make sure you see your resource (VM or app service) or user-assigned identity with Monitoring Metrics Publisher roles in your Application Insights resource.
+- Creating the resource with a system-assigned managed identity or associating a user-assigned identity without adding the Monitoring Metrics Publisher role to it.
+- Using the correct credentials for access tokens but linking them to the wrong Application Insights resource. Ensure your resource (virtual machine or app service) or user-assigned identity has Monitoring Metrics Publisher roles in your Application Insights resource.
+
+#### Invalid Client ID
+
+If the exception, `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory` in the log, it means the agent failed to get the access token. This exception likely happens because the client ID in your client secret configuration is invalid or incorrect.
+
+This issue occurs if the administrator doesn't install the application or no tenant user consents to it. It also happens if you send your authentication request to the wrong tenant.
 
 ### [Python](#tab/python)
 
