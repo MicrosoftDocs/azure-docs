@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/26/2024
+ms.date: 04/01/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -347,6 +347,7 @@ The differences between Salesforce Service Cloud and Salesforce Service Cloud (l
 |Support SOQL that are supported by [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>Below SOQL queries are not supported:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses. <br>• Aggregate Functions such as COUNT(). (Use Salesforce report as a workaround) <br>• Date functions in GROUP BY clauses. (Date functions in WHERE clauses are supported.) <br>• Compound address fields or compound geolocation fields. (Instead, query the individual components of compound fields.) <br>• Parent-to-child relationship queries. (Child-to-parent relationship queries are supported.)|Support both SQL and SOQL syntax. |
 |Objects that contain binary fields are not supported.|Support objects that contain binary fields, like Attachment object.|
 |Support objects that are supported by Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
+|Support report by selecting a report ID.|Support Report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
