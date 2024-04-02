@@ -161,7 +161,7 @@
             href: sap/preparing-sap.md
           - name: Configure auditing
             href: sap/configure-audit.md
-          - name: Deploy data connector agent
+          - name: Deploy the data connector agent
             href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md

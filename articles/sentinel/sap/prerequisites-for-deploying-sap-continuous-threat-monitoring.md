@@ -30,7 +30,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Deploy the data connector agent](deploy-data-connector-agent-container.md)
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 

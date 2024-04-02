@@ -37,7 +37,7 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
 
-1. **Deploy data connector agent (*You are here*)**
+1. **Deploy the data connector agent (*You are here*)**
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
@@ -254,7 +254,7 @@ This procedure describes how to create a key vault to store your agent configura
     |**Azure role-based access control**     |  Key Vault Secrets Officer    |
     |**Vault access policy**     |  `get`, `list`, `set`, `delete`     |
 
-    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to the user, substituting actual names for the `<placeholder>` values. Select the tab for the type of identity you'd created.
+    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to the user, substituting actual names for the `<placeholder>` values:
 
     - **Azure role-based access control permission model**:
 
