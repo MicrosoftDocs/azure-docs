@@ -34,7 +34,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 In this section, you will use feature flags in a simple ASP.NET web application and run it in Azure Kubernetes Service (AKS). 
 
-1. Navigate into the project's directory, and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package version 3.2.0 or later.
+1. Navigate into the project's directory you created in the [Quickstart](./quickstart-azure-kubernetes-service.md), and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package version 3.2.0 or later.
 
     ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
