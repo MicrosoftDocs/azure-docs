@@ -70,7 +70,7 @@ This architecture requires explicitly sending egress traffic to an appliance lik
 
 HDInsight on AKS doesn't configure outbound public IP address or outbound rules, unlike the Outbound with load balancer type clusters as described in the above section. Your UDR is the only source for egress traffic. 
 
-For inbound traffic, you are required to choose based on the requirements to choose a private cluster (for securing traffic on AKS control plane / API server) and select the private ingress option available on each of the cluster shape to use public or internal loadbalancer based traffic. 
+For inbound traffic, you are required to choose based on the requirements to choose a private cluster (for securing traffic on AKS control plane / API server) and select the private ingress option available on each of the cluster shape to use public or internal load balancer based traffic. 
 
 
 ### Cluster pool creation for outbound with `userDefinedRouting `
