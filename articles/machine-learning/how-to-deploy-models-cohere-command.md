@@ -6,11 +6,10 @@ manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-ms.date: 
-ms.reviewer: 
-reviewer: 
-ms.author: 
-author: 
+ms.date: 04/02/2024
+ms.reviewer: mopeakande
+ms.author: shubhiraj
+author: shubhirajMsft 
 ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
@@ -28,7 +27,7 @@ You can browse the Cohere family of models in the model catalog by filtering on 
 In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere Command models as a service with pay-as you go billing.
 
 ### Cohere Command R 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering. 
+Command R is a highly performant generative large language model, optimized for various use cases including reasoning, summarization, and question answering. 
 
 Highlight features of Command R include:
 
@@ -38,7 +37,7 @@ Highlight features of Command R include:
 * 128k context length
   
 ### Cohere Command R+
-Command R+ is Cohere’s highly performant and scalable generative large language model. It excels at reasoning, summarization, and question answering and can be optimized for a variety of use cases across industries. 
+Command R+ is Cohere's highly performant and scalable generative large language model. It excels at reasoning, summarization, and question answering and can be optimized for various use cases across industries. 
 
 Key features of Command R+ include:
 
@@ -53,7 +52,7 @@ Key features of Command R+ include:
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Above mentioend Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -63,7 +62,7 @@ Above mentioend Cohere models can be deployed as a service with pay-as-you-go, a
     > [!IMPORTANT]
     > Pay-as-you-go model deployment offering is only available in workspaces created in (to be added) regions.
 
--  Azure role-based access controls (Azure RBAC) are used to grant access to operations. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resouce Group.
+-  Azure role-based access controls (Azure RBAC) are used to grant access to operations. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resource Group.
 
     For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -87,7 +86,7 @@ To create a deployment:
 
     :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png":::
 
-1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you will see a **Continue to deploy** option to select.
+1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
     :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png":::
 
@@ -105,7 +104,7 @@ To learn about billing for models deployed with pay-as-you-go, see [Cost and quo
 
 ### Consume the models as a service
 
-Above mentioned Cohere models can be consumed using the chat API.
+The previously mentioned Cohere models can be consumed using the chat API.
 
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
@@ -118,10 +117,12 @@ Above mentioned Cohere models can be consumed using the chat API.
 
 ## v1/chat/completions Request
 
+```
     POST /v1/chat/completions HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/chat/completions Request Schema
 
@@ -130,17 +131,17 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat/c
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `messages` | `array` | `None` | Text input for the model to respond to. |
-| `max_tokens` | `integer` | `None` | The maximum number of tokens the model will generate as part of the response. Note: Setting a low value may result in incomplete generations. If not specified, will generate tokens until end of sequence. |
-| `stop` | `array of strings` | `None` | The generated text will be cut at the end of the earliest occurrence of a stop sequence. The sequence will be included the text.|
-| `stream` | `boolean` | `False` | When `true`, the response will be a JSON stream of events. The final event will contain the complete response, and will have an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated. |
+| `max_tokens` | `integer` | `None` | The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, tokens are generated until end of sequence. |
+| `stop` | `array of strings` | `None` | The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included in the text.|
+| `stream` | `boolean` | `False` | When `true`, the response is a JSON stream of events. The final event contains the complete response, and has an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated. |
 | `temperature` | `float` | `0.3` |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2. |
 | `top_p` | `float` |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
 | `frequency_penalty` | `float` | `0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
 | `presence_penalty` | `float` |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
-| `seed` | `integer` |`None`   |If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.|
-| `tools` | `list[Tool]` | `None` | A list of available tools (functions) that the model may suggest invoking before producing a text response. |
+| `seed` | `integer` |`None`   |If specified, the backend makes a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism can't be guaranteed.|
+| `tools` | `list[Tool]` | `None` | A list of available tools (functions) that the model might suggest invoking before producing a text response. |
 
-`response_format` and `tool_choice` are not yet supported parameters for the Command R and Command R+ models.
+`response_format` and `tool_choice` aren't yet supported parameters for the Command R and Command R+ models.
 
 <br/>
 
@@ -203,6 +204,7 @@ The `usage` object is a dictionary with the following fields:
 
 **Request**
 
+```json
     "messages": [
         {
         "role": "user",
@@ -227,9 +229,11 @@ The `usage` object is a dictionary with the following fields:
                 "tool_call_id": "call_ceRrx0tP7bYPTClugKrOgvh4"
             }
     ]
+```
 
 **Response**
 
+```json
     {
         "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
         "choices": [
@@ -251,13 +255,16 @@ The `usage` object is a dictionary with the following fields:
             "total_tokens": 767
         }
     }
+```
 
 ## v1/chat Request
 
+```
     POST /v1/chat HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/chat Request Schema
 
@@ -267,21 +274,21 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat` 
 |---|---|---|---|
 |`message`   |`string`   |Required   |Text input for the model to respond to.   |
 |`chat_history`   |`array of messages`   |`None`   |A list of previous messages between the user and the model, meant to give the model conversational context for responding to the user's message.    |
-|`documents`   |`array`   |`None `  |A list of relevant documents that the model can cite to generate a more accurate reply. Each document is a string-string dictionary. Keys and values from each document will be serialized to a string and passed to the model. The resulting generation will include citations that reference some of these documents. Some suggested keys are "text", "author", and "date". For better generation quality, it is recommended to keep the total word count of the strings in the dictionary to under 300 words. An `_excludes` field (array of strings) can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields will still show up in the citation object. The "_excludes" field will not be passed to the model. See [Document Mode](https://docs.cohere.com/docs/retrieval-augmented-generation-rag#document-mode) guide from Cohere docs.    |
-|`search_queries_only`   |`boolean`  |`false`   |When `true`, the response will only contain a list of generated search queries, but no search will take place, and no reply from the model to the user's `message` will be generated.|
-|`stream`   |`boolean`   |`false`   |When `true`, the response will be a JSON stream of events. The final event will contain the complete response, and will have an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.|
-|`max_tokens`   |`integer`   |None   |The maximum number of tokens the model will generate as part of the response. Note: Setting a low value may result in incomplete generations. If not specified, will generate tokens until end of sequence.|
+|`documents`   |`array`   |`None `  |A list of relevant documents that the model can cite to generate a more accurate reply. Each document is a string-string dictionary. Keys and values from each document are serialized to a string and passed to the model. The resulting generation includes citations that reference some of these documents. Some suggested keys are "text", "author", and "date". For better generation quality, keep the total word count of the strings in the dictionary to under 300 words. An `_excludes` field (array of strings) can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields still show up in the citation object. The "_excludes" field isn't passed to the model. See [Document Mode](https://docs.cohere.com/docs/retrieval-augmented-generation-rag#document-mode) guide from Cohere docs.    |
+|`search_queries_only`   |`boolean`  |`false`   |When `true`, the response only contains a list of generated search queries, but no search takes place, and no reply from the model to the user's `message` is generated.|
+|`stream`   |`boolean`   |`false`   |When `true`, the response is a JSON stream of events. The final event contains the complete response, and has an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.|
+|`max_tokens`   |`integer`   |None   |The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, generates tokens until end of sequence.|
 |`temperature`   |`float`   |`0.3`   |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2.   |
 |`p`   |`float`   |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
 |`k`   |`float`   |`0`   |Specify the number of token choices the model uses to generate the next token. If both p and k are enabled, p acts after k. Min value is 0, max value is 500.|
-|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt will be constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With `prompt_truncation` set to "OFF", no elements will be dropped.|
-|`stop_sequences`  |`array of strings`  |`None`  |The generated text will be cut at the end of the earliest occurrence of a stop sequence. The sequence will be included the text.  |   
+|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt is constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` are dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history is preserved. With `prompt_truncation` set to "OFF", no elements are dropped.|
+|`stop_sequences`  |`array of strings`  |`None`  |The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included in the text.  |   
 |`frequency_penalty`   |`float`   |`0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
 |`presence_penalty`   |`float`   |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
-|`seed`   |`integer`   |`None`   |If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.|
+|`seed`   |`integer`   |`None`   |If specified, the backend makes a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism can't be guaranteed.|
 |`return_prompt`   |`boolean `  |`false `  |Returns the full prompt that was sent to the model when `true`.   |
-|`tools`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of available tools (functions) that the model may suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response will be `""` and the `tool_calls` field in the response will be populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array will be empty.|
-|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and will be referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, as well as a list of outputs in the form of dictionaries. Cohere’s unique fine-grained citation logic requires the output to be a list. In case the output is just one item, e.g. `{"status": 200}`, please still wrap it inside a list.   |
+|`tools`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of available tools (functions) that the model might suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response is `""` and the `tool_calls` field in the response is populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array is empty.|
+|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and is referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, and a list of outputs in the form of dictionaries. Cohere's unique fine-grained citation logic requires the output to be a list. In case the output is just one item, for example, `{"status": 200}`, still wrap it inside a list.   |
 
 The `chat_history` object requires the following fields:
 |Key       |Type   |Description   |
@@ -293,26 +300,26 @@ The `documents` object has the following optional fields:
 
 |Key       |Type   |Default| Description   |
 |---|---|---|---|
-|`id`   |`string`   |`None` |Can be supplied to identify the document in the citations. This field will not be passed to the model.   |
-|`_excludes`   |`array of strings`   |`None`| Can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields will still show up in the citation object. The `_excludes` field will not be passed to the model.   |
+|`id`   |`string`   |`None` |Can be supplied to identify the document in the citations. This field isn't passed to the model.   |
+|`_excludes`   |`array of strings`   |`None`| Can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields still show up in the citation object. The `_excludes` field isn't passed to the model.   |
 
 ### v1/chat Response Schema
 
-Response fields are fully documented on [Cohere's Chat API reference](https://docs.cohere.com/reference/chat). The response object will always contain: 
+Response fields are fully documented on [Cohere's Chat API reference](https://docs.cohere.com/reference/chat). The response object always contains: 
 
 |Key       |Type   |Description   |
 |---|---|---|
 |`response_id`   |`string`   |Unique identifier for chat completion.   |
-|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere’s platform.   |
-|`text`   |`string`   |Model’s response to chat message input.    |
-|`finish_reason`   |`enum string`   |Why the generation was completed. Can be any of the following: `COMPLETE`, `ERROR`, `ERROR_TOXIC`, `ERROR_LIMIT`, `USER_CANCEL` or `MAX_TOKENS`   |
+|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere's platform.   |
+|`text`   |`string`   |Model's response to chat message input.    |
+|`finish_reason`   |`enum string`   |Why the generation was completed. Can be any of the following values: `COMPLETE`, `ERROR`, `ERROR_TOXIC`, `ERROR_LIMIT`, `USER_CANCEL` or `MAX_TOKENS`   |
 |`token_count`   |`integer`   |Count of tokens used.   |
 |`meta`   |`string`   |API usage data, including current version and billable tokens.   |
 
 <br/>
 
 ### Documents
-If `documents` are specified in the request, there will be two additional fields in the response:
+If `documents` are specified in the request, there are two other fields in the response:
 
 |Key       |Type   |Description   |
 |---|---|---|
@@ -328,7 +335,7 @@ If `documents` are specified in the request, there will be two additional fields
 |`document_ids`   |`array of strings`   |Identifiers of documents cited by this section of the generated reply.   |
 
 ### Tools
-If `tools` are specified and invoked by the model, there will be an additional field in the response:
+If `tools` are specified and invoked by the model, there's another field in the response:
 
 |Key       |Type   |Description   |
 |---|---|---|
@@ -342,7 +349,7 @@ If `tools` are specified and invoked by the model, there will be an additional f
 |`parameters`   |`object`   |The name and value of the parameters to use when invoking a tool. |
 
 ### Search_queries_only
-If `search_queries_only=TRUE` is specified in the request, there will be two additional fields in the response:
+If `search_queries_only=TRUE` is specified in the request, there are two other fields in the response:
 
 |Key       |Type   |Description   |
 |---|---|---|
@@ -359,10 +366,11 @@ If `search_queries_only=TRUE` is specified in the request, there will be two add
 ### Examples
 
 ### Chat - Completions
-The following is a sample request call to get chat completions from the Cohere Command model. Use when generating a chat completion.
+The following text is a sample request call to get chat completions from the Cohere Command model. Use when generating a chat completion.
 
 **Request**
 
+```json
     {
         "chat_history": [
             {"role":"USER", "message": "What is an interesting new role in AI if I don't have an ML background"},
@@ -370,9 +378,11 @@ The following is a sample request call to get chat completions from the Cohere C
         ],
         "message": "What are some skills I should have"
     }
+```
 
 **Response**
 
+```json
     {
         "response_id": "09613f65-c603-41e6-94b3-a7484571ac30",
         "text": "Writing skills are very important for prompt engineering. Some other key skills are:\n- Creativity\n- Awareness of biases\n- Knowledge of how NLP models work\n- Debugging skills\n\nYou can also have some fun with it and try to create some interesting, innovative prompts to train an AI model that can then be used to create various applications.",
@@ -394,14 +404,15 @@ The following is a sample request call to get chat completions from the Cohere C
             }
         }
     }
-
+```
 
 ### Chat - Grounded Generation and RAG Capabilities
 
-Command R and Command R+ have been specifically trained for RAG via a mixture of supervised fine-tuning and preference fine-tuning, using a specific prompt template. We introduce that prompt template via the `documents` parameter. The document snippets should be chunks, rather than long documents, typically around 100-400 words per chunk. Document snippets consist of key-value pairs. The keys should be short descriptive strings, the values can be text or semi-structured.
+Command R and Command R+ are trained for RAG via a mixture of supervised fine-tuning and preference fine-tuning, using a specific prompt template. We introduce that prompt template via the `documents` parameter. The document snippets should be chunks, rather than long documents, typically around 100-400 words per chunk. Document snippets consist of key-value pairs. The keys should be short descriptive strings. The values can be text or semi-structured.
 
 **Request**
 
+```json
     {
     "message": "Where do the tallest penguins live?",
     "documents": [
@@ -415,9 +426,11 @@ Command R and Command R+ have been specifically trained for RAG via a mixture of
         }
     ]
     }
+```
 
 **Response**
 
+```json
     {
         "response_id": "d7e72d2e-06c0-469f-8072-a3aa6bd2e3b2",
         "text": "Emperor penguins are the tallest species of penguin and they live in Antarctica.",
@@ -469,7 +482,7 @@ Command R and Command R+ have been specifically trained for RAG via a mixture of
             }
         ]
     }
-
+```
 
 ### Chat - Tool Use
 
@@ -477,6 +490,7 @@ If invoking tools or generating a response based on tool results, use the follow
 
 **Request**
 
+```json
     {
         "message":"I'd like 4 apples and a fish please",
         "tools":[
@@ -531,10 +545,11 @@ If invoking tools or generating a response based on tool results, use the follow
         }
     ]
     }
-
+```
 
 **Response**
 
+```json
     {
         "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
         "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
@@ -593,11 +608,13 @@ If invoking tools or generating a response based on tool results, use the follow
             }
         ]
     }
+```
 
-Once you have run your function and received tool outputs, you can pass them back to the model to generate a response for the user.
+Once you run your function and received tool outputs, you can pass them back to the model to generate a response for the user.
 
 **Request**
 
+```json
     {
         "message":"I'd like 4 apples and a fish please",
         "tools":[
@@ -652,10 +669,11 @@ Once you have run your function and received tool outputs, you can pass them bac
         }
     ]
     }
-
+```
 
 **Response**
 
+```json
     {
         "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
         "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
@@ -714,22 +732,24 @@ Once you have run your function and received tool outputs, you can pass them bac
             }
         ]
     }
-
+```
 
 ### Chat - Search Queries
-If you are building a RAG agent, you can also use Cohere’s Chat API to get search queries from Command. Simply specify `search_queries_only=TRUE` in your request.
+If you're building a RAG agent, you can also use Cohere's Chat API to get search queries from Command. Specify `search_queries_only=TRUE` in your request.
 
 
 **Request**
 
+```json
     {
     "message": "Which lego set has the greatest number of pieces?",
     "search_queries_only": true
     }
-
+```
 
 **Response**
 
+```json
     {
         "response_id": "5e795fe5-24b7-47b4-a8bc-b58a68c7c676",
         "text": "",
@@ -747,6 +767,7 @@ If you are building a RAG agent, you can also use Cohere’s Chat API to get sea
             }
         ]
     }
+```
 
 #### Additional inference examples
 

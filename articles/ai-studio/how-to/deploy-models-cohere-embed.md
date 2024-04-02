@@ -1,4 +1,3 @@
-
 ---
 title: How to deploy Cohere Embed models with Azure AI Studio
 titleSuffix: Azure AI Studio
@@ -6,10 +5,10 @@ description: Learn how to deploy Cohere Embed models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 
-ms.reviewer: 
-ms.author: 
-author:
+ms.date: 04/02/2024
+ms.reviewer: shubhiraj
+ms.author: mopeakande
+author: msakande
 ms.custom: [references_regions]
 ---
 
@@ -30,22 +29,22 @@ You can browse the Cohere family of models in the [Model Catalog](model-catalog.
 In this article, you learn how to use Azure AI Studio to deploy the Cohere Embed models as a service with pay-as-you-go billing.
 
 ### Cohere Embed v3 - English
-Cohere Embed English is the market’s leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on a variety of industries such as Finance, Legal, and General-Purpose Corpora.
+Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on various industries such as Finance, Legal, and General-Purpose Corpora.
 
-* Embed English has 1024 dimensions.
+* Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
 ### Cohere Embed v3 - Multilingual
-Cohere Embed Multilingual is the market’s leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (e.g., search with a French query on French documents) and across languages (e.g., search with an English query on Chinese documents). Embed multilingual has SOTA performance on multilingual benchmarks such as Miracl.
+Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has SOTA performance on multilingual benchmarks such as Miracl.
 
-* Embed Multilingual has 1024 dimensions.
+* Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
 
 ## Deploy with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Above mentioend Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+Above mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -81,7 +80,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/mistral/mistral-deploy-marketplace-terms.png":::
 
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go-project.png":::
 
@@ -114,10 +113,12 @@ These models can be consumed using the embed API.
 
 ## v1/embeddings Request
 
+```
     POST /v1/embeddings HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/emebeddings Request Schema
 
@@ -134,7 +135,7 @@ The response payload is a dictionary with the following fields:
 | Key | Type | Description |
 | --- | --- | --- |
 | `id` | `string` | A unique identifier for the completion. |
-| `object` | `enum`|The object type which is always `list` |
+| `object` | `enum`|The object type, which is always `list` |
 | `data` | `array` | The Unix timestamp (in seconds) of when the completion was created. |
 | `model` | `string` | The model_id used for creating the embeddings. |
 | `usage` | `object` | Usage statistics for the completion request. |
@@ -160,12 +161,15 @@ The `usage` object is a dictionary with the following fields:
 
 **Request**
 
-    {	
+```json
+    {    
     "input": ["hi"]
     }
+```
 
 **Response**
 
+```json
     {
         "id": "87cb11c5-2316-4c88-af3c-4b2b77ed58f3",
         "object": "list",
@@ -187,13 +191,16 @@ The `usage` object is a dictionary with the following fields:
             "total_tokens": 1
         }
     }
+```
 
 ## v1/embed Request
 
+```
     POST /v1/embed HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/embed Request Schema
 
@@ -202,7 +209,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 |Key       |Type   |Default   |Description   |
 |---|---|---|---|
 |`texts` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
-|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You should not mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector DB to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
+|`input_type` |`enum string` |Required |Prepends special tokens to differentiate each type from one another. You shouldn't mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. <br/> `search_document` – In search use-cases, use search_document when you encode documents for embeddings that you store in a vector database. <br/> `search_query` – Use search_query when querying your vector DB to find relevant documents. <br/> `classification` – Use classification when using embeddings as an input to a text classifier. <br/> `clustering` – Use clustering to cluster the embeddings.|
 |`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
 |`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
 
@@ -212,9 +219,9 @@ Cohere Embed v3 - English and Embed v3 - Multilingual include the following fiel
 
 |Key       |Type   |Description   |
 |---|---|---|
-|`response_type` |`enum` |The response type. Returns `embeddings_floats` when `embedding_types` is not specified, or returns `embeddings_by_type` when `embeddings_types` is specified. |
+|`response_type` |`enum` |The response type. Returns `embeddings_floats` when `embedding_types` isn't specified, or returns `embeddings_by_type` when `embeddings_types` is specified. |
 |`id` |`integer` |An identifier for the response. |
-|`embeddings` |`array` or `array of objects` |An array of embeddings, where each embedding is an array of floats with 1024 elements. The length of the embeddings array will be the same as the length of the original texts array.|
+|`embeddings` |`array` or `array of objects` |An array of embeddings, where each embedding is an array of floats with 1,024 elements. The length of the embeddings array is the same as the length of the original texts array.|
 |`texts` |`array of strings` |The text entries for which embeddings were returned. |
 |`meta`   |`string`   |API usage data, including current version and billable tokens.   |
 
@@ -226,13 +233,17 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
 
 **Request**
 
+```json
     {
         "input_type": "clustering",
         "truncate": "START",
         "texts":["hi", "hello"]
     }
+```
+
 **Response**
 
+```json
     {
         "id": "da7a104c-e504-4349-bcd4-4d69dfa02077",
         "texts": [
@@ -257,19 +268,24 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
         },
         "response_type": "embeddings_floats"
     }
+```
 
 ### embeddings_by_types Response
 
 **Request**
 
+```json
     {
         "input_type": "clustering",
         "embedding_types": ["int8", "binary"],
         "truncate": "START",
         "texts":["hi", "hello"]
     }
+```
+
 **Response**
 
+```json
     {
         "id": "b604881a-a5e1-4283-8c0d-acbd715bf144",
         "texts": [
@@ -304,6 +320,8 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
         },
         "response_type": "embeddings_by_type"
     }
+```
+
 #### More inference examples
 
 | **Sample Type**       | **Sample Notebook**                             |
