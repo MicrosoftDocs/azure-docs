@@ -315,10 +315,10 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 |Model| Output|
 |--|--|
-|jailbreak|detected (true or false),</br>filtered (true or false)|
-|indirect attacks|detected (true or false),</br>filtered (true or false)|
-|protected material text|detected (true or false),</br>filtered (true or false)|
-|protected material code|detected (true or false),</br>filtered (true or false),</br>Example citation of public GitHub repository where code snippet was found,</br>The license of the repository|
+|jailbreak|detected (true or false), </br>filtered (true or false)|
+|indirect attacks|detected (true or false), </br>filtered (true or false)|
+|protected material text|detected (true or false), </br>filtered (true or false)|
+|protected material code|detected (true or false), </br>filtered (true or false), </br>Example citation of public GitHub repository where code snippet was found, </br>The license of the repository|
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
