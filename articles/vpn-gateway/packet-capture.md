@@ -364,6 +364,9 @@ To complete a packet capture, you need to provide a valid SAS (or Shared Access 
 
 1. The packet capture (pcap) file will be stored in the specified account.
 
+> [!NOTE]  
+> Do not use Azure-generated containers, such as $logs. Containers starting with "$" are usually internal containers which can only be written on by the service which created it. For example, $logs can only be use by the Storage Account to write Storage Account related logs.
+
 ## Packet capture - PowerShell
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
