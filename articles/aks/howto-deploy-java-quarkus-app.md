@@ -1,7 +1,7 @@
 ---
 title: "Deploy Quarkus on Azure Kubernetes Service"
 description: Shows how to quickly stand up Quarkus on Azure Kubernetes Service.
-author: KarlErickson
+author: edburns
 ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: how-to
@@ -623,3 +623,4 @@ You may also want to use `docker rmi` to delete the container images `postgres` 
 - [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
 - [Quarkus](https://quarkus.io/)
 - [Jakarta EE on Azure](/azure/developer/java/ee)
+
