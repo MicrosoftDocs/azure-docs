@@ -17,7 +17,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 + Azure Managed prometheus enabled on the AKS cluster - [Enable Azure Managed Prometheus on AKS](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
-### Install Elastic Search Exporter
+### Install Elasticsearch Exporter
 Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart.
 
 ```bash
