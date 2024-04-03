@@ -65,6 +65,8 @@
       href: concept-virtual-network-flow-logs.md
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
+  - name: User-defined routes (UDRs) management 
+    href: concept-user-defined-route-management.md
 - name: Samples
   items:
     - name: Resource Manager Templates
@@ -93,8 +95,6 @@
         href: how-to-create-mesh-network.md
       - name: Azure PowerShell
         href: how-to-create-mesh-network-powershell.md
-  - Name: Security admin rules
-    items:
   - name: Cross-tenant connection support
     items:
     - name: Configure cross-tenant connection - Portal
@@ -111,6 +111,8 @@
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
     href: how-to-define-network-group-membership-azure-policy.md
+  - name: Create user-defined routes
+    href: how-to-create-user-defined-routes.md
   - name: Common issues
     href: common-issues.md
 - name: Reference
