@@ -53,7 +53,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 - An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in (to be added) regions.
+    > Pay-as-you-go model deployment offering is only available in workspaces created in EastUS, EastUS2 or Sweden Central regions.
 
 -  Azure role-based access controls (Azure RBAC) are used to grant access to operations. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resource Group.
 
@@ -64,7 +64,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the (to be added) region.
+1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the EastUS, EastUS2 or Sweden Central region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
