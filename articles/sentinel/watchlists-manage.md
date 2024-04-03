@@ -1,22 +1,28 @@
 ---
-title: Edit watchlist - Microsoft Sentinel
-description: Edit or add items to watchlists in Microsoft Sentinel watchlists.
+title: Edit watchlists - Microsoft Sentinel
+description: Learn how to edit and add more items to Microsoft Sentinel watchlists to them to keep them up-to-date.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 1/04/2022
+ms.date: 3/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent: As a security analyst, I want to edit or bulk edit my watchlists so I can keep them up to date.
 ---
 
 # Manage watchlists in Microsoft Sentinel
 
 We recommend you edit an existing watchlist instead of deleting and recreating a watchlist. Log analytics has a five-minute SLA for data ingestion. If you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics during this five-minute window. If you see these duplicate entries in Log Analytics for a longer period of time, submit a support ticket.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Edit a watchlist item
 
 Edit a watchlist to edit or add an item to the watchlist.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 1. Select the watchlist you want to edit.
 1. On the details pane, select **Update watchlist** > **Edit watchlist items**.
 
@@ -36,9 +42,9 @@ Edit a watchlist to edit or add an item to the watchlist.
 1. To add a new item to your watchlist,
    1. Select **Add new**.
 
-      :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit-add-new.png" alt-text="Screenshot of the add new button at the top of the edit watchlist items page.":::
+      :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-edit-add-new.png" alt-text="Screenshot of the new button at the top of the edit watchlist items page.":::
 
-   1. Fill in the fields in the **Add watchlist item** panel.
+   1. Fill in the fields of the **Add watchlist item** panel.
    1. At the bottom of that panel, select **Add**.
 
 ## Bulk update a watchlist
@@ -51,8 +57,7 @@ The updated watchlist file you upload must contain the search key field used by 
 
 To bulk update a watchlist,
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **Configuration**, select **Watchlist**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
 1. Select the watchlist you want to edit.
 1. On the details pane, select **Update watchlist** > **Bulk update**.
 
@@ -65,7 +70,7 @@ To bulk update a watchlist,
 1. If you get an error, fix the issue in the file. Then select **Reset** and try the file upload again.
 1. Select **Next: Review and update** > **Update**.
 
-## Next steps
+## Related content
 
 To learn more about Microsoft Sentinel, see the following articles:
 

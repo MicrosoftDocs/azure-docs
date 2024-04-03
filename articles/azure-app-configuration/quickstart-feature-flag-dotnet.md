@@ -15,7 +15,7 @@ ms.author: zhiyuanliang
 ---
 # Quickstart: Add feature flags to a .NET/.NET Framework console app
 
-In this quickstart, you incorporate Azure App Configuration into a .NET console app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
+In this quickstart, you incorporate Azure App Configuration into a .NET console app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states. 
 
 The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 

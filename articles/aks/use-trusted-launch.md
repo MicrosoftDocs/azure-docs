@@ -2,8 +2,9 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
+ms.custom: devx-track-azurecli
+ms.subservice: aks-security
 ms.date: 03/08/2024
-
 ---
 
 # Trusted launch (preview) for Azure Kubernetes Service (AKS)
@@ -95,7 +96,7 @@ Perform the following steps to deploy an AKS cluster using the Azure CLI.
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*, and enables Secure Boot and vTPM:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
+    az aks create --name myAKSCluster --resource-group myResourceGroup --node-count 1 --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.

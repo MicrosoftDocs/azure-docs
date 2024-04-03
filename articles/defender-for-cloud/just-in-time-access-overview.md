@@ -42,7 +42,7 @@ The following diagram shows the logic that Defender for Cloud applies when decid
 
 ### [**Azure**](#tab/defender-for-container-arch-aks)
 
-[![Just-in-time (JIT) virtual machine (VM) logic flow.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
+:::image type="content" source="media/just-in-time-explained/jit-logic-flow.png" alt-text="Just-in-time (JIT) virtual machine (VM) logic flow." lightbox="media/just-in-time-explained/jit-logic-flow.png":::
 
 ### [**AWS**](#tab/defender-for-container-arch-eks)
 

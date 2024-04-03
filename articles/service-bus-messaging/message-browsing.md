@@ -1,8 +1,9 @@
 ---
 title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/08/2023
+#customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
 
 # Browse or peek messages
@@ -15,6 +16,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 | Active messages | Yes |
 | Dead-lettered messages | No | 
 | Locked messages | Yes |
+| Deferred messages | Yes | 
 | Expired messages |  Might be (before they're dead-lettered) |
 | Scheduled messages | Yes for queues. No for subscriptions |
 
@@ -28,6 +30,11 @@ An expired message is no longer eligible for regular retrieval by any other mean
 
 ## Locked messages
 Peek also returns messages that were **locked** and are currently being processed by other receivers. However, because Peek returns a disconnected snapshot, the lock state of a message can't be observed on peeked messages.
+
+## Deferred messages
+Deferred messages remain in the main queue along with all other active messages (unlike dead-letter messages that live in a subqueue), but they can no longer be received using the regular receive operations. Deferred messages can be discovered via [message browsing](message-browsing.md) if an application loses track of them.
+
+To retrieve a deferred message, its owner is responsible for remembering the **sequence number** as it defers it. Any receiver that knows the sequence number of a deferred message can later receive the message by using receive methods that take the sequence number as a parameter. For more information about sequence numbers, see [Message sequencing and timestamps](message-sequencing.md).
 
 ## Peek APIs
 Peek works on queues, subscriptions, and their dead-letter queues. 
@@ -132,7 +139,7 @@ print("Receive is done.")
 
 ---
 
-## Next steps
+## Related content
 Try the samples in the language of your choice to explore Azure Service Bus features. 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - - **Sending and receiving messages** sample.

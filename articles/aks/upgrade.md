@@ -4,6 +4,7 @@ description: Learn about the various upgradeable components of an Azure Kubernet
 author: nickomang
 ms.author: nickoman
 ms.topic: conceptual
+ms.subservice: aks-upgrade
 ms.date: 01/26/2024
 ---
 

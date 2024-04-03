@@ -9,10 +9,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/12/2024
 ms.topic: conceptual
-ms.custom:
-  - references_regions
-  - devx-track-azurecli
-  - ignite-2023
+ms.custom: references_regions, ignite-2023
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
@@ -29,6 +26,12 @@ For complete release version information, review [Version log](version-log.md#ma
 ### SQL Managed Instance enabled by Azure Arc 
 
 Database version for this release (964) has been upgraded beyond the database version for SQL Server 2022 (957). As a result, you can't restore databases from SQL Managed Instance enabled by Azure Arc to SQL Server 2022.
+
+### Streamlined network endpoints
+
+Prior to this release, Azure Arc data processing endpoint was at `san-af-<region>-prod.azurewebsites.net`.
+
+Beginning with this release both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
 
 ## February 13, 2024
 

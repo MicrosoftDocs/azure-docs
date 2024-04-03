@@ -27,13 +27,13 @@ As your needs change or your automation requirements increase, you can manage wo
 * With the Python SDK:
    1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
    1. Install azure-identity: `pip install azure-identity`. If in a notebook cell, use `%pip install azure-identity`.
-   1. Provide your subscription details
+   1. Provide your subscription details:
 
       [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
 
-   1. Get a handle to the subscription. All the Python code in this article uses `ml_client`.
+   1. Get a handle to the subscription. All the Python code in this article uses `ml_client`:
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
       
@@ -234,26 +234,13 @@ To limit the data that Microsoft collects on your workspace, select **High busin
 
 ### Tags
 
-When using a workspace, you can provide feedback about Azure Machine Learning with:
+Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
-* Occasional in-product surveys
-* The smile-frown feedback tool in the workspace banner
+Assign tags for the workspace by entering the name/value pairs.  For more information, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
 
-You can turn off all feedback opportunities for a workspace. When turned off, workspace users don't see any surveys, and the smile-frown feedback tool no longer appears. Use the Azure portal to turn off feedback.
+Also use tags to [enforce workspace policies)(#enforce-policies).
 
-* During workspace creation, turn off feedback from the **Tags** section:
 
-   1. Select the **Tags** section
-   1. Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
-
-* Turn off feedback on an existing workspace:
-
-   1. Go to workspace resource in the Azure portal
-   1. Open **Tags** from left navigation panel
-   1. Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
-   1. Select **Apply**.
-
-:::image type="content" source="media/how-to-manage-workspace/tags.png" alt-text="Screenshot shows setting tags to prevent feedback in the workspace.":::
 
 ### Download a configuration file
 
@@ -267,6 +254,41 @@ To use code on your local environment that references this workspace, download t
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
 
 Place the file in the directory structure that holds your Python scripts or Jupyter Notebooks. The same directory, a subdirectory named *.azureml*, or a parent directory can hold this file. When you create a compute instance, this file is added to the correct directory on the VM for you.
+
+## Enforce policies
+
+You can turn on/off these features of a workspace:
+
+* Feedback opportunities in the workspace.  Opportunities include occasional in-product surveys and the smile-frown feedback tool in the banner of the workspace.
+* Ability to [try out preview features](how-to-enable-preview-features.md) in the workspace.
+
+These features are on by default.  To turn them off:
+
+* When creating the workspace, turn off features from the [Tags](#tags) section:
+
+   1. Turn off feedback by adding the pair "ADMIN_HIDE_SURVEY: TRUE"
+   1. Turn off previews by adding the pair "AZML_DISABLE_PREVIEW_FEATURE": "TRUE"
+
+* For an existing workspace, turn off features from the **Tags** section:
+
+   1. Go to workspace resource in the [Azure portal](https://portal.azure.com)
+   1. Open **Tags** from left navigation panel
+   1. Turn off feedback by adding the pair "ADMIN_HIDE_SURVEY: TRUE"
+   1. Turn off previews by adding the pair "AZML_DISABLE_PREVIEW_FEATURE: TRUE"
+   1. Select **Apply**.  
+
+:::image type="content" source="media/how-to-manage-workspace/tags.png" alt-text="Screenshot shows setting tags to prevent feedback in the workspace.":::
+
+You can turn off previews at a subscription level, ensuring that it's off for all workspace in the subscription.  In this case, users in the subscription also cannot access the preview tool prior to selecting a workspace. This setting is useful for administrators who want to ensure that preview features are not used in their organization. 
+
+The preview setting is ignored on individual workspaces if it is turned off at the subscription level of that workspace.
+
+To disable preview features at the subscription level:
+
+1. Go to subscription resource in the [Azure portal](https://portal.azure.com)
+1. Open **Tags** from left navigation panel
+1. Turn off previews for all workspaces in the subscription by adding the pair "AZML_DISABLE_PREVIEW_FEATURE": "TRUE"
+1. Select **Apply**.  
 
 ## Connect to a workspace
 

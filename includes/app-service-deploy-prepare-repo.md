@@ -1,7 +1,4 @@
 ---
-title: "include file"
-description: "include file"
-services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
@@ -16,15 +13,15 @@ To get automated builds from Azure App Service build server, make sure that your
 
 | Runtime | Root directory files |
 |-|-|
-| ASP.NET (Windows only) | _*.sln_, _*.csproj_, or _default.aspx_ |
-| ASP.NET Core | _*.sln_ or _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby (Linux only) | _Gemfile_ |
-| Node.js | _server.js_, _app.js_, or _package.json_ with a start script |
-| Python | _\*.py_, _requirements.txt_, or _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, or _iisstart.htm_ |
-| WebJobs | _\<job_name>/run.\<extension>_ under _App\_Data/jobs/continuous_ for continuous WebJobs, or _App\_Data/jobs/triggered_ for triggered WebJobs. For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| Functions | See [Continuous deployment for Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |
+| ASP.NET (Windows only) | `*.sln`, `*.csproj`, or `default.aspx` |
+| ASP.NET Core | `*.sln` or `*.csproj` |
+| PHP | `index.php` |
+| Ruby (Linux only) | `Gemfile` |
+| Node.js | `server.js`, `app.js`, or `package.json` with a start script |
+| Python | `*.py`, `requirements.txt`, or `runtime.txt` |
+| HTML | `default.htm`, `default.html`, `default.asp`, `index.htm`, `index.html`, or `iisstart.htm` |
+| WebJobs | `<job_name>/run.<extension>` under `App_Data/jobs/continuous` for continuous WebJobs, or `App_Data/jobs/triggered` for triggered WebJobs. For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs). |
+| Functions | See [Continuous deployment for Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements). |
 
 To customize your deployment, include a *.deployment* file in the repository root. For more information, see [Customize deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 

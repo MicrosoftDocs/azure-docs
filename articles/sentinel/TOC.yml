@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: Best practices
     href: best-practices.md
+  - name: Experience in Defender portal
+    href: microsoft-sentinel-defender-portal.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -224,10 +226,16 @@
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
+          displayName: Power Platform
         - name: Content overview
+          displayName: Power Platform
           href: business-applications/power-platform-solution-security-content.md
         - name: Deploy solution
+          displayName: Power Platform
           href: business-applications/deploy-power-platform-solution.md
+        - name: Troubleshoot
+          displayName: Power Platform
+          href: business-applications/power-platform-solution-troubleshoot.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
@@ -246,6 +254,8 @@
     href: best-practices-data.md
   - name: Tutorial - Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Connect data sources
+    href: configure-data-connector.md
   - name: Classifying data with entities
     href: entities.md
   - name: Ingestion-time data transformation
@@ -973,7 +983,9 @@
     - name: Handle ingestion delay in analytics rules
       href: ingestion-delay.md
     - name: Get fine-tuning recommendations
-      href: detection-tuning.md    
+      href: detection-tuning.md
+    - name: Troubleshoot analytics rules
+      href: troubleshoot-analytics-rules.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Handle false positives
@@ -1014,6 +1026,8 @@
       href: notebooks-hunt.md      
     - name: Configure advanced MSTICPy settings
       href: notebooks-msticpy-advanced.md
+  - name: Bring your own machine learning
+    href: bring-your-own-ml.md
 - name: Investigate incidents
   items:
   - name: Overview
@@ -1094,8 +1108,6 @@
       href: define-playbook-access-restrictions.md
     - name: Create and perform advanced incident tasks using playbooks
       href: create-tasks-playbook.md
-  - name: Bring your own machine learning
-    href: bring-your-own-ml.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing

@@ -56,7 +56,7 @@
   - name: Effective security rules
     href: effective-security-rules-overview.md
   - name: NSG flow logs
-    href: network-watcher-nsg-flow-logging-overview.md
+    href: nsg-flow-logs-overview.md
   - name: VNet flow logs
     href: vnet-flow-logs-overview.md
   - name: Traffic analytics
@@ -128,11 +128,11 @@
   - name: Diagnose outbound connection problems
     items:
     - name: Azure portal
-      href: network-watcher-connectivity-portal.md
+      href: connection-troubleshoot-portal.md
     - name: PowerShell
-      href: network-watcher-connectivity-powershell.md
+      href: connection-troubleshoot-powershell.md
     - name: Azure CLI
-      href: network-watcher-connectivity-cli.md
+      href: connection-troubleshoot-cli.md
     - name: REST
       href: network-watcher-connectivity-rest.md
   - name: Diagnose VPN gateway and connections
@@ -178,15 +178,15 @@
     - name: Manage NSG flow logs
       items:
       - name: Azure portal
-        href: nsg-flow-logging.md
+        href: nsg-flow-logs-portal.md
       - name: PowerShell
-        href: network-watcher-nsg-flow-logging-powershell.md
+        href: nsg-flow-logs-powershell.md
       - name: Azure CLI
-        href: network-watcher-nsg-flow-logging-cli.md
+        href: nsg-flow-logs-cli.md
       - name: REST
-        href: network-watcher-nsg-flow-logging-rest.md
+        href: nsg-flow-logs-rest.md
       - name: ARM template
-        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+        href: nsg-flow-logs-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
     - name: Manage VNet flow logs
