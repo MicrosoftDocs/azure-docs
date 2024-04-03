@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 04/02/2024
+ms.date: 04/03/2024
 ms.author: sudhirsneha
 ---
 
@@ -48,7 +48,7 @@ The following table maps the **software update management capabilities** of MCM 
 Synchronize software updates between sites (Central Admin site, Primary, Secondary sites) | The top site (either central admin site or stand-alone primary site) connects to Microsoft Update to retrieve software update. [Learn more](/mem/configmgr/sum/understand/software-updates-introduction). After the top sites are synchronized, the child sites are synchronized. | There's no hierarchy of machines in Azure and therefore all machines connected to Azure receive updates from the source repository.
 Synchronize software updates/check for updates (retrieve patch metadata) | You can scan for updates periodically by setting configuration on the Software update point. [Learn more](/mem/configmgr/sum/get-started/synchronize-software-updates#to-schedule-software-updates-synchronization) | You can enable periodic assessment to enable scan of patches every 24 hours. [Learn more](assessment-options.md)|
 Configuring classifications/products to synchronize/scan/assess | You can choose the update classifications (security or critical updates) to synchronize/scan/assess. [Learn more](/mem/configmgr/sum/get-started/configure-classifications-and-products) | There's no such capability here. The entire software metadata is scanned. | 
-Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | - Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) </br> - Automatic deployment is mapped to [scheduled updates](scheduled-patching.md) </br> - There's no phased deployment option.
+Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | - Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) </br> - Automatic deployment is mapped to scheduled updates </br> - There's no phased deployment option.
 | Deploy software updates on Windows and Linux machines (in Azure or on-prem or other clouds) | SCCM helps manage tracking and applying software updates to Windows machines (Currently, we don't support Linux machines.) | Azure Update Manager supports software updates on both Windows and Linux machines. | 
 
 
@@ -56,16 +56,16 @@ Deploy software updates (install patches) | Provides three modes of deploying up
 
 As a first step in MCM user's journey towards Azure Update Manager, you need to enable Azure Update Manager on your existing MCM managed servers (i.e. ensure to achieve that Azure Update Manager and MCM are in co-existence). The following section address few challenges that you might encounter in this first step.
 
-### Overview of current MCM setup: 
+### Overview of current MCM setup
 
 If you have WSUS server configured as part of the initial setup as MCM client uses WSUS server to scan for first-party updates. Third party updates content is published to this WSUS server as well. Azure Update Manager has the capability to scan and install updates from WSUS and we recommend to leverage the WSUS server configured as part of MCM setup to make Azure Update Manager work along with MCM.
 
-### First party updates**
+### First party updates
 
 For Azure Update Manager to scan and install first party updates (Windows and Microsoft updates), you should start approving the required updates in the configured WSUS server. This is done by [configuring an auto approval rule in WSUS](/windows-server/administration/windows-server-update-services/deploy/3-approve-and-deploy-updates-in-wsus#32-configure-auto-approval-rules) like what users have configured on MCM server.
  
 
-### Third party updates**
+### Third party updates
 
 Third party updates should work as expected with Azure Update Manager provided you have already configured MCM for third party patching and it is able to successfully patch Third party updates via MCM. Ensure that you continue to publish third party updates to WSUS from MCM [Step 3 in Enable third-party updates](/mem/configmgr/sum/deploy-use/third-party-software-updates#publish-and-deploy-third-party-software-updates). After you publish to WSUS, Azure Update Manager will be able to detect and install these updates from WSUS server.
 
@@ -126,5 +126,5 @@ Azure Update Manager can be used on-premises by using Azure Arc. Azure Arc is a 
 - [Check update compliance](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
-- [An overview of Azure Arc-enabled servers]([What is Azure Arc-enabled servers?](../azure-arc/servers/overview.md))
+- [An overview of Azure Arc-enabled servers](../azure-arc/servers/overview.md)
 
