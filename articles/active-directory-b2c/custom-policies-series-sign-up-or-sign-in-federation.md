@@ -225,7 +225,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra ID storage, to store or read a user social account. 
 
-1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserUpdate` technical profile and then add a new technical profile by using the following code: 
+1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserRead` technical profile and then add a new technical profile by using the following code: 
 
     ```xml
         <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">

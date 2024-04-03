@@ -32,7 +32,7 @@ External entities are the mechanism for extending any entity type while still be
 
 This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user's contact list.
 
-External entities are part of the V3 authoring API. Learn more about [migrating](luis-migration-api-v3.md) to this version.
+External entities are part of the V3 authoring API.
 
 ### Entity already exists in app
 
@@ -207,4 +207,3 @@ The prediction response includes that list entity, with all the other predicted 
 ## Next steps
 
 * [Prediction score](luis-concept-prediction-score.md)
-* [Authoring API V3 changes](luis-migration-api-v3.md)

@@ -10,7 +10,8 @@ ms.subservice: nosql
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 # CustomerIntent: As a developer, I want to use Copilot so that I can write queries faster and easier.
 ---
 

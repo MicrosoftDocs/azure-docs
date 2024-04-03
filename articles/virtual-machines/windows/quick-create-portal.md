@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 01/04/2024
 ms.author: jushiman
 ms.reviewer: jushiman
@@ -42,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    ![Screenshot of Windows virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/windows-estimated-monthly-cost.png)
 
-   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 

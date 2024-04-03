@@ -3,17 +3,21 @@ title: What's new in Azure AI Language?
 titleSuffix: Azure AI services
 description: Find out about new releases and features for the Azure AI Language.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
-ms.date: 01/31/2024
-ms.author: aahi
+ms.date: 02/26/2024
+ms.author: jboback
 ---
 
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## February 2024
+
+* Expanded [language detection](./language-detection/how-to/call-api.md#script-name-and-script-code) support for additional scripts according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) is now available starting in API version `2023-11-15-preview`.
 
 ## January 2024
 

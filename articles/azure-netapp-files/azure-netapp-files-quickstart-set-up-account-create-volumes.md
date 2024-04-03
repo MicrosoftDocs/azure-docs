@@ -4,7 +4,6 @@ description: Quickstart - Describes how to quickly set up Azure NetApp Files and
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: quickstart
 ms.date: 02/21/2023
 ms.custom: devx-track-azurecli, subject-armqs, mode-ui, devx-track-azurepowershell
@@ -56,7 +55,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 

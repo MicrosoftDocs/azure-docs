@@ -55,8 +55,6 @@ Azure API for FHIR was our initial generally available product and is being reti
 
 By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.
 To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
-> [!NOTE]
-> Due to issue in billing metrics for storage. Customers opting for more than 4TB storage capacity will not be billed for storage till the issue is addressed.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 

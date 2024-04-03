@@ -5,7 +5,6 @@ author: ramankumarlive
 manager: kavithag
 ms.service: virtual-machines
 ms.topic: sample
-ms.workload: infrastructure
 ms.custom: devx-track-azurepowershell
 ms.date: 12/04/2023
 ms.author: ramankum

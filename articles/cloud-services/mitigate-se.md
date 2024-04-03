@@ -7,7 +7,6 @@ author: ju-shim
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
 ms.service: cloud-services
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/21/2023

@@ -2,6 +2,7 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 02/01/2024
 ---

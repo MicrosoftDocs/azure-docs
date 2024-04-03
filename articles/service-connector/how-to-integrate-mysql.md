@@ -5,9 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
+ms.custom: engagement-fy23
 ms.date: 02/02/2024
-ms.custom: event-tier1-build-2022, engagement-fy23
-
 ---
 
 # Integrate Azure Database for MySQL with Service Connector

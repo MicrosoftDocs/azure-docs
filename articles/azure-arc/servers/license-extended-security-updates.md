@@ -22,7 +22,7 @@ To assist with the license provisioning process, this article provides general g
 
 ### Physical core licensing
 
-If you choose to license based on physical cores, the licensing requires a minimum of 16 physical cores per license. Most customers choose to license based on physical cores and select Standard or Datacenter edition to match their original Windows Server licensing. While Standard licensing can be applied to up to two virtual machines (VMs), Datacenter licensing has no limit to the number of VMs it can be applied to. Depending on the number of VMs covered, it may make sense to choose the Datacenter license instead of the Standard license.
+If you choose to license based on physical cores, the licensing requires a minimum of 16 physical cores per machine. Most customers choose to license based on physical cores and select Standard or Datacenter edition to match their original Windows Server licensing. While Standard licensing can be applied to up to two virtual machines (VMs), Datacenter licensing has no limit to the number of VMs it can be applied to. Depending on the number of VMs covered, it may make sense to choose the Datacenter license instead of the Standard license.
 
 ### Virtual core licensing
 

@@ -5,9 +5,10 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
+ms.custom: engagement-fy23
 ms.date: 02/02/2024
-ms.custom: event-tier1-build-2022, engagement-fy23
 ---
+
 # Integrate Azure SQL Database with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You might still be able to connect to Azure SQL Database using other methods. This page also shows default environment variable names and values you get when you create the service connection.

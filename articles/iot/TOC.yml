@@ -95,8 +95,6 @@ items:
             href: concepts-modeling-guide.md
           - name: Use models in a solution
             href: concepts-model-discovery.md
-          - name: Model repository
-            href: concepts-model-repository.md
           - name: Model parser
             href: concepts-model-parser.md
 
@@ -126,10 +124,6 @@ items:
       items:
       - name: Device and Service SDKs
         href: iot-sdks.md
-      - name: Device SDKs lifecycle and support
-        href: iot-device-sdks-lifecycle-and-support.md
-    - name: Azure Certified for IoT device catalog
-      href: https://catalog.azureiotsolutions.com/
     - name: Azure IoT Tools for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool

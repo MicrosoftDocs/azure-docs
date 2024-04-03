@@ -1,14 +1,12 @@
 ---
 title: Managing SAP HANA data footprint for balancing cost and performance
 description: Learn about HANA database archiving strategies to manage data footprint and reduce costs.
-ms.workload: infrastructure-services
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.date: 09/27/2023
 author: manvendravikramsingh
 ms.author: manvsingh
-
 ---
 # Managing SAP HANA data footprint for balancing cost and performance
 

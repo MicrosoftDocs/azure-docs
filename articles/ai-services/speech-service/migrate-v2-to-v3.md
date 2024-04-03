@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 # Migrate code from v2.0 to v3.0 of the REST API
 
 > [!IMPORTANT]
-> The Speech to text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech to text REST API v3.2. Complete the steps in this article and then see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides for additional requirements.
+> The Speech to text REST API v2.0 is retired as of February 29, 2024. Please migrate your applications to the Speech to text REST API v3.2. Complete the steps in this article and then see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides for additional requirements.
 
 ## Forward compatibility
 

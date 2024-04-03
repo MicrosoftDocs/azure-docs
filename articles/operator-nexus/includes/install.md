@@ -261,146 +261,6 @@ spec:
 
               EOF
 
-              nsenter -t1 -m -u -n -i tee "\${WORKDIR}"/telemetry/setup_arc_for_servers.py > /dev/null <<EOF
-              #!/usr/bin/python3
-              import json
-              import time
-
-              import telemetry_common
-
-
-              def run_connect(logger, arc_config):
-                  logger.info("Connect machine to Azure Arc...")
-                  service_principal_id = arc_config.get("SERVICE_PRINCIPAL_ID")
-                  service_principal_secret = arc_config.get("SERVICE_PRINCIPAL_SECRET")
-                  resource_group = arc_config.get("RESOURCE_GROUP")
-                  tenant_id = arc_config.get("TENANT_ID")
-                  subscription_id = arc_config.get("SUBSCRIPTION_ID")
-                  location = arc_config.get("LOCATION")
-                  connect_cmd = f'azcmagent connect --service-principal-id "{service_principal_id}" --service-principal-secret "{service_principal_secret}" --resource-group "{resource_group}" --tenant-id "{tenant_id}" --subscription-id "{subscription_id}" --location "{location}"'
-
-                  cloudtype = arc_config.get("CLOUDTYPE")
-                  if cloudtype is not None:
-                      connect_cmd += f' --cloud "{cloudtype}"'
-
-                  tags = arc_config.get("TAGS")
-                  if tags is not None:
-                      connect_cmd += f' --tags "{tags}"'
-
-                  correlation_id = arc_config.get("CORRELATION_ID")
-                  if correlation_id is not None:
-                      connect_cmd += f' --correlation-id "{correlation_id}"'
-
-                  proxy_url = arc_config.get("PROXY_URL")
-                  if proxy_url is not None:
-                      set_proxy_cmd = f'/usr/bin/azcmagent config set proxy.url "{proxy_url}"'
-                      telemetry_common.run_cmd(logger, set_proxy_cmd)
-
-                  # Hardcoding allowed extensions as these will only vary if NC team adds new extensions
-                  allowed_extensions = "Microsoft.Azure.Monitor/AzureMonitorLinuxAgent,Microsoft.Azure.AzureDefenderForServers/MDE.Linux"
-                  set_extensions_cmd = (
-                      f'/usr/bin/azcmagent config set extensions.allowlist "{allowed_extensions}"'
-                  )
-                  telemetry_common.run_cmd(logger, set_extensions_cmd)
-
-                  telemetry_common.az_login(logger, arc_config)
-                  logger.info("Connecting machine to Azure Arc...")
-
-                  try:
-                      telemetry_common.run_cmd(logger, connect_cmd)
-                  except:
-                      logger.info("Trying to connect machine to Azure Arc...")
-                  finally:
-                      telemetry_common.az_logout(logger)
-
-
-              def run_disconnect(logger, arc_config):
-                  logger.info("Disconnect machine from Azure Arc...")
-                  service_principal_id = arc_config.get("SERVICE_PRINCIPAL_ID")
-                  service_principal_secret = arc_config.get("SERVICE_PRINCIPAL_SECRET")
-
-                  cmd = f'/usr/bin/azcmagent disconnect --service-principal-id "{service_principal_id}" --service-principal-secret "{service_principal_secret}"'
-
-                  telemetry_common.az_login(logger, arc_config)
-
-                  try:
-                      telemetry_common.run_cmd(logger, cmd)
-                  except:
-                      logger.info("Trying to disconnect machine from Azure Arc...")
-                  finally:
-                      telemetry_common.az_logout(logger)
-
-
-              def arc_enrollment(logger, arc_config):
-                  logger.info("Executing Arc enrollment...")
-
-                  telemetry_common.az_cli_cm_ext_install(logger, arc_config)
-
-                  # Get connected machine properties
-                  cm_provisioning_state, cm_status = telemetry_common.get_cm_properties(
-                      logger, arc_config
-                  )
-
-                  if (
-                      cm_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED
-                      and cm_status == telemetry_common.AgentryResult.CONNECTED
-                  ):
-                      logger.info(telemetry_common.OnboardingMessage.COMPLETED)
-                      return True
-                  elif cm_provisioning_state in [
-                      telemetry_common.AgentryResult.FAILED,
-                      telemetry_common.AgentryResult.DISCONNECTED,
-                  ]:
-                      run_disconnect(logger, arc_config)
-                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                      return False
-                  elif cm_provisioning_state == telemetry_common.AgentryResult.CREATING:
-                      logger.warning(telemetry_common.OnboardingMessage.STILL_CREATING)
-                      return False
-                  else:
-                      run_connect(logger, arc_config)
-                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                      return False
-
-
-              def main():
-                  timeout = 300  # TODO: increase when executed via systemd unit
-                  start_time = time.time()
-                  end_time = start_time + timeout
-
-                  config_file = telemetry_common.arc_config_file
-
-                  logger = telemetry_common.get_logger(__name__)
-
-                  logger.info("Running setup_arc_for_servers.py...")
-
-                  if config_file is None:
-                      raise Exception("config file is expected")
-
-                  arc_config = {}
-
-                  with open(config_file, "r") as file:
-                      arc_config = json.load(file)
-
-                  arc_enrolled = False
-
-                  while time.time() < end_time:
-                      logger.info("Arc enrolling the server...")
-                      try:
-                          arc_enrolled = arc_enrollment(logger, arc_config)
-                      except Exception as e:
-                          logger.error(f"Could not arc enroll server: {e}")
-                      if arc_enrolled:
-                          break
-                      logger.info("Sleeping 30s...")  # retry for Azure info
-                      time.sleep(30)
-
-
-              if __name__ == "__main__":
-                  main()
-
-              EOF
-
               nsenter -t1 -m -u -n -i tee "\${WORKDIR}"/telemetry/setup_azure_monitor_agent.py > /dev/null <<EOF
               #!/usr/bin/python3
               import json
@@ -467,35 +327,35 @@ spec:
 
                   # Get connected machine properties
                   cm_provisioning_state, cm_status = telemetry_common.get_cm_properties(
-                      logger, ama_config
+                    logger, ama_config
                   )
 
                   if (
-                      cm_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED
-                      and cm_status == telemetry_common.AgentryResult.CONNECTED
+                    cm_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED
+                    and cm_status == telemetry_common.AgentryResult.CONNECTED
                   ):
-                      # Get AzureMonitorLinuxAgent extension status
-                      ext_provisioning_state = telemetry_common.get_cm_extension_state(
-                          logger, ama_config, "AzureMonitorLinuxAgent"
-                      )
-
-                      if ext_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED:
-                          logger.info(telemetry_common.OnboardingMessage.COMPLETED)
-                          return True
-                      elif ext_provisioning_state == telemetry_common.AgentryResult.FAILED:
-                          run_uninstall(logger, ama_config)
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                          return False
-                      elif ext_provisioning_state == telemetry_common.AgentryResult.CREATING:
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_CREATING)
-                          return False
-                      else:
-                          run_install(logger, ama_config)
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                          return False
-                  else:
-                      logger.error("Server not arc enrolled, enroll the server and retry")
+                    # Get AzureMonitorLinuxAgent extension status
+                    ext_provisioning_state = telemetry_common.get_cm_extension_state(
+                      logger, ama_config, "AzureMonitorLinuxAgent"
+                    )
+  
+                    if ext_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED:
+                      logger.info(telemetry_common.OnboardingMessage.COMPLETED)
+                      return True
+                    elif ext_provisioning_state == telemetry_common.AgentryResult.FAILED:
+                      run_uninstall(logger, ama_config)
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
                       return False
+                    elif ext_provisioning_state == telemetry_common.AgentryResult.CREATING:
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_CREATING)
+                      return False
+                    else:
+                      run_install(logger, ama_config)
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
+                      return False
+                  else:
+                    logger.error("Server not arc enrolled, enroll the server and retry")
+                    return False
 
 
               def main():
@@ -542,16 +402,6 @@ spec:
               set -e
 
               echo "{\"VERSION\": \"\${VERSION}\", \"SUBSCRIPTION_ID\": \"\${SUBSCRIPTION_ID}\", \"SERVICE_PRINCIPAL_ID\": \"\${SERVICE_PRINCIPAL_ID}\", \"SERVICE_PRINCIPAL_SECRET\": \"\${SERVICE_PRINCIPAL_SECRET}\", \"RESOURCE_GROUP\": \"\${RESOURCE_GROUP}\", \"TENANT_ID\": \"\${TENANT_ID}\", \"LOCATION\": \"\${LOCATION}\", \"PROXY_URL\": \"\${PROXY_URL}\", \"CONNECTEDMACHINE_AZCLI_VERSION\": \"\${CONNECTEDMACHINE_AZCLI_VERSION}\"}" > "\${WORKDIR}"/telemetry/arc-connect.json
-
-              echo "Connecting machine to Azure Arc..."
-              /usr/bin/python3 "\${WORKDIR}"/telemetry/setup_arc_for_servers.py > "\${WORKDIR}"/setup_arc_for_servers.out
-              cat "\${WORKDIR}"/setup_arc_for_servers.out
-              if grep "Could not arc enroll server" "\${WORKDIR}"/setup_arc_for_servers.out > /dev/null; then
-                exit 1
-              fi
-
-              /usr/bin/azcmagent config set incomingconnections.ports 22
-              /usr/bin/azcmagent config set extensions.allowlist Microsoft.Azure.Monitor/AzureMonitorLinuxAgent,Microsoft.Azure.AzureDefenderForServers/MDE.Linux,Microsoft.Azure.ActiveDirectory/AADSSHLoginForLinux
 
               if [ "\${INSTALL_AZURE_MONITOR_AGENT}" = "true" ]; then
                 echo "Installing Azure Monitor agent..."

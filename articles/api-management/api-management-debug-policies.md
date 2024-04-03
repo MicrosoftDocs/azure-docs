@@ -1,9 +1,8 @@
 ---
 title: Debug Azure API Management policies in Visual Studio Code | Microsoft Docs
-description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension 
+description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension
 author: dlepow
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: danlep
@@ -72,4 +71,3 @@ If there is an error during policy execution, you will see the details of the er
 
 + Learn more about the [API Management extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 + Report issues in the [GitHub repository](https://github.com/Microsoft/vscode-apimanagement)
-

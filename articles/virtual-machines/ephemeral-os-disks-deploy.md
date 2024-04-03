@@ -3,12 +3,11 @@ title: Deploy Ephemeral OS disks
 description: Learn to deploy ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # How to deploy Ephemeral OS disks for Azure VMs

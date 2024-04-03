@@ -6,7 +6,7 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 02/12/2024
 ms.custom: engagement-fy24
 ---
 
@@ -69,7 +69,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
+a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
 
 ### 3. Run the Azure Migrate installer script
 
@@ -184,6 +184,9 @@ The Migration and modernization tool will take care of distributing the virtual 
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.
+
+> [!NOTE]
+> User can only select the primary appliance while starting replication. It is not possible for user to select a scale out appliance while starting replication. By design, based on availability it would be decided whether replication will be allotted to primary appliance or scale out appliance.
   
 ## Next steps
 

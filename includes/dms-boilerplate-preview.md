@@ -5,7 +5,6 @@ ms.author: "sgaur"
 manager: "arthiaga"
 ms.reviewer: "arthiaga"
 ms.service: dms
-ms.workload: data-services
 ms.subservice: develop
 ms.topic: include
 ms.date: 04/11/2021

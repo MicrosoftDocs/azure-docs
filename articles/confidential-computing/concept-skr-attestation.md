@@ -4,7 +4,6 @@ description: Concept guide on what SKR is and its usage with Azure Confidential 
 author: angarg05
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 8/22/2023
 ms.author: ananyagarg

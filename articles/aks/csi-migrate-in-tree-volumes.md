@@ -4,7 +4,7 @@ description: Learn how to migrate from in-tree persistent volume to the Containe
 ms.topic: article
 ms.date: 01/11/2024
 author: mgoedtel
-
+ms.subservice: aks-storage
 ---
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)

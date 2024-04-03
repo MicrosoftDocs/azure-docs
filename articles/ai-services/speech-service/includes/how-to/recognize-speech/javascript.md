@@ -194,9 +194,9 @@ The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-sp
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text).
 
 ## Use a custom endpoint
 

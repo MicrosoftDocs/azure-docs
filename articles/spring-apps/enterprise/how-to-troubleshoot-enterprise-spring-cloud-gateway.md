@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 01/10/2024
 ms.custom: devx-track-java
 ---
 

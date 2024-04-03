@@ -200,7 +200,7 @@ If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
 [Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
-[layer definition]: /rest/api/maps-creator/features/get-collection-definition?view=rest-maps-creator-2023-03-01-preview?tabs=HTTP
+[layer definition]: /rest/api/maps-creator/features/get-collection-definition?view=rest-maps-creator-2023-03-01-preview&preserve-view=true?tabs=HTTP
 [MICROSOFT Q&A]: /answers/questions/ask
 [QGIS]: https://qgis.org/en/site/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

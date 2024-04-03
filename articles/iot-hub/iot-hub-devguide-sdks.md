@@ -44,10 +44,6 @@ Learn more about the IoT Hub embedded device SDKs in the [IoT device development
 
 [!INCLUDE [iot-hub-sdks-management](../../includes/iot-hub-sdks-management.md)]
 
-## SDK and hardware compatibility
-
-For more information about device SDK compatibility with specific hardware devices, see the [Azure Certified Device catalog](https://devicecatalog.azure.com/) or individual repository.
-
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## SDKs for related Azure IoT services

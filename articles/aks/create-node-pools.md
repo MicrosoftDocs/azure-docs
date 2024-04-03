@@ -2,8 +2,9 @@
 title: Create node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create multiple node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 12/08/2023
+ms.subservice: aks-nodes
 ---
 
 # Create node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -32,7 +33,7 @@ The following limitations apply when you create AKS clusters that support multip
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools. This feature isn't supported with Basic SKU load balancers.
 * The AKS cluster must use Virtual Machine Scale Sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter.
-  * For Linux node pools, the length must be between 1-11 characters.
+  * For Linux node pools, the length must be between 1-12 characters.
   * For Windows node pools, the length must be between 1-6 characters.
 * All node pools must reside in the same virtual network.
 * When you create multiple node pools at cluster creation time, the Kubernetes versions for the node pools must match the version set for the control plane.

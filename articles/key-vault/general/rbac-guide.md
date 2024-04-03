@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
@@ -22,19 +22,18 @@ Azure role-based access control (Azure RBAC) is an authorization system built on
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults.
 
-The Azure RBAC model allows uses to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates
+The Azure RBAC model allows users to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Best Practices for individual keys, secrets, and certificates role assignments
 
 Our recommendation is to use a vault per application per environment
-(Development, Pre-Production, and Production).
+(Development, Pre-Production, and Production) with roles assigned at Key Vault scope.
 
-Individual keys, secrets, and certificates permissions should be used
-only for specific scenarios:
+Assigning roles on individual keys, secrets and certificates should be avoided. Exceptions to general guidance:
 
-- Sharing individual secrets between multiple applications, for example, one application needs to access data from the other application
+- Scenarios where individual secrets must be shared between multiple applications, for example, one application needs to access data from the other application
 
 More about Azure Key Vault management guidelines, see:
 

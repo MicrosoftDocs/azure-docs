@@ -4,7 +4,7 @@ description: Learn how to import on-premises servers in a VMware environment by 
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.topic: tutorial
-ms.date: 01/25/2024
+ms.date: 03/22/2024
 ms.service: azure-migrate
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
@@ -13,7 +13,7 @@ ms.service: azure-migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).
 
 
 In this tutorial, you learn how to:
@@ -37,6 +37,9 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](migrate-support-matrix.md) specified in the RVTools XLSX (preview) file contains and matches the supported names.
 - The XLSX file should contain the vInfo & vDisk sheets and the VM, Powerstate, Disks, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID columns from the vInfo sheet and the VM, Capacity MiB columns from the vDisk sheet should be present.
+
+> [!NOTE]
+> The number of disks that will be seen in the discovered and assessed machines will be one. However, the total configured and used storage capacity is being considered from the RVTools file import.
  
 
 ## Prepare an Azure user account
@@ -102,4 +105,4 @@ To verify that the servers appear in the Azure portal after importing, follow th
 
 ## Next steps
 
-- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).

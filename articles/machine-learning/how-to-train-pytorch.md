@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: sgilley
 ms.date: 01/26/2024
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, update-code
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 

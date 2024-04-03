@@ -42,7 +42,7 @@ Developer portal sign-in and sign-up with Microsoft Entra ID or Azure AD B2C wil
 3. Select **Microsoft Entra ID** or **Azure Active Directory B2C** from the list.
 4. Select **MSAL** in the **Client library** dropdown.
 5. Select **Update**.
-6. [Republish your developer portal](../api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+6. [Republish your developer portal](../developer-portal-overview.md#publish-the-portal).
 
 
 ## Help and support

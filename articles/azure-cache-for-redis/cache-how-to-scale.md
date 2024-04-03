@@ -23,7 +23,6 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 - _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis community, scaling out is frequently called [_clustering_](https://redis.io/docs/management/scaling/).
 
-
 ## Scope of availability
 
 |Tier     | Basic and Standard | Premium  | Enterprise and Enterprise Flash  |
@@ -99,7 +98,7 @@ You can scale out/in with the following restrictions:
 
     :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="Screenshot showing the notification of scaling.":::
 
-1.  When scaling is complete, the status changes from **Scaling** to **Running**.
+1. When scaling is complete, the status changes from **Scaling** to **Running**.
 
  > [!NOTE]
  > When you scale a cache up or down using the portal, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size.
@@ -166,7 +165,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 > There are some minor differences required in your client application when clustering is configured. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 >
 
-
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 #### Scale a running Premium cache in or out
@@ -208,6 +206,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 >
 >
 ---
+
 ## How to scale up and out - Enterprise and Enterprise Flash tiers
 
 The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
@@ -215,7 +214,6 @@ The Enterprise and Enterprise Flash tiers are able to scale up and scale out in 
 > [!CAUTION]
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
 >
-
 
 ### Scale using the Azure portal
 
@@ -239,9 +237,7 @@ The Enterprise and Enterprise Flash tiers are able to scale up and scale out in 
 
     :::image type="content" source="media/cache-how-to-scale/cache-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
 
-
 1. When scaling is complete, the status changes from **Scaling** to **Running**.
-
 
 ### Scale using PowerShell
 
@@ -314,7 +310,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 - When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
 - When you scale a **Standard**, **Premium**, **Enterprise**, or **Enterprise Flash** cache to a larger size, all data is typically preserved. When you scale a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
- ### Can I use all the features of Premium tier after scaling?
+### Can I use all the features of Premium tier after scaling?
 
 No, some features can only be set when you create a cache in Premium tier, and are not available after scaling.
 
@@ -378,14 +374,14 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 
 ### Do I need to make any changes to my client application to use clustering?
 
-* When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown: `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+- When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown: `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   For more information, see [Redis Cluster Specification - Implemented subset](https://redis.io/topics/cluster-spec#implemented-subset).
-* If you're using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache where clustering is disabled. The only difference is that all reads and writes must be done to database 0.
+- If you're using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache where clustering is disabled. The only difference is that all reads and writes must be done to database 0.
   
   Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
-* If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
-* If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+- If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
+- If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
 > When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
@@ -396,8 +392,8 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 
 Per the Redis documentation on [Keys distribution model](https://redis.io/topics/cluster-spec#keys-distribution-model): The key space is split into 16,384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
 
-* Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
-* Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
+- Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
+- Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
 
 For best performance and throughput, we recommend distributing the keys evenly. If you're using keys with a hash tag, it's the application's responsibility to ensure the keys are distributed evenly.
 
@@ -420,7 +416,7 @@ The Redis clustering protocol requires each client to connect to each shard dire
 >
 ### How do I connect to my cache when clustering is enabled?
 
-You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
+You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#authentication) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
 ### Can I directly connect to the individual shards of my cache?
 
@@ -447,10 +443,11 @@ Clustering is only available for Premium, Enterprise, and Enterprise Flash cache
 
 ### Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
 
-* **Redis Output Cache provider** - no changes required.
-* **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+- **Redis Output Cache provider** - no changes required.
+- **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
+
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?

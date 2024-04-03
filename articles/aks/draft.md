@@ -5,6 +5,7 @@ author: qpetraroia
 ms.author: qpetraroia
 ms.topic: article
 ms.date: 06/22/2023
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, build-spring-2022
 ---
 
