@@ -41,4 +41,4 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ## How to mitigate or resolve
 Your calling application should subscribe to events from the User Facing Diagnostics feature.
 You should also consider displaying a message on your user interface to alert users of potential camera issues.
-Stopping and starting the video again, or switching to other cameras or calling devices might resolve the issue from user side.
+The user can try to stop and start the video again, switch to other cameras or switch calling devices  to resolve the issue.
