@@ -69,7 +69,7 @@ Use the Azure CLI command to create a service connection to a Blob Storage with 
 * **AKS cluster name:** the name of your AKS cluster that connects to the target service.
 * **Target service resource group name:** the resource group name of the Blob Storage.
 * **Storage account name:** the account name of your Blob Storage.
-* **User-assigned identity resource ID:** the resource ID of the user assigned identity that used to create workload identity
+* **User-assigned identity resource ID:** the resource ID of the user assigned identity that is used to create workload identity
 
 ```azurecli
 az aks connection create storage-blob \
