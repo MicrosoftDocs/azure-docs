@@ -219,5 +219,5 @@ If you accidentally delete the MSI associated with a private cloud, you need to 
 
 ## Next steps
 
-- Learn about [Azure Key Vault backup and restore](../key-vault/general/backup.md?tabs=azure-cli)
-- Learn about [Azure Key Vault recovery](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+- Learn about [Azure Key Vault backup and restore](../key-vault/general/backup.md?tabs=azure-cli).
+- Learn about [Azure Key Vault recovery](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).
