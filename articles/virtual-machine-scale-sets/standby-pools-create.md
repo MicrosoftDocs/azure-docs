@@ -1,6 +1,6 @@
 ---
 title: Create a Standby Pool for Virtual Machine Scale Sets
-description: Learn how to create a Standby Pool to reduce scale-out latency with Virtual Machine Scale Sets
+description: Learn how to create a Standby Pool to reduce scale-out latency with Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -20,7 +20,7 @@ This article steps through creating a Standby Pool for Virtual Machine Scale Set
 
 
 ### Feature Registration 
-Register the Standby Pool Resource Provider and the Standby Pool Preview Feature with your subscription using PowerShell in Azure Cloud Shell. Registration can take about 30 mins to take effect. You can rerun the below commands to determine when the feature has been successfully registered. 
+Register the Standby Pool Resource Provider and the Standby Pool Preview Feature with your subscription using PowerShell in Azure Cloud Shell. Registration can take about 30 mins to take effect. You can rerun the below commands to determine when the feature is successfully registered. 
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.StandbyPool
@@ -28,7 +28,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.StandbyPool
 Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace Microsoft.StandbyPool
 ```
 
-### RBAC Permissions
+### Role-based Access Control Permissions
 In order for Standby Pools to successfully create Virtual Machines, you need to assign the appropriate RBAC roles. 
 1) In the Azure portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
@@ -42,7 +42,7 @@ In order for Standby Pools to successfully create Virtual Machines, you need to 
 
 If you're using a customized image in Compute Gallery, ensure to assign Standby Pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
 
-For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a Standby Pool
 
@@ -57,12 +57,8 @@ You can also configure a Standby Pool during Virtual Machine Scale Set creation 
 :::image type="content" source="media/standby-pools/enable-standby-pool-during-vmss-create.png" alt-text="A screenshot showing how to enable a standby pool during the Virtual Machine Scale Set create experience in the portal.":::
 
 
-
-
-
-
 ### [CLI](#tab/cli)
-Create a Standby Pool and associate it with an existing scale set using [az standbypool create]().
+Create a Standby Pool and associate it with an existing scale set using [az standby-vm-pool create](/cli/azure/standby-pool).
 
 ```azurecli-interactive
 az standby-vm-pool create \
@@ -73,7 +69,7 @@ az standby-vm-pool create \
    --vmss-id "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 ### [PowerShell](#tab/powershell)
-Create a Standby Pool and associate it with an existing scale set using [Create-AzStandbyPool]().
+Create a Standby Pool and associate it with an existing scale set using [Create-AzStandbyPool](/cli/azure/standby-pool).
 
 ```azurepowershell-interactive
 Create-AzStandbyPool `
@@ -144,7 +140,6 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 ---
 
-
 ## Next steps
 
-Learn how to [update and delete a Standby Pool](standby-pools-update-delete.md)
+Learn how to [update and delete a Standby Pool](standby-pools-update-delete.md).
