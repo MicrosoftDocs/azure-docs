@@ -18,7 +18,7 @@ This event indicates that there may be network issues between the two endpoints,
 The connection failure is typically detected by the ICE consent freshness mechanism implemented in the browser.
 
 When an endpoint doesn't receive a reply after a certain period, the ICE transport state will transition to `disconnected`.
-If there's still no response received, the state will then become `failed`.
+If there's still no response received, the state then becomes `failed`.
 
 Since the endpoint didn't receive a reply for a period of time, it's possible that incoming packets weren't received or outgoing packets didn't reach to the other users.
 This situation may result in the user complaining that they couldn't hear or see the other party.
