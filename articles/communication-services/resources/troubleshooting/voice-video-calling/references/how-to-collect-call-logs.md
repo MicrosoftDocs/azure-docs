@@ -1,7 +1,7 @@
 ---
-title: References - How to collect call logs
+title: References - How to collect client logs
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to collect call logs.
+description: Learn how to collect client logs.
 author: sloanster
 ms.author: micahvivion
 
@@ -12,8 +12,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# How to collect call logs
-In cases where we are unable to debug an issue solely through service logs or telemetry, we may request client logs.
+# How to collect client logs
+The client logs can help when we want to get more details while debugging an issue.
 To collect client logs, you can use [@azure/logger](https://www.npmjs.com/package/@azure/logger), which is used by WebJS calling SDK internally.
 
 ```typescript
@@ -33,13 +33,15 @@ logger.info('....');
 * warning
 * error
 
-For debugging purposes, `info` level logging is usually sufficient.
+For debugging purposes, `info` level logging is sufficient in most cases.
 
 In the browser environment, [@azure/logger](https://www.npmjs.com/package/@azure/logger) outputs logs to the console by default.
-You can redirect logs by overriding `AzureLogger.log` method. For more details, see [@azure/logger](/javascript/api/overview/azure/logger-readme).
+You can redirect logs by overriding `AzureLogger.log` method. For more information, see [@azure/logger](/javascript/api/overview/azure/logger-readme).
 
-It is important to note that if you implement a log file download feature in your application and keep the logs in memory before they're downloaded and flushed,
-you need to set a limit on the log size. If you don't set a limit, it may cause memory issues during a long running call.
+If you implement a log file download feature in your application and keep the logs in memory before they're downloaded and flushed,
+you need to set a limit on the log size.
+It can cause memory issues for a long running call if you don't set a limit.
+
 Additionally, if you send logs to a remote service, you may need to consider mechanisms such as compression and scheduling.
-When a client has limited bandwidth, a large amount of logs in a short period of time can affect call quality.
+When a client has limited bandwidth, sending a lot of logs in a short period of time can affect call quality.
 
