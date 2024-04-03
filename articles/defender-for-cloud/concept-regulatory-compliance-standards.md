@@ -76,16 +76,16 @@ The following regulatory standards are available in Defender for Cloud:
 | CMMC | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
 | FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark|
 | HIPAA/HITRUST | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark|
-| ISO 27001 | CSA Cloud Controls Matrix (CCM) | CRI Profile|
+| ISO/IEC 27001 | CSA Cloud Controls Matrix (CCM) | CRI Profile|
 | New Zealand ISM Restricted | GDPR | CSA Cloud Controls Matrix (CCM)|
 | NIST SP 800-171 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)|
 | NIST SP 800-53 | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)|
-| PCI-DSS | NIST Cybersecurity Framework (CSF) | GDPR|
+| PCI DSS | NIST Cybersecurity Framework (CSF) | GDPR|
 | RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27001|
-| SOC | PCI-DSS | ISO/IEC 27002|
+| SOC 2 | PCI DSS | ISO/IEC 27002|
 | SWIFT CSP CSCF | | ISO/IEC 27017|
-| UK OFFICIAL and UK NHS | | NIST 800-53|
-| | | NIST Cybersecurity Framework (CSF)|
+| UK OFFICIAL and UK NHS | | NIST Cybersecurity Framework (CSF)|
+| | | NIST SP 800-53 |
 | | | NIST SP 800-171|
 | | | NIST SP 800-172|
 | | | PCI DSS|

@@ -170,7 +170,7 @@ Learn more about [automated remediation scripts](implement-security-recommendati
 
 March 6, 2024
 
-Based on customer feedback, we've added the compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
 Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
 
