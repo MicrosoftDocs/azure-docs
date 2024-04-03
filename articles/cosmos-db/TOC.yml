@@ -7,8 +7,10 @@
       href: introduction.md
     - name: FAQ
       href: faq.yml
-    - name: Try Azure Cosmos DB free
+    - name: 30-day free trial
       href: try-free.md
+    - name: Azure AI Advantage offer 90-day free trial
+      href: ai-advantage.md
     - name: Choose an API
       href: choose-api.md
     - name: Distributed NoSQL

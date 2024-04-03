@@ -32,7 +32,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 1. Initiate a canary upgrade from revision `asm-1-18` to `asm-1-19` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
     ```bash
-    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-18
+    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-19
     ```
 
     A canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.
@@ -101,7 +101,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 
     * **Rollback the canary upgrade**: In case you observe any issues with the health of your workloads, you can roll back to the previous revision of Istio:
 
-      * Relabel the namespace to the previous revision
+      * Relabel the namespace to the previous revision:
 
           ```bash
           kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
@@ -119,7 +119,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
           az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
           ```
 
-1. If [mesh configuration][meshconfig] was set up for the revisions in previous steps, you can now delete the ConfigMap for the revision that was removed from the cluster on completing or rolling back the upgrade.
+1. If [mesh configuration][meshconfig] was previously set up for the revisions, you can now delete the ConfigMap for the revision that was removed from the cluster during complete/rollback.
 
 > [!NOTE]
 > Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.

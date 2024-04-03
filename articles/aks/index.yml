@@ -27,6 +27,10 @@ landingContent:
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
+          - text: Trusted Launch (preview)
+            url: use-trusted-launch.md
+          - text: Azure Container Storage (preview)
+            url: /azure/storage/container-storage/container-storage-introduction
           - text: Deploy an AI model on AKS with the AI toolchain operator (Preview)
             url: ai-toolchain-operator.md
           - text: Upgrade multiple AKS clusters using Azure Kubernetes Fleet Manager
@@ -43,8 +47,6 @@ landingContent:
             url: vertical-pod-autoscaler.md
           - text: Use Confidential Virtual Machines
             url: use-cvm.md
-          - text: AKS GitHub Actions
-            url: kubernetes-action.md
 
   # Card (optional)
   - title: Evaluate Linux-based AKS cluster

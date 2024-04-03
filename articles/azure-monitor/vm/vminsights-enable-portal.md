@@ -44,10 +44,10 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Not Monitored**. 
  
-1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, you must start it to enable it.
+1. Select **Enable** next to any machine that you want to enable. If a machine is currently not running, you must start it to enable it.
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
- 
+
 1. On the **Insights Onboarding** page, select **Enable**. 
  
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#vm-insights-data-collection-rule) from the **Data collection rule** dropdown. 

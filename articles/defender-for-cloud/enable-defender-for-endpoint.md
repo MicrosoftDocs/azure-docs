@@ -1,13 +1,14 @@
 ---
-title: Enable the Microsoft Defender for Endpoint integration
+title: Enable the Defender for Endpoint integration
 description: Learn how to deploy the Microsoft Defender for Endpoint integration in Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 03/13/2024
+#customer intent: As a user, I want to learn how to enable the Defender for Endpoint integration in Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---
 
-# Enable the Microsoft Defender for Endpoint integration
+# Enable the Defender for Endpoint integration
 
 Microsoft Defender for Cloud's integration with Microsoft Defender for Endpoint, provides a cloud-based endpoint security solution that offers a wide range of features. The integration provides risk-based vulnerability management and assessment, which helps identify and prioritize vulnerabilities that need to be addressed. The solution also includes attack surface reduction, which helps minimize the attack surface of endpoints, as well as behavioral-based and cloud-powered protection to detect and respond to threats. Additionally, Microsoft Defender for Endpoint offers endpoint detection and response (EDR), automatic investigation and remediation, and managed hunting services to help organizations quickly detect, investigate, and respond to security incidents.
 

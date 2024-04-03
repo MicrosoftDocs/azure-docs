@@ -2,7 +2,8 @@
 title: Use a customer-managed key to encrypt Azure managed disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt managed OS and data disks in AKS.
 ms.topic: article
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
 ms.date: 02/01/2024
 ---
 
