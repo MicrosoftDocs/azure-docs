@@ -1,6 +1,6 @@
 ---
 title: Delete or update a Standby Pool for Virtual Machine Scale Sets
-description: Learn how to delete or update a Standby Pool for Virtual Machine Scale Sets
+description: Learn how to delete or update a Standby Pool for Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -19,19 +19,24 @@ ms.reviewer: ju-shim
 
 ## Update a Standby Pool
 
+### [Portal](#tab/portal)
+To update an existing Standby Pool, navigate to Virtual Machine Scale set the Standby Pool is associated with. Under **Availability + scale** select **Standby pool**. Select the **Manage pool** option. This brings up a window where you can adjust the provisioning state and maximum ready capacity. The Standby Pool name can only be set during Standby Pool creation. 
+
+:::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
+
+
 ### [CLI](#tab/cli)
-Update an existing Standby Pool using [az standbypool update]().
+Update an existing Standby Pool using [az standby-vm-pool update](/cli/azure/standby-pool).
 
 ```azurecli-interactive
-az standbypool update \
+az standby-vm-pool update \
    --resource-group myResourceGroup 
    --name myStandbyPool \
    --max-ready-capacity 20 \
-   --virtual-machine-state "Deallocated" \
-   --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+   --vm-state "Deallocated" \
 ```
 ### [PowerShell](#tab/powershell)
-Update an existing Standby Pool using [Update-AzStandbyPool]().
+Update an existing Standby Pool using [Update-AzStandbyPool](/cli/azure/standby-pool).
 
 ```azurepowershell-interactive
 Update-AzStandbyPool `
@@ -39,7 +44,6 @@ Update-AzStandbyPool `
    -Name myStandbyPool `
    -MaxReadyCapcity 20 `
    -VirtualMachineState "Deallocated" `
-   -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
 ### [ARM Template](#tab/template)
@@ -105,11 +109,19 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 ## Delete a Standby Pool
 
+### [Portal](#tab/portal1)
+
+To delete an existing Standby Pool, navigate to Virtual Machine Scale set the Standby Pool is associated with. Under **Availability + scale** select **Standby pool**. Select **Delete pool**. This brings up a window where you can confirm the delete action. 
+
+:::image type="content" source="media/standby-pools/delete-standby-pool-portal.png" alt-text="A screenshot showing how to delete a Standby Pool in the portal.":::
+
+
+
 ### [CLI](#tab/cli1)
 Delete an existing Standby Pool using [az standbypool delete]().
 
 ```azurecli-interactive
-az standbypool delete --resource-group myResourceGroup --name myStandbyPool
+az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 ```
 ### [PowerShell](#tab/powershell1)
 Delete an existing Standby Pool using [Delete-AzStandbyPool]().
