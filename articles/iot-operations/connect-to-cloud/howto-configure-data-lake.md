@@ -319,22 +319,34 @@ spec:
         mapping: $received_time
 ```
 
-Escaped JSON like `{\"externalAssetId\": \"47e06be8-28f3-4d4b\", \"assetName\": \"thermostat-de\"}, \"CurrentTemperature\": 36, \"Pressure\": 42}` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
+Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T22:36:03.1827681Z\", \"DataSetWriterName\": \"new-thermostat\", \"MessageType\": \"ua-deltaframe\", \"Payload\": {\"temperature\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949717Z\", \"Value\": 5506}, \"Tag 10\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949888Z\", \"Value\": 5506}}}"` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
 
 ```json
 {
-  "externalAssetId": "47e06be8-28f3-4d4b",
-  "assetName": "thermostat-de",
-  "CurrentTemperature": 36,
-  "Pressure": 42
+  "SequenceNumber": 4697,
+  "Timestamp": "2024-04-02T22:36:03.1827681Z",
+  "DataSetWriterName": "new-thermostat",
+  "MessageType": "ua-deltaframe",
+  "Payload": {
+    "temperature": {
+      "SourceTimestamp": "2024-04-02T22:36:02.6949717Z",
+      "Value": 36
+    },
+    "Tag 10": {
+      "SourceTimestamp": "2024-04-02T22:36:02.6949888Z",
+      "Value": 42
+    }
+  }
 }
+
+
 ```
 
 Which maps to:
 
-| externalAssetId         | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
-| ----------------------- | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
-| 47e06be8-28f3-4d4b      | thermostat-de   | 36                 | 42       | dlc                           | 2023-07-28T12:45:59.324310806Z |
+| externalAssetId                      | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
+| ------------------------------------ | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
+| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 36                 | 42       | dlc                           | 2023-07-28T12:45:59.324310806Z |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
