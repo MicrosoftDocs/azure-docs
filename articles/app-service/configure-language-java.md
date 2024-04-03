@@ -717,7 +717,7 @@ This example transform adds a new connector node to `server.xml`. Note the *Iden
       <!-- This is the new connector -->
       <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
                  maxThreads="150" scheme="https" secure="true" 
-                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
                  clientAuth="false" sslProtocol="TLS" />
     </xsl:template>
 
@@ -981,7 +981,7 @@ An example xsl file is provided below. The example xsl file adds a new connector
     <!-- This is the new connector -->
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
                maxThreads="150" scheme="https" secure="true" 
-               keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
                clientAuth="false" sslProtocol="TLS" />
   </xsl:template>
   

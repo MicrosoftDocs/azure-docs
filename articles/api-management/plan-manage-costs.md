@@ -12,6 +12,8 @@ ms.date: 06/11/2021
 
 # Plan and manage costs for API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article describes how you plan for and manage costs for Azure API Management. First, you use the Azure pricing calculator to help plan for API Management costs before you add any resources for the service to estimate costs. After you've started using API Management resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
 
 Costs for API Management are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for API Management, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
@@ -61,7 +63,7 @@ When you create or use Azure resources with API Management, you'll get charged b
 | Tiers | Description |
 | ----- | ----------- |
 | Consumption | Incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. |
-| Developer, Basic, Standard, and Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md) and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier. [Upgrade](./upgrade-and-scale.md) to a different service tier at any time. |
+| Developer, Basic, Basic v2, Standard, Standard v2, and Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md) and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier. Different [upgrade](./upgrade-and-scale.md) options are available, depending on your service tier. |
 
 You may also incur additional charges when you use other Azure resources with API Management, like virtual networks, availability zones, and multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all API Management costs. There's a separate line item for each meter.
 
