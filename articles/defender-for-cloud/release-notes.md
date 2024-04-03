@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/25/2024
+ms.date: 04/02/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,11 +20,97 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## April 2024
+
+|Date | Update |
+|--|--|
+| April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
+| April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
+| April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
+| April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+### Defender for open-source relational databases updates
+
+April 3, 2024
+
+**Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
+
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud expanded its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
+
+This release includes:
+
+- Alert compatibility with existing alerts for Defender for MySQL Single Servers.
+- Enablement of individual resources.
+- Enablement at the subscription level.
+
+If you're already protecting your subscription with Defender for open-source relational databases, your flexible server resources are automatically enabled, protected, and billed.
+
+Specific billing notifications have been sent via email for affected subscriptions.
+
+Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+> [!NOTE]
+> Updates for Azure Database for MySQL flexible servers are rolling out over the next few weeks. If you see the error message `The server <servername> is not compatible with Advanced Threat Protection`, you can either wait for the update to roll out, or open a support ticket to update the server sooner to a supported version.
+
+### Update to recommendations to align with Azure AI Services resources
+
+April 2, 2024
+
+The following recommendations have been updated to align with the Azure AI Services category (formerly known as Cognitive Services and Cognitive search) to comply with the new Azure AI Services naming format and align with the relevant resources.
+
+| Old recommendation | Updated recommendation |
+| ---- | ---- |
+| Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
+| Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
+| Diagnostic logs in Search services should be enabled | [Diagnostic logs in Azure AI services resources should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e) |
+ 
+See the [list of security recommendations](recommendations-reference.md).
+
+### Deprecation of Cognitive Services recommendation
+
+April 2, 2024
+
+The recommendation [`Public network access should be disabled for Cognitive Services accounts`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7) is deprecated. The related policy definition [`Cognitive Services accounts should disable public network access`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) has been removed from the regulatory compliance dashboard.
+
+This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
+
+See the [list of security recommendations](recommendations-reference.md).
+
+### Containers multicloud recommendations (GA)
+
+April 2, 2024
+
+As part of Defender for Containers multicloud general availability, the following recommendations are announced GA as well:
+
+- For Azure
+
+| **Recommendation** | **Description** | **Assessment Key** |
+| ------------------ | --------------- | ------------------ |
+| Azure registry container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
+| Azure running container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
+
+- For GCP
+
+| **Recommendation** | **Description** | **Assessment Key** |
+| ------------------ | --------------- | ------------------ |
+| GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure  | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.   | c27441ae-775c-45be-8ffa-655de37362ce  |
+| GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure   | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Google Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 5cc3a2c1-8397-456f-8792-fe9d0d4c9145   |
+
+- For AWS
+
+| **Recommendation** | **Description** | **Assessment Key** |
+| ------------------ | --------------- | ------------------ |
+| AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. Scans your AWS registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c27441ae-775c-45be-8ffa-655de37362ce  |
+| AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Elastic Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 682b2595-d045-4cff-b5aa-46624eb2dd8f   |
+
+The recommendations affect the secure score calculation.
+
 ## March 2024
 
 |Date | Update |
 |--|--|
 | March 31 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
+| March 31 | [Windows container images scanning is now generally available (GA)](#windows-container-images-scanning-is-now-generally-available-ga) |
 | March 25 | [Continuous export now includes attack path data](#continuous-export-now-includes-attack-path-data) |
 | March 21 | [Agentless scanning supports CMK encrypted VMs in Azure (preview)](#agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
 | March 18 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
@@ -62,11 +148,17 @@ The previous container vulnerability assessment recommendations are on a depreca
 > [!NOTE]
 > Since the new recommendations are temporarily not included in the secure score calculation, this will lead to a temporary increase in the secure score, until the new recommendations are added to the secure score calculation.
 
+### Windows container images scanning is now generally available (GA)
+
+March 31, 2024
+
+We're announcing the general availability (GA) of the Windows container images support for scanning by Defender for Containers.
+
 ### Continuous export now includes attack path data
 
 March 25, 2024
 
-We are announcing that continuous export now includes attack path data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic deployment model solution.
+We're announcing that continuous export now includes attack path data. This feature allows you to stream security data to Log Analytics in Azure Monitor, to Azure Event Hubs, or to another Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), or IT classic deployment model solution.
 
 Learn more about [continuous export](benefits-of-continuous-export.md).
 
@@ -74,13 +166,13 @@ Learn more about [continuous export](benefits-of-continuous-export.md).
 
 March 21, 2024
 
-Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we are completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
+Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we're completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
 
-- Defender for Cloud does not handle the key or decryption process. Key handling and decryption is seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
+- Defender for Cloud doesn't handle the key or decryption process. Key handling and decryption are seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
 - The unencrypted VM disk data is never copied or re-encrypted with another key.
-- The original key is not replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
+- The original key isn't replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
 
-During public preview this capability is not automatically enabled. If you are using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
+During public preview this capability isn't automatically enabled. If you're using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
 
 - [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
 - [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)
@@ -89,9 +181,9 @@ During public preview this capability is not automatically enabled. If you are u
 
 March 18, 2024
 
-We are announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps.
+We're announcing new endpoint detection and response recommendations that discover and assesses the configuration of supported endpoint detection and response solutions. If issues are found, these recommendations offer remediation steps.
 
-The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported.
+The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines aren't supported.
 
 | Recommendation name | Description | Severity |
 |--|
@@ -154,31 +246,9 @@ Learn more about [automated remediation scripts](implement-security-recommendati
 
 March 6, 2024
 
-Based on customer feedback, we've added the following compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-| Compliance standard                                   | Version    | AWS                             | GCP                             |
-| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
-| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
-| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
-| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
-| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
-| CIS Google Cloud Platform Foundation Benchmark        | v2.0.0     | :x:                             | :white_check_mark:              |
-| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.5.0     | :x:                             | :white_check_mark:              |
-| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
-| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
-| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
-| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
-| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
-| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
-| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
-| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
-| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
-| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
-| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
-| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
-| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 

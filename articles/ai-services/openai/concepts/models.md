@@ -235,9 +235,9 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  --- | --- | :---: | :---: |
 | `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-| `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
+| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 ### Whisper models
 
@@ -254,7 +254,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio..
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
@@ -267,7 +267,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | UK South  | ✅ |  ✅ | ✅ |✅ | |
 
 
-For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+
 
 ## Next steps
 

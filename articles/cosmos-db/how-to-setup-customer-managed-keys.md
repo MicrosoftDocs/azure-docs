@@ -399,7 +399,8 @@ You can also follow similar steps with a user-assigned managed identity.
       },
       // ...
       "properties": {
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+        "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
       }
     }

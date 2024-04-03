@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli, linux-related-content
-ms.date: 04/13/2023
+ms.date: 03/27/2024
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -96,7 +96,7 @@ az aks update \
 
 > [!IMPORTANT]
 > Performing the `az aks update` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected. 
-> 
+>
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -120,7 +120,7 @@ $cluster | Set-AzAksCluster
 
 ## How many node pools can I create?
 
-The AKS cluster can have a maximum of 100 node pools. You can have a maximum of 1,000 nodes across those node pools. For more information, see [Node pool limitations][nodepool-limitations].
+An AKS cluster with Windows node pools doesn't have a different AKS resource limit than the default specified for the AKS service. For more information, see [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][nodepool-limit].
 
 ## What can I name my Windows node pools?
 
@@ -242,7 +242,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [upgrade-cluster]: upgrade-cluster.md
 [upgrade-cluster-cp]: manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
-[nodepool-limitations]: create-node-pools.md#limitations
+[nodepool-limit]: quotas-skus-regions.md
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
