@@ -1,6 +1,6 @@
 ---
-title: Manage permissions for Azure Operator Insights consumption plane
-description: This article helps you configure consumption URI permissions for Azure Operator Insights.
+title: Manage permissions to the consumption URL for Azure Operator Insights
+description: Learn how to add and remove user permissions to the consumption URL for Azure Operator Insights.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
