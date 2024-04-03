@@ -107,7 +107,7 @@ Now you can create a service connection to another target service and store conf
 
     :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content.":::
 
-## Use your connection with App Configuration Providers
+## Use your connection with App Configuration providers
 
 Azure App Configuration supports several providers or client libraries. We would use .NET code as an example here. For more information, please refer to [Azure App Configuration Documentation](../azure-app-configuration/reference-kubernetes-provider.md)
 
