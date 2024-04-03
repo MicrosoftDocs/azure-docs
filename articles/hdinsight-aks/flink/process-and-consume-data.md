@@ -143,11 +143,11 @@ public class Event {
 
 On Webssh, upload the jar and submit the jar
 
-:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink.":::
+:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink." border="true" lightbox="./media/process-consume-data/running-job-flink.png":::
 
 On Flink Dashboard UI
 
-:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink.":::
+:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink." border="true" lightbox="./media/process-consume-data/submit-jar-flink.png":::
 
 
 ## Produce the topic - clicks on Kafka
