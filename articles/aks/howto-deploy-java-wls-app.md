@@ -1,7 +1,7 @@
 ---
 title: "Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal"
 description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes Service.
-author: KarlErickson
+author: edburns
 ms.author: edburns
 ms.topic: how-to
 ms.date: 02/09/2024
@@ -729,3 +729,4 @@ Learn more about running WLS on AKS or virtual machines by following these links
 
 > [!div class="nextstepaction"]
 > [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+
