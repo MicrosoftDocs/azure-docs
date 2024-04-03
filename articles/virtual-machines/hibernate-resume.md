@@ -112,44 +112,6 @@ The following Windows operating systems support hibernation:
 - Hibernation is enabled on your VM when creating the VM.
 - If a VM is being created from an OS disk or a Compute Gallery image, then the OS disk or Gallery Image definition supports hibernation. 
 
-## Enabling hibernation feature for your subscription
-Use the following steps to enable this feature for your subscription:
-
-### [Portal](#tab/enablehiberPortal)
-1. In your Azure subscription, go to the Settings section and select 'Preview features'. 
-1. Search for 'hibernation'. 
-1. Check the 'Hibernation Preview' item.
-1. Click 'Register'.
-
-![Screenshot showing the Azure subscription preview portal with 4 numbers representing different steps in enabling the hibernation feature.](./media/hibernate-resume/hibernate-register-preview-feature.png)
-
-### [PowerShell](#tab/enablehiberPS)
-```powershell
-Register-AzProviderFeature -FeatureName "VMHibernationPreview" -ProviderNamespace "Microsoft.Compute"
-```
-### [CLI](#tab/enablehiberCLI)
-```azurecli
-az feature register --name VMHibernationPreview --namespace Microsoft.Compute
-```
----
-
-Confirm that the registration state is Registered (registration takes a few minutes) using the following command before trying out the feature.
-
-### [Portal](#tab/checkhiberPortal)
-In the Azure portal under 'Preview features', select 'Hibernation Preview'. The registration state should show as 'Registered'.
-
-![Screenshot showing the Azure subscription preview portal with the hibernation feature listed as registered.](./media/hibernate-resume/hibernate-is-registered-preview-feature.png)
-
-### [PowerShell](#tab/checkhiberPS)
-```powershell
-Get-AzProviderFeature -FeatureName "VMHibernationPreview" -ProviderNamespace "Microsoft.Compute"
-```
-### [CLI](#tab/checkhiberCLI)
-```azurecli
-az feature show --name VMHibernationPreview --namespace Microsoft.Compute
-```
----
-
 ## Getting started with hibernation
 
 To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM on initial creation. You can't enable this feature after the VM is created.
