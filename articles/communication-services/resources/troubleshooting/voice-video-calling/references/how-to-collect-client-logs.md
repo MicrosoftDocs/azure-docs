@@ -43,5 +43,5 @@ you need to set a limit on the log size.
 It can cause memory issues for a long running call if you don't set a limit.
 
 Additionally, if you send logs to a remote service, you may need to consider mechanisms such as compression and scheduling.
-When a client has limited bandwidth, sending a lot of logs in a short period of time can affect call quality.
+When a client has limited bandwidth, sending a lot of log data in a short period of time can affect call quality.
 

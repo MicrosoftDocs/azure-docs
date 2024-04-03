@@ -19,7 +19,7 @@ To collect the audio event log:
 * open Windows Event Viewer
 * browse the logs in *Application and Services Logs > Microsoft > Windows > Audio > Operational*
 * you can either
-    * select logs within time range, right click and choose *Save Selected Events* to save the selected events to an evtx file.
+    * select logs within time range, right click and choose *Save Selected Events*.
     * right click on Operational, and choose *Save All Events As*.
 
 :::image type="content" source="./media/windows-audio-event-log.png" alt-text="Windows Audio Event Log":::

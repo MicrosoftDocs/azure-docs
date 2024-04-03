@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # microphonePermissionDenied UFD
-The `microphonePermissionDenied UFD` with a `true` value occurs when the SDK detects that the microphone permission has been denied either at browser layer or at OS level.
+The `microphonePermissionDenied` UFD with a `true` value occurs when the SDK detects that the microphone permission has been denied either at browser layer or at OS level.
 
 | microphonePermissionDenied            | Details                |
 | --------------------------------------|------------------------|

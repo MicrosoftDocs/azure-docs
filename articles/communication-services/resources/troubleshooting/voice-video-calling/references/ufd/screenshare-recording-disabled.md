@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # screenshareRecordingDisabled UFD
-The `screenshareRecordingDisabled UFD` occurs when the SDK detects that the screen sharing permission has been denied in OS settings on macOS.
+The `screenshareRecordingDisabled` UFD occurs when the SDK detects that the screen sharing permission has been denied in OS settings on macOS.
 
 | screenshareRecordingDisabled          | Details                |
 | --------------------------------------|------------------------|

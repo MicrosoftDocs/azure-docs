@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # capturerStoppedUnexpectedly UFD
-The `capturerStoppedUnexpectedly UFD` with a `true` value occurs when the SDK detects that the screen sharing track has been muted,
+The `capturerStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the screen sharing track has been muted,
 which can happen due to external reasons and depends on the browser implementation.
 For example, if the user shares a window and minimize that window, the `capturerStoppedUnexpectedly` UFD may fire.
 

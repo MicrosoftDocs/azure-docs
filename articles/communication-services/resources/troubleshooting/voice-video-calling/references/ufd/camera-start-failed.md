@@ -13,9 +13,9 @@ ms.subservice: calling
 ---
 
 # cameraStartFailed UFD
-The `cameraStartFailed UFD` with a `true` value occurs when the SDK is unable to acquire the camera stream because the source is unavailable.
+The `cameraStartFailed` UFD with a `true` value occurs when the SDK is unable to acquire the camera stream because the source is unavailable.
 This error typically happens when the the specified video device is being used by another process.
-For example, the user may encounter this `cameraStartFailed UFD`  when they attempt to join a call with video on a browser such as Chrome while another Edge browser has been using the same camera.
+For example, the user may encounter this `cameraStartFailed` UFD  when they attempt to join a call with video on a browser such as Chrome while another Edge browser has been using the same camera.
 
 | cameraStartFailed                     | Details                |
 | --------------------------------------|------------------------|

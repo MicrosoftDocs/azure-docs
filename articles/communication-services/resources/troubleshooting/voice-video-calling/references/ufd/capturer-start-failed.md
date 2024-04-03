@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # capturerStartFailed UFD
-The `capturerStartFailed UFD` with a `true` value occurs when the SDK is unable to acquire the screen sharing stream because the source is unavailable,
+The `capturerStartFailed` UFD with a `true` value occurs when the SDK is unable to acquire the screen sharing stream because the source is unavailable,
 which can happen when the underlying layer prevents the sharing of the selected source.
 
 | capturerStartFailed         | Details                |

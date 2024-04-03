@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraPermissionDenied UFD
-The `cameraPermissionDenied UFD` event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at OS level.
+The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at OS level.
 
 | cameraPermissionDenied                | Details                |
 | --------------------------------------|------------------------|
