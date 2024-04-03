@@ -49,7 +49,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --node-count 1
     ```
 
-1. connect to the cluster with the following command.
+1. Connect to the cluster with the following command.
 
     ```azurecli
     az aks get-credentials \
@@ -75,8 +75,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --name MyRegistry \
         --sku Standard
     ```
-
-And enable anonymous pull so that AKS cluster can consume the images in the registry.
+   And enable anonymous pull so that AKS cluster can consume the images in the registry.
 
     ```azurecli
     az acr update \
