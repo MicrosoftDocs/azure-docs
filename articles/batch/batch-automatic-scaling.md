@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 04/02/2024
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
@@ -239,7 +239,7 @@ You can use both resource and task metrics when you define a formula. You adjust
 
 | Metric   | Description  |
 |----------|--------------|
-| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $SampleNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent <br>- $WallClockSeconds <br>- $MemoryBytes <br>- $DiskBytes <br>- $DiskReadBytes <br>- $DiskWriteBytes <br>- $DiskReadOps <br>- $DiskWriteOps <br>- $NetworkInBytes <br>- $NetworkOutBytes |
+| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent <br>- $WallClockSeconds <br>- $MemoryBytes <br>- $DiskBytes <br>- $DiskReadBytes <br>- $DiskWriteBytes <br>- $DiskReadOps <br>- $DiskWriteOps <br>- $NetworkInBytes <br>- $NetworkOutBytes |
 | Task     | Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics: <br>- $ActiveTasks <br>- $RunningTasks <br>- $PendingTasks <br>- $SucceededTasks <br>- $FailedTasks |
 
 ## Obtain sample data
