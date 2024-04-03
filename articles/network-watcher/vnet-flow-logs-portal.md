@@ -26,9 +26,9 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
-- A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+- A virtual network. If you need to create a virtual network, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md?toc=/azure/network-watcher/toc.json).
 
-- An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal).
+- An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
 
 ## Register Insights provider
 
@@ -71,7 +71,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of the storage account. |
     | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a VNet flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png":::
 
@@ -110,7 +110,7 @@ To enable traffic analytics for a flow log, follow these steps:
 
 1. In **Flow logs settings**, check the **Enable traffic analytics** checkbox.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics-box.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics-box.png":::
+    :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics.png":::
 
 1. Enter or select the following values:
 
