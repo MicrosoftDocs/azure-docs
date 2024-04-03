@@ -215,10 +215,11 @@ Get-AzStorageAccountMigration
 
 To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
 
-```powershell
-Get-AzStorageAccountMigration
-   -AccountName <String>
-   -ResourceGroupName <String>
+```Azure CLI
+az storage account migration show [--account-name]
+                                  [--migration-name {default}]
+                                  [--resource-group]
+                                  [--subscription]
 ```
 
 ---
