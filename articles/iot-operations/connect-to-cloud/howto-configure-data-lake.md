@@ -338,15 +338,13 @@ Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T2
     }
   }
 }
-
-
 ```
 
 Which maps to:
 
 | externalAssetId                      | assetName       | CurrentTemperature | Pressure | mqttTopic                     | timestamp                      |
 | ------------------------------------ | --------------- | ------------------ | -------- | ----------------------------- | ------------------------------ |
-| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 36                 | 42       | dlc                           | 2023-07-28T12:45:59.324310806Z |
+| 59ad3b8b-c840-43b5-b79d-7804c6f42172 | thermostat-de   | 36                 | 42       | dlc                           | 2024-04-02T22:36:03.1827681Z   |
 
 > [!IMPORTANT]
 > If the data schema is updated, for example a data type is changed or a name is changed, transformation of incoming data might stop working. You need to change the data table name if a schema change occurs.
