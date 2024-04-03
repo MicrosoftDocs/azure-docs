@@ -10,7 +10,7 @@ ms.date: 03/20/2024
 
 # Quickstart: Connect Azure services and store configuration in an App Configuration store
 
-[Azure App Configuration](../azure-app-configuration/overview.md) is a cloud service that provides a central store for managing application settings. The configuration stored in App Configuration naturally supports IaC tools. When you create a service connection via Service Connector, you can choose to store your connection configuration into a connected App Configuration. In this tutorial, you'll complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
+[Azure App Configuration](../azure-app-configuration/overview.md) is a cloud service that provides a central store for managing application settings. The configuration stored in App Configuration naturally supports Infrastructure as Code tools. When you create a service connection using Service Connector, you can choose to store your connection configuration in a connected App Configuration store. In this tutorial, you'll complete the following tasks using the Azure portal. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > * Create a service connection to Azure App Configuration in Azure App Service
