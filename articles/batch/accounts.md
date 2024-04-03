@@ -40,7 +40,7 @@ You can associate a storage account with your Batch account when you create the 
 When a storage account is linked to a Batch account, it's considered to be the *autostorage account*. An autostorage account is required if you plan to use the [application packages](batch-application-packages.md) capability, as it's used to store the application package .zip files. It can also be used for [task resource files](resource-files.md#storage-container-name-autostorage). Linking Batch accounts to autostorage can avoid the need for shared access signature (SAS) URLs to access the resource files.
 
 > [!NOTE]
-> Batch nodes automatically unzip application package .zip files when they are pulled down from a linked storage account. This can cause the node autostorage to fill up prematurely. For more information, see [Manage Batch application package](/cli/azure/batch/application/package/index.yml).
+> Batch nodes automatically unzip application package .zip files when they are pulled down from a linked storage account. This can cause the node autostorage to fill up prematurely. For more information, see [Manage Batch application package](/cli/azure/batch/application/package).
 
 ## Next steps
 
