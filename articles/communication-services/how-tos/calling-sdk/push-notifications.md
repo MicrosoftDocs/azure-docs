@@ -30,6 +30,8 @@ There's a **24-hour limit** after the register push notification API is called w
 
 In case that you want to revoke an identity you need to follow [the next proces](../../concepts/identity-model.md#revoke-or-update-access-token). Once the identity is revoked the Registrar entry should be deleted.
 
+Note: For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there is no way to increase this value.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

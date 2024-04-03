@@ -23,7 +23,7 @@ You can take a look at [voice and video calling events](../../event-grid/communi
 
 The current limitations of using the Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications.md) are:
 
-* The maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**.
+* The maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)**.
 * There's a **24-hour limit** after the register push notification API is called when the device token information is saved. 
 * Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the Calling SDK.
 
