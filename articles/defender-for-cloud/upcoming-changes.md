@@ -45,7 +45,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
-## Deprecation of compute recommendation
+## Deprecation of encryption recommendation
 
 **Announcement date: April 3, 2024**
 
