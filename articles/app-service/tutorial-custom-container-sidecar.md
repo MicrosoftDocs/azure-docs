@@ -126,7 +126,7 @@ You configure environment variables for the containers like any App Service app,
 
 1. In the app's management page, from the left menu, select **Configuration**.
 
-1. Add an app setting by selecting **New application setting** and configure it as follows:    
+1. Add an app setting by selecting **New application setting** and configure it as follows:
     - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
     - **Value**: The connection string in the output of `azd provision`
 
@@ -141,7 +141,7 @@ You configure environment variables for the containers like any App Service app,
 
 The otel-collector sidecar should export data to Application Insights now.
 
-1. Back in the browser tab for `https:<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
+1. Back in the browser tab for `https://<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
 1. Go back to the resource group overview page, select the Application Insights resource. You should now see some data in the default charts.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
