@@ -54,7 +54,7 @@ Deploy software updates (install patches) | Provides three modes of deploying up
 
 ## Guidance to use Azure Update Manager on MCM managed machines
 
-As a first step in MCM user's journey towards Azure Update Manager, you need to enable Azure Update Manager on your existing MCM managed servers (i.e. ensure to achieve that Azure Update Manager and MCM are in co-existence). The following section address few challenges that you might encounter in this first step.
+As a first step in MCM user's journey towards Azure Update Manager, you need to enable Azure Update Manager on your existing MCM managed servers (i.e. ensure that Azure Update Manager and MCM co-existence is achieved). The following section address few challenges that you might encounter in this first step.
 
 ### Overview of current MCM setup
 
