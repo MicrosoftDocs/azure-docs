@@ -92,7 +92,7 @@ You need to implement the logic for converting the data to an appropriate format
 > [!WARNING]
 > Deletes in Log Analytics are destructive and non-reversible! Please use extreme caution in their execution.
 
-Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
+Azure Monitor's [Purge API](/rest/api/loganalytics/workspacepurge/purge) lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
 Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
