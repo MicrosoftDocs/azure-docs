@@ -124,9 +124,21 @@ param initialPoolAgentOptions object = {}
 
 @description('The cluster wide SSH public key that will be associated with the given user for secure remote login')
 param sshPublicKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
 
 @description('The control plane SSH public key that will be associated with the given user for secure remote login')
 param controlPlaneSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
 
 @description('The agent pool SSH public key that will be associated with the given user for secure remote login')
 param agentPoolSshKeys array = []
