@@ -8,6 +8,8 @@ ms.author: danlep
 
 ## Prerequisites
 
+Review the [network resource requirements for API Management injection into a virtual network](../articles/api-management/virtual-network-injection-resources.md) before you begin.
+
 Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](../articles/api-management/compute-infrastructure.md) hosting your API Management instance.
 
 > [!TIP]
