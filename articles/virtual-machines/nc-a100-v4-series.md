@@ -52,17 +52,17 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
 
 
 
-| Size | vCPU | Memory (GiB) | Temp Disk (GiB)  | NVMe Disks | GPU | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
+| Size | vCPU | Memory (GiB) | Temp Disk<sup>1</sup> (GiB)  | NVMe Disks<sup>2</sup> | GPU<sup>3</sup> | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NC24ads_A100_v4   | 24  | 220 |64 | 960 GB | 1 | 80  | 8 | 30000/1000 | 2/20,000  |
 | Standard_NC48ads_A100_v4   | 48 | 440 | 128| 2x960 GB| 2 | 160 | 16 | 60000/2000 | 4/40,000  | 
 | Standard_NC96ads_A100_v4   | 96 | 880 | 256| 4x960 GB | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
-1 GPU = one A100 card <br>
-1. Local NVMe disk is coming as RAM and it needs to be manually formatted in newly deployed VM.
+<sup>1</sup>  NC A100 v4 series VMs have a standard SCSI based temp resource disk for OS paging/swap file use. This ensures the NVMe drives can be fully dedicated to application use. This disk is Ephemeral, and all data will be lost on stop/deallocate.
 
-> [!NOTE]
-> Local NVMe disks are ephemeral, and any data stored on these disks will be lost if the VM is stopped or deallocated. 
+<sup>2</sup> Local NVMe disks are ephemeral, data will be lost on these disks if you stop/deallocate your VM. Local NVMe disk is coming as RAM and it needs to be manually formatted in newly deployed VM.
+
+<sup>3</sup>1 GPU = one A100 80GB PCIe GPU card <br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

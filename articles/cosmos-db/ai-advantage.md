@@ -30,7 +30,7 @@ There are many benefits when using Azure Cosmos DB and Azure AI together:
 
 The Azure AI Advantage offer is for existing Azure AI and GitHub Copilot customers who want to use Azure Cosmos DB as part of their solution stack. With this offer, you get:
 
-- Free 40,000 RU/s of Azure Cosmos DB throughput for 90 days.
+- Free 40,000 [RU/s](request-units.md) of Azure Cosmos DB throughput (equivalent of up to $6,000) for 90 days.
 
 - Funding to implement a new AI application using Azure Cosmos DB and/or Azure Kubernetes Service. For more information, speak to your Microsoft representative.
 
