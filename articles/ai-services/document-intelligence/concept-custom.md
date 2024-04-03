@@ -51,7 +51,7 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
-> Starting with version 3.1—2024-02-29-preview API, custom neural models now support overlapping fields and table, row and cell level confidence.
+> Starting with version 4.0 — 2024-02-29-preview API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
 >
 
 The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
@@ -219,10 +219,10 @@ For a detailed walkthrough to create your first custom extraction model, *see* [
 
 This table compares the supported data extraction areas:
 
-|Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
-|--|:--:|:--:|:--:|:--:|:--:|
-|Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
-|Custom neural| ✔| ✔ | ✔ | **n/a** | ***** |
+|Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling | Overlapping fields |
+|--|:--:|:--:|:--:|:--:|:--:|:--:|
+|Custom template| ✔ | ✔ | ✔ | ✔ | ✔ | **n/a** |
+|Custom neural| ✔| ✔ | ✔ | **n/a** | * | ✔ (2024-02-29-preview) |
 
 **Table symbols**:<br>
 ✔—Supported<br>
@@ -268,27 +268,6 @@ The following table describes the features available with the associated tools a
 
 *See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
-### Try signature detection
-
-* **Custom model v4.0, v3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Document Intelligence v3.1 migration guide](v3-1-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
-* [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP): This API shows you more about the v3.0 version and new capabilities.
-
-1. Build your training dataset.
-
-1. Go to [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
-
-    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Document Intelligence Studio Custom form page.":::
-
-1. Follow the workflow to create a new project:
-
-   * Follow the **Custom model** input requirements.
-
-   * Label your documents. For signature fields, use **Region** labeling for better accuracy.
-
-      :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot that shows the Label signature field.":::
-
-After your training set is labeled, you can train your custom model and use it to analyze documents. The signature fields specify whether a signature was detected or not.
 
 ## Next steps
 

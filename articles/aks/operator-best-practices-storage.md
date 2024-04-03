@@ -3,6 +3,7 @@ title: Best practices for storage and backup
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
+ms.subservice: aks-storage
 ms.date: 04/28/2023
 
 ---
@@ -99,7 +100,7 @@ For more information about available VM sizes, see [Sizes for Linux virtual mach
 
 To attach storage to pods, use persistent volumes. Persistent volumes can be created manually or dynamically. Creating persistent volumes manually adds management overhead and limits your ability to scale. Instead, provision persistent volume dynamically to simplify storage management and allow your applications to grow and scale as needed.
 
-![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volume-claims.png)
+![Diagram of persistent volume claims in an Azure Kubernetes Services (AKS) cluster.](media/concepts-storage/aks-storage-persistent-volume-claim.png)
 
 A persistent volume claim (PVC) lets you dynamically create storage as needed. Underlying Azure disks are created as pods request them. In the pod definition, request a volume to be created and attached to a designated mount path.
 

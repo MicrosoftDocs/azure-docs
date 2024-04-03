@@ -3,6 +3,7 @@ title: Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes S
 description: Describes how to statically provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service.
 ms.topic: article
 ms.custom:
+ms.subservice: aks-storage
 ms.date: 02/26/2024
 ---
 

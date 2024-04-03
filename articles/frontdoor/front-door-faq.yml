@@ -256,7 +256,7 @@ sections:
         answer: |
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
-          You can choose to use TLS 1.0, 1.1 or 1.2 with Front Door, but TLS 1.3 isn't supported yet. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          You can choose to use TLS 1.0, 1.1, 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
                   
   - name: Billing
     questions:

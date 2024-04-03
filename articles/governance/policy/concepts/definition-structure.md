@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/15/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ---
 
@@ -76,19 +76,19 @@ Azure Policy built-ins and patterns are at [Azure Policy samples](../samples/ind
 
 ## Display name and description
 
-You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+You use `displayName` and `description` to identify the policy definition and provide context
+for when it's used. `displayName` has a maximum length of _128_ characters and `description`
 a maximum length of _512_ characters.
 
 > [!NOTE]
-> During the creation or updating of a policy definition, **id**, **type**, and **name** are defined
+> During the creation or updating of a policy definition, `id`, `type`, and `name` are defined
 > by properties external to the JSON and aren't necessary in the JSON file. Fetching the policy
-> definition via SDK returns the **id**, **type**, and **name** properties as part of the JSON, but
+> definition via SDK returns the `id`, `type`, and `name` properties as part of the JSON, but
 > each are read-only information related to the policy definition.
 
-## Type
+## Policy type
 
-While the **type** property can't be set, there are three values that are returned by SDK and
+While the `policyType` property can't be set, there are three values that are returned by SDK and
 visible in the portal:
 
 - `Builtin`: These policy definitions are provided and maintained by Microsoft.
@@ -143,7 +143,7 @@ The following Resource Provider modes are fully supported:
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
-The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
+The following Resource Provider modes are currently supported as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/):
 
 - `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list. This RP mode is enforcement only and does not report compliance in public preview.

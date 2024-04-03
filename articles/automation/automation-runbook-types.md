@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/29/2024
+ms.date: 03/23/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ---
@@ -21,7 +21,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook.
 
@@ -262,7 +262,9 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ### Limitations
 
-* You must be familiar with PowerShell Workflow.
+* PowerShell workflow isn't supported in PowerShell 7+ versions. Hence, the outdated runbooks can't be upgraded.
+* Inefficient handling of parallel execution compared to newer PowerShell 7+ versions.
+* PowerShell Workflow internally works using multiple processes. Hence, modules available in one process may not be available in another and cause exceptions like *command not found*.
 * Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.

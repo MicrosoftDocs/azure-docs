@@ -26,12 +26,12 @@ If you want to get cost and usage data using the Azure CLI, see [Get usage data 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
-    ![Screenshot shows Azure portal search for Cost Management + Billing.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    :::image type="content" border="true" source="./media/download-azure-daily-usage/portal-cm-billing-search.png" alt-text="Screenshot showing Azure portal search for Cost Management + Billing.":::
 1. Depending on your access, you might need to select a Billing account or Billing profile.
 1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
 1. Select the **download icon** or the ellipsis (`...`) on the right.  
-  ![Screenshot shows Cost Management + Billing Invoices page with download option.](./media/download-azure-daily-usage/download-usage-others.png)  
+  :::image type="content" border="true" source="./media/download-azure-daily-usage/download-usage-others.png" alt-text="Screenshot showing the Cost Management + Billing Invoices page with the download option.":::  
 1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.  
 
 ## Download usage for EA customers
@@ -40,11 +40,11 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
-    ![Screenshot shows Azure portal search.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    :::image type="content" border="true" source="./media/download-azure-daily-usage/portal-cm-billing-search.png" alt-text="Screenshot shows an Azure portal search.":::
 1. If you have access to multiple billing accounts, select the billing scope for your EA billing account.
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.  
-    ![Screenshot shows Cost Management + Billing Invoices page for E A customers.](./media/download-azure-daily-usage/download-usage-ea.png)
+    :::image type="content" border="true" source="./media/download-azure-daily-usage/download-usage-ea.png" alt-text="Screenshot shows the Cost Management + Billing Invoices page for E A customers.":::
 1. On the Download Usage + Charges page, under Usage Details, select the type of charges that you want to download from the list. Depending on your selection, the CSV file provides all charges (usage and purchases) including RI (reservation) purchases. Or, amortized charges (usage and purchases) including reservation purchases. 
     :::image type="content" source="./media/download-azure-daily-usage/select-usage-detail-charge-type.png" alt-text="Screenshot showing the Usage Details charge type selection to download." :::
 1. Select **Prepare document**.
@@ -84,7 +84,7 @@ Discount percentage = (Discount amount / AX) * 100
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Then use the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
 

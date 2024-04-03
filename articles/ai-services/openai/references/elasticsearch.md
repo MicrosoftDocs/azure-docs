@@ -5,14 +5,14 @@ description: Learn how to use Azure OpenAI on your Elasticsearch data Python & R
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/14/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-python
 ---
 
-# Data source - Elasticsearch
+# Data source - Elasticsearch (preview)
 
 The configurable options for Elasticsearch when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 

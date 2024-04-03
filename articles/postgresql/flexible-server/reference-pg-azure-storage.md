@@ -649,4 +649,4 @@ LIMIT 5;
 ## Related content
 
 - [overview](concepts-storage-extension.md)
-- [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)
+- [feedback forum](https://aka.ms/pgfeedback)

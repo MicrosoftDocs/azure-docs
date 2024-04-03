@@ -30,27 +30,27 @@ Suppose your application has two deployments: `deployment1` and `deployment2`. C
 
 This makes `deployment2` the staging deployment. Thus, when the Continuous Delivery (CD) pipeline is ready to run, it deploys the next version of the app, version `v4`, onto the staging deployment `deployment2`.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-1.png" alt-text="Two deployments: deployment1 receives production traffic" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-1.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-1.png" alt-text="Diagram that shows deployment1 with v3 receiving production traffic and deployment2 staging v4." border="false":::
 
 After `v4` has started up on `deployment2`, you can run automated and manual tests against it through a private test endpoint to ensure `v4` meets all expectations.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-2.png" alt-text="V4 is now deployed on deployment2 and undergoes testing" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-2.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-2.png" alt-text="Diagram that shows V4 deployed on deployment2 and undergoing testing." border="false":::
 
 When you have confidence in `v4`, you can set `deployment2` as the production deployment so that it receives all production traffic. `v3` will remain running on `deployment1` in case you discover a critical issue that requires rolling back.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-3.png" alt-text="V4 on deployment2 now receives production traffic" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-3.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-3.png" alt-text="Diagram that shows V4 on deployment2 receiving production traffic." border="false":::
 
 Now, `deployment1` is the staging deployment. So the next run of the deployment pipeline deploys onto `deployment1`.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-4.png" alt-text="V5 deployed on deployment1" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-4.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-4.png" alt-text="Diagram that shows V5 staged to deployment1." border="false":::
 
 You can now test `V5` on `deployment1`'s private test endpoint.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-5.png" alt-text="V5 tested on deployment1" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-5.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-5.png" alt-text="Diagram that shows V5 tested on deployment1." border="false":::
 
 Finally, after `v5` meets all your expectations, you set `deployment1` as the production deployment once again, so that `v5` receives all production traffic.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-6.png" alt-text="V5 receives traffic on deployment1" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-6.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-6.png" alt-text="Diagram that shows V5 receiving production traffic on deployment1." border="false":::
 
 ### Tradeoffs of the alternating deployments approach
 
@@ -64,7 +64,7 @@ The staging deployment always remains running, and thus consuming resources of t
 
 Suppose in the above application, the release pipeline requires manual approval before each new version of the application can receive production traffic. This creates the risk that while one version (`v6`) awaits manual approval on the staging deployment, the deployment pipeline will run again and overwrite it with a newer version (`v7`). Then, when the approval for `v6` is granted, the pipeline that deployed `v6` will set the staging deployment as production. But now it will be the unapproved `v7`, not the approved `v6`, that is deployed on that deployment and receives traffic.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-race-condition.png" alt-text="The approval race condition" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-race-condition.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/alternating-deployments-race-condition.png" alt-text="Diagram that shows the approval race condition described in this section." border="false" lightbox="media/concepts-blue-green-deployment-strategies/alternating-deployments-race-condition.png":::
 
 You may be able to prevent the race condition by ensuring that the deployment flow for one version can't begin until the deployment flow for all previous versions is complete or aborted. Another way to prevent the approval race condition is to use the Named Deployments approach described below.
 
@@ -74,15 +74,15 @@ In the named deployments approach, a new deployment is created for each new vers
 
 In the illustration below, version `v5` is running on the deployment `deployment-v5`. The deployment name now contains the version because the deployment was created specifically for this version. There's no other deployment at the outset. Now, to deploy version `v6`, the deployment pipeline creates a new deployment `deployment-v6` and deploys app version `v6` there.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-1.png" alt-text="Deploying new version on a named deployment" lightbox="media/concepts-blue-green-deployment-strategies/named-deployment-1.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-1.png" alt-text="Diagram that shows deployment of a new version on a named deployment as described in this section." border="false" lightbox="media/concepts-blue-green-deployment-strategies/named-deployment-1.png":::
 
 There's no risk of another version being deployed in parallel. First, Azure Spring Apps doesn't allow the creation of a third deployment while two deployments already exist. Second, even if it was possible to have more than two deployments, each deployment is identified by the version of the application it contains. Thus, the pipeline orchestrating the deployment of `v6` would only attempt to set `deployment-v6` as the production deployment.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-2.png" alt-text="New version receives production traffic named deployment" lightbox="media/concepts-blue-green-deployment-strategies/named-deployment-2.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-2.png" alt-text="Diagram that shows v6 deployed to deployment-v6 and receiving production traffic." border="false":::
 
 After the deployment created for the new version receives production traffic, you'll need to remove the deployment containing the previous version to make room for future deployments. You may wish to postpone by some number of minutes or hours so you can roll back to the previous version if you discover a critical issue in the new version.
 
-:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-3.png" alt-text="After a fallback period, deleting the previous deployment" lightbox="media/concepts-blue-green-deployment-strategies/named-deployment-3.png":::
+:::image type="content" source="media/concepts-blue-green-deployment-strategies/named-deployment-3.png" alt-text="Diagram that shows that, after a fallback period, the previous deployment is deleted." border="false":::
 
 ### Tradeoffs of the named deployments approach
 

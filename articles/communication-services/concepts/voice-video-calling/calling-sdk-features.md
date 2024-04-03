@@ -97,6 +97,8 @@ The following list presents the set of features that are currently available in 
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
+| Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
