@@ -22,11 +22,35 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## April 2024
 
-| Date    | Update                                                           |
-| ------- | ---------------------------------------------------------------- |
+|Date | Update |
+|--|--|
+| April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
 | April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
 | April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+### Defender for open-source relational databases updates
+
+April 3, 2024
+
+**Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
+
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud expanded its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
+
+This release includes:
+
+- Alert compatibility with existing alerts for Defender for MySQL Single Servers.
+- Enablement of individual resources.
+- Enablement at the subscription level.
+
+If you're already protecting your subscription with Defender for open-source relational databases, your flexible server resources are automatically enabled, protected, and billed.
+
+Specific billing notifications have been sent via email for affected subscriptions.
+
+Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+> [!NOTE]
+> Updates for Azure Database for MySQL flexible servers are rolling out over the next few weeks. If you see the error message `The server <servername> is not compatible with Advanced Threat Protection`, you can either wait for the update to roll out, or open a support ticket to update the server sooner to a supported version.
 
 ### Update to recommendations to align with Azure AI Services resources
 
