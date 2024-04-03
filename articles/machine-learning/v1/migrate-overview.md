@@ -41,7 +41,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 > * Step 5: Clean up Studio (classic) assets
 > * Step 6: Review and expand scenarios
 
-## Step 1: Assess Azure Machine Learning
+### Step 1: Assess Azure Machine Learning
 
 1. Learn about [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) and its benefits, costs, and architecture.
 
@@ -54,8 +54,8 @@ To migrate to Azure Machine Learning, we recommend the following approach:
     | Drag-and-drop interface | Classic experience | Updated experience: [Azure Machine Learning designer](../concept-designer.md)|
     | Code SDKs | Not supported | Fully integrated with Azure Machine Learning [Python](/python/api/overview/azure/ml/) and [R](https://github.com/Azure/azureml-sdk-for-r) SDKs |
     | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-    | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](../concept-compute-target.md#training-compute-targets)<br><br> Includes GPU and CPU support |
-    | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](../concept-compute-target.md#compute-targets-for-inference)<br><br> Includes GPU and CPU support |
+    | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](../concept-compute-target.md#training-compute-targets); includes GPU and CPU support |
+    | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](../concept-compute-target.md#compute-targets-for-inference); includes GPU and CPU support |
     | Machine learning pipeline | Not supported | Build flexible, modular [pipelines](../concept-ml-pipelines.md) to automate workflows |
     | MLOps | Basic model management and deployment; CPU-only deployments | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, CPU and GPU deployments, [and more](../concept-model-management-and-deployment.md) |
     | Model format | Proprietary format, Studio (classic) only | Multiple supported formats depending on training job type |
@@ -72,7 +72,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 1. Create an [Azure Machine Learning workspace](../quickstart-create-resources.md).
 
-## Step 2: Define a strategy and plan
+### Step 2: Define a strategy and plan
 
 1. Define business justifications and expected outcomes.
 
@@ -84,7 +84,7 @@ Please work with your cloud solution architect to define your strategy.
 
 For planning resources, including a planning doc template, see the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo).
 
-## Step 3: Rebuild your first model
+### Step 3: Rebuild your first model
 
 After you define a strategy, migrate your first model.
 
@@ -97,15 +97,15 @@ After you define a strategy, migrate your first model.
     >[!NOTE]
     > This guidance is built on top of Azure Machine Learning v1 concepts and features. Azure Machine Learning has CLI v2 and Python SDK v2. We suggest that you rebuild your Studio (classic) models using v2 instead of v1. Start with [Azure Machine Learning v2](../concept-v2.md).
 
-## Step 4: Integrate client apps
+### Step 4: Integrate client apps
 
 Modify client applications that invoke Studio (classic) web services to use your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
 
-## Step 5: Clean up Studio (classic) assets
+### Step 5: Clean up Studio (classic) assets
 
 To avoid extra charges, [clean up Studio (classic) assets](../classic/export-delete-personal-data-dsr.md). You might want to retain assets for fallback until you've validated Azure Machine Learning workloads.
 
-## Step 6: Review and expand scenarios
+### Step 6: Review and expand scenarios
 
 1. Review the model migration for best practices and validate workloads.
 
