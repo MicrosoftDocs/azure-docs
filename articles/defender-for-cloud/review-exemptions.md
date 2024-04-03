@@ -30,7 +30,7 @@ Once a resource has been exempted it will no longer be taken into account for se
 
 1. Select **Apply**.
 
-    :::image type="content" source="media/review-exemptions/exempted-resources.png" alt-text="Screenshot of the reccommendations page that shows where the recommendation status, exempted and apply button are located." lightbox="media/review-exemptions/exempted-resources.png":::
+    :::image type="content" source="media/review-exemptions/exempted-resources.png" alt-text="Screenshot of the recommendations page that shows where the recommendation status, exempted and apply button are located." lightbox="media/review-exemptions/exempted-resources.png":::
 
 1. Select a resource to review it.
 
