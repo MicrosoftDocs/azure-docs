@@ -15,7 +15,7 @@ ms.author: lajanuar
 >
 > This project uses cURL command-line tool to execute REST API calls.
 
-[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure client libraries](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported client libraries](../../../sdk-overview-v3-1.md)
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../../sdk-overview-v4-0.md)
 
 ## Prerequisites
 
@@ -62,26 +62,26 @@ Use the following table as a reference. Replace *\<modelId>* and *\<document-url
 Open a console window and run the following cURL command. The commands include the endpoint and key environment variables previously created in the set environment variables section. Replace those variables if your variable names differ. Remember to replace the *\<modelId>* and *\<document-url>* parameters.
 
 ```console
-curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/<modelId>:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
+curl -i -X POST "%DI_ENDPOINT%/documentintelligence/documentModels/{modelId}:analyze?api-version=2024-02-29-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %DI_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
 ```
 
-To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the `2023-07-31` (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, see [Custom models](../../../concept-accuracy-confidence.md).
+To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the `2023-07-31` (GA) and later releases: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, see [Custom models](../../../concept-accuracy-confidence.md).
 
 You can only call the *highResolution*, *formula*, and *font* capabilities for the Read and Layout model, and the *queryFields* capability for the General Documents model. The following example shows how to call the *highResolution*, *formula*, and *font* capabilities for the Layout model.
 
 ```bash
-curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
+curl -i -X POST "%DI_ENDPOINT%documentintelligence/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2024-02-29-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %DI_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
 ```
 
 ### POST response
 
 You receive a `202 (Success)` response that includes an `Operation-location` header. Use the value of this header to retrieve the response results.
 
-:::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="Screenshot shows a POST response with the operation location highlighted.":::
+:::image type="content" source="../../../media/quickstarts/operation-location-result-id.png" alt-text="Screenshot shows a POST response with the operation location highlighted.":::
 
 ### Get analyze result (GET Request)
 
-After you call the [`Analyze document`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [`Get analyze` result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
+After you call the [`Analyze document`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) API, call the [`Get analyze` result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -100,7 +100,7 @@ Use the NodeJS *json tool* as a JSON formatter for cURL. If you don't have [Node
 1. Pretty print the JSON output by including the pipe character `| json` with your GET requests.
 
    ```console
-   curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json
+   curl -i -X GET "<endpoint>documentintelligence/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2024-02-29-preview"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json
    ```
 
 #### [macOS](#tab/macOS)
@@ -110,7 +110,7 @@ The *json_pp* command tool ships with macOS and can be used as a JSON formatter 
 - Pretty print the JSON output by including `| json_pp` with your GET requests.
 
   ```console
-  curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
+  curl -i -X GET "{endpoint}documentintelligence/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2024-02-29-preview"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
 
 #### [Linux](#tab/linux)
@@ -120,7 +120,7 @@ The *json_pp* command line tool is preinstalled in most Linux distributions. If 
 - Pretty print the JSON output by including `| json_pp` with your `GET` requests.
 
   ```console
-  curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
+  curl -i -X GET "<endpoint>documentintelligence/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2024-02-29-preview"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
   ```
 
 ---
@@ -130,11 +130,11 @@ The *json_pp* command line tool is preinstalled in most Linux distributions. If 
 Before you run the following command, make these changes:
 
 - Replace *\<POST response>* with the `Operation-location` header from the [POST response](#post-response).
-- Replace *\<FR_KEY* with the variable for your environment variable if it differs from the name in the code.
+- Replace *\<DI_KEY* with the variable for your environment variable if it differs from the name in the code.
 - Replace *\<json-tool> with your JSON formatting tool.
 
 ```console
-curl -i -X GET "<POST response>" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `<json-tool>`
+curl -i -X GET "<POST response>" -H "Ocp-Apim-Subscription-Key: %DI_KEY%" | `<json-tool>`
 ```
 
 ### Examine the response
