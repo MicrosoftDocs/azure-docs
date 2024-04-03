@@ -12,7 +12,7 @@ ms.date: 04/04/2023
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2403 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2403 release (2403.0-2). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2403 release (2403.0-2). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
@@ -23,7 +23,7 @@ For more information about new features in Azure Private 5G Core, see [What's Ne
 Packet core versions are supported until two subsequent versions are released (unless otherwise noted). You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ### Currently supported packet core versions
-The following table shows the support status for different Packet Core releases and when they are expected to no longer be supported.
+The following table shows the support status for different Packet Core releases and when they're expected to no longer be supported.
 
 | Release | Support Status |
 |---------|----------------|
@@ -35,7 +35,7 @@ The following table shows the support status for different Packet Core releases 
 
 ### TCP Maximum Segment Size (MSS) Clamping
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. This feature involves setting this value where necessary to ensure packets are not too large for the core to transmit. This will reduce packet loss due to oversized packets arriving at the core's interfaces, and reduce the need for fragmentation and reassembly, which are costly procedures.
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. This feature involves setting this value where necessary to ensure packets aren't too large for the core to transmit. This feature reduces packet loss due to oversized packets arriving at the core's interfaces, and reduce the need for fragmentation and reassembly, which are costly procedures.
 
 ## Issues fixed in the AP5GC 2403 release
 
@@ -44,7 +44,7 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue |  SKU Fixed In |
   |-----|-----|-----|-----|----|
   | 1 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | 2403.0-2 |
-  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |  
+  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |  
 
 ## Known issues in the AP5GC 2403 release
 <!--**TO BE UPDATED**>
