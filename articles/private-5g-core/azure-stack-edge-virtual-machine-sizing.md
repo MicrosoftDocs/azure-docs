@@ -10,7 +10,7 @@ ms.date: 02/27/2024
 
 # Service limits and resource usage
 
-This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) and [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) for the the package options and overage rates.
+This article describes the maximum supported limits of the Azure Private 5G Core solution and the hardware resources required. You should use this information to help choose the appropriate AP5GC service package and Azure Stack Edge hardware for your needs. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) and [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) for the package options and overage rates.
 
 ## Service limits
 
