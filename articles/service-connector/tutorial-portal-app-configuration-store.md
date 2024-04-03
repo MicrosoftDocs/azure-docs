@@ -31,7 +31,7 @@ To create a service connection and store configuration in Azure App Configuratio
 
 ## Create an App Configuration connection in App Service
 
-To store your connection configuration into an App Configuration, start by connecting your App Service to an App Configuration.
+To store your connection configuration into an App Configuration, start by connecting your App Service to an App Configuration store.
 
 1. In the Azure portal, type **App Service** in the search menu and select the name of the App Service you want to use from the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
