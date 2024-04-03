@@ -77,8 +77,6 @@ If in-place major version upgrade pre-check operations fail, then the upgrade ab
   **e.g postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,address_standardizer,address_standardizer_data_us,fuzzystrmatch (required for postgis_tiger_geocoder).**
 
 -	Servers configured with logical replication slots aren't supported. 
-
-- In-place major version upgrade doesn't yet support upgrading to version 16, our team is actively working on this feature.
  
 ## Next steps
 
