@@ -97,7 +97,7 @@ Now you can create a service connection to another target service and store conf
 
 ## View your configuration in App Configuration
 
-1. Expand the Storage - Blob connection, select **Hidden value. Click to show value**. You can see that the value of configuration from App Configuration Store.
+1. Expand the Storage - Blob connection, select **Hidden value. Click to show value**. You can see that the value of the configuration from App Configuration store.
 
 1. Select the **Resource name** column of your App Configuration connection. You will be redirected to the App Configuration portal page.
 
