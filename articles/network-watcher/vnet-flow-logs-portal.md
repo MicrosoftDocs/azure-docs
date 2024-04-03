@@ -13,12 +13,12 @@ ms.date: 04/03/2024
 
 # Create, change, enable, disable, or delete VNet flow logs using the Azure portal
 
-> [!IMPORTANT]
-> VNet flow logs is currently in PREVIEW. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
 
 In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure portal. You can also learn how to manage a VNet flow log using [Azure PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md).
+
+> [!IMPORTANT]
+> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ To enable traffic analytics for a flow log, follow these steps:
 
 1. Select **Save** to apply the changes.
 
-To disable traffic analytics for a flow log, take the previous first four steps, then uncheck the **Enable traffic analytics** checkbox and select **Save**.
+To disable traffic analytics for a flow log, take the previous steps 1-3, then uncheck the **Enable traffic analytics** checkbox and select **Save**.
 
 :::image type="content" source="./media/vnet-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/disable-traffic-analytics.png":::
 
@@ -220,7 +220,7 @@ You can temporarily disable a VNet flow log without deleting it. Disabling a flo
     :::image type="content" source="./media/vnet-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/disable-flow-log.png":::
 
 > [!NOTE]
-> If traffic analytics is enabled for a flow log, you must disable it before you can disable the flow log. To disable traffic analytics, see [Enable or disable traffic analytics](#enable-or-disable-trafficanalytics).
+> If traffic analytics is enabled for a flow log, you must disable it before you can disable the flow log. To disable traffic analytics, see [Enable or disable traffic analytics](#enable-or-disable-traffic-analytics).
 
 ## Enable a flow log
 
