@@ -9,7 +9,7 @@ author: bwren
 
 # Overview of Azure Monitor pipeline for edge and multicloud
 
-Azure Monitor pipeline for edge and multicloud extends the Azure Monitor data pipeline beyond the cloud to the edge of your data center and other clouds. It enables at-scale collection, transformation, and routing of telemetry data at the edge of your data center before your data is delivered to Azure Monitor in the Azure cloud.
+Azure Monitor pipeline for edge and multicloud extends the Azure Monitor data pipeline beyond the cloud to the edge of your data center and other clouds. It enables at-scale collection, transformation, and routing of telemetry data at the edge of your data center before your data is delivered to Azure Monitor in the Azure cloud. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from multiple data sources.
 
 The specific use case for Azure Monitor edge pipeline are:
 

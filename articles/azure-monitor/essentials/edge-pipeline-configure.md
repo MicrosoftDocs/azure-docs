@@ -9,9 +9,7 @@ author: bwren
 
 # Configuration of Azure Monitor pipeline for edge and multicloud
 
-Azure Monitor pipeline for edge and multicloud is an Azure Monitor component that enables at-scale collection, transformation, and routing of telemetry data at the edge and to the cloud. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
-
-Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your environment. The Azure Monitor Pipeline Controller Arc Extension is installed on this cluster to consolidate data from your clients, which is then forwarded to Azure Monitor in the cloud.
+[Azure Monitor edge pipeline](./edge-pipeline-overview.md) is an Azure Monitor component that enables at-scale collection, transformation, and routing of telemetry data at the edge and to the cloud. This article describes how to enable and configure the Azure Monitor edge pipeline in your environment. 
 
 
 ## Prerequisites
@@ -23,7 +21,11 @@ Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your 
   - OLTP
 
 
-## Enable and configure pipeline
+## Overview
+Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your environment. You install Azure Monitor Pipeline Controller Arc Extension this cluster and then add one or more data flows that accept data from clients and forward it to the Azure Monitor cloud pipeline for processing. You control the details of this process through configuration for both the edge pipeline and the cloud pipeline.
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Configuration details of the dataflow for Azure Monitor edge pipeline."::: 
+
 The following components are required to enable and configure the Azure Monitor edge pipeline. Depending on the method you use to perform the configuration, you may need explicitly create each component, or they may be created for you based on your selections.
 
 > [!NOTE]
@@ -38,20 +40,19 @@ The following components are required to enable and configure the Azure Monitor 
 | Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 | Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver, processor, and exporter. The receiver listens for incoming data, the processor transforms the data, and the exporter sends the data to the destination. |
 
-:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Configuration details of the dataflow for Azure Monitor edge pipeline."::: 
+## Enable and configure pipeline
+The current options for enabling and configuration are detailed in the tabs below.
 
 ### [Portal](#tab/Portal)
 
 ### Configure pipeline using Azure Portal
 When you use the Azure portal to enable and configure the pipeline, all required components are created based on your selections.
 
-
-1. From the **Monitor** menu in the Azure portal, select **Pipelines**.
-2. Click **Create Azure Monitor pipeline extension**.
-
-The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
+From the **Monitor** menu in the Azure portal, select **Pipelines** and then click **Create Azure Monitor pipeline extension**. The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
 
 :::image type="content" source="media/edge-pipeline/create-pipeline.png" lightbox="media/edge-pipeline/create-pipeline.png" alt-text="Screenshot of Create Azure Monitor pipeline screen.":::
+
+The settings in this tab are described in the following table.
 
 | Property | Description |
 |:---|:---|
@@ -66,6 +67,8 @@ The **Dataflow** tab allows you to create and edit dataflows for the pipeline in
 
 :::image type="content" source="media/edge-pipeline/create-dataflow.png" lightbox="media/edge-pipeline/create-dataflow.png" alt-text="Screenshot of Create add dataflow screen.":::
 
+The settings in this tab are described in the following table.
+
 | Property | Description |
 |:---|:---|
 | Name | Name for the dataflow. Must be unique for this pipeline. |
@@ -77,6 +80,7 @@ The **Dataflow** tab allows you to create and edit dataflows for the pipeline in
 
 
 ### [ARM](#tab/ARM)
+### Configure pipeline using ARM templates
 
 You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
 
@@ -489,7 +493,7 @@ During disconnected periods, the edge pipeline will write collected data as file
 | FIFO | First in, first out. When connectivity is restored, the oldest data is sent first, and all data in the queue is sent before any real-time data. This preserves the chronological order and completeness of the data making it ideal for data that is informative and used for SLI/SLOs or business KPIs.  |
 | LIFO | Last in, first out. When connectivity is restored, the newest data is sent first, and all data in the queue is sent before any real-time data. This delivers the most recent and relevant data making it ideal for dynamic and adaptive data such as security events. |
 | Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response. |
-|  Filtering You can filter out certain data during data synchronization depending on the application requirements and the data characteristics. |
+|  Filtering | You can filter out certain data during data synchronization depending on the application requirements and the data characteristics. |
 | Aggregation and sampling | Aggregate and sample data depending on its category to reduce the amount of data to be synced and optimize the bandwidth. |
 | Data sync duration | Specify a time slot for data sync to ensure the optimum bandwidth consumption. For example, a retail customer may require to pick an after-store-hour time slot for data synchronization so that the data sync does not interfere with the regular store activities. |
 | Bandwidth allocation | Allocate a percentage of bandwidth to sync the cached data to prioritize the real-time data to be ingested to cloud. |
