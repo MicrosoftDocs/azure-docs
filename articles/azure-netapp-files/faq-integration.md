@@ -21,7 +21,7 @@ Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is su
 
 ## Which Unicode Character Encoding does Azure NetApp Files support for the creation and display of file and directory names?   
 
-For information on Unicode character support, see [Understand volume languages](understand-volume-languages.md) and [Under path lengths](understand-path-lengths.md).
+For information on Unicode character support, see [Understand volume languages](understand-volume-languages.md) and [Understand path lengths](understand-path-lengths.md).
 
 ## Does Azure Databricks support mounting Azure NetApp Files NFS volumes?
 
