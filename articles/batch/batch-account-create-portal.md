@@ -159,6 +159,8 @@ Select **Add**, then ensure that the **Azure Virtual Machines for deployment** a
 :::image type="content" source="media/batch-account-create-portal/key-vault-access-policy.png" alt-text="Screenshot of the Access policy screen.":::
 
 -->
+> [!NOTE]
+> Currently the Batch account name supports only access policies. When creating a batch account, ensure that the key vault uses the associated access policy instead of the EntraID authentication. For more information on how to add an access policy to your Azure key vault instance, see [Configure your Azure Key Vault instance](batch-customer-managed-key.md).
 
 ### Configure subscription quotas
 
