@@ -5,7 +5,7 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 04/02/2024
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -338,11 +338,7 @@ If you provide your own DNS solution, it needs to:
 
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
 
-1. Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-1. In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
-
-    ![Screenshot of virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
+Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 If you need to perform name resolution from your vnet-linked web app (built by using App Service) to VMs in a different vnet that is **not linked** to the same private zone, use custom DNS servers or [Azure DNS Private Resolvers](../dns/dns-private-resolver-overview.md) on both vnets.
 
@@ -355,8 +351,6 @@ To use custom DNS servers:
 * Configure your source DNS server in your source virtual network's settings.
 
 * Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-* In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
 To use an Azure DNS Private Resolver, see [Ruleset links](../dns/private-resolver-endpoints-rulesets.md#ruleset-links).
 

@@ -59,16 +59,21 @@ This scope is integrated with [Update Manager](../update-center/overview.md), wh
 - The value of **Repeat** should be at least 6 hours.
 - The start time for a schedule should be at least 10 minutes after the schedule's creation time.
 
->[!IMPORTANT]
-> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+>[!NOTE]
+> 1. The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+> 2. The count of characters of Resource Group name along with Maintenance Configuration name should be less than 128 characters
 
 In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
 To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
 
-> [!NOTE]
-> 1. The count of characters of Resource Group name along with Maintenance Configuration name should be less than 128 characters
-> 2. If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system. You can delete the older association of the moved VM and create the new association to include the moved VMs in a maintenance configuration.
+> [!IMPORTANT]
+> If you move a resource to a different resource group or subscription, then scheduled patching for the resource stops working as this scenario is currently unsupported by the system. The team is working to provide this capability but in the meantime, as a workaround, for the resource you want to move (in static scope)
+> 1. You need to remove the assignment of it
+> 2. Move the resource to a different resource group or subscription
+> 3. Recreate the assignment of it
+> In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
+> If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
 
 ## Shut Down Machines
 
