@@ -3164,7 +3164,7 @@ groups:
   prompt: Choose an attach method
   pivots:
   - id: attach-iot-op
-    title: IoT Operations
+    title: Azure IoT Operations
   - id: attach-kubernetes
     title: Kubernetes native
 # Owner: schaffererin
