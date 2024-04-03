@@ -4,7 +4,7 @@ description: Obtain an overview of service meshes, supported scenarios, selectio
 author: phillipgibson
 ms.topic: article
 ms.date: 04/18/2023
-ms.author: phillipgibson
+ms.author: pgibson
 ---
 
 # About service meshes
