@@ -38,6 +38,8 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 });
 ```
 ## How to mitigate or resolve
-From the perspective of the ACS Calling SDK, network issues are considered external problems. To solve network issues, it is usually necessary to understand the network topology and the nodes causing the problem. These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
+From the perspective of the ACS Calling SDK, network issues are considered external problems.
+To solve network issues, it's typically necessary to have an understanding of the network topology and the nodes that are causing the problem.
+These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
 Your application should subscribe to events from the User Facing Diagnostics  and display a message on your user interface to inform users of network quality issues and expect the audio quality degradation.

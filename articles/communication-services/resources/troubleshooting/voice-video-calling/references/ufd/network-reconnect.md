@@ -44,7 +44,7 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 ```
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it's usually necessary to understand the network topology and the nodes causing the problem.
+To solve network issues, it's typically necessary to have an understanding of the network topology and the nodes that are causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
 Internally, the ACS Calling SDK will trigger reconnection after a `networkReconnect` Bad UFD is fired. If the connection recovers, `networkReconnect` Good UFD is fired.
