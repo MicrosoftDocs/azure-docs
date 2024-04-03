@@ -102,20 +102,17 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
     Wait a few moments to get the response.
 
----
+To test a summarization task instead of a question answering (QnA) task, use the following sample JSON body:
 
-> [!TIP]
-> To test a summarization task instead of a question answering (QnA) task, use the following sample JSON body:
->
-> ```json
-> {
->     "Domain": "Medical",
->     "Task": "Summarization",
->     "Text": "Ms Johnson has been in the hospital after experiencing a stroke.",
->     "GroundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
->     "Reasoning": false
-> }
-> ```
+ ```json
+ {
+     "Domain": "Medical",
+     "Task": "Summarization",
+     "Text": "Ms Johnson has been in the hospital after experiencing a stroke.",
+     "GroundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
+     "Reasoning": false
+ }
+ ```
 
 
 The following fields must be included in the URL:
@@ -134,7 +131,7 @@ The parameters in the request body are defined in this table:
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
-| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
+| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own AOAI GPT-4 Turbo resources to provide an explanation. Be careful: using reasoning increases the processing time.| Boolean   |
 
 ### Interpret the API response
 
@@ -167,8 +164,11 @@ The JSON objects in the output are defined here:
 The Groundedness detection API provides the option to include _reasoning_ in the API response. With reasoning enabled, the response includes a `"reasoning"` field that details specific instances and explanations for any detected ungroundedness. Be careful: using reasoning increases the processing time and incurs extra fees. 
 
 ### Bring your own GPT deployment
+> [!TIP]
+> At the moment, we only support **AOAI GPT-4 Turbo** resources and do not support other GPT type. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency.
 
-In order to use your Azure OpenAI resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
+
+In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
 1. Enable Managed Identity for Azure AI Content Safety.
 
@@ -295,8 +295,8 @@ The parameters in the request body are defined in this table:
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
 | **reasoning**  | (Optional) Set to `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
-| **llmResource**  | (Optional) If you want to use your own Azure OpenAI resources instead of our default GPT resources, add this field and include the subfields for the resources used. If you don't want to use your own resources, remove this field from the input. | String   |
-| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. | Enum|
+| **llmResource**  | (Required) If you want to use your own Azure OpenAI GPT4-Turbo resource to enable reasoning, add this field and include the subfields for the resources used. | String   |
+| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`.At the moment, we only support AOAI GPT-4 Turbo resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency. | Enum|
 | - `azureOpenAIEndpoint `| Your endpoint URL for Azure OpenAI service.  | String |
 | - `azureOpenAIDeploymentName` | The name of the specific GPT deployment to use. | String|
 
