@@ -5,7 +5,7 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-ms.date: 08/17/2021
+ms.date: 04/01/2024
 ms.topic: conceptual
 ---
 
@@ -60,6 +60,7 @@ Consider the requirements in this section when using Azure Automation State Conf
 
 For nodes running Windows, the following versions are supported:
 
+- Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012R2

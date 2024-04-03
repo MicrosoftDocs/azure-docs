@@ -335,7 +335,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ## Workspace transformation DCR
 The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is used as a 
-[workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr) to transform all data sent to a table called *LAQueryLogs*.
+[workspace transformation DCR](../essentials/data-collection-transformations-workspace.md) to transform all data sent to a table called *LAQueryLogs*.
 
 ```json
 {
