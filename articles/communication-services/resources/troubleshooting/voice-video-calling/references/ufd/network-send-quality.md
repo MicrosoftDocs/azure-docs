@@ -37,8 +37,8 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 ```
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it's usually necessary to understand the network topology and the nodes causing the problem.
+To solve network issues, it's typically necessary to have an understanding of the network topology and the nodes that are causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
 Your application should subscribe to events from the User Facing Diagnostics Feature and display a message on the user interface, so that users are aware of network quality issues. While these issues are often temporary and recover soon, frequent occurrences of the `networkSendQuality` UFD for a particular user may require further investigation.
-For example, users should check their network equipment or check with their internet service provider(ISP).
+For example, users should check their network equipment or check with their internet service provider (ISP).
