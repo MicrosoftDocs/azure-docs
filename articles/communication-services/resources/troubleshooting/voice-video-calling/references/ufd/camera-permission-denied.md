@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraPermissionDenied UFD
-The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at OS level.
+The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK detects that the camera permission has been denied either at browser layer or at Operating System level.
 
 | cameraPermissionDenied                | Details                |
 | --------------------------------------|------------------------|
@@ -21,7 +21,7 @@ The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK d
 | value type                            | DiagnosticFlag         |
 | possible values                       | true, false            |
 
-## Example code to trap a cameraPermissionDenided UFD event
+## Example code to catch a cameraPermissionDenided UFD event
 ```typescript
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraPermissionDenied') {
