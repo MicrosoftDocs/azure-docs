@@ -104,21 +104,19 @@ Use the following Azure PowerShell script to give a user Azure RBAC access to al
 
 Import-Module Az.Accounts
 Import-Module Az.Resources
- 
+
 Connect-AzAccount -Tenant <TenantId>
- 
-$response = Invoke-AzRestMethod -Path /providers/Microsoft.Capacity/reservations?api-version=2020-06-01 -Method GET
- 
+$response = Invoke-AzRestMethod -Path /providers/Microsoft.BillingBenefits/savingsPlans?api-version=2022-11-01 -Method GET
 $responseJSON = $response.Content | ConvertFrom-JSON
- 
-$reservationObjects = $responseJSON.value
- 
-foreach ($reservation in $reservationObjects)
+$savingsPlanObjects = $responseJSON.value
+
+foreach ($savingsPlan in $savingsPlanObjects)
 {
-  $reservationOrderId = $reservation.id.substring(0, 84)
-  Write-Host "Assigning Owner role assignment to "$reservationOrderId
-  New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
+  $savingsPlanOrderId = $savingsPlan.id.substring(0, 84)
+  Write-Host "Assigning Owner role assignment to "$savingsPlanOrderId
+  New-AzRoleAssignment -Scope $savingsPlanOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
 }
+
 ```
 
 When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned.
@@ -161,7 +159,7 @@ Use the following Azure PowerShell script to add a Savings plan Administrator ro
 Import-Module Az.Accounts
 Import-Module Az.Resources
 Connect-AzAccount -Tenant <TenantId>
-New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Administrator"
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Administrator"
 ```
 
 #### Parameters
@@ -192,7 +190,7 @@ Import-Module Az.Resources
 
 Connect-AzAccount -Tenant <TenantId>
 
-New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Reader"
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Reader"
 ```
 
 #### Parameters
