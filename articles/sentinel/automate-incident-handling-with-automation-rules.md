@@ -58,9 +58,9 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
-| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br> | - An alert is created by a scheduled analytics rule. |
+| **When incident is created** | <li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
+| **When incident is updated** | <li>An incident's status is changed (closed/reopened/triaged).<li>An incident's owner is assigned or changed.<li>An incident's severity is raised or lowered.<li>Alerts are added to an incident.<li>Comments, tags, or tactics are added to an incident. |
+| **When alert is created** | <li>An alert is created by an analytics rule. |
 
 #### Incident-based or alert-based automation?
 
@@ -81,7 +81,9 @@ The main reason to use **alert-triggered automation** is for responding to alert
 - A playbook can be triggered by an alert and send the alert to an external ticketing system for incident creation and management, creating a new ticket for each alert.
 
 > [!NOTE]
-> Alert-triggered automation is available only for [alerts](detect-threats-built-in.md) created by **Scheduled** analytics rules. Alerts created by **Microsoft Security** analytics rules are not supported.
+> - Alert-triggered automation is available only for [alerts](detect-threats-built-in.md) created by **Scheduled** analytics rules. Alerts created by **Microsoft Security** analytics rules are not supported.
+>
+> - Alert-triggered automation is not currently available in the unified security operations platform in the Microsoft Defender portal.
 
 ### Conditions
 
@@ -159,17 +161,6 @@ In this example, in *Incident 1*:
 
 In *Incident 2*, the outcome will be the same, regardless of which type of condition is defined.
 
-#### When triggers collide
-
-- An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
-
-- Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
-
-- If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
-
-> [!NOTE]
-> After onboarding to the unified security operations platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
-
 #### Alert create trigger
 
 Currently the only condition that can be configured for the alert creation trigger is the set of analytics rules for which the automation rule will run.
@@ -219,6 +210,9 @@ Rules based on the update trigger have their own separate order queue. If such r
 - For rules of the same trigger type with the same order number, the execution engine randomly selects which rules will run in which order.
 - For rules of different *incident trigger* types, all applicable rules with the *incident creation* trigger type will run first (according to their order numbers), and only then the rules with the *incident update* trigger type (according to *their* order numbers).
 - Rules always run sequentially, never in parallel.
+
+> [!NOTE]
+> After onboarding to the unified security operations platform, if multiple changes are made to the same incident in a five to ten minute period, a single update is sent to Microsoft Sentinel, with only the most recent change.
 
 ## Common use cases and scenarios
 

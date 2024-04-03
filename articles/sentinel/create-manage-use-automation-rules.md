@@ -167,6 +167,11 @@ Use the options in the **Conditions** area to define conditions for your automat
     | - **Tactics** | - Contains/Does not contain<br>- Added |
     | - **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
 
+1. Enter a value in the field on the right. Depending on the property you chose, this might be either a text box or a drop-down in which you select from a closed list of values. You might also be able to add several values by selecting the dice icon to the right of the text box.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
+
+Again, for setting complex **Or** conditions with different fields, see [Add advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
 #### Conditions based on tags
 
@@ -187,11 +192,11 @@ To add one of these conditions based on an incident's tags, take the following s
 
     ##### [Onboarded workspaces](#tab/onboarded)
 
-    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-defender.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for onboarded workspaces.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-defender.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for onboarded workspaces." lightbox="media/create-manage-use-automation-rules/tag-create-condition-defender.png":::
 
     ##### [Workspaces not onboarded](#tab/not-onboarded)
 
-    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-azure.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for non-onboarded workspaces.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/tag-create-condition-azure.png" alt-text="Screenshot of list of operators for tag condition in create trigger rule--for non-onboarded workspaces." lightbox="media/create-manage-use-automation-rules/tag-create-condition-azure.png":::
 
     ---
 
@@ -215,7 +220,7 @@ You can set the value of a [custom detail surfaced in an incident](surface-custo
 
     :::image type="content" source="media/create-manage-use-automation-rules/custom-detail-key-condition.png" alt-text="Screenshot of adding a custom detail key as a condition.":::
 
-1. You've now chosen the field you want to evaluate for this condition. Now you have to specify the value appearing in that field that will make this condition evaluate to *true*.  
+1. You chose the field you want to evaluate for this condition. Now specify the value appearing in that field that makes this condition evaluate to *true*.  
 Select **+ Add item condition**.
 
     :::image type="content" source="media/create-manage-use-automation-rules/add-item-condition.png" alt-text="Screenshot of selecting add item condition for automation rules.":::
