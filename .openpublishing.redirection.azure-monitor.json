@@ -6290,6 +6290,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-metric-alerts.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-metric-alerts",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster",
             "redirect_document_id": false
