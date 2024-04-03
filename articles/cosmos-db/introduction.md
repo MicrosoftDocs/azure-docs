@@ -1,17 +1,17 @@
 ---
-title: Unified AI Database
+title: Database for AI Era
 titleSuffix: Azure Cosmos DB
-description: Azure Cosmos DB is your ideal database for the era of AI
+description: The database for AI Era - Azure Cosmos DB is a NoSQL, relational, and vector database that provides unmatched reliability and flexibility for your operational data needs.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 11/02/2023
+ms.date: 04/03/2024
 adobe-target: true
 ---
 
-# Database for the era of AI
+# Database for AI Era
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
