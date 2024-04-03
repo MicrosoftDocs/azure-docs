@@ -323,11 +323,10 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
 
 | **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests    |(to be added)|
-| OpenAI SDK (experimental)    | (to be added)                                    |
-| LangChain      | (to be added)                                  |
-| (tbd)     | (to be added)                                  |
-| LiteLLM        | (to be added) |
+| CLI using CURL and Python web requests  | [cohere-embed.ipynb](https://aka.ms/samples/embed-v3/webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-embed/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere-embed/langchain)                                |
+| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-embed/cohere-python-sdk)                                 |
 
 ## Cost and quotas
 
