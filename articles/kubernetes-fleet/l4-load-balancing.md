@@ -113,7 +113,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     If successful, the output looks similar to the following example:
 
     ```console
-    clusterresourceplacement.fleet.azure.com/kuard-demo created
+    clusterresourceplacement.placement.kubernetes-fleet.io/kuard-demo created
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:
