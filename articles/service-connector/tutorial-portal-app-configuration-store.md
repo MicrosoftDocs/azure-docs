@@ -127,7 +127,7 @@ var blobServiceClient = new BlobServiceClient(new Uri(config[$"AZURE_STORAGEBLOB
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all related resources created for this tutorial. To do so, select a resource group or the individual resources you created and select **Delete**.
+When no longer needed, delete the resource group and all related resources created for this tutorial. To do so, select the resource group or the individual resources you created and select **Delete**.
 
 ## Next steps
 
