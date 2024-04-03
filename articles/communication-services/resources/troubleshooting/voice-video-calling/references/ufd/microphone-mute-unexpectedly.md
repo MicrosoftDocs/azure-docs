@@ -35,4 +35,4 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ```
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any microphone state changes,
- so the users are aware of muted issues and are not surprised if they found other participants cannot hear their audio during a call.
+ so the users are aware of muted issues and aren't surprised if they found other participants can't hear their audio during a call.
