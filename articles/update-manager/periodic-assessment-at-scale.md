@@ -4,7 +4,7 @@ description: This article shows how to manage update settings for your Windows a
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/27/2024
+ms.date: 04/03/2024
 ms.topic: conceptual
 ---
 
