@@ -25,9 +25,9 @@ If you only use certificates and don't need to define endpoints for your cluster
 
 1. Determine the Service Fabric runtime version of your cluster. You can see your cluster's runtime version by logging in the Azure portal, viewing your cluster in the Service Fabric Explorer, or connecting to your cluster via PowerShell.
 1. Ensure all the nodes in your cluster are upgraded to Windows Server 2022.
-    1. For managed clusters, you can follow the steps outlined in the [Modify the OS SKU for a node type section of the Service Fabric managed cluster node types how-to guide](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type).
-    1. For classic clusters, you can follow the steps outlined in [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md).
-1. Determine if you use token-based authentication. You can check in the portal or review your cluster's manifest in the Service Fabric Explorer. If you do use token-based authentication, Azure Active Directory (AAD) settings appear in the cluster manifest.
+    * For managed clusters, you can follow the steps outlined in the [Modify the OS SKU for a node type section of the Service Fabric managed cluster node types how-to guide](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type).
+    * For classic clusters, you can follow the steps outlined in [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-primary-node-type.md).
+1. Determine if you use token-based authentication. You can check in the portal or review your cluster's manifest in the Service Fabric Explorer. If you do use token-based authentication, Microsoft Entra ID settings appear in the cluster manifest.
 
 Once you complete these prerequisite steps, you're ready to enable TLS 1.3 on your Service Fabric clusters.
 
@@ -83,7 +83,7 @@ You can follow the steps in the appropriate quickstart for the type of Service F
 In this step, you need to find and update all clients that used token-based authentication to target the new token authentication endpoint. These clients made include scripts, code, or services. Any clients still addressing the old gateway port break when the port starts accepting TLS 1.3 connections. Also note that this port could be parameterized or have a different value than the Service Fabric-defined default.
 
 Some examples of changes that need to be made:
-* AAD applications
+* Microsoft Entra ID applications
 * Any scripts that reference the existing endpoint
 * Load Balancer (LB) inbound Network Address Translation (NAT), Health Probe, and LB rules that reference the existing endpoint
 * Network Security Group (NSG) rules
