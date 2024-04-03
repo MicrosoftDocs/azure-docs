@@ -15,119 +15,144 @@ Resources change through the course of daily use, reconfiguration, and even rede
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
 
-This article shows how to query resource changes through Resource Graph.
+In this article, you learn:
+- How to query resource changes through Resource Graph using either the CLI, PowerShell, or the Azure portal.
+- Query examples and best practices for querying resource changes.
 
 ## Prerequisites
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
 
-## Get change events using Resource Graph
+## Run a query
 
-### Run a query
+Try out a tenant-based Resource Graph query of the `resourcechanges` table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. 
 
-Try out a tenant-based Resource Graph query of the `resourcechanges` table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. You can query by [management group](../../management-groups/overview.md) or subscription with the `-ManagementGroup` or `-Subscription` parameters respectively.
-
-1. Run the following Azure Resource Graph query:
-
-   # [Azure CLI](#tab/azure-cli)
-     ```azurecli
-     # Login first with az login if not using Cloud Shell
+# [Azure CLI](#tab/azure-cli)
+  ```azurecli
+  # Login first with az login if not using Cloud Shell
    
-     # Run Azure Resource Graph query
-     az graph query -q 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+  # Run Azure Resource Graph query
+  az graph query -q 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+  ```
+   
+# [PowerShell](#tab/azure-powershell)
+  ```azurepowershell-interactive
+  # Login first with Connect-AzAccount if not using Cloud Shell
+   
+  # Run Azure Resource Graph query
+  Search-AzGraph -Query 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+  ```
+   
+# [Portal](#tab/azure-portal)
+  1. Open the [Azure portal](https://portal.azure.com).
+   
+  1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
+   
+     :::image type="content" source="./media/get-resource-changes/resource-graph-explorer.png" alt-text="Screenshot of the searching for the Resource Graph Explorer in the All Services blade.":::
+
+
+  1. In the **Query 1** portion of the window, enter the following query.
+     ```kusto
+     resourcechanges
+     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
+     | limit 5
      ```
-   
-   # [PowerShell](#tab/azure-powershell)
-     ```azurepowershell-interactive
-     # Login first with Connect-AzAccount if not using Cloud Shell
-   
-     # Run Azure Resource Graph query
-     Search-AzGraph -Query 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
-     ```
-   
-   # [Portal](#tab/azure-portal)
-     1. Open the [Azure portal](https://portal.azure.com).
-   
-     1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
-   
-     1. In the **Query 1** portion of the window, enter the following query.
-        ```kusto
-        resourcechanges
-        | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
-        | limit 5
-        ```
-     1. Select **Run query**.
-   
-     1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
-      about the query, including the count of results and duration of the query. Any errors are
-      displayed under this tab.
-   
-   ---
 
-1. Update the query to specify a more user-friendly column name for the **timestamp** property:
+  1. Select **Run query**.
 
-   # [Azure CLI](#tab/azure-cli)
-      ```azurecli
-      # Run Azure Resource Graph query with 'extend'
-      az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
-      ```
+     :::image type="content" source="./media/get-resource-changes/change-query-resource-explorer.png" alt-text="Screenshot of how to run the query in Resource Graph Explorer and then view results.":::
    
-   # [PowerShell](#tab/azure-powershell)
-      ```azurepowershell-interactive
-      # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp
-      Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
-      ```
-   
-   # [Portal](#tab/azure-portal)
-      ```kusto
-      resourcechanges
-      | extend changeTime=todatetime(properties.changeAttributes.timestamp)
-      | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
-      | limit 5
-      ```
-      Then select **Run query**.
-   
-   ---
+  1. Review the query response in the **Results** tab. 
+  
+  1. Select the **Messages** tab to see details about the query, including the count of results and duration of the query. Any errors are displayed under this tab.
 
-1. To get the most recent changes, update the query to `order by` the user-defined **changeTime** property:
+     :::image type="content" source="./media/get-resource-changes/messages-tab-query.png" alt-text="Screenshot of the search results for Change Analysis in the Azure portal.":::
+   
+---
 
-   # [Azure CLI](#tab/azure-cli)
-      ```azurecli
-      # Run Azure Resource Graph query with 'order by'
-      az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
-      ```
+You can update this query to specify a more user-friendly column name for the **timestamp** property.
+
+# [Azure CLI](#tab/azure-cli)
+   ```azurecli
+   # Run Azure Resource Graph query with 'extend'
+   az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+   ```
    
-   # [PowerShell](#tab/azure-powershell)
-      ```azurepowershell-interactive
-      # Run Azure Resource Graph query with 'order by'
-      Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
-      ```
+# [PowerShell](#tab/azure-powershell)
+   ```azurepowershell-interactive
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp
+   Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+   ```
    
-   # [Portal](#tab/azure-portal)
-      ```kusto
-      resourcechanges
-      | extend changeTime=todatetime(properties.changeAttributes.timestamp)
-      | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
-      | order by changeTime desc
-      | limit 5
-      ```
-      Then select **Run query**.
+# [Portal](#tab/azure-portal)
+   ```kusto
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
+   | limit 5
+   ```
+
+   Then select **Run query**.
    
-   ---
+---
+
+To limit query results to the most recent changes, update the query to `order by` the user-defined **changeTime** property.
+
+# [Azure CLI](#tab/azure-cli)
+   ```azurecli
+   # Run Azure Resource Graph query with 'order by'
+   az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
+   ```
+   
+# [PowerShell](#tab/azure-powershell)
+   ```azurepowershell-interactive
+   # Run Azure Resource Graph query with 'order by'
+   Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
+   ```
+   
+# [Portal](#tab/azure-portal)
+   ```kusto
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
+   | order by changeTime desc
+   | limit 5
+   ```
+      
+   Then select **Run query**.
+   
+---
+
+You can also query by [management group](../../management-groups/overview.md) or subscription with the `-ManagementGroup` or `-Subscription` parameters, respectively.
 
 > [!NOTE]
 > If the query does not return results from a subscription you already have access to, then the `Search-AzGraph` PowerShell cmdlet defaults to subscriptions in the default context.
 
 Resource Graph Explorer also provides a clean interface for converting the results of some queries into a chart that can be pinned to an Azure dashboard.
 
-### Query resource changes  
+## Query resource changes  
 
-With Resource Graph, you can query the `resourcechanges` table to filter or sort by any of the change resource properties:
+With Resource Graph, you can query either the `resourcechanges` or `resourcecontainerchanges` tables to filter or sort by any of the change resource properties. The following examples query the `resourcechanges` table, but can also be applied to the `resourcecontainerchanges` table.
 
-#### All changes in the past one day
+### Examples
+
+Before querying and analyzing changes in your resources, review the following best practices.
+
+- Query for change events during a specific window of time and evaluate the change details. 
+   - This query works best during incident management to understand _potentially_ related changes.
+- Keep an up-to-date Configuration Management Database (CMDB). 
+   - Instead of refreshing all resources and their full property sets on a scheduled frequency, you'll only receive their changes.
+- Understand what other properties may have been changed when a resource changes "compliance state". 
+   - Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
+- The order of query commands is important. In the following examples, the `order by` must come before the `limit` command.
+   - The `order by` command orders the query results by the change time.
+   - The `limit` command then limits the ordered results to ensure that you get the five most recent results.
+
+#### All changes in the past 24-hour period
+
 ```kusto
-resourcechanges
+resourcechanges 
 | extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
 changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId, 
 changedProperties = properties.changes, changeCount = properties.changeAttributes.changesCount
@@ -198,20 +223,10 @@ resourcechanges 
 | project createTime, id, resourceGroup, type
 ```
 
-### Query best practices
-
-Review the following best practices before querying and analyzing changes in your resources.
-
-- Query for change events during a specific window of time and evaluate the change details. This query works best during incident management to understand _potentially_ related changes.
-- Keep an up-to-date Configuration Management Database (CMDB). Instead of refreshing all resources and their full property sets on a scheduled frequency, only receive their changes.
-- Understand what other properties may have been changed when a resource changes "compliance state". Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
-- The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command orders the query results by the change time and then limits them to ensure that you get the five most recent results.
-- Resource changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access and view resource changes](../changes/view-resource-changes.md)
+> [View resource changes in the portal](../changes/view-resource-changes.md)
 
 ## Related links
 
