@@ -1409,7 +1409,7 @@ The precise return type of the function depends on the types of its parameters &
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
@@ -1431,13 +1431,13 @@ And all return this result: `4.5`
 
 *Example 2*
 
-This example also divides the number 9 by 2, but integer division (discarding the remainder) is performed because both parameters are integers.
+This example also divides the number 9 by 2, but because both parameters are integers the remainder is discarded (integer division):
 
 ```
 div(9, 2)
 ```
 
-The expression returns the result `4`. To obtain the remainder result, see [mod()](#mod).
+The expression returns the result `4`. To obtain the value of the remainder, use the [mod()](#mod) function.
 
 <a name="encodeUriComponent"></a>
 
