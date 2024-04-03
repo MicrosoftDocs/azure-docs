@@ -121,7 +121,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Workspace manager](workspace-manager.md) |Public preview | &#x2705; |&#x2705; |&#10060; |
-|[SIEM migration experience](siem-migration.md) | GA | &#x2705; |&#x2705; |&#10060; |
+|[SIEM migration experience](siem-migration.md) | GA | &#x2705; |&#10060; |&#10060; |
 
 ## Normalization		
 
