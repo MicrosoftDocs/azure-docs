@@ -25,6 +25,8 @@ testing purposes to follow along with the example.
 ## Windows signature validation
 
 ```azurepowershell-interactive
+# NOTE: This code sample contains placeholder text
+
 # How to create a self sign cert and use it to sign Machine Configuration
 # custom policy package
 
@@ -37,7 +39,7 @@ $codeSigningParams = @{
 $mycert = New-SelfSignedCertificate @codeSigningParams
 
 # Export the certificates
-$mypwd = ConvertTo-SecureString -String "Password1234" -Force -AsPlainText
+$mypwd = ConvertTo-SecureString -String "<PlaceholderPassword1234>" -Force -AsPlainText
 $mycert | Export-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd
 $mycert | Export-Certificate -FilePath "C:\demo\GCPublicKey.cer" -Force
 
