@@ -35,5 +35,5 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-The `capturerStartFailed` is usually due to external reasons, so your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of screen sharing failures.
+The `capturerStartFailed` is due to external reasons, so your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of screen sharing failures.
 The end users can then take steps to resolve the issue on their own, such as checking if there are other processes causing this issue.
