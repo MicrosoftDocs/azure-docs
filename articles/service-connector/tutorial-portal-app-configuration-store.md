@@ -81,7 +81,7 @@ Now you can create a service connection to another target service and store conf
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection.":::
 
 1. Select **Next: Authentication** to select the authentication type and select **System assigned managed identity** to connect your storage account.
-1. Check **Store Configuration in App Configuration** to let Service Connector store the configuration info into your App Configuration. Then select one of your App Configuration connections under **App Configuration connection**.
+1. Check **Store Configuration in App Configuration** to let Service Connector store the configuration info into your App Configuration store. Then select one of your App Configuration connections under **App Configuration connection**.
 
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_auth.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection auth.":::
 
