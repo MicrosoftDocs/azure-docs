@@ -30,7 +30,7 @@ To use attack disruption for SAP, make sure that you've configured the integrati
 
 Attack disruption for SAP requires that you have:
 
-- A Microsoft Sentinel SAP data connector agent, version <!--TBD--> or higher.
+- A Microsoft Sentinel SAP data connector agent, version 88020708 or higher.
 - The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role.
 
 **To use attack disruption for SAP**, deploy a new agent, or update your current agent to the latest version. For more information, see:
