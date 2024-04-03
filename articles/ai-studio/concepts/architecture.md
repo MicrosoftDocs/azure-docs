@@ -75,15 +75,15 @@ For more information, see [Role-based access control in Azure AI Studio](rbac-ai
 
 ## Attribute-based access control
 
-Each AI Hub you create has a default storage account. Each child AI project of the AI Hub inherits the storage account of the AI Hub. The storage account is used to store data and artifacts. Storage access keys are used to generate SAS tokens, which are stored separately in the AI Hub's key vault for each container. 
+Each AI hub you create has a default storage account. Each child AI project of the AI hub inherits the storage account of the AI hub. The storage account is used to store data and artifacts. Storage access keys are used to generate SAS tokens, which are stored separately in the AI hub's key vault for each container. 
 
-To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI Project has:
+To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI project has:
 
-- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI Project.
+- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI project.
 - A service principal that is assigned the Storage Blob Data Contributor role on the storage account.
 - A unique prefix value.
 
-The role assignment for each AI Project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each AI project can only access its own containers.
+The role assignment for each AI project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each AI project can only access its own containers.
 
 > [!NOTE]
 > For data encryption in the storage account, the scope is the entire storage and not per-container. So all containers are encrypted using the same key (provided either by Microsoft or by the customer).
