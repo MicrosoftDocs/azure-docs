@@ -18,7 +18,7 @@ This article describes how to configure Azure Managed Prometheus with Azure Kube
 
 
 ### Install Elasticsearch Exporter
-Install the [elastic search exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart.
+Install the [Elasticsearch exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter) using the helm chart.
 
 ```bash
 helm install azmon-elasticsearch-exporter --version 5.7.0 prometheus-community/prometheus-elasticsearch-exporter --set es.uri="https://username:password@elasticsearch-service.namespace:9200" --set podMonitor.enabled=true --set podMonitor.apiVersion=azmonitoring.coreos.com/v1
