@@ -10,7 +10,7 @@ metadata:
   ms.topic: faq
   ms.date: 11/21/2023
   ms.author: lajanuar
-title: Frequently asked questions (FAQ)
+title: Azure AI Document Intelligence FAQ
 summary: |
    [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
@@ -23,13 +23,13 @@ sections:
           What is Azure AI Document Intelligence, and what happened to Azure AI Form Recognizer?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
+          Azure AI Document Intelligence is a cloud-based service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
           Document Intelligence is part of Azure AI services. Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
           The previous name for Document Intelligence was Azure AI Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
           
-          There are no changes to pricing. The names Cognitive Services and Azure Applied AI continue to be used in Azure billing, cost analysis, price lists, and price APIs.
+          There are no changes to pricing. The names Cognitive Services and Applied AI Services continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
           There are no breaking changes to APIs or client libraries (SDKs). REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
 
@@ -53,7 +53,7 @@ sections:
           Which Document Intelligence use cases require special consideration?
         answer: |
 
-          Give careful consideration to document processing projects that encompass these kinds of data: financial, protected health, personal identity, or highly sensitive.
+          Give careful consideration to document processing projects that encompass financial data, protected health data, personal data, or highly sensitive data.
 
           Be sure to comply with all [national/regional and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
@@ -91,7 +91,7 @@ sections:
           How is Document Intelligence related to optical character recognition?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based Azure AI service that incorporates optical character recognition (OCR), text analytics, and custom text classification from Azure AI services.
+          Document Intelligence is a cloud-based service that incorporates optical character recognition (OCR), text analytics, and custom text classification from Azure AI services.
 
           Document Intelligence uses OCR to detect and extract information from typeface and handwritten text documents supported by AI to provide more structure and information to the text extraction.
 
@@ -108,7 +108,7 @@ sections:
         answer: |
            The output of a `build` (v3.0 and later versions) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
 
-           Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
+           Accuracy is measured within a percentage value range from 0% (low) to 100% (high).
 
            For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores).
 
@@ -133,7 +133,7 @@ sections:
 
            A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly.
 
-           The confidence value range is a percentage between 0% (low) and 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also require human review.
+           The confidence value range is a percentage from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also require human review.
 
            For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores).
 
@@ -207,7 +207,7 @@ sections:
 
             | Supported language Azure SDK reference|Supported API versions|
             | ----- | -----|
-            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[2023-10-31-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[2023-10-31-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP)<br>[v3.0](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
           For more information, see [Supported clients for v4.0](sdk-overview-v4-0.md#supported-clients) and [Supported clients for v3.1](sdk-overview-v3-1.md#supported-clients).
 
@@ -310,7 +310,9 @@ sections:
         answer: |
           The time to analyze a document depends on the size (for example, number of pages) and associated content on each page.
 
-          Document Intelligence is a multitenant service where latency for similar documents is comparable but not always identical. Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale. Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
+          Document Intelligence is a multitenant service where latency for similar documents is comparable but not always identical. Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale.
+          
+          Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
 
   - name: Custom models
     questions:
@@ -390,7 +392,7 @@ sections:
       - question: |
           I'm building a custom model. What does the signature-detection label return?
         answer: |
-          [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
+          [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person who signs the document.
 
           If the model returns **unsigned** for signature detection, the model didn't find a signature in the defined field.
 
@@ -478,7 +480,9 @@ sections:
           I have multiple pages in a document. Why are only two pages analyzed in Document Intelligence Studio?
         answer: |
 
-          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs. In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources** tab, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
+          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs.
+          
+          In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources** tab, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
 
       - question: |
           How can I change directories or subscriptions in Document Intelligence Studio?
