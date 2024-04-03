@@ -489,7 +489,7 @@ This guide demonstrates how to create a vector index, add documents that have ve
 ## Related content
 
 - [.NET RAG Pattern retail reference solution](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)
-- [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore
+- [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore)
 - [C# RAG pattern - Integrate Open AI Services with Cosmos](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore)
 - [Python RAG pattern - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore)
 - [Python notebook tutorial - Vector database integration through LangChain](https://python.langchain.com/docs/integrations/vectorstores/azure_cosmos_db)
@@ -500,4 +500,4 @@ This guide demonstrates how to create a vector index, add documents that have ve
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Build AI apps with Integrated Vector Database in Azure Cosmos DB for MongoDB vCore](vector-search-ai.md)
+> [Create a lifetime free-tier vCore cluster for Azure Cosmos DB for MongoDB](free-tier.md)
