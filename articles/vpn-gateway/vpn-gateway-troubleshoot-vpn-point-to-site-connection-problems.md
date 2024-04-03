@@ -372,7 +372,7 @@ Delete the old VPN client configuration files from **C:\Users\UserName\AppData\R
 
 When you're using Azure provided (168.63.129.16) DNS server on the virtual network, point-to-site clients won't be able to resolve records present in Private DNS Zones (including private endpoints).
 
-:::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone-resolver.png" alt-text="Image shows the Azure VPN Client, an open PowerShell window, and the Azure portal DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone-resolver.png":::
+:::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone-resolver.png" alt-text="Screenshot shows the Azure VPN Client, an open PowerShell window, and the Azure portal DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone-resolver.png":::
 
 ### Cause
 
@@ -384,6 +384,6 @@ The following steps help you resolve records from Private DNS zone:
 
 Configuring [Private resolver](https://github.com/MicrosoftDocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview"https://github.com/microsoftdocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview")'s inbound IP address as custom DNS servers on virtual network help you resolve records in private DNS zone (including those created from Private Endpoints). Note the Private DNS zones must be associated with the virtual network that has the Private Resolver.
 
-:::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png" alt-text="Image shows the Azure VPN Client, an open PowerShell window, and the Azure portal open to DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png":::
+:::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png" alt-text="Screenshot shows the Azure VPN Client, an open PowerShell window, and the Azure portal open to DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png":::
 
 By default, DNS servers that are configured on a virtual network will be pushed to point-to-site clients that are connected via VPN gateway. Hence, configuring Private resolver inbound IP address as custom DNS servers on the virtual network will automatically push these IP address to clients as the VPN DNS server and you can seamlessly resolve records from private DNS zones (including private endpoints).
