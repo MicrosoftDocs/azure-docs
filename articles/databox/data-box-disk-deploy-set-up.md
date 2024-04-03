@@ -6,12 +6,11 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 10/26/2022
 ms.author: shaas
-
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-
 ---
 
 ::: zone target="docs"
@@ -19,7 +18,7 @@ ms.author: shaas
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
 
@@ -348,4 +347,3 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
 
 ::: zone-end
-

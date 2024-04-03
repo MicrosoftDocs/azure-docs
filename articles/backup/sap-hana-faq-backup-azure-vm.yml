@@ -4,9 +4,10 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/21/2023
+  ms.date: 03/17/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
+  ms.custom: engagement-fy24
 
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -35,7 +36,7 @@ sections:
         answer: |
           You can check the status of your backups (scheduled/on-demand) from any of the following locations:
 
-          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal includes database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
 
@@ -63,14 +64,14 @@ sections:
       - question: |
           What’s the retention period of Auto-heal full backups triggered due to the LSNValidation errors?
         answer: |
-          Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
+          Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained until the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
 
       - question: | 
           Can a full backup and a log backup run simultaneously?
         answer: |
           Yes, a full backup and a log backup can run simultaneously. This instance occurs in one of the following ways:
 
-          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless the full backup triggered was a remedial full to handle any LSN chain-break.
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless the full backup that's triggered was a remedial full to handle any LSN chain-break.
           - **Log backup is in progress, and a full backup is triggered**: Both backups should run simultaneously and succeed.
 
       - question: |
@@ -110,7 +111,7 @@ sections:
           Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
           
       - question: |
-          Can the Azure HANA backup be set up against a virtual IP (load balancer) and not a virtual machine?
+          Can I set up the backup of Azure HANA against a virtual IP (load balancer) and not a virtual machine?
         answer: |
           Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
@@ -128,7 +129,7 @@ sections:
         answer: |
           Currently, Azure Backup doesn't have the capability to understand an HSR set-up. This means that the primary and secondary nodes of the HSR will be treated as two individual, unrelated VMs. You'll first need to configure backup on the primary node. When a fail-over happens, backup must be configured on the secondary node (which now becomes the primary node). There's no automatic fail-over of backup to the other node.
           
-          To back up data from the active (primary) node at any given point-in-time, you can **switch protection** to the secondary node that has now become the primary after fail-over.
+          To back up data from the active (primary) node at any given point-in-time, you can *switch the protection* to the secondary node that has now become the primary after fail-over.
           
           To perform this **switch protection**, follow these steps:
           
@@ -138,7 +139,7 @@ sections:
           
           These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
           
-          Here is a detailed example of how **switch protection** must be performed:
+          Here's a detailed example of how **switch protection** must be performed:
           
           In this example, you have two nodes - Node 1 (primary) and Node 2 (secondary) in the HSR set-up.  Backups are configured on Node 1. As mentioned above, don't attempt yet to configure backups on Node 2.
           
@@ -208,7 +209,7 @@ sections:
     questions:
 
       - question: |
-          How many restores are supported per day?
+          How many restore are supported per day?
         answer: |
           You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is canceled or fails, it's also considered as a restore attempt.
            
@@ -293,4 +294,5 @@ additionalContent: |
 
   ## Next steps
   
-  Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
+  - Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
+  - Learn how to [troubleshoot SAP HANA database backup](backup-azure-sap-hana-database-troubleshoot.md).

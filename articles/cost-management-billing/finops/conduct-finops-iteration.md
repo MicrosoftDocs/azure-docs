@@ -3,7 +3,7 @@ title: Tutorial - Conduct a FinOps iteration
 description: This tutorial helps you learn how to take an iterative approach to FinOps adoption.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/21/2023
+ms.date: 03/21/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: finops

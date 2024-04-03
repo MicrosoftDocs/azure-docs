@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Entra ID with the Azure mobile app
 description: Use the Azure mobile app to manage users and groups with Microsoft Entra ID.
-ms.date: 01/22/2024
+ms.date: 03/08/2024
 ms.topic: conceptual
 ---
 
@@ -54,7 +54,13 @@ To [manage authentication methods](/entra/identity/authentication/concept-authen
 > [!NOTE]
 > You won't see the **Authentication methods** card if you don't have the appropriate permissions to manage authentication methods and/or password changes for a user.
 
+## Activate Privileged Identity Management (PIM) roles
+
+If you have been made eligible for an administrative role through Microsoft Entra Privileged Identity Management (PIM), you must activate the role assignment when you need to perform privileged actions. This activation can be done from within the Azure mobile app.
+
+For more information, see [Activate PIM roles using the Azure mobile app](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role).
+
 ## Next steps
 
 - Learn more about the [Azure mobile app](overview.md).
-- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/azureapp/ios/doc), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).
+- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/ReferAzureIOSEntraIDMobileAppDocs), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).

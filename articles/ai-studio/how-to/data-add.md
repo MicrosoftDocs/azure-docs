@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -60,7 +60,7 @@ The supported source paths are shown in Azure AI Studio. You can create a data f
 # [Python SDK](#tab/python)
 
 
-If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 
 |Location  | Examples  |
 |---------|---------|

@@ -43,10 +43,20 @@ Next, you create connectivity and/or security configuration(s) applied to those 
 
 For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
+## Pricing   
+For pricing details, see [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/).
+ 
+## FAQs  
+For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).
+ 
+## Limits  
+For limits, see [Azure Virtual Network Manager limits](faq.md#what-are-the-service-limitations-of-azure-virtual-network-manager).
+
+## Service Level Agreement
+For SLA, see [SLA for Azure Virtual Network Manager](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
+
 ## Next steps
 
-- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
-- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
-- Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
-- Learn what you can do with a [connectivity configuration](concept-connectivity-configuration.md).
-- Learn more about [security admin configurations](concept-security-admins.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Virtual Network Manager instance using the Azure portal](create-virtual-network-manager-portal.md).
+

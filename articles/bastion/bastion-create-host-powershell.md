@@ -90,7 +90,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
 
 1. Configure and set the Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources. You must create this subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. The example in the following section helps you add an Azure Bastion subnet to an existing VNet.
 
-   [!INCLUDE [Important about BastionSubnet size.](../../includes/bastion-subnet-size.md)]
+   [!INCLUDE [Important about BastionSubnet size](../../includes/bastion-subnet-size.md)]
 
    Set the variable.
 

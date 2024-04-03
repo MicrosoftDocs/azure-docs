@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to enable push notifications with the Azure Communication Services sdks so that I can create a calling application that provides push notifications to its users.
 ---
@@ -35,6 +35,10 @@ Here, we'll learn how to enable push notifications for Azure Communication Servi
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Enable push notifications iOS](./includes/push-notifications/push-notifications-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Enable push notifications Windows](./includes/push-notifications/push-notifications-windows.md)]
 ::: zone-end
 
 ## Next steps

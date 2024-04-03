@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/21/2024
+ms.date: 3/26/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -24,7 +24,7 @@ The Speech to text REST API is used for [Batch transcription](batch-transcriptio
 
 ## Base path
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 For more information, see [Operation IDs](#operation-ids) later in this guide.
 
@@ -57,7 +57,7 @@ Azure AI Speech now supports OpenAI's Whisper model via Speech to text REST API 
 
 ### Custom display text formatting
 
-To support model adaptation with [custom display text formatting](how-to-custom-speech-test-and-train.md#custom-display-text-formatting-data-for-training) data, the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Datasets_Create) operation supports the **OutputFormatting** data kind. For more information, see [upload datasets](how-to-custom-speech-upload-data.md#upload-datasets). 
+To support model adaptation with [custom display text formatting](how-to-custom-speech-test-and-train.md#custom-display-text-formatting-data-for-training) data, the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Datasets_Create) operation supports the **OutputFormatting** data kind. For more information, see [upload datasets](how-to-custom-speech-upload-data.md#upload-datasets). 
 
 Added a definition for `OutputFormatType` with `Lexical` and `Display` enum values.
 
@@ -174,15 +174,131 @@ Added token count and token error properties to the `EvaluationProperties` prope
 - `tokenInsertionCount2`: The number of recognized tokens by model2 that are insertions.
 - `tokenSubstitutionCount2`: The number of recognized words by model2 that are substitutions.
 
+
+### Model copy
+
+The following changes are for the scenario where you copy a model.
+- Added the new [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation. Here's the schema in the new copy operation: `"$ref": "#/definitions/ModelCopyAuthorization"` 
+- Deprecated the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_CopyTo) operation. Here's the schema in the deprecated copy operation: `"$ref": "#/definitions/ModelCopy"`
+- Added the new [Models_AuthorizeCopy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_AuthorizeCopy) operation that returns `"$ref": "#/definitions/ModelCopyAuthorization"`. This returned entity can be used in the new [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation.
+
+Added a new entity definition for `ModelCopyAuthorization`:
+
+```json
+"ModelCopyAuthorization": {
+    "title": "ModelCopyAuthorization",
+    "required": [
+        "expirationDateTime",
+        "id",
+        "sourceResourceId",
+        "targetResourceEndpoint",
+        "targetResourceId",
+        "targetResourceRegion"
+    ],
+    "type": "object",
+    "properties": {
+        "targetResourceRegion": {
+            "description": "The region (aka location) of the target speech resource (e.g., westus2).",
+            "minLength": 1,
+            "type": "string"
+        },
+        "targetResourceId": {
+            "description": "The Azure Resource ID of the target speech resource.",
+            "minLength": 1,
+            "type": "string"
+        },
+        "targetResourceEndpoint": {
+            "description": "The endpoint (base url) of the target resource (with custom domain name when it is used).",
+            "minLength": 1,
+            "type": "string"
+        },
+        "sourceResourceId": {
+            "description": "The Azure Resource ID of the source speech resource.",
+            "minLength": 1,
+            "type": "string"
+        },
+        "expirationDateTime": {
+            "format": "date-time",
+            "description": "The expiration date of this copy authorization.",
+            "type": "string"
+        },
+        "id": {
+            "description": "The ID of this copy authorization.",
+            "minLength": 1,
+            "type": "string"
+        }
+    }
+},
+```
+
+Added a new entity definition for `ModelCopyAuthorizationDefinition`:
+
+```json
+"ModelCopyAuthorizationDefinition": {
+    "title": "ModelCopyAuthorizationDefinition",
+    "required": [
+        "sourceResourceId"
+    ],
+    "type": "object",
+    "properties": {
+        "sourceResourceId": {
+            "description": "The Azure Resource ID of the source speech resource.",
+            "minLength": 1,
+            "type": "string"
+        }
+    }
+},
+```
+
+### CustomModelLinks copy properties
+
+Added a new `copy` property.
+- `copyTo` URI: The location of the obsolete model copy action. See the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_CopyTo) operation for more details.
+- `copy` URI: The location of the model copy action. See the [Models_Copy](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_Copy) operation for more details.
+
+```json
+"CustomModelLinks": {
+    "title": "CustomModelLinks",
+    "type": "object",
+    "properties": {
+      "copyTo": {
+        "format": "uri",
+        "description": "The location to the obsolete model copy action. See operation \"Models_CopyTo\" for more details.",
+        "type": "string",
+        "readOnly": true
+      },
+      "copy": {
+        "format": "uri",
+        "description": "The location to the model copy action. See operation \"Models_Copy\" for more details.",
+        "type": "string",
+        "readOnly": true
+      },
+      "files": {
+        "format": "uri",
+        "description": "The location to get all files of this entity. See operation \"Models_ListFiles\" for more details.",
+        "type": "string",
+        "readOnly": true
+      },
+      "manifest": {
+        "format": "uri",
+        "description": "The location to get a manifest for this model to be used in the on-prem container. See operation \"Models_GetCustomModelManifest\" for more details.",
+        "type": "string",
+        "readOnly": true
+      }
+    },
+    "readOnly": true
+},
+```
+
 ## Operation IDs
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1)
+* [Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2)
 * [Speech to text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
 * [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 

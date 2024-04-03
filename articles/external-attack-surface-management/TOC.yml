@@ -1,8 +1,10 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Defender EASM documentation
+    href: index.yml 
   - name: Overview
-    href: index.md
+    href: overview.md
   - name: Understanding inventory assets
     href: understanding-inventory-assets.md
   - name: What is Discovery?

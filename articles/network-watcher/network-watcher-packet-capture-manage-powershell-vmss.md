@@ -27,9 +27,6 @@ This article takes you through the different management tasks that are currently
 - [**Delete a packet capture**](#delete-a-packet-capture)
 - [**Download a packet capture**](#download-a-packet-capture)
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Before you begin
 
 This article assumes you have the following resources:

@@ -88,7 +88,7 @@ After having run the script as described [earlier](#download-and-run-the-script)
 
 1. Sign into your OT sensor console, and select **System Settings** > **Import Settings** > **Windows Information**.
 
-1. Select **Import File**, and then select all the files (Ctrl+A).
+1. Select **Import File**, and then select the relevant file.
 
     :::image type="content" source="media/detect-windows-endpoints-script/import-wmi-script.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoints-script/import-wmi-script.png":::
 

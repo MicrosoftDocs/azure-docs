@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: App Configuration schema for Azure Event Grid
+ description: Describes the schema for App Configuration in Azure Event Grid. 
  services: event-grid
  author: spelluru
  ms.service: event-grid
@@ -23,20 +23,6 @@ Event Grid uses [event subscriptions](../concepts.md#event-subscriptions) to rou
 
 ## Event schema
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `eventType` | string | One of the registered event types for this event source. |
-| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | App Configuration event data. |
-| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
-| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
-
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -51,6 +37,21 @@ An event has the following top-level data:
 | `id` | string | Unique identifier for the event. |
 | `data` | object | App Configuration event data. |
 | `specversion` | string | CloudEvents schema specification version. |
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | App Configuration event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
 
 ---
 
@@ -74,6 +75,80 @@ The data object has the following properties:
 | `syncToken` | string | The sync token representing the server state after the snapshot event. |
 
 ## Example event
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a key-value modified event: 
+
+```json
+[{
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
+  "data": {
+    "key": "Foo",
+    "label": "FizzBuzz",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0"
+  },
+  "type": "Microsoft.AppConfiguration.KeyValueModified",
+  "time": "2019-05-31T20:05:03Z",
+  "specversion": "1.0"
+}]
+```
+
+The following example shows the schema of a key-value deleted event: 
+
+```json
+[{
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
+  "data": {
+    "key": "Foo",
+    "label": "FizzBuzz",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0"
+  },
+  "type": "Microsoft.AppConfiguration.KeyValueDeleted",
+  "time": "2019-05-31T20:05:03Z",
+  "specversion": "1.0"
+}]
+```
+
+The following example shows the schema of a snapshot created event: 
+
+```json
+[{
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/kvsnapshots/Foo",
+  "type": "Microsoft.AppConfiguration.SnapshotCreated",
+  "time": "2023-09-02T20:05:03.0000000Z",
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "data": {
+    "name": "Foo",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "specversion": "1.0"
+}]
+```
+
+The following example shows the schema of a snapshot modified event: 
+
+```json
+[{
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/snapshots/Foo",
+  "type": "Microsoft.AppConfiguration.SnapshotModified",
+  "time": "2023-09-03T20:05:03.0000000Z",
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "data": {
+    "name": "Foo",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "specversion": "1.0"
+}]
+```
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 The following example shows the schema of a key-value modified event: 
@@ -152,79 +227,8 @@ The following example shows the schema of a snapshot modified event:
   "metadataVersion": "1"
 }]
 ```
-# [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a key-value modified event: 
 
-```json
-[{
-  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
-  "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
-  "data": {
-    "key": "Foo",
-    "label": "FizzBuzz",
-    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0"
-  },
-  "type": "Microsoft.AppConfiguration.KeyValueModified",
-  "time": "2019-05-31T20:05:03Z",
-  "specversion": "1.0"
-}]
-```
-
-The following example shows the schema of a key-value deleted event: 
-
-```json
-[{
-  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
-  "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
-  "data": {
-    "key": "Foo",
-    "label": "FizzBuzz",
-    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0"
-  },
-  "type": "Microsoft.AppConfiguration.KeyValueDeleted",
-  "time": "2019-05-31T20:05:03Z",
-  "specversion": "1.0"
-}]
-```
-
-The following example shows the schema of a snapshot created event: 
-
-```json
-[{
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
-  "subject": "https://contoso.azconfig.io/kvsnapshots/Foo",
-  "type": "Microsoft.AppConfiguration.SnapshotCreated",
-  "time": "2023-09-02T20:05:03.0000000Z",
-  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "data": {
-    "name": "Foo",
-    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
-    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
-  },
-  "specversion": "1.0"
-}]
-```
-
-The following example shows the schema of a snapshot modified event: 
-
-```json
-[{
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
-  "subject": "https://contoso.azconfig.io/snapshots/Foo",
-  "type": "Microsoft.AppConfiguration.SnapshotModified",
-  "time": "2023-09-03T20:05:03.0000000Z",
-  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "data": {
-    "name": "Foo",
-    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
-    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
-  },
-  "specversion": "1.0"
-}]
-```
 ---
 
 

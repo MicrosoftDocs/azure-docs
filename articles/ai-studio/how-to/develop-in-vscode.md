@@ -107,4 +107,5 @@ For cross-language compatibility and seamless integration of Azure AI capabiliti
 ## Next steps
 
 - [Get started with the Azure AI CLI](cli-install.md)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)

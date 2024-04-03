@@ -45,14 +45,14 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 Azure Blob Storage doesn't support Microsoft Entra authentication or authorization via SFTP. Instead, SFTP utilizes a new form of identity management called _local users_. 
 
-Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 1000 local users for a storage account.
+Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2000 local users for a storage account.
 
 To set up access permissions, you'll create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
  
 > [!CAUTION]
-> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control), ABAC (attribute based access control), and ACLs (access control lists). 
+> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). ACLs (access control lists) are supported for local users at the preview level.
 >
-> For example, Jeff has read only permission (can be controlled via RBAC, ABAC, or ACLs) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
+> For example, Jeff has read only permission (can be controlled via RBAC or ABAC) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
 
 For SFTP enabled storage accounts, you can use the full breadth of Azure Blob Storage security settings, to authenticate and authorize users accessing Blob Storage via Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
@@ -72,7 +72,7 @@ If you choose to authenticate with private-public key pair, you can either gener
 
 ## Container permissions
 
-In the current release, you can specify only container-level permissions. Directory-level permissions aren't supported. You can choose which containers you want to grant access to and what level of access you want to provide (Read, Write, List, Delete, and Create). Those permissions apply to all directories and subdirectories in the container. You can grant each local user access to as many as 100 containers. Container permissions can also be updated after creating a local user. The following table describes each permission in more detail.
+For container-level permissions, you can choose which containers you want to grant access to and what level of access you want to provide (Read, Write, List, Delete, Create, Modify Ownership, and Modify Permissions). Those permissions apply to all directories and subdirectories in the container. You can grant each local user access to as many as 100 containers. Container permissions can also be updated after creating a local user. The following table describes each permission in more detail.
 
 | Permission | Symbol | Description |
 |---|---|---|
@@ -81,8 +81,30 @@ In the current release, you can specify only container-level permissions. Direct
 | List | l | <li>List content within container</li><li>List content within directory</li> |
 | Delete | d | <li>Delete file/directory</li> |
 | Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if directory doesn't exist</li> |
+| Modify Ownership | o | <li>Change the owning user or owning group for file/directory</li> |
+| Modify Permissions | p | <li>Change permissions for file/directory</li> |
 
 When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
+
+## ACLs
+
+For directory or blob level permissions, you can change owning user, owning group, and mode that are used by ADLS Gen2 ACLs. Most SFTP clients expose commands for changing these properties. The following table describes common commands in more detail.
+
+| Command | Required Container Permission | Description |
+|---|---|---|
+| chown | o | <li>Change owning user for file/directory</li><li>Must specify numeric ID</li> |
+| chgrp | o | <li>Change owning group for file/directory</li><li>Must specify numeric ID</li> |
+| chmod | p | <li>Change permissions/mode for file/directory</li><li>Must specify POSIX style octal permissions</li> |
+
+The IDs required for changing owning user and owning group are part of new properties for Local Users. The following table describes each new Local User property in more detail. 
+
+| Property | Description |
+|---|---|
+| UserId | <li>Unique identifier for the Local User within the storage account</li><li>Generated by default when the Local User is created</li><li>Used for setting owning user on file/directory</li> |
+| GroupId | <li>Identifer for a group of Local Users</li><li>Used for setting owning group on file/directory</li> |
+| AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
+
+Once the desired ACLs have been configured and the Local User enables `AllowAclAuthorization`, they may use ACLs to authorize their requests. Similar to RBAC, container permissions can interoperate with ACLs. Only if the local user doesn't have sufficient container permissions will ACLs be evaluated. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 ## Home directory
 

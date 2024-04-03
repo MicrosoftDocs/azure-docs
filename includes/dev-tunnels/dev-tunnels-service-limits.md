@@ -9,8 +9,8 @@ The following limits apply to [dev tunnels](https://aka.ms/devtunnels/docs). The
 
 | Resource | Limit |
 | --- | --- |
-| Bandwidth | 2 GB per user |
-| Tunnels | 5 per user |
+| Bandwidth | 5 GB per user |
+| Tunnels | 10 per user |
 | Active connections | 20 per port |
 | Ports | 10 per tunnel |
 | HTTP request rate | 1500/min per port |

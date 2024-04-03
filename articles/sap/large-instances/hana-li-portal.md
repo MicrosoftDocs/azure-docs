@@ -3,7 +3,6 @@ title: Azure HANA Large Instances control through Azure portal | Microsoft Docs
 description: Describes the way how you can identify and interact with Azure HANA Large Instances through portal
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

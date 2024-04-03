@@ -7,7 +7,7 @@ keywords: spectre,meltdown,specter
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 02/26/2024
 ms.author: jushiman
 ---
 

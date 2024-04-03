@@ -4,6 +4,7 @@ description: Start here to learn how to monitor Azure Kubernetes Service (AKS).
 author: bwren
 ms.author: xuhliu
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ms.custom: subject-monitoring
 ms.date: 11/01/2023
 ---

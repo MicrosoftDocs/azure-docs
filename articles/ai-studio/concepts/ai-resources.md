@@ -101,28 +101,17 @@ While projects show up as their own tracking resources in the Azure portal, they
 
 Azure AI offers a set of connectors that allows you to connect to different types of data sources and other Azure tools. You can take advantage of connectors to connect with data such as indices in Azure AI Search to augment your flows.
 
-Connections can be set up as shared with all projects in the same Azure AI hub resource, or created exclusively for one project. To manage project connections via Azure AI Studio, navigate to a project page, then navigate to **Settings** > **Connections**. To manage shared connections, navigate to the **Manage** page. As an administrator, you can audit both shared and project-scoped connections on an Azure AI hub resource level to have a single pane of glass of connectivity across projects.
+Connections can be set up as shared with all projects in the same Azure AI hub resource, or created exclusively for one project. To manage project connections via Azure AI Studio, navigate to a project page, then navigate to **AI project settings** > **Connections**. To manage shared connections, navigate to the **Manage** page. As an administrator, you can audit both shared and project-scoped connections on an Azure AI hub resource level to have a single pane of glass of connectivity across projects.
 
 ## Azure AI dependencies
 
 Azure AI Studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI Studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI Studio resource types map to the following resource provider kinds:
 
-|Resource type|Resource provider|Kind|
-|---|---|---|
-|Azure AI hub resources|Microsoft.MachineLearningServices/workspace|hub|
-|Azure AI project|Microsoft.MachineLearningServices/workspace|project|
-|Azure AI services|Microsoft.CognitiveServices/account|AIServices|
-|Azure AI OpenAI Service|Microsoft.CognitiveServices/account|OpenAI|
+[!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
-When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI Studio. If not provided by you, these resources are automatically created.
+When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI studio. If not provided by you, and required, these resources are automatically created.
 
-|Dependent Azure resource|Note|
-|---|---|
-|Azure AI services|Either Azure AI services multi-service provider, or Azure OpenAI Service. Provides API endpoints and keys for prebuilt AI services.|
-|Azure Storage account|Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
-|Azure Key Vault| Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
-|Azure Container Registry| Stores docker images created when using custom runtime for prompt flow. For data isolation, docker images are prefixed using the project GUID.|
-|Azure Application Insights| Used as log storage when you opt in for application-level logging for your deployed prompt flows.|
+[!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
 
 ## Managing cost
 
@@ -141,7 +130,7 @@ In the Azure portal, you can find resources that correspond to your Azure AI pro
 > [!NOTE]
 > This section assumes that the Azure AI hub resource and Azure AI project are in the same resource group. 
 
-1. In [Azure AI Studio](https://ai.azure.com), go to **Build** > **Settings** to view your Azure AI project resources such as connections and API keys. There's a link to your Azure AI hub resource in Azure AI Studio and links to view the corresponding project resources in the [Azure portal](https://portal.azure.com).
+1. In [Azure AI Studio](https://ai.azure.com), go to **Build** > **AI project settings** to view your Azure AI project resources such as connections and API keys. There's a link to your Azure AI hub resource in Azure AI Studio and links to view the corresponding project resources in the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="../media/concepts/azureai-project-view-ai-studio.png" alt-text="Screenshot of the Azure AI project and related resources in the Azure AI Studio." lightbox="../media/concepts/azureai-project-view-ai-studio.png":::
 

@@ -4,13 +4,13 @@ description: Learn about Azure Virtual WAN logs and metrics using Azure Monitor.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: reference
-ms.date: 06/08/2022
+ms.date: 02/15/2024
 ms.author: cherylmc
 ms.custom: subject-monitoring
 
 ---
 
-# Monitoring Virtual WAN data reference
+# Monitoring Virtual WAN - Data reference
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of Virtual WAN. See [Monitoring Virtual WAN](monitor-virtual-wan.md) for instructions and additional context on monitoring data for Virtual WAN.
 
@@ -22,7 +22,13 @@ The following metric is available for virtual hub router within a virtual hub:
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows will traverse the firewall instead of the hub router. |
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+| **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more details on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
+| **Spoke VM Utilization** | The number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric will display as 50%.  |
+
+> [!NOTE]
+> As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out within the next several weeks, which will ensure the proper values are emitted. 
+>
 
 #### PowerShell steps
 
@@ -46,9 +52,9 @@ $MetricInformation.Data
 
 * **Time Grain** - Refers to the frequency at which you want to see the aggregation. In the current command, you'll see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
 
-* **Start Time and End Time** - This time is based on UTC, so please ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
+* **Start Time and End Time** - This time is based on UTC. Ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
 
-* **Sum Aggregation Type** - This aggregation type will show you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types are not meaningful. 
+* **Sum Aggregation Type** - This aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types aren't meaningful. 
  
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
@@ -88,13 +94,15 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 | Metric | Description|
 | --- | --- |
 | **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| **Gateway Inbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.|
+| **Gateway Outbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.|
 | **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
 | **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
 | **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
-| **Tunnel Flow Count** | Number of distinct flows created per link connection.|
+| **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
 
 ### <a name="p2s-metrics"></a>Point-to-site VPN gateway metrics
 
@@ -103,7 +111,7 @@ The following metrics are available for Virtual WAN point-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
-| **P2S Connection Count** |Point-to-site connection count of a gateway. To ensure you're viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you split By **Instance**. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. To ensure you're viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You can also select **Max** if you split By **Instance**. |
 | **User VPN Routes Count** | Number of User VPN Routes configured on the VPN gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
 
 ### <a name="er-metrics"></a>Azure ExpressRoute gateway metrics
@@ -132,7 +140,7 @@ The following diagnostics are available for Virtual WAN site-to-site VPN gateway
 | Metric | Description|
 | --- | --- |
 | **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
-| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics. For connect and disconnect events, these logs will also display the remote IP address of the corresponding on-premises VPN device.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device.|
 | **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
 
@@ -152,13 +160,13 @@ In Azure Virtual WAN, ExpressRoute gateway metrics can be exported as logs via a
 
 ### Log Analytics sample query
 
-If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries, such as the following example, to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
 
 The following example contains a query to obtain site-to-site route diagnostics.
 
 `AzureDiagnostics | where Category == "RouteDiagnosticLog"`
 
-Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
+Replace the following values, after the **= =**, as needed based on the tables reported in the previous section of this article.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -170,7 +178,7 @@ In order to execute the query, you have to open the Log Analytics resource you c
 
 :::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
 
-For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate the diagnostic data without manually writing any Log Analytics query.
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
 
 ## <a name="activity-logs"></a>Activity logs
 
@@ -184,7 +192,7 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 
 For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
 
-When reviewing any metrics through Log Analytics, the output will contain the following columns:
+When reviewing any metrics through Log Analytics, the output contains the following columns:
 
 |**Column**|**Type**|**Description**|
 | --- | --- | --- |
@@ -197,7 +205,7 @@ When reviewing any metrics through Log Analytics, the output will contain the fo
 
 ## <a name="azure-firewall"></a>Monitoring secured hub (Azure Firewall)
 
-If you have chosen to secure your virtual hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+If you chose to secure your virtual hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
 For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit firewall resource object is created in the resource group where the hub is located.
 
@@ -207,5 +215,5 @@ For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit
 ## Next steps
 
 * To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](../firewall/firewall-diagnostics.md).
-* For additional information about Virtual WAN monitoring, see [Monitoring Azure Virtual WAN](monitor-virtual-wan.md).
+* For more information about Virtual WAN monitoring, see [Monitoring Azure Virtual WAN](monitor-virtual-wan.md).
 * To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
