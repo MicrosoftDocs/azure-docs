@@ -3,10 +3,11 @@ title: Azure Kubernetes Service (AKS) Diagnose and Solve Problems Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
 author: rzhang628
+
 ms.topic: conceptual
 ms.subservice: aks-monitoring
 ms.date: 03/10/2023
-ms.author: rzhang628
+ms.author: rongzhang
 ---
 
 # Azure Kubernetes Service Diagnose and Solve Problems overview
