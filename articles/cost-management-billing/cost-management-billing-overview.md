@@ -62,7 +62,7 @@ Cost Management is available from within the Billing experience. It's also avail
 :::image type="content" source="./media/cost-management-availability.svg" alt-text="Diagram showing how billing organization relates to Cost Management." border="false" lightbox="./media/cost-management-availability.svg":::
 
 
-## What data is included in Cost Management and Billing?
+## What data is included?
 
 Within the Billing experience, you can manage all the products, subscriptions, and recurring purchases you use; review your credits and commitments; and view and pay your invoices. Invoices are available online or as PDFs and include all billed charges and any applicable taxes. Credits are applied to the total invoice amount when invoices are generated. This invoicing process happens in parallel to Cost Management data processing, which means Cost Management doesn't include credits, taxes, and some purchases, like support charges in non-Microsoft Customer Agreement (MCA) accounts.
 
