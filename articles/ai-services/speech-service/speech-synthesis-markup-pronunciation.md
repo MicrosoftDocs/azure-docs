@@ -291,7 +291,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 The Mathematical Markup Language (MathML) is an XML-compliant markup language that describes mathematical content and structure. The Speech service can use the MathML as input text to properly pronounce mathematical notations in the output audio.
 
 > [!NOTE]
-> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
+> The MathML elements (tags) are currently supported in the following locales: `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`.
 
 All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. 
 
