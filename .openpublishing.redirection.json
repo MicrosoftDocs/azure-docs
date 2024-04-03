@@ -3910,6 +3910,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-registry/container-registry-auth-aci.md",
+            "redirect_url": "/azure/container-registry/container-registry-authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
             "redirect_document_id": false
@@ -3923,6 +3928,27 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/update-legacy-ot-software.md",
             "redirect_url": "/azure/defender-for-iot/organizations/update-ot-software?tabs=portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/virtual-network-manager/concept-user-defined-route-management.md",
+            "redirect_url":"/azure/virtual-network-manager/overview",
+            "redirect_document_id":false
+
+        },
+        {
+            "source_path_from_root":"/articles/virtual-network-manager/how-to-create-user-defined-routes.md",
+            "redirect_url":"/azure/virtual-network-manager/overview",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/virtual-network-manager/how-to-create-security-admin-rule-network-groups.md",
+            "redirect_url":"/azure/virtual-network-manager/overview",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/virtual-network-manager/concept-security-admin-rules-network-groups.md",
+            "redirect_url":"/azure/virtual-network-manager/overview",
+            "redirect_document_id":false 
         }
     ]
 }

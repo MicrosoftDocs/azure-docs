@@ -69,16 +69,15 @@ Use the Azure CLI command to create a service connection to a Blob Storage with 
 * **AKS cluster name:** the name of your AKS cluster that connects to the target service.
 * **Target service resource group name:** the resource group name of the Blob Storage.
 * **Storage account name:** the account name of your Blob Storage.
-* **User-assigned identity subscription ID:** the subscription ID of the user assigned identity that used to create workload identity
-* **User-assigned identity client ID:** the client ID of the user assigned identity used to create workload identity
+* **User-assigned identity resource ID:** the resource ID of the user assigned identity that is used to create workload identity
 
 ```azurecli
 az aks connection create storage-blob \
-    --workload-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"
+    --workload-identity <user-identity-resource-id>
 ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --workload-identity client-id="<your-user-assigned-identity-client-id>" subs-id="<your-user-assigned-identity-subscription-id>"` to provision a new one and get connected to your function app straightaway.
+> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --workload-identity <user-identity-resource-id>"` to provision a new one and get connected to your function app straightaway.
 
 ---
 
