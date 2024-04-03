@@ -67,7 +67,7 @@ After running the `azd` template and uploading your data, you're ready to start 
 * [Spring](../use-your-data-quickstart.md?pivots=programming-language-spring#retrieve-required-variables)
 * [Go](../use-your-data-quickstart.md?pivots=programming-language-go#retrieve-required-variables)
 * [REST API](../use-your-data-quickstart.md?pivots=rest-api#retrieve-required-variables)
-* [REST API](../use-your-data-quickstart.md?programming-language-powershell#retrieve-required-variables)
+* [Powershell](../use-your-data-quickstart.md?programming-language-powershell#retrieve-required-variables)
 
 
 ## Run the app locally
