@@ -58,7 +58,7 @@ This section describes how to create a rule using the Azure or Defender portals.
 
 ### Start the Analytics rule wizard
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
@@ -66,7 +66,7 @@ This section describes how to create a rule using the Azure or Defender portals.
 
     :::image type="content" source="media/detect-threats-custom/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/detect-threats-custom/create-scheduled-query.png":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
 
@@ -108,11 +108,11 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 1. Select **Next: Set rule logic**.
 
-   # [Azure portal](#tab/azure)
+   # [Azure portal](#tab/azure-portal)
 
    :::image type="content" source="media/detect-threats-custom/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
-   # [Defender portal](#tab/defender)
+   # [Defender portal](#tab/defender-portal)
 
    :::image type="content" source="media/detect-threats-custom/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
 
@@ -168,11 +168,11 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
             :::image type="content" source="media/detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
     
-       # [Azure portal](#tab/azure)
+       # [Azure portal](#tab/azure-portal)
 
        :::image type="content" source="media/detect-threats-custom/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
 
-       # [Defender portal](#tab/defender)
+       # [Defender portal](#tab/defender-portal)
 
        :::image type="content" source="media/detect-threats-custom/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
 
@@ -259,11 +259,11 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
 1. Select **Next: Automated response**.
 
-    # [Azure portal](#tab/azure)
+    # [Azure portal](#tab/azure-portal)
 
     :::image type="content" source="media/detect-threats-custom/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
 
-    # [Defender portal](#tab/defender)
+    # [Defender portal](#tab/defender-portal)
 
     :::image type="content" source="media/detect-threats-custom/defender-incident-settings.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Defender portal.":::
 
@@ -286,11 +286,11 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
 - For more information about when to use the **incident created trigger**, the **incident updated trigger**, or the **alert created trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="media/detect-threats-custom/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/detect-threats-custom/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
 
@@ -303,11 +303,11 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
 Select **Next: Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="media/detect-threats-custom/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/detect-threats-custom/defender-review-and-create.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Defender portal.":::
 
@@ -321,11 +321,11 @@ Select **Next: Review and create** to review all the settings for your new analy
 
 **View the results of the rule:**
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 - To view the results of the analytics rules you create in the Azure portal, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 - To view the results of the analytics rules you create in the Defender portal, expand **Investigation & response** in the navigation menu, then **Incidents & alerts**. View incidents on the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md). View individual alerts on the **Alerts** page.
 
