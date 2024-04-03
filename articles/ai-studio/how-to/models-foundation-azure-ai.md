@@ -15,8 +15,6 @@ author: eric-urban
 
 # Explore Azure AI capabilities in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In Azure AI Studio, you can quickly try out Azure AI capabilities such as Speech and Vision. Go to the **Explore** page from the top navigation menu.
 
 ## Azure AI foundation models

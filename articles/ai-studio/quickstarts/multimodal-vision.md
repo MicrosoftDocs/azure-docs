@@ -13,8 +13,6 @@ author: PatrickFarley
 
 # Quickstart: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 Use this article to get started using [Azure AI Studio](https://ai.azure.com) to deploy and test the GPT-4 Turbo with Vision model. 
 
 GPT-4 Turbo with Vision and [Azure AI Vision](../../ai-services/computer-vision/overview.md) offer advanced functionality including:

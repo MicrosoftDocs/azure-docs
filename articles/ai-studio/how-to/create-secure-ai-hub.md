@@ -13,8 +13,6 @@ author: Blackmist
 
 # How to create a secure AI hub and project with a managed virtual network
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 You can secure your AI hub, AI projects, and managed resources in a managed virtual network. With a managed virtual network, inbound access is only allowed through a private endpoint for your AI hub resource. Outbound access can be configured to allow either all outbound access, or only allowed outbound that you specify. For more information, see [Managed virtual network](configure-managed-network.md).
 
 > [!IMPORTANT]

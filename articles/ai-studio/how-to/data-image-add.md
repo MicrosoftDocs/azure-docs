@@ -13,8 +13,6 @@ author: PatrickFarley
 
 # Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview)
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI's vision model. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers using retrieval augmented generation based on your own images and image metadata. 
 
 > [!TIP]

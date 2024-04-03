@@ -15,8 +15,6 @@ author: eric-urban
 
 # Tutorial: Deploy a web app for chat on your data
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this article, you deploy a chat web app that uses your own data with an Azure OpenAI Service model.
 
 You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 

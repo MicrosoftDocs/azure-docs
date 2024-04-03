@@ -11,8 +11,6 @@ ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
-
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.

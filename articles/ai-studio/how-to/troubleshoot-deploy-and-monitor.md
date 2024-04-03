@@ -15,8 +15,6 @@ author: msakande
 
 # How to troubleshoot your deployments and monitors in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio. 
 
 ## Deployment issues

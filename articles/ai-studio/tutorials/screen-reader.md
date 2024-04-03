@@ -15,8 +15,6 @@ author: eric-urban
 
 # Tutorial: Using Azure AI Studio with a screen reader
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 This article is for people who use screen readers such as Microsoft's Narrator, JAWS, NVDA or Apple's Voiceover. You learn how to use the Azure AI Studio with a screen reader.   
 
 ## Getting started in the Azure AI Studio 

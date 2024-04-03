@@ -13,8 +13,6 @@ author: lgayhardt
 
 # Overview of prompt flow tools in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
-
 The following table provides an index of tools in prompt flow. 
 
 | Tool (set) name | Description | Environment | Package name |

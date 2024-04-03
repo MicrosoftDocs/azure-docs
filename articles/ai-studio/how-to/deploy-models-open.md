@@ -13,8 +13,6 @@ author: msakande
 
 # How to deploy large language models with Azure AI Studio 
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 Deploying a large language model (LLM) makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference for chat, copilot, or another generative AI application.
 
 ## Deploy open models

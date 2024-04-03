@@ -15,8 +15,6 @@ author: Blackmist
 
 # How to create and manage an Azure AI hub resource
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 As an administrator, you can create and manage Azure AI hub resources. Azure AI hub resources provide a hosting environment for the projects of a team, and help you as an IT admin centrally set up security settings and govern usage and spend. You can create and manage an Azure AI hub resource from the Azure portal or from the Azure AI Studio. 
 
 In this article, you learn how to create and manage an Azure AI hub resource in Azure AI Studio (for getting started).

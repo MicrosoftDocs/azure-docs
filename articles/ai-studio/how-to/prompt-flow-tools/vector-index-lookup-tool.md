@@ -15,8 +15,6 @@ author: lgayhardt
 
 # Vector index lookup tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
-
 > [!IMPORTANT]
 > Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 

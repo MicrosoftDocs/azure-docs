@@ -15,8 +15,6 @@ author: eric-urban
 
 # How to add and manage data in your Azure AI project
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 This article shows how to create and manage data in Azure AI Studio. Data can be used as a source for indexing in Azure AI Studio.
 
 And data can help when you need these capabilities:

@@ -13,8 +13,6 @@ author: eric-urban
 
 # Tutorial: Build and deploy a question and answer copilot with the Azure AI CLI and SDK
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the Azure AI CLI and SDK to build, configure, and deploy a copilot for your retail company called Contoso Trek. Your retail company specializes in outdoor camping gear and clothing. The copilot should answer questions about your products and services. For example, the copilot can answer questions such as "which tent is the most waterproof?" or "what is the best sleeping bag for cold weather?".
 
 ## What you learn
