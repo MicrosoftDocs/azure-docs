@@ -151,7 +151,7 @@ You can increase this value to avoid client disconnect.
 #### `TransportTypeDetector`
 
 - Default value is null.
-- This option defines a function which accepts an HttpContext and returns a bitmask combining one or more HttpTransportType values that specify what transports the service should use to receive HTTP requests.
+- This option defines a function to customize the transports that clients can use to send HTTP requests. If it's null, all transports are supported.
 
 ### Sample
 
