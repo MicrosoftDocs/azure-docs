@@ -34,7 +34,7 @@ If you accidentally open all the ports you will be warned before saving the chan
 
 ## Connect using Mongo Shell (Mongosh)
 
-To add your Azure Cosmos DB cluster to the Studio 3T connection manager, perform the following steps:
+To add your Azure Cosmos DB cluster to Mongo shell, perform the following steps:
 1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
 
 ![GIF for getting connection string](./media/connect-using-mongoshell/gettingconnectionstringfromportal.gif)
