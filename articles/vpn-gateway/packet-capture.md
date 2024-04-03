@@ -365,7 +365,7 @@ To complete a packet capture, you need to provide a valid SAS (or Shared Access 
 1. The packet capture (pcap) file will be stored in the specified account.
 
 > [!NOTE]  
-> Do not use Azure-generated containers, such as $logs. Containers starting with "$" are usually internal containers which can only be written on by the service which created it. For example, $logs can only be use by the Storage Account to write Storage Account related logs.
+> Avoid the use of Azure-generated containers, such as `$logs`. Containers that start with `$` are typically internal containers, and only the service that creates them should use them. For instance, `$logs` is used by Azure Storage Account for writing storage account related logs.
 
 ## Packet capture - PowerShell
 
