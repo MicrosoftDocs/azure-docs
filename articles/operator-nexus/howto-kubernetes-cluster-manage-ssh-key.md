@@ -92,10 +92,10 @@ Update the quickstart ARM template or Bicep parameter file with the required key
     "controlPlaneSshKeys": {
       "value": [
         {
-          "keyData": "ssh-rsa AAAAA...."
+          "keyData": "ssh-rsa CCCCC...."
         },
         {
-          "keyData": "ssh-rsa BBBBB...."
+          "keyData": "ssh-rsa DDDDD...."
         }
       ]
     }
@@ -107,14 +107,16 @@ Update the quickstart ARM template or Bicep parameter file with the required key
     "agentPoolSshKeys": {
       "value": [
         {
-          "keyData": "ssh-rsa AAAAA...."
+          "keyData": "ssh-rsa EEEEE...."
         },
         {
-          "keyData": "ssh-rsa BBBBB...."
+          "keyData": "ssh-rsa FFFFF...."
         }
       ]
     }
 ```
+
+Apply the ARM template or Bicep to create the cluster.
 
 ---
 
@@ -126,7 +128,7 @@ To update the SSH keys, you can apply the same Bicep/ARM configuration used duri
 
 ### Limitations
 
-1. You can't remove all SSH keys from the cluster nodes. You can only update them with new keys.
+1. You can't remove SSH keys from the cluster nodes. You can only update them with new keys.
 2. If you try to update the cluster wide key with an empty array, the operation succeeds, but the existing keys remain unchanged.
 3. If you try to update the agent pool keys or control plane with an empty array, the operation succeeds, and the cluster wide keys are used instead.
 4. If you try to update the keys for a cluster that was created without any keys, the new key is added, but you can't remove it.
@@ -147,16 +149,16 @@ Use the following command to update the cluster wide SSH keys, which are used fo
 
 #### Azure CLI to update cluster wide SSH keys
 
-1. Set the `NEW_CLUSTER_WIDE_KEY` variable with the new SSH key.
+1. Set the `SSH_PUBLIC_KEY` variable with the new SSH key.
 
 ```bash
-NEW_CLUSTER_WIDE_KEY="ssh-rsa CCCCC...."
+SSH_PUBLIC_KEY="ssh-rsa CCCCC...."
 ```
 
 2. Use the following command to update the cluster wide SSH keys.
 
 ```azurecli
-az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --ssh-key-values "$CLUSER_WIDE_KEY"
+az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --ssh-key-values "$SSH_PUBLIC_KEY"
 ```
 
 #### Azure Resource Manager (ARM) and Bicep to update cluster wide SSH keys
@@ -259,16 +261,16 @@ Use the following command to update the SSH keys for the control plane.
 
 #### Azure CLI to update control plane SSH keys
 
-1. Set the `CONTROL_PLANE_KEY` variable with the new SSH key.
+1. Set the `CONTROL_PLANE_SSH_PUBLIC_KEY` variable with the new SSH key.
 
 ```bash
-CONTROL_PLANE_KEY="ssh-rsa EEEEE...."
+CONTROL_PLANE_SSH_PUBLIC_KEY="ssh-rsa EEEEE...."
 ```
 
 2. Use the following command to update the control plane SSH keys.
 
 ```azurecli
-az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --control-plane-node-configuration ssh-key-values="['$CONTROL_PLANE_KEY']"
+az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --control-plane-node-configuration ssh-key-values="['$CONTROL_PLANE_SSH_PUBLIC_KEY']"
 ```
 
 #### Azure ARM template and Bicep to update control plane SSH keys
