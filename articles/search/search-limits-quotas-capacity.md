@@ -47,7 +47,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
-| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.92 TB | 2.4 TB | N/A | N/A | N/A |
+| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.92 TB | 2.4 TB | 100 GB| N/A | N/A |
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only tier with a lower limit of 100 fields per index. 
 
@@ -55,7 +55,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 
 <sup>3</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3,000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
 
-<sup>4</sup> On most tiers, maximum index size is all available storage on your search service. For S2 and S3, maximum size of any index is the number provided in the table. Applies to search services created after April 3, 2024.
+<sup>4</sup> On most tiers, maximum index size is all available storage on your search service. For S2, S3, and S3 HD, the maximum size of any index is the number provided in the table. Applies to search services created after April 3, 2024.
 
 You might find some variation in maximum limits if your service happens to be provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications are portable across equivalent service tiers in any region.
 
@@ -85,7 +85,9 @@ The table describes the vector index size quota per partition across the service
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
-Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
+Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota or review the **Indexes** page or **Usage** tab in the Azure portal.
+
+Vector limits vary by service creation date and tier. To check the age of your search service and learn more about vector indexes, see [Vector index size and staying under limits](vector-search-index-size.md).
 
 ### Vector limits on services created after April 3, 2024 in supported regions
 

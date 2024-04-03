@@ -9,9 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: conceptual
 ms.date: 04/03/2024
-ms.custom: references_regions
 ---
 
 # Create an Azure AI Search service in the portal

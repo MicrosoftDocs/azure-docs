@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Search service limits for storage, partitions, and replicas vary by service creation data, with higher limits for newer services in supported regions.
+Search service limits for storage, partitions, and replicas vary by service creation date, with higher limits for newer services in supported regions.
 
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
