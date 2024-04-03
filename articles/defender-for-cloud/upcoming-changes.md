@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -27,7 +27,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 |--|--|--|
 | [Deprecating of virtual machine recommendation](#deprecating-of-virtual-machine-recommendation) | April 2, 2024 | April 30, 2024 |
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
-| [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) | March 6, 2024 | April, 2024 |
 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
@@ -44,6 +43,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
 
 ## Deprecating of virtual machine recommendation
 
@@ -73,26 +73,6 @@ Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest cove
 The recommendations depend on [Guest Configuration](/azure/governance/machine-configuration/overview). Prerequisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected. 
 
 These recommendations will replace the recommendation "Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources." 
-
-## Defender for open-source relational databases updates
-
-**Announcement date: March 6, 2024**
-
-**Estimated date for change: April, 2024**
-
-**Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
-
-**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud is set to expand its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
-This release will include:
-
-- Alert compatibility with existing alerts for Defender for MySQL Single Servers.
-- Enablement of individual resources.
-- Enablement at the subscription level.
-
-If you're already protecting your subscription with Defender for open-source relational databases, your flexible server resources are automatically enabled, protected, and billed.
-Specific billing notifications have been sent via email for affected subscriptions.
-
-Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
 ## Changes in where you access Compliance offerings and Microsoft Actions
 
