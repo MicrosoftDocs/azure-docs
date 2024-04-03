@@ -105,7 +105,6 @@ The following Windows operating systems support hibernation:
 -	Capacity reservations
 
 ## Prerequisites to use hibernation
-- The hibernate feature is enabled for your subscription.
 - A persistent OS disk large enough to store the contents of the RAM, OS and other applications running on the VM is connected.
 - The VM size supports hibernation.
 -	The VM OS supports hibernation.
