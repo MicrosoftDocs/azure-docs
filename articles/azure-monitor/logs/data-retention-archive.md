@@ -33,7 +33,7 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 
 ### Adjustments to retention and archive settings
 
-When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
+When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately when required. 
 
 When you increase the retention setting, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
 
