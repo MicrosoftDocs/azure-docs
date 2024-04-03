@@ -35,11 +35,11 @@ If you're investigating an incident using the **[new investigation experience](i
 
 If you're using the **[unified security operations platform](https://go.microsoft.com/fwlink/p/?linkid=2263690)** in the Microsoft Defender portal, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal.":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal.":::
 
@@ -47,7 +47,7 @@ If you're using the **[unified security operations platform](https://go.microsof
 
 ## The timeline
 
-# [Azure portal](#tab/azure)
+# [Azure portal](#tab/azure-portal)
 
 The timeline is a major part of the entity page's contribution to behavior analytics in Microsoft Sentinel. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
 
@@ -65,7 +65,7 @@ The following types of items are included in the timeline.
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal.":::
 
-# [Defender portal](#tab/defender)
+# [Defender portal](#tab/defender-portal)
 
 The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the unified security operations platform in Microsoft Defender. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
 
