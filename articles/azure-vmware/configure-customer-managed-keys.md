@@ -8,15 +8,15 @@ ms.date: 12/05/2023
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
 
-This article illustrates how to encrypt VMware vSAN key encryption keys (KEKs) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
+This article illustrates how to encrypt VMware vSAN key encryption keys (KEKs) with customer-managed keys (CMKs) managed by a customer-owned Azure Key Vault instance.
 
-When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated disk encryption keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
+When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated disk encryption keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by the Azure VMware Solution key management system. The Azure VMware Solution private cloud and the key vault don't need to be in the same subscription.
 
 When you manage your own encryption keys, you can:
 
 - Control Azure access to vSAN keys.
 - Centrally manage the lifecycle of CMKs.
-- Revoke Azure from accessing the KEK.
+- Revoke Azure access to the KEK.
 
 The CMKs feature supports the following key types and their key sizes:
 
@@ -63,7 +63,7 @@ Before you begin to enable CMK functionality, ensure that the following requirem
     privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')
     ```
      
-    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true) and provide the variable for the private cloud resource ID that you previously retrieved.
+    To configure the system-assigned identity on Azure VMware Solution private cloud with the Azure CLI, call [az-resource-update](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true) and provide the variable for the private cloud resource ID that you previously retrieved.
     
     ```azurecli-interactive
     az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"
@@ -126,7 +126,7 @@ System-assigned identity is restricted to one per resource and is tied to the li
 
 # [Portal](#tab/azure-portal)
 
-Go to your Key Vault instance and provide access to the SDDC on Key Vault by using the Principal ID captured on the **Enable MSI** tab.
+Go to your Key Vault instance and provide access to the SDDC on Key Vault by using the principal ID captured on the **Enable MSI** tab.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**. Then select **Customer-managed keys (CMKs)**.
 1. CMK provides two options for **Key Selection** from Key Vault:
@@ -199,13 +199,13 @@ Here are troubleshooting tips for some common issues you might encounter and als
 
 ### Accidental deletion of a key
 
-If you accidentally delete your key in the key vault, private cloud isn't able to perform some cluster modification operations. To avoid this scenario, we recommend that you keep soft deletes enabled in the key vault. This option ensures that if a key is deleted, it can be recovered within a 90-day period as part of the default soft-delete retention. If you're within the 90-day period, you can restore the key to resolve the issue.
+If you accidentally delete your key in the key vault, the private cloud can't perform some cluster modification operations. To avoid this scenario, we recommend that you keep soft deletes enabled in the key vault. This option ensures that if a key is deleted, it can be recovered within a 90-day period as part of the default soft-delete retention. If you're within the 90-day period, you can restore the key to resolve the issue.
 
 ### Restore key vault permission
 
 If you have a private cloud that has lost access to the CMK, check if Managed System Identity (MSI) requires permissions in the key vault. The error notification returned from Azure might not correctly indicate MSI requiring permissions in the key vault as the root cause. Remember, the required permissions are `get`, `wrapKey`, and `unwrapKey`. See step 4 in [Prerequisites](#prerequisites).
 
-### Fix expired key
+### Fix an expired key
 
 If you aren't using the autorotate function and the CMK expired in Key Vault, you can change the expiration date on the key.
 
@@ -215,7 +215,7 @@ Ensure that the MSI is used for providing private cloud access to the key vault.
 
 ### Deletion of MSI
 
-If you accidentally delete the MSI associated with private cloud, you need to disable the CMK. Then follow the steps to enable the CMK from start.
+If you accidentally delete the MSI associated with a private cloud, you need to disable the CMK. Then follow the steps to enable the CMK from the start.
 
 ## Next steps
 
