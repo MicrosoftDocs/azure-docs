@@ -70,7 +70,6 @@ To create a new filter, select **Create a filter**. You can create up to ten fil
 
 Each filter must have a unique name that is between 8 and 50 characters long and contains only letters, numbers, and hyphens.
 
-
 After you've named your filter, enter at least one condition. In the **Filter type** field, select **Management group**, **Subscription ID**, **Subscription name**, or **Subscription state**. Then select an operator and the value to filter on.
 
 :::image type="content" source="media/set-preferences/settings-create-filter.png" alt-text="Screenshot showing options for Create a filter.":::
@@ -88,7 +87,7 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 
 ## Appearance + startup views
 
-The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
+The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
