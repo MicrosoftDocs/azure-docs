@@ -120,15 +120,9 @@ Downloading as certificate means getting the public portion. If you want both th
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.
 
-![AppGateway](./ag-kv.png)
-
 To learn about the certificates that Azure Application Gateway v2 uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates).
 
 ### Key Vault Managed Identity
-
-![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/13762e21-52cb-4569-8e34-35db9d115f8c)
-![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/f876f274-58ac-44f9-aac2-7c4b658cff4e)
-
 
 You would need to design access policies to a new user-assigned managed identity with your key vault.
 
