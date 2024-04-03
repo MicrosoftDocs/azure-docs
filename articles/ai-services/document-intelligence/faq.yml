@@ -20,14 +20,14 @@ sections:
   - name: General concepts
     questions:
       - question: |
-          What is Azure AI Document Intelligence and what happened to Azure AI Form Recognizer?
+          What is Azure AI Document Intelligence, and what happened to Azure AI Form Recognizer?
         answer: |
 
           Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
           Document Intelligence is part of Azure AI services. Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
-          The previous name for Document Intelligence was Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
+          The previous name for Document Intelligence was Azure AI Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
           
           There are no changes to pricing. The names Cognitive Services and Azure Applied AI continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
@@ -39,7 +39,7 @@ sections:
           How is Document Intelligence related to document generative AI?
         answer: |
 
-          You can use a document generative AI solution to chat with your documents, generate captivating content from them, and access Azure OpenAI Service models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages, easily find answers and gain valuable insights, and generate new and engaging content from your existing documents. Find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+          You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages, easily find answers and gain valuable insights, and generate new and engaging content from your existing documents. Find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
       - question: |
           How is Document Intelligence related to retrieval-augmented generation?
@@ -99,7 +99,7 @@ sections:
           How long is my custom model available for use?
         answer: |
 
-          Models have the same life cycle as the API version that's used to train the model. Custom models trained with a general availability (GA) version of the API have the same life cycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same life cycle as the preview API.
+          A models has the same life cycle as the API version that you use to train it. Custom models trained with a general availability (GA) version of the API have the same life cycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same life cycle as the preview API.
 
           Expect preview API deprecation within three months of an updated preview API version or newer GA API version.
 
@@ -169,7 +169,7 @@ sections:
           Can Document Intelligence help me classify documents?
         answer: |
 
-          Document Intelligence provides custom classification models that can analyze single or multiple-file documents to identify if an input file contains any of the trained document types. It supports following scenarios:
+          Document Intelligence provides custom classification models that can analyze single-file or multiple-file documents to identify if an input file contains any of the trained document types. The service supports following scenarios:
 
           - A single file that contains one document type, such as a loan application form.
 
@@ -205,7 +205,7 @@ sections:
 
           This table provides links to the latest SDK versions and shows the relationship between supported Document Intelligence SDK and API versions:
 
-            | Supported Language Azure SDK reference|Supported API versions|
+            | Supported language Azure SDK reference|Supported API versions|
             | ----- | -----|
             | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[2023-10-31-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
@@ -239,9 +239,9 @@ sections:
 
             Use the `pages` parameter (supported in v2.1, v3.0, and later versions of the REST API) to specify pages for multiple-page PDF and TIFF documents. Accepted input includes the following ranges:
 
-              - Single pages: For example, if you specify `1, 2`, pages 1 and 2 are processed.
-              - Finite: For example, if you specify `2-5`, pages 2 to 5 are processed.
-              - Open-ended ranges: For example, if you specify `5-`, all the pages from page 5 are processed. If you specify `-10`, pages 1 to 10 are processed.
+            - Single pages. For example, if you specify `1, 2`, pages 1 and 2 are processed.
+            - Finite ranges. For example, if you specify `2-5`, pages 2 to 5 are processed.
+            - Open-ended ranges. For example, if you specify `5-`, all the pages from page 5 are processed. If you specify `-10`, pages 1 to 10 are processed.
 
             You can mix these parameters together, and ranges can overlap. For example, if you specify `-5, 1, 3, 5-10`, pages 1 to 10 are processed.
 
@@ -252,13 +252,13 @@ sections:
       - question: |
             Both Document Intelligence Studio and the FOTT Sample Labeling tool are available. Which one should I use?
         answer:  |
-           Most of time, we recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) because it can reduce your time for configuring Document Intelligence resource and storage services.
+           Most of time, we recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) because it can reduce your time for configuring Document Intelligence resources and storage services.
 
            Consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
 
-              - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](azure/ai-services/document-intelligence/containers/install-run).
+           - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](azure/ai-services/document-intelligence/containers/install-run).
 
-              - Your project is highly dependent on [Document Intelligence v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), and you want to keep using the v2.1 APIs.
+           - Your project is highly dependent on [Document Intelligence v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), and you want to keep using the v2.1 APIs.
 
   - name: Service limits and pricing
     questions:
@@ -288,10 +288,10 @@ sections:
       - question: |
          How can I check my Document Intelligence usage and estimate the price?
         answer: |
-          You can find usage metrics in the Azure portal's metrics dashboard. The dashboard displays the number of pages that Azure AI Document Intelligence processes. You can check the estimated cost spent on the resource by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For detailed instructions, see [Check usage and estimate cost](how-to-guides/estimate-cost.md).
+          You can find usage metrics on the metrics dashboard in the Azure portal. The dashboard displays the number of pages that Azure AI Document Intelligence processes. You can check the estimated cost spent on the resource by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For detailed instructions, see [Check usage and estimate cost](how-to-guides/estimate-cost.md).
 
       - question: |
-          What are best practices to mitigate throttling?
+          What are the best practices to mitigate throttling?
         answer: |
           Document Intelligence uses autoscaling to provide the required computational resources on demand, while keeping customer costs low. To mitigate throttling during autoscaling, we recommend the following approach:
 
@@ -319,17 +319,17 @@ sections:
         answer: |
           When you use the Document Intelligence custom model, you provide your own training data. Here are a few tips to help train your models effectively:
 
-            - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can select only the entire image of the text, the document is image based, not text based.
+           - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can select only the entire image of the text, the document is image based, not text based.
 
-            - Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
+           - Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
 
-            - Use forms that have all of the available fields completed.
+           - Use forms that have all of the available fields completed.
 
-            - Use forms with differing values in each field.
+           - Use forms with differing values in each field.
 
-            - If your images are low quality, use a larger dataset (more than five training documents).
+           - If your images are low quality, use a larger dataset (more than five training documents).
 
-            Learn more about [building a training dataset](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true).
+          Learn more about [building a training dataset](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true).
 
       - question: |
           What are the best practices for training a highly accurate custom model?
@@ -370,7 +370,7 @@ sections:
 
            - Classify the documents before calling the custom model. You can use the [read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases by using sources like code, regular expressions, or search.
 
-           - If you want to extract the same fields from various structured, semistructured, and unstructured documents, consider using the deep learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between custom template model and custom neural model](concept-custom.md#compare-model-features).
+           - If you want to extract the same fields from various structured, semistructured, and unstructured documents, consider using the deep-learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between the custom template model and the custom neural model](concept-custom.md#compare-model-features).
 
       - question: |
           How do I refine a model beyond the initial training?
@@ -410,7 +410,9 @@ sections:
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
         answer: |
-            You can use the Copy API to copy custom models from one Document Intelligence account into others that exist in any supported geographical region. For detailed instructions, see [Disaster recovery](disaster-recovery.md). The copy operation is limited to copying models within the specific cloud environment that you trained the model in. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
+            You can use the Copy API to copy custom models from one Document Intelligence account into others that exist in any supported geographical region. For detailed instructions, see [Disaster recovery](disaster-recovery.md).
+
+            The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
 
       - question: |
           Why was I charged for layout when running custom training?
@@ -448,7 +450,7 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role to a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
 
           - Advanced
 
@@ -458,13 +460,13 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role to a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to traina  custom model or analyze with trained models.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train a custom model or analyze with trained models.
 
-            - **Storage Blob Data Contributor**: You need this role to a storage account to create project and label data.
+            - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
 
           - Advanced
 
-            - **Storage Account Contributor**: You need this role to the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
+            - **Storage Account Contributor**: You need this role for the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
 
               The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
 
@@ -476,7 +478,7 @@ sections:
           I have multiple pages in a document. Why are only two pages analyzed in Document Intelligence Studio?
         answer: |
 
-          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs. In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources tab**, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
+          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs. In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources** tab, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
 
       - question: |
           How can I change directories or subscriptions in Document Intelligence Studio?
@@ -484,7 +486,7 @@ sections:
 
           To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. You're prompted to sign in again after you switch the directory.
 
-          To change a subscriptions or resource, go to the **Resource** tab under **Settings**.
+          To change a subscription or resource, go to the **Resource** tab under **Settings**.
 
       - question: |
           Why am I receiving a storage error on a project sharing, automatic labeling, or OCR upgrade operation when my storage account resource is configured with a firewall or virtual network?
@@ -493,7 +495,7 @@ sections:
           Refer to [Managed identities for Document Intelligence](managed-identities.md) to set up your Azure resources.
 
       - question: |
-          Why am I receiving "Access denied due to Virtual Network/Firewall rules" on an automatic labeling or OCR upgrade operation when my Document Intelligence resource is configured with a firewall or virtual network?
+          Why am I receiving the error "Access denied due to Virtual Network/Firewall rules" on an automatic labeling or OCR upgrade operation when my Document Intelligence resource is configured with a firewall or virtual network?
         answer: |
 
           You need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
@@ -505,13 +507,13 @@ sections:
           Yes. The labeling experience from Document Intelligence Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit).
 
       - question: |
-          Why am I receiving "Form Recognizer Not Found" when opening my custom project?
+          Why am I receiving the error "Form Recognizer Not Found" when opening my custom project?
         answer: |
           Your Document Intelligence resource bound to this custom project was deleted or moved to another resource group. There are two ways to resolve this problem:
           
-            - Re-create the Document Intelligence resource under the same subscription and resource group with the same name.
+          - Re-create the Document Intelligence resource under the same subscription and resource group with the same name.
           
-            - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
+          - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
   - name: Containers
     questions:
@@ -526,7 +528,7 @@ sections:
           What's the difference between disconnected and connected containers?
         answer: |
 
-          Connected containers send billing information to Azure using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure.
+          Connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure.
 
           [Disconnected containers](../../ai-services/containers/disconnected-containers.md) enable you to use APIs that are disconnected from the internet. [Billing information](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet. Instead, you're charged based on a purchased commitment tier. Currently, disconnected container usage is available for Document Intelligence custom and invoice models.
 
@@ -541,7 +543,7 @@ sections:
           For an example of the information that connected containers send to Microsoft for billing, see the [Azure AI container FAQ](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work).
 
       - question: |
-           Why am I receiving "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota"?
+           Why am I receiving the error "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota"?
         answer: |
 
           Document Intelligence connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.
@@ -566,16 +568,16 @@ sections:
           How can I set up containers with shared storage?
         answer: |
 
-          The containers use "Mounts:Shared" property while starting up for specifying the shared storage to store the processing files. You can refer the following [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
+          The containers use the `Mounts:Shared` property while starting up for specifying the shared storage to store the processing files. To see the use of this property, refer to the [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers).
           
-  - name: Security and Privacy
+  - name: Security and privacy
     questions:
       - question: |
-          What are the different methods and requirements for authenticating requests to Azure AI services?
+          What are the methods and requirements for authenticating requests to Azure AI services?
         answer: |
-          Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
+          Each request to an Azure service must include an authentication header. You can authenticate a request by using several methods:
 
-          - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
+          - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
           - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Microsoft Entra ID.
 
@@ -586,23 +588,23 @@ sections:
       - question: |
           Does Document Intelligence store my data?
         answer: |
-          For all features, Document Intelligence temporarily stores data and results in Azure storage in the same region as the request. Your data is then deleted within 24 hours from the time an analyze request was submitted.
+          For all features, Document Intelligence temporarily stores data and results in Azure Storage in the same region as the request. Your data is then deleted within 24 hours from the time that you submit an analyze request.
 
-          Learn more about [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json).
+          Learn more about [data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json).
 
       - question: |
-          How are my trained custom models stored and utilized in Document Intelligence?
+          How are my trained custom models stored and used in Document Intelligence?
         answer: |
-          The Custom model feature allows customers to build custom models from training data stored in customer’s Azure blob storage locations. The interim outputs after analysis and labeling are stored in the same location. The trained custom models are stored in Azure storage in the same region and logically isolated with their Azure subscription and API credentials.
+          The interim outputs after analysis and labeling are stored in the same Azure Storage location where you store your training data. The trained custom models are stored in Azure Storage in the same region, and they're logically isolated with your Azure subscription and API credentials.
 
   - name: More help and support
     questions:
       - question: |
             Where can I find more solutions to my Azure AI Document Intelligence questions?
         answer: |
-             [Microsoft Q & A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specific to Document Intelligence.
+             [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries that are specific to Document Intelligence.
 
       - question: |
-            What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
+            What should I do if the service doesn't recognize specific text, or recognizes it incorrectly, when I'm labeling documents?
         answer: |
-            We continually update and improve the Document Intelligence OCR model. You can reach out to the Document Intelligence team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.
+            We continually update and improve the Document Intelligence OCR model. You can [email the Document Intelligence team](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.
