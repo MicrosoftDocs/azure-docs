@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Get started with a Python script (v1)'
 titleSuffix: Azure Machine Learning
-description: Get started with your first Python script in Azure Machine Learning, with SDK v1. This is part 1 of a three-part getting-started series.
+description: Get started with your first Python script in Azure Machine Learning, with SDK v1. This is part 1 of a two-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
-In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
+In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a two-part tutorial series*.
 
 This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
 
@@ -205,7 +205,7 @@ On line 8, you see the "Hello world!" output.
 The `70_driver_log.txt` file contains the standard output from a job. This file can be useful when you're debugging remote jobs in the cloud.
 
 
-## Next steps
+## Next step
 
 In this tutorial, you took a simple "Hello world!" script and ran it on Azure. You saw how to connect to your Azure Machine Learning workspace, create an experiment, and submit your `hello.py` code to the cloud.
 
@@ -215,4 +215,4 @@ In the next tutorial, you build on these learnings by running something more int
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md)
 
 >[!NOTE] 
-> If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-sdk-train.md#clean-up-resources).

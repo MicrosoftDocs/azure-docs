@@ -107,8 +107,6 @@
           href: ./v1/tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: ./v1/tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: ./v1/tutorial-1st-experiment-bring-data.md
     - name: Train & deploy image classification
       displayName: MNIST
       href: ./v1/tutorial-train-deploy-notebook.md
@@ -562,8 +560,6 @@
           href: ./v1/how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: ./v1/how-to-train-with-custom-image.md
-        - name: Migrate from Estimators to ScriptRunConfig
-          href: ./v1/how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Use Key Vault when training
           displayName: secrets keyvault
           href: ./v1/how-to-use-secrets-in-runs.md

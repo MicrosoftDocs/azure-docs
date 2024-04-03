@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train a first Python machine learning model (SDK v1)"
 titleSuffix: Azure Machine Learning
-description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a three-part getting-started series.
+description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a two-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q, sdkv1
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
-This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a two-part tutorial series*.
 
  In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.  
 
@@ -373,16 +373,28 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 
 :::image type="content" source="../media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
-## Next steps
+## Clean up resources
+
+If you plan to continue now to another tutorial, or to start your own training jobs, skip to [Related resources](#related-resources).
+
+### Stop compute instance
+
+If you're not going to use it now, stop the compute instance:
+
+1. In the studio, on the left, select **Compute**.
+1. In the top tabs, select **Compute instances**
+1. Select the compute instance in the list.
+1. On the top toolbar, select **Stop**.
+
+
+### Delete all resources
+
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
+
+## Related resources
 
 In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to use curated Azure Machine Learning environments. Finally, you saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
 There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) file or [from an existing local Conda environment](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-).
-
-In the next session, you'll see how to work with data in Azure Machine Learning by uploading the CIFAR10 dataset to Azure.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Bring your own data](tutorial-1st-experiment-bring-data.md)
-
->[!NOTE] 
-> If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources).
