@@ -151,7 +151,8 @@ To complete the configuration modification, do the following steps:
     > 1. ssl.enabled.protocols=TLSv1.3 
     > 1. ssl.protocol=TLSv1.3
 > [!Important]
-> If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
+> 1. TLS 1.3 works with HDI 5.1 kafka version only.
+> 1. If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
 
    For HDI version 4.0 or 5.0
    
