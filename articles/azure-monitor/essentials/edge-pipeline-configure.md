@@ -100,8 +100,9 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 
 
 ### DCR
-The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. The schema of the data in the DCR must match the schema of the incoming data.
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. 
 
+- The schema of the data in the DCR must match the schema of the incoming data.
 
 ```json
 {
@@ -189,12 +190,27 @@ The DCR is stored in Azure Monitor and defines how the data will be processed wh
 #### Edge pipeline configuration
 The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
 
+##### `receivers` 
+One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration.
+
+##### `processors`
+Reserved for future use.
+
+##### `exporters`
+One entry for each destination that uses the following properties:
+
 | Parameter | Description |
 |:---|:--|
-| `receivers` | One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
-| `processors` | Reserved for future use. |
-| `exporters` | One entry for each destination that uses the following properties:<br>- `type` - Only currently supported type is `AzureMonitorWorkspaceLogs`.<br>- `name` - Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.<br>- `dataCollectionEndpointUrl`  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>- `dataCollectionRule` - Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>- `stream` - Name of the stream in your DCR that will accept the data.<br>- `schema` - Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
-| `service` | Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. |
+| `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
+| `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.
+| `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
+| `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
+| `stream` | Name of the stream in your DCR that will accept the data. |
+| `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
+
+##### `service` 
+ Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. 
+
 
 
 ```json
