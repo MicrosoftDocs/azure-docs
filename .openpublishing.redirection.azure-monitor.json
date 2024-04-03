@@ -4131,7 +4131,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-using-migration-tool.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-using-migration-tool",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
             "redirect_document_id": false
         },
         {
@@ -6287,11 +6287,6 @@
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-understand-migration.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-understand-migration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-using-migration-tool.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
             "redirect_document_id": false
         },
         {

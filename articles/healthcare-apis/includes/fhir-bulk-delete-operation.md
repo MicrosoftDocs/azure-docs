@@ -12,13 +12,13 @@ The `$bulk-delete` operation allows you to delete resources from the FHIR server
   - **System level**: Execution of the operation at system-level enables deletion of FHIR resources across all the resource types on the FHIR server.
     
     ```http
-      DELETE  /$bulkDelete
+      DELETE  /$bulk-delete
     ```
   
   - **Individual resource types**: Execution of the operation for individual resource types allows deletion of FHIR resources that map to the resource type in the URL.
     
     ```http
-      DELETE /<Resource Type>/$bulkDelete
+      DELETE /<Resource Type>/$bulk-delete
     ```
 
 > [!NOTE]
