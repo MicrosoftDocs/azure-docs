@@ -101,7 +101,7 @@ Now you can create a service connection to another target service and store conf
 
 1. Select the **Resource name** column of your App Configuration connection. You will be redirected to the App Configuration portal page.
 
-1. Select **Configuration explorer** in the App Configuration left ToC, and select the blob storage configuration name.
+1. Select **Configuration explorer** in the App Configuration left menu, and select the blob storage configuration name.
 
 1. Click **Edit** to show the value of this blob storage connection.
 
