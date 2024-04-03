@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 02/08/2024
 ---
 
 # Semantic ranking in Azure AI Search
