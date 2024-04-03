@@ -937,6 +937,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Managing Opt-outs
+      href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
