@@ -109,7 +109,7 @@ Now you can create a service connection to another target service and store conf
 
 ## Use your connection with App Configuration providers
 
-Azure App Configuration supports several providers or client libraries. We would use .NET code as an example here. For more information, please refer to [Azure App Configuration Documentation](../azure-app-configuration/reference-kubernetes-provider.md)
+Azure App Configuration supports several providers or client libraries. The example below uses .NET code. For more information, refer to the [Azure App Configuration documentation](../azure-app-configuration/reference-kubernetes-provider.md)
 
 ```csharp
 using Azure.Identity;
