@@ -136,7 +136,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 1. You now have the following folder structure:
 
-    :::image type="content" source="../media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+    :::image type="content" source="./media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
 
 
 ## Test locally
@@ -145,7 +145,7 @@ Select **Save and run script in terminal** to run the *train.py* script directly
 
 After the script completes, select **Refresh** above the file folders. You see the new data folder called **get-started/data** Expand this folder to view the downloaded data. 
 
-:::image type="content" source="../media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
+:::image type="content" source="./media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
 
 ## Create a Python environment
 
@@ -234,9 +234,12 @@ if __name__ == "__main__":
 ### View the output
 
 1. In the page that opens, you see the job status. The first time you run this script, Azure Machine Learning builds a new Docker image from your PyTorch environment. The whole job might take around 10 minutes to complete. This image will be reused in future jobs to make them run much quicker.
-1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
+1. You can see view Docker build logs in the Azure Machine Learning studio. to view the build logs:
+    1. Select the **Outputs + logs** tab.
+    1. Select **azureml-logs** folder.
+    1. Select **20_image_build_log.txt**.
 1. When the status of the job is **Completed**, select **Output + logs**.
-1. Select **std_log.txt** to view the output of your job.
+1. Select **user_logs**, then **std_log.txt** to view the output of your job.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
@@ -371,7 +374,7 @@ Select the tab for the *run-pytorch.py* script, then select **Save and run scrip
 
 This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins. 
 
-:::image type="content" source="../media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
 ## Clean up resources
 

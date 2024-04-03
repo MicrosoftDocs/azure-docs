@@ -43,10 +43,10 @@ This tutorial uses the compute instance as your development computer. First crea
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace if prompted.
 1. On the left, select **Notebooks**
 1. In the **Files** toolbar, select **+**, then select **Create new folder**.
-  :::image type="content" source="../media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
+  :::image type="content" source="./media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="Screenshot shows create a new folder tool in toolbar.":::
 1. Name the folder **get-started**.
 1. To the right of the folder name, use the **...** to create another folder under **get-started**.
-  :::image type="content" source="../media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
+  :::image type="content" source="./media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="Screenshot shows create a subfolder menu.":::
 1. Name the new folder **src**. Use the **Edit location** link if the file location isn't correct.
 1. To the right of the **src** folder, use the **...** to create a new file in the **src** folder. 
 1. Name your file *hello.py*. Switch the **File type** to *Python (*.py)*.
@@ -60,7 +60,7 @@ print("Hello world!")
 
 Your project folder structure will now look like: 
 
-:::image type="content" source="../media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Folder structure shows hello.py in src subfolder.":::
+:::image type="content" source="./media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Folder structure shows hello.py in src subfolder.":::
 
 
 ### Test your script
@@ -69,11 +69,11 @@ You can run your code locally, which in this case means on the compute instance.
 
 If you have previously stopped your compute instance, start it now with the **Start compute** tool to the right of the compute dropdown. Wait about a minute for state to change to  *Running*.
 
-:::image type="content" source="../media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="Screenshot shows starting the compute instance if it is stopped":::
+:::image type="content" source="./media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="Screenshot shows starting the compute instance if it is stopped":::
 
 Select **Save and run script in terminal** to run the script.
 
-:::image type="content" source="../media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="Screenshot shows save and run script in terminal tool in the toolbar":::
+:::image type="content" source="./media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="Screenshot shows save and run script in terminal tool in the toolbar":::
 
 You see the output of the script in the terminal window that opens. Close the tab and select **Terminate** to close the session.
 
@@ -154,15 +154,6 @@ Here's a description of how the control script works:
 
 1. Once you're authenticated, you see a link in the terminal. Select the link to view the job.
 
-   > [!NOTE]
-   > You may see some warnings starting with *Failure while loading azureml_run_type_providers...*. You can ignore these warnings. Use the link at the bottom of these warnings to view your output.
-
-## View the output
-
-1. In the page that opens, you see the job status.
-1. When the status of the job is **Completed**, select **Output + logs** at the top of the page.
-1. Select **std_log.txt** to view the output of your job.
-
 ## Monitor your code in the cloud in the studio
 
 The output from your script contains a link to the studio that looks something like this:
@@ -176,34 +167,9 @@ Follow the link. At first, you see a status of **Queued** or **Preparing**. The 
 
 Subsequent jobs are quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first job has completed.
 
-Wait about 10 minutes. You see a message that the job has completed. Then use **Refresh** to see the status change to *Completed*. Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
+Wait about 10 minutes. You see a message that the job has completed. Then use **Refresh** to see the status change to *Completed*. Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file in the `user_logs` folder.  The output of your script is in this file.
 
-```txt
- 1: [2020-08-04T22:15:44.407305] Entering context manager injector.
- 2: [context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError', 'UserExceptions:context_managers.UserExceptions'], invocation=['hello.py'])
- 3: Starting the daemon thread to refresh tokens in background for process with pid = 31263
- 4: Entering Job History Context Manager.
- 5: Preparing to call script [ hello.py ] with arguments: []
- 6: After variable expansion, calling script [ hello.py ] with arguments: []
- 7:
- 8: Hello world!
- 9: Starting the daemon thread to refresh tokens in background for process with pid = 31263
-10:
-11:
-12: The experiment completed successfully. Finalizing job...
-13: Logging experiment finalizing status in history service.
-14: [2020-08-04T22:15:46.541334] TimeoutHandler __init__
-15: [2020-08-04T22:15:46.541396] TimeoutHandler __enter__
-16: Cleaning up all outstanding Job operations, waiting 300.0 seconds
-17: 1 items cleaning up...
-18: Cleanup took 0.1812913417816162 seconds
-19: [2020-08-04T22:15:47.040203] TimeoutHandler __exit__
-```
-
-On line 8, you see the "Hello world!" output.
-
-The `70_driver_log.txt` file contains the standard output from a job. This file can be useful when you're debugging remote jobs in the cloud.
-
+The `azureml-logs` and `system-logs` folders contain files that can be useful when you're debugging remote jobs in the cloud.
 
 ## Next step
 
