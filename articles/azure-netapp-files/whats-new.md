@@ -16,6 +16,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## March 2024
 
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
+
+    Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
+
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
 
     You can deploy new volumes in the logical availability zone of your choice to create cross-zone volumes to improve resiliency in case of zonal failures. This feature is available in all availability zone-enabled regions with Azure NetApp Files presence.
