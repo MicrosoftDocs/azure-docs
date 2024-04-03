@@ -10,7 +10,7 @@ ms.topic: include
 ms.date: 02/01/2024
 ---
 
-<a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
+[Reference documentation](/java/api/overview/azure/ai-openai-assistants-readme?context=/azure/ai-services/openai/context/context) | <a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
 
 ## Prerequisites
 
