@@ -13,7 +13,7 @@ ms.topic: how-to
 
 Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal. 
 
-In this guide, you learn where to find Change Analysis in the portal and how to view changes.
+In this guide, you learn where to find Change Analysis in the portal and how to view, filter, and query changes.
 
 ## Access Change Analysis screens
 
@@ -67,7 +67,51 @@ In the **Change Analysis** blade, you can organize the results into groups using
 | Resource Group | Groups resources based on their resource group. |
 | Type | Groups resources based on their Azure service type.  |
 | Resource | Sorts resources per their resource name. |
-| Change Type | Organizes resources based on the collected change type. Values include Create, Update, and Delete. |
+| Change Type | Organizes resources based on the collected change type. Values include "Create", "Update", and "Delete". |
+| Client Type | Sorts by how the change is initiated and performed. Values include "CLI" and "ARM template". |
+| Changed By | Groups resource changes by who made the change. Values include user email ID or subscription ID. |
+| Changed By Type | Groups resource changes based on the descriptor of who made the change. Values include "User", "Application".  |
+| Operation | Groups resources based on [their resource provider operations](../../../role-based-access-control/resource-provider-operations.md). |
+| Correlation Id | Organizes the resource changes by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
+
+### Edit columns
+
+You can add and remove columns, or change the column order in the Change Analysis results. In the **Change Analysis** blade, select **Manage view** > **Edit columns**.
+
+:::image type="content" source="./media/view-resource-changes/manage-results-view.png" alt-text="Screenshot of the drop-down for selecting the option for editing columns for the results.":::
+
+In the **Edit columns** pane, make your changes and then select **Save** to apply.
+
+:::image type="content" source="./media/view-resource-changes/edit-columns-pane.png" alt-text="Screenshot of the Edit columns pane options.":::
+
+**Add a column**
+
+1. Click **+ Add column**. 
+
+  :::image type="content" source="./media/view-resource-changes/add-new-column.png" alt-text="Screenshot of selecting the button for adding a new column.":::
+
+1. Select a column property from the dropdown in the new column field.
+
+  :::image type="content" source="./media/view-resource-changes/select-new-column.png" alt-text="Screenshot of the drop-down for selecting a new column.":::
+
+**Delete a column**
+
+Select the trashcan icon to delete a column.
+
+:::image type="content" source="./media/view-resource-changes/delete-column.png" alt-text="Screenshot of the trashcan icon for deleting a column.":::
+
+**Reorder columns**
+
+Change the column order by either dragging and dropping a field, or selecting a column and clicking **Move up** and **Move down**.
+
+:::image type="content" source="./media/view-resource-changes/reorder-columns.png" alt-text="Screenshot of selecting a column to move up or down in the order.":::
+
+**Reset to default**
+
+Select **Reset to defaults** to revert your changes.
+
+:::image type="content" source="./media/view-resource-changes/reset-columns-default.png" alt-text="Screenshot of where to reset to the default column settings.":::
 
 ## Next steps
 
+Learn more about [Azure Resource Graph](../overview.md)
