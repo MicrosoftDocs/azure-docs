@@ -189,8 +189,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call; no output content is classified at a filtered category and severity level
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 |200|In this case, the call will stream back with the full generation and `finish_reason` will be either 'length' or 'stop' for each generated response.|
 
 **Example request payload:**
@@ -224,8 +224,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call asking for multiple completions and at least a portion of the output content is filtered
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 | 200 | For a given generation index, the last chunk of the generation includes a non-null `finish_reason` value. The value is `content_filter` when the generation was filtered.|
 
 **Example request payload:**
@@ -311,14 +311,14 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models: jailbreak, indirect attacks, protected material text and protected material code:
-- category (jailbreak, indirect attacks, protected_material_text, protected_material_code),
-- detected (true or false),
-- filtered (true or false).
+When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models:
 
-For the protected material code model, the following additional information is returned by the API:
-- an example citation of a public GitHub repository where a code snippet was found
-- the license of the repository.
+|Model| Output|
+|--|--|
+|jailbreak|detected (true or false),</br>filtered (true or false)|
+|indirect attacks|detected (true or false),</br>filtered (true or false)|
+|protected material text|detected (true or false),</br>filtered (true or false)|
+|protected material code|detected (true or false),</br>filtered (true or false),</br>Example citation of public GitHub repository where code snippet was found,</br>The license of the repository|
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
