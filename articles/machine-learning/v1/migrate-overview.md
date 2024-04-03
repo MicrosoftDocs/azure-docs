@@ -23,11 +23,11 @@ ms.date: 04/02/2024
 
 Learn how to migrate from Machine Learning Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-This guide walks through a basic *lift and shift* migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for more resources, including digital survey tools, worksheets, and planning templates.
+This guide walks through a basic *lift and shift* migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for more resources, including digital survey tools, worksheets, and planning templates.
+
+:::image type="content" source="media/migrate-overview/aml-adoption-framework.png" alt-text="Diagram of the Azure Machine Learning adoption framework." lightbox="media/migrate-overview/aml-adoption-framework.png":::
 
 Please work with your cloud solution architect on the migration.
-
-:::image type="content" source="media/migrate-overview/aml-adoption-framework.png" alt-text="Diagram of the Azure Machine Learning adoption framework.":::
 
 ## Recommended approach
 
@@ -160,7 +160,7 @@ The following migration example highlights some of the differences between Studi
 
 In Studio (classic), *datasets* were saved in your workspace and could only be used by Studio (classic).
 
-:::image type="content" source="media/migrate-overview/studio-classic-dataset.png" alt-text="Screenshot of automobile price datasets in Studio classic.":::
+:::image type="content" source="media/migrate-overview/studio-classic-dataset.png" alt-text="Screenshot of automobile price datasets in Studio classic." lightbox="media/migrate-overview/studio-classic-dataset.png":::
 
 In Azure Machine Learning, *datasets* are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Data in Azure Machine Learning](concept-data.md).
 
