@@ -76,17 +76,17 @@ The class-based model is dedicated for C#.
 The class-based model provides better programming experience, which can replace SignalR input and output bindings, with the following features:
 - More flexible negotiation, sending messages and managing groups experience.
 - More managing functionalities are supported, including closing connections, checking whether a connection, user, or group exists.
-- Strongly Typed hub
-- Unified connection string setting in one place.
+- Strongly typed hub
+- Unified hub name and connection string setting in one place.
 
 The following code demonstrates how to write SignalR bindings in class-based model:
 
-In the *Functions.cs* file, define your hub, which extends a base class `ServerlessHub`:
+Firstly, define your hub derived from a class `ServerlessHub`:
 ```cs
 [SignalRConnection("AzureSignalRConnectionString")]
 public class Functions : ServerlessHub
 {
-    private const string HubName = nameof(Functions);
+    private const string HubName = nameof(Functions); // Used by SignalR trigger only
 
     public Functions(IServiceProvider serviceProvider) : base(serviceProvider)
     {
@@ -126,7 +126,7 @@ var host = new HostBuilder()
 
 ### Negotiation experience in class-based model
 
-Instead of using SignalR input binding `[SignalRConnectionInfoInput]`, negotiation in class-based model can be more flexible. Base class `ServerlessHub` has a method `NegotiateAsync`, which allows user to customize negotiation options such as `userId`, `claims`, etc.
+Instead of using SignalR input binding `[SignalRConnectionInfoInput]`, negotiation in class-based model can be more flexible. Base class `ServerlessHub` has a method `NegotiateAsync`, which allows users to customize negotiation options such as `userId`, `claims`, etc.
 
 ```cs
 Task<BinaryData> NegotiateAsync(NegotiationOptions? options = null)
@@ -141,7 +141,7 @@ You could send messages, manage groups, or manage clients by accessing the membe
 - `ServerlessHub.UserGroups` for managing users with groups, such as adding users to groups, removing users from groups.
 - `ServerlessHub.ClientManager` for checking connections existence, closing connections, etc.
 
-### Strongly Typed Hub
+### Strongly typed Hub
 
 [Strongly typed hub](/aspnet/core/signalr/hubs?#strongly-typed-hubs) allows you to use strongly typed methods when you send messages to clients. To use strongly typed hub in class based model, extract client methods into an interface `T`, and make your hub class derived from `ServerlessHub<T>`.
 
@@ -158,7 +158,7 @@ Then you can use the strongly typed methods as follows:
 [SignalRConnection("AzureSignalRConnectionString")]
 public class Functions : ServerlessHub<IChatClient>
 {
-    private const string HubName = nameof(Functions);
+    private const string HubName = nameof(Functions);  // Used by SignalR trigger only
 
     public Functions(IServiceProvider serviceProvider) : base(serviceProvider)
     {
@@ -176,18 +176,18 @@ public class Functions : ServerlessHub<IChatClient>
 > [!NOTE]
 > You can get a complete project sample from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/DotnetIsolated-ClassBased/).
 
-### Unified connection string setting in one place
+### Unified hub name and connection string setting in one place
 
-You might have noticed the `SignalRConnection` attribute used on serverless hub classes. It looks like this:
-```cs
-[SignalRConnection("AzureSignalRConnectionString")]
-public class Functions : ServerlessHub<IChatClient>
-```
-
-It allows you to customize where the SignalR Service bindings look for connection string. If it's absent, the default value `AzureSignalRConnectionString` is used.
+* The class name of the serverless hub is automatically used as `HubName`.
+* You might have noticed the `SignalRConnection` attribute used on serverless hub classes as follows:
+    ```cs
+    [SignalRConnection("AzureSignalRConnectionString")]
+    public class Functions : ServerlessHub<IChatClient>
+    ```
+    It allows you to customize where the connection string for serverless hub is. If it's absent, the default value `AzureSignalRConnectionString` is used.
 
 > [!IMPORTANT]
-> `SignalRConnection` attribute doesn't change the connection string setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub. You should specify the connection string setting for each SignalR trigger if you want to customize it.
+> SignalR triggers and serverless hubs are independent. Therefore, the class name of serverless hub and `SignalRConnection` attribute doesn't change the setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub.
 
 # [In-process model](#tab/in-process)
 
@@ -229,7 +229,7 @@ public class HubName1 : ServerlessHub
 }
 ```
 
-All functions that want to use the class-based model need to be a method of the class that inherits from **ServerlessHub**. The class name `SignalRTestHub` in the sample is the hub name.
+All functions that want to use the class-based model need to be a method of the class that inherits from **ServerlessHub**. The class name `HubName1` in the sample is the hub name.
 
 ### Define hub method
 
@@ -250,13 +250,13 @@ In class based model, `[SignalRParameter]` is unnecessary because all the argume
 
 ### Negotiation experience in class-based model
 
-Instead of using SignalR input binding `[SignalR]`, negotiation in class-based model can be more flexible. Base class `ServerlessHub` has a method.
+Instead of using SignalR input binding `[SignalR]`, negotiation in class-based model can be more flexible. Base class `ServerlessHub` has a method:
 
 ```cs
 SignalRConnectionInfo Negotiate(string userId = null, IList<Claim> claims = null, TimeSpan? lifeTime = null)
 ```
 
-This features user customizes `userId` or `claims` during the function execution.
+This feature allows user to customize `userId` or `claims` during the function execution.
 
 ## Use `SignalRFilterAttribute`
 
