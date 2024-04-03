@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: Best practices
     href: best-practices.md
+  - name: Experience in Defender portal
+    href: microsoft-sentinel-defender-portal.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -252,6 +254,8 @@
     href: best-practices-data.md
   - name: Tutorial - Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Connect data sources
+    href: configure-data-connector.md
   - name: Classifying data with entities
     href: entities.md
   - name: Ingestion-time data transformation
@@ -979,7 +983,9 @@
     - name: Handle ingestion delay in analytics rules
       href: ingestion-delay.md
     - name: Get fine-tuning recommendations
-      href: detection-tuning.md    
+      href: detection-tuning.md
+    - name: Troubleshoot analytics rules
+      href: troubleshoot-analytics-rules.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Handle false positives
