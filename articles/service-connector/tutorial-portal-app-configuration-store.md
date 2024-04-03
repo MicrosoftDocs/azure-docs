@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Connect Azure services and store configuration in App Configuration Store
-description: Tutorial showing how to store your connection configuration in Azure App Configuration Store using Service Connector
+description: Tutorial showing how to store your connection configuration in Azure App Configuration using Service Connector
 author: chentanyi
 ms.author: tanchen
 ms.service: service-connector
