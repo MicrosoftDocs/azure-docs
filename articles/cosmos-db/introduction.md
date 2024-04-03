@@ -1,7 +1,7 @@
 ---
 title: Database for AI Era
 titleSuffix: Azure Cosmos DB
-description: The database for AI Era - Azure Cosmos DB is a NoSQL, relational, and vector database that provides unmatched reliability and flexibility for your operational data needs.
+description: Database for AI Era - Azure Cosmos DB is a NoSQL, relational, and vector database that provides unmatched reliability and flexibility for your operational data needs.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -35,14 +35,14 @@ App development is faster and more productive thanks to:
 - AI database functionalities like integrated vector database or seamless integration with Azure AI Services to support Retrieval Augmented Generation
 - Query Copilot for generating NoSQL queries based on your natural language prompts [(preview)](nosql/query/how-to-enable-use-copilot.md)
 
-As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
+As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-If you are an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
+If you're an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
 
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
 
-If you are not an Azure customer, you may use the [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/). No commitment follows the end of your trial period.
+If you aren't an Azure customer, you may use the [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/). No commitment follows the end of your trial period.
 
 Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
 
@@ -65,12 +65,12 @@ Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cos
 
 ### Simplified application development
 
-Build fast with open-source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
+Build fast with open-source APIs, multiple SDKs, schemaless data, and no-ETL analytics over operational data.
 
 - Deeply integrated with key Azure services used in modern (cloud-native) app development including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more.
 - Choose from multiple database APIs including the native API for NoSQL, MongoDB, PostgreSQL, Apache Cassandra, Apache Gremlin, and Table.
 - Use Azure Cosmos DB as your unified AI database for data models like relational, document, vector, key-value, graph, and table.
-- Build apps on API for NoSQL using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
+- Build apps on API for NoSQL using the languages of your choice with SDKs for .NET, Java, Node.js, and Python. Or your choice of drivers for any of the other database APIs.
 - Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
 - Azure Cosmos DB's schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
 
@@ -85,7 +85,7 @@ Guarantee business continuity, 99.999% availability, and enterprise-level securi
 
 ### Fully managed and cost-effective
 
-End-to-end database management, with serverless and automatic scaling matching your application and TCO needs
+End-to-end database management, with serverless and automatic scaling matching your application and total cost of ownership (TCO) needs.
 
 - Fully managed database service. Automatic, no touch, maintenance, patching, and updates, saving developers time and money.
 - Cost-effective options for unpredictable or sporadic workloads of any size or scale, enabling developers to get started easily without having to plan or manage capacity.
