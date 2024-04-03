@@ -60,12 +60,13 @@ The following limitations apply when using network groups with security admin ru
 
 - Role-based access control ownership is inferred from the `Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write` permission only.
 
-- There's no scope enforcement on the network group members when using clients other than the Azure portal.
-
 - Network groups must have the same member-types. Virtual networks and subnets are supported but must be in separate network groups.
 
 - Only supports aggregating members in the same tenant as the network manager.
 
-- Azure Virtual Filtering Platform (VFP) programming for AVNM-managed virtual networks isn't optimized.
-
 - Force-delete of any network group used as the source and/or destination in a security admin rule isn't currently supported. Usage causes an error.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create a security admin rule using network groups](./how-to-create-security-admin-rule-network-groups.md)
