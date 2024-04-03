@@ -86,7 +86,7 @@ You can perform many actions to interact with recommendations. If an option isn'
 
 1. Select a node to view additional details.
 
-    :::image type="content" source="media/review-security-recommendations/select-node.png" alt-text="Screenshot of a node lpocated in the graph tab that is selected and showing the additional details." lightbox="media/review-security-recommendations/select-node.png":::
+    :::image type="content" source="media/review-security-recommendations/select-node.png" alt-text="Screenshot of a node located in the graph tab that is selected and showing the additional details." lightbox="media/review-security-recommendations/select-node.png":::
 
 1. Select **Insights**.
 
@@ -110,7 +110,7 @@ Defender for Cloud's recommendation page allows you to group recommendations by 
 
 1. Select **Group by title**.
 
-    :::image type="content" source="media/review-security-recommendations/group-by-title.png" alt-text="Screenshot of teh recommendations page that shows where the group by title toggle is located on the screen." lightbox="media/review-security-recommendations/group-by-title.png":::
+    :::image type="content" source="media/review-security-recommendations/group-by-title.png" alt-text="Screenshot of the recommendations page that shows where the group by title toggle is located on the screen." lightbox="media/review-security-recommendations/group-by-title.png":::
 
 ## Manage recommendations assigned to you
 
