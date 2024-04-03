@@ -15,12 +15,8 @@ items:
       href: single-node-cluster.md
     - name: Prepare Linux using a multi-node cluster
       href: multi-node-cluster.md
-  - name: Install
-    items:
     - name: Install Edge Storage Accelerator
       href: install-edge-storage-accelerator.md
-    - name: Installation troubleshooting
-      href: installation-troubleshooting.md
   - name: Attach applications
     items:
     - name: Create a persistent volume
@@ -35,9 +31,3 @@ items:
       href: third-party-monitoring.md
     - name: Azure Monitor and Kubernetes monitoring
       href: azure-monitor-kubernetes.md
-    - name: Operational troubleshooting
-      href: operational-troubleshooting.md
-- name: Resources
-  items:
-  - name: Release notes
-    href: release-notes.md
