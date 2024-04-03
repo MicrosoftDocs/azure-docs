@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
-ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
 ms.service: container-registry
 ---
 
@@ -15,7 +15,7 @@ In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of 
 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
 
-[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Azure IoT Hub. For deployment steps, see [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * Two connected registry resources in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal].

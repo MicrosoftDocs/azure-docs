@@ -2,7 +2,7 @@
 title: Agentless secrets scanning for virtual machines | Defender for Cloud in the field
 description: Learn about agentless secrets scanning for virtual machines
 ms.topic: reference
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 ---
 
 # Agentless secrets scanning for virtual machines
@@ -22,8 +22,6 @@ ms.date: 01/08/2024
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY).
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS).
 
-
-
 - Follow us on social media:
 
   - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
@@ -34,4 +32,4 @@ ms.date: 01/08/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Unified insights from Microsoft Entra permissions management](episode-forty-three.md)

@@ -2,18 +2,17 @@
 title: Set up sign-up and sign-in with a Weibo account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Weibo accounts in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with a Weibo account, so that users can authenticate with their Weibo credentials and access my application.
+
 ---
 
 # Set up sign-up and sign-in with a Weibo account using Azure Active Directory B2C

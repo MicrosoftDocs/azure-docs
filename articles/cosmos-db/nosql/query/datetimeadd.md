@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a date and time string value that is the result of adding a specified nu
   
 ## Syntax
   
-```sql
+```nosql
 DateTimeAdd(<date_time_part>, <numeric_expr> ,<date_time>)
 ```
 
@@ -43,7 +44,7 @@ Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.f
 
 The following example adds various values (one year, one month, one day, one hour) to the date **July 3, 2020** at **midnight (00:00 UTC)**. The example also subtracts various values (two years, two months, two days, two hours) from the same date. Finally, this example uses an expression to modify the seconds of the same date.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimeadd/query.sql" highlight="2-10":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimeadd/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimeadd/result.json":::
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.custom: include file
-ms.date: 08/12
+ms.date: 01/19/2024
 ms.subservice: azure-ai-luis
 
 ---

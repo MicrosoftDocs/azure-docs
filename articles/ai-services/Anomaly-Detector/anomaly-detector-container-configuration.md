@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

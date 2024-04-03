@@ -28,7 +28,7 @@ Profiles are configured to fit the different needs of your applications.
 > [!NOTE]
 > When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
 
-The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
+The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. Workload profiles environments are deployed separately from Consumption only environments.
 
 For each Dedicated workload profile in your environment, you can:
 

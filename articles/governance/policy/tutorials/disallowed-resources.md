@@ -1,14 +1,15 @@
 ---
 title: "Tutorial: Disallow resource types in your cloud environment"
 description: In this tutorial, you use Azure Policy to enforce only certain resource types be used in your environment.
-ms.date: 06/19/2023
+ms.date: 02/13/2024
 ms.topic: tutorial
 ---
+
 # Tutorial: Disallow resource types in your cloud environment
 
-One popular goal of cloud governance is restricting what resource types are allowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types may be costly or may go against business standards and strategies. Rather than using many policies for individual resource types, Azure Policy offers two built-in policies to achieve this goal:
+One popular goal of cloud governance is restricting what resource types are allowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types might be costly or might go against business standards and strategies. Rather than using many policies for individual resource types, Azure Policy offers two built-in policies to achieve this goal:
 
-|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure portal)</sub> |Description |Effect |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) |This policy enables you to specify the resource types that your organization can deploy. Only resource types that support 'tags' and 'location' are affected by this policy. To restrict all resources, duplicate this policy and change the 'mode' to 'All'. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json) |
 |[Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) |Restrict which resource types can be deployed in your environment. Limiting resource types can reduce the complexity and attack surface of your environment while also helping to manage costs. Compliance results are only shown for non-compliant resources. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/InvalidResourceTypes_Deny.json) |
@@ -28,16 +29,15 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
    :::image source="../media/disallowed-resources/definition-details-red-outline.png" alt-text="Screenshot of definition details screen for 'Not allowed resource types' policy.":::
 
-1. Click the **Assign** button on the top of the page. 
+1. Select the **Assign** button on the top of the page.
 
-1. On the **Basics** tab, select the **Scope** by selecting the ellipsis
-   and choosing a management group, subscription, or resource group of choice. Ensure that the selected scope has at least one subscope. Learn more about [scopes](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
+1. On the **Basics** tab, set the **Scope** by selecting the ellipsis
+   and choosing a management group, subscription, or resource group. Ensure that the selected [scope](../concepts/scope.md) has at least one subscope. Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription.
-   
+
    > [!NOTE]
    > If you assign this policy definition to your root management group scope, the portal can detect disallowed resource types and disable them in the **All Services** view so that portal users are aware of the restriction before trying to deploy a disallowed resource.
-   >
 
 1. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than
    the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
@@ -70,12 +70,12 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 ## View disabled resource types in Azure portal
 
-This step only applies when the policy has been assigned at the root management group scope.
+This step only applies when the policy was assigned at the root management group scope.
 
-Now that you've assigned a built-in policy definition, go to [All Services](https://portal.azure.com/#allservices/category/All). Azure portal is aware of the disallowed resource types from this policy assignment and disables them in the **All Services** page accordingly.
+Now that you assigned a built-in policy definition, go to [All Services](https://portal.azure.com/#allservices/category/All). Azure portal is aware of the disallowed resource types from this policy assignment and disables them in the **All Services** page. The **Create** option is unavailable for disabled resource types.
 
 > [!NOTE]
-> If you assign this policy definition to your root management group, users will see the following notification when they log in for the first time or if the policy changes after they have logged in:
+> If you assign this policy definition to your root management group, users will see the following notification when they sign in for the first time or if the policy changes after they have signed in:
 >
 > _**Policy changed by admin**
 > Your administrator has made changes to the policies for your account. It is recommended that you refresh the portal to use the updated policies._
@@ -85,20 +85,20 @@ Now that you've assigned a built-in policy definition, go to [All Services](http
 
 ## Create an exemption
 
-Now suppose that one subscope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there. 
+Now suppose that one subscope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there.
 
 > [!WARNING]
-> If you assign this policy definition to your *root management group* scope, Azure portal is unable to detect exemptions at lower level scopes from the All Services list. Resources disallowed by the policy assignment will still show as disabled from this view even if an exemption is in place at a lower scope. However, if the user has permissions on the exempt subscope, they will not be prevented from navigating to the service and performing actions there. At this point the false disabled status should no longer be present.
+> If you assign this policy definition to your root management group scope, Azure portal is unable to detect exemptions at lower level scopes. Resources disallowed by the policy assignment will show as disabled from the **All Services** list and the **Create** option is unavailable. But you can create resources in the exempted scope with clients like Azure CLI, Azure PowerShell, or Azure Resource Manager templates.
 
 1. Select **Assignments** under **Authoring** in the left side of the Azure Policy page.
 
 1. Search for the policy assignment you created.
 
-1. Select the **Create exemption** button on the top of the page. 
+1. Select the **Create exemption** button on the top of the page.
 
 1. In the **Basics** tab, select the **Exemption scope**, which is the subscope that should be allowed to have resources restricted by this policy assignment.
 
-1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of *Waiver*. Don't switch the toggle for **Exemption expiration setting**, because this exemption won't be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
+1. Fill out **Exemption name** with the desired text, and leave **Exemption category** as the default of _Waiver_. Don't switch the toggle for **Exemption expiration setting**, because this exemption won't be set to expire. Optionally add an **Exemption description**, and select **Review + create**.
 
 1. This tutorial bypasses the **Advanced** tab. From the **Review + create** tab, select **Create**.
 
@@ -127,7 +127,7 @@ In this tutorial, you successfully accomplished the following tasks:
 > - Assigned the **Not allowed resource types** built-in policy to deny creation of disallowed resource types
 > - Created an exemption for this policy assignment at a subscope
 
-With this built-in policy you specified resource types that are _not_ allowed.  The alternative, more restrictive approach is to specify resource types that _are_ allowed using the **Allowed resource types** built-in policy.
+With this built-in policy you specified resource types that _aren't allowed_. The alternative, more restrictive approach is to specify resource types that _are allowed_ using the **Allowed resource types** built-in policy.
 
 > [!NOTE]
 > Azure portal's **All Services** will only disable resources not specified in the allowed resource type policy if the `mode` is set to `All` and the policy is assigned at the root management group. This is because it checks all resource types regardless of `tags` and `locations`. If you want the portal to have this behavior, duplicate the [Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) built-in policy and change its `mode` from `Indexed` to `All`, then assign it to the root management group scope.

@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 1/23/2024
 ms.custom: devx-track-azurecli
 ---
 

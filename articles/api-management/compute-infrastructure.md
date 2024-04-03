@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 12/19/2023
+ms.date: 03/26/2024
 ms.author: danlep
 ms.custom:
 ---
@@ -19,7 +19,7 @@ Most new instances created in service tiers other than the Consumption tier are 
 
 ## What are the compute platforms for API Management?
 
-The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
+The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management. This table doesn't apply to the [v2 pricing tiers (preview)](#what-about-the-v2-pricing-tiers).
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
@@ -30,9 +30,7 @@ The following table summarizes the compute platforms currently used in the **Con
 <sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
-> Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.
-> 
-> Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
+> In Qatar Central, only the `stv2` platform is supported for API Management services deployed in this region.
 
 ## How do I know which platform hosts my API Management instance?
 

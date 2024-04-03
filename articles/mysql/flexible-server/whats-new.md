@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.custom:
   - mvc
   - references_regions
-  - event-tier1-build-2022
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server?
@@ -24,6 +23,39 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
+
+## March 2024
+
+- **Accelerated Logs now supports major version upgrade.**
+
+   Accelerated Logs has now introduced support for [major version upgrade](./how-to-upgrade.md) allowing an upgrade from MySQL version 5.7 to MySQL version 8.0 with accelerated logs feature enabled.[Learn more.](./concepts-accelerated-logs.md) 
+  
+  
+- **Support for Long-term retention of backups in Azure Database for MySQL Flexible Server (Preview)**
+
+  This feature will allow retention of backups beyond 35 days and upto 10 years. [Learn more.](./concepts-backup-restore.md) 
+  
+## February 2024
+
+
+- **Accelerated Logs is now available for exisiting servers and available in three new regions.**
+    
+  Accelerated Logs, previously limited to servers created after November 14th, is now accessible for all existing Business Critical tier's **standalone** servers in preview phase. Accelerated logs now also supports [Microsoft Entra ID](./concepts-azure-ad-authentication.md). Additionally, this feature has been extended to include three new regions: Japan East, Korea Central, and Poland Central. [Learn more.](./concepts-accelerated-logs.md) 
+
+
+- **Known Issues**
+
+  Due to a technical issue in this month's deployment, primary servers with read-replica are temporarily restricted from enabling the [accelerated logs](./concepts-accelerated-logs.md) feature. Users are advised to disable accelerated logs feature before creating a replica server. If you require assistance with accelerated logs and replica creation, please open a [support ticket](https://azure.microsoft.com/support/create-ticket) for assistance. [Learn more](./concepts-accelerated-logs.md#limitations).
+
+
+- **Audit logs now supports wild card entries**
+
+  The server parameters now supports wildcards in `audit_log_include_users` and `audit_log_exclude_users`, enhancing flexibility for specifying user inclusions and exclusions in audit logs. [Learn more](./concepts-audit-logs.md#configure-audit-logging)
+
+- **Enhanced Audit Logging with CONNECTION_V2 for Comprehensive MySQL User Audits**
+  
+  Server parameter [audit_log_events](./concepts-audit-logs.md#configure-audit-logging) now supports event CONNECTION_V2 for detailed connection logs, providing insights into user audits, connection status, and [error codes in MySQL](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html) interactions.[Learn more](./concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs)
 
 
 ## December 2023
@@ -632,11 +664,11 @@ This release of Azure Database for MySQL flexible server includes the following 
 
 - **MySQL 8.0.21 released**
 
-  MySQL 8.0.21 is now available in Azure Database for MySQL flexible server in all major [Azure regions](overview.md#azure-regions). Customers can use the Azure portal, the Azure CLI, or Azure Resource Manager templates to provision the MySQL 8.0.21 release. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server-instance).
+  MySQL 8.0.21 is now available in Azure Database for MySQL flexible server in all major [Azure regions](overview.md#azure-regions). Customers can use the Azure portal, the Azure CLI, or Azure Resource Manager templates to provision the MySQL 8.0.21 release. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
 
 - **Support for Availability zone placement during server creation released**
 
-  Customers can now specify their preferred Availability zone during server creation. This functionality allows customers to collocate their applications hosted on Azure VM, Virtual Machine Scale Set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server-instance).
+  Customers can now specify their preferred Availability zone during server creation. This functionality allows customers to collocate their applications hosted on Azure VM, Virtual Machine Scale Set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
 
 - **Performance fixes for issues when running Azure Database for MySQL flexible server in virtual network with private access**
 
@@ -680,4 +712,3 @@ If you have questions about or suggestions for working with Azure Database for M
 - Learn more about [Azure Database for MySQL flexible server pricing](https://azure.microsoft.com/pricing/details/mysql/server/).
 - Browse the [public documentation](index.yml) for Azure Database for MySQL flexible server.
 - Review details on [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md).
-

@@ -9,6 +9,9 @@ ms.custom:
 
 # Managing and maintaining the Connected Machine agent
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses). This article describes the operational aspects of the agent. See the [azcmagent CLI documentation](azcmagent.md) for command line reference information.
 
 ## Installing a specific version of the agent
@@ -239,37 +242,7 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ### Automatic agent upgrades
 
-The Azure Connected Machine agent will support automatic and manual upgrades of the agent, initiated by Azure, in an upcoming release. To facilitate this capability, the agent enables a scheduled task on Windows or cron job on Linux that runs daily to see if the agent should be upgraded. The scheduler job will be installed when you install agent versions 1.30 or higher. While the scheduler job is currently enabled, the complete automatic upgrade experience is not yet available, so no changes will be made to your system even if a newer version of the Azure Connected Machine agent is available.
-
-To view these scheduler jobs in Windows through PowerShell, run the following command:
-
-```powershell
-schtasks /query /TN azcmagent
-```
-
-To view these scheduler jobs in Windows through Task Scheduler:
-
-:::image type="content" source="media/manage-agent/task-scheduler.png" alt-text="Screenshot of Task Scheduler":::
-
-To view these scheduler jobs in Linux, run the following command:
-
-```
-cat /etc/cron.d/azcmagent_autoupgrade
-```
-
-To opt-out of any future automatic upgrades or the scheduler jobs, execute the following Azure CLI commands:
-
-For Windows:
-
-```powershell
-az rest --method patch --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.HybridCompute/machines/<machineName>?api-version=2022-12-27-preview --resource https://management.azure.com/ --headers Content-Type=application/json --body '{\"properties\": {\"agentUpgrade\": {\"enableAutomaticUpgrade\": false}}}'
-```
-
-For Linux:
-
-```bash
-az rest --method patch --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.HybridCompute/machines/<machineName>?api-version=2022-12-27-preview --resource https://management.azure.com/ --headers Content-Type=application/json --body '{"properties": {"agentUpgrade": {"enableAutomaticUpgrade": false}}}'
-```
+The Azure Connected Machine agent doesn't automatically upgrade itself when a new version is released. You should include the latest version of the agent with your scheduled patch cycles.
 
 ## Renaming an Azure Arc-enabled server resource
 
@@ -425,7 +398,7 @@ Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure 
 | `AAD` | `login.windows.net`</br>`login.microsoftonline.com`</br> `pas.windows.net` |
 | `ARM` | `management.azure.com` |
 | `Arc` | `his.arc.azure.com`</br>`guestconfiguration.azure.com` |
-| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com` |
+| `ArcData` <sup>1</sup> | `*.<region>.arcdataservices.com`|
 
 <sup>1</sup> The proxy bypass value `ArcData` is available starting with Azure Connected Machine agent version 1.36 and Azure Extension for SQL Server version 1.1.2504.99. Earlier versions include the SQL Server enabled by Azure Arc endpoints in the "Arc" proxy bypass value.
 

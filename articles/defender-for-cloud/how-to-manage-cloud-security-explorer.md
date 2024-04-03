@@ -2,7 +2,6 @@
 title: Build queries with cloud security explorer in Microsoft Defender for Cloud
 description: Learn how to build queries with cloud security explorer in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 11/01/2023
 ---
 
@@ -63,12 +62,12 @@ The cloud security explorer allows you to build queries that can proactively hun
 
     :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
-1. Search for and select a resource from the drop-down menu. 
+1. Search for and select a resource from the drop-down menu.
 
       :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
 
 1. Select **+** to add other filters to your query.
-    
+
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
 
 1. Add subfilters as needed.

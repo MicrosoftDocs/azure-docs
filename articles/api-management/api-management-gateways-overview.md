@@ -2,7 +2,6 @@
 title: API gateway overview | Azure API Management
 description: Learn more about the features of the API gateway component of Azure API Management. API Management offers both Azure-managed and self-hosted gateways.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -101,7 +100,9 @@ The following table compares features available in the managed gateway versus th
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 | [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
-| [Circuit Breaker](backends.md#circuit-breaker-preview) |  ✔️ |  ✔️ | ✔️ |
+| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker-preview) |  ✔️ |  ❌ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) |  ✔️ |  ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
@@ -140,9 +141,11 @@ For details about monitoring options, see [Observability in Azure API Management
 
 ### Authentication and authorization
 
+Managed and self-hosted gateways support all available [API authentication and authorization options](authentication-authorization-overview.md) with the following exceptions.
+
 | Feature  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
-| [API credentials](credentials-overview.md) |  ✔️ | ✔️ | ❌ |
+| [Credential manager](credentials-overview.md) |  ✔️ | ✔️ | ❌ |
 
 
 ## Gateway throughput and scaling

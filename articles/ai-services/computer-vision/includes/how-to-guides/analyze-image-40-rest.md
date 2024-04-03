@@ -25,7 +25,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
 
 
 ## Select the image to analyze
@@ -64,7 +64,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
+`<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
 
 
 ### Set model name when using a custom model
@@ -74,7 +74,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, don't use the features query parameter. Instead, set the `model-name` parameter to the name of your model as shown here. Replace `MyCustomModelName` with your custom model name.
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&model-name=MyCustomModelName`
+`<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01&model-name=MyCustomModelName`
 
 
 ### Specify languages
@@ -96,12 +96,12 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=caption&language=en`
+`<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01&features=caption&language=en`
 
 
 ### Select gender neutral captions
 
-If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
 Gender neutral caption option only applies when you're using the standard model.
 
@@ -110,12 +110,12 @@ Add the optional query string `gender-neutral-caption` with values `true` or `fa
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=caption&gender-neutral-caption=true`
+`<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01&features=caption&gender-neutral-caption=true`
 
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.SmartCrops** was selected as part the visual feature list. If you select **VisualFeatures.SmartCrops** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 Smart cropping aspect rations only applies when you're using the standard model.
 
@@ -124,7 +124,7 @@ Add the optional query string `smartcrops-aspect-ratios`, with one or more aspec
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
+`<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
 
 
 ## Get results from the service

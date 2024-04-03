@@ -6,10 +6,8 @@ summary: Learn how to use Azure Load Balancer to efficiently distribute traffic 
 metadata:
   title: Load Balancer
   description: Learn how to use Azure Load Balancer to efficiently distribute traffic and improve application scalability. Explore quickstarts, tutorials, and how-to guides for deploying load balancers in virtual machines, cloud resources, and cross-premises networks.
-  services: load-balancer
   ms.service: load-balancer
   ms.topic: landing-page
-  ms.collection: collection
   author: mbender-ms
   ms.author: mbender
   ms.date: 01/09/2024
@@ -106,7 +104,7 @@ landingContent:
         links:
           - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
             url: load-balancer-standard-diagnostics.md
-          - text: Test reachability of Azure Load Balancer front-ends
+          - text: Test reachability of Azure Load Balancer frontends
             url: load-balancer-test-frontend-reachability.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md

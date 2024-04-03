@@ -3,9 +3,8 @@ title: Pass trigger information to pipeline
 description: Learn how to reference trigger metadata in pipeline
 ms.service: data-factory
 ms.subservice: orchestration
-author: chez-charlie
-ms.author: chez
-ms.reviewer: 
+author: kromerm
+ms.author: makromer
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---

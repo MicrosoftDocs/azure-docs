@@ -1,14 +1,9 @@
 ---
 title: Export and import Azure Notification Hubs registrations in bulk | Microsoft Docs
 description: Learn how to use Notification Hubs bulk support to perform a large number of operations on a notification hub, or to export all registrations.
-services: notification-hubs
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: sethm

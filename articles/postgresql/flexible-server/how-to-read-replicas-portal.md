@@ -1,26 +1,24 @@
 ---
-title: Manage read replicas - Azure portal, REST API - Azure Database for PostgreSQL - Flexible Server
-description: Learn how to manage read replicas Azure Database for PostgreSQL - Flexible Server from the Azure portal and REST API.
+title: Manage read replicas - Azure portal, REST API
+description: Learn how to manage read replicas for Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI, and REST API.
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 11/06/2023
+ms.date: 04/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ---
 
-# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal
+# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI or REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
-
+In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL flexible server from the Azure portal, CLI, and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 > [!NOTE]  
-> Azure Database for PostgreSQL - Flexible Server is currently supporting the following features in Preview:
+> Azure Database for PostgreSQL flexible server is currently supporting the following features in Preview:
 >
 > - Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
 > - Virtual endpoints
@@ -29,14 +27,14 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 ## Prerequisites
 
-An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) to be the primary server.
+An [Azure Database for PostgreSQL flexible server instance](./quickstart-create-server-portal.md) to be the primary server.
 
 > [!NOTE]  
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and might never catch up with the primary. This might also increase storage usage at the primary as the WAL files are only deleted once received at the replica.
 
 ## Review primary settings
 
-Before setting up a read replica for Azure Database for PostgreSQL, ensure the primary server is configured to meet the necessary prerequisites. Specific settings on the primary server can affect the ability to create replicas.
+Before setting up a read replica for Azure Database for PostgreSQL flexible server, ensure the primary server is configured to meet the necessary prerequisites. Specific settings on the primary server can affect the ability to create replicas.
 
 **Storage auto-grow**: The storage autogrow setting must be consistent between the primary server and it's read replicas. If the primary server has this feature enabled, the read replicas must also have it enabled to prevent inconsistencies in storage behavior that could interrupt replication. If it's disabled on the primary server, it should also be turned off on the replicas.
 
@@ -46,7 +44,7 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 #### [Portal](#tab/portal)
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
+1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance you want for the replica.
 
 2.  On the **Overview** dialog, note the PostgreSQL version (ex `15.4`). Also, note the region your primary is deployed to (ex., `East US`).
 
@@ -199,7 +197,7 @@ Review and note the following settings:
 
 #### [REST API](#tab/restapi)
 
-To obtain information about the configuration of a server in Azure Database for PostgreSQL - Flexible Server, especially to view settings for recently introduced features like storage auto-grow or private link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
+To obtain information about the configuration of a server in Azure Database for PostgreSQL flexible server, especially to view settings for recently introduced features like storage auto-grow or private link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
 
 ```http request
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}?api-version=2023-06-01-preview
@@ -296,7 +294,7 @@ To create a read replica, follow these steps:
 
 #### [Portal](#tab/portal)
 
-1.  Select an existing Azure Database for the PostgreSQL server to use as the primary server.
+1.  Select an existing Azure Database for PostgreSQL flexible server instance to use as the primary server.
 
 2.  On the server sidebar, under **Settings**, select **Replication**.
 
@@ -339,10 +337,21 @@ az postgres flexible-server replica create \
 
 Replace `<replica-name>`, `<resource-group>`, `<source-server-name>` and `<location>` with your specific values.
 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by using the [`az postgres flexible-server replica create`](/cli/azure/postgres/flexible-server/replica#az-postgres-flexible-server-replica-list) command. 
+
+```azurecli-interactive
+az postgres flexible-server replica list \
+  --name <source-server-name> \
+  --resource-group <resource-group>
+```
+
+Replace `<source-server-name>`, and `<resource-group>` with your specific values.
+
+
 
 #### [REST API](#tab/restapi)
 
-Initiate an `HTTP PUT` request by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+Initiate an `HTTP PUT` request by using the [servers create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -360,6 +369,94 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 }
 ```
 
+After the read replica is created, the properties of all servers which are replicas of a primary replica can be obtained by initiating an `HTTP GET` request by using [replicas list by server API](/rest/api/postgresql/flexibleserver/replicas/list-by-server): 
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/replicas?api-version=2022-12-01
+```
+
+Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{sourceserverName}` with your specific Azure subscription ID, the name of your resource group, and the name you assigned to your primary replica, respectively.
+
+```json
+[
+  {
+    "administratorLogin": null,
+    "administratorLoginPassword": null,
+    "authConfig": null,
+    "availabilityZone": null,
+    "backup": {
+      "backupRetentionDays": null,
+      "earliestRestoreDate": "2023-11-23T12:55:33.3443218+00:00",
+      "geoRedundantBackup": "Disabled"
+    },
+    "createMode": null,
+    "dataEncryption": {
+      "geoBackupEncryptionKeyStatus": null,
+      "geoBackupKeyUri": null,
+      "geoBackupUserAssignedIdentityId": null,
+      "primaryEncryptionKeyStatus": null,
+      "primaryKeyUri": null,
+      "primaryUserAssignedIdentityId": null,
+      "type": "SystemManaged"
+    },
+    "fullyQualifiedDomainName": null,
+    "highAvailability": null,
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{replicaserverName}",
+    "identity": null,
+    "location": "eastus",
+    "maintenanceWindow": {
+      "customWindow": "Disabled",
+      "dayOfWeek": 0,
+      "startHour": 0,
+      "startMinute": 0
+    },
+    "minorVersion": null,
+    "name": "{replicaserverName}",
+    "network": {
+      "delegatedSubnetResourceId": null,
+      "privateDnsZoneArmResourceId": null,
+      "publicNetworkAccess": "Disabled"
+    },
+    "pointInTimeUtc": null,
+    "privateEndpointConnections": null,
+    "replica": {
+      "capacity": null,
+      "promoteMode": null,
+      "promoteOption": null,
+      "replicationState": "Active",
+      "role": "AsyncReplica"
+    },
+    "replicaCapacity": null,
+    "replicationRole": "AsyncReplica",
+    "resourceGroup": "{resourceGroupName}",
+    "sku": {
+      "name": "",
+      "tier": null
+    },
+    "sourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+    "state": "Ready",
+    "storage": {
+      "autoGrow": "Disabled",
+      "iops": null,
+      "storageSizeGb": 0,
+      "throughput": null,
+      "tier": null,
+      "type": null
+    },
+    "systemData": {
+      "createdAt": "2023-11-22T17:11:42.2461489Z",
+      "createdBy": null,
+      "createdByType": null,
+      "lastModifiedAt": null,
+      "lastModifiedBy": null,
+      "lastModifiedByType": null
+    },
+    "tags": null,
+    "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+    "version": null
+  }
+]
+```
 ---
 
 - Set the replica server name.
@@ -451,7 +548,7 @@ Here, `{replicaserverName}` should be replaced with the name of the replica serv
 
 ## List virtual endpoints (preview)
 
-To list virtual endpoints in the preview version of Azure Database for PostgreSQL - Flexible Server, use the following steps:
+To list virtual endpoints in the preview version of Azure Database for PostgreSQL flexible server, use the following steps:
 
 #### [Portal](#tab/portal)
 
@@ -500,7 +597,7 @@ Here, `{sourceserverName}` should be the name of the primary server from which y
 
 ### Modify application(s) to point to virtual endpoint
 
-Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`).
+Modify any applications that are using your Azure Database for PostgreSQL flexible server instance to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`).
 
 ## Promote replicas
 
@@ -509,7 +606,7 @@ With all the necessary components in place, you're ready to perform a promote re
 #### [Portal](#tab/portal)
 To promote replica from the Azure portal, follow these steps:
 
-1.  In the [Azure portal](https://portal.azure.com/), select your primary Azure Database for PostgreSQL - Flexible server.
+1.  In the [Azure portal](https://portal.azure.com/), select your primary Azure Database for PostgreSQL flexible server instance.
 
 2.  On the server menu, under **Settings**, select **Replication**.
 
@@ -640,7 +737,7 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 #### [Portal](#tab/portal)
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
+1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL flexible server instance.
 
 2.  On the server sidebar, under **Settings**, select **Replication**.
 
@@ -677,7 +774,7 @@ Replace `<resource-group>`, `<source-server-name>` and `<location>` with your sp
 
 #### [REST API](#tab/restapi)
 
-You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+You can create a secondary read replica by using the [servers create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -703,7 +800,7 @@ The location is set to `westus3`, but you can adjust this based on your geograph
 
 #### [Portal](#tab/portal)
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
+1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL flexible server instance.
 
 2.  On the server sidebar, under **Settings**, select **Replication**.
 
@@ -757,7 +854,7 @@ Rather than switchover to a replica, it's also possible to break the replication
 
 #### [Portal](#tab/portal)
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server primary server.
+1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server primary server.
 
 2.  On the server sidebar, on the server menu, under **Settings**, select **Replication**.
 
@@ -863,7 +960,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 #### [Portal](#tab/portal)
 
-You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL - Flexible Server.
+You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL flexible server instance.
 
 1.  In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
 
@@ -871,7 +968,7 @@ You can delete a read replica similar to how you delete a standalone Azure Datab
 
 You can also delete the read replica from the **Replication** window by following these steps:
 
-2.  In the Azure portal, select your primary Azure Database for the PostgreSQL server.
+2.  In the Azure portal, select your primary Azure Database for PostgreSQL flexible server instance.
 
 3.  On the server menu, under **Settings**, select **Replication**.
 
@@ -893,7 +990,7 @@ az postgres flexible-server delete \
 Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the replica server name you wish to delete.
 
 #### [REST API](#tab/restapi)
-To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+To delete a primary or replica server, use the [servers delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
@@ -909,7 +1006,7 @@ You can only delete the primary server once all read replicas have been deleted.
 
 To delete a server from the Azure portal, follow these steps:
 
-1.  In the Azure portal, select your primary Azure Database for the PostgreSQL server.
+1.  In the Azure portal, select your primary Azure Database for PostgreSQL flexible server instance.
 
 2.  Open the **Overview** page for the server and select **Delete**.
 
@@ -931,7 +1028,7 @@ az postgres flexible-server delete \
 Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the primary server name you wish to delete.
 
 #### [REST API](#tab/restapi)
-To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+To delete a primary or replica server, use the [servers delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}?api-version=2022-12-01
@@ -972,4 +1069,4 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 ## Related content
 
-- [Read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md)
+- [Read replicas in Azure Database for PostgreSQL - Flexible Server](concepts-read-replicas.md)

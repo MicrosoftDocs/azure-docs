@@ -209,6 +209,11 @@
     "source_path": "enable-partitions.md",
     "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
     "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus/index.md",
+    "redirect_url": "/azure/service-bus-messaging/index",
+    "redirect_document_id": false
   }
 ]
 }

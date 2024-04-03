@@ -5,7 +5,7 @@ author: normesta
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 01/18/2024
 ms.author: normesta
 ---
 
@@ -46,7 +46,7 @@ In some cases, you will have to allow time for clean-up operations after a featu
 
 > [!IMPORTANT]
 > You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
-> Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For migration options, see [Migrate a storage account](../common/storage-account-overview.md#migrate-a-storage-account).
+> Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
 ### Ensure the segments of each blob path are named
 
@@ -213,7 +213,7 @@ After the upgrade has completed, break the leases you created to resume allowing
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.29.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that has installed is `2.29.0` or higher by using the following command.
 
    ```azurecli
     az --version

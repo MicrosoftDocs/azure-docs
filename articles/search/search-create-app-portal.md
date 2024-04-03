@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Create a demo app in Azure portal"
 titleSuffix: Azure AI Search
-description: Run the Create demo app \wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
+description: Run the Create demo app wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 01/17/2024
 ms.custom:
   - mode-ui
   - ignite-2023
@@ -103,6 +103,8 @@ The wizard supports suggestions, and the fields that can provide suggested resul
         "postCode",
         "tags"
       ]
+    }
+  ]
 ```
 
 1. In the wizard, select the **Suggestions** tab at the top of the page. You'll see a list of all fields that are designated in the index schema as suggestion providers.
@@ -115,7 +117,7 @@ The wizard supports suggestions, and the fields that can provide suggested resul
 
 1. When prompted, select **Download your app** to download the file.
 
-1. Open the file and click the Search button. This action executes a query, which can be an empty query (`*`) that returns an arbitrary result set. The page should look similar to the following screenshot. Enter a term and use filters to narrow results. 
+1. Open the file and select the **Search** button. This action executes a query, which can be an empty query (`*`) that returns an arbitrary result set. The page should look similar to the following screenshot. Enter a term and use filters to narrow results. 
 
 The underlying index is composed of fictitious, generated data that has been duplicated across documents, and descriptions sometimes don't match the image. You can expect a more cohesive experience when you create an app based on your own indexes.
 
@@ -127,7 +129,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you're using a free service, remember that it's limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+Remember that a free service is limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

@@ -672,7 +672,7 @@
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
-    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
+    href: https://github.com/Azure-Samples/data-box-edge-csharp-modules
   - name: Azure Stack Edge product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing

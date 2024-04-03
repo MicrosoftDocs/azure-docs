@@ -6,11 +6,10 @@ description: This article contains lists of the prebuilt entities that are inclu
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 05/05/2021
+ms.date: 01/19/2024
 ---
 
 # Entities per culture in your LUIS model

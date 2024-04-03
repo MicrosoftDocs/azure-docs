@@ -2,15 +2,8 @@
 title: Create an NFS volume for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create an NFS volume in Azure NetApp Files. Learn about considerations, like which version to use, and best practices.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/28/2023
 ms.author: anfdocs
@@ -50,7 +43,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 1.	Select the **Volumes** blade from the Capacity Pools blade. Select **+ Add volume** to create a volume. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
+    ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png) 
 
 2.	In the Create a Volume window, select **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
@@ -67,7 +60,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Large Volume**
-        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        For volumes between 50 TiB and 500 TiB, select **Yes**. If the volume does not require more than 100 TiB, select **No**. 
         [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
@@ -89,7 +82,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         
         If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Virtual Network, only one subnet can be delegated to Azure NetApp Files.   
     
-        ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
@@ -104,7 +97,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
-        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
         >[!NOTE]
         >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
@@ -113,7 +106,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * Select **NFS** as the protocol type for the volume.   
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
-        - It must be unique within each subnet in the region. 
+        - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
+        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
@@ -131,7 +125,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
-    ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
+    ![Specify NFS protocol](./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png)
 
 4. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 

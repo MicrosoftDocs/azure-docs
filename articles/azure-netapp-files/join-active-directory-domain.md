@@ -2,15 +2,9 @@
 title: Join a Linux VM to a Microsoft Entra Domain | Microsoft Docs
 description: Describes how to join a Linux VM to a Microsoft Entra Domain
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/20/2022
 ms.author: anfdocs

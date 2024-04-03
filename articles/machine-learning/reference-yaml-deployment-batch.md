@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 ms.custom:
   - cliv2
-  - event-tier1-build-2022
   - ignite-2023
+  - update-code
 ms.reviewer: mopeakande
 author: santiagxf
 ms.author: fasantia

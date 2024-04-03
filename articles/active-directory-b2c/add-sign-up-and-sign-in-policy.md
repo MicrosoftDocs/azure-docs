@@ -2,18 +2,18 @@
 title: Set up a sign-up and sign-in flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a sign-up and sign-in flow in Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/22/2024
 ms.author: godonnell
 ms.subservice: B2C
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a sign-up and sign-in flow, so that users can sign up and sign in with local or social accounts, and reset their passwords if needed.
+
 ---
 
 # Set up a sign-up and sign-in flow in Azure Active Directory B2C

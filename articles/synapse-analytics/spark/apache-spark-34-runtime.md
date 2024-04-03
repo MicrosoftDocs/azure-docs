@@ -3,6 +3,7 @@ title: Azure Synapse Runtime for Apache Spark 3.4
 description: New runtime is in Public Preview. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
 author: ekote
 ms.author: eskot
+ms.reviewer: wiassaf, sngun
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
@@ -24,6 +25,9 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 2.4.0        |
 | Python | 3.10     |
 | R | 4.2.2    |
+
+>[!TIP]
+> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
 
 ## Libraries
 
@@ -52,7 +56,6 @@ The following table lists all the default level packages for Java/Scala and thei
 | com.fasterxml.jackson                  | jackson-mapper-asl                          | 1.9.13                      |
 | com.fasterxml.jackson                  | jackson-module-scala_2.12                   | 2.13.4                      |
 | com.github.joshelser                   | dropwizard-metrics-hadoop-metrics2-reporter | 0.1.2                       |
-| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
 | com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
 | com.github.vowpalwabbit                | vw-jni                                      | 9.3.0                       |
 | com.github.wendykierp                  | JTransforms                                 | 3.1                         |

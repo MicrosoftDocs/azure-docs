@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 11/15/2023
 ---
 
-### Licensing
+#### Licensing
 
 To ensure your session hosts have licenses applied correctly, you'll need to do the following tasks:
 
@@ -17,7 +17,7 @@ To ensure your session hosts have licenses applied correctly, you'll need to do 
 
 <a name='azure-ad-joined-session-hosts'></a>
 
-### Microsoft Entra joined session hosts
+#### Microsoft Entra joined session hosts
 
 If your users are going to connect to session hosts joined to Microsoft Entra ID, you'll also need to enable single sign-on or legacy authentication protocols, assign an RBAC role to users, and review your multifactor authentication policies so they can sign in to the VMs.
 

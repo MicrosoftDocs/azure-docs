@@ -3,16 +3,18 @@ title: Manage API inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: api-center
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/12/2024
 ms.author: danlep 
-ms.custom: 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
 
 # Use the Azure CLI to manage your API inventory
 
 This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
+
+> [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -21,7 +23,7 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
 * For Azure CLI:
-    [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
     > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
@@ -138,4 +140,6 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 ## Related content
 
-See the [Azure CLI reference for API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata-schema), and [API Center services](/cli/azure/apic/service).
+* See the [Azure CLI reference for API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata-schema), and [API Center services](/cli/azure/apic/service).
+* [Import APIs to your API center from API Management](import-api-management-apis.md)
+* [Use the Visual Studio extension for API Center](use-vscode-extension.md) to build and register APIs from Visual Studio Code.

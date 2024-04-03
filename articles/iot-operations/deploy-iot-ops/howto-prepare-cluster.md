@@ -3,7 +3,7 @@ title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 12/07/2023
@@ -15,10 +15,10 @@ ms.date: 12/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview - enabled by Azure Arc. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
 
 > [!TIP]
-> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
@@ -27,8 +27,8 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
-- Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
+- [Azure CLI version 2.46.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
+- Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
 
 ### Create a cluster
 
@@ -61,9 +61,7 @@ Prepare your machine for AKS Edge Essentials.
 
 Set up an AKS Edge Essentials cluster on your machine.
 
-1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
-
-    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the _aksedge-config.json_ file as follows:
+1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment), but at the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the _aksedge-config.json_ file:
 
     ```json
     `Init.ServiceIPRangeSize` = 10
@@ -174,6 +172,12 @@ pod/config-agent-7579f558d9-5jnwq                 2/2     Running   0           
 pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0               10m
 pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
+```
+
+To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
+
+```azurecli
+az iot ops verify-host
 ```
 
 ## Next steps

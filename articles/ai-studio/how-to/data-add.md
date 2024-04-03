@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -35,7 +35,7 @@ To create and work with data, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin.
 
-* An Azure AI Studio project.
+* An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 
 ## Create data
 
@@ -60,7 +60,7 @@ The supported source paths are shown in Azure AI Studio. You can create a data f
 # [Python SDK](#tab/python)
 
 
-If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 
 |Location  | Examples  |
 |---------|---------|
@@ -77,8 +77,6 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 ### Create data: File type
 
 A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
-
-
 
 # [Studio](#tab/azure-studio)
 
@@ -131,7 +129,6 @@ myfile = Data(
 
 client.data.create_or_update(myfile)
 ```
-
 
 ---
 

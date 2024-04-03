@@ -39,7 +39,7 @@ The database name we're using in this tutorial is *RLSTest*.
 
 You can now register data assets from the database sample by using Azure Data Catalog.
 
-1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and select **Publish Data**.
 
    :::image type="content" source="media/register-data-assets-tutorial/data-catalog-publish-data.png" alt-text="The data catalog is open with the Publish Data button selected.":::
 

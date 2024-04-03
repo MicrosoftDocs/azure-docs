@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -65,7 +66,7 @@ You can't use continuation tokens for queries with [GROUP BY](group-by.md) or [D
 
 Here's an example of a query with ``DISTINCT`` that could use a continuation token:
 
-```sql
+```nosql
 SELECT DISTINCT VALUE
     e.name
 FROM

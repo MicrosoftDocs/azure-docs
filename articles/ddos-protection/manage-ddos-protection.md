@@ -4,9 +4,9 @@ description: Learn how to use Azure DDoS Network Protection to mitigate an attac
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 11/28/2023
-ms.custom: template-quickstart, ignite-2022
+ms.custom: template-quickstart
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal

@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - security content reference
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for SAP® applications.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.date: 03/26/2023
 ---

@@ -2,13 +2,13 @@
 title: Real-time synthesis for text to speech avatar (preview) - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use text to speech avatar with real-time synthesis.
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # How to do real-time synthesis for text to speech avatar (preview)
@@ -24,9 +24,6 @@ To get started, make sure you have the following prerequisites:
 - **Azure subscription:** [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 - **Speech resource:** <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a speech resource</a> in the Azure portal. Select "Standard S0" pricing tier if you want to create speech resource to access avatar. 
 - **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](/azure/ai-services/multi-service-resource?pivots=azportal&tabs=windows#get-the-keys-for-your-resource).
-- If you build an application of real time avatar: 
-   - **Communication resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
-   - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/communication-services/quickstarts/relay-token) to generate the relay token with the endpoint and connection string filled.
 
 ## Set up environment
 
@@ -55,7 +52,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
 speechConfig.speechSynthesisLanguage = "en-US";
-speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";   
+speechConfig.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";   
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech," and you select es-ES-ElviraNeural, the text is spoken in English with a Spanish accent.
@@ -76,8 +73,8 @@ The following code snippet shows how to set avatar character and style:
 
 ```JavaScript
 const avatarConfig = new SpeechSDK.AvatarConfig(
-"lisa", // Set avatar character here.
-"casual-sitting", // Set avatar style here.
+    "lisa", // Set avatar character here.
+    "casual-sitting", // Set avatar style here.
 );  
 ```
 
@@ -138,7 +135,7 @@ var avatarSynthesizer = new SpeechSDK.AvatarSynthesizer(speechConfig, avatarConf
 
 // Start avatar and establish WebRTC connection
 avatarSynthesizer.startAvatarAsync(peerConnection).then(
-(r) => { console.log("Avatar started.") }
+    (r) => { console.log("Avatar started.") }
 ).catch(
     (error) => { console.log("Avatar failed to start. Error: " + error) }
 );

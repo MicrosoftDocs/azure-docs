@@ -2,7 +2,6 @@
 title: Move an Azure Automanage configuration profile across regions
 description: Learn how to move an Automanage Configuration Profile across regions
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 05/01/2022
 ms.custom: subject-moving-resources

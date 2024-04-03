@@ -32,7 +32,7 @@ In this quickstart, we use the Azure Communication Services Call Automation APIs
 
 ## Step 1: Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users
 
-To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](/azure/active-directory/roles/permissions-reference#teams-administrator) or [Global Administrator](/en-us/azure/active-directory/roles/permissions-reference#global-administrator) must explicitly enable the Communication Services resource(s) access to their tenant to allow calling.
+To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](/entra/identity/role-based-access-control/permissions-reference#teams-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) must explicitly enable the Communication Services resource(s) access to their tenant to allow calling.
 
 [Set-CsTeamsAcsFederationConfiguration (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csteamsacsfederationconfiguration)
 Tenant level setting that enables/disables federation between their tenant and specific Communication Services resources.

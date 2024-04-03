@@ -100,9 +100,7 @@
     - name: Move Azure VMs between Government & Public regions
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
-      href: move-vaults-across-regions.md
-    - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md      
+      href: move-vaults-across-regions.md      
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -125,8 +123,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
       href: vmware-azure-tutorial-failover-failback-modernized.md
-
-
 - name: Concepts
   items:
   - name: Support matrices
@@ -139,8 +135,6 @@
       href: hyper-v-azure-support-matrix.md
     - name: Support requirements for Azure Site Recovery replication appliance
       href: replication-appliance-support-matrix.md 
-    - name: VMware/physical to Azure support matrix
-      href: vmware-physical-azure-support-matrix.md      
     - name: Backup center support matrix
       href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Using Site Recovery with Azure Backup
@@ -207,6 +201,12 @@
       href: concepts-public-ip-address-with-site-recovery.md
   - name: About recovery plans
     href: recovery-plan-overview.md
+  - name: Migrate
+    items:
+    - name: Migrate to Azure
+      href: migrate-overview.md
+    - name: Migration to availability zones 
+      href: ../availability-zones/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline
@@ -217,18 +217,10 @@
     items:
     - name: Classic
       href: vmware-azure-architecture.md
-
-  - name: About failover and failback
-    items:
-    - name: Classic
-      href: failover-failback-overview.md
-
   - name: Failback location options from Azure to VMware
     href: concepts-types-of-failback.md
   - name: Multitenant support for VMware disaster recovery
     href: vmware-azure-multi-tenant-overview.md
-  - name: About migration to Azure
-    href: migrate-overview.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
 - name: How-to Guides
@@ -341,6 +333,8 @@
         href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
+      - name: For an added disk
+        href: vmware-azure-enable-replication-added-disk.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
       - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
@@ -543,16 +537,18 @@
     href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
-  - name: Monitor and operate backups and disaster recovery using Backup center
-    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-  - name: Monitor Site Recovery
+  - name: Monitor
+    href: monitor-site-recovery.md
+  - name: Use Recovery Services dashboard
     href: site-recovery-monitor-and-troubleshoot.md
-  - name: Monitor Site Recovery with Azure Monitor Logs
+  - name: Use Azure Monitor Logs
     href: monitor-log-analytics.md
-  - name: Monitoring churn patterns on Virtual Machines
+  - name: Monitor churn patterns on virtual machines
     href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
+  - name: Monitor using Backup center
+    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
@@ -599,6 +595,10 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
     href: /rest/api/site-recovery
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md
+  - name: Azure Well-Architected Framework
+    href: /azure/well-architected
 - name: Related
   items:
   - name: Azure Backup

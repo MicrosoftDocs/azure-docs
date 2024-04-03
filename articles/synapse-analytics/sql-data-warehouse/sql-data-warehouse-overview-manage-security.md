@@ -7,8 +7,6 @@ ms.date: 04/17/2018
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-tags: azure-synapse
 ---
 
 # Secure a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

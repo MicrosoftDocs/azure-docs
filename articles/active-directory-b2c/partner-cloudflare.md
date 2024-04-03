@@ -2,16 +2,16 @@
 title: Tutorial to configure Azure Active Directory B2C with Cloudflare Web Application Firewall
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Cloudflare Web application firewall and protect applications from malicious attacks 
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 12/6/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
 ---
 # Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 

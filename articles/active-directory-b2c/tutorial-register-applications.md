@@ -7,7 +7,6 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 11/13/2023
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 

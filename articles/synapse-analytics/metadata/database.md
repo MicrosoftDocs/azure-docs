@@ -1,7 +1,7 @@
 ---
 title: Lake database in serverless SQL pools
 description: Azure Synapse Analytics provides a shared metadata model where creating a lake database in an Apache Spark pool will make it accessible from its serverless SQL pool engine. 
-services: synapse-analytics 
+ 
 ms.service: synapse-analytics  
 ms.topic: overview
 ms.subservice: metadata

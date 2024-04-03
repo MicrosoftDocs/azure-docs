@@ -133,7 +133,7 @@ The change feed processor is initialized, and it starts reading changes from the
 
 ### [Java](#tab/java)
 
-An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-modes.md#latest-version-change-feed-mode) is:
+For full working samples, see [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/changefeed). An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-modes.md#latest-version-change-feed-mode) is:
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 

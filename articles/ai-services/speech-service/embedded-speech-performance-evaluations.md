@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -18,7 +18,7 @@ Embedded speech models run fully on your target devices. Understanding the perfo
 
 **Real-time factor (RTF)** – The real-time factor (RTF) of a device measures how fast the embedded speech model can process audio input. It's the ratio of the processing time to the audio length. For example, if a device processes a 1-minute audio file in 30 seconds, the RTF is 0.5. This metric evaluates the computational power of the device for running embedded speech models. It can help identify devices that are too slow to support the models. Measurement of this metric should only be done using file-based input rather than real-time microphone input.  
 
-To support real-time & interactive speech experiences, the device should have an RTF of `1` or lower. An RTF value higher than `1` means that the device can't keep up with the audio input and will cause poor user experiences. 
+To support real-time & interactive speech experiences, the device should have an RTF of `1` or lower. An RTF value higher than `1` means that the device can't keep up with the audio input, which can result in a poor user experience. 
 
 When measuring the RTF of a device, it's important to measure multiple samples and analyze the distribution across percentiles. This allows you to capture the effect of variations in the device's behavior like different CPU clock speeds due to thermal throttling. The predefined measurement tests outlined in [Measuring the real-time factor on your device](#measuring-the-real-time-factor-on-your-device) automatically measure the RTF for each speech recognition result, yielding a sufficiently large sample size. 
 
@@ -32,7 +32,7 @@ When measuring the RTF of a device, it's important to measure multiple samples a
 
 For example, if the device is under moderate to high CPU load from all other applications running on the device, it's possible to encounter performance issues for running embedded speech in addition to the other applications, even with a powerful processor.  
 
-**Memory load** – An embedded speech to text model consumes between 200-300 MB of memory at runtime. If your device has less memory available than that for the embedded speech process to use, frequent fallbacks to virtual memory and paging can introduce more latencies. This can affect both the real-time factor and user-perceived latency. 
+**Memory load** – An embedded speech to text model consumes between 200-300 MB of memory at runtime. If your device has less memory available for the embedded speech process to use, frequent fallbacks to virtual memory and paging can introduce more latencies. This can affect both the real-time factor and user-perceived latency. 
 
 ## Built-in performance optimizations 
 

@@ -70,8 +70,6 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
 
-To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principal (SP) with the 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect an Azure Operator Nexus Kubernetes cluster node to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md#monitor-nexus-kubernetes-cluster--vm-layer).
-
 1. Set the required variables.
 
     ```bash
@@ -80,6 +78,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
     SUBSCRIPTION_ID="<Subscription ID>"
     USER_NAME="azureuser"
     SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --output tsv --query managedResourceGroupConfiguration.name)
     ```
 
 2. Get the available cluster node names.
@@ -100,7 +99,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
     ```azurecli
     az ssh arc --subscription $SUBSCRIPTION_ID \
-        --resource-group $RESOURCE_GROUP \
+        --resource-group $MANAGED_RESOURCE_GROUP \
         --name <VM Name> \
         --local-user $USER_NAME \
         --private-key-file $SSH_PRIVATE_KEY_FILE

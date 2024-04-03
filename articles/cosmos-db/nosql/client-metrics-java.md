@@ -5,6 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 services: cosmos-db
 ms.service: cosmos-db
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 12/14/2023
 ---

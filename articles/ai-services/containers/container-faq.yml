@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-services
   ms.topic: faq
-  ms.date: 05/26/2023
+  ms.date: 02/21/2024
   ms.author: aahi
 title: FAQ for Azure AI containers
 summary: |
@@ -95,18 +95,7 @@ sections:
 
       - question: How does billing work?
         answer: |
-          Customers are charged based on consumption, similar to the Azure AI services cloud. The containers need to be configured to send metering data to Azure, and transactions are billed accordingly. Resources used across the hosted and on-premises services add to the single quota with tiered pricing, counting against both usages. For more information, see the following pricing pages:
-
-          * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
-          * [Azure AI Vision](../computer-vision/computer-vision-how-to-install-containers.md)
-          * [Face](../computer-vision/overview-identity.md)
-          * [Document Intelligence](../../ai-services/document-intelligence/containers/install-run.md#billing)
-          * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
-          * [Speech service](../speech-service/speech-container-overview.md#billing)
-          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#billing)
-          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#billing)
-          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#billing)
-          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#billing)
+          Customers are charged based on consumption, similar to the Azure AI services cloud. The containers need to be configured to send metering data to Azure, and transactions are billed accordingly. Resources used across the hosted and on-premises services add to the single quota with tiered pricing, counting against both usages. For more information, see the billing section of the [container](../cognitive-services-container-support.md) you're using.
 
           > [!IMPORTANT]
           > Azure AI containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate billing information with the metering service. Azure AI containers don't send customer data to Microsoft.
@@ -115,19 +104,18 @@ sections:
 
 
           ```json
-          {
-            "SubscriptionId": "Customer subscription ID",
-            "apiType": "textanalytics",
-            "id": "billing id",
-            "containerType": "keyphrase",
-            "containerVersion": "1.1.00864.0001",
-            "containerId": "dep--keyphrase-",
+          usageRequestBody": {
+            "id": "1234abcd-1234-56ab-ab12-1234abcd",
+            "containerType": "<container-type>",
+            "containerVersion": "<container-version>",
+            "containerId": "<contianer-id>",
             "meter": {
-              "name": "CognitiveServices.TextAnalytics.Container.BatchScoring",
-              "quantity": 10.0
+              "name": "<meter-name>",
+              "quantity": 0.0
             },
-            "RequestTime": "The time at which the billing record was created"
-          }
+            "requestTime": 12345687890,
+            "apiType": "<api-type>"
+          },
           ```
 
       - question: What is the current support warranty for containers?
@@ -144,18 +132,7 @@ sections:
 
       - question: What hardware is required to run these containers?
         answer: |
-          Azure AI containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
-
-          * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
-          * [Azure AI Vision](../computer-vision/computer-vision-how-to-install-containers.md)
-          * [Face](../computer-vision/overview-identity.md)
-          * [Document Intelligence](../../ai-services/document-intelligence/containers/install-run.md#container-requirements-and-recommendations)
-          * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
-          * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
-          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
-          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#host-computer-requirements-and-recommendations)
-          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
-          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          Azure AI containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. For more information, see the container requirements and recommendations section of the [container](../cognitive-services-container-support.md) you're using.
 
       - question: Are these containers currently supported on Windows?
         answer: |

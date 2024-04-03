@@ -1,13 +1,12 @@
 --- 
 title: Storage optimized virtual machine sizes
-description: Learn about the different storage optimized sizes available for Azure Virtual Machines (Azure VMs). Find information about the number of vCPUs, data disks, NICs, storage throughput, and network bandwidth for sizes in this series. 
+description: Learn about the different storage optimized sizes available for Azure Virtual Machines (Azure VMs). Find information about the number of vCPUs, data disks, NICs, storage throughput, and network bandwidth for sizes in this series.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: conceptual 
-ms.workload: infrastructure-services 
+ms.topic: conceptual
 ms.date: 06/01/2022
-ms.author: sasham 
+ms.author: sasham
 --- 
 
 # Storage optimized virtual machine sizes

@@ -7,10 +7,9 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 10/09/2023
 ms.author: radeltch
-
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
