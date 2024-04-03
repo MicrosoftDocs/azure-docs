@@ -148,6 +148,11 @@ You can increase this value to avoid client disconnect.
 - This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
 - The value is limited to `[1, 300]`.
 
+#### `TransportTypeDetector`
+
+- Default value is null.
+- This options defines a function which accepts an HttpContext and returns a bitmask combining one or more HttpTransportType values that specify what transports the service should use to receive HTTP requests.
+
 ### Sample
 
 You can configure above options like the following sample code.
