@@ -66,6 +66,10 @@ There's no direct cost associated with using Standby Pools. Users are charged ba
 ## Considerations
 - The total capacity of the Standby Pool and the Virtual Machine Scale Set together can't exceed 1000 instances. 
 - Creation of pooled resources is subject to the resource availability in each region.
+
+
+
+## Unsupported configurations
 - Using Azure autoscale and Standby Pools together can result in unexpected scale-in or scale-out events. The autoscaler consumes the metrics associated with your VMs in your scale set and the VMs in the pool. This can skew the scaling metrics and result in less accurate scale triggers. It is not currently suggested to use Azure autoscale and Standby Pools together. 
 
 ## Next steps

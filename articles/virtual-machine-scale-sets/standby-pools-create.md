@@ -46,6 +46,21 @@ For more information on assigning roles, see [Assign Azure roles using the Azure
 
 ## Create a Standby Pool
 
+### [Portal](#tab/portal)
+
+To set up a Standby Pool for an existing Virtual Machine Scale Set, navigate to Virtual Machine Scale Set and under **Availability + scale** select **Standby pool**. Select the **Managed pool** option and input the name you would like your pool to be associated with, the provisioning state of the VMs and the maximum ready capacity. Select **Save**. 
+
+:::image type="content" source="media/standby-pools/enable-standby-pool-after-vmss-creation.png" alt-text="A screenshot showing how to enable a standby pool on an existing Virtual Machine Scale Set in the Azure portal.":::
+
+You can also configure a Standby Pool during Virtual Machine Scale Set creation by navigating to the **Management** tab and checking the box to enable standby pools. 
+
+:::image type="content" source="media/standby-pools/enable-standby-pool-during-vmss-create.png" alt-text="A screenshot showing how to enable a standby pool during the Virtual Machine Scale Set create experience in the portal.":::
+
+
+
+
+
+
 ### [CLI](#tab/cli)
 Create a Standby Pool and associate it with an existing scale set using [az standbypool create]().
 

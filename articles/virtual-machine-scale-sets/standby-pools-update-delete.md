@@ -19,6 +19,12 @@ ms.reviewer: ju-shim
 
 ## Update a Standby Pool
 
+### [Portal](#tab/portal)
+To update an existing Standby Pool, navigate to Virtual Machine Scale set the Standby Pool is associated with. Under **Availability + scale** select **Standby pool**. Select the **Manage pool** option. This will bring up a window where you can adjust the provisioning state and maximum ready capacity. The Standby Pool name can only be set during Standby Pool creation. 
+
+:::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
+
+
 ### [CLI](#tab/cli)
 Update an existing Standby Pool using [az standbypool update]().
 
@@ -102,6 +108,14 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 
 ## Delete a Standby Pool
+
+### [Portal](#tab/portal1)
+
+To delete an existing Standby Pool, navigate to Virtual Machine Scale set the Standby Pool is associated with. Under **Availability + scale** select **Standby pool**. Select **Delete pool**. This will bring up a window where you can confirm the delete action. 
+
+:::image type="content" source="media/standby-pools/delete-standby-pool-portal.png" alt-text="A screenshot showing how to delete a Standby Pool in the portal.":::
+
+
 
 ### [CLI](#tab/cli1)
 Delete an existing Standby Pool using [az standbypool delete]().
