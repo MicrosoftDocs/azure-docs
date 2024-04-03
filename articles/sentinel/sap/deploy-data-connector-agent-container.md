@@ -232,7 +232,7 @@ This procedure describes how to create a key vault to store your agent configura
         az role assignment create --assignee-object-id <ServicePrincipalObjectId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
         ```
 
-        To find the object ID of the app registration’s service principal, go to the Entra ID portal's **Enterprise applications** page. Search for the name of the app registration there, and copy the **Object ID** value.
+        To find the object ID of the app registration’s service principal, go to the Microsoft Entra ID portal's **Enterprise applications** page. Search for the name of the app registration there, and copy the **Object ID** value.
 
         > [!IMPORTANT]
         > Do not confuse the object ID from the **Enterprise Applications** page with the app registration's object ID found on the **App registrations** page. Only the object ID from the **Enterprise applications** page will work.
@@ -243,7 +243,7 @@ This procedure describes how to create a key vault to store your agent configura
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <ApplicationId> --secret-permissions get list
         ```
 
-        To find the object ID of the app registration, go to the Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value. 
+        To find the object ID of the app registration, go to the Microsoft Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value. 
 
     ---
 

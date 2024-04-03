@@ -312,7 +312,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No
 
-**Explanation:** Containers, that can't establish connection to Microsoft Azure services directly and require connection via a proxy server require `--http-proxy` switch to define proxy url for the container. Format of the proxy url is `http://hostname:port`.
+**Explanation:** Containers that can't establish connection to Microsoft Azure services directly and require connection via a proxy server require `--http-proxy` switch to define proxy url for the container. Format of the proxy url is `http://hostname:port`.
 
 #### Host Based Networking
 
