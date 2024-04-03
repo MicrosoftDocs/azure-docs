@@ -24,9 +24,9 @@ The Time To Live (TTL) token is a setting that determines the length of time a n
 
 The TTL configuration allows the management of push notifications' lifecycle, reducing the need for frequent token renewals while ensuring that the communication channel between the application and its users remains open and reliable for extended durations.
 
-Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. You can enter this value and adjust it accordingly to your needs.
+Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. You can enter this value and adjust it accordingly to your needs. In case of not provide a value, the defatult value is **24 hours (86,400 seconds)**.
 
-There's a **24-hour limit** after the register push notification API is called when the device token information is saved in Registrar. After TTL lifespan ends, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
+Once the register push notification API is called when the device token information is saved in Registrar. After TTL lifespan ends, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
 
 In case that you want to revoke an identity you need to follow [the next process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
 
