@@ -30,7 +30,7 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 * Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 * Other optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
 
-## Harm categories
+## Risk categories
 
 |Category|Description|
 |--------|-----------|
@@ -38,11 +38,19 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 | Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse.   |
 | Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, etc.    |
 | Self-Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself.|
-| Jailbreak risk | Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate role play to subtle subversion of the safety objective. |
 | Protected Material for Text<sup>*</sup> | Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models.
 | Protected Material for Code | Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories.
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
+
+## Prompt Shields
+
+|Type| Description|
+|--|--|
+|Prompt Shield for Jailbreak Attacks |Jailbreak Attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate roleplay to subtle subversion of the safety objective. |
+|Prompt Shield for Indirect Attacks |Indirect Attacks, also referred to as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks, are a potential vulnerability where third parties place malicious instructions inside of documents that the Generative AI system can access and process. Requires document embedding and formatting. |
+
+
 
 [!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
@@ -303,8 +311,8 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models: jailbreak risk, protected material text and protected material code:
-- category (jailbreak, protected_material_text, protected_material_code),
+When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models: jailbreak, indirect attacks, protected material text and protected material code:
+- category (jailbreak, indirect attacks, protected_material_text, protected_material_code),
 - detected (true or false),
 - filtered (true or false).
 
@@ -714,6 +722,84 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
         }
     }
 }
+```
+
+## Document embedding in prompts
+
+A key aspect of Azure OpenAI's Responsible AI measures is the content safety system. This system runs alongside the core GPT model to monitor any irregularities in the model input and output. Its performance is improved when it can differentiate between various elements of your prompt like system input, user input, and AI assistant's output. 
+ 
+For enhanced detection capabilities, prompts should be formatted according to the following recommended methods.
+
+### Chat Completions API
+
+The Chat Completion API is structured by definition. It consists of a list of messages, each with an assigned role. 
+
+The safety system will parse this structured format and apply the following behavior: 
+
+- On last “user” content, the following categories of RAI Risks will be detected: 
+    - Hate 
+    - Sexual 
+    - Violence 
+    - Self-Harm 
+    - Jailbreak (optional) 
+
+Example messages array, with relevant content highlighted: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model."}, 
+{"role": "user", "content": "Example question goes here."}, 
+{"role": "assistant", "content": "Example answer goes here."}, 
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+### Embedding documents in your prompt  
+
+In addition to detection on last user content, Azure OpenAI also supports the detection of specific risks inside context documents via Prompt Shields – Indirect Prompt Attack Detection. You should identify parts of the input that are a document (e.g. retrieved website, email, etc.) with the following document delimiter.  
+
+```
+<documents> 
+*insert your document content here* 
+</documents>
+```
+
+When you do so, the following options are available for detection on tagged documents: 
+- On each tagged “document” content, detect the following categories: 
+    - Indirect attacks (optional) 
+
+Below are some examples of this use case. 
+
+Example chat completion messages array, with relevant content highlighted: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n*insert your document content here*\n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+#### JSON escaping 
+
+When you tag unvetted documents for detection, the document content should be JSON-escaped to ensure successful parsing by the Azure OpenAI safety system. 
+
+For example, see the following email body: 
+
+```
+Hello Josè, 
+
+I hope this email finds you well today.
+```
+
+With JSON escaping, it would read: 
+
+```
+Hello Jos\u00E9,\nI hope this email finds you well today. 
+```
+
+The escaped text in a chat completion context would read: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n Hello Jos\\u00E9,\\nI hope this email finds you well today. \n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."}
 ```
 
 ## Content streaming
