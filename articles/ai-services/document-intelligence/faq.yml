@@ -99,7 +99,7 @@ sections:
           How long is my custom model available for use?
         answer: |
 
-          A models has the same life cycle as the API version that you use to train it. Custom models trained with a general availability (GA) version of the API have the same life cycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same life cycle as the preview API.
+          A model has the same life cycle as the API version that you use to train it. Custom models trained with a general availability (GA) version of the API have the same life cycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same life cycle as the preview API.
 
           Expect preview API deprecation within three months of an updated preview API version or newer GA API version.
 
@@ -256,7 +256,7 @@ sections:
 
            Consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
 
-           - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](azure/ai-services/document-intelligence/containers/install-run).
+           - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
            - Your project is highly dependent on [Document Intelligence v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), and you want to keep using the v2.1 APIs.
 
