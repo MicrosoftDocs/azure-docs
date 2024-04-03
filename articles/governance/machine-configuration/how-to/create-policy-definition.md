@@ -46,12 +46,14 @@ package in your development environment by following the steps in
 > the published package and uses that object's properties to get the content URI.
 >
 > ```azurepowershell-interactive
+> // NOTE: This code sample contains placeholder text
+> 
 > $connectionString = '<storage-account-connection-string>'
 > $context = New-AzStorageContext -ConnectionString $connectionString
 > $getParams = @{
 >     Context   = $context
->     Container = '<container-name>'
->     Blob      = '<published-package-file-name>'
+>     Container = '<placeholder-container-name>'
+>     Blob      = '<placeholder-published-package-file-name>'
 > }
 > $blob = Get-AzStorageBlob @getParams
 > $contentUri = $blob.ICloudBlob.Uri.AbsoluteUri
@@ -69,14 +71,16 @@ The following example demonstrates the **metadata** section that's automatically
 `New-GuestConfigurationPolicy`.
 
 ```json
+// NOTE: This code sample contains placeholder text
+
 "metadata": {
     "category": "Guest Configuration",
     "guestConfiguration": {
         "name": "test",
         "version": "1.0.0",
         "contentType": "Custom",
-        "contentUri": "CUSTOM-URI-HERE",
-        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "contentUri": "<PLACEHOLDER-URI>",
+        "contentHash": "<PLACEHOLDER-HASH-VALUE>",
         "configurationParameter": {}
     }
 }
@@ -119,8 +123,10 @@ For more information about the **Mode** parameter, see the page
 Create a policy definition that audits using a custom configuration package, in a specified path:
 
 ```powershell
+# NOTE: This code sample contains placeholder text
+
 $PolicyConfig      = @{
-  PolicyId      = '_My GUID_'
+  PolicyId      = '<PLACEHOLDER-GUID>'
   ContentUri    = $contentUri
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
@@ -136,8 +142,10 @@ Create a policy definition that deploys a configuration using a custom configura
 specified path:
 
 ```powershell
+# NOTE: This code sample contains placeholder text
+
 $PolicyConfig2      = @{
-  PolicyId      = '_My GUID_'
+  PolicyId      = '<PLACEHOLDER-GUID>'
   ContentUri    = $contentUri
   DisplayName   = 'My deployment policy'
   Description   = 'My deployment policy'
@@ -162,7 +170,7 @@ include a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolic
 array of hash tables containing individual tag entries. The tags are added to the **if** section of
 the policy definition and can't be modified by a policy assignment.
 
-An example snippet of a policy definition that filters for tags follows.
+An example snippet of a policy definition that filters for tags follows:
 
 ```json
 "if": {
@@ -209,9 +217,11 @@ The following example creates a policy definition to audit a service, where the 
 list at the time of policy assignment.
 
 ```powershell
+# NOTE: This code sample contains placeholder text
+
 # This DSC resource definition...
 Service 'UserSelectedNameExample' {
-    Name   = 'ParameterValue'
+    Name   = '<ParameterValue>'
     Ensure = 'Present'
     State  = 'Running'
 }
