@@ -77,3 +77,32 @@ To delete the Application Gateway and WAF and redeploy:
 3. Select the Application Gateway resource and then select **Delete**. Type **yes** to confirm deletion, and then select **Delete**.
 4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
 
+## Certificate Relocation for Premium TLS Inspection
+This section needs to be considered if Application gateway has integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners Application Gateway offers two models for TLS termination:
+
+Application Gateway offers two models for TLS termination:
+
+- Provide TLS/SSL certificates attached to the listener. This model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
+- Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener.
+
+!WARNING: Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a key vault under a different subscription than your Application Gateway will result in a failure.
+
+Details on which certificates Azure Application uses, and how to deploy, are reported in this article: [Supported Certificates](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#supported-certificates)
+
+This support is limited to the v2 SKU of Application Gateway. For TLS termination, Application Gateway only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate’s status is set to Enabled in Key Vault.
+
+Instructions on how to export an existing certificate from a source AKV are reported here. [Export Certficates from Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
+
+As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.
+
+![AppGateway](./ag-kv.png)
+
+### Key Vault Managed Identity
+![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/13762e21-52cb-4569-8e34-35db9d115f8c)
+![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/f876f274-58ac-44f9-aac2-7c4b658cff4e)
+
+
+You would need to design access policies to a new user-assigned managed identity with your key vault.
+
+When you’re using a restricted key vault, use the following steps in this documentation to configure Application Gateway to use firewalls and virtual networks: [Configure your Key Vault](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#configure-your-key-vault)
+
