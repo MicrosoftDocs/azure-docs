@@ -870,3 +870,4 @@ You should now see both the `bookbuyer` and `bookthief` UI incrementing for the 
 ## Summary
 
 We hope this walk-through provided the necessary guidance on how to migrate your current OSM policies to Istio policies. Take time and review the [Istio Concepts](https://istio.io/latest/docs/concepts/) and walking through [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to use the Istio service mesh to manage your applications.
+
