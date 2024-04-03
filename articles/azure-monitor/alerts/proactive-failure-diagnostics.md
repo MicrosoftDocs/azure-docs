@@ -386,7 +386,6 @@ Notice that if you delete an Application Insights resource, the associated Failu
 ## Triage and diagnose an alert
 
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 
 To investigate further, click on 'View full details in Application Insights.' The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
 To investigate further, click on 'View full details in Application Insights' the links in this page take you straight to a [search page](../app/transaction-search-and-diagnostics.md?tabs=transaction-search) filtered to the relevant requests, exception, dependency, or traces. 

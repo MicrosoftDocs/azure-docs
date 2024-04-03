@@ -1,13 +1,16 @@
 ---
-title: Assess vulnerabilities for images running on your Kubernetes clusters
-description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters
+title: Assess vulnerabilities for images running on your Kubernetes clusters (Secure Score)
+description: Learn how to view and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score).
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 09/06/2023
 ---
 
-# View and remediate vulnerabilities for images running on your Kubernetes clusters
+# View and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score)
+
+> [!NOTE]
+> This page describes the classic secure score approach to vulnerability management in Defender for Cloud. Customers using Defender CSPM should use the new risk-based approach: [View and remediate vulnerabilities for images running on your Kubernetes clusters (Risk based)](view-and-remediate-vulnerabilities-for-images.md).
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
@@ -21,27 +24,25 @@ Within each recommendation, resources are grouped into tabs:
 - **Unhealthy resources** – resources that are still impacted by the identified issue.  
 - **Not applicable resources** – resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
-If you are using Defender CSPM, first review and remediate vulnerabilities exposed via [attack paths](how-to-manage-attack-path.md), as they pose the greatest risk to your security posture. Then use the following procedures to view, remediate, prioritize, and monitor vulnerabilities for your containers.
-
 ## View vulnerabilities on a specific cluster
 
 **To view vulnerabilities for a specific cluster, do the following:**  
 
-1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation.
+1. Open the **Recommendations** page. If you are on the new risk-based page, select **Switch to classic view** in the menu item on the top of the page. Use the **>** arrow to open the sub-levels.  If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png":::
 
 1. The recommendation details page opens showing the list of Kubernetes clusters ("affected resources") and categorizes them as healthy, unhealthy and not applicable, based on the images used by your workloads. Select the relevant cluster for which you want to remediate vulnerabilities.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-cluster.png" alt-text="Screenshot showing the affected clusters for the recommendation." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-cluster.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-cluster.png" alt-text="Screenshot showing the affected clusters for the recommendation." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-cluster.png":::
 
 1. The cluster details page opens. It lists all currently running containers categorized into three tabs based on the vulnerability assessments of the images used by those containers. Select the specific container you want to explore.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png" alt-text="Screenshot showing where to select a specific container." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-container.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-container.png" alt-text="Screenshot showing where to select a specific container." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-container.png":::
 
 1. This pane includes a list of the container vulnerabilities. Select each vulnerability to [resolve the vulnerability](#remediate-vulnerabilities).
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png" alt-text="Screenshot showing the list of container vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-list-vulnerabilities.png" alt-text="Screenshot showing the list of container vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-list-vulnerabilities.png":::
 
 ## View container images affected by a specific vulnerability
 
@@ -49,15 +50,15 @@ If you are using Defender CSPM, first review and remediate vulnerabilities expos
 
 1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-image-recommendation-line.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-image-recommendation-line.png":::
 
 1. The recommendation details page opens with additional information. This information includes the list of vulnerabilities impacting the clusters. Select the specific vulnerability.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png" alt-text="Screenshot showing the list of vulnerabilities impacting the container clusters." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-vulnerability.png" alt-text="Screenshot showing the list of vulnerabilities impacting the container clusters." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-select-vulnerability.png":::
 
 1. The vulnerability details pane opens. This pane includes a detailed description of the vulnerability, images affected by that vulnerability, and links to external resources to help mitigate the threats, affected resources, and information on the software version that contributes to [resolving the vulnerability](#remediate-vulnerabilities).
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png" alt-text="Screenshot showing the list of container images impacted by the vulnerability." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png":::
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-containers-affected.png" alt-text="Screenshot showing the list of container images impacted by the vulnerability." lightbox="media/view-and-remediate-vulnerabilities-for-images-secure-score/running-containers-affected.png":::
 
 ## Remediate vulnerabilities
 
