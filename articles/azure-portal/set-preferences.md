@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 03/14/2024
+ms.date: 04/04/2024
 ms.topic: how-to
 ---
 
@@ -152,7 +152,7 @@ Once you have made the desired changes to your language and regional format sett
 
 The email address you provide here will be used if we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
 
-Here, you can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services.
+You can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services. If you select the checkbox to receive these emails, you'll be prompted to select the country/region in which you'll receive these emails. Note that certain countries/regions may not be available. You only need to specify a country/region if you want to receive these additional emails; selecting a country/region is not required in order to receive emails about your Azure account at the address you provide in this section.
 
 ### Portal personalization
 
