@@ -185,7 +185,7 @@ To create a CNAME record for your custom domain:
     1.  Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**.
 
     1. Create a new TXT DNS record and complete the fields as shown below:
-        1. Name: `_dnsauth.contoso.com`, but you need to enter just `_dnsauth`.
+        1. Name: `_dnsauth.login.contoso.com`, but you need to enter just `_dnsauth`.
         1. Type: `TXT`
         1. Value: Something like `75abc123t48y2qrtsz2bvk......`.
     
