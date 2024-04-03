@@ -735,15 +735,14 @@ For enhanced detection capabilities, prompts should be formatted according to th
 The Chat Completion API is structured by definition. It consists of a list of messages, each with an assigned role. 
 
 The safety system will parse this structured format and apply the following behavior: 
-
-- On last “user” content, the following categories of RAI Risks will be detected: 
+- On the latest “user” content, the following categories of RAI Risks will be detected: 
     - Hate 
     - Sexual 
     - Violence 
     - Self-Harm 
     - Jailbreak (optional) 
 
-Example messages array, with relevant content highlighted: 
+This is an example message array: 
 
 ```json
 {"role": "system", "content": "Provide some context and/or instructions to the model."}, 
@@ -766,9 +765,7 @@ When you do so, the following options are available for detection on tagged docu
 - On each tagged “document” content, detect the following categories: 
     - Indirect attacks (optional) 
 
-Below are some examples of this use case. 
-
-Example chat completion messages array, with relevant content highlighted: 
+Here is an example chat completion messages array: 
 
 ```json
 {"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n*insert your document content here*\n<\\documents> \"\"\""}, 
