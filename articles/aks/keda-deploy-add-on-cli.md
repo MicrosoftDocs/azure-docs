@@ -187,3 +187,4 @@ To learn more, view the [upstream KEDA docs][keda].
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
 [keda]: https://keda.sh/docs/2.12/
+
