@@ -652,9 +652,9 @@
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
           - name: View and remediate vulnerabilities for registry images (Risk based)
-            href: view-and-remediate-vulnerability-assessment-findings.md
-          - name: View and remediate vulnerabilities for running images (Risk based)
-            href: view-and-remediate-vulnerabilities-for-images.md
+            href: view-and-remediate-vulnerability-registry-images.md
+          - name: View and remediate vulnerabilities for running containers (Risk based)
+            href: view-and-remediate-vulnerabilities-containers.md
           - name: Disable vulnerabilities on images (Risk based)
             href: disable-vulnerability-findings-containers.md
           - name: View and remediate vulnerabilities for registry images (Secure score)

@@ -10,7 +10,7 @@ ms.date: 09/06/2023
 # View and remediate vulnerabilities for containers running on your Kubernetes clusters (Risk based)
 
 > [!NOTE]
-> This page describes the new risk-based approach to vulnerability management in Defender for Cloud. Defender for CSPM customers should use this method. To use the classic secure score approach, see [View and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score)](view-and-remediate-vulnerabilities-for-images-secure-score.md). 
+> This page describes the new risk-based approach to vulnerability management in Defender for Cloud. Defender for CSPM customers should use this method. To use the classic secure score approach, see [View and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score)](view-and-remediate-vulnerabilities-for-images-secure-score.md).
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities containers running on your Kubernetes clusters based on contextual risk analysis of the vulnerabilities in your cloud environment. In this article, we review the [Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0) recommendation. For the other clouds, see the parallel recommendations in  [Vulnerability assessments for AWS with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) and [Vulnerability assessments for GCP with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md).
 
