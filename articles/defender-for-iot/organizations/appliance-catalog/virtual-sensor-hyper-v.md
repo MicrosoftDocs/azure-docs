@@ -1,5 +1,5 @@
 ---
-title: OT sensor VM (Microsoft Hyper-V) Gen 2- Microsoft Defender for IoT
+title: OT sensor VM (Microsoft Hyper-V) Gen 2 - Microsoft Defender for IoT
 description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V 2nd generation.
 ms.date: 03/27/2024
 ms.topic: reference
@@ -8,6 +8,9 @@ ms.topic: reference
 # OT network sensor VM (Microsoft Hyper-V) Gen 2
 
 This article describes an OT sensor deployment on a virtual appliance using Microsoft Hyper-V.
+
+> [!Note]
+> We recommend using the 2nd Generation configuration/set-up, however, to use the 1st Generation configuration/set-up see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
 
 | Appliance characteristic |Details |
 |---------|---------|
