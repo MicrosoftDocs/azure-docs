@@ -775,11 +775,11 @@ If you're building a RAG agent, you can also use Cohere's Chat API to get search
 
 | **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests    |(to be added)|
-| OpenAI SDK (experimental)    | (to be added)                                    |
-| LangChain      | (to be added)                                  |
-| (tbd)     | (to be added)                                  |
-| LiteLLM        | (to be added) |
+| CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
+| CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
+| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
 
 ## Cost and quotas
 
