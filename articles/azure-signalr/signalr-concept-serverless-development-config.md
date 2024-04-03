@@ -187,7 +187,7 @@ public class Functions : ServerlessHub<IChatClient>
     It allows you to customize where the connection string for serverless hub is. If it's absent, the default value `AzureSignalRConnectionString` is used.
 
 > [!IMPORTANT]
-> SignalR triggers and serverless hubs are independent. Therefore, the class name of serverless hub and `SignalRConnection` attribute doesn't change the setting of SignalR triggers, even though you use SignalR triggers inside the serverless hub.
+> SignalR triggers and serverless hubs are independent. Therefore, the class name of serverless hub and `SignalRConnection` attribute doesn't change the settings of SignalR triggers, even though you use SignalR triggers inside the serverless hub.
 
 # [In-process model](#tab/in-process)
 
