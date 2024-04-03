@@ -324,14 +324,14 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | Math function | Task |
 | ------------- | ---- |
 | [add](control-flow-expression-language-functions.md#add) | Return the result from adding two numbers. |
-| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing two numbers. |
+| [div](control-flow-expression-language-functions.md#div) | Return the result from dividing one number by another number. |
 | [max](control-flow-expression-language-functions.md#max) | Return the highest value from a set of numbers or an array. |
 | [min](control-flow-expression-language-functions.md#min) | Return the lowest value from a set of numbers or an array. |
 | [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing two numbers. |
 | [mul](control-flow-expression-language-functions.md#mul) | Return the product from multiplying two numbers. |
 | [rand](control-flow-expression-language-functions.md#rand) | Return a random integer from a specified range. |
 | [range](control-flow-expression-language-functions.md#range) | Return an integer array that starts from a specified integer. |
-| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting the second number from the first number. |
+| [sub](control-flow-expression-language-functions.md#sub) | Return the result from subtracting one number from another number. |
 
 ## Function reference
 
@@ -1398,7 +1398,7 @@ And returns this result: `"https://contoso.com"`
 
 ### div
 
-Return the integer result from dividing two numbers.
+Return the result of dividing one number by another number.
 To get the remainder result, see [mod()](#mod).
 
 ```
@@ -1413,7 +1413,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | The integer result from dividing the first number by the second number |
+| <*quotient-result*> | Integer or Float | The result of dividing the first number by the second number |
 ||||
 
 *Example*
@@ -2878,7 +2878,7 @@ And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 ### sub
 
-Return the result from subtracting the second number from the first number.
+Return the result from subtracting one number from another number.
 
 ```
 sub(<minuend>, <subtrahend>)
