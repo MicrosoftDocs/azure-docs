@@ -14,6 +14,8 @@ adobe-target: true
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
+> OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance.” – Satya Nadella, Microsoft chairman and chief executive officer
+
 Today's applications are required to be highly responsive and always online. They must respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users.
 
 Recently, the surge of AI-powered applications created another layer of complexity, because many of these applications currently integrate a multitude of data stores. For example, some teams built applications that simultaneously connect to MongoDB, Postgres, Redis, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications.
@@ -36,9 +38,15 @@ If you are an existing Azure AI or GitHub Copilot customer, you may try Azure Co
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
 
-If you are not an Azure customer, you may use the [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/). No commitment follows the end of your trial period.
+If you are not an Azure customer, you may use the 30-day Free Trial without an Azure subscription. No commitment follows the end of your trial period.
 
-Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+> [!div class="nextstepaction"]
+> [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
+
+Alternatively, you may use the Azure Cosmos DB lifetime free tier with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+
+> [!div class="nextstepaction"]
+> [Azure Cosmos DB lifetime free tier](free-tier.md)
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
