@@ -34,7 +34,7 @@ A rollout may take several weeks before the agent is available in all environmen
 
 ## Version 1.0.8431.2300
 
-*Published: March 2024*
+*Published: April 2024*
 
 In this update, we made the following changes:
 
