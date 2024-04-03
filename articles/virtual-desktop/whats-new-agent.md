@@ -38,7 +38,7 @@ A rollout may take several weeks before the agent is available in all environmen
 
 In this update, we made the following changes:
 
-- Fixed an issue with App Attach diagnostics that the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration fails.
+- Fixed an issue with App Attach diagnostics that the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
 
 - General improvements and bug fixes. 
 
