@@ -5,7 +5,7 @@ author: msft-andrew
 ms.author: andrewwright
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/31/2024
+ms.date: 04/03/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
@@ -53,6 +53,8 @@ Scams tend to evolve over time and vary substantially between different cultures
 There is inevitably a small proportion of calls for which the AI in Azure Operator Call Protection Preview is unable to make an accurate scam judgment. The service is undergoing ongoing development and user testing to find ways in which to handle these calls, minimizing impact to the users, while still assisting them in making an informed judgment on how to proceed.
 
 Azure Operator Call Protection uses speech-to-text processing. The accuracy of this processing is affected by factors such as background noise, call participant volumes, and call participant accents. If these factors are outside typical parameters, the accuracy of the scam detection may be affected.
+
+Azure Operator Call Protection can exhibit higher inaccuracy rates in situations where a phone call covers topics containing potentially harmful content.
 
 End users always have control over the call and decide whether to continue or end the call, based on alerts about potential scams from Azure Operator Call Protection.
 
