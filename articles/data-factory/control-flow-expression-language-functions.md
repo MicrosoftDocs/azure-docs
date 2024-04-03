@@ -327,7 +327,7 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [div](control-flow-expression-language-functions.md#div) | Return the result from dividing one number by another number. |
 | [max](control-flow-expression-language-functions.md#max) | Return the highest value from a set of numbers or an array. |
 | [min](control-flow-expression-language-functions.md#min) | Return the lowest value from a set of numbers or an array. |
-| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing two numbers. |
+| [mod](control-flow-expression-language-functions.md#mod) | Return the remainder from dividing one number by another number. |
 | [mul](control-flow-expression-language-functions.md#mul) | Return the product from multiplying two numbers. |
 | [rand](control-flow-expression-language-functions.md#rand) | Return a random integer from a specified range. |
 | [range](control-flow-expression-language-functions.md#range) | Return an integer array that starts from a specified integer. |
@@ -2378,8 +2378,7 @@ And return this result: `1`
 
 ### mod
 
-Return the remainder from dividing two numbers.
-To get the integer result, see [div()](#div).
+Return the remainder from dividing one number by another number. For integer division, see [div()](#div).
 
 ```
 mod(<dividend>, <divisor>)
@@ -2388,7 +2387,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float |  The number that divides the *dividend*. A *divisor* value of zero causes an error at runtime. |
 |||||
 
 | Return value | Type | Description |
@@ -2398,13 +2397,13 @@ mod(<dividend>, <divisor>)
 
 *Example*
 
-This example divides the first number by the second number:
+This example calculates the remainder when the first number is divided by the second number:
 
 ```
 mod(3, 2)
 ```
 
-And return this result: `1`
+And returns this result: `1`
 
 <a name="mul"></a>
 
