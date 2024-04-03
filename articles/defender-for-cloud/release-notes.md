@@ -41,7 +41,7 @@ Learn more about [risk prioritization](risk-prioritization.md).
 
 ### New container vulnerability assessment recommendations
 
-March 31, 2024
+April 3, 2024
 
 To support the new [risk-based prioritization](risk-prioritization.md) experience for recommendations, we've created new recommendations for container vulnerability assessments in Azure, AWS, and GCP. They report on container images for registry and container workloads for runtime:
 

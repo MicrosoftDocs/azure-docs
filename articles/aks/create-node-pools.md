@@ -4,6 +4,9 @@ description: Learn how to create multiple node pools for a cluster in Azure Kube
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 12/08/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.subservice: aks-nodes
 ---
 
@@ -288,3 +291,4 @@ In this article, you learned how to create multiple node pools in an AKS cluster
 [use-system-pool]: use-system-pools.md
 [restricted-vm-sizes]: ../virtual-machines/sizes.md
 [aks-taints]: manage-node-pools.md#set-node-pool-taints
+
