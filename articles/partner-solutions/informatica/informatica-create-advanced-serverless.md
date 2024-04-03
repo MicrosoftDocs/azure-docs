@@ -3,7 +3,7 @@ title: "Quickstart: Create an advanced serverless deployment using Informatica I
 description: This article describes setup a serverless runtime environment using the Azure portal and an Informatica IDMC organization.
 
 ms.topic: quickstart  
-ms.date: 03/27/2024
+ms.date: 04/02/2024
 
 #customer intent: As a developer, I want an instance of the Informatica data management cloud  so that I can use it with other Azure resources.
 ---

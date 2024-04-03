@@ -3,7 +3,7 @@ title: Troubleshooting your Informatica deployment
 description: This article provides information about getting support and troubleshooting an Informatica integration.
 
 ms.topic: overview
-ms.date: 03/29/2024
+ms.date: 04/02/2024
 
 ---
 

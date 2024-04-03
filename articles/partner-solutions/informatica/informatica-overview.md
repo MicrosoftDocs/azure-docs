@@ -3,7 +3,7 @@ title: What is Informatica Intelligent Data Management Cloud?
 description: Learn about using the Informatica Intelligent Data Management Cloud - Azure Native ISV Service.
 
 ms.topic: overview
-ms.date: 03/27/2024
+ms.date: 04/02/2024
 
 ---
 
