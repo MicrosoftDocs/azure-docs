@@ -2407,7 +2407,7 @@ mul(<multiplicand1>, <multiplicand2>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*multiplicand1*> | Yes | Integer or Float | The number to multiply by *multiplicand2* |
-| <*multiplicand2*> | Yes | Integer or Float | The number that multiples *multiplicand1* |
+| <*multiplicand2*> | Yes | Integer or Float | The number that multiplies *multiplicand1* |
 |||||
 
 | Return value | Type | Description |
@@ -2417,7 +2417,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 *Example*
 
-These examples multiple the first number by the second number:
+These examples multiply the first number by the second number:
 
 ```
 mul(1, 2)
