@@ -20,7 +20,7 @@ Condition(s) in the `if` block of the policy rule are evaluated for applicabilit
 > [!NOTE]
 > Applicability is different from compliance, and the logic used to determine each is different. If a resource is **applicable** that means it is relevant to the policy. If a resource is **compliant** that means it adheres to the policy. Sometimes only certain conditions from the policy rule impact applicability, while all conditions of the policy rule impact compliance state.
 
-## Resource manager modes
+## Resource Manager modes
 
 ### -IfNotExists policy effects
 
