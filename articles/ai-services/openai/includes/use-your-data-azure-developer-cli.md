@@ -1,52 +1,12 @@
-## Select and initialize the Azure Developer CLI template
+## Clone and initialize the Azure Developer CLI template
 
 The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations and includes the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
 
-For the steps ahead, select and initialize the template for your desired language.
-
-## [C#](#tab/azd-csharp)
-
-1. Clone and initialize the template:    
+1. For the steps ahead, clone and initialize the template.
 
     ```bash
     azd init --template openai-chat-your-own-data
     ```
-
-2. Navigate into the _dotnet_ directory:
-    
-    ```bash
-    cd dotnet
-    ```
-
-## [Python](#tab/azd-python)
-
-1. Clone and initialize the template:    
-
-    ```bash
-    azd init --template openai-chat-your-own-data
-    ```
-
-2. Navigate into the _python_ directory:
-    
-    ```bash
-    cd python
-    ```
-
-## [JavaScript](#tab/azd-javascript)
-
-1. Clone and initialize the template:    
-
-    ```bash
-    azd init --template openai-chat-your-own-data
-    ```
-
-2. Navigate into the _javascript_ directory:
-    
-    ```bash
-    cd javascript
-    ```
-
----
     
 2. The `azd init` command prompts you for the following information:
 
@@ -95,6 +55,20 @@ For the steps ahead, select and initialize the template for your desired languag
  
 > [!NOTE]
 > The search indexer is set to run every 5 minutes to index the data in the storage account. You can either wait a few minutes for the uploaded data to be indexed, or you can manually run the indexer from the search service page.
+
+## Use Azure OpenAI On Your Data
+
+After running the `azd` template and uploading your data, you're ready to start using Azure OpenAI on Your Data. Use the following links to find instructions on creating environment variables for your machine and running code in your preferred usage method:
+
+* [Azure OpenAI Studio](../use-your-data-quickstart.md?pivots=programming-language-studio#chat-playground)
+* [C#](../use-your-data-quickstart.md?pivots=programming-language-csharp#retrieve-required-variables)
+* [JavaScript](../use-your-data-quickstart.md?pivots=programming-language-javascript#retrieve-required-variables)
+* [Python](../use-your-data-quickstart.md?pivots=programming-language-python#retrieve-required-variables)
+* [Spring](../use-your-data-quickstart.md?pivots=programming-language-spring#retrieve-required-variables)
+* [Go](../use-your-data-quickstart.md?pivots=programming-language-go#retrieve-required-variables)
+* [REST API](../use-your-data-quickstart.md?pivots=rest-api#retrieve-required-variables)
+* [REST API](../use-your-data-quickstart.md?programming-language-powershell#retrieve-required-variables)
+
 
 ## Run the app locally
 
