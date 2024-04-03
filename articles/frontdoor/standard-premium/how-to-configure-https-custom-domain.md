@@ -41,7 +41,7 @@ If you have your own domain, and the domain isn't already associated with [anoth
     | DNS management | Select **Azure managed DNS (Recommended)**. |
     | DNS zone | Select the Azure DNS zone that hosts the custom domain. |
     | Custom domain | Select an existing domain or add a new domain. |
-    | HTTPS | Select **AFD Managed (Recommended)**. |
+    | HTTPS | Select **AFD managed (Recommended)**. |
 
 1. Validate and associate the custom domain to an endpoint by following the steps to enable a [custom domain](how-to-add-custom-domain.md).
 
@@ -62,8 +62,8 @@ If you have your own domain, and the domain is associated with [another Azure se
     | Setting | Value |
     |--|--|
     | Domain type | Select **Azure pre-validated domain**. |
-    | Pre-validated custom domain | Select a custom domain name from the dropdown list of Azure services. |
-    | HTTPS | Select **Azure managed (Recommended)**. |
+    | Pre-validated custom domains | Select a custom domain name from the dropdown list of Azure services. |
+    | HTTPS | Select **Azure managed**. |
 
 1. Validate and associate the custom domain to an endpoint by following the steps to enable a [custom domain](how-to-add-custom-domain.md).
 
@@ -180,7 +180,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-custom-domain-https.png" alt-text="Screenshot that shows the Add a custom domain pane with HTTPS.":::
 
-1. Follow the onscreen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [creating a custom domain](how-to-add-custom-domain.md).
+1. Follow the onscreen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [Configure a custom domain](how-to-add-custom-domain.md).
 
 ## Switch between certificate types
 

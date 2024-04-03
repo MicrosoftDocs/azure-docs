@@ -37,7 +37,7 @@ A custom domain is configured on the **Domains** pane of the Azure Front Door pr
 
 1. On the **Add a domain** pane, select the domain type. You can choose **Non-Azure validated domain** or **Azure pre-validated domain**.
 
-    * **Non-Azure validated domain** is a domain that requires ownership validation. When you select **Non-Azure validated domain**, the recommended DNS management option is to use Azure-managed DNS. You might also use your own DNS provider. If you choose an Azure-managed DNS, select an existing DNS zone. Then select an existing custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Then select **Add** to add your custom domain.
+    * **Non-Azure validated domain** is a domain that requires ownership validation. When you select **Non-Azure validated domain**, we recommend that you use the Azure-managed DNS option. You might also use your own DNS provider. If you choose an Azure-managed DNS, select an existing DNS zone. Then select an existing custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Then select **Add** to add your custom domain.
 
         :::image type="content" source="../media/how-to-add-custom-domain/add-domain-page.png" alt-text="Screenshot that shows the Add a domain pane.":::
 
@@ -55,7 +55,7 @@ A custom domain is configured on the **Domains** pane of the Azure Front Door pr
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot that shows the domain validation state as Submitting.":::
 
     > [!NOTE]
-    > * Starting September 2023, Azure Front Door supports BYOC-based domain ownership validation. Azure Front Door automatically approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the provided certificate matches the custom domain. When you select **Azure managed certificate**, the domain ownership continues to be validated via the DNS TXT record.
+    > * As of September 2023, Azure Front Door now supports BYOC-based domain ownership validation. Azure Front Door automatically approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the provided certificate matches the custom domain. When you select **Azure managed certificate**, the domain ownership continues to be validated via the DNS TXT record.
     > * For custom domains created before BYOC-based validation is supported and the domain validation status is anything but **Approved**, you need to trigger the auto-approval of the domain ownership validation by selecting **Validation State** > **Revalidate** in the portal. If you're using the command-line tool, you can trigger domain validation by sending an empty `PATCH` request to the domain API.
     > * An Azure prevalidated domain has a validation state of **Pending**. It automatically changes to **Approved** after a few minutes. After validation gets approved, skip to [Associate the custom domain to your Front Door endpoint](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and finish the remaining steps.
 
