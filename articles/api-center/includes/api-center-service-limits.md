@@ -16,9 +16,10 @@ ms.custom: Include file
 | ---------------------------------------------------------------------- | -------------------------- |-------------|
 | Maximum number of APIs | 200<sup>2</sup> |  10,000 |
 | Maximum number of versions per API | 5 | 100 |
-| Maximum number of deployments per API | 10 | 10 |
 | Maximum number of definitions per version | 5  | 5 |
+| Maximum number of deployments per API | 10 | 10 |
 | Maximum number of environments | 20 | 20 |
+| Maximum number of workspaces  | 1 (Default) | 1 (Default) |
 | Maximum number of custom metadata properties per association<sup>3</sup> | 10 | 20 |
 | Maximum number of child properties in custom metadata property of type "object" | 10 |10 | 
 | Maximum requests per minute (data plane) | 3,000 | 6,000  |
