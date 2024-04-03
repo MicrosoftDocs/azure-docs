@@ -45,11 +45,7 @@ This article is intended to help you quickly get to deployment. Before going to 
   * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-<<<<<<< HEAD
 * Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-or-group).
-=======
-* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
->>>>>>> cfe16611860f4a3a7dced7e745a23ecde12e1e59
 
 ## Create a Liberty on AKS deployment using the portal
 

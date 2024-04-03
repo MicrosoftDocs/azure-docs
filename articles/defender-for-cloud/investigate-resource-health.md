@@ -76,9 +76,20 @@ The resource health page lists the recommendations for which your resource is "u
 
 To ensure your resource is hardened according to the policies applied to your subscriptions, fix the issues described in the recommendations:
 
-- To investigate a security alert:
-    1. From the right pane, select an alert.
-    1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.yml#respond-to-a-security-alert).
+1. From the right pane, select a recommendation.
+
+1. Continue as instructed on screen.
+
+    > [!TIP]
+    > The instructions for fixing issues raised by security recommendations differ for each of Defender for Cloud's recommendations.
+    >
+    > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md).
+
+### Investigate a security alert
+
+1. From the right pane, select an alert.
+
+1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.yml).
 
 ## Next steps
 
