@@ -27,9 +27,9 @@ highlightedContent:
     - title: Microsoft Questions and Answers
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
-    - title: Vector Search with Azure Cosmos DB
+    - title: Vector Database in Azure Cosmos DB
       itemType: concept
-      url: vector-search.md
+      url: vector-database.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md

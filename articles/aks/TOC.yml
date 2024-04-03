@@ -849,7 +849,7 @@
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
-      href: /training/browse/?products=azure-container-instances&azure-container-registry
+      href: /training/browse/?products=azure-kubernetes-service
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing
