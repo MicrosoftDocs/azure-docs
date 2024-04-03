@@ -29,15 +29,17 @@ the **Az.Storage** module.
 If you don't have a storage account, use the following example to create one.
 
 ```azurepowershell-interactive
+# NOTE: This code sample contains placeholder text
+
 # Creates a new resource group, storage account, and container
-$ResourceGroup = '<resource-group-name>'
-$Location      = '<location-id>'
+$ResourceGroup = '<placeholder-resource-group-name>'
+$Location      = '<placeholder-location-id>'
 New-AzResourceGroup -Name $ResourceGroup -Location $Location
 
 $newAccountParams = @{
     ResourceGroupname = $ResourceGroup
     Location          = $Location
-    Name              = '<storage-account-name>'
+    Name              = '<placeholder-storage-account-name>'
     SkuName           = 'Standard_LRS'
 }
 $container = New-AzStorageAccount @newAccountParams |
@@ -56,10 +58,12 @@ If you're using an existing storage container, you can use the container's [conn
 with the `New-AzStorageContext` cmdlet:
 
 ```azurepowershell-interactive
+# NOTE: This code sample contains placeholder text
+
 $connectionString = @(
     'DefaultEndPointsProtocol=https'
-    'AccountName=<storage-account-name>'
-    'AccountKey=<storage-key-for-the-account>' # ends with '=='
+    'AccountName=<placeholder-storage-account-name>'
+    'AccountKey=<placeholder-storage-key-for-the-account>' # ends with '=='
 ) -join ';'
 $context = New-AzStorageContext -ConnectionString $connectionString
 ```
