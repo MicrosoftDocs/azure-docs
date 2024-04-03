@@ -296,7 +296,7 @@ spec:
     mqttSourceTopic: "azure-iot-operations/data/opc-ua-connector-de/thermostat-de"
     qos: 1
     table:
-      tableName: dlc
+      tableName: thermostat
       schema:
       - name: externalAssetId
         format: utf8
@@ -320,13 +320,13 @@ spec:
         mapping: $received_time
 ```
 
-Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T22:36:03.1827681Z\", \"DataSetWriterName\": \"new-thermostat\", \"MessageType\": \"ua-deltaframe\", \"Payload\": {\"temperature\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949717Z\", \"Value\": 5506}, \"Tag 10\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949888Z\", \"Value\": 5506}}}"` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
+Stringified JSON like `"{\"SequenceNumber\": 4697, \"Timestamp\": \"2024-04-02T22:36:03.1827681Z\", \"DataSetWriterName\": \"thermostat-de\", \"MessageType\": \"ua-deltaframe\", \"Payload\": {\"temperature\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949717Z\", \"Value\": 5506}, \"Tag 10\": {\"SourceTimestamp\": \"2024-04-02T22:36:02.6949888Z\", \"Value\": 5506}}}"` isn't supported and causes the connector to throw a *convertor found a null value* error. An example message for the `dlc` topic that works with this schema:
 
 ```json
 {
   "SequenceNumber": 4697,
   "Timestamp": "2024-04-02T22:36:03.1827681Z",
-  "DataSetWriterName": "new-thermostat",
+  "DataSetWriterName": "thermostat-de",
   "MessageType": "ua-deltaframe",
   "Payload": {
     "temperature": {
