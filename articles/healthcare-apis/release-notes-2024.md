@@ -30,8 +30,8 @@ By using Azure Data Lake Storage with the DICOM service, organizations are able 
 -	Grant controls to manage storage permissions, access controls, tiers, and rules.
 
 Learn more:
-- [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](https://learn.microsoft.com/azure/healthcare-apis/dicom/dicom-data-lake)
-- [Deploy the DICOM service with Azure Data Lake Storage](https://learn.microsoft.com/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure-data-lake)
+- [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](./dicom/dicom-data-lake.md)
+- [Deploy the DICOM service with Azure Data Lake Storage](./dicom/deploy-dicom-services-in-azure-data-lake.md)
 
 ## February 2024
 
