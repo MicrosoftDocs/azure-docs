@@ -23,12 +23,11 @@ ms.reviewer: ju-shim
 Update an existing Standby Pool using [az standbypool update]().
 
 ```azurecli-interactive
-az standbypool update \
+az standby-vm-pool update \
    --resource-group myResourceGroup 
    --name myStandbyPool \
    --max-ready-capacity 20 \
-   --virtual-machine-state "Deallocated" \
-   --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+   --vm-state "Deallocated" \
 ```
 ### [PowerShell](#tab/powershell)
 Update an existing Standby Pool using [Update-AzStandbyPool]().
@@ -39,7 +38,6 @@ Update-AzStandbyPool `
    -Name myStandbyPool `
    -MaxReadyCapcity 20 `
    -VirtualMachineState "Deallocated" `
-   -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
 ### [ARM Template](#tab/template)
@@ -109,7 +107,7 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 Delete an existing Standby Pool using [az standbypool delete]().
 
 ```azurecli-interactive
-az standbypool delete --resource-group myResourceGroup --name myStandbyPool
+az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 ```
 ### [PowerShell](#tab/powershell1)
 Delete an existing Standby Pool using [Delete-AzStandbyPool]().

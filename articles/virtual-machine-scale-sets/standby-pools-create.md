@@ -50,12 +50,12 @@ For more information on assigning roles, see [Assign Azure roles using the Azure
 Create a Standby Pool and associate it with an existing scale set using [az standbypool create]().
 
 ```azurecli-interactive
-az standbypool create \
+az standby-vm-pool create \
    --resource-group myResourceGroup 
    --name myStandbyPool \
    --max-ready-capacity 20 \
-   --virtual-machine-state "Deallocated" \
-   --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+   --vm-state "Deallocated" \
+   --vmss-id "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 ### [PowerShell](#tab/powershell)
 Create a Standby Pool and associate it with an existing scale set using [Create-AzStandbyPool]().
