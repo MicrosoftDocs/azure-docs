@@ -95,7 +95,7 @@ Now you can create a service connection to another target service and store conf
 
 1. Select **Create** to create the service connection. It might take up to one minute to complete the operation.
 
-## View your configuration in App Configuration Store
+## View your configuration in App Configuration
 
 1. Expand the Storage - Blob connection, select **Hidden value. Click to show value**. You can see that the value of configuration from App Configuration Store.
 
