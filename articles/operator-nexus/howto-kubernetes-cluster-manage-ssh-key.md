@@ -1,6 +1,6 @@
 ---
 title: Manage SSH access on Azure Operator Nexus Kubernetes cluster nodes #Required; page title is displayed in search results. Include the brand.
-description: Learn how to configure and manage SSH on Azure Operator Nexus Kubernetes cluster nodes #Required; article description that is displayed in search results. 
+description: Learn how to configure and manage SSH on Azure Operator Nexus Kubernetes cluster nodes. #Required; article description that is displayed in search results. 
 author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
@@ -36,7 +36,7 @@ There are a few different ways that you can provide SSH keys for your cluster no
 
 Following are the variables you need to set, along with the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-cli.md#create-an-azure-nexus-kubernetes-cluster) default values you can use for certain variables.
 
-* `SSH_PUBLIC_KEY` -  For the cluster wide keys. Note that using cluster wide key with agent pool and control plane keys doesn't have any effect as the control plane and agent pool keys are used instead of the cluster wide keys.
+* `SSH_PUBLIC_KEY` -  For the cluster wide keys. Using cluster wide key with agent pool and control plane keys doesn't have any effect as the control plane and agent pool keys are used instead of the cluster wide keys.
 * `CONTROL_PLANE_SSH_PUBLIC_KEY` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
 * `INITIAL_AGENT_POOL_SSH_PUBLIC_KEY` - For each agent pool, you can provide public keys that are inserted into the nodes in that pool.
 
@@ -64,7 +64,7 @@ Following are the variables you need to set, along with the [QuickStart guide](.
         dns-service-ip="${DNS_SERVICE_IP}"
 ```
 
-### [Azure ARM](#tab/other)
+### [Azure Resource Manager](#tab/other)
 
 The `administratorConfiguration` can be inserted into the `properties` object for the cluster wide keys, and into the `initialAgentPoolConfigurations[].administratorConfiguration` object for each agent pool. The `controlPlaneNodeConfiguration.administratorConfiguration` object is used for the control plane.
 
@@ -158,7 +158,7 @@ NEW_CLUSTER_WIDE_KEY="ssh-rsa CCCCC...."
 az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --ssh-key-values "$CLUSER_WIDE_KEY"
 ```
 
-#### Azure ARM and Bicep to update cluster wide SSH keys
+#### Azure Resource Manager (ARM) and Bicep to update cluster wide SSH keys
 
 1. Update the `sshPublicKeys` parameter in `kubernetes-deploy-parameters.json` with the new SSH key.
 
@@ -174,13 +174,13 @@ az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group
 
 2. Redeploy the template.
 
-for ARM:
+For ARM template:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-deploy.json --parameters @kubernetes-deploy-parameters.json
 ```
 
-for Bicep:
+For Bicep:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-deploy.bicep --parameters @kubernetes-deploy-parameters.json
@@ -191,9 +191,9 @@ for Bicep:
 Use the following command to update the SSH keys for a specific agent pool.
 
 * All the nodes in the agent pool will be updated with the new keys.
-* If the agent pool was created with keys, the new keys will replace the existing keys.
-* If the agent pool was created without keys, the new keys will be added.
-* If the agent pool was created with cluster wide keys, the new keys will replace the existing keys.
+* If the agent pool was created with keys, the new keys replace the existing keys.
+* If the agent pool was created without keys, the new keys are added.
+* If the agent pool was created with cluster wide keys, the new keys replace the existing keys.
 * If you try to update the keys for a cluster that was created without any keys, the new key is added, but you can't remove it.
 * If you try to update the agent pool keys with an empty array, the operation succeeds, and the cluster wide keys are used instead.
 
@@ -211,7 +211,7 @@ AGENT_POOL_KEY="ssh-rsa DDDDD...."
 az networkcloud kubernetescluster agentpool update --agent-pool-name "${CLUSTER_NAME}-nodepool-2" --kubernetes-cluster-name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --ssh-key-values "$AGENT_POOL_KEY"
 ```
 
-#### Azure ARM and Bicep to update agent pool SSH keys
+#### Azure ARM template and Bicep to update agent pool SSH keys
 
 > [!NOTE]
 > Updating node pools created through initial agent pool configuration is not possible with this method, as there is no separate agent pool template and parameter file. Only the agent pool keys for pools created after cluster creation can be updated using this method. To update the keys for the initial agent pool, refer to the CLI command provided in the previous section. If the initial agent pool was created with cluster wide keys, and if you want to update the keys for the initial agent pool, you can update the cluster wide keys.
@@ -230,13 +230,13 @@ az networkcloud kubernetescluster agentpool update --agent-pool-name "${CLUSTER_
 
 2. Redeploy the template.
 
-for ARM:
+For ARM template:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-add-agentpool.json --parameters @kubernetes-nodepool-parameters.json
 ```
 
-for Bicep:
+For Bicep:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-add-agentpool.bicep --parameters @kubernetes-nodepool-parameters.json
@@ -247,9 +247,9 @@ for Bicep:
 Use the following command to update the SSH keys for the control plane.
 
 * All the nodes in the control plane will be updated with the new keys.
-* If the control plane was created with keys, the new keys will replace the existing keys.
-* If the control plane was created without keys, the new keys will be added.
-* If the control plane was created with cluster wide keys, the new keys will replace the existing keys.
+* If the control plane was created with keys, the new keys replace the existing keys.
+* If the control plane was created without keys, the new keys are added.
+* If the control plane was created with cluster wide keys, the new keys replace the existing keys.
 * If you try to update the keys for a cluster that was created without any keys, the new key is added, but you can't remove it.
 * If you try to update the control plane keys with an empty array, the operation succeeds, and the cluster wide keys are used instead.
 
@@ -270,7 +270,7 @@ CONTROL_PLANE_KEY="ssh-rsa EEEEE...."
 az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --control-plane-node-configuration ssh-key-values="['$CONTROL_PLANE_KEY']"
 ```
 
-#### Azure ARM and Bicep to update control plane SSH keys
+#### Azure ARM template and Bicep to update control plane SSH keys
 
 1. Update the `controlPlaneSshKeys` parameter in `kubernetes-deploy-parameters.json` with the new SSH key.
 
@@ -286,13 +286,13 @@ az networkcloud kubernetescluster update --name "$CLUSTER_NAME" --resource-group
 
 2. Redeploy the template.
 
-for ARM:
+For ARM template:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-deploy.json --parameters @kubernetes-deploy-parameters.json
 ```
 
-for Bicep:
+For Bicep:
 
 ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file kubernetes-deploy.bicep --parameters @kubernetes-deploy-parameters.json

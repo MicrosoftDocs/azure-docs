@@ -159,6 +159,8 @@
           href: how-to-customize-kubernetes-cluster-dns.md
         - name: Customize Worker Nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Manage SSH keys
+          href: howto-kubernetes-cluster-manage-ssh-key.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
