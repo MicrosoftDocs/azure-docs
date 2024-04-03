@@ -180,3 +180,4 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 [istio-canary-upstream]: https://istio.io/latest/docs/setup/upgrade/canary/
 [meshconfig]: ./istio-meshconfig.md
 [meshconfig-canary-upgrade]: ./istio-meshconfig.md#mesh-configuration-and-upgrades
+
