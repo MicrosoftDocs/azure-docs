@@ -12,7 +12,7 @@ ms.reviewer: clionabolger
 
 # Onboard to the Microsoft Customer Agreement (MCA)
 
-This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager set up an MCA. The guide was created to recommend best practices to onboard you to an MCA.
+This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA. The guide was created to recommend best practices to onboard you to an MCA.
 
 The onboarding processes and important considerations vary, depending on whether you are:
 
