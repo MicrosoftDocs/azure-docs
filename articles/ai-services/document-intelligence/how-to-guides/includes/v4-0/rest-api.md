@@ -15,7 +15,7 @@ ms.author: lajanuar
 >
 > This project uses cURL command-line tool to execute REST API calls.
 
-| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v4-0.md)
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../../sdk-overview-v4-0.md)
 
 ## Prerequisites
 
