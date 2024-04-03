@@ -22,9 +22,9 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 
 ## Attack disruption with the unified security operations platform
 
-While configuring your system to support attack disruption for SAP is done in the Azure portal and your SAP environment, attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.
+Attack disruption for SAP is configured by updating your data connector agent version and ensuring that the relevant role is applied. However, attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.
 
-To use attack disruption for SAP, make sure that you've configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](https://aka.ms/onboard-microsoft-sentinel) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
+To use attack disruption for SAP, make sure that you configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
 
 ## Required SAP data connector agent version and role
 
