@@ -106,7 +106,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01 --query properties.windowsOutboundIpAddresses"
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.windowsOutboundIpAddresses
 ```
 
 ## 5. Update dependent resources with new outbound IPs
