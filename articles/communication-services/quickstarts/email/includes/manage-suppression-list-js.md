@@ -127,7 +127,7 @@ await client.suppressionListAddresses.delete(
 );
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email will successfully send to the previously suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource or by using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email will successfully send to the previously suppressed address.
 
 ## Remove a suppression list from a domains resource
 
