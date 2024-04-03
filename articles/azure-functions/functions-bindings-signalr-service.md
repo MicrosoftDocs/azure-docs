@@ -3,7 +3,7 @@ title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 03/04/2022
+ms.date: 04/02/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -15,13 +15,13 @@ This set of articles explains how to authenticate and send real-time messages to
 |---------|---------|
 | Handle messages from SignalR Service | [Trigger binding](./functions-bindings-signalr-service-trigger.md) |
 | Return the service endpoint URL and access token | [Input binding](./functions-bindings-signalr-service-input.md) |
-| Send SignalR Service messages |[Output binding](./functions-bindings-signalr-service-output.md) |
+| Send SignalR Service messages and manage groups |[Output binding](./functions-bindings-signalr-service-output.md) |
 
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app: 
+The extension NuGet package you install depends on the C# mode you're using in your function app:
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -39,18 +39,18 @@ Add the extension to your project by installing this [NuGet package].
 
 ---
 
-::: zone-end  
+::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-## Install bundle    
+## Install bundle
 
 The SignalR Service extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
 
-::: zone-end  
-::: zone pivot="programming-language-java"  
+::: zone-end
+::: zone pivot="programming-language-java"
 
-## Add dependency   
+## Add dependency
 
 To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your *pom.xml* file.
 
@@ -61,7 +61,7 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
     <version>1.0.0</version>
 </dependency>
 ```
-::: zone-end 
+::: zone-end
 
 ## Connection string settings
 
