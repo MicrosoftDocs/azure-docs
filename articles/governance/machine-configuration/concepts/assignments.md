@@ -51,6 +51,8 @@ client SDK.
 An example deployment template:
 
 ```json
+// NOTE: This code sample contains placeholder text
+
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -64,7 +66,7 @@ An example deployment template:
         "guestConfiguration": {
           "name": "myConfig",
           "contentUri": "https://mystorageaccount.blob.core.windows.net/mystoragecontainer/myConfig.zip?sv=SASTOKEN",
-          "contentHash": "SHA256HASH",
+          "contentHash": "<PLACEHOLDER HASH VALUE HERE>",
           "version": "1.0.0",
           "assignmentType": "ApplyAndMonitor",
           "configurationParameter": {}
@@ -96,11 +98,13 @@ To manually delete a machine configuration assignment, use the following example
 replace all example strings, indicated by `<>` brackets.
 
 ```azurepowershell-interactive
+# NOTE: This code sample contains placeholder text
+
 # First get details about the machine configuration assignment
 $resourceDetails = @{
-  ResourceGroupName = '<resource-group-name>'
+  ResourceGroupName = '<PLACEHOLDER-RESOURCE-GROUP-NAME>'
   ResourceType      = 'Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments/'
-  ResourceName      = '<vm-name>/Microsoft.GuestConfiguration'
+  ResourceName      = '<PLACEHOLDER-VM-NAME>/Microsoft.GuestConfiguration'
   ApiVersion        = '2020-06-25'
 }
 $guestAssignment = Get-AzResource @resourceDetails
