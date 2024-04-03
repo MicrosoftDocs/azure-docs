@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraFreeze UFD
-A `cameraFreeze` User Facing Diagnotics event with a `true` value occurs when the SDK detects that the input framerate goes down to zero, causing the video output to appear frozen or not changing.
+A `cameraFreeze` User Facing Diagnostics event with a `true` value occurs when the SDK detects that the input framerate goes down to zero, causing the video output to appear frozen or not changing.
 
 The underlying issue may suggest problems with the user's video camera, or in certain instances, the device may cease sending video frames.
 For example, on certain Android device models, the browser may trigger the `cameraFreeze` UFD when the user locks the screen or puts the browser in the background.
