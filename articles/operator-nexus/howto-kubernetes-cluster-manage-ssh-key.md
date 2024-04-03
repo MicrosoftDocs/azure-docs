@@ -20,6 +20,9 @@ Before proceeding with this how-to guide, it's recommended that you:
 * Refer to the Operator Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
 * Ensure that you meet the outlined prerequisites in the quickstart to ensure smooth implementation of the guide.
 
+> [!NOTE]
+> This guide assumes that you already have an existing Operator Nexus Kubernetes cluster that was created using the quickstart guide, and that you have access to either the CLI, ARM template, or Bicep used in the quickstart to update the SSH keys.
+
 ## Configure Operator Nexus Kubernetes cluster node SSH keys
 
 When configuring an Operator Nexus Kubernetes cluster, you need to provide SSH keys for the nodes in the cluster. SSH keys provide a secure method of accessing these nodes in your cluster.
@@ -29,8 +32,6 @@ There are a few different ways that you can provide SSH keys for your cluster no
 * If you want to use the same SSH key for all nodes in your cluster, you can provide an array of public keys when you create the cluster. These keys are inserted into all agent pool nodes and control plane nodes.
 * If you want to use different SSH keys for different agent pools or control plane nodes, you can provide a unique public key for each pool, allows you to manage SSH access more granularly, this overrides the cluster wide keys. Any new agent pool gets added to the cluster later without keys use the cluster wide keys, if it has key then it uses the provided key.
 * If you don't provide any SSH keys when creating your cluster, no SSH keys are inserted into the nodes. This means that users can't SSH into the nodes. You can add SSH keys later by updating the cluster configuration, but can't remove those keys once added.
-
-<!-- Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) guide for steps to find the cluster node IP address. -->
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -64,11 +65,11 @@ Following are the variables you need to set, along with the [QuickStart guide](.
         dns-service-ip="${DNS_SERVICE_IP}"
 ```
 
-### [Azure Resource Manager](#tab/other)
+### [ARM template](#tab/other)
 
 The `administratorConfiguration` can be inserted into the `properties` object for the cluster wide keys, and into the `initialAgentPoolConfigurations[].administratorConfiguration` object for each agent pool. The `controlPlaneNodeConfiguration.administratorConfiguration` object is used for the control plane.
 
-Update the quickstart ARM template or Bicep template parameters with the required keys so that the keys are inserted into the nodes when the cluster is created.
+Update the quickstart ARM template or Bicep parameter file with the required keys so that the keys are inserted into the nodes when the cluster is created.
 
 #### To provide cluster wide keys
 
