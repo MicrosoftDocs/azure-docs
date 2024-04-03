@@ -92,9 +92,7 @@ The service scans the repository to find new environment definitions. After you 
 
 The ADE extensibility model enables you to use your own custom container image. The ADE team provides a sample Terraform template accessible through the Microsoft Artifact Registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. 
 
-You can use the following links to access the sample core, ARM and Bicep, and Terraform templates in the Microsoft Artifact registry:
-- [Microsoft Artifact Registry - Core](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/core)
-- [Microsoft Artifact Registry - ARM/Bicep](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/arm)
+You can use the following links to access the Terraform template in the Microsoft Artifact registry:
 - [Microsoft Artifact Registry - Terraform](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/terraform)
 
 <!-- For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). -->
