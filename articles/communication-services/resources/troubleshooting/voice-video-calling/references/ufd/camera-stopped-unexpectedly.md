@@ -13,8 +13,9 @@ ms.subservice: calling
 ---
 
 # cameraStoppedUnexpectedly UFD
-The `cameraStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the camera track has been muted.
-Noted that it's related to the `mute` event of the camera track, which is triggered by an external source.
+The `cameraStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the camera track was muted.
+
+Keep in mind that this event relates to the camera track's `mute` event triggered by an external source.
 The event can be triggered on mobile browsers when the browser goes to background.
 Additionally, in some browser implementations, the browser sends black frames when the video input track is muted.
 
