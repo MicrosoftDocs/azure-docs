@@ -14,8 +14,6 @@ author: eric-urban
 
 # What's new in Azure AI Studio?
 
-[!INCLUDE [Azure AI Studio preview](./includes/preview-ai-studio.md)]
-
 Azure AI Studio is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## February 2024

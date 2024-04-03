@@ -13,8 +13,6 @@ author: lgayhardt
 
 # Index Lookup tool for Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
-
 The prompt flow *Index Lookup* tool enables the usage of common vector indices (such as Azure AI Search, FAISS, and Pinecone) for retrieval augmented generation (RAG) in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow.
 
 ## Build with the Index Lookup tool

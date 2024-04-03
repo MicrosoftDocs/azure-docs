@@ -15,8 +15,6 @@ zone_pivot_groups: azure-ai-studio-sdk
 
 # How to evaluate with Azure AI Studio and SDK
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 ::: zone pivot="ai-studio"
 [!INCLUDE [Azure AI Studio include](../includes/evaluations/from-data/studio.md)]
 ::: zone-end

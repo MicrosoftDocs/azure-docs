@@ -14,8 +14,6 @@ ms.custom: references_regions
 
 # Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
-
 The prompt flow *Azure OpenAI GPT-4 Turbo with Vision* tool enables you to use your Azure OpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
 
 ## Prerequisites

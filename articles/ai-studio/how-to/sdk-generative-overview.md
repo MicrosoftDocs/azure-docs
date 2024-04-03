@@ -13,8 +13,6 @@ author: eric-urban
 
 # Overview of the Azure AI Generative SDK packages
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 The Azure AI Generative package is part of the Azure AI SDK for Python and contains functionality for building, evaluating and deploying Generative AI applications that use Azure AI services. The default installation of the package contains capabilities for cloud-connected scenarios, and by installing extras you can also run operations locally (such as building indexes and calculating metrics).
 
 [Source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-generative) | [Package (PyPI)](https://pypi.org/project/azure-ai-generative/) | [API reference documentation](/python/api/overview/azure/ai-generative-readme)

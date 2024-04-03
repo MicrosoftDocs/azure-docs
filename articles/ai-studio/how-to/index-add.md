@@ -15,8 +15,6 @@ author: eric-urban
 
 # How to create a vector index
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this article, you learn how to create and use a vector index for performing [Retrieval Augmented Generation (RAG)](../concepts/retrieval-augmented-generation.md).
 
 ## Prerequisites

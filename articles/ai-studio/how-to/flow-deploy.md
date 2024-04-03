@@ -15,8 +15,6 @@ author: lgayhardt
 
 # Deploy a flow for real-time inference
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 After you build a prompt flow and test it properly, you might want to deploy it as an online endpoint. Deployments are hosted within an endpoint, and can receive data from clients and send responses back in real-time.
 
 You can invoke the endpoint for real-time inference for chat, copilot, or another generative AI application. Prompt flow supports endpoint deployment from a flow, or from a bulk test run. 

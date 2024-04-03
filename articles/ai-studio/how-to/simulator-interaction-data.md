@@ -15,8 +15,6 @@ author: eric-urban
 
 # Generate AI-simulated datasets with your application
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you might not have test datasets to evaluate the quality and effectiveness of your generative AI application. Using GPT to simulate a user interaction with your application, with configurable tone, task, and characteristics can help with stress testing your application under various environments, effectively gauging how a model responds to different inputs and scenarios.
 
 There are two main scenarios for generating a simulated interaction:

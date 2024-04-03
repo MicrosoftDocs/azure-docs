@@ -14,8 +14,6 @@ author: Blackmist
 
 # How to configure a private link for Azure AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the former highlighted in the diagram. You can use private link to establish the private connection to your Azure AI and its default resources.
 
 :::image type="content" source="../media/how-to/network/azure-ai-network-inbound.svg" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-inbound.png":::

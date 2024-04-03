@@ -14,8 +14,6 @@ ms.custom: [references_regions]
 
 # How to deploy Mistral models with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this article, you learn how to use Azure AI Studio to deploy the Mistral Large model as a service with pay-as you go billing.
 
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
