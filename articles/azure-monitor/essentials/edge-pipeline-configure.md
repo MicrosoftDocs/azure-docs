@@ -79,8 +79,214 @@ The settings in this tab are described in the following table.
 | Table Name | The name of the table in the Log Analytics workspace to send the data to. If the table doesn't exist then it will be created  |
 
 
-### [ARM](#tab/ARM)
+### [ARM Separate](#tab/ARMSep)
+
 ### Configure pipeline using ARM templates
+
+You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
+
+
+| Component | Type | Description |
+|:---|:---|:---|
+| Log Analytics workspace | `Microsoft.OperationalInsights/workspaces` | Remove this section if you're using an existing Log Analytics workspace. The only parameter required is the workspace name. The immutable ID for the workspace, which is needed for other components, will be automatically created. |
+| Data collection endpoint (DCE) | `Microsoft.Insights/dataCollectionEndpoints` | Remove this section if you're using an existing DCE. The only parameter required is the DCE name. The logs ingestion URL for the DCE, which is needed for other components, will be automatically created. |
+| Edge pipeline extension | `Microsoft.KubernetesConfiguration/extensions` | The only parameter required is the pipeline extension name. |
+| Custom location | `Microsoft.ExtendedLocation/customLocations` | Custom location of the the Arc-enabled Kubernetes cluster to create the custom |
+| Edge pipeline instance | `Microsoft.monitor/pipelineGroups` | Edgepipeline instasnce that includes configuration of the listener, exporters, and data flows. You must modify the properties of the pipeline instance before deploying the template. |
+| Data collection rule (DCR) | `Microsoft.Insights/dataCollectionRules` | The only parameter required is the DCR name, but you must modify the properties of the DCR before deploying the template. |
+
+
+### DCE
+
+
+### DCR
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. The schema of the data in the DCR must match the schema of the incoming data.
+
+
+```json
+{
+    {
+        "type": "Microsoft.Insights/dataCollectionRules",
+        "name": "my-dcr",
+        "location": "eastus",
+        "apiVersion": "2021-09-01-preview",
+        "tags": "",
+        "properties": {
+            "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-dce",
+            "streamDeclarations": {
+                "Custom-OTLP": {
+                    "columns": [
+                        {
+                            "name": "Body",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "SeverityText",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "Custom-Syslog": {
+                    "columns": [
+                        {
+                            "name": "Body",
+                            "type": "string"
+                        },
+                        {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "SeverityText",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "dataSources": {},
+            "destinations": {
+                "logAnalytics": [
+                    {
+                        "name": "LogAnayticsWorkspace01",
+                        "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
+                        "workspaceId": "dcr-00000000000000000000000000000000"
+                    }
+                ]
+            },
+            "dataFlows": [
+                {
+                    "streams": [
+                        "Custom-OTLP"
+                    ],
+                    "destinations": [
+                        "LogAnayticsWorkspace01"
+                    ],
+                    "transformKql": "source",
+                    "outputStream": "Custom-OTelLogs_CL"
+                },
+                {
+                    "streams": [
+                        "Custom-Syslog"
+                    ],
+                    "destinations": [
+                        "LogAnayticsWorkspace01"
+                    ],
+                    "transformKql": "source",
+                    "outputStream": "Custom-Syslog_CL"
+                }
+            ]
+        }
+    }
+}
+```
+
+
+
+#### Edge pipeline configuration
+The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
+
+| Parameter | Description |
+|:---|:--|
+| `receivers` | One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
+| `processors` | Reserved for future use. |
+| `exporters` | One entry for each destination that uses the following properties:<br>- `type` - Only currently supported type is `AzureMonitorWorkspaceLogs`.<br>- `name` - Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.<br>- `dataCollectionEndpointUrl`  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>- `dataCollectionRule` - Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>- `stream` - Name of the stream in your DCR that will accept the data.<br>- `schema` - Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
+| `service` | Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. |
+
+
+```json
+{
+    "type": "Microsoft.monitor/pipelineGroups",
+    "location": "eastus",
+    "apiVersion": "2023-10-01-preview",
+    "name": "my-pipeline-group",
+    "tags": "",
+    "extendedLocation": {
+        "name": "my-custom-location",
+        "type": "CustomLocation"
+    },
+    "properties": {
+        "receivers": [
+            {
+                "type": "OTLP",
+                "name": "receiver-OTLP",
+                "otlp": {
+                    "endpoint": "0.0.0.0:4317"
+                }
+            },
+            {
+                "type": "Syslog",
+                "name": "receiver-Syslog",
+                "syslog": {
+                    "endpoint": "0.0.0.0:514"
+                }
+            }
+        ],
+        "processors": [],
+        "exporters": [
+            {
+                "type": "AzureMonitorWorkspaceLogs",
+                "name": "exporter-log-analytics-workspace",
+                "azureMonitorWorkspaceLogs": {
+                    "api": {
+                        "dataCollectionEndpointUrl": "https://my-dce-4agr.eastus-1.ingest.monitor.azure.com",
+                        "stream": "Custom-OTLP",
+                        "dataCollectionRule": "dcr-00000000000000000000000000000000",
+                        "schema": {
+                            "recordMap": [
+                                {
+                                    "from": "body",
+                                    "to": "Body"
+                                },
+                                {
+                                    "from": "severity_text",
+                                    "to": "SeverityText"
+                                },
+                                {
+                                    "from": "time_unix_nano",
+                                    "to": "TimeGenerated"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "service": {
+            "pipelines": [
+                {
+                    "name": "DefaultOTLPLogs",
+                    "receivers": [
+                        "receiver-OTLP"
+                    ],
+                    "processors": [],
+                    "exporters": [
+                        "exporter-log-analytics-workspace"
+                    ]
+                },
+                {
+                    "name": "DefaultSyslogs",
+                    "receivers": [
+                        "receiver-Syslog"
+                    ],
+                    "processors": [],
+                    "exporters": [
+                        "exporter-log-analytics-workspace"
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+
+### [ARM All](#tab/ARMAll)
+
+### Configure pipeline using one big ARM template
 
 You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
 
@@ -208,8 +414,7 @@ The DCR is stored in Azure Monitor and defines how the data will be processed wh
                                 "type": "string"
                             }
                         ]
-                    }
-                },
+                    },
                     "Custom-Syslog": {
                         "columns": [
                             {
