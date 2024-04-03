@@ -38,9 +38,9 @@ For debugging purposes, `info` level logging is sufficient in most cases.
 In the browser environment, [@azure/logger](https://www.npmjs.com/package/@azure/logger) outputs logs to the console by default.
 You can redirect logs by overriding `AzureLogger.log` method. For more information, see [@azure/logger](/javascript/api/overview/azure/logger-readme).
 
-Your app might keeps logs in memory if you have implemented a  \'download log file\' feature.
+Your app might keep logs in memory if it has a \'download log file\' feature.
 If that is the case, you have to set a limit on the log size.
 Not setting a limit might cause memory issues on long running calls.
 
 Additionally, if you send logs to a remote service, consider mechanisms such as compression and scheduling.
-In case of limited bandwidth, sending a lot of log data in a short period of time can affect call quality.
+If there is limited bandwidth, sending a lot of log data in a short period of time can affect call quality.
