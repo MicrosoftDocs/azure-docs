@@ -352,6 +352,8 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Next steps
 
-- [Learn more about Log Analytics workspaces and data retention and archive](log-analytics-workspace-overview.md)
-- [Create a search job to retrieve archive data matching particular criteria](search-jobs.md)
+Learn more about:
+
+- [Managing personal data in Azure Monitor Logs](../logs/personal-data-mgmt.md)
+- [Creating a search job to retrieve archive data matching particular criteria](search-jobs.md)
 - [Restore archive data within a particular time range](restore.md)

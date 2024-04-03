@@ -1,5 +1,5 @@
 ---
-title: Managing personal data in Azure Monitor Log Analytics and Application Insights
+title: Managing personal data in Azure Monitor Logs and Application Insights
 description: This article describes how to manage personal data stored in Azure Monitor Log Analytics and the methods to identify and remove it.
 ms.topic: conceptual
 author: guywild
@@ -10,7 +10,7 @@ ms.date: 06/28/2022
 
 ---
 
-# Managing personal data in Log Analytics and Application Insights
+# Managing personal data in Azure Monitor Logs and Application Insights
 
 Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article explains where Log Analytics and Application Insights store personal data and how to manage this data.
 
