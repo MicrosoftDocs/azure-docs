@@ -937,6 +937,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Managing Opt-outs
+      href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
@@ -1023,12 +1025,30 @@ items:
         href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
-- name: Resources 
+- name: Resources
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
   - name: Learn modules
     href: resources/learn-modules.md
+  - name: Troubleshooting Guides
+    items:
+    - name: Voice and Video
+      items:
+      - name: Calling (JavaScript)
+        items:
+        - name: Device and permission issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/device-issues/overview.md
+          - name: The getMicrophones API doesn't return detailed microphone list
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-enumerated-microphone-list.md
+          - name: The getSpeakers API doesn't return detailed speaker list
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-enumerated-speaker-list.md
+          - name: No permission prompt shows when calling askDevicePermission
+            href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
+          - name: The askDevicePermission API takes too long
+            href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
 - name: References
   items:
   - name: Reference documentation overview
