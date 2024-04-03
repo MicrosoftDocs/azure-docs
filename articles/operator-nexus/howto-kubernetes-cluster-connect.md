@@ -19,45 +19,6 @@ Throughout the lifecycle of your Azure Operator Nexus Kubernetes cluster, you ev
 * SSH private key for the cluster nodes.
 * To SSH using the node IP address, you must deploy a jumpbox VM on the same Container Network Interface (CNI) network as the cluster nodes.
 
-## Access nodes using the Kubernetes API
-
-This method requires usage of `kubectl debug` command.
-
-### Access to Kubernetes API via Azure Arc for Kubernetes
-
-[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
-
-### Access to cluster nodes via Azure Arc for Kubernetes
-
-Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes node using the `kubectl debug` command to run a privileged container on your node.
-
-1. List the nodes in your Nexus Kubernetes cluster:
-
-    ```console
-    $> kubectl get nodes
-    NAME                                             STATUS   ROLES           AGE    VERSION
-    mynexusk8scluster-0b32128d-agentpool1-md-7h9t4   Ready    <none>          125m   v1.24.9
-    mynexusk8scluster-0b32128d-agentpool1-md-c6xbs   Ready    <none>          125m   v1.24.9
-    mynexusk8scluster-0b32128d-control-plane-qq5jm   Ready    <none>          124m   v1.24.9
-    ```
-
-2. Start a privileged container on your node and connect to it:
-
-    ```console
-    $> kubectl debug node/mynexusk8scluster-0b32128d-agentpool1-md-7h9t4 -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
-    Creating debugging pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg with container debugger on node mynexusk8scluster-0b32128d-agentpool1-md-7h9t4.
-    If you don't see a command prompt, try pressing enter.
-    root [ / ]#
-    ```
-
-    This privileged container gives access to the node. Execute commands on the cluster node by running `chroot /host` at the command line. 
-
-3. When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
-
-    ```bash
-    kubectl delete pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg 
-    ```
-
 ## Access to cluster nodes via Azure Arc for servers
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, making it a quick and efficient method for remote management.
@@ -104,6 +65,45 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
         --name $VM_NAME \
         --local-user $ADMIN_USERNAME \
         --private-key-file $SSH_PRIVATE_KEY_FILE
+    ```
+
+## Access nodes using the Kubernetes API
+
+This method requires usage of `kubectl debug` command. This method is limited to containers and may miss wider system issues, unlike SSH (using 'az ssh arc' or direct IP), which offers full node access and control.
+
+### Access to Kubernetes API via Azure Arc for Kubernetes
+
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
+
+### Access to cluster nodes via Azure Arc for Kubernetes
+
+Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes node using the `kubectl debug` command to run a privileged container on your node.
+
+1. List the nodes in your Nexus Kubernetes cluster:
+
+    ```console
+    $> kubectl get nodes
+    NAME                                             STATUS   ROLES           AGE    VERSION
+    mynexusk8scluster-0b32128d-agentpool1-md-7h9t4   Ready    <none>          125m   v1.24.9
+    mynexusk8scluster-0b32128d-agentpool1-md-c6xbs   Ready    <none>          125m   v1.24.9
+    mynexusk8scluster-0b32128d-control-plane-qq5jm   Ready    <none>          124m   v1.24.9
+    ```
+
+2. Start a privileged container on your node and connect to it:
+
+    ```console
+    $> kubectl debug node/mynexusk8scluster-0b32128d-agentpool1-md-7h9t4 -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
+    Creating debugging pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg with container debugger on node mynexusk8scluster-0b32128d-agentpool1-md-7h9t4.
+    If you don't see a command prompt, try pressing enter.
+    root [ / ]#
+    ```
+
+    This privileged container gives access to the node. Execute commands on the cluster node by running `chroot /host` at the command line. 
+
+3. When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
+
+    ```bash
+    kubectl delete pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg 
     ```
 
 ## Create an interactive shell connection to a node using the IP address
