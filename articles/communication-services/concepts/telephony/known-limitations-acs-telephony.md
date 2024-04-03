@@ -5,7 +5,7 @@ author: boris-bazilevskiy
 manager: rcole
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 12/05/2023
+ms.date: 04/03/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
