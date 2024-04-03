@@ -36,11 +36,3 @@ landingContent:
             url: create-pvc.md
           - text: Attach your application
             url: attach-app.md
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Installation troubleshooting
-            url: installation-troubleshooting.md
-          - text: Operational troubleshooting
-            url: operational-troubleshooting.md
