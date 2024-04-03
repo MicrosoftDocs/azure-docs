@@ -141,7 +141,7 @@ Select an option to control the way dates, time, numbers, and currency are shown
 
 The options shown in the **Regional format** drop-down list correspond to the **Language** options. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros. You can also select a regional format that is different from your language selection.
 
-Once you have made the desired changes to your language and regional format settings, select **Apply**.
+After making the desired changes to your language and regional format settings, select **Apply**.
 
 ## My information
 
@@ -149,9 +149,9 @@ Once you have made the desired changes to your language and regional format sett
 
 ### Email setting
 
-The email address you provide here will be used if we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
+The email address you provide here is used when we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
 
-You can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services. If you select the checkbox to receive these emails, you'll be prompted to select the country/region in which you'll receive these emails. Note that certain countries/regions may not be available. You only need to specify a country/region if you want to receive these additional emails; selecting a country/region is not required in order to receive emails about your Azure account at the address you provide in this section.
+You can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services. If you select the checkbox to receive these emails, you'll be prompted to select the country/region in which you'll receive these emails. Note that certain countries/regions may not be available. You only need to specify a country/region if you want to receive these additional emails; selecting a country/region isn't required in order to receive emails about your Azure account at the address you provide in this section.
 
 ### Portal personalization
 
@@ -179,7 +179,7 @@ Due to the dynamic nature of user settings and risk of data corruption, you can'
 
 #### Restore default settings
 
-If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
+If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. If you do so, any changes you've made to your Azure portal settings are lost. This option doesn't affect dashboard customizations.
 
 #### Delete user settings and dashboards
 
