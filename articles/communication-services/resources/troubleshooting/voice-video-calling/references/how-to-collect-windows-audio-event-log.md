@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # How to collect Windows audio event logs
-The Windows audio event log can provide us with information on the audio device state around the time when the issue we're investigating occurred.
+The Windows audio event log provides information on the audio device state around the time when the issue we're investigating occurred.
 
 To collect the audio event log:
 * open Windows Event Viewer
