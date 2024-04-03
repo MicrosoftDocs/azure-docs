@@ -1398,11 +1398,13 @@ And returns this result: `"https://contoso.com"`
 
 ### div
 
-Return the result of dividing one number by another number. The precise return type of the function depends on the types of its parameters &mdash; see examples for detail.
+Return the result of dividing one number by another number. 
 
 ```
 div(<dividend>, <divisor>)
 ```
+
+The precise return type of the function depends on the types of its parameters &mdash; see examples for detail.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -1417,19 +1419,25 @@ div(<dividend>, <divisor>)
 
 *Example 1*
 
-Both examples divide the first number by the second number:
+These examples divide the number 9 by 2:
 
 ```
-div(10, 5)
-div(11, 5)
+div(9, 2.0)
+div(9.0, 2)
+div(9.0, 2.0)
 ```
 
-And return this result: `2`
+And all return this result: `4.5`
 
 *Example 2*
 
-To get the remainder result, see [mod()](#mod).
+This example also divides the number 9 by 2, but integer division (discarding the remainder) is performed because both parameters are integers.
 
+```
+div(9, 2)
+```
+
+The expression returns the result `4`. To obtain the remainder result, see [mod()](#mod).
 
 <a name="encodeUriComponent"></a>
 
