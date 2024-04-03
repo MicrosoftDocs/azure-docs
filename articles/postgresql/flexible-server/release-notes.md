@@ -10,7 +10,7 @@ ms.custom:
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 3/21/2024
+ms.date: 4/1/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -18,6 +18,12 @@ ms.date: 3/21/2024
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
+
+## Release: March 2024
+* Public preview of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of [real-time language translations](generative-ai-azure-cognitive.md#language-translation) with azure_ai extension on Azure Database for PostgreSQL flexible server.
+* Public preview of [real-time machine learning predictions](generative-ai-azure-machine-learning.md) with azure_ai extension on Azure Database for PostgreSQL flexible server.
+* General availability of version 0.6.0 of [vector](how-to-use-pgvector.md) extension on Azure Database for PostgreSQL flexible server.
 
 ## Release: February 2024
 * Support for [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
