@@ -42,6 +42,7 @@ Status of the cluster
 |**familyQuotaCoreCount**  <br>*optional*|The number of total cores that can be started for this family in this region. This might not be an integer multiple of quotaCount.  <br>**Example** : `16`|integer|
 |**familyQuotaCount**  <br>*optional*|The number of total instances that can be started (given familyQuotaCoreCount)  <br>**Example** : `4`|integer|
 |**invalidReason**  <br>*required*|If valid is false, this will contain the reason the bucket is invalid. Currently NotActivated and DisabledMachineType are the only reasons.  <br>**Example** : `"DisabledMachineType"`|string|
+|**lastCapacityFailure**  <br>*required*|How long, in seconds, since the last time this bucket experienced a capacity failure. Any negative value is treated as never.  <br>**Example** : `180.0`|number|
 |**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this bucket, including global and nodearray limits.  Always a multiple of maxCount.  <br>**Example** : `16`|integer|
 |**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `4`|integer|
 |**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `64`|integer|
