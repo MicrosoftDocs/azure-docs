@@ -1,5 +1,5 @@
 ---
-title: How-To - Install Edge Storage Accelerator (ESA) on a a single-node K3s cluster using Ubuntu or AKS Edge Essentials
+title: How-To - Install Edge Storage Accelerator (ESA) on a single-node K3s cluster using Ubuntu or AKS Edge Essentials
 description: Learn how to create a single-node K3s cluster and install Edge Storage Accelerator on your Ubuntu or Edge Essentials environment.
 author: sethmanheim
 ms.author: sethm
@@ -14,7 +14,7 @@ This article shows how to set up a single-node [K3s cluster](https://docs.k3s.io
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, ensure you have the following prerequisites in place:
 
 - A machine capable of running K3s, meeting the minimum system requirements.
 - Basic understanding of Kubernetes concepts.
@@ -39,7 +39,7 @@ Create a Persistent Volume (PV) by following the steps in [Create a PV](create-p
 
 ## Step 5: Create Persistent Volume Claim (PVC)
 
-Create a Persistent Volume Claim (PVC) to bind with the PV created in the previous step. See [Create a PVC](create-pvc.md) for guidance.
+To bind with the PV created in the previous step, create a Persistent Volume Claim (PVC). See [Create a PVC](create-pvc.md) for guidance.
 
 ## Step 6: Attach application to Edge Storage Accelerator
 
