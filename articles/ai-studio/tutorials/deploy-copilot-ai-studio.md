@@ -414,6 +414,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 
     > [!NOTE]
     > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a GPT-4 or gpt-35-turbo-16k model. If you didn't previously deploy a GPT-4 or gpt-35-turbo-16k model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
+    > The evaluation process may take up lots of tokens, so it's recommended to use a model which can support >=16k tokens.
 
 1. Select **Add new dataset**. Then select **Next**.
 
@@ -513,12 +514,17 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png" alt-text="Screenshot of the prompt flow deployment endpoint and code samples." lightbox = "../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png":::
 
-
 ## Clean up resources
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
+
+
+## Azure AI Studio enterprise chat solution demo
+
+Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
+> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
 
 ## Next steps
 
