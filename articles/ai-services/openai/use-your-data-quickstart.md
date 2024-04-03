@@ -66,11 +66,11 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ::: zone pivot="programming-language-studio, programming-language-csharp, programming-language-python, programming-language-go, programming-language-javascript, programming-language-powershell, programming-language-spring, rest-api"
 
-# [Azure OpenAI Studio](#tab/python)
+# [Azure OpenAI Studio](#tab/studio)
 
 [!INCLUDE [Connect your data to OpenAI using Azure OpenAI Studio](includes/connect-your-data-studio.md)]
 
-# [Azure Developer CLI](#tab/python)
+# [Azure Developer CLI](#tab/cli)
 
 [!INCLUDE [Connect your data to OpenAI using the Azure Developer CLI](includes/use-your-data-azure-developer-cli.md)]
 
