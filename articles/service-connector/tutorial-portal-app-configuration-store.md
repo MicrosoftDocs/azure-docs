@@ -15,7 +15,7 @@ ms.date: 03/20/2024
 > [!div class="checklist"]
 > * Create a service connection to Azure App Configuration in Azure App Service
 > * Create a service connection to Azure Blob Storage and store configuration in Azure App Configuration
-> * View your configuration in App Configuration Store
+> * View your configuration in App Configuration
 > * Use your connection with App Configuration Providers
 
 ## Prerequisites
