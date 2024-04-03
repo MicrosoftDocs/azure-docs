@@ -25,23 +25,28 @@ For more information about ESUs for SQL Server and Window Server, see the follow
 In this section, we show how to configure the virtual machines running Windows Server and SQL Server for ESUs at no-cost in Azure VMware Solution.
 
 ### SQL Server
-For SQL Server environments running in a VM in Azure VMware Solution, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. The configuration steps are 
-1.	Follow the steps outlined in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) to enable the Azure VMware Solution environment. You will need to enable guest management for the VMs running SQL Server and make sure the Azure Extension for SQL Server is installed.
+For SQL Server environments running in a VM in Azure VMware Solution, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. First you will need to Arc-enable VMware vShpere for Azure VMware Solution and have the Azure Extension for SQL Server is installed onto the VM. The steps are:
 
-2.	You should then follow the steps discussed here: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-instances-for-esus) to subscribe to Extended Security Updates through the SQL Server Configuration experience.  
+1. To Arc-enable the VMware vShere in Azure VMware Solution use this document: [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows)
+2. You will also need to enable guest management for the individual VMs running SQL Server and make sure the Azure Extension for SQL Server is installed. Steps to validate the extension is installed are provided in the section _View ESU subscription status_
 
 > [!WARNING]
-> If you register SQL Server instances in a different manner than documented in this step it will not be integrated into Azure VMware Solution and result in you being billed for ESUs.
+> If you register SQL Server instances in Azure Arc using a different process than provided the VM will not be attributed as being in Azure VMware Solution and result in you being billed for ESUs.
 
-#### View ESU subscription status
-For machines running SQL Server where **Guest Management** is enabled, the Azure Extension for SQL Server should be registered. You can validate the extension is installed through these steps.
+Next, once VMware vSphere for Azure VMware Solution is Arc-enabled and Azure Extension for SQL Server is installed the VM you can subscribe to Extended Security Updates by updating the SQL Server Configuration on the Arc-enabled VM. To find the SQL Server Configuration from the Azure portal:
+ - Go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page.
+ - In the left pane expand operations and you should see the **SQL Server Configuration**
+ - You should then follow the steps discussed in the section: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-instances-for-esus) which also provides syntax to configure via Azure Powershell or Azure CLI.
 
--	From the Azure portal 
+
+#### View ESU subscription status 
+You can validate the extension is installed through these steps: 
+-	In the Azure portal
     - Go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page. 
     - Within the **Overview** section of the menu, located in the upper left, there's a **Properties/Extensions** view that lists the WindowsAgent.SqlServer (Microsoft.HybridCompute/machines/extensions) if installed.
-    
+
 -	Through Azure Resource Graph (ARG) queries
-    - You can use the following query [VM ESU subscription status](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions)  as an example to show you can view eligible SQL Server ESU instances and their ESU subscription status. 
+    - You can use the following query as an example [VM ESU subscription status](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions) to show you can view eligible SQL Server ESU instances and their ESU subscription status. 
 
 ### Windows Server 
 For Windows Server environments running in VMs in Azure VMware Solution, the process to enable ESUs requires contacting [Microsoft Support] for help in configuration. 
