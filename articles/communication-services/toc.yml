@@ -1049,8 +1049,8 @@ items:
             href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
         - name: References
           items:
-          - name: How to collect call logs
-            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-call-logs.md
+          - name: How to collect client logs
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-client-logs.md
           - name: How to collect diagnostic audio recordings from the browser
             href: resources/troubleshooting/voice-video-calling/references/how-to-collect-diagnostic-audio-recordings.md
           - name: How to collect verbose log from browsers
