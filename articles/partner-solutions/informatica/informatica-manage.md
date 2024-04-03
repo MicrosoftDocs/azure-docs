@@ -8,7 +8,7 @@ ms.date: 04/02/2024
 
 # Manage your Informatica organization through the portal
 
-n this article, you learn how to manage single sign-on for your organization, and how to delete an Informatica deployment.
+In this article, you learn how to manage single sign-on for your organization, and how to delete an Informatica deployment.
 
 ## Single sign-on
 
@@ -30,13 +30,13 @@ Single sign-on (SSO) is already enabled when you created your Informatica Organi
 
 Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete the same, follow these steps:
 
-1. From the Resource menu, select the Astro deployment you would like to delete.
+1. From the Resource menu, select the Informatica deployment you would like to delete.
 
 1. On the working pane of the **Overview**, select **Delete**.
 
     :::image type="content" source="media/informatica-manage/informatica-delete-overview.png" alt-text="Screenshot showing how to delete an Informatica resource.":::
 
-1. Confirm that you want to delete the Astro resource by entering the name of the resource.
+1. Confirm that you want to delete the Informatica resource by entering the name of the resource.
 
     :::image type="content" source="media/informatica-manage/informatica-confirm-delete.png" alt-text="Screenshot showing the final confirmation of delete for an Informatica resource.":::
 
