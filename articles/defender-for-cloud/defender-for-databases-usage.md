@@ -1,11 +1,13 @@
 ---
-title: Setting up and responding to alerts from Microsoft Defender for open-source relational databases
-description: Learn how to configure Microsoft Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
-ms.date: 11/09/2021
+title: Microsoft Defender for open-source relational databases
+description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
+ms.date: 04/02/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
+#customer intent: As a reader, I want to learn how to configure Microsoft Defender for open-source relational databases to enhance the security of my databases.
 ---
+
 # Enable Microsoft Defender for open-source relational databases and respond to alerts
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
@@ -59,13 +61,18 @@ Defender for Cloud sends email notifications when it detects anomalous database 
 
 1. For additional details and recommended actions for investigating the current threat and remediating future threats, select a specific alert.
 
-    :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Details of a specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
+    :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Screenshot that shows the details of a specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
 
 > [!TIP]
 > For a detailed tutorial on how to handle your alerts, see [Manage and respond to alerts](tutorial-security-incident.md).
 
-## Next steps
+## Next step
 
+<<<<<<< HEAD
 - [Automate responses to Defender for Cloud triggers](workflow-automation.yml)
 - [Stream alerts to a SIEM, SOAR, or ITSM solution](export-to-siem.md)
 - [Suppress alerts from Defender for Cloud](alerts-suppression-rules.md)
+=======
+> [!div class="nextstepaction"]
+> [Automate responses to Defender for Cloud triggers](workflow-automation.md)
+>>>>>>> 7e93f91ba8d1bfe6ba30f41f9972179785c467df

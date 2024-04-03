@@ -14,7 +14,7 @@ keywords: ChatGPT
 ## Working with the Chat models
 
 > [!IMPORTANT]
-> Using GPT-35-Turbo models with the completion endpoint remains in preview. Due to the potential for changes to the underlying ChatML syntax, we strongly recommend using the Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the GPT-35-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
+> Using GPT-35-Turbo models with the completion endpoint as described in this article remains in preview and is only possible with gpt-35-turbo verision (0301). We strongly recommend using the GA Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the GPT-35-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
 
 The following code snippet shows the most basic way to use the GPT-35-Turbo models with ChatML. If this is your first time using these models programmatically we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
@@ -40,7 +40,7 @@ print(response['choices'][0]['text'])
 > [!NOTE]  
 > The following parameters aren't available with the gpt-35-turbo model: `logprobs`, `best_of`, and `echo`. If you set any of these parameters, you'll get an error.
 
-The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. You can read more about the special tokens in the [Chat Markup Language (ChatML)](#chatml) section.
+The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. 
 
 Consider setting `max_tokens` to a slightly higher value than normal such as 300 or 500. This ensures that the model doesn't stop generating text before it reaches the end of the message.
 
