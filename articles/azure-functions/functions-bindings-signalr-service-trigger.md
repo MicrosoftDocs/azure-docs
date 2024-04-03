@@ -50,7 +50,7 @@ See [Class based model](../azure-signalr/signalr-concept-serverless-development-
 public class HubName1 : ServerlessHub
 {
     [FunctionName("SignalRTest")]
-    public async Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+    public Task SendMessage([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
     {
         logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
     }
@@ -63,7 +63,7 @@ Traditional model obeys the convention of Azure Function developed by C#. If you
 
 ```cs
 [FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", parameterNames: new string[] {"message"})]InvocationContext invocationContext, string message, ILogger logger)
+public static Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", parameterNames: new string[] {"message"})]InvocationContext invocationContext, string message, ILogger logger)
 {
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
@@ -73,7 +73,7 @@ Because it can be hard to use `ParameterNames` in the trigger, the following exa
 
 ```cs
 [FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage")]InvocationContext invocationContext, [SignalRParameter]string message, ILogger logger)
+public static Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage")]InvocationContext invocationContext, [SignalRParameter]string message, ILogger logger)
 {
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
@@ -113,7 +113,7 @@ app.generic("function1",
 Here's the JavaScript code:
 
 ```javascript
-module.exports = async function (context, invocation) {
+module.exports = function (context, invocation) {
     context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
 };
 ```
