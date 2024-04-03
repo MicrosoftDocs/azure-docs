@@ -10,6 +10,8 @@ ms.author: danlep
 ---
 # Import SOAP API to API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import a WSDL specification, which is a standard XML representation of a SOAP API. The article also shows how to test the API in API Management.
 
 In this article, you learn how to:

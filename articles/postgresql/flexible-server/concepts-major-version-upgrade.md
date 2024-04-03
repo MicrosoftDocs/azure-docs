@@ -1,10 +1,10 @@
 ---
 title: Major version upgrades in Azure Database for PostgreSQL - Flexible Server
 description: Learn how to use Azure Database for PostgreSQL - Flexible Server to do in-place major version upgrades of PostgreSQL on a server.
-author: kabharati
-ms.author: kabharati
+author: varun-dhawan
+ms.author: varundhawan
 ms.reviewer: rajsell
-ms.date: 03/18/2024
+ms.date: 4/2/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-Azure Database for PostgreSQL flexible server supports PostgreSQL versions 11, 12, 13, 14, 15, and 16. The Postgres community releases a new major version that contains new features about once a year. Additionally, each major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward compatible with existing applications. Azure Database for PostgreSQL flexible server periodically updates the minor versions during a customer's maintenance window.
+Azure Database for PostgreSQL flexible server supports PostgreSQL versions 16, 15, 14, 13, 12, and 11. The Postgres community releases a new major version that contains new features about once a year. Additionally, each major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward compatible with existing applications. Azure Database for PostgreSQL flexible server periodically updates the minor versions during a customer's maintenance window.
 
 Major version upgrades are more complicated than minor version upgrades. They can include internal changes and new features that might not be backward compatible with existing applications.
 
@@ -88,8 +88,6 @@ If pre-check operations fail for an in-place major version upgrade, the upgrade 
   - Extensions that serve as dependencies for the following extensions: `postgis`, `postgis_raster`, `postgis_sfcgal`, `postgis_tiger_geocoder`, `postgis_topology`, `address_standardizer`, `address_standardizer_data_us`, `fuzzystrmatch` (required for `postgis_tiger_geocoder`).
 
 - Servers configured with logical replication slots aren't supported.
-
-- In-place major version upgrades don't yet support upgrading to version 16.
 
 ## Next steps
 
