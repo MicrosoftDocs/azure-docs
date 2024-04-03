@@ -55,12 +55,17 @@ Use this option to:
 
 To create a separate Application Gateway, WAF (optional) and IP address:
 
+!Note: Ensure Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic
+
 1. Go to the [Azure portal](https://portal.azure.com).
+1. In case you use TLS termination using Key Vault follow the relocation procedure for Key Vault and ensure that the Key Vault is in the same subscription as the to be relocated Application Gateway. You can create a new certificate or  use the existing certificate for the to be relocated Application Gateway.
 2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively in the new Azure region. Please ensure that the Virtual Network was relocated before you deploy the Application gateway. With relocation of the Application Gateway you must create a new frontend Public IP address.
 1. If you have a WAF config or custom rules-only WAF Policy transition it to to a full WAF policy. Follow the steps described in [Migrate WAF Policy](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/migrate-policy).
 1. If you use a Zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, please make sure to follow this guideline which outlines a strategy for implementing zero-trust security for web apps. [Application Gateway before Azure Firewall](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
 3. Verify that the Application Gateway and WAF are working as intended.
-4. Migrate your DNS configuration to the new public IP address.
+4. Migrate your configuration to the new public IP address.
+     1. Switch Endpoints Public and Private in order to point to the new application gateway. Migrate your DNS configuration to the new Public- and/or Private  IP address.
+     1. Update endpoints in consumer applications/services, this is usually done via properties change and re-deployment. This option mainly used whena new hostname is used in respect to deployment in the source region.
 5. Delete the old Application Gateway and WAF resources.
 
 ## Redeployment option 2: Delete and redeploy Application Gateway
