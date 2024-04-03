@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 04/01/2024
 ms.author: helohr
 ---
 
@@ -43,6 +43,21 @@ When you design a disaster recovery plan, you should keep the following three th
 Azure has many built-in, free-of-charge features that can deliver high availability at many levels. The first feature is [availability sets](../virtual-machines/availability-set-overview.md), which distribute VMs across different fault and update domains within Azure. Next are [availability zones](../availability-zones/az-region.md), which are physically isolated and geographically distributed groups of data centers that can reduce the impact of an outage. Finally, distributing session hosts across multiple [Azure regions](../best-practices-availability-paired-regions.md) provides even more geographical distribution, which further reduces outage impact. All three features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
 
 Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple paired Azure regions.
+
+
+
+|Column1 |Column2  |
+|---------|---------|
+|Active-passive vs active-active      |         |
+|Session host resiliency     |         |
+|Disaster recovery plans    |         |
+|Azure Site Recovery     |         |
+|Network connectivity    |         |
+|User profiles    |         |
+|File share storage    |         |
+|Identity provider   |         |
+|Backup    |         |
+
 
 ## Active-passive and active-active deployments
 
