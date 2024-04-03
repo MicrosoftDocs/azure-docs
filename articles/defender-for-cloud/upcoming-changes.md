@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
 ms.topic: overview
-ms.date: 04/01/2024
+ms.date: 04/03/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -27,7 +27,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 |--|--|--|
 | [Deprecating of virtual machine recommendation](#deprecating-of-virtual-machine-recommendation) | April 2, 2024 | April 30, 2024 |
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
-| [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) | March 6, 2024 | April, 2024 |
 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | February 26, 2024 | February 26, 2024 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
