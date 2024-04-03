@@ -17,6 +17,18 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **March 2024**
+**Batch-bundle parallelization (GA)**
+Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing of batch bundles.
+
+Learn more:
+- [Batch bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+
+**Bug Fixes**
+
+- **Fixed: Improve performance for bundle processing**. Updates are made to the task execution method, leading to bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
+
+
 ## **February 2024**
 **Enables counting all versions (historical and soft deleted) of resources**
 The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. For more information, see [history management](././../azure-api-for-fhir/purge-history.md).
