@@ -19,9 +19,9 @@ adobe-target: true
 
 Today's applications are required to be highly responsive and always online. They must respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users.
 
-Recently, the surge of AI-powered applications created another layer of complexity, because many of these applications currently integrate a multitude of data stores. For example, some teams built applications that simultaneously connect to MongoDB, Postgres, Redis, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications.
+The surge of AI-powered applications created another layer of complexity, because many of these applications integrate a multitude of data stores. For example, some organizations built applications that simultaneously connect to MongoDB, Postgres, Redis, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications.
 
-Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from caching to vector search. It provides the data infrastructure for AI, digital commerce, Internet of Things, booking management, and other types of modern applications. It accommodates all your operational data models, including relational, document, vector, key-value, graph, and table.
+Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from caching to backup to vector search. It provides the data infrastructure for modern applications like AI, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
 
 ## An AI database providing industry-leading capabilities... for free
 
@@ -33,7 +33,7 @@ App development is faster and more productive thanks to:
 - Open source APIs
 - SDKs for popular languages
 - AI database functionalities like integrated vector database or seamless integration with Azure AI Services to support Retrieval Augmented Generation
-- Copilot for generating NoSQL queries based on your natural language prompts [(preview)](nosql/query/how-to-enable-use-copilot.md)
+- Query Copilot for generating NoSQL queries based on your natural language prompts [(preview)](nosql/query/how-to-enable-use-copilot.md)
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
@@ -51,7 +51,7 @@ Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md
 
 ## An AI database for more than just AI apps
 
-Besides AI database, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
+Besides AI, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
 ## An AI database with unmatched reliability and flexibility
 
