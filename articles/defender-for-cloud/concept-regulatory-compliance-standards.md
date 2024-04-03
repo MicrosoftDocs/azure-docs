@@ -94,9 +94,5 @@ The following regulatory standards are available in Defender for Cloud:
 
 ## Related content
 
-<<<<<<< HEAD
 - [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
 - [Improve regulatory compliance](regulatory-compliance-dashboard.md)
-=======
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
->>>>>>> 7e93f91ba8d1bfe6ba30f41f9972179785c467df

@@ -46,7 +46,6 @@ This article is intended to help you quickly get to deployment. Before going to 
 >
 > :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
-<<<<<<< HEAD
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
   * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
@@ -54,8 +53,6 @@ This article is intended to help you quickly get to deployment. Before going to 
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-or-group).
 
-=======
->>>>>>> 7e93f91ba8d1bfe6ba30f41f9972179785c467df
 ## Create a Liberty on AKS deployment using the portal
 
 The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you have an Azure Container Registry and an Azure Kubernetes Service cluster for deploying your containerized application.
