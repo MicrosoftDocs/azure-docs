@@ -151,7 +151,9 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-There are several types of tables in Log Analytics and the delete experience is different for each. For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-archive.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
+There are several types of tables in Azure Monitor Logs. You can delete any table that's not an Azure table, but what happens to the data when you delete the table is different for each type of table. 
+
+For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-archive.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
 
 
 # [Portal](#tab/azure-portal-2)
