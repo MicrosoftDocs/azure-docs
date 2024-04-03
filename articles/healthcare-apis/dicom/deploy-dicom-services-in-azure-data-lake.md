@@ -221,7 +221,7 @@ The response body will indicate which dependency failed and provide more context
 Note that a code of `ConditionNotMet` typically indicates the blob file has been moved, deleted or modified somehow outside without using DICOM APIs. The best way to mitigate such a situation is to use the DICOM API to DELETE the instance to remove the index and then reupload the modified file. This will enable you to continue to reference and inteact with the file through DICOM APIs.
 
 ## Next steps
-* [Receive Resource Health alerts](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide).
+* [Receive Resource Health alerts](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide)
 * [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
 * [Review DICOM service conformance statement](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
 * [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
