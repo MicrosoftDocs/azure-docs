@@ -116,9 +116,11 @@ Application Gateway offers two models for TLS termination:
 
 To learn about the certificates that Azure Application uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates)
 
-This support is limited to the v2 SKU of Application Gateway. For TLS termination, Application Gateway only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate’s status is set to Enabled in Key Vault.
+This support is limited to the v2 SKU of Application Gateway. For TLS termination, Application Gateway only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate’s status is set to `Enabled` in Key Vault.
 
-Instructions on how to export an existing certificate from a source AKV are reported here. [Export Certficates from Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
+To learn how to export an existing certificate from a source Azure Key Vault, see [Export certficates from Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli).
+
+Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.
 
