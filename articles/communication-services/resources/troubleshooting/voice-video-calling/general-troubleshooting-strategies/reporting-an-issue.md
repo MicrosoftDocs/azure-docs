@@ -24,7 +24,7 @@ to see if the problem can also be reproduced in the calling sample.
 ## Where to report the issue
 
 When you want to report issues, there are several places to report them.
-You can refer to [Azure Support](../../../support.md).
+You can refer to [Azure Support](../../../../support.md).
 
 You can choose to create an Azure support ticket.
 Additionally, for the ACS Web Calling SDK, if you found an issue during development,

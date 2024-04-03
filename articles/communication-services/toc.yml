@@ -1036,15 +1036,15 @@ items:
       - name: General troubleshooting strategies
         items:
         - name: Overview
-          href: troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md
         - name: Tools available for diagnosing issues
-          href: troubleshooting/voice-video-calling/general-troubleshooting-strategies/tools-for-diagnosing-issues.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/tools-for-diagnosing-issues.md
         - name: Understanding error messages and codes
-          href: troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
         - name: Leveraging SDK documentation and resources
-          href: troubleshooting/voice-video-calling/general-troubleshooting-strategies/leveraging-sdk-documentation.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/leveraging-sdk-documentation.md
         - name: Reporting an issue
-          href: troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md
       - name: Calling (JavaScript)
         items:
         - name: Device and permission issues
