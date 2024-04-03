@@ -28,9 +28,7 @@ MongoDB Shell (Mongosh), is a JavaScript and Node.js REPL environment for intera
     
 ![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/firewallsettings.gif)
 
-If you accidentally open all the ports you will be warned before saving the changes as follows
-
-![PNG Image for Firewall Warning](./media/connect-using-mongoshell/firewallwarning.PNG)
+If you accidentally open all the ports you will be warned before saving the changes.
 
 ## Connect using Mongo Shell (Mongosh)
 
