@@ -18,7 +18,7 @@ items:
     - name: Install Edge Storage Accelerator
       href: install-edge-storage-accelerator.md
     - name: Install Edge Storage Accelerator on a single-node cluster
-      href: ubuntu-install.md
+      href: how-to-single-node-k3s.md
     - name: Installation troubleshooting
       href: installation-troubleshooting.md
   - name: Attach applications

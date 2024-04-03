@@ -13,7 +13,7 @@ ms.date: 03/12/2024
 The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
 
 > [!NOTE]
-> The minimum supported version is 5.1. At this time, there are known issues with 6.4 and 6.2.
+> The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 
 ### Custom Kubernetes installation on Azure IoT Operations (AIO)
 
-Follow the instructions to [create a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 20.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
+Follow the instructions to [create a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 22.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
 
 ## Single-node and multi-node clusters
 

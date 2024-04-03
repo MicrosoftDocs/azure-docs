@@ -16,7 +16,7 @@ This article describes how to prepare Linux using a single-node or 2-node cluste
 ::: zone pivot="aks"
 ## Prepare Linux with AKS enabled by Azure Arc
 
-This section describes how to prepare Linux with AKS enabled by Azure Arc if you run a single-node cluster.
+This section describes how to prepare Linux with AKS enabled by Azure Arc if you run a single-node or 2-node cluster.
 
 1. Install Open Service Mesh (OSM) using the following command:
 
@@ -28,8 +28,8 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 
    ```json
    {
-     "hydra.highAvailability.disk.storageClass": "default",
-     "hydra.acstorController.enabled": false
+     "highAvailability.disk.storageClass": "default",
+     "acstorController.enabled": false
    }
    ```
 
@@ -129,12 +129,12 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
    ```
 
-1. If you run a single-node cluster, disable **ACStor** by creating a file named **config.json** with the following contents:
+1. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
    {
-     "hydra.acstorController.enabled": false,
-     "hydra.highAvailability.disk.storageClass": "local-path"
+     "acstorController.enabled": false,
+     "highAvailability.disk.storageClass": "local-path"
    }
    ```
 
@@ -168,8 +168,8 @@ This section describes how to prepare Linux with Ubuntu if you run a single-node
 
    ```json
    {
-     "hydra.acstorController.enabled": false,
-     "hydra.highAvailability.disk.storageClass": "local-path"
+     "acstorController.enabled": false,
+     "highAvailability.disk.storageClass": "local-path"
    }
    ```
 
