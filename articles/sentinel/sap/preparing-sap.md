@@ -307,7 +307,7 @@ The following table describes the optional CRs available to deploy:
 
     In the **SAP Easy Access** screen, enter `STMS_IMPORT` in the field in the upper left corner of the screen and then press **ENTER**.
 
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the S T M S import transaction.":::    
+    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the STMS import transaction.":::    
 
 1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
 
