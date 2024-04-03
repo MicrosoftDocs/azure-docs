@@ -214,7 +214,7 @@
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models
                 href: how-to-log-mlflow-models.md
-              - name: Query & compare experiments and runs with MLflowMLflow
+              - name: Query & compare experiments and runs with MLflow
                 href: how-to-track-experiments-mlflow.md
           - name: Manage
             items:
@@ -678,6 +678,8 @@
               href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Troubleshoot prompt flow deployments
+          href: ./prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md
         - name: Transparency note
           href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
