@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 03/29/2024
+ms.date: 04/03/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -26,7 +26,7 @@ The listed features were released in the last three months. For information abou
 
 The unified security operations platform in the Microsoft Defender portal is now available. This release brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
 
-- Blog announcement: [​​Unified security operations platform ready to revolutionize protection and efficiency](https://aka.ms/unified-soc-announcement)
+- Blog announcement: [​​Unified security operations platform with Microsoft Sentinel and Microsoft Defender XDR](https://aka.ms/unified-soc-announcement)
 - [Microsoft Sentinel in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 - [Microsoft Security Copilot in Microsoft Defender XDR](/microsoft-365/security/defender/security-copilot-in-microsoft-365-defender)
