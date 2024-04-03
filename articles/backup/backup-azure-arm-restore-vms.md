@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 04/04/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -190,6 +190,18 @@ As one of the [restore options](#restore-options), you can replace an existing V
 1. In **Staging Location**, specify a storage account. VHD files are created here in some scenarios. [Learn more](#storage-accounts).
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
+
+## Assign network access settings during restore (preview)
+
+Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the preferences at the time of initiating the restore.
+
+To enable disk access on restored disks, choose one of the following options:
+
+- **Use the same network configurations as the source disk(s)**: This option allows the restored disks to use the disk access and network configurations same as that of the source disks.
+- **Enable public access from all networks**: This option allows the restored disk to be publicly accessible from all networks. 
+- **Disable public access and enable private access (using disk access)**: This option allows you to disable the public access and assign a disk access to the restored disks for private access.
+
+ :::image type="content" source="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png" alt-text="Screenshot shows the access configuration options for restored disks." lightbox="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png":::
 
 ## Cross Region Restore
 
