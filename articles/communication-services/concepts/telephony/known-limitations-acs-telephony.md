@@ -28,8 +28,9 @@ This article provides information about limitations and known issues related to 
 - Location-based routing isn't supported.
 - No quality dashboard is available for customers.
 - Enhanced 911 isn't supported.
-- In-band DTMF is not supported, use RFC 2833 DTMF instead.
-- Multiple IP addresses mapped with the same FQDN on the SBC side are not supported.
+- In-band Dual-tone multi-frequency (DTMF) isn't supported. Use RFC 2833 DTMF instead.
+- Multiple IP addresses mapped with the same FQDN on the SBC side aren't supported.
+- Maximum call duration is 30 hours.
 
 ## Next steps
 
