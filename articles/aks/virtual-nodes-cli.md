@@ -5,6 +5,9 @@ description: Learn how to use Azure CLI to create an Azure Kubernetes Services (
 ms.topic: conceptual
 ms.service: azure-kubernetes-service
 ms.date: 08/28/2023
+author: nickomang
+ms.author: nickoman
+
 ms.custom: references_regions, devx-track-azurecli
 ms.subservice: aks-nodes
 ---
@@ -311,3 +314,4 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [virtual-nodes-aks]: virtual-nodes.md
 [virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md
+
