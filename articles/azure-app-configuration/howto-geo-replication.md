@@ -164,6 +164,13 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`
 
+### [Kubernetes](#tab/kubernetes)
+
+Azure App Configuration Kubernetes provider will automatically discover replicas and attempt to connect to them when it fails to connect to user-provided endpoint. Replica auto-discovery is enabled by default and can be disabled by setting `replicaDiscoveryEnabled` to `false`.
+
+> [!NOTE]
+> The failover support is available if you use version **1.3.0** or later of Azure App Configuration Kubernetes Provider.
+
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
