@@ -44,8 +44,8 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Bing Maps feature                     | Azure Maps support |
 |---------------------------------------|:------------------:|
 | Web SDK                               | ✓                  |
-| Android SDK                           | ✓                  |
-| iOS SDK                               | Planned            |
+| Android SDK                           | ✓<sup>1</sup>      |
+| iOS SDK                               | N/A<sup>2</sup>    |
 | UWP SDK                               | N/A                |
 | WPF SDK                               | N/A                |
 | REST Service APIs                     | ✓                  |
@@ -60,13 +60,16 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Location Recognition                  | ✓                  |
 | Locations (forward/reverse geocoding) | ✓                  |
 | Optimized Itinerary Routes            | Planned            |
-| Snap to roads                         | <sup>1</sup>       |
+| Snap to roads                         | <sup>3</sup>       |
 | Spatial Data Services (SDS)           | Partial            |
 | Time Zone                             | ✓                  |
 | Traffic Incidents                     | ✓                  |
 | Configuration driven maps             | N/A                |
 
-<sup>1</sup> While there's no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
+
+<sup>1</sup> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+<sup>2</sup> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+<sup>3</sup> While there's no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
 
 Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Microsoft Entra authentication.
 

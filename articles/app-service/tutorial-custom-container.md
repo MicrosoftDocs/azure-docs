@@ -6,7 +6,7 @@ ms.date: 11/29/2022
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22
+ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 

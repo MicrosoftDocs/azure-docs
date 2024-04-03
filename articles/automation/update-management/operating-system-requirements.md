@@ -3,6 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
+ms.custom: linux-related-content
 ms.date: 08/01/2023
 ms.topic: conceptual
 ---

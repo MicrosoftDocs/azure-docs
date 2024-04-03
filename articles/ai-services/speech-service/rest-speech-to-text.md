@@ -22,7 +22,7 @@ Speech to text REST API is used for [batch transcription](batch-transcription.md
 > Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
 > [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1)
+> [See the Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2)
 
 > [!div class="nextstepaction"]
 > [See the Speech to text REST API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)

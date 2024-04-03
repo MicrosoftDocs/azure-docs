@@ -24,7 +24,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
@@ -116,7 +116,7 @@ Microsoft was founded by Bill Gates and Paul Allen. They established the company
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -314,7 +314,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )
 
@@ -340,7 +340,7 @@ while True:
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -385,7 +385,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )
 
@@ -464,7 +464,7 @@ import openai
 import os
 
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -502,7 +502,7 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
         return num_tokens_from_messages(messages, model="gpt-4-0613")
     else:
         raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+            f"""num_tokens_from_messages() is not implemented for model {model}."""
         )
     num_tokens = 0
     for message in messages:

@@ -64,6 +64,8 @@ items:
       href: concepts/ai-resources.md
     - name: Create and manage an Azure AI hub resource
       href: how-to/create-azure-ai-resource.md
+    - name: Create a secure Azure AI hub resource
+      href: how-to/create-secure-ai-hub.md
     - name: Create an Azure AI hub resource from template
       href: how-to/create-azure-ai-hub-template.md
     - name: Create an Azure AI project
@@ -230,6 +232,8 @@ items:
       href: concepts/content-filtering.md
     - name: System message templates
       href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
+  - name: Transparency Note for safety evaluations
+    href: ./concepts/safety-evaluations-transparency-note.md
 - name: Reference
   items:
   - name: Azure AI SDK for Python

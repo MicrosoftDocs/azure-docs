@@ -22,30 +22,32 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 ## Prerequisites
 
-* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com).
-
 * An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
 
-* A function app with its code in a GitHub repository.  If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
-    # [C\#](#tab/csharp)
+* If you plan to use GitHub instead of Azure Repos, you also need a GitHub repository. If you don't have a GitHub account, you can [create one for free](https://github.com). 
+
+* An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
+    ### [C\#](#tab/csharp)
 
     [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
 
-    # [JavaScript](#tab/javascript)
+    ### [JavaScript](#tab/javascript)
 
     [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
 
-    # [Python](#tab/python)
+    ### [Python](#tab/python)
 
     [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
 
-    # [PowerShell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
 
     ---
+    
+    Remember to upload the local code project to your GitHub or Azure Repos respository after you publish it to your function app. 
 
 ::: zone pivot="v1"
 
@@ -53,11 +55,13 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
-1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
-1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
-1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+1. In your project, navigate to the **Pipelines** page. Then select **New pipeline**.
+1. Select one of these options for **Where is your code?**:
+    + **GitHub**: You might be redirected to GitHub to sign in. If so, enter your GitHub credentials. When this is the first connection to GitHub, the wizard also walks you through the process of connecting DevOps to your GitHub accounts.
+    + **Azure Repos Git**: You are immediately able to choose a repository in your current DevOps project. 
 1. When the list of repositories appears, select your sample app repository.
-1. Azure Pipelines will analyze your repository and recommend a template. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
+1. Azure Pipelines analyzes your repository and in **Configure your pipeline** provides a list of potential templates. Choose the appropriate **function app** template for your language. If you don't see the correct template select **Show more**.  
+1. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
 
@@ -156,6 +160,8 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 
@@ -402,6 +408,9 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+
+Please check the generated archive to ensure that the deployed file has the right format. 
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 

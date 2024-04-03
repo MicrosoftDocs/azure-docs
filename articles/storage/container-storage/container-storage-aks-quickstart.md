@@ -4,11 +4,9 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/19/2024
+ms.date: 03/21/2024
 ms.author: kendownie
-ms.custom:
-  - devx-track-azurecli
-  - ignite-2023-container-storage
+ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
@@ -21,7 +19,7 @@ ms.custom:
 
 ## Getting started
 
-- Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+- Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription. Owner-level access grants the Azure Container Storage extension the proper permissions to interact with Elastic SAN's API. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -84,7 +82,7 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 - **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
 > [!NOTE]
-> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation, as long as you have owner-level access to the Azure subscription. You don't need to create your own Elastic SAN or Azure Disk.
+> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk. In order to use Elastic SAN, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
 
 ### Resource consumption
 

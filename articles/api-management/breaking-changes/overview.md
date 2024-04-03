@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Upcoming breaking changes
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 The following table lists all the upcoming breaking changes and feature retirements for Azure API Management.
 
 | Change Title | Effective Date |

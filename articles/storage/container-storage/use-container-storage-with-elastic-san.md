@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Azure Elastic SAN. C
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/21/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -18,6 +18,8 @@ ms.custom: references_regions
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 - If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
+
+- Ensure your subscription has [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles/general.md#owner) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that the Owner role will grant.
 
 > [!NOTE]
 > To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
