@@ -17,10 +17,11 @@ The `networkReconnect` UFD with Bad value occurs when the ICE transport state on
 This event indicates that there may be network issues between the two endpoints, such as packet loss or firewall issues.
 The connection failure is typically detected by the ICE consent freshness mechanism implemented in the browser.
 
-When an endpoint doesn't receive a reply after a certain period, the ICE transport state will transition to `disconnected`. If there's still no response received, the state will then become `failed`.
+When an endpoint doesn't receive a reply after a certain period, the ICE transport state will transition to `disconnected`.
+If there's still no response received, the state will then become `failed`.
 
 Since the endpoint didn't receive a reply for a period of time, it's possible that incoming packets weren't received or outgoing packets didn't reach to the other users.
-This may result in the user complaining that they couldn't hear or see the other party.
+This situation may result in the user complaining that they couldn't hear or see the other party.
 
 
 | networkReconnect UFD | Details                |
@@ -42,9 +43,12 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 });
 ```
 ## How to mitigate or resolve
-From the perspective of the ACS Calling SDK, network issues are considered external problems. To solve network issues, it's usually necessary to understand the network topology and the nodes causing the problem. These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
+From the perspective of the ACS Calling SDK, network issues are considered external problems.
+To solve network issues, it's usually necessary to understand the network topology and the nodes causing the problem.
+These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
 Internally, the ACS Calling SDK will trigger reconnection after a `networkReconnect` Bad UFD is fired. If the connection recovers, `networkReconnect` Good UFD is fired.
 
-It's important for your application to subscribe to events from the User Facing Diagnostics and display a message in your user interface so that the users are aware of any network issues and aren't surprised if they experience audio loss during a call.
+It's important for your application to subscribe to events from the User Facing Diagnostics and display a message in your user interface,
+so that the users are aware of any network issues and aren't surprised if they experience audio loss during a call.
 
