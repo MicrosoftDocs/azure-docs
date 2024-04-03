@@ -1,5 +1,5 @@
 ---
-title: Overview of cameraStoppedUnexpectedly UFD
+title: Understanding cameraStoppedUnexpectedly UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and detailed reference of cameraStoppedUnexpectedly UFD.
 author: sloanster

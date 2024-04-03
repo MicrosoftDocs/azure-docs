@@ -1,5 +1,5 @@
 ---
-title: Overview of microphoneMuteUnexpectedly UFD
+title: Understanding microphoneMuteUnexpectedly UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and detailed reference of microphoneMuteUnexpectedly UFD
 author: sloanster

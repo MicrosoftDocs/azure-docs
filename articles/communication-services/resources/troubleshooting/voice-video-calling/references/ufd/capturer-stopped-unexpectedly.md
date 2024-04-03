@@ -1,5 +1,5 @@
 ---
-title: Overview of capturerStoppedUnexpectedly UFD
+title: Understanding capturerStoppedUnexpectedly UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and detailed reference of capturerStoppedUnexpectedly UFD.
 author: sloanster

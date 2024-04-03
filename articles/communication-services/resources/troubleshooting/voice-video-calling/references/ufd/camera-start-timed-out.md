@@ -1,5 +1,5 @@
 ---
-title: Understanding cameraStartTimedOut UFD
+title: Understanding cameraStartTimedOut UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and detailed reference of cameraStartTimedOut UFD
 author: sloanster

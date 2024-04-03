@@ -1,5 +1,5 @@
 ---
-title: Understanding cameraFreeze UFD
+title: Understanding cameraFreeze UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and details reference for understanding cameraFreeze UFD.
 author: sloanster

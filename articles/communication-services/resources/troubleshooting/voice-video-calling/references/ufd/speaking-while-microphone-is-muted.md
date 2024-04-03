@@ -1,5 +1,5 @@
 ---
-title: Overview of speakingWhileMicrophoneIsMuted UFD - User Facing Diagnostics
+title: Understanding speakingWhileMicrophoneIsMuted UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and detailed reference of speakingWhileMicrophoneIsMuted UFD
 author: sloanster

@@ -1,5 +1,5 @@
 ---
-title: Understanding cameraPermissionDenied UFD
+title: Understanding cameraPermissionDenied UFD - User Facing Diagnostics
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview and details reference for understanding cameraPermissionDenied UFD.
 author: sloanster
