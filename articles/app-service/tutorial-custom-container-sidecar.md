@@ -92,7 +92,7 @@ First you create the resources that the tutorial uses (for more information, see
 
 1. Once the deployment completes, select **Go to resource**.
 
-1. In a new browser tab, navigate to `https:<app-name>.azurewebsites.net` and see the default Nginx page.
+1. In a new browser tab, navigate to `https://<app-name>.azurewebsites.net` and see the default Nginx page.
 
 ## 3. Add a sidecar container
 
