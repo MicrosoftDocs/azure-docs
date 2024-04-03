@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # How to collect diagnostic audio recordings
-In some cases, we may request audio recordings, especially when investigating audio quality problems, such as distorted audio and echo issues.
+To debug some issue, you may need audio recordings, especially when investigating audio quality problems, such as distorted audio and echo issues.
 
 To collect diagnostic audio recordings, open the chrome://webrtc-internals(Chrome) or edge://webrtc-internals(Edge) page.
 
@@ -30,8 +30,3 @@ After you finish an ACS call, you should be able to see files saved in the folde
 `*.input.M.wav` is the audio input captured from the microphone.
 
 `*.aecdump` contains the necessary wav files for debugging audio after processed by the audio processing module in browsers.
-
-
-
-
-
