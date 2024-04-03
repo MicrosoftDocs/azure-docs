@@ -230,17 +230,17 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`automl_step`|`automl` job|`automl` component|
 |`azurebatch_step`| None| None|
 |`command_step`| `command` job|`command` component|
-|`data_transfer_step`| coming soon | coming soon|
-|`databricks_step`| coming soon|coming soon|
+|`data_transfer_step`| None | None |
+|`databricks_step`| None | None |
 |`estimator_step`| command job|`command` component|
 |`hyper_drive_step`|`sweep` job| `sweep` component|
 |`kusto_step`| None|None|
-|`module_step`|None|command component|
-|`mpi_step`| command job|command component|
+|`module_step`|None| `command` component|
+|`mpi_step`| `command` job|`command` component|
 |`parallel_run_step`|`Parallel` job| `Parallel` component|
-|`python_script_step`| `command` job|command component|
-|`r_script_step`| `command` job|`command` component|
-|`synapse_spark_step`| coming soon|coming soon|
+|`python_script_step`| `command` job|`command` component|
+|`r_script_step`| `command` job |`command` component|
+|`synapse_spark_step`| `spark` job | `spark` component |
 
 ## Published pipelines
 
