@@ -79,9 +79,9 @@ Each AI hub you create has a default storage account. Each child AI project of t
 
 To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI project has:
 
-- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI project.
 - A service principal that is assigned the Storage Blob Data Contributor role on the storage account.
-- A unique prefix value.
+- A unique ID (workspace ID).
+- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI project.
 
 The role assignment for each AI project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each AI project can only access its own containers.
 
