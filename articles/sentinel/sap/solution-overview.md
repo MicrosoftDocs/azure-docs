@@ -15,7 +15,6 @@ Security operations teams have traditionally had very little visibility into SAP
 
 To help close this gap, Microsoft Sentinel offers the Microsoft Sentinel solution for SAP® applications. This comprehensive solution uses components at every level of Microsoft Sentinel to offer end-to-end detection, analysis, investigation, and response to threats in your SAP environment.
 
-
 ## What the Microsoft Sentinel solution for SAP® applications does
 
 The Microsoft Sentinel solution for SAP® applications continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS. It allows you to:
