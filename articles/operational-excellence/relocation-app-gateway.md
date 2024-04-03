@@ -4,7 +4,7 @@ description: This article shows you how to relocate an Azure Application Gateway
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 03/26/2024
+ms.date: 04/03/2024
 ms.service: application-gateway
 ms.topic: concept
 ms.custom:
@@ -42,33 +42,48 @@ Since an Application Gateway is a type of load balancer there isn’t any data m
 
 There are two options for Application Gateway deployment. 
 
-## Redeployment option 1: Create a separate Application Gateway and IP address
+### Redeploy option 1: Create a separate Application Gateway and IP address
 
-This option requires you to create a separate Application Gateway deployment, using a new public IP address. Workloads are then migrated from the non-zone aware Application Gateway setup to the new one. 
+With this option, you create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the old Application Gateway set up to the new one. 
 
 Since you're changing the public IP address, changes to DNS configuration are required. This option also requires some changes to virtual networks and subnets.
 
 Use this option to:
 
-- Minimize downtime. If DNS records are updated to the new environment, clients will establish new connections to the new gateway with no interruption.
+- Minimize downtime. If DNS records are updated to the new environment, clients can establish new connections to the new gateway with no interruption.
 - Allow for extensive testing or even a blue/green scenario.
 
-To create a separate Application Gateway, WAF (optional) and IP address:
 
-!Note: Ensure Application Gateway v2 subnet has sufficient address space to accommodate the number of instances required to serve your maximum expected traffic
+>[!NOTE]
+>Ensure that the Application Gateway subnet has enough address space to accommodate the number of instances required to serve your maximum expected traffic.
+
+**To create a separate Application Gateway, WAF (optional) and IP address:**
 
 1. Go to the [Azure portal](https://portal.azure.com).
-1. In case you use TLS termination using Key Vault follow the relocation procedure for Key Vault and ensure that the Key Vault is in the same subscription as the to be relocated Application Gateway. You can create a new certificate or  use the existing certificate for the to be relocated Application Gateway.
-2. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively in the new Azure region. Please ensure that the Virtual Network was relocated before you deploy the Application gateway. With relocation of the Application Gateway you must create a new frontend Public IP address.
-1. If you have a WAF config or custom rules-only WAF Policy transition it to to a full WAF policy. Follow the steps described in [Migrate WAF Policy](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/migrate-policy).
-1. If you use a Zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, please make sure to follow this guideline which outlines a strategy for implementing zero-trust security for web apps. [Application Gateway before Azure Firewall](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
-3. Verify that the Application Gateway and WAF are working as intended.
-4. Migrate your configuration to the new public IP address.
-     1. Switch Endpoints Public and Private in order to point to the new application gateway. Migrate your DNS configuration to the new Public- and/or Private  IP address.
-     1. Update endpoints in consumer applications/services, this is usually done via properties change and re-deployment. This option mainly used whena new hostname is used in respect to deployment in the source region.
-5. Delete the old Application Gateway and WAF resources.
 
-## Redeployment option 2: Delete and redeploy Application Gateway
+1. If you use TLS termination for Key Vault, follow the [relocation procedure for Key Vault](./relocation-key-vault.md). Ensure that the Key Vault is in the same subscription as the relocated Application Gateway. You can create a new certificate or use the existing certificate for relocated Application Gateway.
+
+1. Confirm that the virtual network is relocated *before* you relocate. To learn how to relocate your virtual network, see [Relocate Azure Virtual Network](./relocation-virtual-network.md).
+
+2. Create an Application Gateway and configure a new Frontend Public IP Address for the virtual network:
+    - Without WAF:  [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
+    - With WAF: [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) 
+    
+
+1. If you have a WAF config or custom rules-only WAF Policy, [transition it to to a full WAF policy](../web-application-firewall/ag/migrate-policy.md).
+
+1. If you use a zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, follow the guidelines and strategies in [Zero-trust network for web applications with Azure Firewall and Application Gatewayl](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
+
+1. Verify that the Application Gateway and WAF are working as intended.
+
+1. Migrate your configuration to the new public IP address.
+     1. Switch Public and Private endpoints in order to point to the new application gateway. 
+     1. Migrate your DNS configuration to the new Public- and/or Private  IP address.
+     1. Update endpoints in consumer applications/services. While, consumer application/services updates are usually done by means of a properties change and re-deployment, use this manual method whenever a new hostname is used in respect to deployment in the source region.
+
+1. Delete the old Application Gateway and WAF resources.
+
+### Redeploy option 2: Delete and redeploy Application Gateway
 
 This option doesn't require you to reconfigure your virtual network and subnets. If the public IP address for the Application Gateway is already configured for the desired end state zone awareness, you can choose to delete and redeploy the Application Gateway, and leave the Public IP address unchanged.
 
@@ -77,24 +92,29 @@ Use this option to:
 - Avoid changing IP address, subnet, and DNS configurations.
 - Move workloads that are not sensitive to downtime.
 
-To delete the Application Gateway and WAF and redeploy:
+**To delete the Application Gateway and WAF and redeploy:**
 
 1. Go to the [Azure portal](https://portal.azure.com). 
+
 2. Select **All resources**, and then select the resource group that contains the Application Gateway.
+
 3. Select the Application Gateway resource and then select **Delete**. Type **yes** to confirm deletion, and then select **Delete**.
+
 4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
 
-## Certificate Relocation for Premium TLS Inspection
-This section needs to be considered if Application gateway has integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners Application Gateway offers two models for TLS termination:
+### Certificate Relocation for Premium TLS Inspection
+
+This section needs to be considered if your Application Gateway has integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 
 Application Gateway offers two models for TLS termination:
 
 - Provide TLS/SSL certificates attached to the listener. This model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
 - Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener.
 
-!WARNING: Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a key vault under a different subscription than your Application Gateway will result in a failure.
+>[!WARNING]
+ >Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a key vault under a different subscription than your Application Gateway results in a failure.
 
-Details on which certificates Azure Application uses, and how to deploy, are reported in this article: [Supported Certificates](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#supported-certificates)
+To learn about the certificates that Azure Application uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates)
 
 This support is limited to the v2 SKU of Application Gateway. For TLS termination, Application Gateway only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate’s status is set to Enabled in Key Vault.
 
