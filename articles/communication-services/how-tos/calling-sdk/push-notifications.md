@@ -16,21 +16,21 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable push notifications for calls
 
-Here, we'll learn how to enable push notifications for Azure Communication Services calls. Setting these up will let your users know when they have an incoming call which they can then answer.
+Here, we learn how to enable push notifications for Azure Communication Services calls. Setting up the push notifications let your users know when they have an incoming call, which they can then answer.
 
 ## TTL token
 
-The Time To Live (TTL) token is a setting that determines the length of time a notification token stays valid before becoming invalid.  This setting is useful for applications where user engagement does not require daily interaction but remains critical over longer periods.
+The Time To Live (TTL) token is a setting that determines the length of time a notification token stays valid before becoming invalid. This setting is useful for applications where user engagement doesn't require daily interaction but remains critical over longer periods.
 
 The TTL configuration allows the management of push notifications' lifecycle, reducing the need for frequent token renewals while ensuring that the communication channel between the application and its users remains open and reliable for extended durations.
 
 Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. You can enter this value and adjust it accordingly to your needs.
 
-There's a **24-hour limit** after the register push notification API is called when the device token information is saved in Registar. After TTL lifespan ends, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
+There's a **24-hour limit** after the register push notification API is called when the device token information is saved in Registrar. After TTL lifespan ends, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
 
-In case that you want to revoke an identity you need to follow [the next proces](../../concepts/identity-model.md#revoke-or-update-access-token). Once the identity is revoked the Registrar entry should be deleted.
+In case that you want to revoke an identity you need to follow [the next process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
 
-Note: For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there is no way to increase this value.
+Note: For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there's no way to increase this value.
 
 ## Prerequisites
 

@@ -57,7 +57,7 @@ Provide translation – Use the translation functions provided to provide transl
 ![Diagram of Teams meeting interop](./media/acs-teams-interop-captions.png)
 
 ## Sample architecture of an Azure Communication Services user using captions in a meeting with a Microsoft 365 user on Azure Communication Services SDK
-![Diagram of CTE user](./media/-captions-interop.png)
+![Diagram of CTE user](./media/m365-captions-interop.png)
 
 
 ## Privacy concerns
