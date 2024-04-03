@@ -102,23 +102,19 @@ Use this option to:
 
 4. Follow the steps in [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway) or [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) to create a new Application Gateway v2 or Application Gateway v2 + WAF v2, respectively, using the same Virtual Network, subnets, and Public IP address that you used previously.
 
-### Certificate Relocation for Premium TLS Inspection
+### Relocate certificates for Premium TLS Termination (Application Gateway v2)
 
-This section needs to be considered if your Application Gateway has integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
+Consider this section if your Application Gateway v2 is integrated with Key Vault for server certificates that are attached to HTTPS-enabled listeners.  For TLS termination, Application Gateway v2 only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your Key Vault. To avoid any failures, ensure that the certificate’s status is set to `Enabled` in Key Vault. To learn more about exporting an existing certificate from a source Azure Key Vault, see [Export certificates from Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli).
 
-Application Gateway offers two models for TLS termination:
+Application Gateway v2 offers two models for TLS termination:
 
-- Provide TLS/SSL certificates attached to the listener. This model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
-- Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener.
+- *Attachment.* Provide an TLS/SSL certificate that's attached to the listener. The attachment model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
+
+- *Reference.* Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener.
 
 >[!WARNING]
- >Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a key vault under a different subscription than your Application Gateway results in a failure.
+ >Application Gateway v2 currently supports only Key Vault accounts in the same subscription as the Application Gateway v2 resource. Choosing a key vault under a different subscription than your Application Gateway v2 results in a failure.
 
-To learn about the certificates that Azure Application uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates)
-
-This support is limited to the v2 SKU of Application Gateway. For TLS termination, Application Gateway only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate’s status is set to `Enabled` in Key Vault.
-
-To learn how to export an existing certificate from a source Azure Key Vault, see [Export certficates from Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli).
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
 
@@ -126,7 +122,10 @@ As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted serv
 
 ![AppGateway](./ag-kv.png)
 
+To learn about the certificates that Azure Application Gateway v2 uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates).
+
 ### Key Vault Managed Identity
+
 ![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/13762e21-52cb-4569-8e34-35db9d115f8c)
 ![ag-kv](https://github.com/MicrosoftDocs/azure-docs-pr/assets/7080358/f876f274-58ac-44f9-aac2-7c4b658cff4e)
 
