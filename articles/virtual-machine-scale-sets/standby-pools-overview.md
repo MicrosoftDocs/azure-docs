@@ -16,7 +16,7 @@ ms.reviewer: ju-shim
 
 Standby Pools for Virtual Machine Scale Sets allow you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. 
 
-Standby Pools reduce the time to scale-out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the Standby Pool before to being put into the scale set and before the instances begin taking traffic.
+Standby Pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the Standby Pool before to being put into the scale set and before the instances begin taking traffic.
 
 ## Standby Pool Size
 The number of virtual machines in a Standby Pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured. 
@@ -29,7 +29,7 @@ The number of virtual machines in a Standby Pool are determined by the number of
 
 ## Scaling
 
-When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull virtual machines from the Standby Pool. Standby Pools reduce the time it takes to scale-out and have the instances ready to take traffic. 
+When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull virtual machines from the Standby Pool. Standby Pools reduce the time it takes to scale out and have the instances ready to take traffic. 
 
 When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) you have configured and your Standby Pool will refill to meet the `MaxReadyCapacity` configured.  
 
