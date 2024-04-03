@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with Apache Flink® Data
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 04/02/2024
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
@@ -138,7 +138,7 @@ GO
 ```
 ##### Maven source code on IdeaJ
 
-In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
+In the below snippet, we use Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
 
 **maven pom.xml**
 
@@ -158,7 +158,7 @@ In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update 
          <flink.version>1.17.0</flink.version>
          <java.version>1.8</java.version>
          <scala.binary.version>2.12</scala.binary.version>
-         <kafka.version>3.2.0</kafka.version> // Replace with 3.2 if you're using HDInsight Kafka 3.2
+         <kafka.version>3.2.0</kafka.version> //
      </properties>
      <dependencies>
          <dependency>
