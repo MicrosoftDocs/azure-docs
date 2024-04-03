@@ -128,7 +128,6 @@ This article describes the features available in Microsoft Sentinel across diffe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Advanced Security Information Model (ASIM)](normalization.md) |Public preview |&#x2705; |&#x2705; |&#x2705; |
-|[SIEM to 
 
 ## Notebooks
 
