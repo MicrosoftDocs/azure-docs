@@ -1398,8 +1398,7 @@ And returns this result: `"https://contoso.com"`
 
 ### div
 
-Return the result of dividing one number by another number.
-To get the remainder result, see [mod()](#mod).
+Return the result of dividing one number by another number. The precise return type of the function depends on the types of its parameters &mdash; see examples for detail.
 
 ```
 div(<dividend>, <divisor>)
@@ -1416,7 +1415,7 @@ div(<dividend>, <divisor>)
 | <*quotient-result*> | Integer or Float | The result of dividing the first number by the second number |
 ||||
 
-*Example*
+*Example 1*
 
 Both examples divide the first number by the second number:
 
@@ -1426,6 +1425,11 @@ div(11, 5)
 ```
 
 And return this result: `2`
+
+*Example 2*
+
+To get the remainder result, see [mod()](#mod).
+
 
 <a name="encodeUriComponent"></a>
 
