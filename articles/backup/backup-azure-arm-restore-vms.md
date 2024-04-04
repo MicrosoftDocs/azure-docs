@@ -193,12 +193,12 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
 ## Assign network access settings during restore (preview)
 
-Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the preferences at the time of initiating the restore.
+Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the disk access preferences at the time of initiating the restore.
 
 >[!Note]
 >This feature is currently available only for backed-up VMs that use private endpoint-enabled disks. 
 
-To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration). choose one of the following options:
+To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration), choose one of the following options:
 
 - **Use the same network configurations as the source disk(s)**: This option allows the restored disks to use the disk access and network configurations same as that of the source disks.
 - **Enable public access from all networks**: This option allows the restored disk to be publicly accessible from all networks. 
