@@ -55,7 +55,7 @@ The following capabilities are only available in the Azure portal.
 |---------|---------|
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
 |Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
-| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform) |
+| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
 
 ## Quick reference
 
