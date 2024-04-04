@@ -122,5 +122,5 @@ As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted serv
 
 
 
-When you’re using a restricted key vault, use the following steps in this documentation to configure Application Gateway to use firewalls and virtual networks: [Configure your Key Vault](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#configure-your-key-vault)
+Follow the documented procedure to enable [TLS termination with Key Vault certificates](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#configure-your-key-vault) for your relocated Application Gateway. 
 
