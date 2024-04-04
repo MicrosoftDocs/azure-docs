@@ -91,12 +91,53 @@ enable a fileserver and mount it on each cluster node with:
     address = 54.83.20.2
 ```
 
+::: moniker range=">=cyclecloud-8"
+## Mount an Azure Managed Lustre Filesystem
+
+Azure CycleCloud clusters have built-in support for mounting Azure Managed Lustre.
+
+To create a new Azure Managed Lustre Filesystem (AMLFS) for use in your cluster, follow the [AMLFS documentation](/azure/azure-managed-lustre/amlfs-overview).
+
+To mount an existing AMLFS:
+
+``` ini
+[[[configuration cyclecloud.mounts.lustre_data]]]
+type = lustre
+address = 10.4.0.14
+mountpoint = /lustre_data
+```
+
+The required `address` attribute specifies the the hostname or IP of the AMLFS. 
+The required `mountpoint` attribute specifies the path to mount the AMLFS on the cluster nodes.
+
+
+Optionally, you may use the `export_path` attribute to mount existing sub-directories within the AMLFS.  For a newly created AMLFS, the only existing path will be `/`.  If `export_path` is not set, it will default to `tcp:/lustrefs/` (AMLFS mount points must be prefixed with `tcp:/lustrefs`)    
+
+For example, assuming the path `/data` has been created in your lustre filesystem, you can mount `data` as follows:
+
+``` ini
+[[[configuration cyclecloud.mounts.lustre_data]]]
+type = lustre
+address = 10.4.0.14
+mountpoint = /lustre_data
+export_path = tcp:/lustrefs/data/
+options = noatime, flock
+```
+
+The optional `options` attribute may be used to add mount options for an AMLFS mount.  `options` defaults to `noatime, flock` if not specified.
+::: moniker-end
+
+[!NOTE]
+Lustre performs best if nodes unmount prior to shutdown, so it is strongly recommended to enable [Termination Notifications](~/how-to/scheduled-events.md#terminate-notification) for nodes which will mount an AMLFS filesystem.   CycleCloud will register a shutdown script to cleanly unmount the filesystem upon node termination that will be called if Termination Notifications are enabled.
+
+
+
 ## Mount Configuration Options
 
 | Option | Definition |
 | ------ | ---------- |
-| type          | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from volume mounts and other shared filesystem types.   |
-| export_path   | The location of the export on the NFS filer.  If an export_path is not specified, the  mountpoint of the mount will be used as the export_path.  |
+| type          | *REQUIRED* The type attribute must be set to `nfs` for NFS mounts or `lustre` for AMLFS mounts to differentiate from volume mounts and other shared filesystem types.   |
+| export_path   | The location of the export on the remote filesystem.  The export_path must already exist on the remote filesystem.  If an export_path is not specified, the mountpoint of the mount will be used as the export_path.  |
 | mountpoint    | The location where the filesystem will be mounted after any additional configuration is applied.  If the directory does not already exist, it will be created. |
 | cluster_name  | The name of the CycleCloud cluster which exports the filesystem.  If not set, the node's local cluster is assumed.   |
 | address       | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster. |
