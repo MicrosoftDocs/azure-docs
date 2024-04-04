@@ -196,7 +196,7 @@ As one of the [restore options](#restore-options), you can replace an existing V
 Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the disk access preferences at the time of initiating the restore.
 
 >[!Note]
->This feature is currently available only for backed-up VMs that use private endpoint-enabled disks. 
+>This feature is currently in preview and is available only for backed-up VMs that use private endpoint-enabled disks. 
 
 To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration), choose one of the following options:
 
