@@ -2,7 +2,7 @@
 title: How to remotely and securely configure servers using Run command (Preview)
 description: Learn how to remotely and securely configure servers using Run Command.
 ms.date: 02/07/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -54,7 +54,7 @@ The following examples use [az connectedmachine run-command](/cli/azure/connecte
 This command delivers the script to the machine, executes it, and returns the captured output.
 
 ```azurecli
-az connectedmachine run-command create –-name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
+az connectedmachine run-command create --name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a machine

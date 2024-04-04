@@ -63,4 +63,4 @@ For more information, see [Activate PIM roles using the Azure mobile app](/entra
 ## Next steps
 
 - Learn more about the [Azure mobile app](overview.md).
-- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/azureapp/ios/doc), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).
+- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/ReferAzureIOSEntraIDMobileAppDocs), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).

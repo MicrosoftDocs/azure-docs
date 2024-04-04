@@ -3,7 +3,7 @@ title: Linter rule - use protectedSettings for commandToExecute secrets
 description: Linter rule - use protectedSettings for commandToExecute secrets
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - use protectedSettings for commandToExecute secrets

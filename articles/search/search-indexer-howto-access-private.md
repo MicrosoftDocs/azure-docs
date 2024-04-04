@@ -45,8 +45,13 @@ Only your search service can use the private links that it creates, and there ca
 
 Once you set up the private link, it's used automatically whenever the search service connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
-> [!NOTE]
-> There are two scenarios for using [Azure Private Link](../private-link/private-link-overview.md) and Azure AI Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
+There are two scenarios for using [Azure Private Link](../private-link/private-link-overview.md) and Azure AI Search together.
+
++ Scenario one: create a shared private link when an *outbound* (indexer) connection to Azure PaaS requires a private connection.
+
++ Scenario two: [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. 
+
+While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
@@ -270,7 +275,7 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has a role assignment on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
+Approval of the private endpoint connection is granted on the Azure PaaS side. If the service consumer has a role assignment on the service provider resource, the approval will be automatic. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
 
 This section assumes manual approval and the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
 
@@ -353,10 +358,6 @@ This step shows you how to configure the indexer to run in the private environme
     }
     ```
 
-    Following is an example of the request in Postman.
-
-    ![Screenshot showing the creation of an indexer on the Postman user interface.](media\search-indexer-howto-secure-access\create-indexer.png)
-
 After the indexer is created successfully, it should connect to the Azure resource over the private endpoint connection. You can monitor the status of the indexer by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
@@ -366,7 +367,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool that can invoke an outbound request scenario, such as an indexer connection to a private endpoint. An easy choice is using the **Import data** wizard, but you can also try the Postman app and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
+1. Choose a tool that can invoke an outbound request scenario, such as an indexer connection to a private endpoint. An easy choice is using the **Import data** wizard, but you can also try a REST client and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to search can be over the public internet.
 
 1. Set the connection string to the private Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service invokes the shared private link internally.
 

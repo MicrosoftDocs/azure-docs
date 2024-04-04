@@ -37,6 +37,8 @@ landingContent:
             url: /cli/azure/fleet
           - text: REST
             url: /rest/api/fleet
+          - text: Terraform
+            url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_fleet_manager
           - text: PowerShell
             url: /powershell/module/az.fleet
           - text: .NET

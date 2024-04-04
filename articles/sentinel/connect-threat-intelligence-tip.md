@@ -6,7 +6,9 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to use a Threat Intelligence Platform solution to ingest threat intelligence, so I can generate alerts incidents.
 ---
@@ -26,6 +28,8 @@ Because the TIP data connector works with the [Microsoft Graph Security tiIndica
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [threat intelligence platform products](threat-intelligence-integration.md#integrated-threat-intelligence-platform-products) that can be integrated with Microsoft Sentinel.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites  
 
@@ -127,25 +131,21 @@ Once this configuration is complete, threat indicators will be sent from your TI
 
 The last step in the integration process is to enable the **Threat Intelligence Platforms data connector** in Microsoft Sentinel. Enabling the connector is what allows Microsoft Sentinel to receive the threat indicators sent from your TIP or custom solution. These indicators will be available to all Microsoft Sentinel workspaces for your organization. Follow these steps to enable the Threat Intelligence Platforms data connector for each workspace:
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
-1. Choose the **workspace** to which you want to import the threat indicators sent from your TIP or custom solution.
+1. Find and select the **Threat Intelligence** solution.
 
-1. Select **Content hub** from the menu.
+1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
 
-1. Find and select the **Threat Intelligence** solution using the list view.
+For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
-1. Select the :::image type="icon" source="media/connect-threat-intelligence-tip/install-update-button.png"::: **Install/Update** button.
-
-    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
-
-1. To configure the TIP data connector, select the **Data connectors** menu. 
+1. To configure the TIP data connector, select **Configuration** > **Data connectors**. 
 
 1. Find and select the **Threat Intelligence Platforms** data connector > **Open connector page** button.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/tip-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TIP data connector listed." lightbox="media/connect-threat-intelligence-tip/tip-data-connector-config.png":::
 
-1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
+1. As you've already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
 
 Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
 

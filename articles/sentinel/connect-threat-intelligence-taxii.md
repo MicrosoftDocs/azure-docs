@@ -6,7 +6,9 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #customer intent: As a SOC admin, I want to connect Microsoft Sentinel to a STIX/TAXII feed to ingest threat intelligence, so I can generate alerts incidents.
 ---
@@ -22,6 +24,8 @@ To import STIX formatted threat indicators to Microsoft Sentinel from a TAXII se
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Microsoft Sentinel.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 **See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
 
@@ -41,17 +45,13 @@ TAXII 2.x servers advertise API Roots, which are URLs that host Collections of t
 
 To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
-
-1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
-
-1. Select **Content hub** from the menu.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. Find and select the **Threat Intelligence** solution.
 
-1. Select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
 
-    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Enable the Threat intelligence - TAXII data connector
 

@@ -30,6 +30,8 @@ pip install python-dotenv
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```console
 pip install openai==0.28.1
 pip install python-dotenv

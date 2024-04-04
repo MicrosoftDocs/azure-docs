@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: Best practices
     href: best-practices.md
+  - name: Experience in Defender portal
+    href: microsoft-sentinel-defender-portal.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -147,6 +149,8 @@
           href: sap/cross-workspace.md
         - name: Respond to SAP incidents with playbooks
           href: sap/sap-incident-response-playbooks.md
+        - name: Automatic attack disruption for SAP
+          href: sap/deployment-attack-disrupt.md
         - name: Deployment guide
           items: 
           - name: Overview
@@ -157,12 +161,8 @@
             href: sap/preparing-sap.md
           - name: Configure auditing
             href: sap/configure-audit.md
-          - name: Deploy data connector agent
-            items:
-            - name: Deploy data connector agent (portal/script)
-              href: sap/deploy-data-connector-agent-container.md        
-            - name: Deploy data connector agent (manually)
-              href: sap/deploy-data-connector-agent-container-other-methods.md
+          - name: Deploy the data connector agent
+            href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
@@ -224,10 +224,16 @@
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
+          displayName: Power Platform
         - name: Content overview
+          displayName: Power Platform
           href: business-applications/power-platform-solution-security-content.md
         - name: Deploy solution
+          displayName: Power Platform
           href: business-applications/deploy-power-platform-solution.md
+        - name: Troubleshoot
+          displayName: Power Platform
+          href: business-applications/power-platform-solution-troubleshoot.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
@@ -246,6 +252,8 @@
     href: best-practices-data.md
   - name: Tutorial - Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Connect data sources
+    href: configure-data-connector.md
   - name: Classifying data with entities
     href: entities.md
   - name: Ingestion-time data transformation
@@ -973,7 +981,9 @@
     - name: Handle ingestion delay in analytics rules
       href: ingestion-delay.md
     - name: Get fine-tuning recommendations
-      href: detection-tuning.md    
+      href: detection-tuning.md
+    - name: Troubleshoot analytics rules
+      href: troubleshoot-analytics-rules.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Handle false positives
@@ -1116,6 +1126,8 @@
       href: configure-data-retention.md
     - name: Basic logs best practices
       href: basic-logs-use-cases.md
+  - name: Connect Microsoft Sentinel to Microsoft Defender XDR
+    href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager

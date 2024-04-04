@@ -5,7 +5,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: article
-ms.date: 12/07/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -26,7 +26,7 @@ In this article, learn how to configure [VMware Cloud Director](https://docs.vmw
 
 ## Plan and prepare Azure VMware solution private cloud for VMware Reverse proxy
 
-- VMware Reverse proxy VM is deployed within the Azure VMware solution SDDC and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](concepts-design-public-internet-access.md) 
+- VMware Reverse proxy VM is deployed within the Azure VMware solution SDDC and requires outbound connectivity to your VMware Cloud director Service Instance. [Plan how you would provide this internet connectivity.](architecture-design-public-internet-access.md) 
 
 - Public IP on NSX-T edge can be used to provide outbound access for the VMware Reverse proxy VM as shown in this article. Learn more on, [How to configure a public IP in the Azure portal](enable-public-ip-nsx-edge.md#set-up-a-public-ip-address-or-range) and [Outbound Internet access for VMs](enable-public-ip-nsx-edge.md#outbound-internet-access-for-vms)
  

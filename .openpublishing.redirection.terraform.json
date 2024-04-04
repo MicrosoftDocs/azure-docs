@@ -1,0 +1,119 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/terraform/index.yml",
+            "redirect_url": "/azure/developer/terraform/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-backend.md",
+            "redirect_url": "/azure/developer/terraform/store-state-in-azure-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-cloud-shell.md",
+            "redirect_url": "/azure/developer/terraform/install-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-complete-vm.md",
+            "redirect_url": "/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-configuration.md",
+            "redirect_url": "/azure/developer/terraform/deploy-azure-cosmos-db-to-azure-container-instances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md",
+            "redirect_url": "/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-k8s-cluster-with-tf-and-aks.md",
+            "redirect_url": "/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-vm-cluster-module.md",
+            "redirect_url": "/azure/developer/terraform/create-vm-cluster-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-vm-cluster-with-infrastructure.md",
+            "redirect_url": "/azure/developer/terraform/create-vm-cluster-with-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-vm-scaleset-network-disks-hcl.md",
+            "redirect_url": "/azure/developer/terraform/create-vm-scaleset-network-disks-hcl",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl.md",
+            "redirect_url": "/azure/developer/terraform/create-vm-scaleset-network-disks-using-packer-hcl",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-hub-network.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-hub-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-hub-nva.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-hub-nva",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-introduction.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-on-prem.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-on-prem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-spoke-network.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-spoke-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-hub-spoke-validation.md",
+            "redirect_url": "/azure/developer/terraform/hub-spoke-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-install-configure.md",
+            "redirect_url": "/azure/developer/terraform/install-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-modules.md",
+            "redirect_url": "/azure/developer/terraform/test-modules-using-terratest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-overview.md",
+            "redirect_url": "/azure/developer/terraform/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-slot-walkthru.md",
+            "redirect_url": "/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-vscode-extension.md",
+            "redirect_url": "/azure/developer/terraform/configure-vs-code-extension-for-terraform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/terraform/terraform-vscode-module-generator.md",
+            "redirect_url": "/azure/developer/terraform/create-a-base-template-using-yeoman",
+            "redirect_document_id": false
+        }
+    ]
+}

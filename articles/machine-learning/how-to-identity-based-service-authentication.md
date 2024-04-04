@@ -35,6 +35,16 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Azure Container Registry and identity types
+
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __public network access__ workspace flag.
+
+| Authentication method | Public network access</br>disabled | Public network access</br>enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| Workspace system-assigned managed identity | ✓ | ✓ |
+| Workspace user-assigned managed identity</br>with the ACRPull role assigned to the identity |  | ✓ |
+
 ## User-assigned managed identity
 
 ### Workspace

@@ -34,13 +34,12 @@ We strongly recommend that you have a support plan that includes technical suppo
 
 ## Choose the Azure tenant to use
 
-We recommend that you use an existing Microsoft Entra tenant for Azure Communications Gateway, because using an existing tenant uses your existing identities for fully integrated authentication. If you need to manage identities separately from the rest of your organization, create a new dedicated tenant first.
+We recommend that you use an existing Microsoft Entra tenant for Azure Communications Gateway, because using an existing tenant uses your existing identities for fully integrated authentication. If you need to manage identities separately from the rest of your organization, or to set up different permissions for the Number Management Portal for different Azure Communications Gateway resources, create a new dedicated tenant first.
 
 The Operator Connect and Teams Phone Mobile environments inherit identities and configuration permissions from your Microsoft Entra tenant through a Microsoft application called Project Synergy. You must add this application to your Microsoft Entra tenant as part of [Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile](connect-operator-connect.md) (if your tenant does not already contain this application).
 
 > [!IMPORTANT]
 > For Operator Connect and Teams Phone Mobile, production deployments and lab deployments must connect to the same Microsoft Entra tenant. Microsoft Teams configuration for your tenant shows configuration for your lab deployments and production deployments together.
-
 
 ## Get access to Azure Communications Gateway for your Azure subscription
 

@@ -5,7 +5,9 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
-appliesTo: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to edit or bulk edit my watchlists so I can keep them up to date.
 ---
@@ -13,6 +15,8 @@ ms.collection: usx-security
 # Manage watchlists in Microsoft Sentinel
 
 We recommend you edit an existing watchlist instead of deleting and recreating a watchlist. Log analytics has a five-minute SLA for data ingestion. If you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics during this five-minute window. If you see these duplicate entries in Log Analytics for a longer period of time, submit a support ticket.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Edit a watchlist item
 

@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 03/13/2024
+ms.date: 04/02/2024
 ---
 
 ## Supported client versions
@@ -11,12 +11,24 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5255 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5255 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5326 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5326 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.5326
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+*Date published: March 19, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused the RemoteApp window to appear stretched.
+- When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.5255
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Co), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Cn), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j9dS)
 
 *Date published: March 11, 2024*
 
@@ -28,8 +40,6 @@ In this release, we've made the following change:
 - Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
 
 ## Updates for version 1.2.5254
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1iILw), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1iIL9), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1iT5s)
 
 *Date published: March 6, 2024*
 
