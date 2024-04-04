@@ -74,15 +74,15 @@ Use the following procedure to calculate how many devices you need to monitor if
 
 1. Note down the total number of **IoT devices** listed.
 
-    For example:<!-- how to get updated image for this? -->
+    For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/eiot-calculate-devices.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/xdr-device-inventory-iot.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/xdr-device-inventory-iot.png":::
 
 1. Round up your total to a multiple of 100 and compare it against the number of licenses you have. <!-- surely this should be round down?? -->
 
 For example:
 
-- In the Microsoft Defender XDR **Device inventory**, you have *1206* IoT devices.
+- If in Microsoft Defender XDR **Device inventory**, you have *1206* IoT devices.
 - Round down to *1200* devices.
 - You have 320 ME5 licenses, which cover **1200** devices
 
