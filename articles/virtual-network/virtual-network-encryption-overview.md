@@ -37,8 +37,6 @@ Virtual network encryption has the following requirements:
 
 - Encryption is only applied to traffic between virtual machines in a virtual network. Traffic is encrypted from a private IP address to a private IP address.
 
-- Global Peering is supported in regions where virtual network encryption is supported.
-
 - Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
 - The start/stop of existing virtual machines is required after enabling encryption in a virtual network.
