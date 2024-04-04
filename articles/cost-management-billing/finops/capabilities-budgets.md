@@ -51,7 +51,7 @@ So far, you've defined granular and targeted cost alerts for each scope and appl
 
 ## Learn more at the FinOps Foundation
 
-This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see to the [Budget management](https://www.finops.org/framework/capabilities/budgeting/) article in the FinOps Framework documentation.
+This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see the [Budget management](https://www.finops.org/framework/capabilities/budgeting/) article in the FinOps Framework documentation.
 
 ## Next steps
 
