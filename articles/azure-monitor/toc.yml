@@ -923,9 +923,6 @@ items:
         - name: Overview
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-overview.md
-        - name: Metrics explorer for Azure Monitor workspaces
-          displayName: Prometheus, metrics explorer
-          href: essentials/metrics-explorer.md  
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
@@ -1161,6 +1158,9 @@ items:
     items:
       - name: Analyze metrics
         href: essentials/analyze-metrics.md
+      - name: Metrics explorer with PromQL
+        displayName: Prometheus, metrics explorer
+        href: essentials/metrics-explorer.md  
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts

@@ -1,6 +1,6 @@
 ---
-title: Metrics explorer for Azure Monitor workspace (Preview)
-description: Learn about Metrics Explorer for Azure Monitor workspace, a tool in that allows you to analyze and visualize metrics stored in an Azure Monitor workspace.
+title: Metrics explorer with PromQL (Preview)
+description: Learn about Metrics Explorer with Prometheus query language support.
 author: EdB-MSFT
 ms.service: azure-monitor
 ms-author: edbaynash
@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/01/2024
 ms.reviewer: priyamishra
 
-# Customer intent: As an Azure Monitor user, I want to learn how to use Metrics Explorer for Azure Monitor workspace to analyze and visualize metrics stored in an Azure Monitor workspace using PromQL.
+# Customer intent: As an Azure Monitor user, I want to learn how to use Metrics Explorer with PromQL.
 
 ---
 
-# Metrics explorer for Azure Monitor workspace (Preview)
+# Metrics explorer with PromQL (Preview) (Preview)
 
-Metrics Explorer for Azure Monitor workspace (Preview) allows you to analyze and visualize metrics stored in an Azure Monitor workspace. You can use the metrics explorer to create and customize charts, analyze, and troubleshoot issues with your resources. The metrics explorer supports Prometheus query language (PromQL), letting you query and visualize metrics data in a flexible and powerful way. For more information on PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Metrics Explorer with PromQL (Preview) allows you to analyze and visualize platform metrics, and use Prometheus query language (PromQL) to query metrics stored in an Azure Monitor workspace.
+
+Metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any  Azure Monitor workspace in the Azure portal, but is not limited to Azure Monitor workspaces. You can query metrics from any Azure resource by selecting the appropriate scope.
+
+For more information on PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 
 ## Create a chart
-
-Metrics explorer for Azure Monitor workspace (Preview) is available from the **Metrics** menu item of the Azure Monitor workspace in the Azure portal. 
 
 The chart pane has two options for charting a metric:
 -  Add with builder
