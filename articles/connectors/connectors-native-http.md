@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/22/2024
-tags: connectors
 ---
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps

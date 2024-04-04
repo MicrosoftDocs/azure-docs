@@ -7,7 +7,6 @@ ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/12/2024
 ---

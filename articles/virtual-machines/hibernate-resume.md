@@ -3,7 +3,6 @@ title: Learn about hibernating your VM
 description: Learn how to hibernate a VM.
 author: mattmcinnes
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: jainan
@@ -106,51 +105,12 @@ The following Windows operating systems support hibernation:
 -	Capacity reservations
 
 ## Prerequisites to use hibernation
-- The hibernate feature is enabled for your subscription.
 - A persistent OS disk large enough to store the contents of the RAM, OS and other applications running on the VM is connected.
 - The VM size supports hibernation.
 -	The VM OS supports hibernation.
 - The Azure VM Agent is installed if you're using the Windows or Linux Hibernate Extensions.
 - Hibernation is enabled on your VM when creating the VM.
 - If a VM is being created from an OS disk or a Compute Gallery image, then the OS disk or Gallery Image definition supports hibernation. 
-
-## Enabling hibernation feature for your subscription
-Use the following steps to enable this feature for your subscription:
-
-### [Portal](#tab/enablehiberPortal)
-1. In your Azure subscription, go to the Settings section and select 'Preview features'. 
-1. Search for 'hibernation'. 
-1. Check the 'Hibernation Preview' item.
-1. Click 'Register'.
-
-![Screenshot showing the Azure subscription preview portal with 4 numbers representing different steps in enabling the hibernation feature.](./media/hibernate-resume/hibernate-register-preview-feature.png)
-
-### [PowerShell](#tab/enablehiberPS)
-```powershell
-Register-AzProviderFeature -FeatureName "VMHibernationPreview" -ProviderNamespace "Microsoft.Compute"
-```
-### [CLI](#tab/enablehiberCLI)
-```azurecli
-az feature register --name VMHibernationPreview --namespace Microsoft.Compute
-```
----
-
-Confirm that the registration state is Registered (registration takes a few minutes) using the following command before trying out the feature.
-
-### [Portal](#tab/checkhiberPortal)
-In the Azure portal under 'Preview features', select 'Hibernation Preview'. The registration state should show as 'Registered'.
-
-![Screenshot showing the Azure subscription preview portal with the hibernation feature listed as registered.](./media/hibernate-resume/hibernate-is-registered-preview-feature.png)
-
-### [PowerShell](#tab/checkhiberPS)
-```powershell
-Get-AzProviderFeature -FeatureName "VMHibernationPreview" -ProviderNamespace "Microsoft.Compute"
-```
-### [CLI](#tab/checkhiberCLI)
-```azurecli
-az feature show --name VMHibernationPreview --namespace Microsoft.Compute
-```
----
 
 ## Getting started with hibernation
 

@@ -3,7 +3,7 @@ title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
+ms.custom: hdinsightactive, devx-track-python
 ms.date: 06/23/2023
 ---
 
@@ -170,7 +170,7 @@ Let's start to get a sense of what the dataset contains.
 
     The output is:
 
-    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output" border="true":::
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output." border="true":::
 
 3. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
 

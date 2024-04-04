@@ -24,16 +24,16 @@ sections:
         answer: |
           Azure for Students is available only to students who meet the following requirements:
           
-          - You must affirm that you attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
+          - You must affirm that you attend an accredited, degree-granting, two-year, or four-year educational institution where you’re a full-time student. 
           - You must verify your academic status through your organization's email address.
           - See the [Azure for Students Offer](https://azure.microsoft.com/offers/ms-azr-0170p/) for detailed terms of use.
           
           This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
           
-          This offer is limited to one Azure for Student subscription per eligible customer. It's non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
+          This offer is limited to one Azure for Student subscription per eligible customer. It's nontransferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
               
       - question: |
-          What products are included in the Azure Dev Tools for Teaching subscription?
+          What products are included in Azure for Students?
         answer: |
           :::row:::
              :::column span="":::
@@ -67,17 +67,17 @@ sections:
       - question: |
           Can I get Azure for Students again next year?
         answer: |
-          Yes!  You can renew your Azure for Students subscription after 1 year.  We will send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
+          Yes! You can renew your Azure for Students subscription after one year.  We send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
 
       - question: |
           Why did I receive an invoice from Microsoft?
         answer: |
-          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation 
+          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you don't have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation.
       
       - question: |
           What are subscriptions, and how do they relate to Azure for Students?
         answer: |
-          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you are 12 months in) or upgrade to a pay-as-you-go subscription.
+          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you're 12 months in) or upgrade to a pay-as-you-go subscription.
 
       - question: |
           What happens with my Azure services if I don't upgrade?
@@ -114,7 +114,7 @@ sections:
       - question: |
           What is Azure for Students Starter?
         answer: |
-          Azure for Students Starter gets you started with the Azure products you need to develop in the cloud. There is no cost to you. This benefit provides you access to a free tier of the following services:
+          Azure for Students Starter gets you started with the Azure products you need to develop in the cloud. There's no cost to you. This benefit provides you access to a free tier of the following services:
           
           - Azure App Service
           - Azure Functions
@@ -130,8 +130,8 @@ sections:
         answer: |
           Azure for Students Starter is available only to students who meet the following requirements:
           
-          - You must affirm that you are age 13 or older if you reside in the United States.
-          - You must affirm that you are age 16 or older if you reside in a country/region other than the United States.
+          - You must affirm that you're age 13 or older if you reside in the United States.
+          - You must affirm that you're age 16 or older if you reside in a country/region other than the United States.
           - You must verify your academic status through your organization's email address. You can also use Shibboleth if it's supported by your organization.
           
           This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
@@ -174,14 +174,14 @@ sections:
       - question: |
           Why do I see a $0 balance in the Azure portal?
         answer: |
-          When you go to your subscription details in the Azure portal, you will see $0.00. The offer places a 100% discount off of all services. Therefore, the portal shows you what you will be charged for during your monthly usage period, which should be $0.00.
+          When you go to your subscription details in the Azure portal, you'll see $0.00. The offer places a 100% discount off of all services. Therefore, the portal shows you what you will be charged for during your monthly usage period, which should be $0.00.
           
           To view your balance and sponsorship information, go to [Azure Sponsorships](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
           
       - question: |
           Can I apply my course credits to an existing Enterprise Agreement (EA)?
         answer: |
-          You cannot associate your course credits offer to any subscription that's on an account under an Enterprise Agreement (EA).
+          You can't associate your course credits offer to any subscription that's on an account under an Enterprise Agreement (EA).
           
           To apply course credits, you must create a new account that's outside of the EA, which we can then entitle.
           
@@ -203,7 +203,7 @@ sections:
       - question: |
           Are Azure Marketplace applications covered by course credits?
         answer: |
-          No, third party applications aren't covered by course credits. They will be charged to the credit card on the account. For more information:
+          No, third party applications aren't covered by course credits. They'll be charged to the credit card on the account. For more information:
           
           - View marketplace services at the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
           - Refer to the [Azure Sponsorship offer](https://azure.microsoft.com/offers/ms-azr-0143p/) terms and conditions.
@@ -211,7 +211,7 @@ sections:
       - question: |
           I have a previous balance due, can I pay it off with my course credits?
         answer: |
-          Azure course credits only cover usage from the time you activate the Azure Sponsorship offer. You are responsible for all charges prior to your offer start date.
+          Azure course credits only cover usage from the time you activate the Azure Sponsorship offer. You're responsible for all charges prior to your offer start date.
 
       - question: |
           How do I know if my subscription is on the Azure course credit offer?
@@ -223,7 +223,7 @@ sections:
       - question: |
           Who is eligible to purchase Microsoft Azure Dev Tools for Teaching?
         answer: |
-          Only academic institutions that have purchased a Volume Licensing (VL) agreement with Microsoft are able to enroll into Azure Dev Tools for Teaching.  If you are currently a Dev Tools for Teaching customer without a VL agreement, you can continue to renew your subscription. For more information on VL agreements for academic institutions, please visit https://aka.ms/ees 
+          Only academic institutions that have purchased a Volume Licensing (VL) agreement with Microsoft are able to enroll into Azure Dev Tools for Teaching.  If you're currently a Dev Tools for Teaching customer without a VL agreement, you can continue to renew your subscription. For more information on VL agreements for academic institutions, please visit https://aka.ms/ees 
           
           
       - question: |
@@ -303,7 +303,7 @@ sections:
         answer: |
           As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions).
           
-          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem additional benefits.
+          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem more benefits.
           
       - question: |
           Does Microsoft Azure Dev Tools for Teaching include Microsoft Office?
@@ -353,7 +353,7 @@ sections:
           
           You must also renew your subscription when it expires. It doesn't renew automatically.
           
-          If you are unable to locate your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
+          If you're unable to locate your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
           
       - question: |
           How and when do we renew our Azure Dev Tools for Teaching subscription?

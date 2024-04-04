@@ -12,6 +12,9 @@ ms.reviewer: mattmcinnes
 ---
 # Prepare Linux for imaging in Azure
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 The Azure platform service-level agreement (SLA) applies to virtual machines (VMs) running the Linux operating system only when you're using one of the endorsed distributions. For endorsed distributions, Azure Marketplace provides preconfigured Linux images. For more information, see:

@@ -5,7 +5,6 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 4/6/2023
 ms.author: mattmcinnes

@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot the Azure Cosmos DB connector
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 01/05/2024
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse, ignite-2022
+ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Azure Cosmos DB connector in Azure Data Factory and Azure Synapse

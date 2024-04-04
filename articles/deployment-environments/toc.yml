@@ -15,6 +15,9 @@ items:
       href: quickstart-create-and-configure-devcenter.md
     - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
+    - name: Create dev center and project (Azure Resource Manager)
+      href: quickstart-create-dev-center-project-azure-resource-manager.md
+      displayName: Azure Deployment Environments, ADE, environments, quickstart
     - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
@@ -28,6 +31,9 @@ items:
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
+    - name: Use Azure Developer CLI with ADE
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: Configure resources
@@ -43,24 +49,26 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md     
-    - name: Automatically delete an environment
-      href: how-to-schedule-environment-deletion.md
     - name: Create and configure a dev center from the CLI
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
-- name: Create environments
+    - name: Configure AZD-compatible templates
+      href: how-to-configure-azure-developer-cli-deployment-environments.md  
+- name: Create and manage environments
   expanded: false
   items: 
-    - name: Create an environment with AZD
+    - name: Create environments with Azure Developer CLI (AZD)
       href: how-to-create-environment-with-azure-developer.md
-    - name: Manage environments as a developer
+    - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
-    - name: Create an environment from the CLI
+    - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
 - name: Manage costs
   expanded: false
-  items:         
+  items:
+    - name: Automatically delete an environment
+      href: how-to-schedule-environment-deletion.md         
     - name: Request a quota limit increase
       href: how-to-request-quota-increase.md  
 - name: Security
@@ -72,12 +80,17 @@ items:
       href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-- name: Tutorials
+- name: Automate with CI/CD
   expanded: false
-  items:
-    - name: Deploy environments in CI/CD with GitHub
-      href: tutorial-deploy-environments-in-cicd-github.md  
+  items:       
+    - name: Automate with GitHub Actions (CI/CD)
+      displayName: cicd, GitHub repo
+      href: tutorial-deploy-environments-in-cicd-github.md
+    - name: Automate with Azure Pipelines (CI/CD)
+      displayName: cicd, Azure DevOps, Azure Repos
+      href: tutorial-deploy-environments-in-cicd-azure-devops.md
 - name: Reference
+  expanded: false
   items:
     - name: Install Azure CLI extension
       href: how-to-install-devcenter-cli-extension.md  
@@ -86,6 +99,7 @@ items:
     - name: REST API
       href: /rest/api/devcenter/
 - name: Resources
+  expanded: false
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/

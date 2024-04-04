@@ -53,7 +53,7 @@ Subscribers must choose the tier that works best for their needs in signing. To 
 1. How many signatures do I need to use per month?
 2. Do I need more than 1 of any of the Certificate Profile types?
 
-The answer to the first question is defined by the number of artifacts in total needed to be signed in a month. Consider that one binary executable (.EXE/.DLL) is 1 signature, but a package such as an MSIX may contain minimally 2 signatures. If your per month estimated signature needs are below 5000 signatures, the Basic account tier is a good fit. However, if you're more in the range of 100's of thousands of signatures per month, a Premium account tier is likely the better fit. Consider the costs of going over an account's quota and what best fits your needs. 
+The answer to the first question is defined by the number of artifacts in total needed to be signed in a month. Consider that one binary executable (.EXE/.DLL) is 1 signature, but a package such as an MSIX may contain minimally 2 signatures. If your per month estimated signature needs are below 5000 signatures, the Basic account tier is a good fit. However, if you're more in the range of hundreds of thousands of signatures per month, a Premium account tier is likely the better fit. Consider the costs of going over an account's quota and what best fits your needs. 
 
 **Note**: Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. Subscribers can sign many artifacts all distributed by the same identity (for example, "Contoso News, LLC"), but operationally, there may be boundaries the subscriber wants to draw in terms of access to signing and billing. You may choose to have a Trusted Signing account per product or per team to isolate usage of an account. However, this isolation pattern can also be achieved at the Certificate Profile level.
 
@@ -89,17 +89,17 @@ Azure Role Based Access Controls (RBAC) is a cornerstone concept for all Azure r
 
 |Role|Managed/View Account|Manage Certificate Profiles|Sign with Certificate Profile|View Signing History|Manage Role Assignment|Manage Identity Validation|
 |---------------|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Code Signing Identity Verifier1||||||X|
-|Code Signing Certificate Profile Signer2|||X|X|||
+|Code Signing Identity Verifier<sub>1</sub>||||||X|
+|Code Signing Certificate Profile Signer<sub>2</sub>|||X|X|||
 |Owner|X|X|||X||
 |Contributor|X|X|||||
 |Reader|X||||||
 |User Access Admin|||||X||
 ||||||||
 
-1Required to create/manage Identity Validation only available on the Azure Portal experience. 
+<sub>1</sub> Required to create/manage Identity Validation only available on the Azure Portal experience. 
 
-2Required to successfully sign with Trusted Signing.
+<sub>2</sub> Required to successfully sign with Trusted Signing.
 
 ## Next steps
 

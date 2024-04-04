@@ -96,7 +96,7 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 Only transfer syntaxes with explicit Value Representations are accepted.
 
 > [!NOTE]
-> Requests are limited to 2GB. No single DICOM file or combination of files might exceed this limit.
+> Requests are limited to 4GB. No single DICOM file or combination of files might exceed this limit.
 
 #### Store changes from v1
 In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.

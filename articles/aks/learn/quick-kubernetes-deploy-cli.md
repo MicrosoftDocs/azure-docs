@@ -3,7 +3,10 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
 ms.date: 01/10/2024
-ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api, linux-related-content
+author: tamram
+ms.author: tamram
+
+ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -23,7 +26,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
@@ -438,3 +441,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+

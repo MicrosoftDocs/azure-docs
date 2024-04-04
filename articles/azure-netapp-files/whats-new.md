@@ -4,7 +4,6 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 11/27/2023
@@ -15,15 +14,59 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## March 2024
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
+
+    Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
+
+    You can deploy new volumes in the logical availability zone of your choice to create cross-zone volumes to improve resiliency in case of zonal failures. This feature is available in all availability zone-enabled regions with Azure NetApp Files presence.
+    
+    The [populate existing volume](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) feature is still in preview. 
+
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md): The 1 TiB capacity pool feature is now generally available (GA). 
+
+    The 1 TiB lower limit for capacity pools using Standard network features is now generally available (GA). You still must register the feature.
+
+* [Volume enhancement: create volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) (Preview)
+
+    Azure NetApp Files now allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This enhancement is currently in preview. 
+    
+## February 2024
+
+* [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
+
+    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
+    
+    Azure NetApp Files now supports characters outside of the BMP using surrogate pair logic, where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are now supported in Azure NetApp Files.
+
+    To learn more about languages and special character handling in Azure NetApp Files volumes, see [Understand volume languages in Azure NetApp Files](understand-volume-languages.md).
+    
+    To learn more about file path lengths in relation to language and character handling in Azure NetApp Files volumes, see [Understand path lengths in Azure NetApp Files](understand-path-lengths.md).
+    
+
+* [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
+
+    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You still must register the feature before using it for the first time.
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md#requirements-and-considerations) volume size increase beyond 30% default limit
+
+    For capacity and resources planning purposes the Azure NetApp Files large volume feature has a [volume size increase limit of up to 30% of the lowest provisioned size](large-volumes-requirements-considerations.md#requirements-and-considerations). This volume size increase limit is now adjustable beyond this 30% (default) limit via a support ticket. For more information, see [Resource limits](azure-netapp-files-resource-limits.md). 
+    
+
 ## January 2024
 
-* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
+* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#supported-regions) (Preview)
 
     Azure NetApp Files now supports the capability to edit network features of existing volumes in US Gov Arizona, US Gov Texas, and US Gov Texas. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. This feature is in preview in commercial and US Gov regions. 
     
 * [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
-
-    You still must register the feature before using it for the first time.
 
 ## November 2023
 
@@ -59,7 +102,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard storage with cool access](cool-access-introduction.md) (Preview)
 
-    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
+    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 2 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 
 * [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md)
 
@@ -134,7 +177,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Connectivity over Active/Active VPN gateway setup
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
 
-    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#supported-regions). It will roll out to other regions. Stay tuned for further information as more regions become available.
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
 

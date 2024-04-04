@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
-ms.custom: event-tier1-build-2022
 ms.date: 07/26/2022
 ---
 
@@ -85,7 +84,7 @@ The Backup and Restore blade in the Azure portal provides a complete list of the
 In Azure Database for MySQL flexible server, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
-- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. Currently, Geo-restore isn't supported for regions like  `Brazil South`, `USGov Virginia`, and `West US 3`.
+- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. 
 
 The estimated time for the recovery of the server depends on several factors: 
 
@@ -123,7 +122,7 @@ You can choose between latest restore point, custom restore point and fastest re
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment-specific variables.
 
 > [!IMPORTANT]
-> If you are restoring a Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
+> If you are restoring an Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
 > You can recover a deleted Azure Database for MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
@@ -149,10 +148,27 @@ The estimated time of recovery depends on several factors including the database
 
 After a restore from either **latest restore point** or **custom restore point** recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
--   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
--   Ensure appropriate server-level firewall and virtual network rules are in place for users to connect.
--   Ensure appropriate logins and database level permissions are in place.
--   Configure alerts, as appropriate.
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server.
+- Ensure appropriate server-level firewall and virtual network rules are in place for users to connect.
+- Ensure appropriate logins and database level permissions are in place.
+- Configure alerts, as appropriate.
+
+## Long-term retention (preview)
+
+Azure Backup and Azure Database for MySQL flexible server services have built an enterprise-class long-term backup solution for Azure Database for MySQL flexible server instances that retains backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure Database for MySQL flexible server, which offers retention of up to 35 days. Automated backups are snapshot backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs and auditing needs. In addition to long-term retention, the solution offers the following capabilities:
+
+- Customer-controlled scheduled and on-demand backups 
+- Manage and monitor all the backup-related operations and jobs across servers, resource groups, locations, subscriptions, and tenants from a single pane of glass called the Backup Center. 
+- Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
+
+### Limitations and considerations
+- In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
+- LTR backup is currently not supported for HA-enabled servers. This capability will be added in the future.
+
+- Support for LTR creation and management through Azure CLI is currently not supported.
+
+For more information about performing a long-term backup, visit the [how-to guide](../../backup/backup-azure-mysql-flexible-server.md)
+
 
 ## Frequently Asked Questions (FAQs)
 
@@ -244,8 +260,3 @@ Azure portal supports Point In Time Restore for all servers, allowing users to r
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
-
-
-
-
-

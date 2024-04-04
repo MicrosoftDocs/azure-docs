@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is Vision Studio?

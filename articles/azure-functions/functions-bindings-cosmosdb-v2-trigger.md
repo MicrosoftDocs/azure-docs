@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 01/19/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -46,6 +46,8 @@ The usage of the trigger depends on the extension package version and the C# mod
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  

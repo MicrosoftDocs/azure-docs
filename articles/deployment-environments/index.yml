@@ -8,7 +8,6 @@ metadata:
   description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
   ms.service: deployment-environments
   ms.custom:
-    - ignite-2022
     - build-2023
     - ignite-2023
   ms.topic: landing-page
@@ -38,8 +37,8 @@ landingContent:
         links:
           - text: 'Create & configure a dev center'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create & configure a project'
-            url: quickstart-create-and-configure-projects.md
+          - text: 'Create dev center & project (Azure Resource Manager)'
+            url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
       - linkListType: how-to-guide

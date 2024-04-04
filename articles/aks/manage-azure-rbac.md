@@ -3,6 +3,7 @@ title: Use Azure RBAC for Kubernetes Authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure role-based access control (Azure RBAC) for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 03/02/2023
 ms.author: jpalma
@@ -101,6 +102,13 @@ az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assigne
 >
 > ```azurecli-interactive
 > az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+> ```
+
+> [!NOTE]
+> In Azure portal, after creating role assignments scoped to a desired namespace, you won't be able to see "role assignments" for namespace [at a scope][list-role-assignments-at-a-scope-at-portal]. You can find it by using the [`az role assignment list`][az-role-assignment-list] command, or [list role assignments for a user or group][list-role-assignments-for-a-user-or-group-at-portal], which you assigned the role to.
+>
+> ```azurecli-interactive
+> az role assignment list --scope $AKS_ID/namespaces/<namespace-name>
 > ```
 
 ## Create custom roles definitions
@@ -215,19 +223,23 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-group-create]: /cli/azure/group#az_group_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope
+[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-role-assignment-list]: /cli/azure/role/assignment#az-role-assignment-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [managed-aad]: ./managed-azure-ad.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-role-definition-create]: /cli/azure/role/definition#az_role_definition_create
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get-credentials
+[az-role-definition-create]: /cli/azure/role/definition#az-role-definition-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [kubernetes-rbac]: /azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization
+

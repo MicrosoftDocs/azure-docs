@@ -2,19 +2,14 @@
 title: Secure your Microsoft Entra identity infrastructure
 titleSuffix: Microsoft Entra ID
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Microsoft Entra capabilities
-
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2022
-
 ms.author: martinco
 author: martincoetzer
 manager: manmeetb
 ms.reviewer: lvandenende
-
-tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 

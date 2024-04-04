@@ -3,7 +3,7 @@ title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
 ms.topic: reference
 ms.date: 11/11/2022
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
  
@@ -26,6 +26,8 @@ The extension NuGet package you install depends on the C# mode you're using in y
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

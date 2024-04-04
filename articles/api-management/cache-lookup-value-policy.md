@@ -6,11 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Get value from cache
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Use the `cache-lookup-value` policy to perform cache lookup by key and return a cached value. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
@@ -44,7 +47,7 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -60,6 +63,6 @@ For more information and examples of this policy, see [Custom caching in Azure A
 
 ## Related policies
 
-* [API Management caching policies](api-management-caching-policies.md)
+* [Caching](api-management-policies.md#caching)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -51,7 +51,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azservicebus | [GitHub location](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus) |
+| azservicebus | [GitHub location](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus#pkg-examples) |
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.

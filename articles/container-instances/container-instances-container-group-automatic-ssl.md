@@ -28,7 +28,7 @@ The example mounts the [Caddyfile](https://caddyserver.com/docs/caddyfile), whic
 > [!NOTE]
 > For production deployments, most users will want to bake the Caddyfile into a custom docker image based on [caddy](https://hub.docker.com/_/caddy). This way, there is no need to mount files into the container. 
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

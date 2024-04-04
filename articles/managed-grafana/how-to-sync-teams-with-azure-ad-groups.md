@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 9/11/2023
+ms.date: 2/21/2024
 --- 
 
 # Sync Grafana teams with Microsoft Entra groups (preview)
@@ -36,22 +36,17 @@ To use Microsoft Entra group sync, you add a new team to your Grafana workspace 
 1. In **Assign access to**, select the newly created Grafana team.
 1. Select **+ Add a Microsoft Entra group**.
 
-    :::image type="content" source="media/azure-ad-group-sync/add-azure-ad-group.png" alt-text="Screenshot of the Azure portal. Adding a Microsoft Entra group to Grafana team.":::
-
-1. In the **Select** search box, enter a Microsoft Entra group name.
-1. Select the group name in the search result and **Select**.
+1. In the search box, enter a Microsoft Entra group name and select the group name in the results. Click **Select** to go confirm.
 
     :::image type="content" source="media/azure-ad-group-sync/select-azure-ad-group.png" alt-text="Screenshot of the Azure portal. Finding and selecting a Microsoft Entra group.":::
 
 1. Repeat the previous three steps to add more Microsoft Entra groups to the Grafana team as appropriate.
 
-    :::image type="content" source="media/azure-ad-group-sync/view-grafana-team.png" alt-text="Screenshot of the Azure portal. Viewing a Grafana team and Microsoft Entra group(s) linked to it.":::
-
 <a name='remove-azure-ad-group-sync'></a>
 
 ## Remove Microsoft Entra group sync
 
-If you no longer need a Grafana team, follow these steps to delete it, which also removes the link to the Microsoft Entra group.
+If you no longer need a Grafana team, follow these steps to delete it. Deleting a Grafana team also removes the link to the Microsoft Entra group.
 
 1. In the Azure portal, open your Azure Managed Grafana workspace.
 1. Select **Administration > Teams**.

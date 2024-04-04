@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB 
-  description: Get answers to frequently asked questions about Synapse Link for Azure Cosmos DB in areas such as billing, analytical store, security, time to live on analytical store. 
+  title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
+  description: Get answers to frequently asked questions about Synapse Link for Azure Cosmos DB in areas such as billing, analytical store, security, time to live on analytical store.
   author: Rodrigossz
   ms.author: rosouz
   ms.service: cosmos-db
   ms.topic: faq
   ms.date: 04/19/2023
-  ms.custom: synapse-cosmos-db, ignite-2022
+  ms.custom: synapse-cosmos-db
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]

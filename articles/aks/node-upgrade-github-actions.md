@@ -4,7 +4,11 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to schedule automatic node upgrades in Azure Kubernetes Service (AKS) using GitHub Actions.
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.subservice: aks-upgrade
 ms.date: 10/05/2023
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 
@@ -227,3 +231,4 @@ For a detailed discussion of upgrade best practices and other considerations, se
 [azure-rbac-scope-levels]: ../role-based-access-control/scope-overview.md#scope-format
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+

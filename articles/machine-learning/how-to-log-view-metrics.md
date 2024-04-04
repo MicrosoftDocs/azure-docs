@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/30/2024
 ms.topic: how-to
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2
 ---
 
 # Log metrics, parameters, and files with MLflow
@@ -236,7 +236,7 @@ tags = run.data.tags
 >[!NOTE]
 > The metrics dictionary returned by `mlflow.get_run` or `mlflow.search_runs` only returns the most recently logged value for a given metric name. For example, if you log a metric called `iteration` multiple times with values, *1*, then *2*, then *3*, then *4*, only *4* is returned when calling `run.data.metrics['iteration']`.
 > 
-> To get all metrics logged for a particular metric name, you can use `MlFlowClient.get_metric_history()` as explained in the example [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#getting-params-and-metrics-from-a-run).
+> To get all metrics logged for a particular metric name, you can use `MlFlowClient.get_metric_history()` as explained in the example [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#get-params-and-metrics-from-a-run).
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -256,7 +256,7 @@ This method lists all the artifacts logged in the run, but they remain stored in
 file_path = client.download_artifacts("<RUN_ID>", path="feature_importance_weight.png")
 ```
 
-For more information, please refer to [Getting metrics, parameters, artifacts and models](how-to-track-experiments-mlflow.md#getting-metrics-parameters-artifacts-and-models).
+For more information, please refer to [Getting metrics, parameters, artifacts and models](how-to-track-experiments-mlflow.md#get-metrics-parameters-artifacts-and-models).
 
 ## View jobs/runs information in the studio
 

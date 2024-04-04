@@ -1,10 +1,9 @@
 ---
 title: Search backups of Azure NetApp Files volumes | Microsoft Docs
-description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level. 
+description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: anfdocs
@@ -25,7 +24,7 @@ If a volume is deleted, its backups are still retained. The backups are listed i
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="../media/azure-netapp-files/backup-search-vault.png":::
+    :::image type="content" source="./media/backup-search/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="./media/backup-search/backup-search-vault.png":::
 
 ## Search backups at volume level 
 
@@ -41,7 +40,7 @@ You can display and search backups at the volume level:
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="../media/azure-netapp-files/backup-search-volume-level.png":::
+    :::image type="content" source="./media/backup-search/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="./media/backup-search/backup-search-volume-level.png":::
     
 ## Next steps  
 

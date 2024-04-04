@@ -12,6 +12,8 @@ ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 > [!NOTE]
@@ -104,7 +106,7 @@ A subscriber can use an API Management subscription key in one of two ways:
 > **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
 
 > [!NOTE]
-> When included in a request header or query parameter, the subscription key by default is passed to the backend and may be exposed in backend monitoring logs or other systems. If this is considered sensitive data, you can configure a policy in the `outbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
+> When included in a request header or query parameter, the subscription key by default is passed to the backend and may be exposed in backend monitoring logs or other systems. If this is considered sensitive data, you can configure a policy at the end of the `inbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
 
 ## Enable or disable subscription requirement for API or product access
 
@@ -112,6 +114,9 @@ By default when you create an API, a subscription key is required for API access
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
+> [!NOTE]
+> Open products have the **Requires subscription** setting disabled, which means that users don't need to subscribe to it. For this reason, open products aren't displayed on the **Products** page of the developer portal.
 
 You can disable the subscription requirement at the time you create an API or product, or at a later date.
 

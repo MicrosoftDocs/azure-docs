@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 01/15/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -39,6 +39,8 @@ This article supports both programming models.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 

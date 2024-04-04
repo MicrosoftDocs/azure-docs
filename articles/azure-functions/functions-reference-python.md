@@ -214,7 +214,7 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 ## Connect to a database
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL and relational database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Its various APIs can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL, relational, and vector database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Its various APIs can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
 
 To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md). You may also use the Python library for Cosmos DB, like so:
 
@@ -775,7 +775,7 @@ async def get_name(name: str):
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     return func.AsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/).
+<!-- For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/). -->
 
 # [WSGI](#tab/wsgi)
 

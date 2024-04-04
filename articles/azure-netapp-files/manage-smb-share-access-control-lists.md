@@ -5,7 +5,6 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/03/2023
 ---
@@ -23,7 +22,7 @@ There are two ways to view share settings:
 
 You must have the mount path. You can retrieve this in the Azure portal by navigating to the **Overview** menu of the volume for which you want to configure share ACLs. Identify the **Mount path**.
 
-:::image type="content" source="../media/azure-netapp-files/volume-mount-path.png" alt-text="Screenshot of the mount path." lightbox="../media/azure-netapp-files/volume-mount-path.png":::
+:::image type="content" source="./media/manage-smb-share-access-control-lists/volume-mount-path.png" alt-text="Screenshot of the mount path." lightbox="./media/manage-smb-share-access-control-lists/volume-mount-path.png":::
 
 
 ## View SMB share ACLs with advanced permissions 
@@ -35,16 +34,16 @@ Advanced permissions for files, folders, and shares on an Azure NetApp File volu
 
 1. In Windows Explorer, use the mount path to open the volume. Right-click on the volume, select **Properties**. Switch to the **Security** tab then select **Advanced**.
 
-    :::image type="content" source="../media/azure-netapp-files/security-advanced-tab.png" alt-text="Screenshot of security tab." lightbox="../media/azure-netapp-files/security-advanced-tab.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/security-advanced-tab.png" alt-text="Screenshot of security tab." lightbox="./media/manage-smb-share-access-control-lists/security-advanced-tab.png":::
 
 1. In the new window that pops up, switch to the **Share** tab to view the share-level ACLs. You cannot modify share-level ACLs.  
 
     >[!NOTE]
     >Azure NetApp Files doesn't support windows audit ACLs. Azure NetApp Files ignores any audit ACL applied to files or directories hosted on Azure NetApp Files volumes.
 
-    :::image type="content" source="../media/azure-netapp-files/view-permissions.png" alt-text="Screenshot of the permissions tab." lightbox="../media/azure-netapp-files/view-permissions.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/view-permissions.png" alt-text="Screenshot of the permissions tab." lightbox="./media/manage-smb-share-access-control-lists/view-permissions.png":::
 
-    :::image type="content" source="../media/azure-netapp-files/view-shares.png" alt-text="Screenshot of the share tab." lightbox="../media/azure-netapp-files/view-shares.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/view-shares.png" alt-text="Screenshot of the share tab." lightbox="./media/manage-smb-share-access-control-lists/view-shares.png":::
 
 
 ## Modify share-levels ACLs with the Microsoft Management Console
@@ -55,7 +54,7 @@ You can only modify the share ACLs in Azure NetApp Files with the Microsoft Mana
 
 1. In the Computer Management window, right-click **Computer management (local)** then select **Connect to another computer**. 
 
-    :::image type="content" source="../media/azure-netapp-files/computer-management-local.png" alt-text="Screenshot of the computer management window." lightbox="../media/azure-netapp-files/computer-management-local.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/computer-management-local.png" alt-text="Screenshot of the computer management window." lightbox="./media/manage-smb-share-access-control-lists/computer-management-local.png":::
 
 1. In the **Another computer** field, enter the fully qualified domain name (FQDN).
 
@@ -64,11 +63,11 @@ You can only modify the share ACLs in Azure NetApp Files with the Microsoft Mana
 1. Once connected, expand **System Tools** then select **Shared Folders > Shares**.
 1. To manage share permissions, right-click on the name of the share you want to modify from list and select **Properties**.
 
-    :::image type="content" source="../media/azure-netapp-files/share-folder.png" alt-text="Screenshot of the share folder." lightbox="../media/azure-netapp-files/share-folder.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/share-folder.png" alt-text="Screenshot of the share folder." lightbox="./media/manage-smb-share-access-control-lists/share-folder.png":::
 
 1. Add, remove, or modify the share ACLs as appropriate. 
 
-    :::image type="content" source="../media/azure-netapp-files/add-share.png" alt-text="Screenshot showing how to add a share." lightbox="../media/azure-netapp-files/add-share.png":::
+    :::image type="content" source="./media/manage-smb-share-access-control-lists/add-share.png" alt-text="Screenshot showing how to add a share." lightbox="./media/manage-smb-share-access-control-lists/add-share.png":::
   
 ## Next step
 

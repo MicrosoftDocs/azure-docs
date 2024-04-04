@@ -73,7 +73,7 @@ These are now listed in the [Log Analytics user interface](./logs/queries.md).
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](./alerts/alerts-metric-overview.md), [logs](./alerts/alerts-unified-log.md), and the [activity log](./alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](./alerts/alerts-metric-overview.md), [logs](./alerts/alerts-types.md#log-alerts), and the [activity log](./alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 For an in-depth discussion of using alerts with autoscale, see [Troubleshoot Azure autoscale](./autoscale/autoscale-troubleshoot.md).
 

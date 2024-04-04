@@ -4,8 +4,8 @@ description: 'This quickstart shows how to create an Azure Load Testing resource
 services: load-testing
 ms.service: load-testing
 ms.topic: quickstart
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 ms.date: 10/23/2023
 ms.custom: template-quickstart, mode-other
 adobe-target: true

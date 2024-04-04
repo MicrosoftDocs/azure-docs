@@ -2,14 +2,14 @@
 title: Manage labeling projects
 titleSuffix: Azure Machine Learning
 description: Tasks for the project manager to administer a labeling project in Azure Machine Learning, including how to export the labels.
-author: kvijaykannan 
-ms.author: vkann 
+author: kvijaykannan
+ms.author: vkann
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 12/12/2023
-ms.custom: data4ml, ignite-fall-2021, ignite-2022
+ms.date: 02/01/2024
+ms.custom: data4ml
 monikerRange: 'azureml-api-1 || azureml-api-2'
 # customer intent: As a project manager, I want to monitor and administer a labeling project in Azure Machine Learning.
 ---
@@ -290,7 +290,7 @@ Import from either a COCO file or an Azure MLTable data asset.
 
 ### Import options
 
-[!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
+[!INCLUDE [mapping](includes/machine-learning-data-labeling-import.md)]
 
 #### [Text projects](#tab/text)
 
@@ -306,7 +306,7 @@ You can also add users and customize the permissions so that they can access lab
 
 ## Troubleshoot issues
 
-Use these tips if you see any of the following issues:
+Use these tips if you see any of the following issues while managing your project:
 
 |Issue |Resolution |
 |---------|---------|
@@ -320,7 +320,9 @@ Use these tips if you see any of the following issues:
 
 |Issue |Resolution |
 |---------|---------|
-|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.|
+|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.
+
+If you have problems creating the project, see [Troubleshoot problems during creation of a data labeling project](how-to-troubleshoot-data-labeling.md)
 
 ## Next step
 

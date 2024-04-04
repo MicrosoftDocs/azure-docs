@@ -69,7 +69,7 @@ Verify the following prerequisites to ensure you're ready to install and configu
 - Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director service, remote VMware Cloud Director Availability sites, and the upgrade repository. 
 - Verify the DNS zone has a forwarding capability for the public IP addresses that need to be reached.  
 
-For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](https://learn.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge).
+For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md).
 
 - Verify the Cloud Director service is associated, and the Transport Proxy is configured with the Azure VMware Solution private cloud SDDC.
 
@@ -112,7 +112,7 @@ VMware Cloud Director Availability is a VMware owned and supported product on Az
 
 ### What are Run commands in Azure VMware Solution? 
 
-For more information, go to [Run Command in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command).
+For more information, go to [Run Command in Azure VMware Solution](/azure/azure-vmware/concepts-run-command).
 
 ### How can I add more Replicators in my existing VMware Cloud Director Availability instance in Azure VMware Solution?
 

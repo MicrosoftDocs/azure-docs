@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 07/12/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: ignite-2022
 ---
 
 # Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account
@@ -502,9 +501,9 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
 
 This section includes frequently asked questions about role-based access control and Azure Cosmos DB.
 
-### Which Azure Cosmos DB APIs support role-based access control?
+### Which Azure Cosmos DB APIs support data-plane role-based access control?
 
-The API for NoSQL is supported. Support for the API for MongoDB is in preview.
+As of now, only the NoSQL API is supported.
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 

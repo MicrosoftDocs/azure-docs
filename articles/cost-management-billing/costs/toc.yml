@@ -25,6 +25,8 @@
       href: understand-work-scopes.md
     - name: Cost Management for partners
       href: get-started-partners.md
+    - name: Retire AWS connector
+      href: retire-aws-connector.md
     - name: Security
       items:
       - name: Security baseline
@@ -167,6 +169,10 @@
       href: ../reservations/reservation-renew.md
 - name: Cost allocation
   items:
+  - name: Overview
+    items:
+    - name: Cost allocation overview
+      href: cost-allocation-introduction.md
   - name: Tutorials
     items:
     - name: Group and allocate costs using tag inheritance
@@ -241,6 +247,8 @@
         href: ../automate/migrate-ea-reporting-arm-apis-overview.md
       - name: EA Marketplace Store Charge API
         href: ../automate/migrate-ea-marketplace-store-charge-api.md
+      - name: EA Billing Periods API
+        href: ../automate/migrate-enterprise-agreement-billing-periods-api.md
       - name: EA Usage Details APIs
         href: ../automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API

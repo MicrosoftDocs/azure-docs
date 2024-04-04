@@ -1,7 +1,7 @@
 ---
 title: Create and run component-based ML pipelines (UI)
 titleSuffix: Azure Machine Learning
-description: Create and run machine learning pipelines using the Azure Machine Learning studio UI. 
+description: Create and run machine learning pipelines using the Azure Machine Learning studio UI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date:  01/31/2024
 ms.topic: how-to
-ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
+ms.custom: devplatv2, designer
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning studio
@@ -62,6 +62,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 >[!Note]
 > When register components in UI, `code` defined in the component YAML file can only point to the current folder where YAML file locates or the subfolders, which means you cannot specify `../` for `code` as UI cannot recognize the parent directory.
 > `additional_includes` can only point to the current or sub folder.
+> Currently, UI only supports registering components with `command` type.
 
 2. Select Upload from **Folder**, and select the `1b_e2e_registered_components` folder to upload. Select `train.yml` from the drop-down list.
 

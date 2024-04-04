@@ -338,8 +338,6 @@
       href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
     - name: iOS Platform
       href: https://github.com/azure-samples/azure-iot-samples-ios/tree/master/
-  - name: Azure Certified for IoT device catalog
-    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
@@ -359,6 +357,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-edge
   - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+    href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge

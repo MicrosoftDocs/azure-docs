@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/07/2023
 ms.author: duau
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
@@ -101,7 +100,7 @@ After you validate your custom domain, you can associate it to your Azure Front 
 
     > [!NOTE]
     > * If HTTPS is enabled, certificate provisioning and propagation may take a few minutes because propagation is being done to all edge locations.
-    > * If your domain CNAME is indirectly pointed to a Front Door endpoint, for example, using Azure Traffic Manager for multi-CDN failover, the **DNS state** column shows as **CNAME/Alias record currently not detected**. Azure Front Door can't guarantee 100% detection of the CNAME record in this case. If you've configured an Azure Front Door endpoint to Azure Traffic Manager and still see this message, it doesn’t mean you didn't set up correctly, therefore further no action is neccessary from your side.
+    > * If your domain CNAME is indirectly pointed to a Front Door endpoint, for example, using Azure Traffic Manager for multi-CDN failover, the **DNS state** column shows as **CNAME/Alias record currently not detected**. Azure Front Door can't guarantee 100% detection of the CNAME record in this case. If you've configured an Azure Front Door endpoint to Azure Traffic Manager and still see this message, it doesn’t mean you didn't set up correctly, therefore further no action is necessary from your side.
 
 ## Verify the custom domain
 
