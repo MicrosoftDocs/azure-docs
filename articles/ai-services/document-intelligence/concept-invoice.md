@@ -234,6 +234,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Amount | Number | The amount of the line item | $60.00 | 100 |
 | Description | String | The text description for the invoice line item | Consulting service | Consulting service |
 | Quantity | Number | The quantity for this invoice line item | 2 | 2 |
+| OrderQuantity | Number | The ordered quantity for this line item. May differ from the quantity shipped and invoiced | 3 | 3 |
 | UnitPrice | Number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
 | ProductCode | String| Product code, product number, or SKU associated with the specific line item | A123 | |
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
@@ -300,6 +301,28 @@ The following are the line items extracted from an invoice in the JSON output re
 | Unit | string| The unit of the line item, e.g,  kg, lb etc. | hours | |
 | Date | date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+
+The following are complex fields Extracted from an invoice in the JSON output response:
+
+### TaxDetails
+Tax details aims at breaking down the different taxes applied to the invoice total.
+
+|Name| Type | Description | Text (line item #1) | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| Items | string | Full string text line of the tax item | V.A.T. 15% $60.00 | |
+| Amount | number | The tax amount of the tax item | 60.00 | 60 |
+| Rate | string | The tax rate of the tax item | 15% | |
+
+### PaymentDetails
+List all the detected payment options detected on the field. 
+
+|Name| Type | Description | Text (line item #1) | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| IBAN | string | Internal Bank Account Number | GB33BUKB20201555555555 | |
+| SWIFT | string | SWIFT code | BUKBGB22 | |
+| BPayBillerCode | string | Australian B-Pay Biller Code | 12345 | |
+| BPayReference | string | Australian B-Pay Reference Code | 98765432100 | |
+
 
 ### JSON output
 
