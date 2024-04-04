@@ -14,13 +14,11 @@ The [NXLog BSM](https://docs.nxlog.co/refman/current/im/bsm.html) macOS data con
 
 ## Connector attributes
 
-| Connector attribute | Description |
+| Connector attribute | Description | 
 | --- | --- |
 | **Log Analytics table(s)** | BSMmacOS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/getting-started-with-nxlog-support-service-desk
-) |
-
+| **Supported by** | [NXLog](https://nxlog.co/getting-started-with-nxlog-support-service-desk) |
 
 ## Query samples
 

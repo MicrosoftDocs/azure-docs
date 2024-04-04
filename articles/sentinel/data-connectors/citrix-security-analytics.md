@@ -69,9 +69,9 @@ To integrate with CITRIX SECURITY ANALYTICS make sure you have:
 
 ## Vendor installation instructions
 
-To get access to this capability and the configuration steps on Citrix Analytics, please visit: [Connect Citrix to Microsoft Sentinel.](https://aka.ms/Sentinel-Citrix-Connectorhttps://aka.ms/Sentinel-Citrix-Connector)​
+To get access to this capability and the configuration steps on Citrix Analytics, please visit: [Connect Citrix to Microsoft Sentinel.](https://aka.ms/Sentinel-Citrix-Connector)​
 
 
 ## Next steps
 
-For more information, go to the [related solution](https://docs.citrix.com/security-analytics.html).
+For more information, go to the [related solution](https://docs.citrix.com/en-us/security-analytics/siem-integration/sentinel-workbook).
