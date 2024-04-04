@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Azure CycleCloud 8.x
 
-The current release is 8.5.0.
+The current release is 8.6.1.
 
 ## Azure CycleCloud 8.x Release Highlights
 
