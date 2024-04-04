@@ -89,7 +89,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
 
 > [!Note]
-> We recommend using the 2nd Generation configuration/set-up, however, to use the 1st Generation configuration/set-up see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
+> We recommend using the 2nd Generation configuration, however to use the 1st Generation configuration, see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
 
 ## Next steps
 
