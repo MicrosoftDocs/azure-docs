@@ -3,9 +3,9 @@ title: Azure IOT prototyping device selection list
 description: This document provides guidance on choosing a hardware device for prototyping IoT Azure solutions.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: iot
 ms.topic: conceptual
-ms.date: 1/23/2024
+ms.date: 04/04/2024
 ---
 # IoT device selection list
 
@@ -103,7 +103,7 @@ To choose a device for your IoT prototype, see the following criteria:
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products.
 >
-:::image type="content" source="media/iot-device-selection/iot-device-selection-visual.png" alt-text="Table that shows common selection criteria with possible hardware choices.":::
+:::image type="content" source="media/concepts-iot-device-selection/iot-device-selection-visual.png" alt-text="Table that shows common selection criteria with possible hardware choices.":::
 
 ## Terminology and ML requirements
 
@@ -193,6 +193,6 @@ Please submit an issue!
 Other helpful resources include:
 
 - [Overview of Azure IoT device types](./concepts-iot-device-types.md)
-- [Overview of Azure IoT Device SDKs](./about-iot-sdks.md)
-- [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](./quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c)
+- [Overview of Azure IoT Device SDKs](./iot-sdks.md)
+- [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](./tutorial-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c)
 - [AzureRTOS ThreadX Documentation](/azure/rtos/threadx/)
