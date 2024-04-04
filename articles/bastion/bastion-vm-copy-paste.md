@@ -34,7 +34,7 @@ By default, Azure Bastion is automatically enabled to allow copy and paste for a
 
 ## <a name="to"></a> Copy and paste
 
-For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette. ote that copy and paste isn't supported for passwords.
+For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette. Note that copy and paste isn't supported for passwords.
 
 > [!NOTE]
 > Only text copy/paste is currently supported.
