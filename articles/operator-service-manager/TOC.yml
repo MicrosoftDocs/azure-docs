@@ -19,9 +19,13 @@
     href: helm-requirements.md
   - name: Publisher Tenants, subscriptions, regions and preview management
     href: publisher-resource-preview-management.md
+  - name: About the Azure Operator Service Manager CLI extension
+    href: concepts-about-aosm-cli-extension.md
 - name: Quickstarts
   expanded: false
   items:
+  - name: Onboard Subscription to Azure Operator Service Manager
+    href: quickstart-onboard-subscription-to-aosm.md
   - name: Containerized Network Function (CNF)
     expanded: false
     items:
@@ -56,6 +60,15 @@
 - name: How-to guides
   expanded: false
   items:
+  - name: Onboard Network Functions to Azure Operator Service Manager (AOSM)
+    expanded: false
+    items:
+      - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+        href: how-to-onboard-a-cnf-using-the-azure-cli.md
+      - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+        href: how-to-onboard-a-vnf-using-the-azure-cli.md
+      - name: Use Helm option parameters to debug installation failures
+        href: how-to-use-helm-option-parameters.md
   - name: Create a custom role
     href: how-to-create-custom-role.md
   - name: Assign a custom role
@@ -68,12 +81,24 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
-  - name: Use Azure Operator Service Manager (AOSM) CLI extension
-    href: how-to-use-azure-operator-service-manager-cli-extension.md
+  - name: Push and pull artifacts for Containerized Network Functions (CNF) and Azure Operator Nexus
+    href: how-to-pull-and-push-artifacts-manually-aon.md
+  - name: Push and pull artifacts for Virtualized Network Functions (VNF) on Azure Core
+    href: how-to-pull-and-push-artifacts-manually-vnf-core.md
+- name: Troubleshooting
+  expanded: false
+  items:
+    - name: Azure CLI Extension
+      expanded: true
+      items:
+        - name: Common Issues
+          href: troubleshooting-cli-common-issues.md
+    - name: Helm Install Failures
+      href: troubleshooting-helm-install-failures.md
 - name: Resources
   expanded: false
   items:
   - name: Glossary
     href: glossary.md
-  - name: REST API 
+  - name: REST API
     href: /rest/api/hybridnetwork

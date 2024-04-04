@@ -58,6 +58,10 @@ landingContent:
             url: how-to-create-site-network-service.md
           - text: Use Azure Operator Service Manager (AOSM) CLI extension
             url: how-to-use-azure-operator-service-manager-cli-extension.md
+          - text: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+            url: how-to-onboard-a-cnf-using-the-azure-cli.md
+          - text: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+            url: how-to-onboard-a-vnf-using-the-azure-cli.md
 
   # Card
   - title: Additional Resources

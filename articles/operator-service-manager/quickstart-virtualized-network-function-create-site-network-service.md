@@ -71,26 +71,23 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 1. Copy and paste the following JSON file into the ubuntu-sns-cgvs dialog that appears. Edit the place holders to contain your virtual network ID, your managed identity, and your SSH public key values.
 
-
-
     ```json
     {
         "ubuntu-vm-nfdg": {
-            "deploymentParameters": {
-                "location": "uksouth",
-                "subnetName": "ubuntu-vm-subnet",
-                "virtualNetworkId": "/subscriptions/<subscription_id>/resourceGroups/<pre-requisites resource group>/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-                "sshPublicKeyAdmin": "<Your public ssh key>",
-                "ubuntuVmName": "myUbuntuVm"
-            },
-            "ubuntu_vm_nfdg_nfd_version": "1.0.0"
+            "deploymentParameters": [{
+                "ubuntu-template" : {
+                    "subnetName": "ubuntu-vm-subnet",
+                    "virtualNetworkId": "/subscriptions/<subscription_id>/resourceGroups/<pre-requisites resource group>/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
+                    "sshPublicKeyAdmin": "<Your public ssh key>",
+            }
+            }],
+            "nfdvName": "1.0.0"
         },
-        "managedIdentity": "<managed-identity-resource-id>"
+        "managedIdentityId": "<managed-identity-resource-id>"
     }
     ```
 
 1. Refer to [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md) in the **Resource ID for the managed identity** section to see how to retrieve the managedIdentity resource ID.
-
 
     Additionally, the sshPublicKeyadmin can be listed by executing `cat ~/.ssh/id_rsa.pub` or `cat ~/.ssh/id_dsa.pub` or can be created following [Generate new keys and Get public keys ](/azure/virtual-machines/ssh-keys-portal).
 
