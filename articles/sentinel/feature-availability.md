@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 02/11/2024
+ms.date: 04/04/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -40,7 +40,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#x2705; |&#10060; |
-|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Amazon Web Services S3](connect-aws.md?tabs=s3) |GA|&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
 |[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
