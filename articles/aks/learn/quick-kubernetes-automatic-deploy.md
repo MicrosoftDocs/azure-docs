@@ -35,7 +35,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
