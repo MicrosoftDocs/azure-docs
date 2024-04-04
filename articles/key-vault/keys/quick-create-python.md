@@ -90,21 +90,22 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants key permission to your user account.
+Assign a role to your application that grants key permissions to your key vault using RBAC (Role-Based Access Control).
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --key-permissions get list create delete
+az role assignment create --role "Key Vault Secrets User" --assignee <app-id> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToKeys get,list,create,delete
 ```
-
+New-AzRoleAssignment -ObjectId <app-id> -RoleDefinitionName "Key Vault Secrets User" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
+``` 
 ---
+
+Replace <app-id>, <subscription-id>, <resource-group-name>, and <your-unique-keyvault-name> with your actual values. <app-id> is the Application (client) ID of your registered application in Azure AD.
 
 ## Create the sample code
 
@@ -152,8 +153,7 @@ Make sure the code in the previous section is in a file named *kv_keys.py*. Then
 python kv_keys.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
-- Rerunning the code with the same key name may produce the error, "(Conflict) Key \<name\> is currently in a deleted but recoverable state." Use a different key name.
+Rerunning the code with the same key name may produce the error, "(Conflict) Key \<name\> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 
@@ -233,6 +233,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/security-features.md)
+- [RBAC Guide](../general/rbac-guide.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)
