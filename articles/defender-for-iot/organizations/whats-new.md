@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues. 
 
-One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server in the sensor settings.
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
 
 ## February 2024
 
