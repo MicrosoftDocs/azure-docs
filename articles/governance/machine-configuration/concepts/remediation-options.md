@@ -29,6 +29,8 @@ delivers configurations automatically or on-demand.
 
 ### Machine configuration assignment types
 
+![Diagram containing an announcement of the General Availability of Remediation. It includes the following options: Audit, which is to report on the state of the machine, Apply and Monitor, which is applied to the machine and monitored for changes, and finally, Apply and Autocorrect, which brings settings back into compliance in the case of drift.](./Remediation.jpg)
+
 There are three available assignment types when guest assignments are created. The property is
 available as a parameter of machine configuration definitions that support `DeployIfNotExists`.
 
