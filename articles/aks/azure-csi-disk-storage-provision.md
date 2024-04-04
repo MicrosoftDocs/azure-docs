@@ -6,6 +6,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
 ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -412,3 +415,4 @@ kubectl delete -f azure-pvc.yaml
 [azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
 [on-demand-bursting]: ../virtual-machines/disk-bursting.md
 [customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md
+

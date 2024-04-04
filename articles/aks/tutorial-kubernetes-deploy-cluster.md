@@ -3,6 +3,9 @@ title: Kubernetes on Azure tutorial - Create an Azure Kubernetes Service (AKS) c
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to create an AKS cluster and use kubectl to connect to the Kubernetes main node.
 ms.topic: tutorial
 ms.date: 02/14/2024
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-azdevcli
 
 #Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
@@ -243,3 +246,4 @@ In the next tutorial, you learn how to deploy an application to your cluster.
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [aks-k8s-rbac]: azure-ad-rbac.md
 [azd-auth-login]: /azure/developer/azure-developer-cli/reference#azd-auth-login
+

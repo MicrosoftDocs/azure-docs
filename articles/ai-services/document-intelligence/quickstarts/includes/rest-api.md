@@ -1,16 +1,20 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) REST API v3.0 | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) REST API"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence REST API v3.0
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 04/02/2024
 ms.author: lajanuar
 ---
 
 <!-- markdownlint-disable MD036 -->
+
+:::moniker range="doc-intel-4.0.0"
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v4-0.md)
+:::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
 | [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v3-1.md) |
@@ -195,8 +199,8 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2023-11-25T19:31:37Z",
-    "lastUpdatedDateTime": "2023-11-25T19:31:43Z",
+    "createdDateTime": "2024-03-25T19:31:37Z",
+    "lastUpdatedDateTime": "2024-03-25T19:31:43Z",
     "analyzeResult": {
         "apiVersion": "2024-02-29-preview",
         "modelId": "prebuilt-invoice",
