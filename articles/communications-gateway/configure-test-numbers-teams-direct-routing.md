@@ -14,9 +14,6 @@ ms.date: 03/31/2024
 
 To test Microsoft Teams Direct Routing with Azure Communications Gateway, you need a test customer tenant with test users and numbers. By following this article, you can set up the required user and number configuration in the customer Microsoft 365 tenant, on Azure Communications Gateway and in your network. You can then start testing.
 
-> [!TIP]
-> When you allocate numbers to a real customer, you'll typically need to ask them to change their tenant's configuration, because your organization won't have permission. You'll still need to make configuration changes on Azure Communications Gateway and to your network.
-
 ## Prerequisites
 
 You must have at least one number that you can allocate to your test tenant.
@@ -38,36 +35,13 @@ You must be able to sign in to the Microsoft 365 admin center for your test cust
 
 ## Configure the test numbers on Azure Communications Gateway
 
-In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer.
+In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer. You must add the test numbers to this account.
 
 We recommend using the Number Management Portal (preview) to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API (preview).
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
-You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
-
-1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
-1. Select the checkbox next to the enterprise's **Account name** and select **View numbers**.
-1. Select **Create numbers**.
-1. To configure the numbers directly in the Number Management Portal:
-    1. Select **Manual input**.
-    1. Select **Enable Teams Direct Routing**.
-    1. Optionally, enter a value for **Custom SIP header**.
-    1. Add the numbers in **Telephone Numbers**.
-    1. Select **Create**.
-1. To upload a CSV containing multiple numbers:
-    1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
-
-        | Heading | Description  | Valid values |
-        |---------|--------------|--------------|
-        | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
-        | `accountName` | The account to upload the number to | The name of an existing account |
-        | `serviceDetails_teamsDirectRouting_enabled`| Whether Microsoft Teams Direct Routing is enabled | `true` or `false`|
-        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
-
-    1. Select **File Upload**.
-    1. Select the `.csv` file that you prepared.
-    1. Select **Upload**.
+[!INCLUDE [instructions for configuring Direct Routing numbers in the portal](includes/communications-gateway-direct-routing-configure-numbers-portal.md)]
 
 # [Provisioning API (preview)](#tab/api)
 

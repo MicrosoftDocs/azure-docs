@@ -1,0 +1,173 @@
+---
+title: Manage Microsoft Teams Direct Routing customers on Azure Communications Gateway
+description: Learn how to configure Azure Communications Gateway and Microsoft 365 for a Microsoft Teams Direct Routing customer.
+author: rcdun
+ms.author: rdunstan
+ms.service: communications-gateway
+ms.topic: how-to
+ms.date: 03/31/2024
+
+#CustomerIntent: As someone provisioning Azure Communications Gateway for Microsoft Teams Direct Routing, I want to add or remove customers and accounts so that I can provide service.
+---
+
+# Manage Microsoft Teams Direct Routing customers and numbers with Azure Communications Gateway
+
+Providing Microsoft Teams Direct Routing service with Azure Communications Gateway requires configuration on Azure Communications Gateway and in customer tenants. This article provides guidance on how to set up Direct Routing for a customer, including:
+
+* Setting up a new customer.
+* Managing numbers for a customer.
+* Configuring a custom header for a number.
+
+> [!TIP]
+> You typically need to ask your customers to change their tenants configuration, because your organization won't have permission. 
+>
+> For more information about how Azure Communications Gateway and Microsoft Teams use tenant configuration to route calls, see [Support for multiple customers with the Microsoft Teams multitenant model](interoperability-teams-direct-routing.md#support-for-multiple-customers-with-the-microsoft-teams-multitenant-model).
+
+## Prerequisites
+
+You must [connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md).
+
+You must provision Azure Communications Gateway with the details of the enterprise customer tenant and numbers for the enterprise during this procedure.
+
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
+
+The enterprise must be able to allocate at least two user or resource accounts licensed for Microsoft Teams, because they need to use these accounts to activate domain names. For more information on suitable licenses, see the [Microsoft Teams documentation](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-subdomain-name).
+
+## Set up Direct Routing for a customer
+
+When you set up Direct Routing for a customer, you need to configure Azure Communications Gateway with an account for the customer, and ask the customer to configure their tenant to connect to Azure Communications Gateway.
+
+This procedure provides detailed guidance equivalent to the following steps in the [Microsoft Teams documentation for configuring an SBC for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants).
+
+- Registering a subdomain name in the customer tenant.
+- Configuring derived trunks in the customer tenant (including failover).
+
+### Choose a DNS subdomain label to use to identify the customer
+
+Azure Communications Gateway has _per-region domain names_ for connecting to Microsoft Teams Direct Routing. You need to choose subdomains of these domain names for your customer. Microsoft Phone System and Azure Communications Gateway use these subdomains to match calls to tenants.
+
+[!INCLUDE [communications-gateway-direct-routing-subdomain-calculation](includes/communications-gateway-direct-routing-subdomain-calculation.md)]
+
+### Ask the customer to register the subdomains in their tenant and get DNS TXT values
+
+The customer tenant must be configured with the customer subdomains that you allocated in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer). Microsoft 365 then requires you (as the carrier) to create DNS records that use a verification code from the enterprise.
+
+Provide your customer with the customer subdomains and ask them to carry out the following steps. 
+
+1. Sign into the Microsoft 365 admin center as a Global Administrator.
+1. Using [Add a subdomain to the customer tenant and verify it](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-subdomain-to-the-customer-tenant-and-verify-it):
+    1. Register the first customer subdomain (for example `contoso.1-r1.<deployment-id>.commsgw.azure.com`).
+    1. Start the verification process using TXT records.
+    1. Note the TXT value that Microsoft 365 provides.
+1. Repeat the previous step for the second customer subdomain.
+
+> [!IMPORTANT]
+> Your customer must not complete the verification process yet. You must carry out [Configure the customer on Azure Communications Gateway and generate DNS records](#configure-the-customer-on-azure-communications-gateway-and-generate-dns-records) first.
+
+### Configure the customer on Azure Communications Gateway and generate DNS records
+
+Azure Communications Gateway includes a DNS server. You must use Azure Communications Gateway to create the DNS records required to verify the customer subdomains. To generate the records, provision the details of the customer tenant and the DNS TXT values on Azure Communications Gateway.
+
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar.
+1. Select **Accounts**.
+1. Select **Create account**.
+1. Enter an **Account name** and select the **Enable Teams Direct Routing** checkbox.
+1. Set **Teams tenant ID** to the ID of your customer tenant.
+1. Optionally, select **Enable call screening**. This screening ensures that customers can only place Direct Routing calls from numbers that you assign to them.
+1. Set **Subdomain** to the label for the subdomain that you chose in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer) (for example, `contoso`).
+1. Set the **Subdomain token region** fields to the TXT values that the customer provided when they [registered the subdomains](#ask-the-customer-to-register-the-subdomains-in-their-tenant-and-get-dns-txt-values).
+1. Select **Create**.
+1. Confirm that the DNS records have been generated.
+    1. On the **Accounts** pane, select the account name in the list.
+    1. Confirm that **Subdomain Provisioned State** is **Provisioned**.
+
+# [Provisioning API (preview)](#tab/api)
+
+1. Use the Provisioning API to configure an account for the customer. The request must:
+    - Enable Direct Routing for the account.
+    - Specify the label for the subdomain that you chose in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer) (for example, `contoso`).
+    - Specify the DNS TXT values that the customer provided from [registering the subdomains](#ask-the-customer-to-register-the-subdomains-in-their-tenant-and-get-dns-txt-values). These values allow Azure Communications Gateway to generate DNS records for the subdomain.
+2. Use the Provisioning API to confirm that the DNS records have been generated, by checking the `direct_routing_provisioning_state` for the account.
+
+For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [View the details of the account](/rest/api/voiceservices/#view-the-details-of-the-account) in the _API Reference_ for the Provisioning API.
+
+---
+
+### Ask the customer to finish verifying the domains in the customer tenant
+
+After you use Azure Communications Gateway to generate the DNS records for the customer subdomains, ask your customer to verify the subdomains in their Microsoft 365 admin center.
+
+The customer must:
+
+1. Sign into the Microsoft 365 admin center for the customer tenant as a Global Administrator.
+1. Select **Settings** > **Domains**.
+1. Finish verifying the customer subdomains by following [Add a subdomain to the customer tenant and verify it](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-subdomain-to-the-customer-tenant-and-verify-it).
+
+### Ask the customer to activate the domains in the customer tenant
+
+To activate the customer subdomains in Microsoft 365, set up at least one user or resource account licensed for Microsoft Teams for each  domain name. For information on the licenses you can use and instructions, see [Activate the subdomain name](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-subdomain-name).
+
+> [!IMPORTANT]
+> Ensure the accounts use the customer subdomains (for example, `contoso.1-r1.<deployment-id>.commsgw.azure.com`), instead of any existing domain names in the tenant.
+
+### Ask the customer to configure call routing that uses Azure Communications Gateway
+
+Ask the customer to [configure a call routing policy](/microsoftteams/direct-routing-voice-routing) (also called a voice routing policy) with a voice route that routes calls to Azure Communications Gateway.
+
+The customer must:
+
+- Set the PSTN gateway to the customer subdomains for Azure Communications Gateway (for example, `contoso.1-r1.<deployment-id>.commsgw.azure.com` and `contoso.1-r2.<deployment-id>.commsgw.azure.com`). This step sets up _derived trunks_ for the customer tenant, as described in the [Microsoft Teams documentation for creating trunks and provisioning users for multiple tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#create-a-trunk-and-provision-users).
+- Not configure any users to use the call routing policy yet.
+
+> [!IMPORTANT]
+> You must use PowerShell to set the PSTN gateways for the voice route, because the Microsoft Teams Admin Center doesn't support adding derived trunks. You can use the Microsoft Teams Admin Center for all other voice route configuration.
+>
+> To set the PSTN gateways for a voice route, use the following PowerShell command.
+> ```powershell
+> Set-CsOnlineVoiceRoute -id "<voice-route-id>" -OnlinePstnGatewayList <customer-subdomain-1>, <customer-subdomain-2>
+> ```
+
+## Manage numbers for a customer
+
+When you allocate numbers to a customer, you need to provision those numbers on Azure Communications gateway, and ask the customer to configure their tenant with those numbers.
+
+### Configure the numbers on Azure Communications Gateway
+
+When you [set up Direct Routing a the customer](#set-up-direct-routing-for-a-customer), you configured Azure Communications Gateway with an account for the customer. You must add the numbers that you allocate to the customer to this account.
+
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+[!INCLUDE [instructions for configuring Direct Routing numbers in the portal](includes/communications-gateway-direct-routing-configure-numbers-portal.md)]
+
+# [Provisioning API (preview)](#tab/api)
+
+Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you allocated to this customer under the account. Enable each number for Teams Direct Routing. For example API requests, see [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
+
+---
+
+### Ask the customer to configure users in their tenant
+
+Your customer can now set up users for Microsoft Teams Direct Routing. They must:
+
+1. Enable users for Microsoft Teams Direct Routing, by following [Enable users for Direct Routing](/microsoftteams/direct-routing-enable-users).
+2. Configure these users with the voice route for Azure Communications Gateway that [they configured earlier](#ask-the-customer-to-configure-call-routing-that-uses-azure-communications-gateway). For instructions, see the steps for assigning voice routing policies in [Configure call routing for Direct Routing](/microsoftteams/direct-routing-voice-routing).
+
+## Configure a custom header for a number
+
+You can specify a custom SIP header value for an enterprise telephone number. This value applies to all SIP messages sent and received by that number.
+
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+[!INCLUDE [instructions for configuring custom headers in the portal](includes/communications-gateway-custom-header-configuration-portal.md)]
+
+# [Provisioning API (preview)](#tab/api)
+
+Update the configuration for each number to include the custom SIP header value. For more information on Number resources in the Provisioning API, see the [API Reference](/rest/api/voiceservices) for the Provisioning API.
+
+---
+
+## Next steps
+
+Learn more about [the metrics you can use to monitor calls](monitoring-azure-communications-gateway-data-reference.md).

@@ -74,6 +74,8 @@ items:
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
     href: emergency-calls-teams-direct-routing.md
+  - name: Manage Direct Routing customers
+    href: manage-enterprise-teams-direct-routing.md
 - name: Integration with Zoom Phone Cloud Peering
   items:
   - name: Overview of interoperability

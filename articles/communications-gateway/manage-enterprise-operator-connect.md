@@ -9,7 +9,7 @@ ms.date: 02/16/2024
 ms.custom: template-how-to-pattern
 ---
 
-# Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview)
+# Manage an Operator Connect or Teams Phone Mobile customer with Azure Communications Gateway's Number Management Portal (preview)
 
 Azure Communications Gateway's Number Management Portal (preview) enables you to manage enterprise customers and their numbers through the Azure portal. Any changes made in this portal are automatically provisioned into the Operator Connect and Teams Phone Mobile environments. You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning Azure Communications Gateway](provisioning-platform.md).
 
@@ -163,12 +163,9 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 
 ## Configure a custom header for a number
 
-You can specify a custom SIP header value for an enterprise telephone number, which applies to all SIP messages sent and received by that number.
+You can specify a custom SIP header value for an enterprise telephone number. This value applies to all SIP messages sent and received by that number.
 
-1. In the sidebar, locate the **Number Management (Preview)** section and select **Numbers**.
-1. Select the **Phone number** checkbox then select **Manage number**.
-1. Specify a **Custom SIP header value**.
-1. Select **Review and upload** then **Upload**.
+[!INCLUDE [instructions for configuring custom headers in the portal](includes/communications-gateway-custom-header-configuration-portal.md)]
 
 ## Next steps
 

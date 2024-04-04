@@ -78,7 +78,7 @@ landingContent:
             url: emergency-calls-operator-connect.md
       - linkListType: how-to-guide
         links:
-          - text: Manage enterprises and numbers in the Number Management Portal
+          - text: Manage customers in the Number Management Portal
             url: manage-enterprise-operator-connect.md
 
   # Card
@@ -100,6 +100,10 @@ landingContent:
             url: interoperability-teams-direct-routing.md
           - text: Emergency calling
             url: emergency-calls-teams-direct-routing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Direct Routing customers
+            url: manage-enterprise-teams-direct-routing.md
 
   # Card
   - title: Use Azure Communications Gateway for Zoom Phone Cloud Peering
