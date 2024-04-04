@@ -170,7 +170,7 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation." lightbox="media/endpoint-detection-response/remediation-steps.png":::
 
-1. Follow the instructions to troubleshoot Microsoft Defender for Endpoint onboarding issues for [Windows](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide&WT.mc_id=Portal-Microsoft_Azure_Security) or [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide&WT.mc_id=Portal-Microsoft_Azure_Security).
+1. Follow the instructions to troubleshoot Microsoft Defender for Endpoint onboarding issues for [Windows](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding) or [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux).
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
