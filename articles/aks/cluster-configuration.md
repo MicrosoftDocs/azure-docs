@@ -4,6 +4,9 @@ description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 06/20/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Configure an AKS cluster
@@ -497,3 +500,4 @@ az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level Unrestricte
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
 [az-vm-list]: /cli/azure/vm#az_vm_list
+

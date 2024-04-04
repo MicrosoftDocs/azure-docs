@@ -1,6 +1,6 @@
 ---
 title: Important upcoming changes
-description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan. 
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan.
 ms.topic: overview
 ms.date: 04/03/2024
 ---
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |
 | [Deprecating of virtual machine recommendation](#deprecating-of-virtual-machine-recommendation) | April 2, 2024 | April 30, 2024 |
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
@@ -44,6 +45,13 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Deprecation of encryption recommendation
+
+**Announcement date: April 3, 2024**
+
+**Estimated date for change: May 2024**
+
+the recommendation ### [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7) is set to be deprecated.
 
 ## Deprecating of virtual machine recommendation
 
@@ -68,11 +76,11 @@ Unified Disk Encryption recommendations will be released for General Availabilit
 | Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
 | Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
 
-Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
+Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines.
 
-The recommendations depend on [Guest Configuration](/azure/governance/machine-configuration/overview). Prerequisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected. 
+The recommendations depend on [Guest Configuration](/azure/governance/machine-configuration/overview). Prerequisites to onboard to Guest configuration should be enabled on virtual machines for the recommendations to complete compliance scans as expected.
 
-These recommendations will replace the recommendation "Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources." 
+These recommendations will replace the recommendation "Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources."
 
 ## Changes in where you access Compliance offerings and Microsoft Actions
 

@@ -48,6 +48,9 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL flexible server doesn't support SSL certificate based authentication at this time.**
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible server doesn't support [custom SSL\TLS certificates](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CERTIFICATE-CREATION) at this time.
+
 To determine your current TLS\SSL connection status, you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL flexible server instance's SSL usage by process, client, and application by using the following query:
 
 ```sql
@@ -203,9 +206,17 @@ For other PostgreSQL client users, you can merge two CA certificate files like t
 (Root CA2: Microsoft ECC Root Certificate Authority 2017.crt.pem)
 -----END CERTIFICATE-----
 
+### Read Replicas with certificate pinning scenarios
+
+With Root CA migration to [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) it's feasible for newly created replicas to be on a newer Root CA certificate than primary server created earlier. 
+Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
+  * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona):  [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
+  * For connectivity to servers deployed to Azure public cloud regions worldwide: [Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm), as services are migrating from Digicert to Microsoft CA.
+
+
 ## Testing SSL\TLS Connectivity
 
-Before trying to access your SSL enabled server from client application, make sure you can get to it via psql. You should see output similar to the following if you have established an SSL connection.
+Before trying to access your SSL enabled server from client application, make sure you can get to it via psql. You should see output similar to the following if you  established an SSL connection.
 
 
 *psql (14.5)*

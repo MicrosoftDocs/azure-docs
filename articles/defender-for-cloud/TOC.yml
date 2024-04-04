@@ -305,8 +305,6 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: Enable Permissions Management
-          href: enable-permissions-management.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -341,7 +339,7 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
-        - name: Review exempted resources
+        - name: Review resources exempted from recommendations
           href: review-exemptions.md
         - name: Remediate recommendations
           displayName: remediation, steps, recommendations, fix, actions, activity log
@@ -363,6 +361,9 @@
         - name: Identify and remediate attack paths
           displayName: attack paths, paths, investigate, easm,
           href: how-to-manage-attack-path.md
+        - name: Retrieve attack path data with API
+          displayName: attack paths, paths, investigate, easm, rest api
+          href: attack-path-api.md
         - name: Build queries with cloud security explorer
           displayName: queries, security explorer, explorer, templates, query
           href: how-to-manage-cloud-security-explorer.md
@@ -650,13 +651,19 @@
             href: agentless-vulnerability-assessment-gcp.md
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
-          - name: View and remediate vulnerabilities for registry images
-            href: view-and-remediate-vulnerability-assessment-findings.md
-          - name: View and remediate vulnerabilities for running images
-            href: view-and-remediate-vulnerabilities-for-images.md
-          - name: Disable vulnerabilities on images
+          - name: View and remediate vulnerabilities for registry images (Risk based)
+            href: view-and-remediate-vulnerability-registry-images.md
+          - name: View and remediate vulnerabilities for running containers (Risk based)
+            href: view-and-remediate-vulnerabilities-containers.md
+          - name: Disable vulnerabilities on images (Risk based)
             href: disable-vulnerability-findings-containers.md
-          - name: REST API
+          - name: View and remediate vulnerabilities for registry images (Secure score)
+            href: view-and-remediate-vulnerability-assessment-findings-secure-score.md
+          - name: View and remediate vulnerabilities for running images (Secure score)
+            href: view-and-remediate-vulnerabilities-for-images-secure-score.md
+          - name: Disable vulnerabilities on images (Secure score)
+            href: disable-vulnerability-findings-containers-secure-score.md
+          - name: REST API (Secure score)
             href: subassessment-rest-api.md
           - name: Transition to Defender Vulnerability Management
             href: transition-to-defender-vulnerability-management.md

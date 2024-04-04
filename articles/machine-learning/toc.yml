@@ -602,6 +602,10 @@
       href: how-to-deploy-models-llama.md
     - name: How to deploy Mistral family models
       href: how-to-deploy-models-mistral.md
+    - name: How to deploy Cohere Command models
+      href: how-to-deploy-models-cohere-command.md
+    - name: How to deploy Cohere Embed models
+      href: how-to-deploy-models-cohere-embed.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -1365,7 +1369,7 @@
       href: how-to-manage-optimize-cost.md
     - name: Monitor
       href: monitor-azure-machine-learning.md
-    - name: Secure coding
+    - name: Secure code
       displayName: security threat
       href: concept-secure-code-best-practice.md
     - name: Audit and manage
