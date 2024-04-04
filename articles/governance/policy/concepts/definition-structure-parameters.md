@@ -33,7 +33,7 @@ A parameter uses the following properties in a policy definition:
   - For object-type parameters, the values must match the appropriate schema.
 - `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
 
-## Sample Parameters
+## Sample parameters
 
 ### Example 1
 
