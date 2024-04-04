@@ -1,4 +1,4 @@
----ine
+---
 title: Frequently asked questions about standby pools for Virtual Machine Scale Sets
 description: Learn about frequently asked questions for standby pools on Virtual Machine Scale Sets.
 author: mimckitt
