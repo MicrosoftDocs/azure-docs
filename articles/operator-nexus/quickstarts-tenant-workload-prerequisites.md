@@ -49,7 +49,7 @@ The following sections describe how to create these networks:
 
 Create an L2 network, if necessary, for your workloads. You can repeat the instructions for each required L2 network.
 
-Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
+Gather the resource ID of the L2 isolation domain that you created to configure the VLAN for this network.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -83,7 +83,7 @@ Create an L3 network, if necessary, for your workloads. Repeat the instructions 
 
 You need:
 
-- The `resourceID` value of the L3 isolation domain that you [created](#l3-isolation-domain) to configure the VLAN for this network.
+- The `resourceID` value of the L3 isolation domain that you created to configure the VLAN for this network.
 - The `ipv4-connected-prefix` value, which must match the `i-pv4-connected-prefix` value that's in the L3 isolation domain.
 - The `ipv6-connected-prefix` value, which must match the `i-pv6-connected-prefix` value that's in the L3 isolation domain.
 - The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
