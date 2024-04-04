@@ -21,5 +21,5 @@ The Advisor **Overview** page opens.
     [![Screenshot of the Azure Advisor cost recommendations page that shows download option.](./media/advisor-how-to-calculate-total-cost-savings.png)](./media/advisor-how-to-calculate-total-cost-savings.png#lightbox)
 
 > [!NOTE]
-> Recommendations show savings individually, and may overlap with the savings shown in other recommendations, for example – you can only benefit from savings plans or reservations for virtual machines, but not from both.
+> Recommendations show savings individually, and may overlap with the savings shown in other recommendations, for example – you can only benefit from savings plans for compute or reservations for virtual machines, but not from both.
 
