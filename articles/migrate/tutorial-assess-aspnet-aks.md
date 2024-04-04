@@ -62,11 +62,11 @@ In this tutorial, you'll learn how to:
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
-2. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
+1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
 
-2. On the **Create assessment** page, under **Basics** tab, do the following:
+1. On the **Create assessment** page, under **Basics** tab, do the following:
     1. **Scenario**: Select **Web apps to AKS**.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
@@ -87,7 +87,7 @@ In this tutorial, you'll learn how to:
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
-4. After reviewing the assessment settings, select **Next: Select servers to assess**.
+1. After reviewing the assessment settings, select **Next: Select servers to assess**.
 
 1. Under the **Select servers to assess** tab, do the following:
     - **Assessment name**: Specify a name for the assessment.
@@ -104,7 +104,7 @@ In this tutorial, you'll learn how to:
 
         :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-server-selection.png" alt-text="Screenshot of selecting servers containing the web apps to be assessed.":::
 
-6. Under **Review + create assessment** tab, review the assessment details, and select **Create assessment** to create the group and run the assessment.
+1. Under **Review + create assessment** tab, review the assessment details, and select **Create assessment** to create the group and run the assessment.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-review.png" alt-text="Screenshot of reviewing the high-level assessment details before creation.":::
 
