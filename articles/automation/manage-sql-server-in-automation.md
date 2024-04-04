@@ -52,8 +52,8 @@ To allow access from the Automation system managed identity to the Azure SQL dat
     1. In the **SQL server** page, under **Settings**, select **SQL Databases**.
     1. Select your database to go to the SQL database page and select **Query editor (preview)** and execute the following two queries:
        ```sql
-       # Automation account - replace with your Automation account's name
-       # Object ID - replace with object (principal) ID for your system managed identity principal from step 1.
+       # AutomationAccount - replace with your Automation account's name
+       # ObjectID - replace with object (principal) ID for your system managed identity principal from step 1.
        CREATE USER "AutomationAccount" FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
        EXEC sp_addrolemember `db_owner`, "AutomationAccount"
        ```
