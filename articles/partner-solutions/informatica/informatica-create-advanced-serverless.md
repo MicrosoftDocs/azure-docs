@@ -13,15 +13,13 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you're an _Owner_ or a _Contributor_ in the subscription.
+- An Informatica Orgnization. If you don't have an Informtica Organization. Please refer to [Get started with Informatica – An Azure Native ISV Service](informatica-create.md)
 
-<!-- LP - we need to clarify this statement -->
+- NAT gateway is enabled for Subnet used for creation of serverless runtime environment. Please refer to [Get started with Informatica – An Azure Native ISV Service] ( https://learn.microsoft.com/en-us/azure/nat-gateway/quickstart-create-nat-gateway-portal)
 
 ## Create an advanced serverless deployment
 
 In this section, you see how to create an advanced serverless deployment of _Informatica Intelligent Data Management Cloud_ (Informatica IDMC) using the Azure portal.
-
-Before proceeding, you should already have an Informatica organization. If you don't have an Informatica organization, create one using [QuickStart: Get started with Informatica – An Azure Native ISV Service](informatica-create.md).
 
 In the Informatica organization,  select **Serverless Runtime Environment** from the resource menu to navigate to _Advanced Serverless_ section where the existing list of serverless runtime environments are shown.
 
