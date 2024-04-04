@@ -38,7 +38,7 @@ Attack disruption for SAP requires that you have:
 **To use attack disruption for SAP**, deploy a new agent, or update your current agent to the latest version. For more information, see:
 
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md)
+- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md), especially [Update your data connector agent for attack disruption](update-sap-data-connector.md#update-your-data-connector-agent-for-attack-disruption).
 
 **To verify your current agent version**, run the following query from the Microsoft Sentinel **Logs** page:
 
@@ -52,8 +52,6 @@ SAP_HeartBeat_CL
     Connected_SAP_Systems_Ids = set_system_id_s,
     Current_Agent_Version = agent_ver_s
 ```
-
-If the identity of your data connector agent VM isn't yet assigned to the **Microsoft Sentinel Business Applications Agent Operator** role as part of the deployment process, assign the role manually. For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md#role).
 
 ## Apply and assign the /MSFTSEN/SENTINEL_RESPONDER SAP role to your SAP system
 
