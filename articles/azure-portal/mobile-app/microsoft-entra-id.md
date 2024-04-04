@@ -58,7 +58,7 @@ To [manage authentication methods](/entra/identity/authentication/concept-authen
 
 [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) provides organizations with reporting they can use to [investigate identity risks in their environment](/entra/id-protection/howto-identity-protection-investigate-risk).
 
-If you have the [necessary permissions](/entra/id-protection/overview-identity-protection), you'll see details in the **Risky users** and **Risky sign-ins** sections within **Microsoft Entra ID**. You can open these sections to view more information and perform some management tasks.
+If you have the [necessary permissions and license](/entra/id-protection/overview-identity-protection#required-roles), you'll see details in the **Risky users** and **Risky sign-ins** sections within **Microsoft Entra ID**. You can open these sections to view more information and perform some management tasks.
 
 ### Manage risky users
 
