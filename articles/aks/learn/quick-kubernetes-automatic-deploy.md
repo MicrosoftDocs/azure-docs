@@ -151,6 +151,34 @@ TBC.
 
 :::zone target="docs" pivot="bicep"
 
+
+## Create a resource group
+
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+Create a resource group using the [az group create][az-group-create] command.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
+
+The following sample output resembles successful creation of the resource group:
+
+```output
+{
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
 ## Review the Bicep file
 
 This Bicep file defines an AKS Automatic cluster.
