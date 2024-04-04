@@ -15,7 +15,7 @@ The Azure portal Change Analysis experience is in the process of moving from Azu
 
 1. **Azure Resource Graph Change Analysis (preview)**  
 
-    The Change Analysis (preview) service presented by Resource Graph sets a new direction for all Change Analysis user experiences, directly querying Azure Resource Graph for all resource change data. This experience of Change Analysis provides:
+    The Change Analysis (preview) service presented by Resource Graph sets a new direction for all Change Analysis user experiences, directly querying the `Microsoft.ResourceGraph/resources` API for all resource change data. This experience of Change Analysis provides:
     
     - An onboarding-free experience, giving all subscriptions and resources access to change history
     - Tenant-wide querying, rather than select subscriptions
@@ -31,55 +31,16 @@ The Azure portal Change Analysis experience is in the process of moving from Azu
     
     While this service successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has [limitations](../../../azure-monitor/change/change-analysis.md#limitations) that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
 
+## Main differences
 
-
-- **Programmatic callers:** Programmatic callers need to use the `Microsoft.ResourceGraph/resources` API, instead of the `Microsoft.ChangeAnalysis/*` APIs 
-
-ARG Change analysis does show emailId etc.. this is good enough or better than just a display name. Only for applications, it is not resolved.
-
-GUIDs are preferred since they can use it with automation/scripting, as opposed to display names
-
-In fact this is advantage for ARG CC customers that they can now see this information (who/how or Actor model), which we recently announcemented.
-
-## Architectural differences
-
-The transition from Azure Monitor to Azure Resource Graph highlights some key architectural differences in how Change Analysis works. 
-
-### How data is collected
-
-The following table outlines the differences between how Azure Monitor Change Analysis and Azure Resource Graph Change Analysis collect resource change data.
+The transition from Azure Monitor to Azure Resource Graph highlights some differences in how Change Analysis works. 
 
 | Scenario | Azure Monitor | Azure Resource Graph |
 | -------- | ------------- | -------------------- |
-| Change data in the `resourceChanges` table | [Change Analysis queries for data from several data sources, including Azure Resource Manager using Azure Resource Graph.](../../../azure-monitor/change/change-analysis.md#azure-resource-manager-resource-properties-changes) Azure Resource Manager notifies Azure Resource Graph via the resource provider when a resource is created, updated, or deleted. The `Microsoft.ChangeAnalysis` resource provider specifies whether a resource should be tracked in a special configuration file. | Change Analysis notifies Azure Resource Graph when a resource is created, updated, or deleted. Azure Resource Graph Change Analysis ingests data into Resource Graph for queryability and powering the portal experience. |
-| Change data in other tables | Change Analysis queries every six hours for the latest state of resources in subscriptions previously onboarded to the `Microsoft.ChangeAnalysis` resource provider. If the resource's state has changed since the previous check, then a single change is calculated. | Currently an opt-in feature. Each resource provider must update their services to push data to Azure Resource Graph when these resources types are created, updated, or deleted via the Azure Resource Manager control plane. For these resource types, you can expect [certain known limitations for changes saved in the `resourceChanges` table.](./resource-graph-changes.md#limitations) |
-
-"Change data in other tables" should just be phrased as pull (Azure monitor CA) vs push (ARG CA).
-In fact ARG echo system supports pull model (reconciliation) as well, if the RP supports LIST apis for given type. We can adjust frequency as well. In such a case RP doesn't have to push.
-
-So ARG CA supports both models. 
-and there is advantage when RPs are pushing notifications, since the updates are available & shown to user in real-time.
-Overall IMO this is very implementation detail and not correct as I called out above.
-Please capture in granular details like this.
-
-API is actually advantage that they can query data in using highly performant API that is powered by ARG. We also have another set of APIs, similar to Microsoft.ChangeAnalysis. But they are slow.
-GET/LIST Microsoft.Resources/Changes
-GET/LIST Microsoft.Resources/Snapshots
-
-- **No `Microsoft.Web/sites`-specific data,** such as:
-  - Configuration changes
-  - App Settings changes
-  - Environment variables changes
-  - File changes
-
-
-## Limitations
-
-Azure Resource Graph Change Analysis currently presents some known limitations.
-
-- Changes made to an application resource do not 
-- Changes made to a resource's data plane API, such as writing data to a table in a storage account, are not observed by Azure Resource Graph.
-
+| How data is collected | Change Analysis pulls change data by querying the `Microsoft.ChangeAnalysis` API specifies whether a resource should be tracked in a special configuration file. | Change Analysis ingests `Microsoft.ResourceGraph/resources` data into Resource Graph for real-time queryability and powering the portal experience. Change Analysis also supports pull model (reconciliation). |
+| Data importance levels | You can filter resource changes by importance level, like "Important", "Normal", and "Noisy". | Currently, Resource Graph does not provide this filter.  |
+| `Microsoft.Web/sites`-specific data | Azure Monitor Change Analysis collected data for configuration changes, app settings changes, environment variables changes, and file changes. | Currently, Azure Resource Graph Change Analysis collects changes to Azure resources that host your applications, including basic settings in Azure Resource Manager, like managed identities, platform OS upgrades, and hostnames. Changes made to a resource's data plane API, such as writing data to a table in a storage account, are not observed by Azure Resource Graph.  |
+| Actor model | The Actor model is not supported in the Azure Monitor Change Analysis. | Change Analysis identifies who initiated a change in your resource, with which client, and for changes across all of your tentants and subscriptions. [Learn more about the Change Analysis Actor model functionality.](https://techcommunity.microsoft.com/t5/azure-governance-and-management/announcing-the-public-preview-of-change-actor/ba-p/4076626) |
 
 
 ## Next steps

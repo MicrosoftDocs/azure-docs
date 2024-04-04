@@ -17,7 +17,7 @@ Change Analysis helps you:
 - View property change details.
 - Query changes at scale across your subscriptions, management group, or tenant.
 
-## Change Analysis architecture
+## Change Analysis data sources
 
 Change Analysis experiences across the Azure portal are powered using the Azure Resource Graph [`Microsoft.ResourceGraph/resources` API](/rest/api/azureresourcegraph/resourcegraph/resources/resources). You can query this API for changes made to many of the Azure resources you interact with, including App Services (`Microsoft.Web/sites`) or Virtual Machines (`Microsoft.Compute/virtualMachines`). 
 
@@ -32,7 +32,7 @@ Change Analysis supports changes to resource types from the following Resource G
 - [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers) 
 - [healthresources](../reference/supported-tables-resources.md#healthresources). 
 
-Azure Resource Graph Change Analysis supports both the _push_ and _pull_ models. When a resoure is created, updated, or deleted via the Azure Resource Manager control plane, resource providers:
+Azure Resource Graph Change Analysis supports both the _push_ and _pull_ models. When a resource is created, updated, or deleted via the Azure Resource Manager control plane, resource providers:
 - Configure the resource types from which Azure Resource Graph pulls data, if the resource provider supports `LIST` APIs for a given type (pull)
 - Updates their resources to push data to Azure Resource Graph, which will show changes in real-time (push)
 

@@ -88,7 +88,7 @@ In the **Edit columns** pane, make your changes and then select **Save** to appl
 
 1. Click **+ Add column**. 
 
-  :::image type="content" source="./media/view-resource-changes/add-new-column.png" alt-text="Screenshot of selecting the button for adding a new column.":::
+  :::image type="content" source="./media/view-resource-changes/add-column-button.png" alt-text="Screenshot of selecting the button for adding a new column.":::
 
 1. Select a column property from the dropdown in the new column field.
 
