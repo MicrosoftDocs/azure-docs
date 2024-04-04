@@ -48,7 +48,7 @@ A custom domain is configured on the **Domains** pane of the Azure Front Door pr
     > [!NOTE]
     > * Azure Front Door supports both Azure-managed certificates and Bring Your Own Certificates (BYOCs). For a non-Azure validated domain, the Azure-managed certificate is issued and managed by Azure Front Door. For an Azure prevalidated domain, the Azure-managed certificate gets issued and is managed by the Azure service that validates the domain. To use your own certificate, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
     > * Azure Front Door supports Azure prevalidated domains and Azure DNS zones in different subscriptions.
-    > * Currently, Azure prevalidated domains only support domains validated by Azure Static Web App.
+    > * Currently, Azure prevalidated domains only support domains validated by Azure Static Web Apps.
 
     A new custom domain has a validation state of **Submitting**.
 
