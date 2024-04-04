@@ -14,8 +14,13 @@ ms.reviewer: jucocchi
 
 Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../index-policy.md)).
 
-> [!NOTE]
-> The indexing metrics are only supported in the .NET SDK (version 3.21.0 or later) and Java SDK (version 4.19.0 or later)
+## Supported SDK versions
+Indexing metrics are supported in the following SDK versions:
+| SDK | Supported versions |
+| --- | --- | 
+| .NET SDK v3 | >= 3.21.0 |
+| Java SDK v4 | >= 4.19.0 | 
+| Python SDK | >= 4.6.0 | 
 
 ## Enable indexing metrics
 
@@ -90,6 +95,17 @@ const { resources: resultsIndexMetrics, indexMetrics } = await container.items
     .query(querySpec, { populateIndexMetrics: true })
     .fetchAll();
 console.log("IndexMetrics: ", indexMetrics);
+```
+
+## [Python SDK](#tab/python)
+You can capture index metrics by passing in the populate_index_metrics keyword in query items and then reading the value for "x-ms-cosmos-index-utilization" header from the response. This header is returned only if the query returns some items.
+
+```python
+query_items = container.query_items(query="Select * from c",
+    enable_cross_partition_query=True,
+    populate_index_metrics=True)
+
+print(container.client_connection.last_response_headers['x-ms-cosmos-index-utilization'])
 ```
 ---
 
