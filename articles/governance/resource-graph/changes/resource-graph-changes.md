@@ -28,13 +28,13 @@ Change Analysis also provides some data using the following APIs:
 ## Supported resource types
 
 Change Analysis supports changes to resource types from the following Resource Graph tables:
-- [resources](../reference/supported-tables-resources.md#resources) 
-- [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers) 
-- [healthresources](../reference/supported-tables-resources.md#healthresources). 
+- [`resources`](../reference/supported-tables-resources.md#resources) 
+- [`resourcecontainers`](../reference/supported-tables-resources.md#resourcecontainers) 
+- [`healthresources`](../reference/supported-tables-resources.md#healthresources). 
 
 Azure Resource Graph Change Analysis supports both the _push_ and _pull_ models. When a resource is created, updated, or deleted via the Azure Resource Manager control plane, resource providers:
 - Configure the resource types from which Azure Resource Graph pulls data, if the resource provider supports `LIST` APIs for a given type (pull)
-- Updates their resources to push data to Azure Resource Graph, which will show changes in real-time (push)
+- Updates their resources to push data to Azure Resource Graph, which shows changes in real-time (push)
 
 You can compose and join tables to project change data any way you want.
 
