@@ -9,9 +9,6 @@ ms.topic: reference
 
 This article describes an OT sensor deployment on a virtual appliance using Microsoft Hyper-V.
 
-> [!Note]
-> We recommend using the 2nd Generation configuration/set-up, however, to use the 1st Generation configuration/set-up see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
-
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
@@ -90,6 +87,9 @@ This procedure describes how to create a virtual machine by using Hyper-V.
     The VM starts from the ISO image, and the language selection screen will appear.
 
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
+
+> [!Note]
+> We recommend using the 2nd Generation configuration/set-up, however, to use the 1st Generation configuration/set-up see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
 
 ## Next steps
 
