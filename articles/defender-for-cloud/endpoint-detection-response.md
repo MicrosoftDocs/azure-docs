@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
-The endpoint detection and response recommendations allow you to: 
+The endpoint detection and response recommendations allow you to:
 
 - Identify if an endpoint detection and response solution is installed on your multicloud machines
 
@@ -27,16 +27,16 @@ The recommendations mentioned in this article are only available if you have the
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
-- You must have either of the following plans enabled on Defender for Cloud enabled on your subscription: 
-    - [Defender for Servers plan 2](tutorial-enable-servers-plan.md)
-    - [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) 
+- You must have either of the following plans enabled on Defender for Cloud enabled on your subscription:
+  - [Defender for Servers plan 2](tutorial-enable-servers-plan.md)
+  - [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md)
 
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
 > [!NOTE]
 > The feature described on this page is the replacement feature for the [MMA based feature](endpoint-protection-recommendations-technical.md), which is set to be retired along with the MMA retirement in August 2024.
 >
-> Learn more about the migration and the [deprecation process of the endpoint protection related recommendations](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience). 
+> Learn more about the migration and the [deprecation process of the endpoint protection related recommendations](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
 
 ## Review and remediate endpoint detection and response discovery recommendations
 
@@ -140,7 +140,7 @@ This recommended action is available when:
 
 **To enable the Defender for Endpoint integration on your Defender for Servers plan on the affected VM**:
 
-1. Select the affected machine. 
+1. Select the affected machine.
 
 1. (Optional) Select multiple affected machines that have the `Upgrade Defender plan` recommended action.
 
@@ -218,7 +218,7 @@ When Defender for Cloud finds misconfigurations in your endpoint detection and r
 
 1. Follow the remediation steps.
 
-After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab. 
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 ## Next step
 
