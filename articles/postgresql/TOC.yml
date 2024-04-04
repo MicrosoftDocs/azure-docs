@@ -321,6 +321,8 @@
       items:
       - name: Encrypted connectivity using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
+      - name: Update application client SSL\TLS certificates
+        href: flexible-server/how-to-update-client-certificates-java.md
       - name: Private access with virtual network integration
         items:
         - name: Azure portal
