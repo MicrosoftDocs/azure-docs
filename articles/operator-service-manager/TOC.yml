@@ -81,6 +81,10 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
+  - name: Push and pull artifacts for Containerized Network Functions (CNF) and Azure Operator Nexus
+    href: how-to-pull-and-push-artifacts-manually-aon.md
+  - name: Push and pull artifacts for Virtualized Network Functions (VNF) on Azure Core
+    href: how-to-pull-and-push-artifacts-manually-vnf-core.md
 - name: Troubleshooting
   expanded: false
   items:
