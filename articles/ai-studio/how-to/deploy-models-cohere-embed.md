@@ -349,5 +349,6 @@ Models deployed as a service with pay-as-you-go are protected by [Azure AI Conte
 
 ## Next steps
 
+- [Use create vector index.](../index-add.md)
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
