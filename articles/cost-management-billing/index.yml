@@ -23,7 +23,7 @@ highlightedContent:
       url: cost-management-billing-overview.md
     - title: What is Cost Management?
       itemType: overview
-      url: overview-cost-management.md
+      url: costs/overview-cost-management.md
     - title: What are reservations?
       itemType: overview
       url: reservations/save-compute-costs-reservations.md
