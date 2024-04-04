@@ -1,7 +1,7 @@
 ---
-title: Plan and manage costs
+title: Plan to manage costs
 titleSuffix: Azure Machine Learning
-description: Plan and manage costs for Azure Machine Learning with cost analysis in the Azure portal. Learn further cost-saving tips for building ML models.
+description: Plan to manage costs for Azure Machine Learning with cost analysis in the Azure portal. Learn further cost-saving tips for building ML models.
 author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization, build-2023
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 03/26/2024
 ---
 
-# Plan and manage costs for Azure Machine Learning
+# Plan to manage costs for Azure Machine Learning
 
 This article describes how to plan and manage costs for Azure Machine Learning. First, use the Azure pricing calculator to help plan for costs before you add any resources. Next, review the estimated costs while you add Azure resources.
 
@@ -96,7 +96,7 @@ If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach
 
 You can pay for Azure Machine Learning charges by using your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for third-party products and services, including those from the Azure Marketplace.
 
-## Review estimated costs
+## Review estimated costs in the Azure portal
 
 <!-- Note for Azure service writer: If your service shows estimated costs when a user is creating resources in the Azure portal, at a minimum, insert this section as a brief walkthrough that steps through creating a Azure Machine Learning resource where the estimated cost is shown to the user, updated for your service. Add a screenshot where the estimated costs or subscription credits are shown.
 
