@@ -93,7 +93,7 @@ az networkcloud kubernetescluster create \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
     ssh-key-values='["${CONTROL_PLANE_SSH_PUBLIC_KEY}"]' \
-  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE},,ssh-key-values:['${AGENT_POOL_SSH_PUBLIC_KEY}']}]" \
+  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE},ssh-key-values:['${AGENT_POOL_SSH_PUBLIC_KEY}']}]" \
   --network-configuration \
     cloud-services-network-id="${CSN_ARM_ID}" \
     cni-network-id="${CNI_ARM_ID}" \
