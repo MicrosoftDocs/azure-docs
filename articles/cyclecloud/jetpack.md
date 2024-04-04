@@ -60,6 +60,7 @@ The **Jetpack** command-line tool provides a useful set of subcommands for manip
 | `jetpack download`  | Download a blob resource from a project in Azure Storage.|
 | `jetpack keepalive` | Delay system termination by the HealthCheck Service.     |
 | `jetpack log`       | Log a message to CycleCloud cluster UI.                  |
+| `jetpack run_on_shutdown` | Add a script to be called prior to node termination. |
 | `jetpack send`      | Send an arbitrary AMQP message to the CycleCloud server. |
 | `jetpack shutdown`  | Request the shutdown of the VM by CycleCloud.            |
 | `jetpack test`      | Run tests associated with projects assigned to the VM.   |
@@ -180,6 +181,22 @@ To send a trivial error message:
 ```console
 jetpack log 'the machine cannot process jobs' --level error --priority low
 ```
+
+### jetpack run_on_shutdown
+
+`jetpack run_on_shutdown` registers a bash script to be called prior to node termination.
+
+The command takes the absolute path to the script as an argument.
+
+When the node is terminated by Azure, if [Termination Notifications](./how-to/scheduled-events.md#terminate-notification) are enabled, Jetpack will be notified of the termination and attempt to run the script prior to the node shutting down.
+
+Nodes *must* enable [Termination Notifications](./how-to/scheduled-events.md#terminate-notification) to enable `run_on_shutdown`. 
+
+```console
+jetpack run_on_shutdown /tmp/example.sh
+```
+
+This command is not supported for Windows nodes.
 
 ### jetpack send
 
