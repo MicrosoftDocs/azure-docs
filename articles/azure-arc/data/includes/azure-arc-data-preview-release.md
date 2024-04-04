@@ -12,7 +12,7 @@ ms.date: 03/12/2024
 At this time, a test or preview build is not available for the next release.
 -->
 
-April, 2024 test release is now available.
+April, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
@@ -42,5 +42,7 @@ April, 2024 test release is now available.
 ### Release notes
 
 Arc SQL Server | Support for moving Arc-enabled SQL Server instances and child resources (DBs, AGs) across different subscriptions & resource groups | Public Preview
+
+Arc SQL Server | "Free"/Dev license for SQL IP and ESU | GA
 
 Arc SQL Server | Allow the database inventory feature for all license types | GA

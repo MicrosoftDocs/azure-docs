@@ -2,15 +2,11 @@
 title: Provision a pool with Auto OS Upgrade
 description: Learn how to create a Batch pool with Auto OS Upgrade so that customers can have control over their OS upgrade strategy to ensure safe, workload-aware OS upgrade deployments.
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 04/02/2024
 ms.custom: 
 ---
 
 # Create an Azure Batch pool with Automatic Operating System (OS) Upgrade
-
-> [!IMPORTANT]
-> - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you create an Azure Batch pool, you can provision the pool with nodes that have Auto OS Upgrade enabled. This article explains how to set up a Batch pool with Auto OS Upgrade.
 

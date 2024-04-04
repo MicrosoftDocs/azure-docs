@@ -150,3 +150,4 @@ In this article, you learned how to use the Azure Key Vault provider for Secrets
 <!-- LINKS EXTERNAL -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
 [kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
+

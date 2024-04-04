@@ -167,7 +167,7 @@ $ sudo systemctl disable systemd-timesyncd
 ````
 In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/about-time-synchronisation).
 
 For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
