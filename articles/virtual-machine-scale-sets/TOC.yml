@@ -92,9 +92,9 @@
     items: 
     - name: Overview
       href: standby-pools-overview.md
-    - name: Create a Standby Pool
+    - name: Create a standby pool
       href: standby-pools-create.md
-    - name: Update or delete a Standby Pools
+    - name: Update or delete a standby pool
       href: standby-pools-update-delete.md
     - name: Frequently asked questions
       href: standby-pools-faq.md
