@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting common Az CLI Azure Operator Service Manager (AOSM) Extension Issues"
+title: Troubleshooting common Az CLI Azure Operator Service Manager (AOSM) Extension Issues
 description: Learn how to resolve common issues and misconfigurations when using the Az CLI AOSM extension.
 author: pjw711
 ms.author: peterwhiting
