@@ -22,12 +22,13 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Feature | Scope | Default Quota | Is Configurable | Remarks |
 |--|--|--|--|--|
 | Environments | Region |  Up to 15 | Yes | Up to 15 environments per subscription, per region. |
-| Environments | Global | Up to 20 | Yes | Up to 20 environments per subscription across all regions |
+| Environments | Global | Up to 20 | Yes | Up to 20 environments per subscription, across all regions. |
 | Container Apps | Environment | Unlimited | n/a | |
-| Revisions | Container app | 100 | No | |
-| Replicas | Revision | 300 (Azure portal) / 1000 (Azure CLI) | Yes | |
+| Revisions | Container app | Up to 100 | No | |
+| Minimum number of replicas | Revision | Up to 300 (Azure portal) / 1000 (Azure CLI) | Yes | |
+| Maximum number of replicas | Revision | Up to 300 (Azure portal) / 1000 (Azure CLI) | Yes | |
 
-For apps you create using Azure portal, there's a default quota of 300 replicas per revision. For apps you create using Azure CLI, there's a default quota of 1,000 replicas per revision. Note that the true number of replicas in a revision depends on various factors.
+When you set the minimum or maximum number of replicas using Azure portal, there's a default quota of 300 replicas per revision. When you use the [Azure CLI](https://learn.microsoft.com/cli/azure/containerapp/revision?view=azure-cli-latest#az-containerapp-revision-copy), there's a default quota of 1,000 replicas per revision. Note that the true number of replicas in a revision depends on various factors.
 
 ## Consumption plan
 
