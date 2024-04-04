@@ -15,7 +15,7 @@ ms.subservice: calling
 # networkReconnect UFD
 The `networkReconnect` UFD with Bad value occurs when the Interactive Connectivity Establishment (ICE) transport state on the connection is `failed`.
 This event indicates that there may be network issues between the two endpoints, such as packet loss or firewall issues.
-The connection failure is typically detected by the ICE consent freshness mechanism implemented in the browser.
+The connection failure is detected by the ICE consent freshness mechanism implemented in the browser.
 
 When an endpoint doesn't receive a reply after a certain period, the ICE transport state will transition to `disconnected`.
 If there's still no response received, the state then becomes `failed`.
@@ -48,4 +48,7 @@ These parts involve network infrastructure, which is outside the scope of the AC
 
 Internally, the ACS Calling SDK will trigger reconnection after a `networkReconnect` Bad UFD is fired. If the connection recovers, `networkReconnect` Good UFD is fired.
 
-It's important for your application to subscribe to events from the User Facing Diagnostics and display a message in your user interface to inform users of network quality issues and warm them about audio quality degradation.
+Your application should subscribe to events from the User Facing Diagnostics. Display a message on your user interface to inform users of network quality issues and warm them about audio quality degradation.
+
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
