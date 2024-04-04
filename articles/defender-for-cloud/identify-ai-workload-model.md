@@ -2,7 +2,7 @@
 title: Identify Gen-AI workloads and models 
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 04/04/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
@@ -32,13 +32,13 @@ If you have multiple Gen-AI workloads and models running in your environment, yo
 
 1. Select the **AI workloads and models in use** query template.
 
-    :::image type="content" source="media/identify-ai-workload-model/ai-workload-query.png" alt-text="Screenshot that shows where to locate the AI workloads and models in use query template in the Cloud Security Explorer page." lightbox="media/identify-ai-workload-model/ai-worload-query.png":::
+    :::image type="content" source="media/identify-ai-workload-model/ai-workload-query.png" alt-text="Screenshot that shows where to locate the AI workloads and models in use query template in the Cloud Security Explorer page." lightbox="media/identify-ai-workload-model/ai-workload-query.png":::
 
 1. Select **Search**.
 
 1. Select a result to review its details.
 
-    :::image type="content" source="media/identify-ai-workload-model/result-details.png" alt-text="Screenshot of the results of teh query with one of the results selected and the results detail pane open.":::
+    :::image type="content" source="media/identify-ai-workload-model/result-details.png" alt-text="Screenshot of the results of teh query with one of the results selected and the results detail pane open." lightbox="media/identify-ai-workload-model/result-details.png":::
 
 1. Select an additional resource to view its details.
 

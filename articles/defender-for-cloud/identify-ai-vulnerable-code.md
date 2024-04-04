@@ -40,7 +40,17 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 
     :::image type="content" source="media/identify-ai-vulnerable-code/vulnerable-results.png" alt-text="Screenshot that shows a sample of results for the query." lightbox="media/identify-ai-vulnerable-code/vulnerable-results.png":::
 
-1. Review the results.
+1. Select the 3 dot button.
+
+1. Select a node to review the findings.
+
+    :::image type="content" source="media/identify-ai-vulnerable-code/vulnerable-results-details.png" alt-text="Screenshot that shows the details of the selected node." lightbox="media/identify-ai-vulnerable-code/vulnerable-results-details.png":::
+
+1. In the insights section, select a CVE ID from the drop down menu.
+
+1. Select **Open the vulnerability page**.
+
+1. [Remediate the recommendation](implement-security-recommendations.md#remediate-recommendations).
 
 ## Next step
 
