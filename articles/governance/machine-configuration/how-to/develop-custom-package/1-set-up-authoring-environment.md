@@ -18,7 +18,9 @@ including:
 - Creating a policy definition
 - Publishing the policy
 
-Support for applying configurations through machine configuration is introduced in version 3.4.2.
+Support for applying configurations through machine configuration is introduced in version 3.4.2. The graphic below contains a high-level workflow of authoring a custom Machine Configuration policy.
+
+![A graphic displaying the workflow of deploying a custom Machine Configuration policy. It includes the following steps: modue installation, creation of a configuration file, blob storage, and policy creation.](./CustomPolicy.jpg)
 
 ### Base requirements
 
