@@ -16,7 +16,7 @@ ms.service: azure-monitor
 <!-- ## Insights. Optional section. If your service has insights, add the following include and add information about what your Azure Monitor insights provide. You can refer to another article that gives details or add a screenshot. 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
 
-Azure Monitor has many separate larger components. Information on monitoring each of these is mentioned below.  
+Azure Monitor has many separate larger components. Information on monitoring each of these components follows.
 
 ### Azure Monitor core
 
@@ -24,7 +24,7 @@ Azure Monitor has many separate larger components. Information on monitoring eac
 
 **Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](agents/azure-monitor-agent-health.md).
 
-DCRs https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-monitor
+** Data Collection Rules(DCRs)** -  Use [detailed metrics and log](essentials/data-collection-monitor.md) to monitor the performance of your DCRs. 
 
 ### Azure Monitor Logs and Log Analytics
 
@@ -34,13 +34,13 @@ DCRs https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-colle
 
 **Optimizing and troubleshooting log queries** - Sometimes Azure Monitor KQL Log queries can take more time to run than needed or never return at all.  By monitoring the various aspects of the query, you can troubleshoot and optimize them. For more information, see [Audit queries in Azure Monitor Logs](logs/query-audit.md) and [Optimize log queries](logs/query-optimization.md).
 
-**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](essentials/log-ingestion-pipeline.md). You can monitor the latency of this pipeline using Kusto queries. For more information see [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md#check-ingestion-time.md).
+**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](logs/log-ingestion-pipeline.md). You can monitor the latency of this pipeline using Kusto queries. For more information, see [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md#check-ingestion-time).
 
 **Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](logs/analyze-usage.md).
 
 ### All resources
 
-**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/essentials/resource-health.md).
+**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/azure/service-health/resource-health-overview.md).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
