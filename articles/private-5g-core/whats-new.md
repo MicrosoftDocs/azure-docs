@@ -30,7 +30,7 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Date available:** April 04, 2024
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. This feature involves setting this value where necessary to ensure packets aren't too large for the core to transmit. This feature reduces packet loss due to oversized packets arriving at the core's interfaces, and reduce the need for fragmentation and reassembly, which are costly procedures.
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
 
 ## March 2024
 

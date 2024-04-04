@@ -35,7 +35,7 @@ The following table shows the support status for different Packet Core releases 
 
 ### TCP Maximum Segment Size (MSS) Clamping
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. This feature involves setting this value where necessary to ensure packets aren't too large for the core to transmit. This feature reduces packet loss due to oversized packets arriving at the core's interfaces, and reduce the need for fragmentation and reassembly, which are costly procedures.
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
 
 ## Issues fixed in the AP5GC 2403 release
 
