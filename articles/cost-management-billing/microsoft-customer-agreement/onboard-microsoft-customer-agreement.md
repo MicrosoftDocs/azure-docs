@@ -134,7 +134,7 @@ To become operational includes steps to manage billing accounts, fully understan
 
 Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. Users assigned to roles for a billing profile can view cost, set budgets, and can manage and pay invoices. Get an overview of how to [set up and manage your billing account](https://www.youtube.com/watch?v=gyvHl5VNWg4&ab_channel=MicrosoftAzure) and learn about the powerful [billing capabilities](../understand/mca-overview.md).
 
-For more information, see the following how-videos:
+For more information, see the following how-to videos:
 
 - [How to organize your Microsoft Customer Agreement Billing Account in the Azure portal](https://www.youtube.com/watch?v=6lmaovgWiZw&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=7)
 - [How to find a copy of your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=SQbKGo8JV74&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=4)
@@ -197,8 +197,6 @@ For more information, see [Pay your Microsoft Customer Agreement Azure or Micros
 ### Step 13 – Create subscription
 
 An Azure subscription is a logical container used to create resources in Azure. It's a way to manage access, billing, and resources for Azure services. You can create multiple subscriptions to organize resources and manage billing. Each subscription has limits on the number of resources you can create and the amount of usage you can consume. You can use the Azure portal to manage your subscriptions, including creating, deleting, and modifying them.
-
-For more information, see the [How to create an Azure Subscription under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=u5wf8KMD_M8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=8) video.
 
 To create a subscription, see Create a [Microsoft Customer Agreement subscription](../manage/create-subscription.md).
 
@@ -287,7 +285,7 @@ Becoming operational includes steps to manage billing accounts, fully understand
 
 Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. Users assigned to roles for a billing profile can view cost, set budgets, and manage and pay invoices. Get an overview of how to [set up and manage your billing account](https://www.youtube.com/watch?v=gyvHl5VNWg4&ab_channel=MicrosoftAzure) and learn about the powerful [billing capabilities](../understand/mca-overview.md).
 
-For more information, see the following how-videos:
+For more information, see the following how-to videos:
 
 - [How to organize your Microsoft Customer Agreement Billing Account in the Azure portal](https://www.youtube.com/watch?v=6lmaovgWiZw&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=7)
 - [How to find a copy of your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=SQbKGo8JV74&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=4)
