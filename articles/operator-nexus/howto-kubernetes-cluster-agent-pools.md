@@ -31,7 +31,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 * You can delete system agent pools, provided you have another system agent pool to take its place in the Nexus Kubernetes cluster.
 * System pools must contain at least one node.
-* You can't change the VM size of a agent pool after you create it.
+* You can't change the VM size of an agent pool after you create it.
 * Each Nexus Kubernetes cluster requires at least one system agent pool.
 * Don't run application workloads on Kubernetes control plane nodes, as they're designed only for managing the cluster, and doing so can harm its performance and stability.
 

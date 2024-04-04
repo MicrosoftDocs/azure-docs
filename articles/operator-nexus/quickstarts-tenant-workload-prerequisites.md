@@ -216,7 +216,7 @@ After setting up the cloud services network, you can use it to create a VM or cl
 > [!NOTE]
 > To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
 
-### Using the proxy to reach outside of the virtual machine
+### Use the proxy to reach outside of the virtual machine
 
 After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you need to additionally set appropriate environment variables within VM to use tenant proxy and to reach outside of virtual machine. This tenant proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 
