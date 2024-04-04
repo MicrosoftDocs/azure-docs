@@ -39,9 +39,9 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 Your application should subscribe to events from the User Facing Diagnostics.
 Display a message on your user interface to inform users of network quality issues.
 
-Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../../concepts/voice-video-calling/network-requirements.md) document. It is also recommended that the user also checks their NAT settings or whether their firewall policy blocks UDP packets.
+Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../../concepts/voice-video-calling/network-requirements.md) document. It is also recommended that the user also checks their Network address translation (NAT) settings or whether their firewall policy blocks User Datagram Protocol (UDP) packets.
 
-If the organization policy doesn't allow users to connect to Microsoft TURN relay servers, custom TURN servers can be configured to avoid connection failures. See [Force calling traffic to be proxied across your own server](../../../../../tutorials/proxy-calling-support-tutorial.md) tutorial document for more information.
+If the organization policy doesn't allow users to connect to Microsoft TURN relay servers, custom TURN servers can be configured to avoid connection failures. For more information, see [Force calling traffic to be proxied across your own server](../../../../../tutorials/proxy-calling-support-tutorial.md) tutorial.
 
 ## Next steps
 * Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
