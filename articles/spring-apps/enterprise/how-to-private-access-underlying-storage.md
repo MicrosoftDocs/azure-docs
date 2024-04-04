@@ -59,9 +59,9 @@ az spring create \
 
 ## FAQs
 
-### IP Address Exhaustion Issue in Smaller Subnet Ranges
+### IP Address may be Exhausted in Smaller Subnet Ranges
 
-To enable private access to underlying storage within your virtual network, the Azure Spring Apps service requires three IP addresses allocated from the service runtime subnet. Please ensure that there are at least three available IP addresses in the service runtime subnet before enabling this feature.
+To enable private access to underlying storage within your virtual network, the Azure Spring Apps service requires four IP addresses allocated from the service runtime subnet. Please ensure that there are at least four available IP addresses in the service runtime subnet before enabling this feature.
 
 ### Is This Feature Billable?
 
