@@ -1,0 +1,109 @@
+---
+title: Trusted Signing resources and roles
+description: Trusted Signing is a Microsoft fully managed end-to-end signing solution that simplifies the signing process for Azure developers. Learn all about the resources and roles specific to Trusted Signing, such as identity validations, certificate profiles, and the code signing identity verifier.
+author: ianjmcm
+ms.author: ianmcm
+ms.service: azure-code-signing
+ms.topic: concept-article
+ms.date: 04/03/2024
+ms.custom: template-concept
+---
+
+# Trusted Signing resources and roles
+
+Trusted Signing is an Azure native resource with full support for common Azure concepts such as resources. As with all other Azure Resource, Trusted Signing also has its own set of resources and roles designed to simplify the management of the service. 
+
+This article introduces you to the resources and roles that are specific to Trusted Signing.
+
+## Trusted Signing Resource Types
+Trusted Signing has the following resource types: 
+
+- **Trusted Signing Account**: The account is a logical container of all the subscriber's resources to complete signing and manage access controls to those sensitive resources. There are two account tiers available, Basic or Premium, depending on the number of signatures and Certificate Profiles needed for each type.
+
+- **Certificate Profile**: Certificate Profiles are the configuration attributes that generate the certificates you use to sign code. They also define the trust model and scenario signed content will be consumed under. Signing roles are assigned to this resource to authorize identities in the tenant to request signing. A prerequisite for creating any Certificate Profile is to have at least one Identity Validation request completed. 
+
+- **Identity Validation**: Identity Validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is attributes of your Certificate Profile's Subject Name values (e.g. CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US). Identity validation roles are assigned to identities in the tenant to create these resources.
+
+In the below example structure, notice that an Azure Subscription has a Resource Group. Under the Resource Group you can have one or many Trusted Signing Account resources with one or many Identity Validations and Certificate Profiles. 
+
+![Diagram of Trusted Signing resource group and cert profiles](./media/trusted-signing-resource-structure.png)
+
+•	This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing. 
+•	For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trustedsigning-cert-management.md). 
+
+
+**Note**: Identity Validations and Certificate Profiles align with either Public or Private Trust. This means that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md).
+
+### Trusted Signing account
+
+The Trusted Signing account is a logical container of the resources that are used to do signing. There are two tiers: Basic and Premium. 
+
+Here are the attributes of Basic and Premium Trusted Signing Account tiers:
+
+||Basic|Premium
+|---------------|---------------|-----------------|
+|**Signature quota**|5,000 per month|100,000 per month|
+|**Price**| $9.99 USD/month| $99.99 USD/month|
+|**Price after quota is reached**|$0.005/signature|$0.005/signature|
+|**Certificate Profiles**| 1 of each type available| 10 of each type available|
+||||
+
+Subscribers must choose the tier that works best for their needs in signing. To help make this decision, subscribers can answer two simple questions:
+
+1. How many signatures do I need to use per month?
+2. Do I need more than 1 of any of the Certificate Profile types?
+
+The answer to the first question is defined by the number of artifacts in total needed to be signed in a month. Consider that one binary executable (.EXE/.DLL) is 1 signature, but a package such as an MSIX may contain minimally 2 signatures. If your per month estimated signature needs are below 5000 signatures, the Basic account tier is a good fit. However, if you're more in the range of 100's of thousands of signatures per month, a Premium account tier is likely the better fit. Consider the costs of going over an account's quota and what best fits your needs. 
+
+**Note**: Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. Subscribers can sign many artifacts all distributed by the same identity (e.g. Contoso News, LLC), but operationally, there may be boundaries the subscriber wants to draw in terms of access to signing and billing. You may choose to have a Trusted Signing account per product or per team to isolate usage of an account. However, this can also be achieved at the Certificate Profile level.
+
+### Identity Validations
+
+Identity Validations are all about establishing the identity on the certificates that are used for signing.  There are two types: Private Trust and Public Trust. These two types are defined by the level of identity validation that's required to complete the creation of an Identity Validation resource. 
+
+**Private Trust** is intended for use in situations where there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or Line of Business (LoB) scenarios. With Private Trust Identity Validations, there's minimal verification of the identity attributes (e.g. Organization Unit value) and it's tightly associated with the Azure Tenant of the subscriber (e.g. Costoso.onmicrosoft.com). The values inputted for Private Trust are otherwise not validated beyond the Azure Tenant information. 
+
+**Public Trust** means that all identity values must be validated in accordance to our [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This aligns with the expectations for publicly trusted code signing certificates. 
+
+For more details on Private and Public Trust, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md). 
+
+### Certificate Profiles
+
+Trusted Signing provides five total Certificate Profile types that all subscribers can use with the aligned and completed Identity Validation resources. These five Certificate Profiles are aligned to Public or Private Trust Identity Validations as follows:
+
+- **Public Trust**
+    - **Public Trust**: Used for signing code and artifacts that can be publicly distributed. It's default trusted on the Windows platform for code signing. 
+    - **VBS Enclave**: Used for signing [Virtualization-based Security Enclaves](https://learn.microsoft.com/windows/win32/trusted-execution/vbs-enclaves) on Windows.
+    - **Public Trust Test**: Used for test signing only and aren't publicly trusted by default. Consider Public Trust Test Certificate Profile as a great option for inner loop build signing. 
+    
+        **Note**: All certificates under this Certificate Profile type include the Lifetime EKU (1.3.6.1.4.1.311.10.3.13) forcing validation to respect the lifetime of the signing certificate regardless of the presence of a valid time stamp countersignature. 
+
+- **Private Trust**
+    - **Private Trust**: Used for signing internal or private artifacts such as Line of Business (LoB) applications and containers. It can also be used to sign [catalog files for Windows App Control for Business](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-catalog-files-to-support-wdac).
+    - **Private Trust CI Policy**: The Private Trust CI Policy Certificate Profile is the only type that does NOT include the Code Signing EKU (1.3.6.1.5.5.7.3.3). It's specifically designed for [signing Windows App Control for Business CI policy files](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering). 
+ 
+
+## Supported roles
+
+Azure Role Based Access Controls (RBAC) is a cornerstone concept for all Azure resources. Trusted Signing adds two custom roles to meet subscribers’ needs for creating an Identity Validation (Code Signing Identity Verifier) and signing with Certificate Profiles (Code Signing Certificate Profile Signer). These custom roles explicitly must be assigned to perform those two critical functions in using Trusted Signing. Below is a complete list of roles Trusted Signing supports and their capabilities, including all standard Azure roles.
+
+|Role|Managed/View Account|Manage Certificate Profiles|Sign with Certificate Profile|View Signing History|Manage Role Assignment|Manage Identity Validation|
+|---------------|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|Code Signing Identity Verifier1||||||X|
+|Code Signing Certificate Profile Signer2|||X|X|||
+|Owner|X|X|||X||
+|Contributor|X|X|||||
+|Reader|X||||||
+|User Access Admin|||||X||
+||||||||
+
+1Required to create/manage Identity Validation only available on the Azure Portal experience. 
+
+2Required to successfully sign with Trusted Signing.
+
+## Next steps
+
+* Get started with [Trusted Signing's Quickstart Guide](./quickstart.md).
+* Review the [Trusted Signing Trust Models](./concept-trustedsigning-trust-models.md) concept.
+* Review the [Trusting Signing certificates and management](./concept-trustedsigning-cert-management.md) concept.
+
