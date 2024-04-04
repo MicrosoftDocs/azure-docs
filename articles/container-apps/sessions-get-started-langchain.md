@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Use code interpreter sessions in LangChain with Azure Container Apps
+title: "Quickstart: Use code interpreter sessions in LangChain with Azure Container Apps"
 description: 
 services: container-apps
 author: craigshoemaker

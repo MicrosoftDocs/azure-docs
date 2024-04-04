@@ -52,6 +52,7 @@
             href: sessions-get-started-semantic-kernel.md
         - name: Custom container sessions
           href: sessions-get-started-custom-container.md
+- name: Key concepts
   items:
     - name: Compare container options in Azure
       href: compare-options.md
