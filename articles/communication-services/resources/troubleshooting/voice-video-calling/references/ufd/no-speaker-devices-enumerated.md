@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # noSpeakerDevicesEnumerated UFD
-The `noSpeakerDevicesEnumerated` UFD with `true` value occurs when there is no speaker device presented in the device list returned by the browser API. This issue occurs when the `navigator.mediaDevices.enumerateDevices` browser API doesn't include any audio output devices. This event indicates that there are no speakers available on the user's machine, which could be because the user unplugged or disabled the speaker.
+The `noSpeakerDevicesEnumerated` UFD with `true` value occurs when there's no speaker device presented in the device list returned by the browser API. This issue occurs when the `navigator.mediaDevices.enumerateDevices` browser API doesn't include any audio output devices. This event indicates that there are no speakers available on the user's machine, which could be because the user unplugged or disabled the speaker.
 
 On some platforms such as iOS, the browser doesn't provide the audio output devices in the device list. In this case, the SDK considers it as expected behavior and doesn't fire `noSpeakerDevicesEnumerated` UFD.
 
