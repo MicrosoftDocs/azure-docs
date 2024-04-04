@@ -38,7 +38,7 @@ For more information, see:
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard?view=o365-worldwide)
 - [Roles and permissions in Microsoft Sentinel](../roles.md).
- 
+
 ## Access the SOC optimization page
 
 Select **SOC optimization** from the left-side navigation menu.
@@ -49,7 +49,7 @@ TBD
 
 ### [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR."lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 ---
 
 ## Understand SOC optimization overview metrics
