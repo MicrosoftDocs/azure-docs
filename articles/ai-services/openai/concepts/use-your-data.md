@@ -554,10 +554,9 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
 ### Failed ingestion jobs
-
-To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
-
 
 **Quota Limitations Issues** 
 
@@ -586,6 +585,13 @@ Break down the input documents into smaller documents and try again.
 Resolution: 
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
+
+### 503 errors when sending queries with Azure AI Search
+
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the amount of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
+
+
+As you can see from the search documentation (Performance benchmarks - Azure AI Search | Microsoft Learn) the maximum number of queries per second that a single partition and single replica can support is very low. We are working on improvements to search intent generation and searching from our side, but in the meantime, the customer may need to increase their replicas and partitions, or add sleep/retry logic from their side.
 
 ## Regional availability and model support
 
