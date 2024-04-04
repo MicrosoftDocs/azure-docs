@@ -72,7 +72,7 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should 
 
 <a name='get-azure-ad-access-token'></a>
 
-## Get Microsoft Entra access token
+## Get Microsoft Entra access token using Client Credential grant type
 
 The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you must get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
@@ -87,9 +87,9 @@ Create a new `POST` request:
     - **client_secret**: `{{clientsecret}}`
     - **resource**: `{{fhirurl}}`
     
-> [!NOTE] 
+> [!NOTE]
 > In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
-      
+
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
 5. Select **Send**. You should see a response with the Microsoft Entra access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
@@ -99,6 +99,49 @@ Create a new `POST` request:
 You can examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the **Claims** tab to see detailed descriptions for each claim in the token.
 
 [ ![Screenshot of access token claims.](media/postman/postman-access-token-claims.png) ](media/postman/postman-access-token-claims.png#lightbox)
+
+## Get Microsoft Entra access token using user account with Authorization Code grant type
+
+You can get the Microsoft Entra access token using your Entra account credentials by following below listed steps
+
+1. As mentioned in the prerequisites section, you must be a member of Azure Entra Tenant and have required access.
+
+1. Ensure that you've configured the redirect URL, `https://oauth.pstmn.io/v1/callback`, for web platform in the client application registration.
+
+![callbackURL](media/use-postman/callbackurl.png)
+
+1. In the client application registration, under API Permissions, Delegate User Impersonation from Azure Healthcare APIS under APIs my organization uses.
+
+![App-reg-permissions](media/use-postman/app-reg-permissions.png)
+
+![App-reg-permissions-2](media/use-postman/app-reg-permissions-2.png)
+
+1. In the postman, select the **Authorization** tab of either a collection or a specific REST Call, select **Type** as OAuth 2.0 and under **Configure New Token** section, set below values 
+  - **Callback URL**: `https://oauth.pstmn.io/v1/callback`
+    
+  - **Auth URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/authorize`
+    
+  - **Access Token URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/token`
+    
+  - **Client ID**: Application client registration ID  
+    
+  - **Client Secret**: Application client registration secret 
+    
+  - **Scope**: `{{fhirurl}}/.default`
+    
+  - **Client Authentication**: Send client credentials in body
+    
+![Postman configuration](media/use-postman/postman-configuration.png)
+
+1. Click on **Get New Access Token** button at the bottom of page.
+
+1. You will be asked for User credentials for login.
+
+1. You will receive the token. Click on **Use Token.**
+
+1. Ensure Token is in the Authorization Header of the REST call.
+
+You can examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the Claims tab to see detailed descriptions for each claim in the token.
 
 ## Get FHIR resource
 
@@ -156,6 +199,7 @@ Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Headers** to add two new headers:
 
 - **Accept**: `application/fhir+json`
+
 - **Prefer**:  `respond-async`
 
 Select **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
