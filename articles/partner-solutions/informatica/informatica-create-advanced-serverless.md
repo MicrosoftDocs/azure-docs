@@ -7,7 +7,7 @@ ms.date: 04/02/2024
 
 #customer intent: As a developer, I want an instance of the Informatica data management cloud  so that I can use it with other Azure resources.
 ---
-# Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud
+# Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud (Preview)
 
 In this quickstart, you use the Azure portal to create advanced serverless runtime in your Informatica IDMC organization.
 
@@ -19,7 +19,7 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 ## Create an advanced serverless deployment
 
-In this section, you see how to create an advanced serverless deployment of _Informatica Intelligent Data Management Cloud_ (Informatica IDMC) using the Azure portal.
+In this section, you see how to create an advanced serverless deployment of Informatica Intelligent Data Management Cloud (Preview) (Informatica IDMC) using the Azure portal.
 
 In the Informatica organization,  select **Serverless Runtime Environment** from the resource menu to navigate to _Advanced Serverless_ section where the existing list of serverless runtime environments are shown.
 

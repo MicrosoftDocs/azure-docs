@@ -7,9 +7,9 @@ ms.date: 04/02/2024
 
 ---
 
-# Troubleshooting Informatica integration with Azure
+# Troubleshooting Intelligent Data Management Cloud (Preview) - Azure Native ISV Service
 
-You can get support for your Informatica deployment through a **New Support request**. The procedure for creating the request is here. In addition, we included other troubleshooting for problems you might experience in creating and using an Informatica deployment.
+You can get support for your Informatica deployment through a **New Support request**. The procedure for creating the request is here. In addition, we included other troubleshooting for problems you might experience in creating and using an Intelligent Data Management Cloud (Preview) - Azure Native ISV Service resource.
 
 ## Getting support  
 
