@@ -71,7 +71,7 @@ In this tutorial, you'll learn how to:
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-    1. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    2. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 
