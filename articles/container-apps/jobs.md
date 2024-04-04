@@ -47,7 +47,7 @@ A Container Apps environment is a secure boundary around one or more container a
 * **Job execution:** A job execution is a single run of a job that is triggered manually, on a schedule, or in response to an event.
 * **Job replica:** A typical job execution runs one replica defined by the job's configuration. In advanced scenarios, a job execution can run multiple replicas.
 
-:::image type="content" source="media/jobs/azure-container-apps-jobs-overview.png" alt-text="Azure Container Apps jobs overview":::
+:::image type="content" source="media/jobs/azure-container-apps-jobs-overview.png" alt-text="Azure Container Apps jobs overview.":::
 
 ## Job trigger types
 
@@ -497,7 +497,7 @@ The following table includes the job settings that you can configure:
 | Polling interval | `pollingInterval` | `--polling-interval` | The time in seconds to wait between polling for events. Default is 30 seconds. |
 | Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. For most jobs, set the value to `1`. |
-| Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal or or less than the parallelism. For most jobs, set the value to `1`. |
+| Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal or less than the parallelism. For most jobs, set the value to `1`. |
 
 ### Example
 
