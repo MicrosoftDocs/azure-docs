@@ -43,7 +43,7 @@ This feature pertains to cable validation, where the primary function of the dia
     az rest -m get -u "<Azure-operationsstatus-endpoint url>" 
     ```
     The operation status indicates if the API succeeded or failed, and appears similar to the following output: 
-    
+
     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx 
 
 > [!NOTE]
