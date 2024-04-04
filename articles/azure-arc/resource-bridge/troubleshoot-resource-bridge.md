@@ -204,7 +204,7 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ### vSphere SDK client 403 Forbidden
 
-If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter URL being provided during configuration file creation where you are prompted to enter the vCenter address as either FQDN or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter FQDN or IP address is typically what you use in the browser to access the vSphere Client itself. If you're already logged in, you can look at the browser's address bar; the URL you use to access the vSphere Client is your vCenter Server's FQDN or IP address. Alternatively, after logging in, go to the **Menu > Administration** section. Under System Configuration, choose Nodes. Your vCenter Server instance(s) will be listed there along with its FQDN. Verify your vCenter address and then re-try the deployment.
+If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter URL being provided during configuration file creation where you are prompted to enter the vCenter address as either FQDN or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter FQDN or IP address is typically what you use in the browser to access the vSphere client. If you're already logged in, you can look at the browser's address bar; the URL you use to access vSphere is your vCenter server's FQDN or IP address. Alternatively, after logging in, go to the **Menu > Administration** section. Under System Configuration, choose Nodes. Your vCenter server instance(s) will be listed there along with its FQDN. Verify your vCenter address and then re-try the deployment.
 
 ### Pre-deployment validation errors
 
@@ -218,7 +218,7 @@ If you are receiving a variety of pre-deployment validation of your download\upl
 
 `Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: dial tcp: lookup hostname.domain: no such host`
 
-A combination of these errors usually indicates that the management machine has lost connection to the datastore, or there's a networking issue causing the datastore to be unreachable. The connection between the management machine and datastore needs to be reestablished, then retry deployment of Arc resource bridge.
+A combination of these errors usually indicates that the management machine has lost connection to the datastore or there's a networking issue causing the datastore to be unreachable. This connection is needed in order to upload the OVA from the management machine needed to build the appliance VM in vCenter. The connection between the management machine and datastore needs to be reestablished, then retry deployment of Arc resource bridge.
 
 ### x509 certificate has expired or is not yet valid
 
