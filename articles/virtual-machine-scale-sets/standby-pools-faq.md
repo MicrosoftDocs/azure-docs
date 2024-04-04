@@ -1,6 +1,6 @@
----
+---ine
 title: Frequently asked questions about standby pools for Virtual Machine Scale Sets
-description: Learn about frequently asked questions for standby pools on Virtual Machine Scale Sets
+description: Learn about frequently asked questions for standby pools on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -17,7 +17,7 @@ ms.reviewer: ju-shim
 Get answers to frequently asked questions about standby pools for Virtual Machine Scale Sets in Azure.
 
 ### What are standby pools for Virtual Machine Scale Sets? 
-Azure standby pools is a feature of Virtual Machine Scale Sets Flexible Orchestration that enables faster 
+Azure standby pools is a feature for Virtual Machine Scale Sets Flexible Orchestration that enables faster 
 scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your 
 workload. 
 
@@ -32,19 +32,19 @@ extra configuration steps needed and can often take many minutes to complete.
 Standby pools is a powerful feature for accelerating your time to scale out and reducing the 
 management needed for provisioning virtual machine resources and getting them ready to service your workload. If 
 your applications are latency sensitive or have long initialization steps, standby pools can help with reducing 
-that time as well as managing the steps to make your virtual machines ready on your behalf. 
+that time and managing the steps to make your virtual machines ready on your behalf. 
 
 ### Can I use standby pools on Virtual Machine Scale Sets with Uniform Orchestration?
 No. Standby pools is only supported on Virtual Machine Scale Sets with Flexible Orchestration.
 
 ### Can I use standby pools for Virtual Machine Scale Sets if I'm already using Azure Autoscale? 
-Yes. However it is not suggested. Autoscale will consume the metrics of virtual machines in your scale set and the virtual machines in your pool to determine when to scale. This can result in unexpected scale out events. 
+Yes. However it isn't suggested. Autoscale consumes the metrics of virtual machines in your scale set and the virtual machines in your pool to determine when to scale. This may result in unexpected scale out events. 
 
 ### How many virtual machines can my standby pool for Virtual Machine Scale Sets have? 
 The maximum number of virtual machines between a scale set and a standby pool is 1,000. 
 
 ### Do virtual machines in the standby pool receive traffic from the Load Balancer associated with the scale set? 
-No, virtual machines in the standby pool don't take any traffic from the Load Balancer associated with the scale set 
+No. Virtual machines in the standby pool don't take any traffic from the Load Balancer associated with the scale set 
 until they're moved from the standby pool into the scale set. 
 
 ### Can my standby pool span multiple Virtual Machine Scale Sets? 
@@ -53,7 +53,7 @@ Pool attached to it. Standby pool inherits the unique properties of the scale se
 such as networking, virtual machine profile, extensions, and more. 
 
 ### How is the configuration of my virtual machines in the standby pool for Virtual Machine Scale Sets determined? 
-Virtual machines in the standby pool inherits the same virtual machine profile as the virtual machines in the scale 
+Virtual machines in the standby pool inherit the same virtual machine profile as the virtual machines in the scale 
 set. Some examples are:  
 - Virtual machine size
 - Storage Profile
@@ -75,10 +75,10 @@ incorrect subscription or there was an error in your input, the response might s
 ### I created a standby pool and I noticed that some virtual machines are coming up in a failed state. 
 Ensure you have enough quota to complete the standby pool creation. Insufficient quota usually results 
 in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete 
-the create operation. Check for multiple types of quotas such as Cores, NICs, IP Addresses, etc.
+the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
 
-### Will my scale set pull virtual machines from my standby pool if they are in a failed state? 
-No. Virtual Machine Scale Sets will only pull instances from your standby pool that match the desired power state of your pool. For example, if your desired power state is set as Stopped (deallocated), the scale set will only pull virtual machines in that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set will default to new virtual machine creation instead. 
+### Will my scale set use virtual machines from my standby pool if they are in a failed state? 
+No. Virtual Machine Scale Sets will only use instances from your standby pool that match the desired power state of your pool. For example, if your desired power state is set as Stopped (deallocated), the scale set only uses virtual machines in that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead. 
 
 
 ## Next steps
