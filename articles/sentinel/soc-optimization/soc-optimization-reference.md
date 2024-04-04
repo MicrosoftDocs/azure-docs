@@ -1,4 +1,4 @@
-f---
+---
 title: SOC optimization reference (Preview)
 description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
 ms.service: defender-xdr
@@ -12,8 +12,10 @@ ms.collection:
   - usx-security
 ms.topic: reference
 ms.date: 03/17/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-#customer intent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
+appliesto:
+  - Microsoft Sentinel in the Microsoft Defender portal
+  - Microsoft Sentinel in the Azure portal
+#customerIntent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
 # SOC optimization reference of recommendations (Preview)
@@ -81,4 +83,4 @@ TBD
 
 ## Next step
 
-[Access SOC optimization](soc-optimization-access.md)
+- [Access SOC optimization](soc-optimization-access.md)
