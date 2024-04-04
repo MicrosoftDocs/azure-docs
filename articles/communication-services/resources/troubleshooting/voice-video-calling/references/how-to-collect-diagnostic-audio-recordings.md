@@ -19,11 +19,11 @@ To collect diagnostic audio recordings, open the chrome://webrtc-internals(Chrom
 
 When you click *Enable diagnostic audio recordings*, the browser prompts a dialog asking for the download file location.
 
-:::image type="content" source="./media/enable-diagnostic-audio-recordings.png" alt-text="Enable diagnostic audio recordings":::
+:::image type="content" source="./media/enable-diagnostic-audio-recordings.png" alt-text="Screenshot of diagnostic audio recordings settings.":::
 
 After you finish an ACS call, you should be able to see files saved in the folder you choose.
 
-:::image type="content" source="./media/diagnostic-audio-recordings.png" alt-text="Diagnostic audio recordings":::
+:::image type="content" source="./media/diagnostic-audio-recordings.png" alt-text="Screenshot of diagnostic audio recording files.":::
 
 `*.output.N.wav` is the audio output sent to the speaker.
 

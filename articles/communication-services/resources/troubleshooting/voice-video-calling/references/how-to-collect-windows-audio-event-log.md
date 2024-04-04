@@ -22,4 +22,4 @@ To collect the audio event log:
     * select logs within time range, right click and choose *Save Selected Events*.
     * right click on Operational, and choose *Save All Events As*.
 
-:::image type="content" source="./media/windows-audio-event-log.png" alt-text="Windows Audio Event Log":::
+:::image type="content" source="./media/windows-audio-event-log.png" alt-text="Screenshot of Windows Audio Event Log.":::
