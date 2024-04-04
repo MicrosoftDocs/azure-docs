@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for containerization of Window
 
 ::: zone pivot="container-linux"
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md). For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If are new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md). For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -317,7 +317,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8-GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8-GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
 
 ## Customize the number of compute cores
 
