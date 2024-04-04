@@ -336,11 +336,11 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 
     In the **Automation** page, you see all the rules that are defined on the workspace, along with their status (Enabled/Disabled) and which analytics rules they are applied to.
 
-    When you need an automation rule that will apply to many analytics rules, create it directly in the **Automation** page.
+    When you need an automation rule that will apply to incidents from Microsoft Defender XDR, or from many analytics rules in Microsoft Sentinel, create it directly in the **Automation** page.
 
 - **Analytics rule wizard**
 
-    In the **Automated response** tab of the analytics rule wizard, under **Automation rules**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
+    In the **Automated response** tab of the Microsoft Sentinel analytics rule wizard, under **Automation rules**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
 
     You'll notice that when you create an automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
 
