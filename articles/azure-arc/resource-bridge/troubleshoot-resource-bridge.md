@@ -141,6 +141,10 @@ To resolve this issue, reboot the resource bridge VM, and it should recover its 
 
 Be sure that the proxy server on your management machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers. For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
 
+### No such host - dp.kubernetesconfiguration.azure.com
+
+If you receive an error that contains "dial tcp: lookup westeurope.dp.kubernetesconfiguration.azure.com: no such host" while deploying Arc resource bridge, this means that the configuration dataplane is currently unavailable in the region specified. This may be a temporary unavailability of the service. Please wait for the service to be available and retry the Arc resource bridge deployment.
+
 ### KVA timeout error
 
 While trying to deploy Arc Resource Bridge, a "KVA timeout error" might appear. The "KVA timeout error" is a generic error that can be the result of a variety of network misconfigurations that involve the management machine, Appliance VM, or Control Plane IP not having communication with each other, to the internet, or required URLs. This communication failure is often due to issues with DNS resolution, proxy settings, network configuration, or internet access.  
@@ -179,7 +183,7 @@ To resolve the error, one or more network misconfigurations might need to be add
 1. Appliance VM needs to be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to resolve external/internal addresses, such as Azure service addresses and container registry names for download of the Arc resource bridge container images from the cloud.
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
-
+   
 ## Move Arc resource bridge location
 
 Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
@@ -198,27 +202,39 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ## Azure Arc-enabled VMware VCenter issues
 
-### `az arcappliance prepare` failure
+### vSphere SDK client 403 Forbidden
 
-The `arcappliance` extension for Azure CLI enables a [prepare](/cli/azure/arcappliance/prepare) command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
+If you receive an error that contains "errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden" while deploying Arc resource bridge, this is most likely due to an incorrect vCenter URL being provided during configuration file creation where you are prompted to enter the vCenter address as either FQDN or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter FQDN or IP address is typically what you use in the browser to access the vSphere Client itself. If you're already logged in, you can look at the browser's address bar; the URL you use to access the vSphere Client is your vCenter Server's FQDN or IP address. Alternatively, after logging in, go to the Menu > Administration section. Under System Configuration, choose Nodes. Your vCenter Server instance(s) will be listed there along with its FQDN. Verify your vCenter address and then re-try the deployment.
 
-```azurecli
-$ az arcappliance prepare vmware --config-file <path to config> 
+### Pre-deployment validation errors
 
-Error: Error in reading OVA file: failed to parse ovf: strconv.ParseInt: parsing "3670409216": 
-value out of range.
-```
+If you are receiving a variety of pre-deployment validation of your download\upload connectivity was not successful errors, such as: 
 
-This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. To resolve the error, install and use Azure CLI 64-bit.
+Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: Service Unavailable
+
+Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: dial tcp 172.16.60.10:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: use of closed network connection.
+
+Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: dial tcp: lookup hostname.domain: no such host
+
+A combination of these errors usually indicates that the management machine has lost connection to the datastore or there is a networking issue causing the datastore to be unreachable. The connection between the management machine and datastore needs to be re-established then re-try deployment of Arc resource bridge.
+
+### x509 certificate has expired or is not yet valid
+
+When you deploy Arc resource bridge, you may encounter the error: 
+
+`Error: { _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://msk8s.api.cdp.microsoft.com. Error returned: action failed after 3 attempts: Get \\\\\\\_https://msk8s.api.cdp.microsoft.com\\\\\\\_: x509: certificate has expired or is not yet valid: current time 2022-01-18T11:35:56Z is before 2023-09-07T19:13:21Z. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings` 
+
+This error is caused when the there is a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP then try the deployment again.
 
 ### Error during host configuration
 
-When you deploy the resource bridge on VMware vCenter, if you have been using the same template to deploy and delete the appliance multiple times, you might encounter the following error:
+If you have been using the same template to deploy and delete the Arc resource bridge multiple times, you might encounter the following error:
 
-`Appliance cluster deployment failed with error:
-Error: An error occurred during host configuration`
+`Appliance cluster deployment failed with error: Error: An error occurred during host configuration`
 
-To resolve this issue, delete the existing template manually. Then run [`az arcappliance prepare`](/cli/azure/arcappliance/prepare) to download a new template for deployment.
+To resolve this issue, manually delete the existing template. Then run [`az arcappliance prepare`](/cli/azure/arcappliance/prepare) to download a new template for deployment.
 
 ### Unable to find folders
 
