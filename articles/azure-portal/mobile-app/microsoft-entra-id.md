@@ -72,7 +72,7 @@ If you have the [necessary permissions](/entra/id-protection/overview-identity-p
    * Dismiss user risk
    * Block the user from signing in (or unblock, if previously blocked)
 
-## Monitor risky sign-ins
+### Monitor risky sign-ins
 
 1. In **Microsoft Entra ID**, scroll down to the **Security** card and then select **Risky sign-ins**. It may take a minute or two for the list of all risky sign-ins to load.
 1. Search or scroll to find and select a specific risky sign-in.
