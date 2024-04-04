@@ -19,13 +19,12 @@ In this Quickstart, you complete the tasks necessary prior to using the Azure Op
 
 ## Download and install Azure CLI
 
-Use the Bash environment in the Azure cloud shell. For more information, see [Start the Cloud Shell](/azure/cloud-shell/quickstart?tabs=azurecli) to use Bash environment in Azure Cloud Shell.
+To install the Azure CLI locally, refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-For users that prefer to run CLI reference commands locally refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
+To sign into the Azure CLI, use the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-If you're running on Window or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-
-If you're using a local installation, sign into the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+> [!NOTE]
+> If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker). You can also use the Bash environment in the Azure cloud shell. For more information, see [Start the Cloud Shell](/azure/cloud-shell/quickstart?tabs=azurecli) to use Bash environment in Azure Cloud Shell.
 
 ### Install Azure Operator Service Manager (AOSM) CLI extension
 
@@ -37,25 +36,6 @@ az extension add --name aosm
 
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
-
-## Register necessary resource providers
-
-Before you begin using the Azure Operator Service Manager, execute the following commands to register the required resource providers. This registration process can take up to 5 minutes.
-
-```azurecli
-# Register Resource Provider
-az provider register --namespace Microsoft.ContainerRegistry
-```
-
-Verify the registration status of the resource providers. Execute the following commands.
-
-```azurecli
-# Query the Resource Provider
-az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
-```
-
-> [!NOTE]
-> It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
 
 ## Requirements for Containerized Network Function (CNF)
 
@@ -75,41 +55,12 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
   az aosm nfd generate-config --definition-type cnf
   ```
 
-- **Images for your CNF** - Here are the options:
-  - A reference to existing Container Registries that contain the images for your CNF. Azure Container Registries are preferred but all other Container Registries are also supported. The images to be copied from these registries are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on any ACRs referenced or run `docker login` command when using other private Container Registries. To use this option, fill in `image_sources` in the `cnf-input.jsonc` file.
-- **Optional: Mapping File (default_values)**: Optionally, you can provide a file (on disk) under the `default_values` parameter. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. Or, you can leave this blank in `cnf-input.jsonc` and the CLI generates the file. By default in this case, every value within `values.yaml` is exposed as a deployment parameter. This quickstart guides you through creation of this file. **TODO: I DOUBT THIS IS RIGHT**
+- Your container images must be present in either:
+  - A reference to existing Azure Container Registries that contain the images for your CNF.
+  - A reference to other Container Registries that contain the images for your CNF.
 
-When configuring the `cnf-input.jsonc` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `cnf-input.jsonc` should resemble the following structure: **TODO: does it still follow this order in the new CLI?**
-
-```jsonc
-"helm_packages": [
-    {
-        // The name of the Helm package.
-        "name": "A",
-        // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-        // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-        "path_to_chart": "Path to package A",
-        // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-        // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-        "default_values": "Path to default values A",
-        // Names of the Helm packages this package depends on.
-        // Leave as an empty array if there are no dependencies.
-        "depends_on": [
-            "Names of the Helm packages this package depends on"
-        ]
-    },
-    {
-        "name": "B",
-        "path_to_chart": "Path to package B",
-        "default_values": "Path to default values B",
-        "depends_on": [
-            "Names of the Helm packages this package depends on"
-        ]
-    }
-]
-```
-
-Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
+> [!IMPORTANT]
+> Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands.
 
 ### Download sample Helm chart
 

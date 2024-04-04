@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Onboard a Virtualized Network Function (VNF) for deployment on Azure Operator Nexus to Azure Operator Service Manager (AOSM)
 
-In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. This VNF can subsequently be deployed on [Azure Operator Nexus](https://learn.microsoft.com/en-us/azure/operator-nexus/overview). Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
+In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. This VNF can subsequently be deployed on [Azure Operator Nexus](/azure/operator-nexus/overview). Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
 1. Generate BICEP files that define a Network Function Definition Group and Version (NFD).
 2. Publish the NFD and upload the VNF image to an Artifact Store (AOSM-managed Azure Container Registry (ACR)).
@@ -21,7 +21,7 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 ## Prerequisites
 
-- You have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
+- You have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
 - You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 
 > [!NOTE]
@@ -29,8 +29,8 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 ### Azure Operator Nexus virtual machine (VM) images and Azure Resource Manager (ARM) templates
 
-- You have created an [image for the Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-virtual-machine-image). This image must be available in an ACR.
-- You have created an [ARM template that deploys an Azure Operator Nexus Virtual Machine](https://learn.microsoft.com/en-us/azure/operator-nexus/quickstarts-virtual-machine-deployment-arm?tabs=azure-cli).
+- You have created an [image for the Azure Operator Nexus Virtual Machine](/azure/operator-nexus/howto-virtual-machine-image). This image must be available in an ACR.
+- You have created an [ARM template that deploys an Azure Operator Nexus Virtual Machine](/azure/operator-nexus/quickstarts-virtual-machine-deployment-arm?tabs=azure-cli).
 - The VM ARM template (for both AzureCore and Azure Operator Nexus) can only deploy ARM resources from the following Resource Providers
 
   - Microsoft.Compute
@@ -228,5 +228,5 @@ You now have a complete set of AOSM publisher resources and are ready to perform
 
 ## Next steps
 
-- [Prerequisites for Operator](https://learn.microsoft.com/azure/operator-service-manager/quickstart-containerized-network-function-operator)
-- [Create a Site Network Service](https://learn.microsoft.com/azure/operator-service-manager/quickstart-containerized-network-function-create-site-network-service)
+- [Prerequisites for Operator](quickstart-containerized-network-function-operator.md)
+- [Create a Site Network Service](quickstart-containerized-network-function-create-site-network-service.md)

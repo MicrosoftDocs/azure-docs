@@ -33,11 +33,11 @@ Execution of the preceding command generates an cnf-input.jsonc file.
 > [!NOTE]
 > Edit the cnf-input.jsonc file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.jsonc**.
 > [!NOTE]
-> You can use multiple Container Registries as sources for your images in the AOSM CLI. The images to be copied from these Registries are populated automatically based on the helm package schema. To configure these source Registries, fill in `image_sources` list in the cnf-input.jsonc file. When using ACRs, you must have Reader/AcrPull permissions. When using other private Registries, you must run `docker login` to authenticate with all non-ACR Registries before running the `az aosm nfd build` command. In this CLI we use `docker.io` as the image source Registry. This is a public Registry and does not require authentication.
+> You can use multiple Container Registries as sources for your images in the AOSM CLI. The images to be copied from these Registries are populated automatically based on the helm package schema. To configure these source Registries, fill in `image_sources` list in the cnf-input.jsonc file. When using ACRs, you must have Reader/AcrPull permissions. When using other private Registries, you must run `docker login` to authenticate with all non-ACR Registries before running the `az aosm nfd build` command. In this quickstart we use `docker.io` as the image source Registry. This is a public Registry and does not require authentication.
 
 Here's sample input-cnf-nfd.jsonc file:
 
-```json
+```jsonc
 {
   // Azure location to use when creating resources e.g uksouth
   "location": "uksouth",
@@ -89,27 +89,26 @@ Here's sample input-cnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build -f input-cnf-nfd.json --definition-type cnf
+az aosm nfd build -f input-cnf-nfd.jsonc --definition-type cnf
 ```
 
-**TODO: The helm template validation generates some warnings from the above command because there is one invalid image in the template used**
+The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This directory contains the BICEP files defining the AOSM resources required to publish an NFDV and upload the images required to deploy it to AOSM-managed storage. Examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure.
 
-**TODO: WE NO LONGER HAVE THE INTERACTIVE MODE. HOW DO WE EXPOSE PARAMETERS NOW?**
-
-Once the build is complete, examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure. These files are created:
-**TODO: The following structure is incorrect**
-
-| Directory/File             | Description                                                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| configMappings             | Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.       |
-| generatedValuesMappings    | The yaml output of interactive mode that created configMappings. Edit and rerun the command if necessary.                          |
-| schemas                    | Defines the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
-| cnfartifactmanifests.bicep | Bicep template for creating the artifact manifest.                                                                                 |
-| cnfdefinition.bicep        | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
+| Directory/File             | Description                                                                                                                                    |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| nfDefinition/deploymentParameters.json | Defines the schema for the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
+| nfDefinition/nginxdemo-mappings.json   | Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.       |
+| nfDefinition/deploy.bicep              | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
+| artifacts/artifacts.json               | A list of the helm packages and container images required by the NF.                                                               |
+| artifactManifest/deploy.bicep          | Bicep template for creating the artifact manifest.                                                                                 |
+| base/deploy.bicep                      | Bicep template for creating the publisher, network function definition group, and artifact store resources                         |
 
 ## Publish the Network Function Definition and upload artifacts
 
 Execute the following command to publish the Network Function Definition (NFD) and upload the associated artifacts:
+
+> [!NOTE]
+> If you are using Windows, you must have Docker Desktop running during the publish step.
 
 ```azurecli
 az aosm nfd publish -b cnf-cli-output --definition-type cnf

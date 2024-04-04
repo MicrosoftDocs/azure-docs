@@ -63,8 +63,6 @@
   - name: Onboard Network Functions to Azure Operator Service Manager (AOSM)
     expanded: false
     items:
-      - name: Use Azure Operator Service Manager (AOSM) CLI extension
-        href: how-to-use-azure-operator-service-manager-cli-extension.md
       - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
         href: how-to-onboard-a-cnf-using-the-azure-cli.md
       - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
@@ -91,6 +89,8 @@
       items:
         - name: Common Issues
           href: troubleshooting-cli-common-issues.md
+    - name: Helm Install Failures
+      href: troubleshooting-helm-install-failures.md
 - name: Resources
   expanded: false
   items:

@@ -31,8 +31,6 @@ The Azure CLI AOSM Extension provides a convenient, simplified interface for pub
 
 ## Next Steps
 
-- Understand the basic workflow of onboarding a network function to AOSM using the CLI.
-- Learn how to use the Azure CLI AOSM extension to do advanced configuration handling.
 - Use the Azure CLI AOSM Extension to onboard an example [CNF](/quickstart-containerized-network-function-prerequisites.md) or [VNF](/quickstart-virtualized-network-function-prerequisites.md).
 - Learn how to [onboard your CNF](/how-to-onboard-a-cnf-using-the-azure-cli.md) to AOSM using the Azure CLI AOSM extension.
 - Learn how to [onboard your VNF](/how-to-onboard-a-vnf-using-the-azure-cli.md) to AOSM using the Azure CLI AOSM extension.
