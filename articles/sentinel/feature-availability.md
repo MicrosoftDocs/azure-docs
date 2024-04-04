@@ -54,7 +54,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Cisco ASA](data-connectors/cisco-asa.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |&#x2705; |&#10060;|&#10060; |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public preview |&#x2705;|&#10060;  |&#x2705; |
+|[Common Event Format (CEF) via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;|&#x2705;  |&#x2705; |
 |[DNS](data-connectors/dns.md) |Public preview |&#x2705;| &#10060; |&#x2705; |
 |[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Defender XDR](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
@@ -68,6 +68,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Syslog via AMA](connect-cef-syslog-ama) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Windows DNS Events via AMA](connect-dns-ama.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
