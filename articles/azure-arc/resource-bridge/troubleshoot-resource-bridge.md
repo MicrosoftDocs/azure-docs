@@ -226,7 +226,7 @@ When you deploy Arc resource bridge, you may encounter the error:
 
 `Error: { _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://msk8s.api.cdp.microsoft.com. Error returned: action failed after 3 attempts: Get \\\\\\\_https://msk8s.api.cdp.microsoft.com\\\\\\\_: x509: certificate has expired or is not yet valid: current time 2022-01-18T11:35:56Z is before 2023-09-07T19:13:21Z. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings` 
 
-This error is caused when the there is a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP then try the deployment again.
+This error is caused when there's a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP, then try the deployment again.
 
 ### Error during host configuration
 
