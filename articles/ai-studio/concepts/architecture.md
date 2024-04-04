@@ -75,7 +75,7 @@ For more information, see [Role-based access control in Azure AI Studio](rbac-ai
 
 ## Attribute-based access control
 
-Each AI hub you create has a default storage account. Each child AI project of the AI hub inherits the storage account of the AI hub. The storage account is used to store data and artifacts. Storage access keys are used to generate SAS tokens, which are stored separately in the AI hub's key vault for each container. 
+Each AI hub you create has a default storage account. Each child AI project of the AI hub inherits the storage account of the AI hub. The storage account is used to store data and artifacts.
 
 To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI project has:
 
