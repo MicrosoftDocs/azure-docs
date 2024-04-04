@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: overview
-ms.date: 02/21/2024
-#CustomerIntent: As a network security perimeter administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
+ms.date: 04/05/2024
+#CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 ---
 
 # Transition to a network security perimeter in Azure

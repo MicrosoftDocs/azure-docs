@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: concept
-ms.date: 02/05/2023
-#CustomerIntent:
+ms.date: 04/04/2024
+#CustomerIntent: As a network administrator,
 ---
 
 # Diagnostic logging for Azure Network Security Perimeter
@@ -47,27 +47,12 @@ You can store the diagnostic logs in the following locations:
 
 ## Enable logging through the Azure portal
 
-1. In the Azure portal, navigate to your network security perimeter.
-1. Select **Diagnostic settings**.
-1. Click on 'Add Diagnostic setting' to configure the collection of the following data:
+You can enable diagnostic logging for network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
 
-Public inbound access allowed by network security perimeter access rules.
-Public inbound access denied by network security perimeter access rules.
-Public outbound access allowed by network security perimeter access rules.
-Public outbound access denied by network security perimeter access rules.
-Inbound access allowed within same perimeter.
-Public inbound access allowed by PaaS resource rules.
-Public inbound access denied by PaaS resource rules.
-Public outbound access allowed by PaaS resource rules.
-Public outbound access denied by PaaS resource rules.
-Private endpoint traffic allowed.
-Cross perimeter outbound access allowed by perimeter link.
-Cross perimeter inbound access allowed by perimeter link
-Outbound attempted to same or different perimeter.
-
-The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, storage account and/or event hubs to save the diagnostic logs. 
-
-1. Type a name for the settings, confirm the settings, and select Save.
+:::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
+  
+> [!NOTE]
+> The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, storage account and/or event hubs to save the diagnostic logs. 
 
 ## Activity log
 
