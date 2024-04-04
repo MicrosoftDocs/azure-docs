@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Entra ID with the Azure mobile app
 description: Use the Azure mobile app to manage users and groups with Microsoft Entra ID.
-ms.date: 03/08/2024
+ms.date: 04/04/2024
 ms.topic: conceptual
 ---
 
@@ -53,6 +53,30 @@ To [manage authentication methods](/entra/identity/authentication/concept-authen
 
 > [!NOTE]
 > You won't see the **Authentication methods** card if you don't have the appropriate permissions to manage authentication methods and/or password changes for a user.
+
+## Investigate risky users and sign-ins
+
+[Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) provides organizations with reporting they can use to [investigate identity risks in their environment](/entra/id-protection/howto-identity-protection-investigate-risk).
+
+If you have the [necessary permissions](/entra/id-protection/overview-identity-protection), you'll see details in the **Risky users** and **Risky sign-ins** sections within **Microsoft Entra ID**. You can open these sections to view more information and perform some management tasks.
+
+### Manage risky users
+
+1. In **Microsoft Entra ID**, scroll down to the **Security** card and then select **Risky users**.
+1. Search or scroll to find and select a specific risky user.
+1. Review basic information for this user, a list of their risky sign-ins, and their risk history.
+1. Select the three dots near the top of the screen to [take action on the user](/entra/id-protection/howto-identity-protection-investigate-risk). You can:
+
+   * Reset the user's password
+   * Confirm user compromise
+   * Dismiss user risk
+   * Block the user from signing in (or unblock, if previously blocked)
+
+## Monitor risky sign-ins
+
+1. In **Microsoft Entra ID**, scroll down to the **Security** card and then select **Risky sign-ins**. It may take a minute or two for the list of all risky sign-ins to load.
+1. Search or scroll to find and select a specific risky sign-in.
+1. Select the risky sign-in to view more details about the sign-in. To perform actions such as blocking the user, follow the steps in the previous section.
 
 ## Activate Privileged Identity Management (PIM) roles
 
