@@ -15,7 +15,7 @@ ms.author: cshoe
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 
-To request an increase in quotas for your container app, learn [how to request a quota increase](faq.yml#how-can-i-request-a-quota-increase-) and [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+To request a [quota increase](faq.yml#how-can-i-request-a-quota-increase-), you can [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 The *Is Configurable* column in the following tables denotes a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/). For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
 
