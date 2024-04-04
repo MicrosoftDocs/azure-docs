@@ -218,7 +218,7 @@ Pre-deployment validation of your download/upload connectivity was not successfu
 
 Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: dial tcp: lookup hostname.domain: no such host
 
-A combination of these errors usually indicates that the management machine has lost connection to the datastore or there is a networking issue causing the datastore to be unreachable. The connection between the management machine and datastore needs to be re-established then re-try deployment of Arc resource bridge.
+A combination of these errors usually indicates that the management machine has lost connection to the datastore, or there's a networking issue causing the datastore to be unreachable. The connection between the management machine and datastore needs to be reestablished, then retry deployment of Arc resource bridge.
 
 ### x509 certificate has expired or is not yet valid
 
