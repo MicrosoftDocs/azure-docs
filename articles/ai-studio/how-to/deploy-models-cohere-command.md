@@ -161,10 +161,10 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat/c
 
 `response_format` and `tool_choice` aren't yet supported parameters for the Command R and Command R+ models.
 
-<br/>
 
 #### System or user message
 A System or User Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=system` or `role=user`. |
@@ -172,6 +172,7 @@ A System or User Message supports the following properties:
 
 #### Assistant message
 An Assistant Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=assistant`|
@@ -180,13 +181,13 @@ An Assistant Message supports the following properties:
 
 #### Tool message
 A Tool Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=tool`|
 |`content` |`string` |Required |The contents of the tool message. |
 |`tool_call_id` |`string` |None |Tool call that this message is responding to. |
 
-<br/>
 
 ### v1/chat/completions response schema
 
