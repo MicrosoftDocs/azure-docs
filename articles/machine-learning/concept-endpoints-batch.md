@@ -12,7 +12,7 @@ ms.reviewer: mopeakande
 ms.custom:
   - devplatv2
   - ignite-2023
-ms.date: 04/03/2024
+ms.date: 04/04/2024
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
