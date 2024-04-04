@@ -361,7 +361,7 @@ Deploy the template to create a new key vault in the target region.
 
 Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates after the relocation of the associated Azure services.
 
-## Links
+## Related content
 
 - [Azure Key Vault backup and restore](/azure/key-vault/general/backup)
 - [Moving an Azure Key Vault across resource groups](/azure/key-vault/general/move-resourcegroup)

@@ -104,27 +104,15 @@ Use this option to:
 
 ### Relocate certificates for Premium TLS Termination (Application Gateway v2)
 
-Consider this section if your Application Gateway v2 is integrated with Key Vault for server certificates that are attached to HTTPS-enabled listeners.  For TLS termination, Application Gateway v2 only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your Key Vault. To avoid any failures, ensure that the certificate’s status is set to `Enabled` in Key Vault. To learn more about exporting an existing certificate from a source Azure Key Vault, see [Export certificates from Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli).
 
 Application Gateway v2 offers two models for TLS termination:
 
 - *Attachment.* Provide an TLS/SSL certificate that's attached to the listener. The attachment model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
 
-- *Reference.* Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener.
+- *Reference.* Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener. For more information on downloading a certificate, see [Relocate Key Vault to another region](./relocation-key-vault.md). When referencing a Key Vault certificate, consider:
 
->[!WARNING]
- >Application Gateway v2 currently supports only Key Vault accounts in the same subscription as the Application Gateway v2 resource. Choosing a key vault under a different subscription than your Application Gateway v2 results in a failure.
-
-
-Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
-
-As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.
-
-To learn about the certificates that Azure Application Gateway v2 uses and how to deploy them, see [supported certificates](/azure/application-gateway/key-vault-certs#supported-certificates).
-
-### Key Vault Managed Identity
-
-You would need to design access policies to a new user-assigned managed identity with your key vault.
-
-When you’re using a restricted key vault, use the following steps in this documentation to configure Application Gateway to use firewalls and virtual networks: [Configure your Key Vault](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs#configure-your-key-vault)
+    - As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.
+    
+    - Application Gateway v2 currently supports only Key Vault accounts in the same subscription as the Application Gateway v2 resource. Choosing a key vault under a different subscription than your Application Gateway v2 results in a failure.
+    - You must design access policies to a new user-assigned managed identity with your key vault. For more more detailed information, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs#configure-your-key-vault) for your relocated Application Gateway. 
 
