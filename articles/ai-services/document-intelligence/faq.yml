@@ -252,7 +252,7 @@ sections:
       - question: |
             Both Document Intelligence Studio and the FOTT Sample Labeling tool are available. Which one should I use?
         answer:  |
-           Most of time, we recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) because it can reduce your time for configuring Document Intelligence resources and storage services.
+           Most of the time, we recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) because it can reduce your time for configuring Document Intelligence resources and storage services.
 
            Consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
 
@@ -366,7 +366,7 @@ sections:
            Learn more about [composed models](concept-custom.md).
 
       - question: |
-          If the number of models that I want to compose exceeds the upper limit of composed model, what are the alternatives?
+          If the number of models that I want to compose exceeds the upper limit of a composed model, what are the alternatives?
         answer: |
            You can use one of these alternatives:
 
