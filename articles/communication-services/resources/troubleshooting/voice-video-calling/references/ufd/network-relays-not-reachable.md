@@ -15,7 +15,7 @@ ms.subservice: calling
 # networkRelaysNotReachable UFD
 The `networkRelaysNotReachable` UFD with `true` value occurs when the media connection fails to establish and no relay candidates are available. This issue usually happens when the firewall policy blocks connections between the local client and relay servers.
 
-When users see the `networkRelaysNotReachable` UFD, it also indicates that the local client is not able to make a direction connection to the remote endpoint.
+When users see the `networkRelaysNotReachable` UFD, it also indicates that the local client is not able to make a direct connection to the remote endpoint.
 
 | networkRelaysNotReachable UFD | Details                |
 | ------------------------------|------------------------|
@@ -36,8 +36,12 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 });
 ```
 ## How to mitigate or resolve
-Your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of any network setup issues.
+Your application should subscribe to events from the User Facing Diagnostics.
+Display a message on your user interface to inform users of network quality issues.
+
 Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../../concepts/voice-video-calling/network-requirements.md) document. It is also recommended that the user also checks their NAT settings or whether their firewall policy blocks UDP packets.
 
 If the organization policy doesn't allow users to connect to Microsoft TURN relay servers, custom TURN servers can be configured to avoid connection failures. See [Force calling traffic to be proxied across your own server](../../../../../tutorials/proxy-calling-support-tutorial.md) tutorial document for more information.
 
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
