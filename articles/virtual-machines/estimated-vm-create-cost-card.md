@@ -37,54 +37,47 @@ Costs associated with selecting existing resources during the VM creation proces
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Image and Size (Windows)](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) | Image indicates the third party licensing costs. |
-| [Image and Size (Linux)](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) | |
-| [Spot](https://azure.microsoft.com/pricing/spot-advisor/) | If selected, the necessary Spot discount is shown. |
-| [AHB licensing](https://azure.microsoft.com/pricing/hybrid-benefit/) | If selected, the necessary AHB discounts are applied and shown. |
+| [Image and Size (Windows)](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) | Estimates of VM size and Windows based image are displayed. |
+| [Image and Size (Linux)](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) | Estimates of VM size and Linux based image are displayed. |
+| [Spot](https://azure.microsoft.com/pricing/spot-advisor/) | If selected, the discounted Spot price is shown. |
+| [AHB licensing](https://azure.microsoft.com/pricing/hybrid-benefit/) | If selected, the AHB discounts are applied and shown. |
 
 ### Disks
 
-| Resource or feature                      |
-|------------------------------------------|
-| [OS Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| [Ultra disk Reservation charge](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| [Data Disk: Ultra Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| [Data Disk: Premium Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| [Data disk: Standard disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-
-Notes:
-- The ultra disk reservation charge is displayed when the ultra disk option is selected but not yet added as a data disk. If ultra disk compatibility is enabled but the disk itself isn't added, the ultra disk reservation charges are incurred. 
-- Throughput and bursting costs are included, assuming moderate use. 
-- Enabling shares on disks incurs extra costs and those costs are displayed as a part of the price estimation. 
+| Resource or feature                      | Notes                                          |
+|------------------------------------------|-----------------------------------------------------------|
+| [OS Disk](https://azure.microsoft.com/pricing/details/managed-disks/) | Estimate for using the selected disk to host the selected operating system is displayed.|
+| [Ultra disk Reservation charge](https://azure.microsoft.com/pricing/details/managed-disks/) | A reservation charge is only imposed if Ultra Disk compatibility is enabled on the VM without attaching an Ultra Disk.|
+| [Data Disk](https://azure.microsoft.com/pricing/details/managed-disks/) | Estimate for using the selected disk, to store and access data, is displayed. A disk share estimate is displayed if enabled and additional charges apply. Transaction and bursting costs are not included in the estimate. |
 
 ### Networking
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) | Standard Public IP costs are displayed when a new IP is created as part of the default selection. |
-| [VM Data transfer](https://azure.microsoft.com/pricing/details/bandwidth/) | Estimated cost is based on inter-region data transfer on routing via Microsoft Premium Global Network rates, because the Azure portal VM creation process only allows choosing resources within the same region. |
-| [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) | For an existing Azure load balancer, only the data estimations are displayed. Azure assumes that other fixed costs are paid. |
-| [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) | For existing Azure Application gateway, only the data estimations are displayed. Azure assumes that other fixed costs are paid. |
+| [Public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) | Displays an estimate of running a public IP Address. A Standard Public IP is selected when a new IP is created as part of the default selection. |
+| [VM Data transfer](https://azure.microsoft.com/pricing/details/bandwidth/) | Estimated cost is based on inter-region data transfer routed via Microsoft Premium Global Network. |
+| [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) | A new Standard Azure Load balancer estimate includes cost of 1 rule and estimated data processed. For an existing Azure load balancer, estimate includes only the estimated data transfer, it is assumed rules already exist. |
+| [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) | A new Application Gateway v2 estimate includes Fixed, Capacity units and estimate outbound data transfer costs. For this estimate it is 1 capacity unit consumption is assumed. For existing Azure Application gateway, only the outbounf data transfer estimate is displayed. Azure assumes that other fixed costs are already paid for. |
 
 ### Management 
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Azure Backup](https://azure.microsoft.com/pricing/details/backup/) | Monthly average backup cost is based on the size of the VM that needs backup, the backup policy selected, and estimated moderate daily data churn. |
-| [Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) | |
+| [Azure Backup](https://azure.microsoft.com/pricing/details/backup/) | Monthly average backup cost is based on the operating system disk size of the VM that needs backup, the backup policy selected, and estimated moderate daily data churn. |
+| [Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) | Estimate for recovering VM to Azure.|
 
 ### Monitoring 
 
-| Resource or feature                      |
-|------------------------------------------|
-| [Alerts](https://azure.microsoft.com/pricing/details/monitor/) |
-| [Boot Diagnostics](https://azure.microsoft.com/pricing/details/storage/blobs/) |
+| Resource or feature                      | Notes                                          |
+|------------------------------------------|-----------------------------------------------------------|
+| [Alerts](https://azure.microsoft.com/pricing/details/monitor/) | Estimate for the selected alerting rules. |
+| [Boot Diagnostics](https://azure.microsoft.com/pricing/details/storage/blobs/) | Estimate for enabling boot diagnoistics can vary based the storea account and number of transactions performed. If enabled, it will incur charged, however due to the variability in consumption, it is not included in the estimate.|
 
 ### Advanced 
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Azure Dedicated Host](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) | Adding an existing Azure Dedicated Host deducts the cost of the VM size. |
+| [Azure Dedicated Host](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/) | Adding an existing Azure Dedicated Host deducts the cost of the VM size as the host had been prepaid for. |
 
 ## Next steps
 
