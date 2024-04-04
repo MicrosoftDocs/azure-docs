@@ -38,14 +38,14 @@ A deployment is a set of resources and computes required to implement the functi
 
 Two types of deployments are possible in Azure Machine Learning batch endpoints:
 
-* [Model deployment](#model-deployments)
+* [Model deployment](#model-deployment)
 * [Pipeline component deployment](#pipeline-component-deployment)
 
 ### Model deployment
 
 Model deployment enables the operationalization of model inferencing at scale, allowing you to process large amounts of data in a low latency and asynchronous way. Azure Machine Learning automatically instruments scalability by providing parallelization of the inferencing processes across multiple nodes in a compute cluster.
 
-Use __Model deployments__ when:
+Use __Model deployment__ when:
 
 > [!div class="checklist"]
 > * You have expensive models that require a longer time to run inference.
@@ -69,7 +69,7 @@ To create a model deployment in a batch endpoint, you need to specify the follow
 
 Pipeline component deployment enables the operationalization of entire processing graphs (or pipelines) to perform batch inference in a low latency and asynchronous way.
 
-Use __Pipeline component deployments__ when:
+Use __Pipeline component deployment__ when:
 
 > [!div class="checklist"]
 > * You need to operationalize complete compute graphs that can be decomposed into multiple steps.
