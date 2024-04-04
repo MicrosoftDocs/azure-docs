@@ -3,8 +3,8 @@ title: Forecasting at scale
 titleSuffix: Azure Machine Learning
 description: Learn about different ways to scale forecasting model training
 services: machine-learning
-author: ericwrightatwork
-ms.author: erwright
+author: arun-rajora
+ms.author: arunrajora
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
