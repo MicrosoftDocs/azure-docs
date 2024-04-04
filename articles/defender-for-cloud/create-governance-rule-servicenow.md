@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Create automatic tickets with governance rules
 
-The integration of SeviceNow and Defender for Cloud allow you to create governance rules that automatically open tickets in SeviceNow for specific recommendations or severity levels. ServiceNow tickets can be created, viewed, and linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
+The integration of ServiceNow and Defender for Cloud allow you to create governance rules that automatically open tickets in ServiceNow for specific recommendations or severity levels. ServiceNow tickets can be created, viewed, and linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
 
 ## Prerequisites
 
