@@ -143,7 +143,7 @@ The platform creates the [the new outbound IP addresses](networking.md#addresses
 
 When completed, the new outbound IPs that your future App Service Environment v3 uses are created. These new IPs have no effect on your existing environment.
 
-You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
+You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
 
 This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
