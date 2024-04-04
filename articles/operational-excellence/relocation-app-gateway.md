@@ -104,7 +104,6 @@ Use this option to:
 
 ### Relocate certificates for Premium TLS Termination (Application Gateway v2)
 
-Consider this section if your Application Gateway v2 is integrated with Key Vault for server certificates that are attached to HTTPS-enabled listeners.  For TLS termination, Application Gateway v2 only supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your Key Vault. To avoid any failures, ensure that the certificate’s status is set to `Enabled` in Key Vault. To learn more about exporting an existing certificate from a source Azure Key Vault, see [Export certificates from Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli).
 
 Application Gateway v2 offers two models for TLS termination:
 
