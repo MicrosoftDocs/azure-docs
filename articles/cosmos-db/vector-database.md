@@ -23,11 +23,15 @@ In 2023, a notable trend in software was the integration of AI enhancements, oft
 
 ## What is a vector database?
 
+### Pure vector database basic functionalities
+
 A vector database is a database designed to store and manage [vector embeddings](#embeddings), which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. These vector embeddings are used in similarity search, multi-modal search, recommendations engines, large languages models (LLMs), etc.
 
 In a vector database, embeddings are indexed and queried through [vector search](#vector-search) algorithms based on their vector distance or similarity. A robust mechanism is necessary to identify the most relevant data. Some well-known vector search algorithms include Hierarchical Navigable Small World (HNSW), Inverted File (IVF), DiskANN, etc.
 
-Besides the typical vector database functionalities above, an integrated vector database in a highly performant NoSQL or relational database converts the existing raw data in your account into embeddings and stores them alongside your original data. This way, you can avoid the extra cost of replicating your data in a separate vector database. Moreover, this architecture keeps your vector embeddings and original data together, which better facilitates multi-modal data operations, and you can achieve greater data consistency, scale, and performance.
+### Integrated vector database
+
+An integrated vector database in a highly performant NoSQL or relational database provides additional capabilities beyond the basic functionalies of a vector database. A pure vector database is designed to effeciently store and manage vector embeddings, along with a small amoung of metadata; it is separate from the data source from which the embeddings are derived. Whereas, an integrated vector database converts the existing data in a nonrelational or relational database into embeddings and stores them alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enable greater data consistency, scale, and performance.
 
 ## What are some vector database use cases?
 
