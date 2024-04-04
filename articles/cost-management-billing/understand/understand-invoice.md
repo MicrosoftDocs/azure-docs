@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 
 ---
@@ -40,7 +40,7 @@ invoice and descriptions for each term.
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
 
-![Account information section of invoice](./media/understand-invoice/account-information-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/account-information-section.png" alt-text="Screenshot showing the Account information section of a invoice.":::
 
 | Term | Description |
 | --- | --- |
@@ -58,7 +58,7 @@ The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
 
-![Invoice summary section](./media/understand-invoice/invoice-summary-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/invoice-summary-section.png" alt-text="Screenshot showing the Invoice summary section of an invoice.":::
 
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
@@ -98,7 +98,7 @@ on the second page of your Invoice.
 The Usage charges section of the invoice displays meter level
 information on your charges.
 
-![Usage charges section](./media/understand-invoice/usage-charges-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/usage-charges-section.png" alt-text="Screenshot showing the Usage charges section of an invoice.":::
 
 The following table describes the usage charges column headers shown on
 your Invoice.

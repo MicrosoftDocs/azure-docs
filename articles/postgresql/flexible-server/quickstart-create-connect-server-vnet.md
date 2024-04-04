@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, linux-related-content
 ms.topic: quickstart
 ms.date: 01/02/2024
 ---

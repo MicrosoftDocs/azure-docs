@@ -100,9 +100,7 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 ### [**REST API**](#tab/rest-text-query)
 
-[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/documents/search-post). 
-
-[Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
+Use a REST client to set up a request. [Quickstart: Text search using REST](search-get-started-rest.md) has instructions if you need help with getting started.
 
 The following example calls the REST API for full text search:
 

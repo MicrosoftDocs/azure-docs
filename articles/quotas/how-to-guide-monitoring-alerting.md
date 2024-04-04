@@ -58,7 +58,7 @@ For a sample request body, see the [API documentation](/rest/api/monitor/schedul
 
 ### Create alerts using Azure Resource Graph query
 
-You can use the **Azure Monitor Alerts** blade to [create alerts using a query](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). Resource Graph Explorer lets you run and test queries before using them to create an alert. To learn more, see the [Configure Azure alerts](/training/modules/configure-azure-alerts/) training module.
+You can use the **Azure Monitor Alerts** pane to [create alerts using a query](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). Resource Graph Explorer lets you run and test queries before using them to create an alert. To learn more, see the [Configure Azure alerts](/training/modules/configure-azure-alerts/) training module.
 
 For quota alerts, make sure the **Scope** is your Log analytics workspace  and the **Signal type** is the customer query log. Add a sample query for quota usages. Follow the remaining steps as described in the [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log).
 

@@ -23,9 +23,6 @@ The solution is to invoke an analyzer during indexing that preserves a complete 
 
 If you need to support search scenarios that call for analyzed and non-analyzed content, consider creating two fields in your index, one for each scenario. One field undergoes lexical analysis. The second field stores an intact string, using a content-preserving analyzer that emits whole-string tokens for pattern matching.
 
-> [!TIP]
-> If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
-
 ## About partial term search
 
 Azure AI Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`), or format the query as a regular expression. 
@@ -53,9 +50,6 @@ The approach looks like this:
 1. Evaluate and choose among the various analyzers that emit tokens at the right level of granularity
 1. Assign the analyzer to the field
 1. Build and test the index
-
-> [!TIP]
-> Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](/rest/api/searchservice/create-index), [Delete Index](/rest/api/searchservice/delete-index),[Load Documents](/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
 
 ## 1 - Create a dedicated field
 
@@ -91,7 +85,7 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
 | [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the built-in [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) doesn't lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-If you're using a web API test tool like Postman, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
+Using a REST client, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
 The index must exist on the search service, but it can be empty. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
@@ -229,9 +223,9 @@ The following example illustrates a custom analyzer that provides the keyword to
 
 Once you've defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries.
 
-If you're familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article. The collection includes REST API requests for index creation and deletion, sample documents and an upload documents request, a test analyzer request, and queries. 
+Use a REST client to query partial terms and special characters described in this article.
 
-The previous sections explained the logic. This section steps through each API you should call when testing your solution. As previously noted, if you use an interactive web test tool such as Postman, you can step through these tasks quickly.
+The previous sections explained the logic. This section steps through each API you should call when testing your solution. 
 
 + [Delete Index](/rest/api/searchservice/delete-index) removes an existing index of the same name so that you can recreate it.
 

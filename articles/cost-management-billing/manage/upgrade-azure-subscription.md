@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -37,7 +37,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
 1. If you don't have a payment method for your account, you're prompted to add one.
 1. You might need to enter a phone number to verify your identity.
 1. Type a name for your subscription.  
-     :::image type="content" source="./media/upgrade-azure-subscription/free-upgrade-name.png" alt-text="ALTScreenshot that shows the subscription name.TEXT" lightbox="./media/upgrade-azure-subscription/free-upgrade-name.png" :::
+     :::image type="content" source="./media/upgrade-azure-subscription/free-upgrade-name.png" alt-text="Screenshot that shows the subscription name." lightbox="./media/upgrade-azure-subscription/free-upgrade-name.png" :::
 1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/us/support/plans/).
 1. Select **Upgrade**.
 

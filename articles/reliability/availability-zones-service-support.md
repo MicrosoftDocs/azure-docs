@@ -1,6 +1,6 @@
 ---
 title: Azure services that support availability zones
-description: Learn what services are supported by availability zones and understand resiliency across all Azure services.
+description: Learn which services offer availability zone support and understand resiliency across all Azure services.
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
@@ -43,7 +43,7 @@ The following regions currently support availability zones:
 
 
 
-\* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+\* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Azure services with availability zone support
 
@@ -77,7 +77,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 
 
 >[!IMPORTANT]
->Some services, although they are zone-redundant, may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table below.
+>Some services, although they are zone-redundant, may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the following table.
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 
@@ -157,7 +157,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure NAT Gateway](../nat-gateway/nat-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Network Watcher: Traffic Analytics](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Notification Hubs](../notification-hubs/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Notification Hubs](reliability-notification-hubs.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Private Link](../private-link/private-link-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Route Server](../route-server/route-server-faq.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Stream Analytics | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -208,7 +208,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Cloud Shell  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Content Delivery Network  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Cost Management and Billing | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Cost Management | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure DNS  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |

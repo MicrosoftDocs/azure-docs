@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 02/27/2024
+ms.date: 03/07/2024
 ms.topic: conceptual
 ms.custom: references_regions, build-2023
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
@@ -58,7 +58,7 @@ Azure Functions currently supports the following methods of deploying a containe
 Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app. The following Azure CLI command sets the minimum and maximum replica count when creating a new function app in a Container Apps environment from an Azure Container Registry: 
 
 ```azurecli
-az functionapp create --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1 --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD>
+az functionapp create --name <APP_NAME> --resource-group <MY_RESOURCE_GROUP> --max-replicas 15 --min-replicas 1 --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --image <LOGIN_SERVER>/azurefunctionsimage:v1 --registry-username <USERNAME> --registry-password <SECURE_PASSWORD> --registry-server <LOGIN_SERVER>
 ```  
 
 The following command sets the same minimum and maximum replica count on an existing function app:
@@ -84,6 +84,7 @@ Keep in mind the following considerations when deploying your function app conta
     + Timer  
     <sup>*</sup>The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
++ You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
 + The Functions Dapr extension is also in preview, with help provided [in the repository](https://github.com/Azure/azure-functions-dapr-extension/issues).

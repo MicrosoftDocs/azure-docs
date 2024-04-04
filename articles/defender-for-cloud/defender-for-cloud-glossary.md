@@ -127,9 +127,9 @@ Cloud Workload Protection Platform. See [CWPP](./overview-page.md).
 
 Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. Learn about [data-aware security posture](concept-data-security-posture.md).
 
-### Defender agent
+### Defender sensor
 
-The DaemonSet that is deployed on each node, collects signals from hosts using eBPF technology, and provides runtime protection. The agent is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It's deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Architecture for each Kubernetes environment](defender-for-containers-architecture.md#architecture-for-each-kubernetes-environment).
+The DaemonSet that is deployed on each node, collects signals from hosts using eBPF technology, and provides runtime protection. The sensor is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It's deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Architecture for each Kubernetes environment](defender-for-containers-architecture.md#architecture-for-each-kubernetes-environment).
 
 ### **DDOS Attack**
 

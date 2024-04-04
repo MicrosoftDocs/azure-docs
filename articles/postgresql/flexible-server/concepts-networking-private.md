@@ -52,7 +52,6 @@ Here are some concepts to be familiar with when you're using virtual networks wh
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
-  > For Azure Storage connection please make sure the Azure Database for PostgreSQL flexible server delegated subnet has Service Endpoints for Azure Storage in the region of the VNet. The endpoints are created by default, but please take care not to remove these manually.
 
 * **Network security group (NSG)**. Security rules in NSGs enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. For more information, see the [NSG overview](../../virtual-network/network-security-groups-overview.md).
 
@@ -134,7 +133,7 @@ Use [Azure Virtual Network Manager (AVNM)](../../virtual-network-manager/overvie
 
 Frequently customers have a need  to connect to clients different Azure regions. More specifically, this question typically boils down to how to connect two VNETs (one of which has Azure Database for PostgreSQL - Flexible Server and another application client) that are in different regions.
 There are multiple ways to achieve such connectivity, some of which are:
-* **[Global VNET peering](../../virtual-network/virtual-network-peering-overview.md)**. Most common methodology, as its is the easiest way to connect networks in different regions together. Global VNET peering creates a connection over the Azure backbone directly between the two peered VNETs. This provides best network throughput and lowest latencies for connectivity using this method. When VNETs are peered, Azure will also handle the routing automatically for you, these VNETs can communicate with all resources in the peered VNET, established on a VPN gateway. 
+* **[Global VNET peering](../../virtual-network/virtual-network-peering-overview.md)**. Most common methodology, as it's the easiest way to connect networks in different regions together. Global VNET peering creates a connection over the Azure backbone directly between the two peered VNETs. This provides best network throughput and lowest latencies for connectivity using this method. When VNETs are peered, Azure will also handle the routing automatically for you, these VNETs can communicate with all resources in the peered VNET, established on a VPN gateway. 
 * **[VNET-to-VNET connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)**. A VNET-to-VNET connection is essentially a VPN between the two different Azure locations. The VNET-to-VNET connection is established on a VPN gateway. This means your traffic incurs two additional traffic hops as compared to global VNET peering. There's also additional latency and lower bandwidth as compared to that method. 
 * **[Communication via network appliance in Hub and Spoke architecture](#using-hub-and-spoke-private-networking-design)**. 
 Instead of connecting spoke virtual networks directly to each other, you can use network appliances to forward traffic between spokes. Network appliances provide more network services like deep packet inspection and traffic segmentation or monitoring, but they can introduce latency and performance bottlenecks if they're not properly sized. 

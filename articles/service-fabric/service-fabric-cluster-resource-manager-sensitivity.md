@@ -23,7 +23,7 @@ For instance, in the scenario as listed in the table, Node 1 is under node capac
 |Node 1 |150/100       |50                |50                |50                  |
 |Node 2 |0/100         |                  |                  |                    |
 
-While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the Node 1 capacity violation. The Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1.
+While in the following case, two MSRs with load of 60 each collocates on Node 1, leading to the capacity violation of Node 1. Node 2 has space of 80 with only one Non-MSR (load = 20) placed on it. One of the MSRs on node 1 has to be moved to node 2 as there is no Non-MSR present on node 1 to be moved to fix violation.
 
 |Node   |Node Load/Capacity |MSR Service 1 Load |MSR Service 2 Load|Non-MSR Service Load | 
 |:------|:------|:------|:------|:------|
@@ -32,15 +32,15 @@ While in the following case, two MSRs with load of 60 each collocates on Node 1,
 
 The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Thus, along with `IsMaximumSensitivity`, the feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is smaller than or equal to the node capacity of that metric. With this upper bound set, CRM can safely collocate multiple MSRs on the same node, avoiding the scenario that the only way to fix node capacity violation is to move a max sensitivity replica.
 
-Let's say that two customer metrics are defined for cluster node: ACU (Application CPU Usage) and IDSU (Instance Disk Usage). The node capacities for ACU and IDSU are **100 vCores** and **4 TB** respectively.
+Let's say that two customer metrics are defined for cluster node: MetricA and MetricB. The node capacities for MetricA and MetricB are **100** and **4** respectively.
 
-The table here shows a few examples regarding the collocation of maximum sensitivity replicas. For the three scenarios listed in the table, assume there already exists one max sensitivity replica on a node. Whether more MSRs can be placed on this node depends on space left on the node and resources needed for new MSRs.
-1. More MSRs can be placed on this node as long as it does not cause node load or MaxLoad capacity violation. (that is, `ACU (Max)Load <= 50 vCores && IDSU (Max)Load <= 2 TB`).
-2. No other MSR can be placed on this node as the MaxLoads for both ACU and IDSU reach to their node MaxLoad capacities.  
-3. No other MSR can be placed on this node as the MaxLoad for IDSU reaches to its node MaxLoad capacity though there exists room from the perspective of ACU. 
+The table here shows a few examples regarding the collocation of maximum sensitivity replicas. For the three scenarios listed in the table, assume there already exists one max sensitivity replica on a node and MaxLoad for either Metric A or MetricB is required to be positive. Whether more MSRs can be placed on this node depends on space left on the node and resources needed for new MSRs.
+1. More MSRs can be placed on this node as long as it does not cause node load or MaxLoad capacity violation. (that is, `MetricA (Max)Load <= 50 && MetricB (Max)Load <= 2`).
+2. No other MSR can be placed on this node as the MaxLoads for both MetricA and MetricB reach to their node MaxLoad capacities.  
+3. No other MSR can be placed on this node as the MaxLoad for MetricB reaches to its node MaxLoad capacity though there exists room from the perspective of MetricA. 
 
 
-|Scenario # |ACU Load |IDSU Load|IsMaximumSensitivity |ACU MaxLoad |IDSU MaxLoad |Can another MSR be placed on this node?|
+|Scenario # |MetricA Load |MetricB Load|IsMaximumSensitivity |MetricA MaxLoad |MetricB MaxLoad |Can another MSR be placed on this node?|
 |:---|:---|:---|:---|:---|:---|:---|
 |1 |50 |2 | true |50 |2 |Yes |
 |2 |100 |2 | true |100 |4 |No |

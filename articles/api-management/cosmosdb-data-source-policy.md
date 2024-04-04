@@ -7,11 +7,13 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 06/07/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Cosmos DB data source for a resolver
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](../cosmos-db/introduction.md) data source. The schema must be imported to API Management as a GraphQL API. 
 
@@ -236,7 +238,7 @@ Use the policy to configure a single query request, read request, delete request
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2
 
 ### Usage notes
 
@@ -253,7 +255,7 @@ Follow these steps to use the Azure CLI to configure the managed identity.
 
 * Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. In the portal, note the object (principal) ID of the managed identity.
 
-* [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)] 
+* [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)] 
 
 
 ### Azure CLI script to configure the managed identity
@@ -490,6 +492,6 @@ type Query {
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -12,6 +12,8 @@ ms.custom: engagement-fy23
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
 API Management has the following immutable system groups:
@@ -29,8 +31,6 @@ In addition to these system groups, administrators can create custom groups or [
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
 In addition to creating and managing groups in the Azure portal, you can create and manage your groups using the API Management REST API [Group](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entity.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 
@@ -91,8 +91,8 @@ Once the association is added between the developer and the group, you can view 
 
 ## <a name="next-steps"> </a>Next steps
 
-* Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][How create and publish a product in Azure API Management].
-* You can control how the developer portal content appears to different users and groups you've configured. Learn more about [customizing the developer portal](api-management-howto-developer-portal-customize.md#customize-the-portals-content). 
+* Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How to create and publish a product in Azure API Management][How create and publish a product in Azure API Management].
+* You can control how the developer portal content appears to different users and groups you've configured. Learn more about [visibility and access controls in the developer portal](developer-portal-overview.md#content-visibility-and-access). 
 * Learn how to manage the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications to developers from your API Management instance.
 
 

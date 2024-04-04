@@ -41,17 +41,17 @@ const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 // Set the Azure and AI Search values from environment variables
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const deploymentId = process.env["AZURE_OPENAI_DEPLOYMENT_ID"];
 const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
 const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
 const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
-const deploymentId = process.env["AZURE_OPEN_AI_DEPLOYMENT_ID"];
 
 
 async function main(){
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
 
   const messages = [
-    { role: "user", content: "Tell me something interesting" },
+    { role: "user", content: "What are my available health plans?" },
   ];
 
   console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
@@ -102,8 +102,8 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-Message: Tell me something interesting
-Based on the retrieved document, an interesting fact is...
+Message: What are my available health plans?
+The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans.
 
 ```
 
