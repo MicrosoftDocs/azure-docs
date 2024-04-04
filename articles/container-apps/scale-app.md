@@ -27,10 +27,8 @@ Scaling is defined by the combination of limits, rules, and behavior.
 
     | Scale limit | Default value | Min value | Max value |
     |---|---|---|---|
-    | Minimum number of replicas per revision | 0 | 0 | 300 |
-    | Maximum number of replicas per revision | 10 | 1 | 300 |
-
-    To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+    | Minimum number of replicas per revision | 0 | 0 | Maximum replicas configurable are 300 in Azure portal and 1,000 in Azure CLI. There must also be enough cores quota available. |
+    | Maximum number of replicas per revision | 10 | 1 | Maximum replicas configurable are 300 in Azure portal and 1,000 in Azure CLI. There must also be enough cores quota available. |
 
 - **Rules** are the criteria used by Container Apps to decide when to add or remove replicas.
 
