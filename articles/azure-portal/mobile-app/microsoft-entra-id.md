@@ -12,7 +12,7 @@ The Azure mobile app provides access to Microsoft Entra ID. You can perform task
 To access Microsoft Entra ID, open the Azure mobile app and sign in with your Azure account. From **Home**, scroll down to select the **Microsoft Entra ID** card.
 
 > [!NOTE]
-> Your account must have the appropriate permissions in order to perform these tasks. For example, to invite a user to your tenant, you must have a role that includes this permission, such as [Guest Inviter](/entra/identity/role-based-access-control/permissions-reference) role or [User Administrator](/entra/identity/role-based-access-control/permissions-reference).
+> Your account must have the appropriate permissions in order to perform these tasks. For example, to invite a user to your tenant, you must have a role that includes this permission, such as [Guest Inviter](/entra/identity/role-based-access-control/permissions-reference) or [User Administrator](/entra/identity/role-based-access-control/permissions-reference).
 
 ## Invite a user to the tenant
 
