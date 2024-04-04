@@ -26,7 +26,7 @@ The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK d
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraPermissionDenied') {
        if (diagnosticInfo.value === true) {
-           // camera permission denied, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The cameraPermissionDenied UFD recovered, notify the user
        }

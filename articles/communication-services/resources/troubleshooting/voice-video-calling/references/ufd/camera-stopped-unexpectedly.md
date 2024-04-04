@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraStoppedUnexpectedly UFD
-The `cameraStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the camera track was muted.
+The `cameraStoppedUnexpectedly` UFD event with a `true` value occurs when the SDK detects that the camera track was muted.
 
 Keep in mind that this event relates to the camera track's `mute` event triggered by an external source.
 The event can be triggered on mobile browsers when the browser goes to background.
@@ -30,7 +30,7 @@ Additionally, in some browser implementations, the browser sends black frames wh
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraStoppedUnexpectedly') {
        if (diagnosticInfo.value === true) {
-           // cameraStoppedUnexpectedly UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The cameraStoppedUnexpectedly UFD recovered, notify the user
        }

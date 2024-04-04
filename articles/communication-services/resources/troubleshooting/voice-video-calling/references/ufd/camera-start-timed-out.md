@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # cameraStartTimedOut UFD
-The `cameraStartTimedOut` UFD with a `true` value occurs when the SDK is unable to acquire the camera stream because the promise returned by `getUserMedia` browser method doesn't resolve within a certain period of time.
+The `cameraStartTimedOut` UFD event with a `true` value occurs when the SDK is unable to acquire the camera stream because the promise returned by `getUserMedia` browser method doesn't resolve within a certain period of time.
 This issue can happen when the user starts a call with video enabled, but the browser displays a UI permission prompt and the user doesn't respond to it.
 
 | cameraStartTimedOut                   | Details                |
@@ -27,7 +27,7 @@ This issue can happen when the user starts a call with video enabled, but the br
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'cameraStartTimedOut') {
        if (diagnosticInfo.value === true) {
-           // cameraStartTimedOut UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The cameraStartTimedOut UFD recovered, notify the user
        }

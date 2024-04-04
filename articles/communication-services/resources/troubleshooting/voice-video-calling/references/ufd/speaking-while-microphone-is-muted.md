@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # speakingWhileMicrophoneIsMuted UFD
-The `speakingWhileMicrophoneIsMuted` UFD with a `true` value occurs when the SDK detects that the audio input volume isn't muted although the user did mute the microphone.
+The `speakingWhileMicrophoneIsMuted` UFD event with a `true` value occurs when the SDK detects that the audio input volume isn't muted although the user did mute the microphone.
 This event can remind the user who may want to speak something but forgot to unmute their microphone.
 In this case, since the microphone state in the SDK is muted, no audio is sent.
 
@@ -28,7 +28,7 @@ In this case, since the microphone state in the SDK is muted, no audio is sent.
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'speakingWhileMicrophoneIsMuted') {
        if (diagnosticInfo.value === true) {
-           // speaking while muted, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The speakingWhileMicrophoneIsMuted UFD recovered, notify the user
        }
@@ -36,8 +36,8 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-The `speakingWhileMicrophoneIsMuted` UFD isn't an error, but rather an indication of an inconsistency between the audio input volume and the microphone's muted state in the SDK.
-The purpose of this UFD is for the application to show a message on your user interface as a hint, so the user can know that the microphone is muted while they're speaking.
+The `speakingWhileMicrophoneIsMuted` UFD event isn't an error, but rather an indication of an inconsistency between the audio input volume and the microphone's muted state in the SDK.
+The purpose of this event is for the application to show a message on your user interface as a hint, so the user can know that the microphone is muted while they're speaking.
 
 ## Next steps
 * Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

@@ -13,9 +13,9 @@ ms.subservice: calling
 ---
 
 # networkRelaysNotReachable UFD
-The `networkRelaysNotReachable` UFD with a `true` value occurs when the media connection fails to establish and no relay candidates are available. This issue usually happens when the firewall policy blocks connections between the local client and relay servers.
+The `networkRelaysNotReachable` UFD event with a `true` value occurs when the media connection fails to establish and no relay candidates are available. This issue usually happens when the firewall policy blocks connections between the local client and relay servers.
 
-When users see the `networkRelaysNotReachable` UFD, it also indicates that the local client isn't able to make a direct connection to the remote endpoint.
+When users see the `networkRelaysNotReachable` UFD event, it also indicates that the local client isn't able to make a direct connection to the remote endpoint.
 
 | networkRelaysNotReachable UFD | Details                |
 | ------------------------------|------------------------|
@@ -28,7 +28,7 @@ When users see the `networkRelaysNotReachable` UFD, it also indicates that the l
 call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'networkRelaysNotReachable') {
        if (diagnosticInfo.value === true) {
-           // networkRelaysNotReachable UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The networkRelaysNotReachable UFD recovered, notify the user
        }

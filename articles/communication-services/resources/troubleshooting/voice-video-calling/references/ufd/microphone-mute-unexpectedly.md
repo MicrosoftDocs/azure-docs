@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # microphoneMuteUnexpectedly UFD
-The `microphoneMuteUnexpectedly` UFD with a `true` value occurs when the SDK detects that the microphone track was muted. Keep in mind, that the event is related to the `mute` event of the microphone track, when it's triggered by an external source rather than by the SDK mute API. The underlying layer triggers the event, such as the audio stack muting the audio input session. The hardware mute button of some headset models can also trigger the `microphoneMuteUnexpectedly` UFD. Additionally, some browser platforms, such as iOS Safari browser, may mute the microphone when certain interruptions occur, such as an incoming phone call.
+The `microphoneMuteUnexpectedly` UFD event with a `true` value occurs when the SDK detects that the microphone track was muted. Keep in mind, that the event is related to the `mute` event of the microphone track, when it's triggered by an external source rather than by the SDK mute API. The underlying layer triggers the event, such as the audio stack muting the audio input session. The hardware mute button of some headset models can also trigger the `microphoneMuteUnexpectedly` UFD. Additionally, some browser platforms, such as iOS Safari browser, may mute the microphone when certain interruptions occur, such as an incoming phone call.
 
 | microphoneMuteUnexpectedly            | Details                |
 | --------------------------------------|------------------------|
@@ -26,7 +26,7 @@ The `microphoneMuteUnexpectedly` UFD with a `true` value occurs when the SDK det
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'microphoneMuteUnexpectedly') {
        if (diagnosticInfo.value === true) {
-           // microphoneMuteUnexpectedly UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The microphoneMuteUnexpectedly UFD recovered, notify the user
        }

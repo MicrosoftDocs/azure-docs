@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # screenshareRecordingDisabled UFD
-The `screenshareRecordingDisabled` UFD with a `true` value occurs when the SDK detects that the screen sharing permission was denied in the browser or OS settings on macOS.
+The `screenshareRecordingDisabled` UFD event with a `true` value occurs when the SDK detects that the screen sharing permission was denied in the browser or OS settings on macOS.
 
 | screenshareRecordingDisabled          | Details                |
 | --------------------------------------|------------------------|
@@ -26,7 +26,7 @@ The `screenshareRecordingDisabled` UFD with a `true` value occurs when the SDK d
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'screenshareRecordingDisabled') {
        if (diagnosticInfo.value === true) {
-           // screen sharing permission denied, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The screenshareRecordingDisabled UFD recovered, notify the user
        }

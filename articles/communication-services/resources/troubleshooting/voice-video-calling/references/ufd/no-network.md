@@ -13,8 +13,8 @@ ms.subservice: calling
 ---
 
 # noNetwork UFD
-The `noNetwork` UFD with a `true` value occurs when there's no network available for ICE candidates being gathered, which means there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable.
-Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this situation can also result in `noNetwork` UFD.
+The `noNetwork` UFD event with a `true` value occurs when there's no network available for ICE candidates being gathered, which means there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable.
+Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this situation can also result in `noNetwork` UFD event.
 
 | noNetwork UFD        | Details                 |
 | ---------------------|------------------------|
@@ -27,7 +27,7 @@ Additionally, if the adapter fails to acquire an IP address and there are no oth
 call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'noNetwork') {
        if (diagnosticInfo.value === true) {
-           // noNetwork UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // noNetwork UFD recovered, notify the user
        }

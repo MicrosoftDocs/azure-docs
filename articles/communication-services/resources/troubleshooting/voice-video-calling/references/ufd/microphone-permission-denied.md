@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # microphonePermissionDenied UFD
-The `microphonePermissionDenied` UFD with a `true` value occurs when the SDK detects that the microphone permission was denied either at browser or OS level.
+The `microphonePermissionDenied` UFD event with a `true` value occurs when the SDK detects that the microphone permission was denied either at browser or OS level.
 
 | microphonePermissionDenied            | Details                |
 | --------------------------------------|------------------------|
@@ -26,7 +26,7 @@ The `microphonePermissionDenied` UFD with a `true` value occurs when the SDK det
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'microphonePermissionDenied') {
        if (diagnosticInfo.value === true) {
-           // microphonePermissionDenied UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The microphonePermissionDenied UFD recovered, notify the user
        }

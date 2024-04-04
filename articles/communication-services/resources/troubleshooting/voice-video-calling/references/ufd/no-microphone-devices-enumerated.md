@@ -13,11 +13,11 @@ ms.subservice: calling
 ---
 
 # noMicrophoneDevicesEnumerated UFD
-The `noMicrophoneDevicesEnumerated` UFD with a `true` value occurs when the browser API `navigator.mediaDevices.enumerateDevices` doesn't include any audio input devices.
+The `noMicrophoneDevicesEnumerated` UFD event with a `true` value occurs when the browser API `navigator.mediaDevices.enumerateDevices` doesn't include any audio input devices.
 This means that there are no microphones available on the user's machine. This issue is caused by the user unplugging or disabling the microphone.
 
 > [!NOTE]
-> This UFD is unrelated to the a user allowing microphone permission.
+> This UFD event is unrelated to the a user allowing microphone permission.
 
 Even if a user doesn't grant the microphone permission at the browser level, the `DeviceManager.getMicrophones` API still returns a microphone device info with an empty name, which indicates the presence of a microphone device on the user's machine.
 
@@ -30,9 +30,9 @@ Even if a user doesn't grant the microphone permission at the browser level, the
 ## Example
 ```typescript
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
-    if (diagnosticInfo.diagnostic === 'noMicrophoneDevicesEnumeratedUFD') {
+    if (diagnosticInfo.diagnostic === 'noMicrophoneDevicesEnumerated') {
        if (diagnosticInfo.value === true) {
-           // noSpeakerDevicesEnumerated UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The noSpeakerDevicesEnumerated UFD recovered, notify the user
        }

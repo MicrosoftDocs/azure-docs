@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # capturerStartFailed UFD
-The `capturerStartFailed` UFD with a `true` value occurs when the SDK is unable to acquire the screen sharing stream because the source is unavailable.
+The `capturerStartFailed` UFD event with a `true` value occurs when the SDK is unable to acquire the screen sharing stream because the source is unavailable.
 This issue can happen when the underlying layer prevents the sharing of the selected source.
 
 | capturerStartFailed         | Details                |
@@ -27,7 +27,7 @@ This issue can happen when the underlying layer prevents the sharing of the sele
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'capturerStartFailed') {
        if (diagnosticInfo.value === true) {
-           // capturerStartFailed UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The capturerStartFailed UFD recovered, notify the user
        }

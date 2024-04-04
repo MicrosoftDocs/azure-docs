@@ -13,8 +13,8 @@ ms.subservice: calling
 ---
 
 # microphoneNotFunctioning UFD
-The `microphoneNotFunctioning` UFD with a `true` value occurs when the SDK detects that the microphone track was ended. The microphone track ending happens in many situations.
-For example, unplugging a microphone in use triggers the browser to end the microphone track. The SDK would then fire `microphoneNotFunctioning` UFD.
+The `microphoneNotFunctioning` UFD event with a `true` value occurs when the SDK detects that the microphone track was ended. The microphone track ending happens in many situations.
+For example, unplugging a microphone in use triggers the browser to end the microphone track. The SDK would then fire `microphoneNotFunctioning` UFD event.
 It can also occur when the user removes the microphone permission at browser or at OS level. The underlying layers, such as audio driver or media stack at OS level, may also end the session, causing the browser to end the microphone track.
 
 | microphoneNotFunctioning              | Details                |
@@ -28,7 +28,7 @@ It can also occur when the user removes the microphone permission at browser or 
 call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diagnosticInfo) => {
     if (diagnosticInfo.diagnostic === 'microphoneNotFunctioning') {
        if (diagnosticInfo.value === true) {
-           // microphoneNotFunctioning UFD, show a warning message on UI
+           // show a warning message on UI
        } else {
            // The microphoneNotFunctioning UFD recovered, notify the user
        }
