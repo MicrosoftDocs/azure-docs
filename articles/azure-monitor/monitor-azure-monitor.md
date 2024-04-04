@@ -19,27 +19,27 @@ ms.service: azure-monitor
 Azure Monitor has many separate larger components. Information on monitoring each of these is mentioned below.  
 
 ### Azure Monitor core
-**Autoscale** - Azure Monitor Autoscale has a diagnostics feature that provides insights into the performance of your autoscale settings. For more information, see [Azure Monitor Autoscale diagnostics](./autoscale/autoscale-diagnostics,md) and [Troubleshooting using autoscale metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-troubleshoot#autoscale-metrics). 
+**Autoscale** - Azure Monitor Autoscale has a diagnostics feature that provides insights into the performance of your autoscale settings. For more information, see [Azure Monitor Autoscale diagnostics](autoscale/autoscale-diagnostics.md) and [Troubleshooting using autoscale metrics](autoscale/autoscale-troubleshoot.md#autoscale-metrics). 
 
-**Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](./agents/azure-monitor-agent-health.md).
+**Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](agents/azure-monitor-agent-health.md).
 
 DCRs https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-monitor
 
 ### Azure Monitor Logs and Log Analytics
 
-**[Log Analytics Workspace Insights](./logs/log-analytics-workspace-insights-overview.md)** provides a dashboard that shows you the volume of data going through your workspace(s). You can calculate the cost of your workspace based on the data volume.
+**[Log Analytics Workspace Insights](logs/log-analytics-workspace-insights-overview.md)** provides a dashboard that shows you the volume of data going through your workspace(s). You can calculate the cost of your workspace based on the data volume.
   
-**[Log Analytics workspace health](./logs/log-analytics-workspace-health)** provides a set of queries that you can use to monitor the health of your workspace.
+**[Log Analytics workspace health](logs/log-analytics-workspace-health.md)** provides a set of queries that you can use to monitor the health of your workspace.
 
-**Optimizing and troubleshooting log queries** - Sometimes Azure Monitor KQL Log queries can take more time to run than needed or never return at all.  By monitoring the various aspects of the query, you can troubleshoot and optimize them. For more information, see [Audit queries in Azure Monitor Logs]( ./logs/query-audit) and [Optimize log queries](./logs/query-optimization).
+**Optimizing and troubleshooting log queries** - Sometimes Azure Monitor KQL Log queries can take more time to run than needed or never return at all.  By monitoring the various aspects of the query, you can troubleshoot and optimize them. For more information, see [Audit queries in Azure Monitor Logs](logs/query-audit.md) and [Optimize log queries](logs/query-optimization.md).
 
-**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/log-ingestion-pipeline). You can monitor the latency of this pipeline using Kusto queries. For more information see [Log data ingestion time in Azure Monitor](./logs/data-ingestion-time.md#check-ingestion-time).
+**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](essentials/log-ingestion-pipeline.md). You can monitor the latency of this pipeline using Kusto queries. For more information see [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md#check-ingestion-time.md).
 
-**Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](./logs/analyze-usage.md).
+**Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](logs/analyze-usage.md).
 
 ### All resources
 
-**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-health).
+**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/essentials/resource-health.md).
 
 
 
