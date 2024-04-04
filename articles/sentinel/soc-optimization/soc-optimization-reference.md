@@ -40,19 +40,11 @@ Data value optimizations only look at billable tables that ingested data in the 
 
 The following table lists the available data value SOC optimization recommendations:
 
-### [Azure portal](#tab/azure-portal)
-
-TBD
-
-### [Defender portal](#tab/defender-portal)
-
 |Observation  |Action  |
 |---------|---------|
 |The table wasn’t used by analytic rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     |    Turn on analytics rule templates <br>OR<br>Move to basic logs if the table is eligible    |
 |The table wasn’t used at all in the last 30 days     | Turn on analytics rule templates <br>OR<br> Stop data ingestion or archive the table       |
 |The table was only used by Azure Monitor     |  Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace       |
-
----
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
 
@@ -67,19 +59,12 @@ To provide threat-based recommendations, SOC optimization looks at your ingested
 
 The following table lists the available threat-based SOC optimization recommendations:
 
-### [Azure portal](#tab/azure-portal)
-
-TBD
-
-### [Defender portal](#tab/defender-portal)
-
 |Observation  |Action  |
 |---------|---------|
 |There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat.      |
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
 
----
 
 ## Next step
 

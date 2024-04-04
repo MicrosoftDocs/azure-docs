@@ -41,15 +41,20 @@ For more information, see:
 
 ## Access the SOC optimization page
 
-Select **SOC optimization** from the left-side navigation menu.
+Use one of the following tabs, depending on whether you're working in the unified SOC operations platform or in the Azure portal:
 
 ### [Azure portal](#tab/azure-portal)
 
-TBD
+In Microsoft Sentinel in the Azure portal, under **Threat management**, select **SOC optimization**.
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-azure.png" alt-text="Screenshot of the SOC optimization page in the Azure portal.":::
 
 ### [Defender portal](#tab/defender-portal)
 
+In the unified SOC operations platform in the Microsoft Defender portal, select **SOC optimization**.
+
 :::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
+
 ---
 
 ## Understand SOC optimization overview metrics
@@ -60,15 +65,22 @@ Supported metrics at the top of the **Overview** tab include:
 
 ### [Azure portal](#tab/azure-portal)
 
-TBD
+|Title  |Description |
+|---------|---------|
+| **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last 3 months. |
+|**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+
+Select **See all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.
+
+<!--should we make the 3 months / 90 days consistent? also see vs view-->
 
 ### [Defender portal](#tab/defender-portal)
 
 |Title  |Description |
 |---------|---------|
-|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented        |
-|**Ingested data**     | Shows the total data ingested in your workspace over the last 90 days.        |
-|**Threat-based coverage optimizations**     |   Shows coverage levels for relevant threats. <br>Coverage levels are based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team. <br><br>Supported coverage levels include:<br>- **Best**: 	90% to 100% of recommended rules are found<br>- **Better**: 60% to 89% of recommended rules were created<br>- **Good**: 40% to 59% of recommended rules were created<br>- **Moderate**: 20% to 39% of recommended rules were created<br>- **None**: 0% to 19% of recommended rules were created<br><br>Select **View all use cases** to view the full list of relevant threats, active and recommended detections, and coverage levels.    |
+|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
+|**Ingested data**     | Shows the total data ingested in your workspace over the last 90 days. |
+|**Threat-based coverage optimizations**     |   Shows coverage levels for relevant threats. <br>Coverage levels are based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team. <br><br>Supported coverage levels include:<br>- **Best**: 	90% to 100% of recommended rules are found<br>- **Better**: 60% to 89% of recommended rules were created<br>- **Good**: 40% to 59% of recommended rules were created<br>- **Moderate**: 20% to 39% of recommended rules were created<br>- **None**: 0% to 19% of recommended rules were created<br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.    |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 ---
 
@@ -82,7 +94,7 @@ Filter the optimizations based on optimization type, or search for a specific op
 
 - **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
 
-- **Data value**: Include recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
+- **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
 
@@ -94,10 +106,11 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 
 By default, optimization statuses are Active. Change their statuses by selecting one of the following actions:
 
+<!--in progress vs active - keep the same-->
 |Action |Description  |
 |---------|---------|
 |**Complete**     | Complete an optimization when you've completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
-| **In progress** | Mark an optimization as *In progress* to notify other team members that you're actively working on it. | 
+| **In progress** | Mark an optimization as *In progress* or **Active** to notify other team members that you're actively working on it. | 
 |**Dismiss**     |  Dismiss an optimization if you're not planning to take the recommended action and no longer want to see it in the list.       |
 |**Provide feedback**     | We invite you to share your thoughts on the recommended actions with the Microsoft team! <br><br>When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).      |
 
