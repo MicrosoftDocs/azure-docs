@@ -69,8 +69,8 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     nfviType: 'AzureArcKubernetes'
     nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
     allowSoftwareUpdate: true
-    configurationType: 'Secret'
-    secretDeploymentValues: string(values)
+    configurationType: 'Open'
+    deploymentValues: string(values)
   }
 }]
 ```
@@ -114,8 +114,8 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     nfviType: 'AzureArcKubernetes'
     nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
     allowSoftwareUpdate: true
-    configurationType: 'Secret'
-    secretDeploymentValues: string(values)
+    configurationType: 'Open'
+    deploymentValues: string(values)
     roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
 ```
 
@@ -198,8 +198,8 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
     nfviType: 'AzureArcKubernetes'
     nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
     allowSoftwareUpdate: true
-    configurationType: 'Secret'
-    secretDeploymentValues: string(values)
+    configurationType: 'Open'
+    deploymentValues: string(values)
     roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-two", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}},{"name": "Contoso-three", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']}}]
 ```
 
