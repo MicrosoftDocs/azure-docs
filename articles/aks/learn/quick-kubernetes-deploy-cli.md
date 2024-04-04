@@ -3,6 +3,9 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
 ms.date: 01/10/2024
+author: tamram
+ms.author: tamram
+
 ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -438,3 +441,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+

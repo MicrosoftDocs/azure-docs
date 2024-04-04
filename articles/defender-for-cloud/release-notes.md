@@ -22,11 +22,70 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## April 2024
 
-| Date    | Update                                                           |
-| ------- | ---------------------------------------------------------------- |
+|Date | Update |
+|--|--|
+| April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
+| April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
+| April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
 | April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
 | April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
+
+### Risk prioritization is now the default experience in Defender for Cloud
+
+April 3, 2024
+
+Risk prioritization is now the default experience in Defender for Cloud. This feature helps you to focus on the most critical security issues in your environment by prioritizing recommendations based on the risk factors of each resource. The risk factors include the potential impact of the security issue being breached, the categories of risk, and the attack path that the security issue is part of.
+
+Learn more about [risk prioritization](risk-prioritization.md).
+
+### New container vulnerability assessment recommendations
+
+April 3, 2024
+
+To support the new [risk-based prioritization](risk-prioritization.md) experience for recommendations, we've created new recommendations for container vulnerability assessments in Azure, AWS, and GCP. They report on container images for registry and container workloads for runtime:
+
+- [[Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)](recommendations-reference.md#container-images-in-azure-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey33422d8f-ab1e-42be-bc9a-38685bb567b9)
+- [[Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)](recommendations-reference.md#containers-running-in-azure-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeye9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
+- [[Container images in AWS registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2a139383-ec7e-462a-90ac-b1b60e87d576)](recommendations-reference-aws.md#container-images-in-aws-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey2a139383-ec7e-462a-90ac-b1b60e87d576)
+- [[Containers running in AWS should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d5d1e526-363a-4223-b860-f4b6e710859f)](recommendations-reference-aws.md#containers-running-in-aws-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyd5d1e526-363a-4223-b860-f4b6e710859f)
+- [[Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)](recommendations-reference-gcp.md#container-images-in-gcp-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
+- [[Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)](recommendations-reference-gcp.md#containers-running-in-gcp-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc7c1d31d-a604-4b86-96df-63448618e165)
+
+The previous container vulnerability assessment recommendations are on a retirement path and will be removed when the new recommendations are generally available.
+
+- [[Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)](recommendations-reference.md#azure-registry-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
+- [[Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)](recommendations-reference.md#azure-running-container-images-should-have-vulnerabilities-resolved-powered-by-microsoft-defender-vulnerability-managementhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyc609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
+- [AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/AwsContainerRegistryRecommendationDetailsBlade/assessmentKey/c27441ae-775c-45be-8ffa-655de37362ce)
+- [AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/AwsContainersRuntimeRecommendationDetailsBlade/assessmentKey/682b2595-d045-4cff-b5aa-46624eb2dd8f)
+- [GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/GcpContainerRegistryRecommendationDetailsBlade/assessmentKey/5cc3a2c1-8397-456f-8792-fe9d0d4c9145)
+- [GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/GcpContainersRuntimeRecommendationDetailsBlade/assessmentKey/e538731a-80c8-4317-a119-13075e002516)
+
+> [!NOTE]
+> The new recommendations are currently in public preview and will not be used for secure score calculation.
+
+### Defender for open-source relational databases updates
+
+April 3, 2024
+
+**Defender for PostgreSQL Flexible Servers post-GA updates** - The update enables customers to enforce protection for existing PostgreSQL flexible servers at the subscription level, allowing complete flexibility to enable protection on a per-resource basis or for automatic protection of all resources at the subscription level.
+
+**Defender for MySQL Flexible Servers Availability and GA** - Defender for Cloud expanded its support for Azure open-source relational databases by incorporating MySQL Flexible Servers.
+
+This release includes:
+
+- Alert compatibility with existing alerts for Defender for MySQL Single Servers.
+- Enablement of individual resources.
+- Enablement at the subscription level.
+
+If you're already protecting your subscription with Defender for open-source relational databases, your flexible server resources are automatically enabled, protected, and billed.
+
+Specific billing notifications have been sent via email for affected subscriptions.
+
+Learn more about [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+> [!NOTE]
+> Updates for Azure Database for MySQL flexible servers are rolling out over the next few weeks. If you see the error message `The server <servername> is not compatible with Advanced Threat Protection`, you can either wait for the update to roll out, or open a support ticket to update the server sooner to a supported version.
 
 ### Update to recommendations to align with Azure AI Services resources
 
@@ -39,7 +98,7 @@ The following recommendations have been updated to align with the Azure AI Servi
 | Cognitive Services accounts should restrict network access | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) |
 | Cognitive Services accounts should have local authentication methods disabled | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) |
 | Diagnostic logs in Search services should be enabled | [Diagnostic logs in Azure AI services resources should be enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e) |
- 
+
 See the [list of security recommendations](recommendations-reference.md).
 
 ### Deprecation of Cognitive Services recommendation
@@ -196,31 +255,9 @@ Learn more about [automated remediation scripts](implement-security-recommendati
 
 March 6, 2024
 
-Based on customer feedback, we've added the following compliance standards in preview to our compliance dashboard. As shown, these are for reviewing the compliance status of AWS and GCP resources protected by Defender for Cloud.
+Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-| Compliance standard                                   | Version    | AWS                             | GCP                             |
-| ----------------------------------------------------- | ---------- | ------------------------------- | ------------------------------- |
-| AWS Well-Architected Framework                        | N/A        | :white_check_mark:              | :x:                             |
-| Brazilian General Personal Data Protection Law (LGPD) | 53/2018    | :white_check_mark:              | :white_check_mark:              |
-| California Consumer Privacy Act (CCPA)                | 2018       | :white_check_mark:              | :white_check_mark:              |
-| CIS Controls                                          | v8         | :x:                             | :white_check_mark:              |
-| CIS Google Cloud Platform Foundation Benchmark        | v2.0.0     | :x:                             | :white_check_mark:              |
-| CIS Google Kubernetes Engine (GKE) Benchmark          | v1.5.0     | :x:                             | :white_check_mark:              |
-| CPS 234 (APRA)                                        | 2019       | :x:                             | :white_check_mark:              |
-| CRI Profile                                           | v1.2.1     | :white_check_mark:              | :white_check_mark:              |
-| CSA Cloud Controls Matrix (CCM)                       | v4.0.10    | :white_check_mark:              | :white_check_mark:              |
-| Cybersecurity Maturity Model Certification (CMMC)     | v2.0       | :x:                             | :white_check_mark:              |
-| FFIEC Cybersecurity Assessment Tool (CAT)             | 2017       | :x:                             | :white_check_mark:              |
-| GDPR                                                  | 2016/679   | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27001                                         | 27001:2022 | :white_check_mark:              | :white_check_mark: **(Update)** |
-| ISO/IEC 27002                                         | 27002:2022 | :white_check_mark:              | :white_check_mark:              |
-| ISO/IEC 27017                                         | 27017:2015 | :x:                             | :white_check_mark:              |
-| NIST Cybersecurity Framework (CSF)                    | v1.1       | :white_check_mark:              | :white_check_mark:              |
-| NIST SP 800-171                                       | Revision 2 | :x:                             | :white_check_mark:              |
-| NIST SP 800-172                                       | 2021       | :white_check_mark:              | :white_check_mark:              |
-| PCI-DSS                                               | v4.0.0     | :white_check_mark: **(Update)** | :white_check_mark: **(Update)** |
-| Sarbanes Oxley Act (SOX)                              | 2002       | :x:                             | :white_check_mark:              |
-| SOC 2                                                 | 2017       | :x:                             | :white_check_mark:              |
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 
@@ -705,7 +742,7 @@ You can now prioritize your security recommendations according to the risk level
 
 By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
 
-Learn more about [risk prioritization](implement-security-recommendations.md#group-recommendations-by-risk-level).
+Learn more about [risk prioritization](implement-security-recommendations.md).
 
 ### Attack path analysis new engine and extensive enhancements
 

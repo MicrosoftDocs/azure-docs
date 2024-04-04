@@ -278,3 +278,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
 [dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images
+
