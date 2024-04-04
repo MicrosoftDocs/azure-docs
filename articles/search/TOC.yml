@@ -188,8 +188,6 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Vector index size limits
-      href: vector-search-index-size.md
     - name: Plan capacity
       href: search-capacity-planning.md
     - name: Plan and manage costs
@@ -254,6 +252,10 @@
     items:
     - name: Create a vector store
       href: vector-search-how-to-create-index.md
+    - name: Vector quotas and staying under limits
+      href: vector-search-index-size.md
+    - name: Configure quantization and storage (preview)
+      href: vector-search-how-to-configure-compression-storage.md
     - name: Configure a vectorizer (preview)
       href: vector-search-how-to-configure-vectorizer.md
     - name: Chunk documents
@@ -278,14 +280,12 @@
       href: knowledge-store-connect-power-bi.md
   - name: Indexers and skills
     items:
-    - name: Create an indexer
-      href: search-howto-create-indexers.md
-    - name: Create a skillset
-      href: cognitive-search-defining-skillset.md
     - name: Indexers
       items:
       - name: Indexer overview
         href: search-indexer-overview.md
+      - name: Create an indexer
+        href: search-howto-create-indexers.md
       - name: Run or reset indexers
         href: search-howto-run-reset-indexers.md
       - name: Schedule an indexer
@@ -322,7 +322,7 @@
         href: search-indexer-troubleshooting.md
       - name: Troubleshoot indexer errors and warnings
         href: cognitive-search-common-errors-warnings.md
-    - name: Data sources (indexers)
+    - name: Indexer data sources
       items:
         - name: Data sources gallery
           href: search-data-sources-gallery.md
@@ -362,6 +362,8 @@
           href: search-howto-index-sharepoint-online.md
     - name: Skillsets
       items:
+      - name: Create a skillset
+        href: cognitive-search-defining-skillset.md
       - name: Attach an Azure AI resource
         href: cognitive-search-attach-cognitive-services.md
       - name: Create an index projection for a secondary index

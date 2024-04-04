@@ -1,7 +1,7 @@
 ---
 title: "CI/CD Workflow using GitOps (Flux v2) - Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps."
-ms.date: 08/08/2023
+ms.date: 03/26/2024
 ms.topic: conceptual
 author: eedorenko
 ms.author: iefedore
@@ -16,9 +16,9 @@ This article describes how GitOps fits into the full application change lifecycl
 
 This diagram shows the CI/CD workflow for an application deployed to one or more Kubernetes environments.
 
-:::image type="content" source="media/gitops/gitops-flux2-ci-cd-arch.png" alt-text="Diagram showing GitOps CI/CD architecture.":::
+:::image type="content" source="media/gitops/gitops-flux2-ci-cd-arch.png" alt-text="Diagram showing GitOps CI/CD architecture." lightbox="media/gitops/gitops-flux2-ci-cd-arch.png":::
 
-### Application repository
+### Application code repository
 
 The application repository contains the application code that developers work on during their inner loop. The application's deployment templates live in this repository in a generic form, such as Helm or Kustomize. Environment-specific values aren't stored in the repository.
 
@@ -32,7 +32,7 @@ For more information, see [How to consume and maintain public content with Azure
 
 ### PR pipeline
 
-Pull requests to the application repository are gated on a successful run of the PR pipeline. This pipeline runs the basic quality gates, such as linting and unit tests on the application code. The pipeline tests the application and lints Dockerfiles and Helm templates used for deployment to a Kubernetes environment. Docker images should be built and tested, but not pushed. Keep the pipeline duration relatively short to allow for rapid iteration.
+Pull requests from developers made to the application repository are gated on a successful run of the PR pipeline. This pipeline runs the basic quality gates, such as linting and unit tests on the application code. The pipeline tests the application and lints Dockerfiles and Helm templates used for deployment to a Kubernetes environment. Docker images should be built and tested, but not pushed. Keep the pipeline duration relatively short to allow for rapid iteration.
 
 ### CI pipeline
 
@@ -46,9 +46,9 @@ At this stage, application tests that are too consuming for the PR pipeline can 
 
 By the end of the CI build, artifacts are generated. These artifacts can be used by the CD step to consume in preparation for deployment.
 
-### Flux
+### Flux cluster extension
 
-Flux is an agent that runs in each cluster and is responsible for maintaining the desired state. The agent polls the GitOps repository at a user-defined interval, then reconciles the cluster state with the state declared in the Git repository.
+Flux is an agent that runs in each cluster as a cluster extension. This Flux cluster extension is responsible for maintaining the desired state. The agent polls the GitOps repository at a user-defined interval, then reconciles the cluster state with the state declared in the Git repository.
 
 For more information, see [Tutorial: Deploy applications using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
 

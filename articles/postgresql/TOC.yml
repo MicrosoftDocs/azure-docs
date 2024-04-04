@@ -405,6 +405,8 @@
         href: flexible-server/generative-ai-azure-openai.md
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Azure Machine Learning Services
+        href: flexible-server/generative-ai-azure-machine-learning.md        
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
@@ -877,7 +879,7 @@
       - name: Connect your app's data to Power BI
         href: https://aka.ms/postg-powerbi-vid
   - name: Feedback forum
-    href: https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0
+    href: https://aka.ms/pgfeedback
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

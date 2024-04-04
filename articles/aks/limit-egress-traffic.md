@@ -2,7 +2,7 @@
 title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: allensu
 ms.date: 12/05/2023
@@ -442,3 +442,4 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

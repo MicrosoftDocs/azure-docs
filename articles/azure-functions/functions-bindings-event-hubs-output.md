@@ -49,6 +49,8 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
 ```csharp

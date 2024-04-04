@@ -4,7 +4,7 @@ description: Configure a public or private DNS configuration for a container gro
 author: tomvcassidy
 ms.topic: how-to
 ms.service: container-instances
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/25/2022

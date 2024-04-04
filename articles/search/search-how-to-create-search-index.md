@@ -208,7 +208,7 @@ To minimize churn in the design process, the following table describes which ele
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify `searchAnalyzer`. All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
+| [cross-origin resource sharing (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 ## Next steps

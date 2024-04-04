@@ -1,10 +1,10 @@
 ---
-title: Manage AWS costs and usage in Cost Management
+title: Manage Amazon Web Services (AWS) costs and usage in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/30/2023
+ms.date: 02/26/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,6 +13,9 @@ ms.custom:
 ---
 
 # Manage AWS costs and usage in Azure
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 After you've set up and configured AWS Cost and Usage report integration for Cost Management, you're ready to start managing your AWS costs and usage. This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 

@@ -126,7 +126,7 @@ Agentless secrets scanning for Azure VMs supports the following attack path scen
 
 Agentless secrets scanning for AWS instances supports the following attack path scenarios:
 
-- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
+- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to an EC2 instance`.
 
 - `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`.
 

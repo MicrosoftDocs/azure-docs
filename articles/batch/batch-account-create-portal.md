@@ -4,7 +4,6 @@ description: Learn how to use the Azure portal to create and manage an Azure Bat
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.custom: subject-rbac-steps, linux-related-content
----
 
 # Create a Batch account in the Azure portal
 

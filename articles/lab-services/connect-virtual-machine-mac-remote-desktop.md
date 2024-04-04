@@ -16,7 +16,7 @@ ms.date: 03/04/2024
 In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Install Microsoft Remote Desktop on a Mac
 

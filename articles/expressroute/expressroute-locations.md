@@ -185,7 +185,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland<br/>Sydney |
 | **Vodacom** | Supported | Supported | Cape Town<br/>Johannesburg|
-| **[Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/global-LAN-WLAN-services/APM)** | Supported | Supported | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
+| **[Vodafone](https://www.vodafone.com/business/products/cloud-and-edge)** | Supported | Supported | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
 | **[Vi (Vodafone Idea)](https://www.myvi.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Chennai<br/>Mumbai2 |
 | **Vodafone Qatar** | Supported | Supported | Doha |
 | **XL Axiata** | Supported | Supported | Jakarta |
@@ -285,7 +285,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **LGA Telecom** |Equinix |Singapore|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
-| **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Amsterdam |
+| **[MainOne](https://www.mainone.net/connectivity-services/cloud-connect/)** |Equinix | Amsterdam |
 | **[Masergy](https://www.masergy.com/sd-wan/multi-cloud-connectivity)** | Equinix | Washington DC |
 | **[Momentum Telecom](https://gomomentum.com/)** | Equinix<br/>Megaport | Atlanta<br/>Dallas<br/>Los Angeles<br/>Miami<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Teraco | Cape Town<br/>Johannesburg |
@@ -301,7 +301,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Tamares Telecom](https://www.tamarestelecom.com/services/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 
-| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/enterprise-platform/sparkle-cloud-connect)**| Equinix | Amsterdam |
+| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/enterprise-platform/sparkle-cloud-connect/)**| Equinix | Amsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam<br/>Frankfurt |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
@@ -322,7 +322,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport<br/>PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
-| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | IX Reach<br/>Megaport PacketFabric |
+| **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport<br/>PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud)** | Megaport<br/>PacketFabric |

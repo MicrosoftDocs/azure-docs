@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.date: 08/21/2023
 ms.author: qpetraroia
 author: qpetraroia
+ms.subservice: aks-nodes
 ---
 
 # Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS)
@@ -85,3 +86,4 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 [ephemeral-os]: concepts-storage.md#ephemeral-os-disk
 [state-billing-azure-vm]: ../virtual-machines/states-billing.md
 [spot-node-pool]: spot-node-pool.md
+

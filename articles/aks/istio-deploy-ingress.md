@@ -235,3 +235,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ```
 
 [istio-deploy-addon]: istio-deploy-addon.md
+

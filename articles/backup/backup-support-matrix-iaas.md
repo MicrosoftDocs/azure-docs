@@ -2,8 +2,8 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/14/2024
-ms.custom: references_regions 
+ms.date: 04/04/2024
+ms.custom: references_regions, linux-related-content
 ms.reviewer: sharrai
 ms.service: backup
 author: AbhishekMallick-MS
@@ -193,7 +193,7 @@ Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and res
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Microsoft Entra app).<br/><br/> Encrypted VMs can't be recovered at the file or folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that Azure Backup is already protecting. <br><br> You can back up and restore disks encrypted via platform-managed keys or customer-managed keys. You can also assign a disk-encryption set while restoring in the same region. That is, providing a disk-encryption set while performing cross-region restore is currently not supported. However, you can assign the disk-encryption set to the restored disk after the restore is complete.
 Disks with a write accelerator enabled | Azure VMs with disk backup for a write accelerator became available in all Azure public regions on May 18, 2022. If disk backup for a write accelerator is not required as part of VM backup, you can choose to remove it by using the [selective disk feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with write accelerator disks need internet connectivity for a successful backup, even though those disks are excluded from the backup.
-Disks enabled for access with a private endpoint | Not supported.
+Disks enabled for access with a private endpoint | Supported.
 Backup and restore of deduplicated VMs or disks | Azure Backup doesn't support deduplication. For more information, see [this article](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  Azure Backup doesn't deduplicate across VMs in the Recovery Services vault. <br/> <br/>  If there are VMs in a deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Adding a disk to a protected VM | Supported.
 Resizing a disk on a protected VM | Supported.
@@ -208,6 +208,7 @@ Dynamic disk with spanned or striped volumes | Supported, unless you enable the 
 VMs with encryption at host | Supported
 Disks with enabled Data Access with Microsoft Entra authentication for disk upload/download | Not Supported
 Storage Replicas | Not supported
+[Performance-plus disks](../virtual-machines/disks-enable-performance.md) | Recovering from snapshot tier (instant restore) will recover disks as performance-plus disks. Recovering from vault does not respect the performance-plus flag and will restore disks as normal disks.
 
 ## VM network support
 
