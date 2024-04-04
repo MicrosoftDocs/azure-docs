@@ -20,19 +20,19 @@ Trusted Signing has the following resource types:
 
 - **Trusted Signing Account**: The account is a logical container of all the subscriber's resources to complete signing and manage access controls to those sensitive resources. There are two account tiers available, Basic or Premium, depending on the number of signatures and Certificate Profiles needed for each type.
 
-- **Certificate Profile**: Certificate Profiles are the configuration attributes that generate the certificates you use to sign code. They also define the trust model and scenario signed content will be consumed under. Signing roles are assigned to this resource to authorize identities in the tenant to request signing. A prerequisite for creating any Certificate Profile is to have at least one Identity Validation request completed. 
+- **Certificate Profile**: Certificate Profiles are the configuration attributes that generate the certificates you use to sign code. They also define the trust model and scenario signed content is consumed under by relying parties. Signing roles are assigned to this resource to authorize identities in the tenant to request signing. A prerequisite for creating any Certificate Profile is to have at least one Identity Validation request completed. 
 
-- **Identity Validation**: Identity Validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is attributes of your Certificate Profile's Subject Name values (for example, CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US). Identity validation roles are assigned to identities in the tenant to create these resources.
+- **Identity Validation**: Identity Validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is the source of the attributes for your Certificate Profiles' SubjectDN values (for example, "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"). Identity validation roles are assigned to identities in the tenant to create these resources.
 
 In the below example structure, notice that an Azure Subscription has a Resource Group. Under the Resource Group you can have one or many Trusted Signing Account resources with one or many Identity Validations and Certificate Profiles. 
 
 ![Diagram of Trusted Signing resource group and cert profiles](./media/trusted-signing-resource-structure.png)
 
-•	This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing. 
+•	This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing types. 
 •	For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trustedsigning-cert-management.md). 
 
 
-**Note**: Identity Validations and Certificate Profiles align with either Public or Private Trust. This means that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md).
+**Note**: Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md).
 
 ### Trusted Signing account
 
@@ -55,7 +55,7 @@ Subscribers must choose the tier that works best for their needs in signing. To 
 
 The answer to the first question is defined by the number of artifacts in total needed to be signed in a month. Consider that one binary executable (.EXE/.DLL) is 1 signature, but a package such as an MSIX may contain minimally 2 signatures. If your per month estimated signature needs are below 5000 signatures, the Basic account tier is a good fit. However, if you're more in the range of 100's of thousands of signatures per month, a Premium account tier is likely the better fit. Consider the costs of going over an account's quota and what best fits your needs. 
 
-**Note**: Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. Subscribers can sign many artifacts all distributed by the same identity (e.g. Contoso News, LLC), but operationally, there may be boundaries the subscriber wants to draw in terms of access to signing and billing. You may choose to have a Trusted Signing account per product or per team to isolate usage of an account. However, this can also be achieved at the Certificate Profile level.
+**Note**: Trusted Signing accounts can be used to define boundaries of a project or organization. For most, a single Trusted Signing account can satisfy all the signing needs for an individual or organization. Subscribers can sign many artifacts all distributed by the same identity (for example, "Contoso News, LLC"), but operationally, there may be boundaries the subscriber wants to draw in terms of access to signing and billing. You may choose to have a Trusted Signing account per product or per team to isolate usage of an account. However, this isolation pattern can also be achieved at the Certificate Profile level.
 
 ### Identity Validations
 

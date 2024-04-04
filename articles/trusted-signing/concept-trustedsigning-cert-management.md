@@ -32,7 +32,7 @@ For example, if it's determined that a subscriber signed code that was malware o
 
 ### Subscriber Identity Validation Extended Key Usage (EKU)
 
-It's common for x.509 end-entity signing certificates to be renewed. Due to Trusted Signing's *daily certificate renewal*, pinning trust or validation to an end-entity certificate using certificate attributes (i.e. the public key) or a certificate's "thumbprint" (hash of the certificate) isn't durable. In addition, subjectDN values can change over the lifetime of an identity or organization.
+It's common for x.509 end-entity signing certificates to be renewed. Due to Trusted Signing's *daily certificate renewal*, pinning trust or validation to an end-entity certificate using certificate attributes (for exmaple, the public key) or a certificate's "thumbprint" (hash of the certificate) isn't durable. In addition, subjectDN values can change over the lifetime of an identity or organization.
 
 To address these issues, Trusted Signing provides a durable identity value in each certificate that's associated with the Subscription's Identity Validation resource. The durable identity value is a custom EKU that has a prefix of `1.3.6.1.4.1.311.97.` and is followed by additional octet values that are unique to the Identity Validation resource used on the Certificate Profile.
 
@@ -53,7 +53,7 @@ Trusted Signing aims to simplify signing as much as possible for subscribers usi
 - Secure key generation, storage, and usage in FIPS 140-2 Level 3 hardware crypto modules managed by the service.
 - Daily renewals of the certificates to ensure subscribers always have a valid certificate to sign with for their Certificate Profile resources.
 
-Every certificate created and issued is logged for subscribers in the Azure Portal and logging data feeds, including the serial number, thumbprint, created date, expiry date, and status (i.e. Active, Expired, Revoked).
+Every certificate created and issued is logged for subscribers in the Azure Portal and logging data feeds, including the serial number, thumbprint, created date, expiry date, and status (for example, "Active", "Expired", or "Revoked").
 
 **Note**: Trusted Signing does NOT support subscribers importing or exporting private keys and certificates. All certificates and keys used in Trusted Signing are managed inside FIPS 140-2 Level 3 operated hardware crypto modules.
 
