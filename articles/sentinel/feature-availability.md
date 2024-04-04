@@ -68,7 +68,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
-|[Syslog via AMA](connect-cef-syslog-ama) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Syslog via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Windows DNS Events via AMA](connect-dns-ama.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
