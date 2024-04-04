@@ -18,11 +18,11 @@ ms.author: kavitagaddam
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
 ## **March 2024**
-**Batch-bundle parallelization (GA)**
+**Batch-bundle parallelization**
 Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing of batch bundles.
 
 Learn more:
-- [Batch bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+- [Batch bundle parallelization](././../azure-api-for-fhir/fhir-rest-api-capabilities.md)
 
 **Bug Fixes**
 
