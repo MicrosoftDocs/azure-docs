@@ -57,7 +57,7 @@ Data connectors are available as part of the following offerings:
 ## Amazon Web Services
 
 - [Amazon Web Services](data-connectors/amazon-web-services.md)
-- [Amazon Web Services S3 (preview)](data-connectors/amazon-web-services-s3.md)
+- [Amazon Web Services S3](data-connectors/amazon-web-services-s3.md)
 
 ## Apache
 
@@ -440,7 +440,7 @@ Data connectors are available as part of the following offerings:
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
 - [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
-- [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
+- [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
