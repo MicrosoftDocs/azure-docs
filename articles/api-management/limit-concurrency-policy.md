@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Limit concurrency
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. When that number is exceeded, new requests will fail immediately with the `429` Too Many Requests status code.
 
@@ -36,7 +38,7 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -56,6 +58,6 @@ The following example demonstrates how to limit number of requests forwarded to 
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

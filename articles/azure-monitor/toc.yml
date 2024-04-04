@@ -67,6 +67,8 @@ items:
             href: app/azure-web-apps-java.md
           - name: Node.js
             href: app/azure-web-apps-nodejs.md
+          - name: Python
+            href: app/azure-web-apps-python.md
         - name: Azure Functions
           displayName: functions, monitor functions, automation
           href: app/monitor-functions.md
@@ -506,9 +508,20 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
+      - name: Integrations
+        items:
+        - name: Argo CD
+          displayName: Prometheus
+          href: containers/prometheus-argo-cd-integration.md
+        - name: Elastic Search
+          displayName: Prometheus
+          href: containers/prometheus-elasticsearch-integration.md
+        - name: Apache Kafka
+          displayName: Prometheus
+          href: containers/prometheus-kafka-integration.md
+        - name: KEDA integration
+          displayName: Prometheus
+          href: containers/integrate-keda.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
@@ -583,9 +596,9 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Prometheus alert rules
-        href: containers/container-insights-metric-alerts.md
-      - name: Log search alert rules
+      - name: Metric alert rules
+        href: containers/kubernetes-metric-alerts.md
+      - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage

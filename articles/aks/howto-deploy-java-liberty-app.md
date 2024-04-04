@@ -2,7 +2,7 @@
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
-author: KarlErickson
+author: edburns
 ms.author: edburns
 ms.topic: how-to
 ms.date: 01/16/2024
@@ -479,3 +479,4 @@ You can learn more from the following references:
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+

@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/28/2024
+ms.date: 4/1/2024
 ms.author: jordanselig
 ---
 # Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3 (Preview)
@@ -106,7 +106,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01 --query properties.windowsOutboundIpAddresses"
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.windowsOutboundIpAddresses
 ```
 
 ## 5. Update dependent resources with new outbound IPs
@@ -243,13 +243,13 @@ You can get the new inbound IP address for your new App Service Environment v3 b
 For ILB App Service Environments, get the private inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.internalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.internalInboundIpAddresses
 ```
 
 For ELB App Service Environments, get the public inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.externalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.externalInboundIpAddresses
 ```
 
 ## 11. Redirect customer traffic and complete migration

@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -139,7 +139,7 @@ For the **/hana/log** volume. the configuration would look like:
 
 For the other volumes, the configuration would look like:
 
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/shared | /root volume | /usr/sap |
+| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/shared<sup>2</sup> | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
 | M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
@@ -163,8 +163,8 @@ For the other volumes, the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
-
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
+<sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
 
@@ -188,7 +188,7 @@ You may want to use Azure Ultra disk storage instead of Azure premium storage on
 
 For the other volumes, including **/hana/log** on Ultra disk, the configuration could look like:
 
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS | /hana/shared | /root volume | /usr/sap |
+| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS | /hana/shared<sup>1</sup> | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MBps | 80 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
 | E20(d)s_v5 | 160 GiB | 750 MBps | 80 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
@@ -201,6 +201,7 @@ For the other volumes, including **/hana/log** on Ultra disk, the configuration 
 | E64(d)s_v5 | 512 GiB | 1,735 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E96(d)s_v5 | 672 GiB | 2,600 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 
+<sup>1</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)
 
 ## Cost conscious solution with Azure premium storage
 So far, the Azure premium storage solution described in this document in section [Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) were meant for SAP HANA production supported scenarios. One of the characteristics of production supportable configurations is the separation of the volumes for SAP HANA data and redo log into two different volumes. Reason for such a separation is that the workload characteristics on the volumes are different. And that with the suggested production configurations, different type of caching or even different types of Azure block storage could be necessary. For non-production scenarios, some of the considerations taken for production systems may not apply to more low end non-production systems. As a result the HANA data and log volume could be combined. Though eventually with some culprits, like eventually not meeting certain throughput or latency KPIs that are required for production systems. Another aspect to reduce costs in such environments can be the usage of [Azure Standard SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage). Keep in mind that choosing Standard SSD or Standard HDD Azure storage has impact on your single VM SLAs as documented in the article  [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
@@ -208,7 +209,7 @@ So far, the Azure premium storage solution described in this document in section
 A less costly alternative for such configurations could look like:
 
 
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | comments |
+| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared<sup>3</sup> | /root volume | /usr/sap | comments |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
 | E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> won't achieve less than 1ms storage latency<sup>1</sup> |
@@ -242,6 +243,8 @@ A less costly alternative for such configurations could look like:
 <sup>1</sup> [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency won't be less than 1ms
 
 <sup>2</sup> The VM family supports [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md), but there's a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
+
+<sup>3</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)  
 
 When combining the data and log volume for SAP HANA, the disks building the striped volume shouldn't have read cache or read/write cache enabled.
 
