@@ -33,7 +33,7 @@
     - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
-        - name: AKS Automatic
+        - name: Use AKS Automatic
           href: learn/quick-kubernetes-automatic-deploy.md
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md

@@ -33,6 +33,10 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
 
+:::zone target="docs" pivot="bicep"
+- To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+:::zone-end
+
 ### Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
@@ -147,7 +151,84 @@ TBC.
 
 :::zone target="docs" pivot="bicep"
 
-TBC.
+## Review the Bicep file
+
+This Bicep file defines an AKS Automatic cluster.
+
+```bicep
+@description('The name of the Managed Cluster resource.')
+param clusterName string = 'myAKSAutomaticCluster'
+
+@description('The location of the Managed Cluster resource.')
+param location string = resourceGroup().location
+
+resource aks 'Microsoft.ContainerService/managedClusters@2024-02-02-preview' = {
+  name: clusterName
+  location: location  
+  sku: {
+		name: 'Automatic'
+  }
+  properties: {
+    agentPoolProfiles: [
+      {
+        name: 'systempool'
+        count: 3
+        vmSize: 'Standard_D8d_v5'
+        osType: 'Linux'
+        mode: 'System'
+      }
+    ]
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+```
+
+The resource defined in the Bicep file:
+
+* [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep)
+
+## Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+
+> [!IMPORTANT]
+> The Bicep file sets the `clusterName` param to the string *myAKSAutomaticCluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
+
+1. Deploy the Bicep file using the Azure CLI.
+
+```azurecli
+az deployment group create --resource-group myResourceGroup --template-file main.bicep
+```
+
+It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
+
+## Connect to the cluster
+
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the [az aks install-cli][az-aks-install-cli] command.
+
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+
+```azurecli
+az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
+```
+
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+
+```azurecli
+kubectl get nodes
+```
+
+The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+
+```output
+NAME                                 STATUS   ROLES   AGE     VERSION
+aks-default-f8vj2                    Ready    agent   2m26s   v1.28.5
+aks-systempool-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+aks-systempool-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+aks-systempool-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+```
 
 :::zone-end
 
@@ -166,16 +247,21 @@ To deploy the application, you use a manifest file to create all the objects req
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure Cosmos DB or Azure Service Bus.
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
+1. Create a namespace `aks-store-demo` to deploy the Kubernetes resources into.
 
     ```azurecli
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
+    kubectl create ns aks-store-demo
+    ```
+
+1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace.
+
+    ```azurecli
+    kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
     ```
 
     The following sample output shows the deployments and services:
 
     ```output
-    namespace/aks-store-demo created
     statefulset.apps/rabbitmq created
     configmap/rabbitmq-enabled-plugins created
     service/rabbitmq created
