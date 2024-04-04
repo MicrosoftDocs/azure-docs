@@ -13,8 +13,8 @@ ms.subservice: calling
 ---
 
 # capturerStoppedUnexpectedly UFD
-The `capturerStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the screen sharing track has been muted,
-which can happen due to external reasons and depends on the browser implementation.
+The `capturerStoppedUnexpectedly` UFD with a `true` value occurs when the SDK detects that the screen sharing track was muted.
+This issue can happen due to external reasons and depends on the browser implementation.
 For example, if the user shares a window and minimize that window, the `capturerStoppedUnexpectedly` UFD may fire.
 
 | capturerStoppedUnexpectedly | Details                |
@@ -35,6 +35,10 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
     }
 });
 ```
+
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of screen sharing issues.
 The end users can then take steps to resolve the issue on their own, such as checking whether they accidentally minimize the window being shared.
+
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
