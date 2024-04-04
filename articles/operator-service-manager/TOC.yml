@@ -19,6 +19,8 @@
     href: helm-requirements.md
   - name: Publisher Tenants, subscriptions, regions and preview management
     href: publisher-resource-preview-management.md
+  - name: About the Azure Operator Service Manager CLI extension
+    href: concepts-about-aosm-cli-extension.md
 - name: Quickstarts
   expanded: false
   items:
@@ -65,6 +67,8 @@
         href: how-to-onboard-a-cnf-using-the-azure-cli.md
       - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
         href: how-to-onboard-a-vnf-using-the-azure-cli.md
+      - name: Use Helm option parameters to debug installation failures
+        href: how-to-use-helm-option-parameters.md
   - name: Create a custom role
     href: how-to-create-custom-role.md
   - name: Assign a custom role
@@ -85,6 +89,8 @@
       items:
         - name: Common Issues
           href: troubleshooting-cli-common-issues.md
+    - name: Helm Install Failures
+      href: troubleshooting-helm-install-failures.md
 - name: Resources
   expanded: false
   items:
