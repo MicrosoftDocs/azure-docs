@@ -15,19 +15,19 @@ ms.author: cshoe
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 
-To request an increase in quota amounts for your container app, learn [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-) and [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+To request an increase in quotas for your container app, learn [how to request a quota increase](faq.yml#how-can-i-request-a-quota-increase-) and [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 The *Is Configurable* column in the following tables denotes a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/). For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
 
-| Feature | Scope | Default | Is Configurable | Remarks |
+| Feature | Scope | Default Quota | Is Configurable | Remarks |
 |--|--|--|--|--|
-| Environments | Region |  Up to 15 | Yes | Limit up to 15 environments per subscription, per region. |
-| Environments | Global | Up to 20 | Yes | Limit up to 20 environments per subscription across all regions |
+| Environments | Region |  Up to 15 | Yes | Up to 15 environments per subscription, per region. |
+| Environments | Global | Up to 20 | Yes | Up to 20 environments per subscription across all regions |
 | Container Apps | Environment | Unlimited | n/a | |
 | Revisions | Container app | 100 | No | |
-| Replicas | Revision | 300 (Azure Portal) / 1000 (Azure CLI) | Yes | |
+| Replicas | Revision | 300 (Azure portal) / 1000 (Azure CLI) | Yes | |
 
-Using Azure Portal, there is a limit of 300 replicas per revision. Using Azure CLI, there is a limit of 1000 replicas per revision. Please note that the true number of replicas in a revision depends on a variety of factors.
+For apps you create using Azure portal, there's a default quota of 300 replicas per revision. For apps you create using Azure CLI, there's a default quota of 1,000 replicas per revision. Note that the true number of replicas in a revision depends on various factors.
 
 ## Consumption plan
 
