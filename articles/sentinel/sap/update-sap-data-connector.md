@@ -5,7 +5,9 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 03/27/2024
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent
@@ -16,6 +18,7 @@ To get the latest features, you can [enable automatic updates](#automatically-up
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
 
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
@@ -85,7 +88,7 @@ If you're updating your agent from a version earlier than 90847355, make sure to
 To perform this procedure, you must be a resource group owner on your Microsoft Sentinel workspace.
 
 
-### [Azure portal](#tab/deploy-azure-managed-identity)
+### [Azure portal](#tab/azure)
 
 1. In Microsoft Sentinel, on the **Configuration > Data connectors** page, navigate to your **Microsoft Sentinel for SAP** data connector and select **Open the connector page**.
 
@@ -102,9 +105,9 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 >
 > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
 
-### [Command line](#tab/deploy-azure-managed-identity)
+### [Command line](#tab/cli)
 
-1. Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of your Docker container:
+1. <a name="step1"></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of your Docker container:
 
     ```bash
     docker inspect <container_name> | grep -oP '"SENTINEL_AGENT_GUID=\K[^"]+
@@ -127,7 +130,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
     |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
     |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
-    |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-managed).      |
+    |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#step1).      |
 
 ---
 
