@@ -156,7 +156,7 @@ You can identify what category a given FQDN or URL is by using the **Web Categor
 :::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Firewall category search dialog":::
 
 > [!IMPORTANT]
-> To use **Web Category Check** feature, user must have an access of Microsoft.Network/azureWebCategories/getwebcategory/action for **subscription** level, not resource group level.
+> To use the **Web Category Check** feature, the user must have an access of Microsoft.Network/azureWebCategories/* for **subscription** level, not resource group level.
 
 ### Category change
 

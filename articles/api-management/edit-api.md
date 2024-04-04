@@ -10,6 +10,8 @@ ms.author: danlep
 ---
 # Edit an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The steps in this tutorial show you how to use API Management to edit an API.
 
 + You can add, rename, or delete operations in the Azure portal.

@@ -344,7 +344,7 @@
       },
       "author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "MGoedtel",
+        "articles/aks/**/*.md": "schaffererin",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "madsd",

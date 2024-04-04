@@ -530,7 +530,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Connect a device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
