@@ -127,7 +127,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticClu
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-```azurecli
+```bash
 kubectl get nodes
 ```
 
@@ -216,7 +216,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticClu
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-```azurecli
+```bash
 kubectl get nodes
 ```
 
@@ -249,13 +249,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 1. Create a namespace `aks-store-demo` to deploy the Kubernetes resources into.
 
-    ```azurecli
+    ```bash
     kubectl create ns aks-store-demo
     ```
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace.
 
-    ```azurecli
+    ```bash
     kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
     ```
 
@@ -279,13 +279,13 @@ When the application runs, a Kubernetes service exposes the application front en
 
 1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
 
-    ```console
+    ```bash
     kubectl get pods -n aks-store-demo
     ```
 
 1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
-    ```azurecli
+    ```bash
     kubectl get service store-front -n aks-store-demo --watch
     ```
 
