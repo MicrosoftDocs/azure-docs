@@ -13,7 +13,7 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Manage Domain Suppression Lists in Azure Communication Services using the Management Client Libraries
+# Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries
 
 This quick start covers the process for managing domain suppression lists in Azure Communication Services using the Azure Communication Services management client libraries.
 
