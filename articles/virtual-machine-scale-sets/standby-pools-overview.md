@@ -18,14 +18,14 @@ Standby pools for Virtual Machine Scale Sets allow you to increase scaling perfo
 
 Standby pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the standby pool before to being put into the scale set and before the instances begin taking traffic.
 
-## Standby pool Size
+## Standby pool size
 The number of virtual machines in a standby pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured. 
 
 | Setting | Description | 
 |---|---|
 | `MaxReadyCapacity` | The maximum number of virtual machines you want to have ready.|
 | `instanceCount` | The current number of virtual machines already deployed in your scale set.|
-| Standby pool Size | `MaxReadyCapacity`– `InstanceCount` 
+| Standby pool Size | Standby pool size = `MaxReadyCapacity`– `InstanceCount` |
 
 ## Scaling
 
@@ -37,7 +37,7 @@ If at any point in time your scale set needs to scale beyond the number of insta
 
 ## Virtual Machine States
 
-The virtual machines in the standby pool can be created in a Running State or a Stopped (deallocated) state. The states of the virtual machines in the standby pool are configured using the `virtualMachineState` parameter.
+The virtual machines in the standby pool can be created in a running State or a deallocated state. The states of the virtual machines in the standby pool are configured using the `virtualMachineState` parameter.
 
 ```
 "virtualMachineState":"Running"
@@ -45,22 +45,22 @@ The virtual machines in the standby pool can be created in a Running State or a 
 "virtualMachineState":"Deallocated"
 ```
 
-**Stopped (Deallocated) virtual machine State:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
+**Deallocated virtual machine State:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
 
-**Running virtual machine State:** Using virtual machines in a Running state is recommended when latency and reliability 
+**Running virtual machine State:** Using virtual machines in a running state is recommended when latency and reliability 
 requirements are strict.
 
 ## Pricing
 
 >[!IMPORTANT]
->The `VirtualMachineState` you choose will impact the cost of your standby pool. You can update the desired state at any point in time. 
+>The `virtualMachineState` you choose will impact the cost of your standby pool. You can update the desired state at any point in time. 
 
 There's no direct cost associated with using standby pools. Users are charged based on the resources deployed into the standby pool. For more information on Virtual Machine billing, see [virtual machine power states and billing documentation](../virtual-machines/states-billing.md)
 
 | State | Description |
 |---|---|
-|**Stopped (deallocated) virtual machine State:** | Using a standby pool with virtual machines in the Stopped (deallocated) state is a great way to reduce the cost while keeping your scale-out times fast. virtual machines in the Stopped (deallocated) state don't incur any compute costs, only the associated resources incur costs. |
-| **Running virtual machine State:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
+|**Deallocated virtual machine state:** | Using a standby pool with virtual machines in the deallocated state is a great way to reduce the cost while keeping your scale-out times fast. virtual machines in the deallocated state don't incur any compute costs, only the associated resources incur costs. |
+| **Running virtual machine state:** | Running virtual machines incur a higher cost due to compute resources being consumed. |
 
 ## Considerations
 - The total capacity of the standby pool and the Virtual Machine Scale Set together can't exceed 1000 instances. 
@@ -70,6 +70,10 @@ There's no direct cost associated with using standby pools. Users are charged ba
 - Attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
 - Attaching a standby pool to a Virtual Machine Scale Set with Azure autoscale enabled. 
 - Attaching a standby pool to a Virtual Machine Scale Set with a fault domain greater than 1. 
+- Creating a standby pool in a different region than the Virtual Machine Scale Set. 
+- Creating a standby pool in a different subscription than the Virtual Machine Scale Set. 
+- Creating a standby pool without specifying a Virtual Machine Scale Set. 
+- Creating a standby pool with a Virtual Machine Scale Set that already has a standby pool attached. 
 
 ## Next steps
 

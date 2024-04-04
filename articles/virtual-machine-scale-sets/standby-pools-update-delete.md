@@ -46,7 +46,7 @@ Update-AzStandbyPool `
    -VirtualMachineState "Deallocated" `
 ```
 
-### [ARM Template](#tab/template)
+### [ARM template](#tab/template)
 ```ARM
 {
  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -69,7 +69,7 @@ Update-AzStandbyPool `
 
 ```
 
-### [REST API](#tab/rest)
+### [REST](#tab/rest)
 Update an existing standby pool using the Microsoft.standby pool REST API.
 
 ```HTTP
@@ -130,8 +130,8 @@ Delete an existing standby pool using [Delete-AzStandbyPool]().
 Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
 ```
 
-### [REST API](#tab/rest1)
-Delete an existing standby pool using Microsoft.standby pool REST API. 
+### [REST](#tab/rest1)
+Delete an existing standby pool using Microsoft.standby pool REST command. 
 
 ```HTTP
 DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview

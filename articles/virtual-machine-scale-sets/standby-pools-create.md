@@ -20,7 +20,7 @@ This article steps through creating a standby pool for Virtual Machine Scale Set
 
 
 ### Feature Registration 
-Register the standby pool Resource Provider and the standby pool Preview Feature with your subscription using PowerShell in Azure Cloud Shell. Registration can take about 30 mins to take effect. You can rerun the below commands to determine when the feature is successfully registered. 
+Register the standby pool resource provider and the standby pool preview feature with your subscription using PowerShell in Azure Cloud Shell. Registration can take up to 30 mins success show as registered. You can rerun the below commands to determine when the feature is successfully registered. 
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.StandbyPool
@@ -42,7 +42,7 @@ In order for standby pools to successfully create Virtual Machines, you need to 
 
 If you're using a customized image in Compute Gallery, ensure to assign standby pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
 
-For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a standby pool
 
@@ -80,7 +80,7 @@ Create-AzStandbyPool `
    -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
-### [ARM Template](#tab/template)
+### [ARM template](#tab/template)
 
 ```ARM
 {
@@ -104,7 +104,7 @@ Create-AzStandbyPool `
 
 ```
 
-### [REST API](#tab/rest)
+### [REST](#tab/rest)
 Create a standby pool and associate it with an existing scale set using the Microsoft.StandbyPool REST command.
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
