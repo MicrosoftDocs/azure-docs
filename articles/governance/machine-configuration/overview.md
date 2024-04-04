@@ -26,7 +26,9 @@ Configurations are distinct from policy definitions. Machine configuration uses 
 dynamically assign configurations to machines. You can also assign configurations to machines
 [manually][03], or by using other Azure services such as [Automanage][04].
 
-Examples of each scenario are provided in the following table.
+![A grahic providing a high level overview of the servie Azure Machine Configuration that allows you to configure OS, app or workload level settings](./Overview.jpg)
+
+Example scenario ares provided in the following table.
 
 |              Type              |                                                                                                        Description                                                                                                         |                                                                                            Example story                                                                                            |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
