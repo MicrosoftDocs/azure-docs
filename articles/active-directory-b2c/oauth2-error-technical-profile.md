@@ -73,6 +73,40 @@ The following example shows a technical profile for `ReturnOAuth2Error`:
 </ClaimsProviders> -->
 ```
 
+## Define claimstransformations to generate custom value of error code and error message 
+
+```xml
+<!--
+ <ClaimsTransformations> -->
+<ClaimsTransformation Id="GenerateErrorCode" TransformationMethod="CreateStringClaim">
+        <InputParameters>
+          <InputParameter Id="value" DataType="string" Value="Error_001" />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="errorCode" TransformationClaimType="createdClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+      <ClaimsTransformation Id="GenerateErrorMessage" TransformationMethod="CreateStringClaim">
+        <InputParameters>
+          <InputParameter Id="value" DataType="string" Value="Insert error description." />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="errorMessage" TransformationClaimType="createdClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+<!--
+</ClaimsTransformations> -->
+```
+
+And you will need to add these 2 ClaimsTransformations in OutputClaimsTransformations/InputClaimsTransformations of any Technical Profiles before Oauth2 TP you defined:
+
+```xml
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="generateErrorCode" />
+            <OutputClaimsTransformation ReferenceId="generateErrorMessage" />
+          </outputClaimsTransformations>
+```
+
 ## Input claims
 
 The **InputClaims** element contains a list of claims required to return OAuth2 error. 
@@ -121,6 +155,19 @@ In the following example:
   </OrchestrationSteps>
   <ClientDefinition ReferenceId="DefaultWeb" />
 </UserJourney>
+```
+
+*Optional: And you can add/use other proconditions to manipulate the calling of Oauth2 error TP. For example, we can set to call Oauth2 error TP if there is no email claims.
+
+```xml
+<OrchestrationStep Order="3" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="ReturnOAuth2Error">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>email</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+    </OrchestrationStep>
 ```
 
 ## Next steps
