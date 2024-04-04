@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # microphoneMuteUnexpectedly UFD
-The `microphoneMuteUnexpectedly` UFD with a `true` value occurs when the SDK detects that the microphone track was muted. Keep in mind, that the event is related to the `mute` event of the microphone track, when it is triggered by an external source rather than by the SDK mute API. The event could be triggered by the underlying layer, such as the audio stack, muting the audio input session. The hardware mute button of some headset models can also trigger the `microphoneMuteUnexpectedly` UFD. Additionally, some browser platforms, such as iOS Safari browser, may mute the microphone when certain interruptions occur, such as an incoming phone call.
+The `microphoneMuteUnexpectedly` UFD with a `true` value occurs when the SDK detects that the microphone track was muted. Keep in mind, that the event is related to the `mute` event of the microphone track, when it is triggered by an external source rather than by the SDK mute API. The underlying layer triggers the event, such as the audio stack muting the audio input session. The hardware mute button of some headset models can also trigger the `microphoneMuteUnexpectedly` UFD. Additionally, some browser platforms, such as iOS Safari browser, may mute the microphone when certain interruptions occur, such as an incoming phone call.
 
 | microphoneMuteUnexpectedly            | Details                |
 | --------------------------------------|------------------------|
@@ -34,8 +34,9 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 
-## How to mitigate or resolve
+## How to mitigate or resolve d
 Your application should subscribe to events from the User Facing Diagnostics and display an alert message to the users in case of microphone state changes. By doing so, the users are aware of muted issues and aren't surprised if they found other participants can't hear their audio during a call.
 
 ## Next steps
+
 * Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
