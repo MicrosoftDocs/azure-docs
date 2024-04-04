@@ -36,7 +36,7 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-The application should subscribe to events from the User Facing Diagnostics Feature and display a message on the UI to alert users of any microphone issues.
+The application should subscribe to events from the User Facing Diagnostics and display a message on the UI to alert users of any microphone issues.
 Users can then take steps to resolve the issue on their own.
 For example, they can unplug and plug in the headset device, or sometimes muting and unmuting the microphone can help as well.
 

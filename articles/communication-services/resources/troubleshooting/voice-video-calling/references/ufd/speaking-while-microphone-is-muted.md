@@ -40,4 +40,4 @@ The `speakingWhileMicrophoneIsMuted` UFD isn't an error, but rather an indicatio
 The purpose of this UFD is for the application to show a message on your user interface as a hint, so the user can know that the microphone is muted while they're speaking.
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

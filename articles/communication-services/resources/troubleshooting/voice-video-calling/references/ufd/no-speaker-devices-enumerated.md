@@ -40,4 +40,4 @@ Your application should subscribe to events from the User Facing Diagnostics and
 Users can then take steps to resolve the issue on their own, such as plugging in a headset or checking whether they disabled the speaker devices.
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

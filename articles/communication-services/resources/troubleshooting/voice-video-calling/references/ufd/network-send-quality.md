@@ -40,8 +40,8 @@ From the perspective of the ACS Calling SDK, network issues are considered exter
 To solve network issues, it's typically necessary to have an understanding of the network topology and the nodes that are causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
-Your application should subscribe to events from the User Facing Diagnostics Feature and display a message on the user interface, so that users are aware of network quality issues. While these issues are often temporary and recover soon, frequent occurrences of the `networkSendQuality` UFD for a particular user may require further investigation.
+Your application should subscribe to events from the User Facing Diagnostics and display a message on the user interface, so that users are aware of network quality issues. While these issues are often temporary and recover soon, frequent occurrences of the `networkSendQuality` UFD for a particular user may require further investigation.
 For example, users should check their network equipment or check with their internet service provider (ISP).
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
