@@ -14,12 +14,12 @@ ms.subservice: calling
 
 # noMicrophoneDevicesEnumerated UFD
 The `noMicrophoneDevicesEnumerated` UFD with a `true` value occurs when the browser API `navigator.mediaDevices.enumerateDevices` doesn't include any audio input devices.
-This means that there are no microphones available on the user's machine, which could be because the user unplugged or disabled the microphone.
+This means that there are no microphones available on the user's machine. This issue is caused by the user unplugging or disabling the microphone.
 
 > [!NOTE]
 > This UFD is unrelated to the a user allowing microphone permission.
 
-Even if a user doesn't grant the microphone permission at the browser level, the `DeviceManager.getMicrophones` API still returns a microphone device info with an empty name, which indicates that there exists a microphone device on the user's machine.
+Even if a user doesn't grant the microphone permission at the browser level, the `DeviceManager.getMicrophones` API still returns a microphone device info with an empty name, which indicates the presence of a microphone device on the user's machine.
 
 | noMicrophoneDevicesEnumeratedUFD      | Details                |
 | --------------------------------------|------------------------|
@@ -40,4 +40,7 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 });
 ```
 ## How to mitigate or resolve
-Your application should subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any device setup issues. Users can then take steps to resolve the issue on their own, such as plugging in a headset or checking whether they have disabled the microphone devices.
+Your application should subscribe to events from the User Facing Diagnostics  and display a message on the user interface to alert users of any device setup issues. Users can then take steps to resolve the issue on their own, such as plugging in a headset or checking whether they disabled the microphone devices.
+
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
