@@ -31,7 +31,7 @@ Complete the following steps to assign roles in Trusted Signing.
 2.	Select on the **Roles** tab and search "Trusted Signing". You can see in the screenshot below the two custom roles.
 ![Screenshot of Azure portal UI with the Trusted Signing custom RBAC roles.](./media/trusted-signing-rbac-roles.png)
 
-3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](../role-based-access-control/role-assignments-portal.md) guide to assign the relevant roles to your identities.
+3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](../role-based-access-control/role-assignments-portal.yml) guide to assign the relevant roles to your identities.
 
 ## Related content 
 * [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
