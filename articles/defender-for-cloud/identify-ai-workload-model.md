@@ -49,4 +49,4 @@ With the information provided in the results, you can determine deployed models 
 ## Next step
 
 > [!div class="nextstepaction"]
-> 
+> [Identify Gen-AI vulnerable code repositories](identify-ai-vulnerable-code.md)

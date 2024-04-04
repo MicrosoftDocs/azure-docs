@@ -47,4 +47,4 @@ If no recommendations appear, it means that your Gen-AI applications are secure 
 ## Next Step
 
 > [!div class="nextstepaction"]
-> [Remediate security recommendations](implement-security-recommendations.md)
+> [Review alerts for Gen-AI applications](review-alerts-for-ai.md)

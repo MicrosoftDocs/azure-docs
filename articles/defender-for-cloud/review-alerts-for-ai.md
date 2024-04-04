@@ -59,4 +59,4 @@ A list of alerts for your Gen-AI applications appears. With this list, you shoul
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Remediate alerts](managing-and-responding-alerts.md#respond-to-a-security-alert)
+> [Identify Gen-AI workloads and models](identify-ai-workload-model.md)
