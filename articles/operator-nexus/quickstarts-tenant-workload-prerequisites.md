@@ -43,7 +43,6 @@ The following sections describe how to create these networks:
 - Layer 2 network
 - Layer 3 network
 - Trunked network
-- Cloud services network
 
 ### Create an L2 network
 
@@ -161,7 +160,7 @@ New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" `
 
 ---
 
-### Create a cloud services network
+## Create a cloud services network
 
 To create an Operator Nexus virtual machine (VM) or Operator Nexus Kubernetes cluster, you must have a cloud services network. Without this network, you can't create a VM or cluster.
 
@@ -175,7 +174,7 @@ The egress endpoints must comply with the domain name structures and hostname sp
 - `api.v1.contoso.com`: Incorporates two subdomains (`v1` and `api`) above the base domain contoso.com.
 - `.api.contoso.com`: A wildcard for any subdomain under `api.contoso.com`, covering multiple third-level domains.
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
@@ -186,7 +185,7 @@ The egress endpoints must comply with the domain name structures and hostname sp
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
 ```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $endpointEgressList = @()
@@ -217,7 +216,7 @@ After setting up the cloud services network, you can use it to create a VM or cl
 > [!NOTE]
 > To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
 
-#### Using the proxy to reach outside of the virtual machine
+### Using the proxy to reach outside of the virtual machine
 
 After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you need to additionally set appropriate environment variables within VM to use tenant proxy and to reach outside of virtual machine. This tenant proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 
