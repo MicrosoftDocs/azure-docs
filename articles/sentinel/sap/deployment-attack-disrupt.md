@@ -5,7 +5,8 @@ author: batamig
 ms.author: bagol
 ms.topic: concept
 ms.date: 04/01/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+  - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
 #customerIntent: As a security engineer, I want to deploy automatic attack disruption for SAP in the Microsoft Defender portal.
 ---
