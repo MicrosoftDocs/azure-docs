@@ -112,7 +112,33 @@ This error appears due to absence of these FQDN rules because of which configura
    kubectl logs pod/extension-agent-<pod guid that’s there in your cluster> -n kube-system --tail=200
    ```
 
-6. Delete and reinstall Backup Extension to initiate backup. 
+6. Delete and reinstall Backup Extension to initiate backup.
+
+### Scenario 4
+
+**Error message**:
+
+   ```Error
+Backup extension is not installed is not in a healthy state. This will impact your backup and restore operations. Click to fix the issue.
+```
+**Cause**: Azure policy preventing to pull no allowed images. [Learn more](https://learn.microsoft.com/en-us/azure/aks/policy-reference).
+
+This error appears due to policy blocking no allowed images to pull in AKS.
+
+**Resolution**: To resolve the issue, you need to allow *Kubernetes cluster containers should only use allowed images* policy in the *Parameters* to pulll velero container image.
+
+1. To check logs of the *ExtensionAgent* pod, run the following command:
+
+ ```azurecli-interactive
+   kubectl get events -A
+   ```
+
+**Error message**:
+
+   ```Error
+dataprotection-microsoft 51s Warning FailedCreate job/dataprotection-microsoft-kubernetes-agent-upgrade-crds Error creating: admission webhook "validation.gatekeeper.sh"
+denied the request: [azurepolicy-k8sazurev2containerallowedimag-xxxxxxxxxxxxxxxxxxxx] Container image mcr.microsoft.com/azurebackup/k8s/velero:0.0.02574.247 for container velero has not been allowed....
+  ```
 
 ## Backup Extension post installation related errors
 
