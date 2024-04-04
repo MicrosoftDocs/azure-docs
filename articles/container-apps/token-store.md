@@ -1,26 +1,26 @@
 ---
-title: Enable a token store in Azure Container Apps
+title: Enable an authentication token store in Azure Container Apps
 description: Learn to secure authentication tokens independent of your application.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 04/04/2024
 ms.author: cshoe
 ---
 
-# Enable a token store in Azure Container Apps
+# Enable an authentication token store in Azure Container Apps
 
 Azure Container Apps authentication supports a feature called token store. A token store is a repository of tokens that are associated with the users of your web apps and APIs. You enable a token store by configuring your container app with an Azure Blob Storage container.
 
 Your application code sometimes needs to access data from these providers on the user's behalf, such as:
 
-* post to the authenticated user's Facebook timeline
-* read the user's corporate data using the Microsoft Graph API
+* Post to an authenticated user's Facebook timeline
+* Read a user's corporate data using the Microsoft Graph API
 
-You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](../app-service/configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them and [tell Container Apps to refresh them](../app-service/configure-authentication-oauth-tokens.md#refresh-auth-tokens) when they become invalid.
+You typically need to write code to collect, store, and refresh tokens in your application. With a token store, you can [retrieve tokens](../app-service/configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them, and [tell Container Apps to refresh them](../app-service/configure-authentication-oauth-tokens.md#refresh-auth-tokens) as they become invalid.
 
-When token store is enabled, Container Apps authentication caches ID tokens, access tokens, and refresh tokens the authenticated session, and they're accessible only by the associated user.
+When token store is enabled, the Container Apps authentication system caches ID tokens, access tokens, and refresh tokens the authenticated session, and they're accessible only by the associated user.
 
 ## Generate a SAS URL
 
@@ -30,9 +30,9 @@ Before you can create a token store for your container app, you first need an Az
 
 1. Select **Containers** and create a private blob container if necessary.
 
-1. Select the three dots (•••) at the end of the row for your container.
+1. Select the three dots (•••) at the end of the row for the storage container where you want to create your token store.
 
-1. Enter the values appropriate to your needs in the *Generate SAS* window.
+1. Enter the values appropriate for your needs in the *Generate SAS* window.
 
     > [!NOTE]
     > Make sure you keep track of your SAS expiration dates to ensure access to your container doesn't cease.
@@ -43,7 +43,7 @@ Before you can create a token store for your container app, you first need an Az
 
 ## Save SAS URL as secret
 
-Now that you have generated your SAS URL, you can save it in your container app as a secret.
+With SAS URL generated, you can save it in your container app as a secret.
 
 1. Go to your container app in the Azure portal.
 
@@ -71,11 +71,7 @@ az containerapp auth update \
   --token-store true
 ```
 
-If you would like to create your store using an ARM template, use the following example.
-
-```json
-{}
-```
+Additionally,  you can create your store using an [ARM template](/rest/api/containerapps/container-apps-auth-configs/create-or-update?view=rest-containerapps-2023-11-02-preview&tabs=HTTP).
 
 ## Next steps
 
