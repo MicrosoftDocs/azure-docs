@@ -120,10 +120,8 @@ Here is a sample input-vnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build --config-file input-vnf-nfd.jsonc --definition-type vnf
+az aosm nfd build --config-file vnf-input.jsonc --definition-type vnf
 ```
-
-**TODO: this is not the right name of the file. We are using vnf-input.jsonc**
 
 Once the build is complete, examine the generated files to better understand the Network Function Definition (NFD) structure.
 
