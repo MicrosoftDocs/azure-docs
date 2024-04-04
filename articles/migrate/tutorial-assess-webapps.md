@@ -84,7 +84,7 @@ To run an assessment, follow these steps:
         - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 
     1. Select **Save** if you made any changes.
-1. On the **Create assessment** page, select **Next: Select servers to assessext**.
+1. On the **Create assessment** page, select **Next: Select servers to assess**.
 1. Under the **Select servers to assess** tab, do the following:
     - **Assessment name**: Specify a name for the assessment.
     - **Select or create a group**: Select **Create New** and specify a group name. You can also use an existing group.
