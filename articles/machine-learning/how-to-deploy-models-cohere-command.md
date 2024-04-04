@@ -128,7 +128,8 @@ The previously mentioned Cohere models can be consumed using the chat API.
 
 ## Chat API reference for cohere command models deployed as a service
 
-## V1/chat/completions request
+## v1/chat/completions 
+### Request
 
 ```
     POST /v1/chat/completions HTTP/1.1
@@ -137,7 +138,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
     Content-type: application/json
 ```
 
-### V1/chat/completions request schema
+### v1/chat/completions request schema
 
 Cohere Command R and Command R+ accept the following parameters for a `v1/chat/completions` response inference call:
 
@@ -183,7 +184,7 @@ A Tool Message supports the following properties:
 
 <br/>
 
-### V1/chat/completions response schema
+### v1/chat/completions response schema
 
 The response payload is a dictionary with the following fields:
 
@@ -270,7 +271,8 @@ The `usage` object is a dictionary with the following fields:
     }
 ```
 
-## V1/chat request
+## v1/chat 
+### Request
 
 ```
     POST /v1/chat HTTP/1.1
@@ -279,7 +281,7 @@ The `usage` object is a dictionary with the following fields:
     Content-type: application/json
 ```
 
-### V1/chat request schema
+### v1/chat request schema
 
 Cohere Command R and Command R+ accept the following parameters for a `v1/chat` response inference call:
 
@@ -317,7 +319,7 @@ The `documents` object has the following optional fields:
 |`id`   |`string`   |`None` |Can be supplied to identify the document in the citations. This field isn't passed to the model.   |
 |`_excludes`   |`array of strings`   |`None`| Can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields still show up in the citation object. The `_excludes` field isn't passed to the model.   |
 
-### V1/chat response schema
+### v1/chat response schema
 
 Response fields are fully documented on [Cohere's Chat API reference](https://docs.cohere.com/reference/chat). The response object always contains: 
 
