@@ -18,7 +18,8 @@ The [NXLog BSM](https://docs.nxlog.co/refman/current/im/bsm.html) macOS data con
 | --- | --- |
 | **Log Analytics table(s)** | BSMmacOS_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/getting-started-with-nxlog-support-service-desk
+) |
 
 
 ## Query samples
