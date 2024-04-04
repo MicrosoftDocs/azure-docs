@@ -105,7 +105,7 @@ Use the following steps to configure your web app to pull from Azure Container R
     - `<app-name>` with the name of your web app.
     >[!Tip]
     > If you are using PowerShell console to run the commands, you need to escape the strings in the `--generic-configurations` argument in this and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
-1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure this is configured on the web app and then set the `acrUserManagedIdentityID` property to specify its client ID:
+1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure the identity is configured on the web app and then set the `acrUserManagedIdentityID` property to specify its client ID:
     
     ```azurecli-interactive
     az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
@@ -120,7 +120,7 @@ You're all set, and the web app now uses managed identity to pull from Azure Con
 
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app must integrate with a virtual network. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
+To connect and pull from a registry inside a virtual network or on-premises, your app must integrate with a virtual network (VNET). VNET integration is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
@@ -317,7 +317,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8-GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8-GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
 
 ## Customize the number of compute cores
 
