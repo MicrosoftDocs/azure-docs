@@ -313,7 +313,7 @@ sections:
           1. Select **Save** and confirm that you want to reconfigure monitored VMs.
 
               > [!IMPORTANT]
-              > This choice is only relevant if you're changing the configuration from the default workspace to a custom workspace. If you're changing the setting from one custom workspace to another or from a custom workspace to the default workspace, the change isn't be applied to existing machines.
+              > This choice is only relevant if you're changing the configuration from the default workspace to a custom workspace. If you're changing the setting from one custom workspace to another or from a custom workspace to the default workspace, the change isn't being applied to existing machines.
 
               - Select **No** if you want the new workspace settings to **apply on new VMs only**. The new workspace settings only apply to new agent installations; newly discovered VMs that don't have the Log Analytics agent installed.
               - Select **Yes** if you want the new workspace settings to **apply on all VMs**. In addition, every VM connected to a Defender for Cloud created workspace is reconnected to the new target workspace.
