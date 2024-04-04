@@ -66,7 +66,7 @@ The components that SignTool.exe uses to interface with Trusted Signing require 
 
 ### Download and install Trusted Signing Dlib package
 Complete these steps to download and install the Trusted Signing Dlib package (.ZIP):
-1.	Download the [Trusted Signing Dlib package](https://www.nuget.org/packages/Azure.CodeSigning.Client). 
+1.	Download the [Trusted Signing Dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client). 
 
 2.	Extract the Trusted Signing Dlib zip content and install it onto your signing node in a directory of your choice. You’re required to install it onto the node you’ll be signing files from with SignTool.exe.
 
@@ -113,11 +113,11 @@ Trusted Signing certificates have a 3-day validity, so timestamping is critical 
 ## Use other signing integrations with Trusted Signing 
 This section explains how to set up other not [SignTool](#set-up-signtool-with-trusted-signing) signing integrations with Trusting Signing.
 
-* GitHub Action – To use the GitHub action for Trusted Signing, visit [Azure Code Signing · Actions · GitHub Marketplace](https://github.com/marketplace/actions/azure-code-signing) and follow the instructions to set up and use GitHub action.
+* GitHub Action – To use the GitHub action for Trusted Signing, visit [Trusted Signing · Actions · GitHub Marketplace](https://github.com/azure/trusted-signing-action) and follow the instructions to set up and use GitHub action.
 
-* ADO Task – To use the Trusted Signing AzureDevOps task, visit [Azure Code Signing - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.AzureCodeSigning) and follow the instructions for setup.
+* ADO Task – To use the Trusted Signing AzureDevOps task, visit [Trusted Signing - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) and follow the instructions for setup.
 
-* PowerShell for Authenticode – To use PowerShell for Trusted Signing, visit [PowerShell Gallery | AzureCodeSigning 0.2.15](https://www.powershellgallery.com/packages/AzureCodeSigning/0.2.15) to install the PowerShell module. 
+* PowerShell for Authenticode – To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module. 
 
 * Azure PowerShell – App Control for Business CI Policy - App Control for Windows [link to CI policy signing tutorial].
 
