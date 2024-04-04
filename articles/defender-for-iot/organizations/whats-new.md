@@ -16,6 +16,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## March 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) |
+
+### Sensor time drift detection
+
+This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues. 
+
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server in the sensor settings.
+
 ## February 2024
 
 |Service area  |Updates  |
