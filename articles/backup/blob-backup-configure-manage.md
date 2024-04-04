@@ -61,7 +61,7 @@ To assign the required role for storage accounts that you need to protect, follo
 1. In the Add role assignment pane:
 
     1. Under **Role**, choose **Storage Account Backup Contributor**.
-    1. Under **Assign access to**, choose **User, group or service principal**.
+    1. Under **Assign access to**, choose **Managed identity**.
     1. Search for the Backup vault you want to use for backing up blobs in this storage account, and then select it from the search results.
     1. Select **Save**.
 
