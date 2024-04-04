@@ -13,10 +13,9 @@ ms.subservice: calling
 ---
 
 # noSpeakerDevicesEnumerated UFD
-The `noSpeakerDevicesEnumerated` UFD with `true` value occurs when there is no speaker device presented in the device list returned by the browser API. This happens when the `navigator.mediaDevices.enumerateDevices` browser API doesn't include any audio output devices. This indicates that there are no speakers available on the user's machine, which could be because the user unplugged or disabled the speaker.
+The `noSpeakerDevicesEnumerated` UFD with `true` value occurs when there is no speaker device presented in the device list returned by the browser API. This issue occurs when the `navigator.mediaDevices.enumerateDevices` browser API doesn't include any audio output devices. This event indicates that there are no speakers available on the user's machine, which could be because the user unplugged or disabled the speaker.
 
-However, for some platforms such as iOS, the browser doesn't provide the audio output devices in the device list. In this case, the SDK considers it as expected behavior and doesn't fire `noSpeakerDevicesEnumerated` UFD.
-
+On some platforms such as iOS, the browser doesn't provide the audio output devices in the device list. In this case, the SDK considers it as expected behavior and doesn't fire `noSpeakerDevicesEnumerated` UFD.
 
 | noSpeakerDevicesEnumerated UFD        | Details                |
 | --------------------------------------|------------------------|
@@ -38,4 +37,7 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ```
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics and display a message on your user interface to alert users of any device setup issues.
-Users can then take steps to resolve the issue on their own, such as plugging in a headset or checking whether they have disabled the speaker devices.
+Users can then take steps to resolve the issue on their own, such as plugging in a headset or checking whether they disabled the speaker devices.
+
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
