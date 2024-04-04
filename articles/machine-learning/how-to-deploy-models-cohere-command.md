@@ -161,6 +161,7 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat/c
 
 #### System or user message
 A System or User Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=system` or `role=user`. |
@@ -168,6 +169,7 @@ A System or User Message supports the following properties:
 
 #### Assistant message
 An Assistant Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=assistant`|
@@ -176,6 +178,7 @@ An Assistant Message supports the following properties:
 
 #### Tool message
 A Tool Message supports the following properties:
+
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `role` | `enum` | Required | `role=tool`|
