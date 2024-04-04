@@ -74,7 +74,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Monitor your app**|- [Troubleshoot with Azure Monitor](./tutorial-troubleshoot-monitor.md)<br>- [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
-| **Custom containers** |- [Multi-container](./quickstart-multi-container.md)|
+| **Custom containers** |- [Multi-container](./quickstart-multi-container.md)<br>- [Sidecar containers](tutorial-custom-container-sidecar.md)|
 | **Review best practices** | - [Scale your app]()<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 
