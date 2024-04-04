@@ -1,13 +1,10 @@
 ---
 title: PublicIpAddressCombo UI element
 description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure portal.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: davidsmatlak
-
 ---
+
 # Microsoft.Network.PublicIpAddressCombo UI element
 
 A group of controls for selecting a new or existing public IP address.

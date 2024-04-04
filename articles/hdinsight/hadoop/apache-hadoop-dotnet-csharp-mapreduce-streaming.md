@@ -1,10 +1,10 @@
 ---
-title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
+title: Use C# with MapReduce on Hadoop in HDInsight - Azure
 description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: "hdinsightactive, seoapr2020, devx-track-csharp"
-ms.date: 08/23/2022
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet, devx-track-azurepowershell
+ms.date: 09/14/2023
 ---
 
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
@@ -145,7 +145,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
 1. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text **(Default Storage Account)** is listed.
 
-   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Storage account, HDInsight cluster, Server Explorer, Visual Studio" border="true":::
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Storage account, HDInsight cluster, Server Explorer, Visual Studio." border="true":::
 
    * If the **(Default Storage Account)** entry can be expanded, you're using an **Azure Storage Account** as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click **(Default Container)**.
 
@@ -155,7 +155,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
     * If you're using an **Azure Storage Account**, select the **Upload Blob** icon.
 
-        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio" border="true":::
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio." border="true":::
 
         In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 

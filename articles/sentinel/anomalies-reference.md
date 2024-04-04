@@ -3,7 +3,7 @@ title: Anomalies detected by the Microsoft Sentinel machine learning engine
 description: Learn about the anomalies detected by Microsoft Sentinel's machine learning engines.
 author: yelevin
 ms.topic: reference
-ms.date: 06/13/2022
+ms.date: 03/17/2024
 ms.author: yelevin
 ---
 
@@ -18,8 +18,7 @@ Microsoft Sentinel uses two different models to create baselines and detect anom
 - [UEBA anomalies](#ueba-anomalies)
 - [Machine learning-based anomalies](#machine-learning-based-anomalies)
 
-> [!NOTE]
-> Anomalies are in **PREVIEW**. 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## UEBA anomalies
 
@@ -51,7 +50,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Account Creation
 
@@ -60,13 +59,13 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
 | **Activity:**                    | Core Directory/UserManagement/Add user                             |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Account Deletion
 
@@ -75,12 +74,12 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/Delete user<br>Core Directory/Device/Delete user<br>Core Directory/UserManagement/Delete user |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Account Manipulation
 
@@ -89,12 +88,12 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Code Execution (UEBA)
 
@@ -109,7 +108,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK sub-techniques:** | PowerShell                                                         |
 | **Activity:**                    | Microsoft.Compute/virtualMachines/runCommand/action                |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Data Destruction
 
@@ -123,7 +122,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK techniques:**     | T1485 - Data Destruction                                           |
 | **Activity:**                    | Microsoft.Compute/disks/delete<br>Microsoft.Compute/galleries/images/delete<br>Microsoft.Compute/hostGroups/delete<br>Microsoft.Compute/hostGroups/hosts/delete<br>Microsoft.Compute/images/delete<br>Microsoft.Compute/virtualMachines/delete<br>Microsoft.Compute/virtualMachineScaleSets/delete<br>Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete<br>Microsoft.Devices/digitalTwins/Delete<br>Microsoft.Devices/iotHubs/Delete<br>Microsoft.KeyVault/vaults/delete<br>Microsoft.Logic/integrationAccounts/delete  <br>Microsoft.Logic/integrationAccounts/maps/delete <br>Microsoft.Logic/integrationAccounts/schemas/delete <br>Microsoft.Logic/integrationAccounts/partners/delete <br>Microsoft.Logic/integrationServiceEnvironments/delete<br>Microsoft.Logic/workflows/delete<br>Microsoft.Resources/subscriptions/resourceGroups/delete<br>Microsoft.Sql/instancePools/delete<br>Microsoft.Sql/managedInstances/delete<br>Microsoft.Sql/managedInstances/administrators/delete<br>Microsoft.Sql/managedInstances/databases/delete<br>Microsoft.Storage/storageAccounts/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete<br>Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete<br>Microsoft.AAD/domainServices/delete |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Defensive Mechanism Modification
 
@@ -138,7 +137,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall        |
 | **Activity:**                | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Failed Sign-in
 
@@ -147,12 +146,12 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
+| **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Password Reset
 
@@ -161,12 +160,12 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/User password reset |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Privilege Granted
 
@@ -175,13 +174,13 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
 | **Activity:**                    | Account provisioning/Application Management/Add app role assignment to service principal |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Sign-in
 
@@ -190,18 +189,18 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
+| **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
 
-[Back to UEBA anomalies list](#ueba-anomalies)
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ## Machine learning-based anomalies
 
 Microsoft Sentinel's customizable, machine learning-based anomalies can identify anomalous behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting.
 
-- [Anomalous Azure AD sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
+- [Anomalous Microsoft Entra sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
 - [Anomalous Azure operations](#anomalous-azure-operations)
 - [Anomalous Code Execution](#anomalous-code-execution)
 - [Anomalous local account creation](#anomalous-local-account-creation)
@@ -242,18 +241,20 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 - [Unusual network volume anomaly](#unusual-network-volume-anomaly)
 - [Unusual web traffic detected with IP in URL path](#unusual-web-traffic-detected-with-ip-in-url-path)
 
-### Anomalous Azure AD sign-in sessions
+<a name='anomalous-azure-ad-sign-in-sessions'></a>
 
-**Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
+### Anomalous Microsoft Entra sign-in sessions
+
+**Description:** The machine learning model groups the Microsoft Entra sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Active Directory sign-in logs                                |
+| **Data sources:**                | Microsoft Entra sign-in logs                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Azure operations
 
@@ -266,7 +267,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1190 - Exploit Public-Facing Application                          |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Code Execution
 
@@ -279,7 +280,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **MITRE ATT&CK tactics:**        | Execution                                                          |
 | **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous local account creation
 
@@ -292,7 +293,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous scanning activity
 
@@ -317,7 +318,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Discovery                                                          |
 | **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous user activities in Office Exchange
 
@@ -330,7 +331,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Persistence<br>Collection                                          |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous user/app activities in Azure audit logs
 
@@ -339,11 +340,11 @@ Configuration details:
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous W3CIIS logs activity
 
@@ -356,7 +357,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous web request activity
 
@@ -369,7 +370,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Attempted computer brute force
 
@@ -382,7 +383,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Attempted user account brute force
 
@@ -395,7 +396,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Attempted user account brute force per login type
 
@@ -408,7 +409,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Attempted user account brute force per failure reason
 
@@ -421,7 +422,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Detect machine generated network beaconing behavior
 
@@ -434,7 +435,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Domain generation algorithm (DGA) on DNS domains
 
@@ -447,7 +448,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Domain Reputation Palo Alto anomaly
 
@@ -460,7 +461,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Excessive data transfer anomaly
 
@@ -473,7 +474,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Excessive Downloads via Palo Alto GlobalProtect
 
@@ -486,7 +487,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Excessive uploads via Palo Alto GlobalProtect
 
@@ -499,7 +500,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Login from an unusual region via Palo Alto GlobalProtect account logins
 
@@ -512,7 +513,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Credential Access<br>Initial Access<br>Lateral Movement            |
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Multi-region logins in a single day via Palo Alto GlobalProtect
 
@@ -525,7 +526,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Defense Evasion<br>Initial Access                                  |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Potential data staging
 
@@ -538,7 +539,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Potential domain generation algorithm (DGA) on next-level DNS Domains
 
@@ -551,11 +552,11 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious geography change in Palo Alto GlobalProtect account logins
 
-**Description:** A match indicates that a user logged in remotely from a country that is different from the country of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. This includes the scenario of impossible travel.
+**Description:** A match indicates that a user logged in remotely from a country/region that is different from the country/region of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. This includes the scenario of impossible travel.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -564,7 +565,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Credential Access                                |
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious number of protected documents accessed
 
@@ -577,7 +578,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of AWS API calls from Non-AWS source IP address
 
@@ -590,7 +591,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of AWS CloudTrail log events of group user account by EventTypeName
 
@@ -603,7 +604,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of AWS write API calls from a user account
 
@@ -616,7 +617,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of failed login attempts to AWS Console by each group user account
 
@@ -629,7 +630,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of failed login attempts to AWS Console by each source IP address
 
@@ -642,7 +643,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to computer
 
@@ -655,7 +656,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to computer with elevated token
 
@@ -668,7 +669,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to user account
 
@@ -681,7 +682,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to user account by logon types
 
@@ -694,7 +695,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to user account with elevated token
 
@@ -707,7 +708,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Unusual external firewall alarm detected
 
@@ -720,7 +721,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Discovery<br>Command and Control                                   |
 | **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Unusual mass downgrade AIP label
 
@@ -733,7 +734,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Unusual network communication on commonly used ports
 
@@ -746,7 +747,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Exfiltration                                |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Unusual network volume anomaly
 
@@ -759,7 +760,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Unusual web traffic detected with IP in URL path
 
@@ -772,7 +773,7 @@ Configuration details:
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Initial Access                              |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
 
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ## Next steps
 

@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 04/12/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with DobiProtect
@@ -47,7 +47,6 @@ Remember, you'll require enough network capacity to support daily data transfers
 To determine how much bandwidth you'll need, use the following resources:
 
 - Backup software-independent assessment and reporting tools like:
-  - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 
@@ -212,4 +211,4 @@ See the following Datadobi documentation for further detail:
 
 Datadobi has made it easy to deploy their solution in Azure to protect Azure Virtual Machines and many other Azure services. For more information, see the following reference:
 
-- [Protect File Data in Azure with DobiProtect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi-dobiprotect?tab=overview)
+- [Protect File Data in Azure with DobiProtect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)

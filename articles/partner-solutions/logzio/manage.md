@@ -1,5 +1,5 @@
 ---
-title: Manage the Azure integration with Logz.io - Azure partner solutions
+title: Manage the Azure integration with Logz.io
 description: Learn how to manage the Azure integration with Logz.io.
 ms.topic: conceptual
 ms.date: 10/25/2021
@@ -102,7 +102,7 @@ To install the VM agent, use the following steps.
 1. To verify that the Logz.io agent was installed, select the VM and go to the **Extensions** window.
 
 > [!NOTE]
-> After the the VM agent is installed, if the VM is stopped, the **Logs to Logz** column will show **Not Sending** for that VM.
+> After the VM agent is installed, if the VM is stopped, the **Logs to Logz** column will show **Not Sending** for that VM.
 
 ### Uninstall VM agent
 

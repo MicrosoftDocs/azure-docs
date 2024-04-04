@@ -4,10 +4,10 @@ description: Create and deploy an ARM Template for Static Web Apps
 services: static-web-apps
 author: petender
 ms.service: static-web-apps
+ms.custom: devx-track-arm-template
 ms.topic:  tutorial
 ms.date: 07/13/2021
 ms.author: petender
-
 ---
 
 # Tutorial: Publish Azure Static Web Apps using an ARM Template
@@ -30,7 +30,7 @@ In this tutorial, you learn to:
   - [Install Azure CLI on Windows OS](/cli/azure/install-azure-cli-windows)
   - [Install Azure CLI on Linux OS](/cli/azure/install-azure-cli-linux)
   - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
-  - [Install Azure PowerShell](/powershell/azure/install-az-ps)
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create a GitHub personal access token
 
@@ -44,7 +44,9 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 1. Select **Generate New Token**.
 
-1. Provide a name for this token in the _Note_ field, for example *myfirstswadeployment*.
+1. Provide a name for this token in the _Name_ field, for example *myfirstswadeployment*.
+
+1. Select an _Expiration_ for the token, the default is 30 days.
 
 1. Specify the following *scopes*: **repo, workflow, write:packages**
 
@@ -59,7 +61,7 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
 
-1. Navigate to the following location to create a new repository:
+1. Go to the following location to create a new repository:
     1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 
 1. Name your repository **myfirstswadeployment**
@@ -67,9 +69,9 @@ This article uses a GitHub template repository to make it easy for you to get st
     > [!NOTE]
     > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
-1. Select **Create repository from template**.
+1. Select **Create repository**.
 
-    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository from template":::
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="screenshot of the Create repository button.":::
 
 ## Create the ARM Template
 
@@ -249,18 +251,18 @@ Connect-AzAccount
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID>` with your subscription information:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+az account set --subscription <SUBSCRIPTION-ID>
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+Set-AzContext <SUBSCRIPTION-ID>
 ```
 
 ---

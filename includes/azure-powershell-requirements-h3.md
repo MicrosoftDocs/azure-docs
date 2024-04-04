@@ -1,20 +1,15 @@
 ---
 ms.topic: include
-ms.date: 10/29/2020
+ms.date: 09/11/2023
 author: mikefrobbins
 ms.author: mirobb
-manager: barbkess
+ms.manager: jasongroce
 ms.technology: azure-powershell
 ms.service: azure-powershell
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
 ---
 
-### Requirements
+### Prerequisites
 
-* If you choose to use Azure PowerShell locally:
-  * [Install the Az PowerShell module](/powershell/azure/install-az-ps).
-  * Connect to your Azure account using the
-    [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-* If you choose to use Azure Cloud Shell:
-  * See [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for more information.
+[!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]

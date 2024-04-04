@@ -2,8 +2,8 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/19/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/26/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Management group deployments with ARM templates
@@ -129,6 +129,8 @@ When deploying to a management group, you can deploy resources to:
 * subscriptions in the management group
 * resource groups in the management group
 * the tenant for the resource group
+
+[!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
 An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 

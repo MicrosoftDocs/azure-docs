@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/18/2021
+ms.date: 1/23/2024
 zone_pivot_groups: iot-develop-toolset
 #- id: iot-develop-toolset
 ## Owner: timlt
@@ -14,7 +14,6 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
-ms.custom: mode-other, contperf-fy22q3
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -310,7 +309,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Expand the sample, then expand the **Sample** folder and open the sample_config.h file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -437,7 +436,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Expand the **sample_azure_iot_embedded_sdk_pnp** project, then expand the **Header Files** folder and open the sample_config.h file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -619,8 +618,6 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
-> [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 

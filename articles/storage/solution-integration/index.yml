@@ -3,16 +3,14 @@
 title: Azure Storage solutions from Microsoft partners # < 60 chars
 summary: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.  # < 160 chars
 metadata:
-  title: Azure Storage solutions from Microsoft partners # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios. # Required; article description that is displayed in search results. < 160 chars.
-  services: storage
-  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
-  ms.subservice: partner
-  ms.topic: landing-page # Required
-  ms.collection: collection
+  title: Azure Storage solutions from Microsoft partners
+  description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.
+  ms.service: azure-storage
+  ms.subservice: storage-partner-integration
+  ms.topic: landing-page
   author: beber-msft
   ms.author: beber
-  ms.date: 06/09/2022 #Required; mm/dd/yyyy format.
+  ms.date: 06/09/2022
   ms.custom: kr2b-contr-experiment
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -68,6 +66,8 @@ landingContent:
             url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
           - text: Komprise getting started guide
             url: ./validated-partners/data-management/komprise-quick-start-guide.md
+          - text: Komprise tiering guide
+            url: ./validated-partners/data-management/komprise-tiering-guide.md
           - text: StorageX getting started guide
             url: ./validated-partners/data-management/storagex-quick-start-guide.md
           - text: Cirrus Data getting started guide
@@ -81,6 +81,8 @@ landingContent:
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Nasuni getting started guide
+            url: ./validated-partners/primary-secondary-storage/nasuni-deployment-guide.md
           - text: Tiger Bridge getting started guide
             url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
       

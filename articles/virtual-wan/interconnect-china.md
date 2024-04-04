@@ -1,12 +1,10 @@
 ---
 title: 'Architecture: Interconnect with China using Azure Virtual WAN and secure Hub'
 description: Learn how to interconnect with China using Azure Virtual WAN and a secured hub.
-services: virtual-wan
 author: skishen525
-
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 02/13/2023
 ms.author: sukishen
 
 ---
@@ -17,7 +15,7 @@ When looking at common automotive, manufacturing, logistics industries, or other
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
-A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from People's Republic of China to outside of China, except the special administration zones like Hong Kong and Macau, passes the Great Firewall. The traffic running through Hong Kong and Macau does not hit the Great Firewall in full force, it is handled by a subset of the Great Firewall.
+A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from People's Republic of China to outside of China, except the special administration zones like Hong Kong and Macau, passes the Great Firewall. The traffic running through Hong Kong and Macau doesn't hit the Great Firewall in full force, it's handled by a subset of the Great Firewall.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagram shows provider interconnect.":::
 
@@ -43,7 +41,7 @@ Depending on the provider and your needs, you now need to purchase one of the fo
 
 Next, you need to agree with that provider to give a breakout to the Microsoft Global Network and its Edge Network in Hong Kong, not in Beijing or Shanghai. In this case, Hong Kong is very important because of its physical connection and location to China.
 
-While most customers think using Singapore for interconnect is the best case because it looks nearer to China when looking on the map, this is not true. When you follow network fiber maps, nearly all network connects go through Beijing, Shanghai, and Hong Kong. This makes Hong Kong a better location choice to interconnect to China.
+While most customers think using Singapore for interconnect is the best case because it looks nearer to China when looking on the map, this isn't true. When you follow network fiber maps, nearly all network connects go through Beijing, Shanghai, and Hong Kong. This makes Hong Kong a better location choice to interconnect to China.
 
 Depending on the provider, you may get different service offerings. The table below shows an example of providers and the service they offer, based on information at the time this article was written.
 
@@ -90,9 +88,9 @@ A sample architecture could look like following example:
 
 :::image type="content" source="./media/interconnect-china/sample.png" alt-text="Diagram shows sample WAN.":::
 
-In this example, the China branches connect to Azure Cloud China and each other by using VPN or MPLS connections. Branches that need to be connected to Global Services use MPLS or Internet-based services that are connected directly to Hong Kong. If you want to use ExpressRoute in Hong Kong as well as in the other region, you need to configure [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to interconnect both ExpressRoute Circuits.
+In this example, the China branches connect to Azure Cloud China and each other by using VPN or MPLS connections. Branches that need to be connected to Global Services use MPLS or Internet-based services that are connected directly to Hong Kong. If you want to use ExpressRoute in Hong Kong and in the other region, you need to configure [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to interconnect both ExpressRoute Circuits.
 
-ExpressRoute Global Reach is not available in some regions. If you need to interconnect with Brazil or India, for example, you need to leverage [Cloud Exchange Providers](../expressroute/expressroute-locations.md#connectivity-through-exchange-providers) to provide the routing services.
+ExpressRoute Global Reach isn't available in some regions. If you need to interconnect with Brazil or India, for example, you need to leverage [Cloud Exchange Providers](../expressroute/expressroute-locations.md#connectivity-through-exchange-providers) to provide the routing services.
 
 The figure below shows both examples for this scenario.
 
@@ -100,7 +98,7 @@ The figure below shows both examples for this scenario.
 
 ## <a name="secure"></a>Secure Internet breakout for Microsoft 365
 
-Another consideration is network security as well as logging for the entry point between China and the Virtual WAN established backbone component, and the customer backbone. In most cases, there is a need to breakout to the Internet in Hong Kong to directly reach the Microsoft Edge Network and, with that, the Azure Front Door Servers used for Microsoft 365 Services.
+Another consideration is network security and logging for the entry point between China and the Virtual WAN established backbone component, and the customer backbone. In most cases, there is a need to breakout to the Internet in Hong Kong to directly reach the Microsoft Edge Network and, with that, the Azure Front Door Servers used for Microsoft 365 Services.
 
 For both scenarios with Virtual WAN, you would leverage the [Azure Virtual WAN secured hub](../firewall-manager/secured-virtual-hub.md). Using Azure Firewall Manager, you can change a regular Virtual WAN hub to a secured hub, and then deploy and manage an Azure Firewall within that hub.
 
@@ -136,11 +134,11 @@ There are also options to terminate ExpressRoute from China, for example, in Sou
 
 This section discusses a design that where ExpressRoute is used for Hong Kong and other Branches. This option shows the interconnect using ExpressRoute on both ends. Here you have a different traffic flow than the other. The Microsoft 365 traffic will flow to the Azure virtual WAN secured hub and from there to the Microsoft Edge Network and the Internet.
 
-The traffic that goes to the interconnected branches or from them to the locations in China will follow a different approach within that architecture. Currently virtual WAN does not support ExpressRoute to ExpressRoute transit. The traffic will leverage ExpressRoute Global Reach or the 3rd Party interconnect without passing the virtual WAN Hub. It will directly flow from one Microsoft Enterprise Edge (MSEE) to another.
+The traffic that goes to the interconnected branches or from them to the locations in China will follow a different approach within that architecture. Currently virtual WAN doesn't support ExpressRoute to ExpressRoute transit. The traffic will leverage ExpressRoute Global Reach or the 3rd Party interconnect without passing the virtual WAN Hub. It will directly flow from one Microsoft Enterprise Edge (MSEE) to another.
 
 :::image type="content" source="./media/interconnect-china/expressroute-virtual.png" alt-text="Diagram shows ExpressRoute Global Reach.":::
 
-Currently ExpressRoute Global Reach is not available in every country/region, but you can configure a solution using Azure Virtual WAN.
+Currently ExpressRoute Global Reach isn't available in every country/region, but you can configure a solution using Azure Virtual WAN.
 
 You can, for example, configure an ExpressRoute with Microsoft Peering and connect a VPN tunnel through that peering to Azure Virtual WAN. Now you have enabled, again, the transit between VPN and ExpressRoute without Global Reach and 3rd party provider and service, such as Megaport Cloud.
 

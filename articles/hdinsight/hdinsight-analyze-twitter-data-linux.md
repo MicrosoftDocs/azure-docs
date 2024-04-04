@@ -3,8 +3,8 @@ title: Analyze Twitter data with Apache Hive - Azure HDInsight
 description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 04/05/2022
+ms.custom: H1Hack27Feb2017, hdinsightactive, linux-related-content
+ms.date: 05/09/2023
 ---
 
 # Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight

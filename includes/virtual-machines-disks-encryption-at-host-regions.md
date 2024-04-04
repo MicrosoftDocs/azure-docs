@@ -1,27 +1,14 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 07/07/2020
+ ms.date: 11/07/2023
  ms.author: rogarana
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
-Currently available only in the following regions:
 
-- West US
-- West US 2
-- East US
-- East US 2
-- South Central US
-- Central Canada 
-- East Canada
-- Central France
-- West Europe
-- North Europe
-- East Japan
-- West Japan
-- US Gov Virginia
-- US Gov Arizona
+Encryption at host is available in all regions for all disk types.

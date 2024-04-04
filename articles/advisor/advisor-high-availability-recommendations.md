@@ -2,8 +2,8 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.date: 10/26/2021
-
 ---
 
 # Improve the reliability of your application by using Azure Advisor
@@ -12,7 +12,7 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 ## Check the version of your Check Point network virtual appliance image
 
-Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
+Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation helps you upgrade to a newer version of the image that addresses this problem. This check ensures business continuity through better network connectivity.
 
 ## Ensure application gateway fault tolerance
 
@@ -56,7 +56,7 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Higher stability and availability.
 
 ## Ensure reliable outbound connectivity with VNet NAT
-Using default outbound connecitivty provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failures of connectivty in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](../virtual-network/nat-gateway/nat-overview.md).
+Using default outbound connectivity provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failures of connectivity in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](../virtual-network/nat-gateway/nat-overview.md).
 
 ## Ensure virtual machine fault tolerance (temporarily disabled)
 
@@ -76,7 +76,7 @@ Virtual machines in an availability set with disks that share either storage acc
 ## Repair invalid log alert rules
 
 Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
-Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
@@ -110,10 +110,10 @@ Starting July 1, 2020, you won't be able to create new Spark clusters by using S
 Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## Upgrade to the latest version of the Azure Connected Machine agent
-The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation suggests that you to upgrade your agent to the latest version for the best Azure Arc experience.
 
 ## Do not override hostname to ensure website integrity
-Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect URLs being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend. [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
+Advisor recommends that you try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect URLs being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST APIs) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend. [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## Next steps
 

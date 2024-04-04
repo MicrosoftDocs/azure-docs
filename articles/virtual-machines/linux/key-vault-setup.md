@@ -3,12 +3,10 @@ title: Set up Azure Key Vault using CLI
 description: How to set up Key Vault for virtual machine using the Azure CLI.
 author: mimckitt
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/24/2017
+ms.date: 10/20/2022
 ms.author: mimckitt 
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI
 
@@ -21,14 +19,14 @@ To perform these steps, you need the latest [Azure CLI](/cli/azure/install-az-cl
 ## Create a Key Vault
 Create a key vault and assign the deployment policy with [az keyvault create](/cli/azure/keyvault). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
-```azurecli
+```azurecli-interactive
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## Update a Key Vault for use with VMs
 Set the deployment policy on an existing key vault with [az keyvault update](/cli/azure/keyvault). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
-```azurecli
+```azurecli-interactive
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
 ```
 

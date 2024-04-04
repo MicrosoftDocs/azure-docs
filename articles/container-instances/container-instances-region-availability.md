@@ -1,160 +1,149 @@
 ---
-title: Resource availability by region
-description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
+title: Region Availability
+description: Region Availability
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 1/19/2023
 ms.custom: references_regions
 
 ---
-# Resource availability for Azure Container Instances in Azure regions
+# Region availability and limits
 
-This article details the availability of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/).
+This article details the availability and quota limits of Azure Container Instances compute, memory, and storage resources in Azure regions and by target operating system. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
 
-Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication.
+Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
+
+> [!NOTE] 
+> Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources. 
+
+## Default quota limits 
+
+All Azure services include certain default limits and quotas for resources and features. This section details the default quotas and limits for Azure Container Instances.  
+
+Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription. 
+
+Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
+
+> [!IMPORTANT]  
+> Not all limit increase requests are guaranteed to be approved.
+> Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
+> Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
+
+### Unchangeable (hard) limits 
+
+The following limits are default limits that can’t be increased through a quota request. Any quota increase requests for these limits will not be approved.  
+
+| Resource | Actual Limit | 
+| --- | :--- | 
+| Number of containers per container group | 60 | 
+| Number of volumes per container group | 20 | 
+| Ports per IP | 5 | 
+| Container instance log size - running instance | 4 MB | 
+| Container instance log size - stopped instance | 16 KB or 1,000 lines | 
+
+
+### Changeable limits (eligible for quota increases) 
+
+| Resource | Actual Limit | 
+| --- | :--- | 
+| Standard sku container groups per region per subscription | 100 | 
+| Standard sku cores (CPUs) per region per subscription | 100 |  
+| Standard sku cores (CPUs) for V100 GPU per region per subscription | 0 | 
+| Container group creates per hour |300<sup>1</sup> | 
+| Container group creates per 5 minutes | 100<sup>1</sup> | 
+| Container group deletes per hour | 300<sup>1</sup> | 
+| Container group deletes per 5 minutes | 100<sup>1</sup> | 
+
+## Standard container resources 
+
+### Linux container groups 
+
+By default, the following resources are available general purpose (standard core SKU) containers in general deployments and [Azure virtual network](container-instances-vnet.md) deployments) for Linux and Windows containers. 
+
+| Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
+| :---: | :---: | :----: | :-----: | :-------: |
+| 4 | 16 | 4 | 16 | 50 | 
+
+For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
+
+### Windows containers 
+
+The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. 
+
+#### Windows Server 2022 LTSC 
+
+| 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support | 
+| :----: | :-----: | :-------: | 
+| 4 | 16 | 20 | Y | 
+
+#### Windows Server 2019 LTSC 
+
+> [!NOTE] 
+> 1B and 2B hosts have been deprecated for Windows Server 2019 LSTC. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts. 
+
+The following resources are available in all Azure Regions supported by Azure Container Instances. For a general list of available regions for Azure Container Instances, see [available regions](https://azure.microsoft.com/regions/services/). 
+
+| 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support | 
+| :----: | :-----: | :-------: | 
+| 4 | 16 | 20 | Y | 
+
+## Spot container resources (preview)
+
+The following maximum resources are available to a container group deployed using [Spot Containers](container-instances-spot-containers-overview.md) (preview). 
 
 > [!NOTE]
-> Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources.
+> Spot Containers are only available in the following regions at this time: East US 2, West Europe, and West US.
 
-For information about quotas and other limits in your deployments, see [Quotas and limits for Azure Container Instances](container-instances-quotas.md).
+| Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
+| :---: | :---: | :----: | :-----: | :-------: |
+| 4 | 16 | N/A | N/A | 50 | 
 
-## Linux container groups
+## Confidential container resources (preview)
 
-The following regions and maximum resources are available to container groups with Linux containers in general deployments, [Azure virtual network](container-instances-vnet.md) deployments, and deployments with [GPU resources](container-instances-gpu.md) (preview).
+The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview).
+
+> [!NOTE]
+> Confidential Containers are only available in the following regions at this time: East US, North Europe, West Europe, and West US.
+
+| Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
+| :---: | :---: | :----: | :-----: | :-------: |
+| 4 | 16 | 4 | 16 | 50 | 
+
+## GPU container resources (preview) 
 
 > [!IMPORTANT]
-> The maximum resources in a region are different depending on your deployment. For example, a region may have a different maximum CPU and memory size in an Azure virtual network deployment than for a general deployment. That same region may also have a different set of maximum values for a deployment with GPU resources. Verify your deployment type before checking the below tables for the maximum values in your region.
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
 
 > [!NOTE]
-> Some regions don't support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
+> Not all limit increase requests are guaranteed to be approved.
+> Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
+> Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
 
-| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
-| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
-| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
-| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
-| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
-| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Jio India West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
-| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
-| Norway East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Norway West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| South Africa North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y |
-| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
-| South India | 4 | 16 | N/A | N/A | 50 | K80 | N |
-| Sweden Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Sweden South | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
-| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West India | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US 3 | 4 | 16 | N/A | N/A | 50 | N/A | N |
+The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview). 
 
-The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
+| GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) | 
+| --- | --- | --- | --- | --- | 
+| V100 | 1 | 6 | 112 | 50 | 
+| V100 | 2 | 12 | 224 | 50 | 
+| V100 | 4 | 24 | 448 | 50 | 
 
-> [!IMPORTANT]
-> At this time, deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
+## Next steps 
 
-| GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) |
-| --- | --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 | 50 |
-| K80 | 2 | 12 | 112 | 50 |
-| K80 | 4 | 24 | 224 | 50 |
-| P100, V100 | 1 | 6 | 112 | 50 |
-| P100, V100 | 2 | 12 | 224 | 50 |
-| P100, V100 | 4 | 24 | 448 | 50 |
+Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
-## Windows container groups
+Let the team know if you'd like to see additional regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback). 
 
-The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers.
+For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md) 
 
-> [!IMPORTANT]
-> At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
+<!-- LINKS - External --> 
 
-### Windows Server 2016
+[az-region-support]: ../availability-zones/az-overview.md#regions 
 
-> [!NOTE]
-> 1B and 2B hosts have been deprecated for Windows Server 2016. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest 
 
-| Region |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
-| -------- | :----: | :-----: | :-------: |
-| Australia East | 2 | 8 | 20 |
-| Brazil South | 4 | 16 | 20 |
-| Canada Central  | 2 | 3.5 | 20 |
-| Central India | 2 | 3.5 | 20 |
-| Central US | 2 | 3.5 | 20 |
-| East Asia | 2 | 3.5 | 20 |
-| East US | 2 | 8 | 20 |
-| East US 2 | 4 | 16 | 20 |
-| Japan East | 4 | 16 | 20 |
-| Korea Central | 4 | 16 | 20 |
-| North Central US | 4 | 16 | 20 |
-| North Europe | 2 | 8 | 20 |
-| South Central US | 2 | 8 | 20 |
-| Southeast Asia | 2 | 3.5 | 20 |
-| South India | 2 | 3.5 | 20 |
-| UK South | 2 | 3.5 | 20 |
-| West Central US | 2 | 8 | 20 |
-| West Europe | 4 | 16 | 20 |
-| West US | 2 | 8 | 20 |
-| West US 2 | 2 | 3.5 | 20 |
+ 
 
-### Windows Server 2019 LTSC
-
-> [!NOTE]
-> 1B and 2B hosts have been deprecated for Windows Server 2019 LTSC. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
-
-| Region | 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support |
-| -------- | :----: | :-----: | :-------: |
-| Australia East | 4 | 16 | 20 | Y |
-| Brazil South | 4 | 16 | 20 | Y |
-| Canada Central | 4 | 16 | 20 | N |
-| Central India | 4 | 16 | 20 | N |
-| Central US | 4 | 16 | 20 | Y |
-| East Asia | 4 | 16 | 20 | N |
-| East US | 4 | 16 | 20 | Y |
-| East US 2 | 2 | 3.5 | 20 | Y |
-| France Central | 4 | 16 | 20 | Y |
-| Japan East | 4 | 16 | 20 | Y |
-| Korea Central | 4 | 16 | 20 | N |
-| North Central US | 4 | 16 | 20 | N |
-| North Europe | 4 | 16 | 20 | Y |
-| South Central US | 4 | 16 | 20 | Y |
-| Southeast Asia | 4 | 16 | 20 | Y |
-| South India | 4 | 16 | 20 | N |
-| UK South | 4 | 16 | 20 | Y |
-| West Central US | 4 | 16 | 20 | N |
-| West Europe | 4 | 16 | 20 | Y |
-| West US | 4 | 16 | 20 | N |
-| West US 2 | 4 | 16 | 20 | Y |
-
-## Next steps
-
-Let the team know if you'd like to see additional regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
-
-For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
-
-
-[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[az-region-support]: ../availability-zones/az-overview.md#regions
+ 

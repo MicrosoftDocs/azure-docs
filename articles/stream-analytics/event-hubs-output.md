@@ -1,11 +1,12 @@
 ---
 title: Event Hubs output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Azure Event Hubs.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
+ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/27/2023
 ---
 # Event Hubs output from Azure Stream Analytics
 
@@ -53,11 +54,16 @@ In the following example, the fields `DeviceId` and `DeviceStatus` are added to 
 
    :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="Property columns":::
 
-The following image is of the expected output message properties inspected in EventHub using [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+The following image is of the expected output message properties inspected in an event hub using [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 :::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Event custom properties":::
 
+## Exactly Once Delivery
+
+Exactly once delivery is supported in Event Hubs output by default. Regardless of your input, Stream Analytics guarantees no data loss or no duplicates in an Event Hubs output, across user-initiated restarts from last output time, preventing duplicates from being produced. This greatly simplifies the streaming pipeline by not having to monitor, implement, and troubleshoot deduplication logic.
+
+
 ## Next steps
 
-* [Use managed identities to access Event Hub from an Azure Stream Analytics job (Preview)](event-hubs-managed-identity.md)
+* [Use managed identities to access an event hub from an Azure Stream Analytics job (Preview)](event-hubs-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

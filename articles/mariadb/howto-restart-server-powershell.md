@@ -2,8 +2,8 @@
 title: Restart Azure Database for MariaDB server - Azure PowerShell
 description: Learn how you can restart an Azure Database for MariaDB server using PowerShell. The time required for a restart depends on the MariaDB recovery process.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/24/2022
 ms.custom: 
@@ -12,6 +12,8 @@ ms.custom:
 ---
 
 # Restart Azure Database for MariaDB server using PowerShell
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article describes how you can restart an Azure Database for MariaDB server. You may need to restart
 your server for maintenance reasons, which causes a short outage during the operation.
@@ -27,7 +29,7 @@ the restart.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -21,6 +22,9 @@ For an example of a Service Fabric managed cluster deployment that makes use of 
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
+
+> [!NOTE]
+> See [Configure and use applications with managed identity on a Service Fabric managed cluster](./how-to-managed-cluster-application-managed-identity.md) for application configuration.
 
 ## Prerequisites
 
@@ -39,7 +43,7 @@ A user-assigned managed identity can be defined in the resources section of an A
 {
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
   "name": "[parameters('userAssignedIdentityName')]",
-  "apiVersion": "2018-11-30",
+  "apiVersion": "2023-01-31",
   "location": "[resourceGroup().location]"
 }
 ```
@@ -86,14 +90,14 @@ This role assignment can be defined in the resources section template using the 
 ```json
 {
   "type": "Microsoft.Authorization/roleAssignments",
-  "apiVersion": "2020-04-01-preview",
+  "apiVersion": "2022-04-01",
   "name": "[parameters('vmIdentityRoleNameGuid')]",
   "scope": "[concat('Microsoft.ManagedIdentity/userAssignedIdentities', '/', parameters('userAssignedIdentityName'))]",
   "dependsOn": [
     "[concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
   ],
   "properties": {
-    "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
+    "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
     "principalId": "<Service Fabric Resource Provider ID>"
   }
 }
@@ -122,8 +126,8 @@ Finally, add the `vmManagedIdentity` and `userAssignedIdentities` properties to 
 
 ```json
 {
-  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters/nodeTypes",
+  "apiVersion": "2022-01-01",
   "properties": {
     "isPrimary": true,
     "vmInstanceCount": 5,

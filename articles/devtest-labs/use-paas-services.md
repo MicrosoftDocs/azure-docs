@@ -4,7 +4,8 @@ description: Learn about platform-as-a-service (PaaS) environments in Azure DevT
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Use PaaS services in Azure DevTest Labs
@@ -50,7 +51,7 @@ DevTest Labs creates environments by using preconfigured Azure Resource Manager 
 
 In large organizations, development teams typically provide customized or isolated testing environments. The IT group provides environments that all teams within a business unit or a division can use.
 
-To enable and configure environment creation for labs, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). DevTest Labs has a public repository of preconfigured ARM templates for creating certain environments. For more information about the public environments, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#enable-and-configure-public-environments).
+To enable and configure environment creation for labs, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). DevTest Labs has a public repository of preconfigured ARM templates for creating certain environments. For more information about the public environments, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings-for-your-lab).
 
 You can also [create or configure your own ARM templates](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), [store them in private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to labs](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories).
 

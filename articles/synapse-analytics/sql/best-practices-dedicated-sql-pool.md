@@ -1,14 +1,12 @@
 ---
 title: Best practices for dedicated SQL pools
-description: Recommendations and best practices you should know as you work with dedicated SQL pools. 
-author: mlee3gsd
-manager: craigg
+description: Recommendations and best practices you should know as you work with dedicated SQL pools.
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.date: 09/22/2022
 ms.service: synapse-analytics
-ms.topic: conceptual
 ms.subservice: sql
-ms.date: 11/02/2021
-ms.author: martinle
-ms.reviewer: wiassaf
+ms.topic: conceptual
 ---
 
 # Best practices for dedicated SQL pools in Azure Synapse Analytics
@@ -145,7 +143,7 @@ Segment quality can be measured by the number of rows in a compressed Row Group.
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
-Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each dedicated SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
+Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each dedicated SQL pool table is distributed into 60 different distributions. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
 > For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  

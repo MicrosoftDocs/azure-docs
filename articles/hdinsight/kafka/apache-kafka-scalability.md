@@ -4,7 +4,7 @@ description: Learn how to configure managed disks for Apache Kafka cluster on Az
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/08/2022
+ms.date: 05/11/2023
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
@@ -15,7 +15,7 @@ Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight 
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
-:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="kafka with managed disks architecture" border="false":::
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="kafka with managed disks architecture." border="false":::
 
 ## Configure managed disks: Azure portal
 
@@ -26,7 +26,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="cluster size section with the disks per worker node highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="cluster size section with the disks per worker node highlighted." border="true":::
 
 ## Configure managed disks: Resource Manager template
 
@@ -45,7 +45,6 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
 For more information on working with Apache Kafka on HDInsight, see the following documents:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 

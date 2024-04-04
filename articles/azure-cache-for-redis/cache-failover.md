@@ -2,10 +2,12 @@
 title: Failover and patching - Azure Cache for Redis
 description: Learn about failover, patching, and the update process for Azure Cache for Redis.
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/15/2022
+ms.date: 12/04/2023
+ms.custom: engagement-fy23
 
 ---
 
@@ -49,13 +51,13 @@ An *unplanned failover* might happen because of hardware failure, network failur
 
 The Azure Cache for Redis service regularly updates your cache with the latest platform features and fixes. To patch a cache, the service follows these steps:
 
-1. The management service selects one node to be patched.
-1. If the selected node is a primary node, the corresponding replica node cooperatively promotes itself. This promotion is considered a planned failover.
-1. The selected node reboots to take the new changes and comes back up as a replica node.
+1. The service patches the replica node first.
+1. The patched replica cooperatively promotes itself to primary. This promotion is considered a planned failover.
+1. The former primary node reboots to take the new changes and comes back up as a replica node.
 1. The replica node connects to the primary node and synchronizes data.
 1. When the data sync is complete, the patching process repeats for the remaining nodes.
 
-Because patching is a planned failover, the replica node quickly promotes itself to become a primary. Then, the node begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update is complete. Each shard of a clustered cache is patched separately and won't close connections to another shard.
+Because patching is a planned failover, the replica node quickly promotes itself to become a primary. Then, the node begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update is complete. Each shard of a clustered cache is patched separately and doesn't close connections to another shard.
 
 > [!IMPORTANT]
 > Nodes are patched one at a time to prevent data loss. Basic caches will have data loss. Clustered caches are patched one shard at a time.
@@ -80,14 +82,14 @@ Many client libraries can throw different types of errors when connections break
 
 The number and type of exceptions depends on where the request is in the code path when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a pre-configured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
+Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
 ### Can I be notified in advance of planned maintenance?
 
-Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, please see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
+Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
 
 > [!NOTE]
-> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability. `AzureRedisEvents` is only available for Basic, Standard, and Premium tiers.
 
 ### Client network-configuration changes
 
@@ -112,12 +114,12 @@ Refer to these design patterns to build resilient clients, especially the circui
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
 
-Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
+Additionally, we recommend that you use scheduled updates to choose an update channel and a maintenance window for your cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents. For more information, see [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates).
 
 For more information, see [Connection resilience](cache-best-practices-connection.md).
 
-## Next steps
+## Related content
 
-- [Schedule updates](cache-administration.md#schedule-updates) for your cache.
-- Test application resiliency by using a [reboot](cache-administration.md#reboot).
-- [Configure](cache-configure.md#memory-policies) memory reservations and policies.
+- [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates)
+- Test application resiliency by using a [reboot](cache-administration.md#reboot)
+- [Configure](cache-configure.md#memory-policies) memory reservations and policies

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -17,6 +17,9 @@ After you buy an Azure Reserved Virtual Machine Instance, the reservation discou
 A reservation discount applies to the base VMs that you purchase from the Azure Marketplace.
 
 For SQL Database reserved capacity, see [Understand Azure Reserved Instances discount](../reservations/understand-reservation-charges.md).
+
+>[!NOTE]
+> Azure doesn't offer reservations for Spot VMs.
 
 The following table illustrates the costs for your virtual machine after you purchase a Reserved VM Instance. In all cases, you're charged for storage and networking at the normal rates.
 
@@ -32,13 +35,15 @@ The following table illustrates the costs for your virtual machine after you pur
 
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
-When you shut down a resource or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
+Stopped VMs are billed and continue to use reservation hours. Deallocate or delete VM resources or scale-in other VMs to use your available reservation hours with other workloads.
 
 ## Reservation discount for non-Windows VMs
 
- The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM does not run for an hour or concurrent VMs within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
+ The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM doesn't run for an hour or concurrent VMs within the hour don't fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-![Screenshot of one applied reservation and two matching VM instances](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
+:::image type="content" border="true" source="./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png" alt-text="Screenshot of one applied reservation and two matching VM instances.":::
 
 1. Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
@@ -61,7 +66,7 @@ Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the
 
 The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
 
-You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another.
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another. For more information about reservation exchanges, see [Exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## Services that get VM reservation discounts
 

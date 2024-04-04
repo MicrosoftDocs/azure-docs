@@ -1,56 +1,92 @@
 ---
-title: 'Reference: Monitoring Azure virtual machine data'
-description: This article covers important reference material for monitoring Azure virtual machines.
-ms.service: virtual-machines
-ms.custom: subject-monitoring
-ms.date: 11/17/2021
+title: Monitoring data reference for Azure Virtual Machines
+description: This article contains important reference material you need when you monitor Azure Virtual Machines.
+ms.date: 03/27/2024
+ms.custom: horz-monitor
 ms.topic: reference
+ms.service: virtual-machines
 ---
 
-# Reference: Monitoring Azure virtual machine data
+# Azure Virtual Machines monitoring data reference
 
-For more information about collecting and analyzing monitoring data for Azure virtual machines (VMs), see [Monitoring Azure virtual machines](monitor-vm.md).
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure Virtual Machines](monitor-vm.md) for details on the data you can collect for Azure Virtual Machines and how to use it.
 
-This section lists the platform metrics that are collected for Azure virtual machines and virtual machine scale sets.  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-| Metric type | Resource provider / type namespace<br/> and link to individual metrics |
-|-------|-----|
-| Virtual machines | [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
-| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
-| Virtual machine scale sets and virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
-| | |
+>[!IMPORTANT]
+>Metrics for the guest operating system (guest OS) that runs in a virtual machine (VM) aren't listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting.
+>
+>Host OS metrics are available and listed in the following tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. For more information, see [Guest OS and host OS metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#guest-os-and-host-os-metrics).
 
-For more information, see a list of [platform metrics that are supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+### Supported metrics for Microsoft.Compute/virtualMachines
+The following table lists the metrics available for the Microsoft.Compute/virtualMachines resource type.
 
-## Metric dimensions
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachines-metrics-include.md)]
 
-For more information about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+### VM availability metric (preview)
+The VM availability metric is currently in public preview. This metric value indicates whether a machine is currently running and available. You can use the metric to trend availability over time and to alert if the machine is stopped. VM availability has the values in the following table.
 
-Azure virtual machines and virtual machine scale sets have the following dimensions that are associated with their metrics.
+| Value | Description |
+|:---|:---|
+| 1 | VM is running and available. | 
+| 0 | VM is unavailable. The VM could be stopped or rebooting. If you shut down a VM from within the VM, it emits this value. |
+| Null | State of the VM is unknown. If you stop a VM from the Azure portal, CLI, or PowerShell, it immediately stops emitting the availability metric, and you see null values. |
 
-| Dimension name | Description |
-| ------------------- | ----------------- |
-| LUN | Logical unit number |
-| VMName | Used with virtual machine scale sets |
-| | |
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-## Azure Monitor Logs tables
+The dimension Logical Unit Number (`LUN`) is associated with some of the preceding metrics.
 
-This section refers to all the Azure Monitor Logs tables that are relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-|Resource type | Notes |
-|-------|-----|
-| [Virtual machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
-| | |
+### Supported resource logs for Microsoft.Compute/virtualMachines
+[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-compute-virtualmachines-logs-include.md)]
 
-For reference documentation about Azure Monitor Logs and Log Analytics tables, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+> [!IMPORTANT]
+> For Azure VMs, all the important data is collected by the Azure Monitor agent. The resource log categories available for Azure VMs aren't important and aren't available for collection from the Azure portal. For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
 
-## Activity log
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-The following table lists a few example operations that relate to creating virtual machines in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](../role-based-access-control/resource-provider-operations.md#compute).
+| Table | Categories | Solutions|[Supports basic log plan](/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#compare-the-basic-and-analytics-log-data-plans)| Queries|
+|---|---|---|---|---|
+| [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/ADAssessmentRecommendation)<br>Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every seven days and uploads the data into Azure Log Analytics. | workloads | ADAssessment, ADAssessmentPlus, AzureResources | No| [Yes](/azure/azure-monitor/reference/queries/adassessmentrecommendation)|
+| [ADReplicationResult](/azure/azure-monitor/reference/tables/ADReplicationResult)<br>The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures. | workloads | ADReplication, AzureResources | No| -|
+| [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)<br>Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | resources, audit, security | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/azureactivity)|
+| [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)<br>Metric data emitted by Azure services that measure their health and performance. | resources | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/azuremetrics)|
+| [CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog)<br>This table is for collecting events in the Common Event Format, that are most often sent from different security appliances such as Check Point, Palo Alto and more. | security | Security, SecurityInsights | No| [Yes](/azure/azure-monitor/reference/queries/commonsecuritylog)|
+| [ComputerGroup](/azure/azure-monitor/reference/tables/ComputerGroup)<br>Computer groups that can be used to scope log queries to a set of computers. Includes the computers in each group. | monitor, virtualmachines, management | LogManagement | No| -|
+| [ConfigurationChange](/azure/azure-monitor/reference/tables/ConfigurationChange)<br>View changes to in-guest configuration data such as Files Software Registry Keys Windows Services and Linux Daemons | management | ChangeTracking | No| [Yes](/azure/azure-monitor/reference/queries/configurationchange)|
+| [ConfigurationData](/azure/azure-monitor/reference/tables/ConfigurationData)<br>View the last reported state for in-guest configuration data such as Files Software Registry Keys Windows Services and Linux Daemons | management | ChangeTracking | No| [Yes](/azure/azure-monitor/reference/queries/configurationdata)|
+| [ContainerLog](/azure/azure-monitor/reference/tables/ContainerLog)<br>Log lines collected from stdout and stderr streams for containers. | container, applications | AzureResources, ContainerInsights, Containers | No| [Yes](/azure/azure-monitor/reference/queries/containerlog)|
+| [DnsEvents](/azure/azure-monitor/reference/tables/DnsEvents) | network | DnsAnalytics, SecurityInsights | No| [Yes](/azure/azure-monitor/reference/queries/dnsevents)|
+| [DnsInventory](/azure/azure-monitor/reference/tables/DnsInventory) | network | DnsAnalytics, SecurityInsights | No| -|
+| [Event](/azure/azure-monitor/reference/tables/Event)<br>Events from Windows Event Log on Windows computers using the Log Analytics agent. | virtualmachines | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/event)|
+| [HealthStateChangeEvent](/azure/azure-monitor/reference/tables/HealthStateChangeEvent)<br>Workload Monitor Health. This data represents state transitions of a health monitor. | undefined | AzureResources, VMInsights | No| -|
+| [Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat)<br>Records logged by Log Analytics agents once per minute to report on agent health. | virtualmachines, container, management | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/heartbeat)|
+| [InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics)<br>Table that stores metrics. 'Perf' table also stores many metrics and over time they all will converge to InsightsMetrics for Azure Monitor Solutions  | virtualmachines, container, resources | AzureResources, ContainerInsights, InfrastructureInsights, LogManagement, ServiceMap, VMInsights | No| [Yes](/azure/azure-monitor/reference/queries/insightsmetrics)|
+| [Perf](/azure/azure-monitor/reference/tables/Perf)<br>Performance counters from Windows and Linux agents that provide insight into the performance of hardware components operating systems and applications. | virtualmachines, container | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/perf)|
+| [ProtectionStatus](/azure/azure-monitor/reference/tables/ProtectionStatus)<br>Antimalware installation info and security health status of the machine: | security | AntiMalware, Security, SecurityCenter, SecurityCenterFree | No| [Yes](/azure/azure-monitor/reference/queries/protectionstatus)|
+| [SQLAssessmentRecommendation](/azure/azure-monitor/reference/tables/SQLAssessmentRecommendation)<br>Recommendations generated by SQL assessments that are started through a scheduled task. When you schedule the assessment it runs by default every seven days and uploads the data into Azure Log Analytics. | workloads | AzureResources, SQLAssessment, SQLAssessmentPlus | No| [Yes](/azure/azure-monitor/reference/queries/sqlassessmentrecommendation)|
+| [SecurityBaseline](/azure/azure-monitor/reference/tables/SecurityBaseline) | security | Security, SecurityCenter, SecurityCenterFree | No| -|
+| [SecurityBaselineSummary](/azure/azure-monitor/reference/tables/SecurityBaselineSummary) | security | Security, SecurityCenter, SecurityCenterFree | No| -|
+| [SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent)<br>Security events collected from windows machines by Azure Security Center or Azure Sentinel. | security | Security, SecurityInsights | No| [Yes](/azure/azure-monitor/reference/queries/securityevent)|
+| [Syslog](/azure/azure-monitor/reference/tables/Syslog)<br>Syslog events on Linux computers using the Log Analytics agent. | virtualmachines, security | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/syslog)|
+| [Update](/azure/azure-monitor/reference/tables/Update)<br>Details for update schedule run. Includes information such as which updates where available and which were installed. | management, security | Security, SecurityCenter, SecurityCenterFree, Updates | No| [Yes](/azure/azure-monitor/reference/queries/update)|
+| [UpdateRunProgress](/azure/azure-monitor/reference/tables/UpdateRunProgress)<br>Breaks down each run of your update schedule by the patches available at the time with details on the installation status of each patch. | management | Updates | No| [Yes](/azure/azure-monitor/reference/queries/updaterunprogress)|
+| [UpdateSummary](/azure/azure-monitor/reference/tables/UpdateSummary)<br>Summary for each update schedule run. Includes information such as how many updates weren't installed. | virtualmachines | Security, SecurityCenter, SecurityCenterFree, Updates | No| [Yes](/azure/azure-monitor/reference/queries/updatesummary)|
+| [VMBoundPort](/azure/azure-monitor/reference/tables/VMBoundPort)<br>Traffic for open server ports on the monitored machine. | virtualmachines | AzureResources, InfrastructureInsights, ServiceMap, VMInsights | No| -|
+| [VMComputer](/azure/azure-monitor/reference/tables/VMComputer)<br>Inventory data for servers collected by the Service Map and VM insights solutions using the Dependency agent and Log analytics agent. | virtualmachines | AzureResources, ServiceMap, VMInsights | No| -|
+| [VMConnection](/azure/azure-monitor/reference/tables/VMConnection)<br>Traffic for inbound and outbound connections to and from monitored computers. | virtualmachines | AzureResources, InfrastructureInsights, ServiceMap, VMInsights | No| -|
+| [VMProcess](/azure/azure-monitor/reference/tables/VMProcess)<br>Process data for servers collected by the Service Map and VM insights solutions using the Dependency agent and Log analytics agent. | virtualmachines | AzureResources, ServiceMap, VMInsights | No| -|
+| [W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog)<br>Internet Information Server (IIS) log on Windows computers using the Log Analytics agent. | management, virtualmachines | LogManagement | No| [Yes](/azure/azure-monitor/reference/queries/w3ciislog)|
+| [WindowsFirewall](/azure/azure-monitor/reference/tables/WindowsFirewall) | security | Security, WindowsFirewall | No| -|
+| [WireData](/azure/azure-monitor/reference/tables/WireData)<br>Network data collected by the WireData solution using by the Dependency agent and Log analytics agent. | virtualmachines, security | WireData, WireData2 | No| [Yes](/azure/azure-monitor/reference/queries/wiredata)|
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+The following table lists a few example operations that relate to creating VMs in the activity log. For a complete list of operations, see [Microsoft.Compute resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcompute).
 
 | Operation | Description |
 |:---|:---|
@@ -60,11 +96,8 @@ The following table lists a few example operations that relate to creating virtu
 | Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
 | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 | Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the virtual machine scale set |
-| | |
 
-For more information about the schema of activity log entries, see [Activity log schema](../azure-monitor/essentials/activity-log-schema.md). 
+## Related content
 
-
-## See also
-
-For a description of monitoring Azure virtual machines, see [Monitoring Azure virtual machines](../virtual-machines/monitor-vm.md).
+- See [Monitor Virtual Machines](monitor-vm.md) for a description of monitoring Virtual Machines.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

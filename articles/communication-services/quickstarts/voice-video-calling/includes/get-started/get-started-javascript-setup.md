@@ -2,7 +2,7 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/21/2022
+ms.date: 06/21/2023
 ms.author: rifox
 ---
 
@@ -13,7 +13,8 @@ ms.author: rifox
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir calling-quickstart && cd calling-quickstart
+mkdir calling-quickstart
+cd calling-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.

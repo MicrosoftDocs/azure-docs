@@ -1,71 +1,45 @@
 ---
-title: Copy a blob with .NET - Azure Storage
-description: Learn how to copy a blob in Azure Storage by using the .NET client library.
-services: storage
-author: normesta
+title: Copy a blob with .NET
+titleSuffix: Azure Storage
+description: Learn how to copy blobs in Azure Storage using the .NET client library.
+author: pauljewellmsft
 
-ms.author: normesta
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.author: pauljewell
+ms.date: 04/14/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp,
-ms.custom: "devx-track-csharp"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
-# Copy a blob with Azure Storage using the .NET client library
+# Copy a blob with .NET
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
 
-## About copying blobs
+This article provides an overview of copy operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts it's an asynchronous operation.
+## About copy operations
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+Copy operations can be used to move data within a storage account, between storage accounts, or into a storage account from a source outside of Azure. When using the Blob Storage client libraries to copy data resources, it's important to understand the REST API operations behind the client library methods. The following table lists REST API operations that can be used to copy data resources to a storage account. The table also includes links to detailed guidance about how to perform these operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
+| REST API operation | When to use | Client library methods | Guidance |
+| --- | --- | --- | --- |
+| [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) | This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. This operation completes synchronously. | [SyncUploadFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuri)<br>[SyncUploadFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuriasync) | [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md) |
+| [Put Block From URL](/rest/api/storageservices/put-block-from-url) | For large objects, you can use [Put Block From URL](/rest/api/storageservices/put-block-from-url) to write individual blocks to Blob Storage, and then call [Put Block List](/rest/api/storageservices/put-block-list) to commit those blocks to a block blob. This operation completes synchronously. | [StageBlockFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuri)<br>[StageBlockFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuriasync) | [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md) |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | This operation can be used when you want asynchronous scheduling for a copy operation. | [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)<br>[StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync) | [Copy a blob with asynchronous scheduling using .NET](storage-blob-copy-async-dotnet.md) |
 
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
+For append blobs, you can use the [Append Block From URL](/rest/api/storageservices/append-block-from-url) operation to commit a new block of data to the end of an existing append blob. The following client library methods wrap this operation:
 
-When a blob is copied, it's system properties are copied to the destination blob with the same values.
+- [AppendBlockFromUri](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.appendblockfromuri)
+- [AppendBlockFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.appendblockfromuriasync)
 
-A copy operation can take any of the following forms:
+For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/put-page-from-url) operation to write a range of pages to a page blob where the contents are read from a URL. The following client library methods wrap this operation:
 
-- Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
-- Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs is not supported.
-- Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
-- Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
+- [UploadPagesFromUri](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpagesfromuri)
+- [UploadPagesFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpagesfromuriasync)
 
-## Copy a blob
+## Client library resources
 
-To copy a blob, call one of the following methods:
-
-- [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
-- [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
-
-The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
-
-The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing a previously created blob and copies it to a new blob in the same container:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_CopyBlob":::
-
-## Abort a copy operation
-
-Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods.
-
-# [.NET v12 SDK](#tab/dotnet)
-
-Check the BlobProperties.CopyStatus property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
-
-When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
-
-The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing copy operation.
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
-
-## See also
-
-- [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+- [Client library reference documentation](/dotnet/api/azure.storage.blobs)
+- [Client library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)

@@ -1,15 +1,17 @@
 ---
 title: Configure export settings in Azure API for FHIR
 description: This article describes how to configure export settings in Azure API for FHIR
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
-ms.author: ranku
+ms.date: 09/27/2023
+ms.author: kesheth
 ---
 
 # Configure export settings in Azure API for FHIR and set up a storage account
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR supports $export command that allows you to export the data out of Azure API for FHIR account to a storage account.
 

@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 11/17/2022
 ---
 
 If you're developing for *constrained devices*, you can use IoT Plug and Play with:
@@ -19,7 +19,7 @@ Many of the samples below require a specific hardware device and the prerequisit
 
 ## Use the SDK for Embedded C
 
-The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot-develop/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
+The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
 
 ### Use an MCU-based device
 
@@ -44,7 +44,7 @@ Azure RTOS includes a lightweight layer that adds native connectivity to Azure I
 
 The Azure RTOS samples are provided with different kinds of IDE and toolchain combinations, such as:
 
-- IAR: IAR's [Embedded Workbench](https://www.iar.com/iar-embedded-workbench/) IDE
+- IAR: IAR's [Embedded Workbench](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/) IDE
 - GCC/CMake: Build on top of the open-source [CMake](https://cmake.org/) build system and [GNU Arm Embedded toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm).
 - MCUExpresso: NXP's [MCUXpresso IDE](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 - STM32Cube: STMicroelectronics's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)
@@ -56,9 +56,9 @@ The following table lists samples that show you how to get started on different 
 
 Manufacturer | Device | Samples |
 | --- | --- | --- |
-| Microchip | [ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO) • [IAR](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2021_11_03.zip) • [MPLAB](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2021_11_03.zip)
-| MXCHIP | [AZ3166](../articles/iot-develop/quickstart-devkit-mxchip-az3166.md) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
-| NXP | [MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK) • [IAR](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_MIMXRT1060_IAR_Samples_2021_11_03.zip) • [MCUXpresso](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_MIMXRT1060_MCUXpresso_Samples_2021_11_03.zip)
-| STMicroelectronics | [32F746GDISCOVERY](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | [IAR](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_IAR_Samples_2021_11_03.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32F746G-DISCO_STM32CubeIDE_Samples_2021_11_03.zip)
-| STMicroelectronics | [B-L475E-IOT01](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32L4+-DISCO_IAR_Samples_2021_11_03.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32L4+-DISCO_STM32CubeIDE_Samples_2021_11_03.zip)
-| STMicroelectronics | [B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4%2B) • [IAR](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32L4+-DISCO_IAR_Samples_2021_11_03.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_STM32L4+-DISCO_STM32CubeIDE_Samples_2021_11_03.zip)
+| Microchip | [ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO) • [IAR](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_ATSAME54-XPRO_IAR_Sample_2022_04_10.zip) • [MPLAB](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_ATSAME54-XPRO_MPLab_Sample_2022_04_10.zip)
+| MXCHIP | [AZ3166](../articles/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub.md) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
+| NXP | [MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK) • [IAR](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_MIMXRT1060_IAR_Sample_2022_04_10.zip) • [MCUXpresso](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_MIMXRT1060_MCUXpresso_Sample_2022_04_10.zip)
+| STMicroelectronics | [32F746GDISCOVERY](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | [IAR](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_IAR_Sample_2022_04_10.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_STM32CubeIDE_Sample_2022_04_10.zip)
+| STMicroelectronics | [B-L475E-IOT01](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A) • [IAR](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_IAR_Sample_2022_04_10.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_STM32CubeIDE_Sample_2022_04_10.zip)
+| STMicroelectronics | [B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) | [GCC/CMake](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L4S5I-IOT01A) • [IAR](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_IAR_Sample_2022_04_10.zip) • [STM32Cube](https://github.com/azure-rtos/samples/releases/download/rel_6.1_adu_beta_refresh/Azure_RTOS_6.1_ADU_STM32L4+-DISCO_STM32CubeIDE_Sample_2022_04_10.zip)

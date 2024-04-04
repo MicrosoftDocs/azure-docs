@@ -20,7 +20,7 @@ It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this
 
 ## Create a database account
 
-Add an Azure Cosmos Database to the resource group you created earlier.
+Add an Azure Cosmos DB database to the resource group you created earlier.
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../cosmos-db/includes/cosmos-db-create-dbaccount-table.md)]
 

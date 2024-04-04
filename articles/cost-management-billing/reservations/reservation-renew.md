@@ -2,17 +2,17 @@
 title: Automatically renew Azure reservations
 description: Learn how you can automatically renew Azure reservations to continue getting reservation discounts.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
 # Automatically renew reservations
 
-You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing reservation.
+You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing reservation. You can also opt in to automatically renew at time of purchase.
 
 Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
 
@@ -27,7 +27,7 @@ Go to Azure portal > **Reservations**.
 1. Select the reservation.
 2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
-  ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
+  :::image type="content" border="true" source="./media/reservation-renew/reservation-renewal.png" alt-text="Screenshot showing reservation renewal.":::
 
 ## If you don't renew
 
@@ -84,9 +84,15 @@ Renewal notification emails are sent 30 days before expiration and again on the 
 
 Emails are sent to different people depending on your purchase method:
 
-- EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
-- Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
-- Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
+- Customers with EA subscriptions
+    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
+- Customers with Microsoft Customer Agreement (Azure Plan)
+    - Notifications are sent to the reservation owners and the reservation administrator.
+- Cloud Solution Provider and new commerce partners
+    - Emails are sent to the partner notification contact.
+- Individual subscription customers with pay-as-you-go rates
+    - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 
 ## Next steps
+
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

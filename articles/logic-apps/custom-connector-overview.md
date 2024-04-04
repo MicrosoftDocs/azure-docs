@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: conceptual
-ms.date: 08/22/2022
-# As a developer, I want learn about the capability to create custom connectors with operations that I can use in my Azure Logic Apps workflows.
+ms.date: 01/04/2024
+# Customer intent: As a developer, I want learn about the capability to create custom connectors with operations that I can use in my Azure Logic Apps workflows.
 ---
 
 # Custom connectors in Azure Logic Apps
@@ -23,7 +23,7 @@ Sometimes though, you might want to call REST APIs that aren't available as preb
 
 This article provides an overview about custom connectors for [Consumption logic app workflows and Standard logic app workflows](logic-apps-overview.md). Each logic app type is powered by a different Azure Logic Apps runtime, respectively hosted in multi-tenant Azure and single-tenant Azure. For more information about connectors in Azure Logic Apps, review the following documentation:
 
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [About connectors in Azure Logic Apps](../connectors/introduction.md)
 * [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
 * [Managed connectors in Azure Logic Apps](../connectors/managed.md)
 * [Connector overview](/connectors/connectors)

@@ -3,7 +3,7 @@ title: Set up a Linux shell scripting lab with Azure Lab Services | Microsoft Do
 description: Learn how to set up a lab to teach shell scripting on Linux. 
 ms.topic: how-to
 ms.date: 03/10/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, linux-related-content
 ---
 
 # Set up a lab to teach shell scripting on Linux
@@ -20,7 +20,7 @@ To set up the lab, you need access to an Azure subscription and a lab account. D
 
 ### Lab plan settings
 
-When you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+When you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 

@@ -4,7 +4,7 @@ description: Learn how to perform administrative tasks for the Apache Hadoop clu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 02/13/2020
+ms.date: 10/16/2023
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell

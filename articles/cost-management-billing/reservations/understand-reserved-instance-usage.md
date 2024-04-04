@@ -2,12 +2,11 @@
 title: Azure reservation usage for an individual subscription
 description: Learn how to read your usage to understand how the Azure reservation for your individual subscription with pay-as-you-go rates is applied.
 author: bandersmsft
-ms.reviewer: yashar
-tags: billing
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -36,7 +35,7 @@ The hardware portion of the VM is covered because the deployed VM matches the re
 
 This section of your CSV file shows the total usage for your reservation. Apply the filter on the **Meter Subcategory** field that contains **"Reservation-"**. You see something like the following screenshot:
 
-![Screenshot of filtered reservation usage details and charges](./media/understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png" alt-text="Screenshot of filtered reservation usage details and charges.":::
 
 The **Reservation-Base VM** line has the total number of hours that are covered by the reservation. This line is $0.00 because the reservation covers it. The **Reservation-Windows Svr (1 Core)** line covers the cost of Windows software.
 
@@ -44,7 +43,7 @@ The **Reservation-Base VM** line has the total number of hours that are covered 
 
 Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the reservation.
 
-![Screenshot of daily usage details and charges](./media/understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png" alt-text="Screenshot of daily usage details and charges.":::
 
 1. **ReservationId** in the **Additional Info** field is the reservation that's applied to the VM.
 2. **ConsumptionMeter** is the meter ID for the VM.
@@ -52,7 +51,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter ID appears for any VM that qualifies for the reservation discount.
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
 
-## Usage for SQL Database & Cosmos DB reservations
+## Usage for Azure SQL Database and Azure Cosmos DB reservations
 
 The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 
@@ -69,7 +68,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 
 Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL Database or Azure Cosmos DB. You see something like the following screenshot:
 
-![Screenshot shows a Meter Category entry.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png" alt-text="Screenshot that shows a Meter Category entry.":::
 
 The **Reserved Instance Usage** line has the total number of core hours covered by the reservation. The rate is $0 for this line as the reservation covered the cost.
 
@@ -77,7 +76,7 @@ The **Reserved Instance Usage** line has the total number of core hours covered 
 
 Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the SQL Database reserved capacity reservation.
 
-![Screenshot shows details of a C S V file for reserved capacity.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png" alt-text="Screenshot that shows details of a C S V file for reserved capacity.":::
 
 1. **ReservationId** in the **Additional Info** field is the SQL Database reserved capacity reservation that's applied to the SQL Database resource.
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.

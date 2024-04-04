@@ -92,11 +92,11 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Create a lab**. See the following tutorials:
     - [Create a lab](./tutorial-setup-lab.md#create-a-lab)
-    - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
-    - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
+    - [Create a lab in Teams](./how-to-configure-teams-for-lab-plans.md)
+    - [Create a lab in Canvas](how-to-configure-canvas-for-lab-plans.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
-    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-a-lab)
+    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-lab)
     - [Use a compute gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
@@ -107,23 +107,23 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Manage VM pool and capacity**. You can easily scale up or down VM capacity, as needed by your class. Keep in mind that increasing VM capacity might take several hours because new VMs are being set up. See the following articles:
     - [Set up and manage a VM pool](./how-to-set-virtual-machine-passwords.md)
-    - [Manage a VM pool in Lab Services in Teams](./how-to-manage-vm-pool-within-teams.md)
+    - [Manage a VM pool in Lab Services in Teams](./how-to-manage-labs-within-teams.md#manage-a-lab-vm-pool-in-teams)
 
 1. **Add and manage lab users**. To add users to your lab, see:
    - [Add users to the lab](./tutorial-setup-lab.md#add-users-to-the-lab)
-   - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails-to-users)
-   - [Manage Lab Services user lists in Teams](./how-to-manage-user-lists-within-teams.md)
+   - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails)
+   - [Manage Lab Services user lists in Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams)
 
-    For information about the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#student-accounts).
+    For information about the types of accounts that students can use, see [Student accounts](./how-to-access-lab-virtual-machine.md#user-account-types).
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
-   - [Set a schedule](./tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+   - [Set a schedule](./tutorial-setup-lab.md#add-a-lab-schedule)
 
         > [!NOTE]
         > Depending on the operating system you've installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start it 30 minutes in advance.
 
-   - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
+   - [Set quotas for users](./how-to-manage-lab-users.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-manage-lab-users.md#set-additional-quotas-for-specific-users)
   
    - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 
@@ -134,7 +134,7 @@ After you understand the requirements for your class's lab, you're ready to set 
         >
         > Template VMs incur *cost* when they're running, so ensure that the template VM is shut down when you don’t need it to be running.
 
-   - [Create and manage Lab Services schedules in Teams](./how-to-create-schedules-within-teams.md)
+   - [Create and manage Lab Services schedules in Teams](./how-to-manage-labs-within-teams.md#configure-lab-schedules-and-settings-in-teams)
 
 1. **Use the dashboard**. For instructions, see [Use the lab dashboard](./use-dashboard.md).
 

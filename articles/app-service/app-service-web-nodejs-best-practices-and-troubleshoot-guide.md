@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: devx-track-js
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
@@ -125,7 +125,7 @@ let keepaliveAgent = new Agent({
     maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
-    keepAliveTimeout: 300000
+    freeSocketTimeout: 300000
 });
 ```
 
@@ -269,7 +269,7 @@ Follow these links to learn more about Node.js applications on Azure App Service
 
 * [Get started with Node.js web apps in Azure App Service](quickstart-nodejs.md)
 * [How to debug a Node.js web app in Azure App Service](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
-* [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
+* [Using Node.js Modules with Azure applications](/training/modules/create-nodejs-project-dependencies/)
 * [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

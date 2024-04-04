@@ -14,19 +14,13 @@
     href: redhat-images.md  
   - name: RHUI in Azure
     href: redhat-rhui.md
-- name: Red Hat Enterprise Java on Azure
+- name: Red Hat JBoss EAP
   items: 
-  - name: JBoss EAP on Azure
-    href: /azure/developer/java/ee/jboss-on-azure
-  - name: JBoss EAP + RHEL on VMs
-    href: jboss-eap-on-rhel.md
-  - name: JBoss EAP marketplace image
-    href: jboss-eap-marketplace-image.md
-  - name: JBoss EAP on Azure best practices
-    href: jboss-eap-on-azure-best-practices.md
-  - name: Migrate JBoss EAP to Azure VMs
-    href: jboss-eap-on-azure-migration.md
-  - name: Migrate JBoss EAP to App Service
-    href: ./overview.md
-  - name: WildFly + CentOS on VM
-    href: wildfly-on-centos.md
+  - name: Overview
+    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json
+  - name: Getting started with Azure Virtual Machines
+    href: jboss-eap-single-server-azure-vm.md
+  - name: Getting started with Azure Red Hat OpenShift
+    href: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json
+  - name: Migrate JBoss EAP to Azure App Service
+    href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json

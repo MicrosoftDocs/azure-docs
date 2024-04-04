@@ -4,6 +4,7 @@ description: Install the `arcdata` extension for Azure (`az`) CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -40,6 +41,6 @@ If you already have the extension, you can update it with the following command:
 az extension update --name arcdata
 ```
 
-## Next steps
+## Related content
 
 [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

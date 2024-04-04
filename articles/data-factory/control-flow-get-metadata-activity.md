@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -22,7 +22,7 @@ You can use the Get Metadata activity to retrieve the metadata of any data in Az
 To use a Get Metadata activity in a pipeline, complete the following steps:
 
 1. Search for _Get Metadata_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
-1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Dataset** tab, to edit its details.
+1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 1. Choose a dataset, or create a new one with the New button.  Then you can specify filter options and add columns from the available metadata for the dataset.
 
    :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="Shows the UI for a Get Metadata activity.":::
@@ -53,6 +53,7 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Microsoft Fabric Lakehouse](connector-microsoft-fabric-lakehouse.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
@@ -240,7 +241,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 }
 ```
 
-## Next steps
+## Related content
 Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)

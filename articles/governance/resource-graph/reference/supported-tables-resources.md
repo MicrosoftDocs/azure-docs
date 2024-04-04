@@ -1,17 +1,14 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/11/2022
+ms.date: 03/20/2024
 ms.topic: reference
 ms.custom: generated
-author: timwarner-msft
-ms.author: timwarner
 ---
+
 # Azure Resource Graph table and resource type reference
 
-Azure Resource Graph supports the following **resource types** of
-[Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
-part of a **table** in Resource Graph.
+Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
 ## advisorresources
 
@@ -33,6 +30,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.web/sites/slots/config/web
 - microsoft.web/sites/workflows
 
+## authorizationresources
+
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+- microsoft.authorization/classicadministrators
+
 ## chaosresources
 
 - microsoft.chaos/experiments/statuses
@@ -44,6 +47,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.compute/locations/communitygalleries
 - microsoft.compute/locations/communitygalleries/images
 - microsoft.compute/locations/communitygalleries/images/versions
+
+## computeresources
+
+- microsoft.compute/virtualmachinescalesets/virtualmachines
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
+- microsoft.compces/ute/virtualmachinescalesets/virtualmachines/networkinterfaipconfigurations/publicipaddresses
 
 ## desktopvirtualizationresources
 
@@ -75,10 +84,10 @@ For sample queries for this table, see [Resource Graph sample queries for guestc
 For sample queries for this table, see [Resource Graph sample queries for healthresources](../samples/samples-by-table.md#healthresources).
 
 - microsoft.resourcehealth/availabilitystatuses
-  - Sample query: [Count of virtual machines by availability state and Subscription Id](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
-  - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
-  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
-  - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+  - Sample query: [Count of virtual machines by availability state and Subscription ID](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
+  - Sample query: [List of virtual machines and associated availability states by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
+  - Sample query: [List of virtual machines by availability state and power state with Resource IDs and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines that are not Available by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
 
 ## iotsecurityresources
 
@@ -118,6 +127,11 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
 
+## managedservicesresources
+
+- microsoft.managedservices/registrationassignments
+- microsoft.managedservices/registrationdefinitions
+
 ## networkresources
 
 - microsoft.network/networkgroupmemberships
@@ -128,6 +142,12 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.network/securityadminconfigurations
 - microsoft.network/securityadminconfigurations/rulecollections
 - microsoft.network/securityadminconfigurations/rulecollections/rules
+
+## orbitalresources
+
+For sample queries for this table, see [Resource Graph sample queries for orbitalresources](../samples/samples-by-table.md#orbitalresources).
+
+- microsoft.orbital/spacecrafts/contacts
 
 ## patchassessmentresources
 
@@ -151,7 +171,9 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 - microsoft.authorization/policyassignments
 - microsoft.authorization/policydefinitions
+- microsoft.authorization/policyexemptions
 - microsoft.authorization/policysetdefinitions
+- microsoft.policyinsights/componentpolicystates
 - microsoft.policyinsights/policystates
   - Sample query: [Compliance by policy assignment](../samples/samples-by-category.md#compliance-by-policy-assignment)
   - Sample query: [Compliance by resource type](../samples/samples-by-category.md#compliance-by-resource-type)
@@ -215,9 +237,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - livearena.broadcast/services
 - mailjet.email/services
 - micorosft.web/kubeenvironments
-- microsoft.AAD/domainServices (Azure AD Domain Services)
+- microsoft.AAD/domainServices (Microsoft Entra Domain Services)
 - microsoft.aadiam/azureadmetrics
-- microsoft.aadiam/privateLinkForAzureAD (Private Link for Azure AD)
+- microsoft.aadiam/privateLinkForAzureAD (Private Link for Microsoft Entra ID)
 - microsoft.aadiam/tenants
 - microsoft.AgFoodPlatform/farmBeats (Azure FarmBeats)
 - microsoft.aisupercomputer/accounts
@@ -238,8 +260,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.AppPlatform/Spring (Azure Spring Cloud)
 - microsoft.archive/collections
 - microsoft.Attestation/attestationProviders (Attestation providers)
-- microsoft.authorization/elevateaccessroleassignment
-- microsoft.Authorization/resourceManagementPrivateLinks (Resource management private links)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
 - microsoft.automanage/configurationprofiles
@@ -248,7 +268,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Automation/automationAccounts/runbooks (Runbook)
 - microsoft.autonomousdevelopmentplatform/accounts
 - microsoft.AutonomousSystems/workspaces (Bonsai)
-- microsoft.AVS/privateClouds (AVS Private clouds)
+- microsoft.AVS/privateClouds (Azure VMware Private clouds)
 - microsoft.azconfig/configurationstores
 - microsoft.AzureActiveDirectory/b2cDirectories (B2C Tenants)
 - microsoft.AzureActiveDirectory/guestUsages (Guest Usages)
@@ -316,10 +336,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.ClassicStorage/StorageAccounts (Storage accounts (classic))
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
-- microsoft.CloudTest/accounts (CloudTest Accounts)
-- microsoft.CloudTest/hostedpools (1ES Hosted Pools)
-- microsoft.CloudTest/images (CloudTest Images)
-- microsoft.CloudTest/pools (CloudTest Pools)
 - microsoft.ClusterStor/nodes (ClusterStors)
 - microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
@@ -356,7 +372,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Count virtual machines by OS type with extend](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Sample query: [List all extensions installed on a virtual machine](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
   - Sample query: [List machines that are not running and the last compliance status](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
-  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines by availability state and power state with Resource IDs and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Sample query: [Show all virtual machines ordered by name in descending order](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
   - Sample query: [Show first five virtual machines by name and their OS type](../samples/samples-by-category.md#show-first-five-virtual-machines-by-name-and-their-os-type)
@@ -579,7 +595,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [List all Azure Arc-enabled Kubernetes resources](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
   - Sample query: [List all ConnectedClusters and ManagedClusters that contain a Flux Configuration](../samples/samples-by-category.md#list-all-connectedclusters-and-managedclusters-that-contain-a-flux-configuration)
 - microsoft.Kusto/clusters (Azure Data Explorer Clusters)
-- microsoft.Kusto/clusters/databases (Azure Data Explorer Databases)
+- microsoft.Kusto/clusters/databases (Azure Data Explorer databases)
 - microsoft.LabServices/labAccounts (Lab accounts)
 - microsoft.LabServices/labPlans (Lab plans)
 - microsoft.LabServices/labs (Labs)
@@ -636,11 +652,11 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
 - microsoft.MixedReality/spatialAnchorsAccounts (Spatial Anchors Accounts)
 - microsoft.mixedreality/surfacereconstructionaccounts
-- microsoft.MobileNetwork/mobileNetworks (Mobile Networks)
+- microsoft.MobileNetwork/mobileNetworks (Mobile networks)
 - microsoft.MobileNetwork/mobileNetworks/dataNetworks (Data Networks)
 - microsoft.MobileNetwork/mobileNetworks/services (Services)
-- microsoft.MobileNetwork/mobileNetworks/simPolicies (Sim Policies)
-- microsoft.MobileNetwork/mobileNetworks/sites (Mobile Network Sites)
+- microsoft.MobileNetwork/mobileNetworks/simPolicies (SIM policies)
+- microsoft.MobileNetwork/mobileNetworks/sites (Mobile network sites)
 - microsoft.MobileNetwork/mobileNetworks/slices (Slices)
 - microsoft.mobilenetwork/networks
 - microsoft.mobilenetwork/networks/sites
@@ -664,10 +680,10 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Network/azureFirewalls (Firewalls)
 - microsoft.Network/bastionHosts (Bastions)
 - microsoft.Network/connections (Connections)
-- microsoft.Network/customIpPrefixes (Custom IP Prefixes)
+- microsoft.Network/customIpPrefixes (Custom IP prefixes)
 - microsoft.network/ddoscustompolicies
 - microsoft.Network/ddosProtectionPlans (DDoS protection plans)
-- microsoft.Network/dnsForwardingRulesets (Dns Forwarding Rulesets)
+- microsoft.Network/dnsForwardingRulesets (DNS forwarding rulesets)
 - microsoft.Network/dnsResolvers (DNS Private Resolvers)
 - microsoft.network/dnsresolvers/inboundendpoints
 - microsoft.network/dnsresolvers/outboundendpoints
@@ -677,8 +693,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.network/expressroutecrossconnections
 - microsoft.network/expressroutegateways
 - microsoft.Network/expressRoutePorts (ExpressRoute Direct)
-- microsoft.Network/firewallPolicies (Firewall Policies)
-- microsoft.network/firewallpolicies/rulegroups
+- microsoft.Network/firewallPolicies (Firewall policies)
 - microsoft.Network/frontdoors (Front Doors)
 - microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall policies (WAF))
 - microsoft.network/ipallocations
@@ -729,7 +744,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
 - microsoft.networkfunction/azuretrafficcollectors
-- microsoft.NotificationHubs/namespaces (Notification Hub Namespaces)
+- microsoft.NotificationHubs/namespaces (Notification Hub namespaces)
 - microsoft.NotificationHubs/namespaces/notificationHubs (Notification Hubs)
 - microsoft.nutanix/interfaces
 - microsoft.nutanix/nodes
@@ -748,17 +763,17 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.OperationalInsights/workspaces (Log Analytics workspaces)
 - microsoft.OperationsManagement/solutions (Solutions)
 - microsoft.operationsmanagement/views
-- microsoft.Orbital/contactProfiles (Contact Profiles)
+- microsoft.Orbital/contactProfiles (Contact profiles)
 - microsoft.Orbital/EdgeSites (Edge Sites)
-- microsoft.Orbital/GroundStations (Ground Stations)
-- microsoft.Orbital/l2Connections (L2 Connections)
+- microsoft.Orbital/GroundStations (Ground stations)
+- microsoft.Orbital/l2Connections (L2 connections)
 - microsoft.orbital/orbitalendpoints
 - microsoft.orbital/orbitalgateways
 - microsoft.orbital/orbitalgateways/orbitall2connections
 - microsoft.orbital/orbitalgateways/orbitall3connections
 - microsoft.Orbital/spacecrafts (Spacecrafts)
 - microsoft.Peering/peerings (Peerings)
-- microsoft.Peering/peeringServices (Peering Services)
+- microsoft.Peering/peeringServices (Peering services)
 - microsoft.PlayFab/playerAccountPools (PlayFab player account pools)
 - microsoft.PlayFab/titles (PlayFab titles)
 - microsoft.Portal/dashboards (Shared dashboards)
@@ -772,7 +787,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
 - microsoft.providerhubdevtest/regionalstresstests
-- microsoft.Purview/Accounts (microsoft Purview accounts)
+- microsoft.Purview/Accounts (Microsoft Purview accounts)
 - microsoft.Quantum/Workspaces (Quantum Workspaces)
 - microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
 - microsoft.RecommendationsService/accounts/modeling (Modeling)
@@ -804,6 +819,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.ScVmm/vmmServers (SCVMM management servers)
 - microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
@@ -849,7 +866,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
-- microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
@@ -962,8 +978,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
-- microsoft.authorization/locks/providers/assessments/governanceassignments
-- microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
@@ -1010,10 +1024,6 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 
 - microsoft.compute/skuspotevictionrate/location
 - microsoft.compute/skuspotpricehistory/ostype/location
-
-## workloadmonitorresources
-
-- microsoft.workloadmonitor/monitors
 
 ## Next steps
 

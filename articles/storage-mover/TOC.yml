@@ -1,0 +1,50 @@
+items:
+- name: Azure Storage Mover documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Mover?
+    href: service-overview.md
+  - name: Cloud migration basics
+    href: migration-basics.md
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Planning for a deployment
+    href: deployment-planning.md
+  - name: Resource hierarchy
+    href: resource-hierarchy.md
+  - name: Migration costs
+    href: billing.md
+  - name: Performance targets
+    href: performance-targets.md
+- name: How-To
+  items: 
+  - name: Deploy
+    items:
+    - name: Create a storage mover resource
+      href: storage-mover-create.md
+    - name: Deploy a storage mover agent
+      href: agent-deploy.md
+    - name: Register an agent
+      href: agent-register.md
+    - name: Create endpoints
+      href: endpoint-manage.md  
+    - name: Define a migration project
+      href: project-manage.md
+    - name: Define and start a migration job
+      href: job-definition-create.md
+  - name: Decommission
+    items: 
+    - name: Unregister an agent
+      href: agent-deploy.md#decommissioning-an-agent  
+- name: Resources
+  items:
+  - name: Monitor copy and job run logs
+    href: log-monitoring.md
+  - name: Troubleshoot job run error codes
+    href: status-code.md
+  - name: Collect a support bundle
+    href: troubleshooting.md
+  - name: Release notes
+    href: release-notes.md

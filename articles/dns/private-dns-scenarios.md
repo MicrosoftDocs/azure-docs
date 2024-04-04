@@ -1,17 +1,17 @@
 ---
-title: Scenarios for Private Zones - Azure DNS
-description: In this article, learn about common scenarios for using Azure DNS Private Zones.
+title: Scenarios for Azure Private DNS zones
+description: In this article, learn about common scenarios for using Azure Private DNS zones.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/27/2021
-ms.author: rohink
+ms.date: 04/25/2023
+ms.author: greglin
 ---
 
-# Azure DNS private zones scenarios
+# Azure Private DNS zones scenarios
 
-Azure DNS Private Zones provide name resolution within a virtual network and between virtual networks. In this article, we'll look at some common scenarios that can benefit using this feature.
+Azure Private DNS zones provide name resolution within a virtual network and between virtual networks. In this article, we'll look at some common scenarios that can benefit using this feature.
 
 ## Scenario: Name resolution scoped to a single virtual network
 
@@ -21,6 +21,9 @@ This scenario is shown below. We have a virtual network named "A" containing two
 You can also do a reverse DNS query (PTR) for the private IP of VNETA-VM1 (10.0.0.1) from VNETA-VM2. The DNS response will contain the name VNETA-VM1, as expected. 
 
 ![Single Virtual network resolution](./media/private-dns-scenarios/single-vnet-resolution.png)
+
+> [!NOTE]
+> The IP addresses 10.0.0.1 and 10.0.0.2 are examples only. Since Azure reserves the first four addresses in a subnet, the .1 and .2 addresses are not normally assigned to a VM. 
 
 ## Scenario: Name Resolution across virtual networks
 
@@ -44,9 +47,9 @@ Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure 
 ![Split Brian resolution](./media/private-dns-scenarios/split-brain-resolution.png)
 
 ## Next steps
-To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
+To learn more about Private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
 
-Learn how to [create a private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
+Learn how to [create a Private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
 
 Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
 

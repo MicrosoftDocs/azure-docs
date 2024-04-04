@@ -2,18 +2,21 @@
 title: Set up a profile editing flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a profile editing flow in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 06/07/2021
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a profile editing flow, so that users can manage their profile attributes such as display name, surname, given name, and city.
+
 ---
 
 # Set up a profile editing flow in Azure Active Directory B2C

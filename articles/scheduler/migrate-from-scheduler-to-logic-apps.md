@@ -29,7 +29,7 @@ This article shows how you can schedule one-time and recurring jobs by creating 
 
 * Set schedules that support time zones and automatically adjust to daylight savings time (DST).
 
-To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) or try creating your first logic app workflow by trying [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) or try creating your first logic app workflow by following the [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ You can run multiple one-time jobs by creating just a single logic app workflow.
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app workflow using the designer.
 
-   For the basic steps, follow [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   For the basic steps, follow [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 1. In the designer search box, enter **when a http request** to find the **Request** trigger. From the **Triggers** list, select the trigger named **When a HTTP request is received**.
 
@@ -88,7 +88,7 @@ You can run multiple one-time jobs by creating just a single logic app workflow.
 
    ![Screenshot showing the "Delay until" action details with the dynamic content list open and the "runAt" property selected.](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Add any other actions you want to run by selecting from [hundreds of ready-to-use connectors](../connectors/apis-list.md).
+1. Add any other actions you want to run by selecting from [hundreds of ready-to-use connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
    For example, you can include an HTTP action that sends a request to a URL or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
@@ -136,7 +136,7 @@ In Azure Logic Apps, each one-time job executes as a single workflow run instanc
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app workflow in the designer.
 
-   For the basic steps, follow [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   For the basic steps, follow [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 1. In the designer search box, enter **recurrence**. From the **Triggers** list, select the trigger named **Recurrence**.
 
@@ -148,7 +148,7 @@ In Azure Logic Apps, each one-time job executes as a single workflow run instanc
 
    For more information about advanced scheduling options, review [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
-1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). Under the trigger, select **Next step**. Find and select the actions you want.
+1. Add other actions you want by selecting from [hundreds of ready-to-use connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). Under the trigger, select **Next step**. Find and select the actions you want.
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
@@ -237,11 +237,6 @@ If your Azure subscription has a paid support plan, you can create a technical s
 
 1. Select the support option that you want. If you have a paid support plan, select **Next**.
 
-**Community**
-
-* [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
-
 ## Next steps
 
-* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)

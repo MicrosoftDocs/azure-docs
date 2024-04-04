@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Date and time functions in mapping data flow
@@ -61,7 +61,7 @@ In Data Factory and Synapse pipelines, use date and time functions to express da
 | [year](data-flow-expressions-usage.md#year) | Gets the year value of a date.  |
 |||
 
-## Next steps
+## Related content
 
 - [Aggregate functions](data-flow-aggregate-functions.md)
 - [Array functions](data-flow-array-functions.md)

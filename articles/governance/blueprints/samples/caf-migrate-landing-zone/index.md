@@ -1,10 +1,12 @@
 ---
 title: CAF Migration landing zone blueprint sample overview
 description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Migration landing zone blueprint sample.
-ms.date: 03/12/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The Microsoft Cloud Adoption Framework for Azure (CAF) Migration landing zone blueprint is a set of
 infrastructure to help you set up for migrating your first workload and manage your cloud estate in

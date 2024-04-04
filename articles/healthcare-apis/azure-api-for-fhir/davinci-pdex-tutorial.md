@@ -5,9 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 06/03/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 09/27/2023
 ---
 
 # Da Vinci PDex for Azure API for FHIR

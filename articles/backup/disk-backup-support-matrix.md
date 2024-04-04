@@ -2,11 +2,11 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 03/30/2022
-ms.custom: references_regions
-author: v-amallick
+ms.date: 03/18/2024
+ms.custom: references_regions, engagement-fy24
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Disk Backup support matrix
@@ -19,7 +19,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Limitations
 
-- Azure Disk Backup is supported for Azure Managed Disks, including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. Currently this solution doesn't support Ultra-disks, including shared ultra-disks, because of lack of snapshot capability.
+- Azure Disk Backup is supported for Azure Managed Disks, including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. Currently, this solution doesn't support Premium SSD v2 disks and Ultra-disks, including shared disk, because of lack of snapshot capability.
 
 - Azure Disk Backup supports backup of Write Accelerator disk. However, during restore the disk would be restored as a normal disk. Write Accelerated cache can be enabled on the disk after mounting it to a VM.
 
@@ -27,7 +27,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - Currently, the Original-Location Recovery (OLR) option to restore by replacing existing source disks from where the backups were taken isn't supported. You can restore from recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR).
 
-- Azure Backup for Managed Disks uses incremental snapshots, which are limited to 200 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 180. Learn more about [incremental snapshot](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
+- Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 480. Learn more about [incremental snapshot](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
 
 - Azure [subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) apply to the total number of disk snapshots per region per subscription.
 
@@ -45,7 +45,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - Currently, the Backup policy can't be modified, and the Snapshot Resource group that is assigned to a backup instance when you  configure the backup of a disk can't be changed.
 
-- When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
+- When you configure backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 
 - For successful backup and restore operations, role assignments are required by the Backup vault’s managed identity. Use only the role definitions provided in the documentation. Use of other roles like owner, contributor, and so on, isn't supported. You may face permission issues, if you start configuring backup or restore operations soon after assigning roles. This is because the role     assignments take a few minutes to take effect.
 
@@ -53,7 +53,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
 
-- You can delete a backup instance, which will stop the backup, and also deletes all the backup data. Currently, you can’t disable a backup, as the option **stop backup and retain backup data** isn’t supported.
+- You can stop backup and retain backup data. This allows you to *retain backup data* forever or as per the backup policy. You can also delete a backup instance, which stops the backup and deletes all backup data. 
 
 - Azure Disk Backup limits are:
     

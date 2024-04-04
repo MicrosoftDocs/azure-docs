@@ -7,11 +7,11 @@ ms.custom: mvc, devx-track-azurecli
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Cosmos DB database. It makes the connection using a Azure Cosmos DB endpoint and access key that it adds to app settings. The created app setting that contains the connection can be used with an [Azure Cosmos DB trigger or binding](../functions-bindings-cosmosdb.md).
+This Azure Functions sample script creates a function app and connects the function to an Azure Cosmos DB database. It makes the connection using an Azure Cosmos DB endpoint and access key that it adds to app settings. The created app setting that contains the connection can be used with an [Azure Cosmos DB trigger or binding](../functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

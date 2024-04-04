@@ -9,16 +9,13 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 02/03/2022
+ms.date: 03/12/2024
 
 ---
 
 # How to securely integrate Azure Machine Learning and Azure Synapse
 
 In this article, learn how to securely integrate with Azure Machine Learning from Azure Synapse. This integration enables you to use Azure Machine Learning from notebooks in your Azure Synapse workspace. Communication between the two workspaces is secured using an Azure Virtual Network.
-
-> [!TIP]
-> You can also perform integration in the opposite direction, using Azure Synapse spark pool from Azure Machine Learning. For more information, see [Link Azure Synapse and Azure Machine Learning](how-to-link-synapse-ml-workspaces.md).
 
 ## Prerequisites
 
@@ -100,11 +97,11 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/approve-pending-private-endpoint.png" alt-text="Screenshot of the private endpoint approval.":::
 
-1. From the left of the page, select __Access control (IAM)__. Select __+ Add__, and then select __Role assignment__.
+1. From the left of the page, select __Access control (IAM)__. Select __+ Add__, and then select __Role assignment__. 
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/workspace-role-assignment.png" alt-text="Screenshot of the role assignment.":::
 
-1. Select __Contributor__, and then select __Next__.
+1. Select __Privileged administrator roles__, __Contributor__, and then select __Next__.
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/contributor-role.png" alt-text="Screenshot of selecting contributor.":::
 
@@ -135,9 +132,10 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     print(ws.name)
     ```
 
-    This code snippet connects to the linked workspace, and then prints the workspace info. In the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call. For more information on using the `ws` object, see the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) class reference.
+    > [!IMPORTANT]
+    > This code snippet connects to the linked workspace using SDK v1, and then prints the workspace info. In the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call. For more information on using the `ws` object, see the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) class reference.
 
 ## Next steps
 
 * [Quickstart: Create a new Azure Machine Learning linked service in Synapse](../synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning.md).
-* [Link Azure Synapse Analytics and Azure Machine Learning workspaces](how-to-link-synapse-ml-workspaces.md).
+* [Link Azure Synapse Analytics and Azure Machine Learning workspaces](v1/how-to-link-synapse-ml-workspaces.md).

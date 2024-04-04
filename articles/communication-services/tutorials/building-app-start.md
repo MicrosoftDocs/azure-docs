@@ -9,6 +9,7 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Prepare a web app for Azure Communication Services (Node.js)
@@ -37,7 +38,7 @@ In this tutorial, you learn how to:
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The extension allows deploying websites with the option to configure fully managed continuous integration and continuous delivery (CI/CD).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure Functions.
 - An active Communication Services resource and connection string. [Learn how to create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- A user access token. For instructions, see the [quickstart for creating and managing access tokens](../quickstarts/access-tokens.md?pivots=programming-language-javascript) or the [tutorial for building a trusted authentication service](./trusted-service-tutorial.md).
+- A user access token. For instructions, see the [quickstart for creating and managing access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript) or the [tutorial for building a trusted authentication service](./trusted-service-tutorial.md).
 
 
 ## Configure your development environment
@@ -459,6 +460,6 @@ You're now ready to build your first Azure Communication Services web applicatio
 You might also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Create user access tokens](../quickstarts/access-tokens.md)
+- [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

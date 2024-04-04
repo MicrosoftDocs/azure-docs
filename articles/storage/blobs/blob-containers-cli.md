@@ -5,16 +5,17 @@ description: Learn how to manage Azure storage containers using Azure CLI
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/05/2022
 ms.author: shaas
-ms.subservice: blobs
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage blob containers using Azure CLI
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Microsoft Azure Blob Storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 The Azure CLI is Azure's cross-platform command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it locally from the command line.
 
@@ -24,15 +25,15 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - It's always a good idea to install the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Authorize access to Blob storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using the storage account access key. Using Microsoft Entra credentials is recommended, and this article's examples use Microsoft Entra ID exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Microsoft Entra credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -319,7 +320,7 @@ done
 
 A shared access signature (SAS) provides delegated access to Azure resources. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the interval over which the SAS is valid.
 
-A SAS is commonly used to provide temporary and secure access to a client who wouldn't normally have permissions. To generate either a service or account SAS, you'll need to supply values for the `–-account-name` and `-–account-key` parameters. An example of this scenario would be a service that allows users read and write their own data to your storage account.
+A SAS is commonly used to provide temporary and secure access to a client who wouldn't normally have permissions. To generate either a service or account SAS, you'll need to supply values for the `--account-name` and `--account-key` parameters. An example of this scenario would be a service that allows users read and write their own data to your storage account.
 
 Azure Storage supports three types of shared access signatures: user delegation, service, and account SAS. For more information on shared access signatures, see the [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md) article.
 
@@ -355,12 +356,15 @@ az storage container generate-sas \
     --account-name $storageAccount
 ```
 
+> [!NOTE]
+> The SAS token returned by the Azure CLI does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
+
 ## Next steps
 
-In this how-to article, you learned how to manage containers in Azure blob storage. To learn more about working with blob storage by using Azure CLI, select an option below.
+In this how-to article, you learned how to manage containers in Blob Storage. To learn more about working with blob storage by using Azure CLI, select an option below.
 
 > [!div class="nextstepaction"]
 > [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
-> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=/azure/storage/blobs/toc.json)

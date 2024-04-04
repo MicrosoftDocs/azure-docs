@@ -1,35 +1,37 @@
 ---
-title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
-description: Describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
+title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using Resource Manager templates
+description: Describes how to add a custom transformation to data flowing through Azure Monitor Logs using Resource Manager templates.
 ms.topic: tutorial
-ms.date: 07/01/2022
+author: bwren
+ms.author: bwren
+ms.date: 07/17/2023
 ---
 
-# Tutorial: Add transformation in workspace data collection rule to Azure Monitor using resource manager templates (preview)
-This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule](../essentials/data-collection-transformations.md) using resource manager templates. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](../essentials/data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../essentials/data-collection.md).
+# Tutorial: Add transformation in workspace data collection rule to Azure Monitor using Resource Manager templates
+This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule](../essentials/data-collection-transformations.md) using Resource Manager templates. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](../essentials/data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../essentials/data-collection.md).
 
-Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
+Workspace transformations are stored together in a single [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the workspace, called the workspace DCR. Each transformation is associated with a particular table. The transformation is applied to all data sent to this table from any workflow not using a DCR.
 
 > [!NOTE]
-> This tutorial uses resource manager templates and REST API to configure a workspace transformation. See [Tutorial: Add transformation in workspace data collection rule to Azure Monitor using the Azure portal (preview)](tutorial-workspace-transformations-portal.md) for the same tutorial using the Azure portal.
+> This tutorial uses Resource Manager templates and REST API to configure a workspace transformation. See [Tutorial: Add transformation in workspace data collection rule to Azure Monitor using the Azure portal](tutorial-workspace-transformations-portal.md) for the same tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Configure [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
+> * Configure [workspace transformation](../essentials/data-collection-transformations-workspace.md) for a table in a Log Analytics workspace.
 > * Write a log query for an ingestion-time transform.
 
 
 > [!NOTE]
-> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls using the Azure Monitor **Tables** API and the Azure portal to install resource manager templates. You can use any other method to make these calls.
+> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls using the Azure Monitor **Tables** API and the Azure portal to install Resource Manager templates. You can use any other method to make these calls.
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - The table must already have some data.
-- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
+- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md).
 
 
 ## Overview of tutorial
@@ -64,7 +66,7 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell.":::
 
 2. Copy the following PowerShell code and replace the **Path** parameter with the details for your workspace. 
 
@@ -91,9 +93,9 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
     Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/LAQueryLogs?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
     ```
 
-3. Paste the code into the cloud shell prompt to run it.
+3. Paste the code into the Cloud Shell prompt to run it.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in Cloud Shell.":::
 
 4. You can verify that the column was added by going to the **Log Analytics workspace** menu in the Azure portal. Select **Logs** to open Log Analytics and then expand the `LAQueryLogs` table to view its columns.
 
@@ -132,20 +134,20 @@ Use Log Analytics to test the transformation query before adding it to a data co
     :::image type="content" source="media/tutorial-workspace-transformations-portal/modified-query.png" lightbox="media/tutorial-workspace-transformations-portal/modified-query.png" alt-text="Screenshot of modified query in Log Analytics.":::
 
 
-4. Make the following changes to the query to use it in the transformation:
+1. Make the following changes to the query to use it in the transformation:
 
    - Instead of specifying a table name (`LAQueryLogs` in this case) as the source of data for this query, use the `source` keyword. This is a virtual table that always represents the incoming data in a transformation query.
-   - Remove any operators that aren't supported by transform queries. See [Supported tables for ingestion-time transformations](tables-feature-support.md) for a detail list of operators that are supported.
+   - Remove any operators that aren't supported by transform queries. See [Supported KQL features](/azure/azure-monitor/essentials/data-collection-transformations-structure) for a detail list of operators that are supported.
    - Flatten the query to a single line so that it can fit into the DCR JSON.
 
    Following is the query that you will use in the transformation after  these modifications:
 
-   ```kusto
+      ```kusto
    source | where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''
    ```
 
 ## Create data collection rule (DCR)
-Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -155,9 +157,9 @@ Since this is the first transformation in the workspace, you need to create a [w
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
-3. Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query. You don't need to modify this template since it will collect values for its parameters.
+3. Paste the Resource Manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query. You don't need to modify this template since it will collect values for its parameters.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
 
     ```json
@@ -251,7 +253,7 @@ The final step to enable the transformation is to link the DCR to the workspace.
 
 Use the **Workspaces - Update** API to configure the table with the PowerShell code below. 
 
-1. Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the parameters with values for your workspace and DCR. 
+1. Click the **Cloud Shell** button to open Cloud Shell again. Copy the following PowerShell code and replace the parameters with values for your workspace and DCR. 
 
     ```PowerShell
     $defaultDcrParams = @'
@@ -265,7 +267,7 @@ Use the **Workspaces - Update** API to configure the table with the PowerShell c
     Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}?api-version=2021-12-01-preview" -Method PATCH -payload $defaultDcrParams
     ```
 
-2. Paste the code into the cloud shell prompt to run it.
+2. Paste the code into the Cloud Shell prompt to run it.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-workspace-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR.":::
 

@@ -1,93 +1,68 @@
 ---
-title: View the monthly estimated lab cost trend
-description: This article provides information on how to track the cost of your lab (monthly estimated cost trend chart) in Azure DevTest Labs.
+title: Track costs associated with a lab in Azure DevTest Labs
+description: This article provides information on how to track the cost of your lab through Azure Cost Management.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/26/2020
+ms.date: 03/28/2024
+ms.custom: UpdateFrequency2
 ---
 
 # Track costs associated with a lab in Azure DevTest Labs
-This article provides information on how to track the cost of your lab. It shows you how to view the estimated cost trend for the current calendar month for the lab. The article also shows you how to view month-to-date cost per resource in the lab.
+This article provides information on how to track the cost of your lab through [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) by applying tags to the lab to filter costs. DevTest Labs may create more resource groups for resources related to the lab (depending on the features used and the settings of the lab). For this reason, it’s often not straightforward to get a view of the total costs for a lab just by looking at Resource Groups. To create a single view of costs per lab, tags are used. 
 
-## View the monthly estimated lab cost trend 
-In this section, you learn how to use the **Monthly Estimated Cost Trend** chart to view the current calendar month's estimated cost-to-date and the projected end-of-month cost for the current calendar month. You also learn how to manage lab costs by setting spending targets and thresholds that, when reached, trigger DevTest Labs to report the results to you.
+## Steps to Leverage Cost Management for DevTest Labs
 
-To view the Monthly Estimated Cost Trend chart, follow these steps: 
+These are the steps needed to use cost management for DevTest Labs. More details are captured in the following sections. 
+1. Enable tag inheritance for costs.
+1. Apply tags to the DevTest Labs (cost center, business unit, etc.).
+1. Provide permissions to allow users to view costs.
+1. Use Azure Cost Management for viewing/filtering costs for DevTest Labs, based on the tags.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select your lab.  
-4. Select **Configuration and policies** on the left menu.  
-4. Select **Cost trend** in the **Cost tracking** section on the left menu. The following screenshot shows an example of a cost chart. 
-   
-    ![Screenshot that shows a cost chart.](./media/devtest-lab-configure-cost-management/graph.png)
+## Step 1: Enable Tag Inheritance for Tags on Resource Groups 
 
-    The **Estimated cost** value is the current calendar month's estimated cost-to-date. The **Projected cost** is the estimated cost for the entire current calendar month, calculated using the lab cost for the previous five days.
+When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), they are each placed in their own resource group. For billing purposes, you must enable tag inheritance to ensure that the lab tags flow down from the resource group to the resources. 
 
-    The cost amounts are rounded up to the next whole number. For example: 
+You can enable tag inheritance through billing properties or through Azure Policies. The billing properties method is the easiest and fastest to configure. However, it might affect billing reporting for other resources in the same subscription. 
 
-   * 5.01 rounds up to 6 
-   * 5.50 rounds up to 6
-   * 5.99 rounds up to 6
+- [Group and allocate costs using tag inheritance](../cost-management-billing/costs/enable-tag-inheritance.md)
+- [Use the "Inherit a tag from the resource group" Azure Policy](../azure-resource-manager/management/tag-policies.md)
 
-     As it states above the chart, the costs you see by default in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates. You can also set your own spending targets that are displayed in the charts by [managing the cost targets for your lab.](#managing-cost-targets-for-your-lab)
+If updated correctly using the billing properties method, you see that Tag Inheritance now shows **Enabled**: 
 
-     The following costs *aren't* included in the cost calculation:
+:::image type="content" source="./media/devtest-lab-configure-cost-management/tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is enabled.":::
 
-   * CSP and Dreamspark subscriptions currently aren't supported. Azure DevTest Labs uses the Azure billing APIs to calculate the lab cost, which doesn't support CSP or Dreamspark subscriptions.
-   * Your offer rates. Currently, you can't use the offer rates shown under your subscription that you've negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
-   * Your taxes
-   * Your discounts
-   * Your billing currency. Currently, the lab cost is displayed only in USD currency.
+## Step 2: Apply Tags to DevTest Labs
 
-### Managing cost targets for your lab
-DevTest Labs helps you manage your lab costs by setting a spending target that you can view in the Monthly Estimated Cost Trend chart. DevTest Labs can send you a notification when spending reaches the specified target threshold. 
+DevTest Labs automatically propagates tags applied at the lab level to the resources that are created by the lab. This includes virtual machines (tags are applied to the billable resources) and environments (tags are applied to the resource group for the environment). Follow the steps in this article to apply tags to your labs: [Add tags to a lab](devtest-lab-add-tag.md).
 
-1. On the **Cost trend** page, select **Manage target**.
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags in DevTest Labs in the Azure portal.":::
 
-    ![Screenshot that shows the Manage target button.](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. On the **Manage target** page, specify a spending target and thresholds. You can also set whether each selected threshold is reported on the cost trend chart or through a webhook notification.
+> [!NOTE]
+> It’s important to remember that tags are propagated for any resources created _after_ the tag has been applied to the lab. If there are _existing resources_ that must be updated with the new tags, there's a script available to propagate the new/updated tags correctly. If you have existing resources and want to apply the lab tags, use the [Update-DevTestLabsTags script located in the DevTest Labs GitHub Repo](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags). 
 
-    ![Screenshot that shows the Manage target pane.](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
+## Step 3: Provide permissions to allow users to view costs 
 
-   - Select a time period during which you want cost targets tracked.
-      - **Monthly**: cost targets are tracked per month.
-      - **Fixed**: cost targets are tracked for the date range you specify in the start and end dates. Typically, these values represent how long your project is scheduled to run.
-   - Specify a **Target cost**. For example, how much you plan to spend on this lab in the time period you defined.
-   - Select to enable or disable any threshold you want reported – in increments of 25% – up to 125% of your specified **Target cost**.
-      - **Notify**: When results meet this threshold, a webhook URL that you specify notifies you.
-      - **Plot on chart**: When results meet this threshold, the results plot on a cost trend graph that you can view.
-   - If you choose to **Notify** when the threshold is met, you must specify a webhook URL. In the Cost integrations area, select **Click here to add an integration**. Enter a **Webhook URL** in the Configure notification pane and then select **OK**.
+DevTest Labs users don’t automatically have permission to view costs for their resources via Cost Management. There's one more step to [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data.md#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don’t already have permissions that include Billing Reader access. More information is found here on managing access to billing information: [Manage access to Azure billing - Microsoft Cost Management.](../cost-management-billing/manage/manage-billing-access.md)
 
-       ![Screenshot that shows the Configure notification pane.](./media/devtest-lab-configure-cost-management/configure-notification-new.png)
+## Step 4: Use Azure Cost Management for viewing and filtering costs for DevTest Labs 
 
-     - If you specify **Notify**, you must define a webhook URL.
-     - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
-     - Create the webhook before you enter it here.  
+Now that DevTest Labs is configured to provide the lab-specific information for Cost Management, start here on Cost Management Reporting to view costs: Get started with [Cost Management reporting - Azure - Microsoft Cost Management](../cost-management-billing/costs/reporting-get-started.md). You can visualize the costs in the Azure portal, download cost reporting information, or use Power BI to visualize the costs. 
 
-       For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
+For a quick view of costs per lab, see the following steps: 
 
-## View cost by resource 
-The monthly cost trend feature in labs allows you to see how much you spent in the current calendar month. The feature also shows your spending projection until the end of the month, based on your spending in last seven days. To help you understand why the spending in the lab is meeting thresholds early on, you can use the **cost by resource** feature that shows you the month-to-date cost **per resource** in a table.
+1. Select **Cost Management** and then on **Cost analysis**
+2. Select **Daily Costs**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the lab you want.  
-4. Select **Configuration and policies** on the left menu.
-5. Select **Cost by resource** in the **Cost tracking** section on the left menu. You see the costs associated with each resource associated with a lab. 
+:::image type="content" source="./media/devtest-lab-configure-cost-management/daily-costs.png" alt-text="Screenshot that shows the daily costs card.":::
 
-    ![Screenshot that shows Cost by resource.](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
+3. On the **Custom: Cost Analysis** page, select the **Group By** filter, choose **Tag** and then the Tag Name (like "CostCenter") to group by. Refer to the [documentation on group and filter options in Cost Management](../cost-management-billing/costs/group-filter.md) for more details.
 
-This feature helps you to easily identify the resources that cost the most so you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, the more it costs. You could find the size of a VM and the owner, and talk to the owner about why they need the VM size and whether they can lower the size.
+The resulting view shows costs in the subscription grouped by the tag (which is grouping by the lab & its resources).
 
-[Auto shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. Select a VM in the table to see if it's been opted-out of the auto shutdown policy. Talk to the VM owner to find out why they opted out, and see if they can opt back in.
- 
-## Next steps
-Here are some things to try next:
+## Related content
 
-* [Define lab policies](devtest-lab-set-lab-policy.md). Learn how to set the various policies used to govern how your lab and its VMs are used. 
-* [Create custom image](devtest-lab-create-template.md). When you create a VM, you specify a base. The base can be either a custom image or a Marketplace image. This article describes how to create a custom image from a VHD file.
-* [Configure Marketplace images](devtest-lab-configure-marketplace-images.md). DevTest Labs supports creating VMs based on Azure Marketplace images. This article
-  illustrates how to specify Azure Marketplace images you can use when creating VMs in a lab.
-* [Create a VM in a lab](devtest-lab-add-vm.md). This article illustrates how to create a VM from a custom or Marketplace base image, and work with artifacts in the VM.
+- [Define lab policies](devtest-lab-set-lab-policy.md). Learn how to set the various policies used to govern how your lab and its virtual machines (VMs) are used. 
+- [Create custom image](devtest-lab-create-template.md). When you create a virtual machine (VM), you specify a base. The base can be either a custom image or a Marketplace image. This article describes how to create a custom image from a virtual hard disk (VHD) file. 
+- [Configure Marketplace images](devtest-lab-configure-marketplace-images.md). DevTest Labs supports creating VMs based on Azure Marketplace images. This article illustrates how to specify Azure Marketplace images you can use when creating VMs in a lab. 
+- [Create a VM in a lab](devtest-lab-add-vm.md). This article illustrates how to create a VM from a custom or Marketplace base image, and work with artifacts in the VM. 

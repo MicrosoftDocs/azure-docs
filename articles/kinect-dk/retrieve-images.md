@@ -3,7 +3,7 @@ title: Retrieve Azure Kinect image data
 description: Learn how to retrieve Azure Kinect image data using the Kinect Sensor SDK.
 author: cdedmonds
 ms.author: cedmonds
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, color, capture, resolution, buffer
@@ -62,6 +62,7 @@ By default, the API will only return a capture once it has received all of the r
 
 ```C
 // Capture a depth frame
+k4a_capture_t capture = NULL;
 switch (k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS))
 {
 case K4A_WAIT_RESULT_SUCCEEDED:

@@ -20,4 +20,4 @@ ms.custom: "include file"
 | Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
 | Go | [Azure Go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton Go](https://github.com/apache/qpid-proton/tree/master/go/examples)
 | C#/F#/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
-| JavaScript/Node | [Rhea](https://github.com/grs/rhea) |
+| JavaScript/Node | [Rhea](https://github.com/amqp/rhea) |

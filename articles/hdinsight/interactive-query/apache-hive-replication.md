@@ -3,7 +3,7 @@ title: How to use Apache Hive replication in Azure HDInsight clusters
 description: Learn how to use Hive replication in HDInsight clusters to replicate the Hive metastore and the Azure Data Lake Storage Gen 2 data lake.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 06/23/2023
 ---
 
 # How to use Apache Hive replication in Azure HDInsight clusters
@@ -114,7 +114,7 @@ The following steps are the sequential events that take place during the Hive Re
 
 1. The `REPL_LOAD` command is issued from the secondary cluster. The command points to the path configured in Step 3.
 
-1. The secondary cluster reads the metadata file with tracked events that was created in Step 3. Ensure that that the secondary cluster has network connectivity to the Azure Data Lake Storage Gen2 storage of the primary cluster where the tracked events from `REPL_DUMP` are stored.  
+1. The secondary cluster reads the metadata file with tracked events that was created in Step 3. Ensure that the secondary cluster has network connectivity to the Azure Data Lake Storage Gen2 storage of the primary cluster where the tracked events from `REPL_DUMP` are stored.  
 
 1. The secondary cluster spawns distributed copy (`DistCP`) compute.
 
@@ -126,13 +126,13 @@ The following steps are the sequential events that take place during the Hive Re
 
 Incremental replication follows the same process, and it requires the last replicated event ID as input. This leads to an incremental copy since the last replication event. Incremental replications are normally automated with a pre-determined frequency to achieve required recovery point objectives (RPO).
 
-:::image type="content" source="media/apache-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram":::
+:::image type="content" source="media/apache-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram.":::
 
 ## Replication patterns  
 
 Replication is normally configured in a unidirectional way between the primary and secondary, where the primary caters to read and write requests. The secondary cluster caters to read requests only. Writes are allowed on the secondary if there is a disaster, but reverse replication needs to be configured back to the primary.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive replication pattern":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive replication pattern.":::
 
 There are many patterns suitable for Hive replication including Primary – Secondary, Hub and Spoke, and Relay.
 
@@ -140,9 +140,9 @@ In HDInsight Active Primary – Standby Secondary is a common business continuit
 
 ### Hive replication with Enterprise Security Package  
 
-In cases where Hive replication is planned on HDInsight Hadoop clusters with Enterprise Security Package, you have to factor in replication mechanisms for Ranger metastore and Azure Active Directory Domain Services (AD DS).  
+In cases where Hive replication is planned on HDInsight Hadoop clusters with Enterprise Security Package, you have to factor in replication mechanisms for Ranger metastore and Microsoft Entra Domain Services.  
 
-Use the Azure AD DS replica sets feature to create more than one Azure AD DS replica set per Azure AD tenant across multiple regions. Each individual replica set needs to be peered with HDInsight VNets in their respective regions. In this configuration, changes to Azure AD DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using Azure AD DS replication.
+Use the Microsoft Entra Domain Services replica sets feature to create more than one Microsoft Entra Domain Services replica set per Microsoft Entra tenant across multiple regions. Each individual replica set needs to be peered with HDInsight VNets in their respective regions. In this configuration, changes to Microsoft Entra Domain Services, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using Microsoft Entra Domain Services replication.
   
 Ranger policies can be periodically backed up and replicated from the primary to the secondary using Ranger Import-Export functionality. You can choose to replicate all or a subset of Ranger policies depending on the level of authorizations you are seeking to implement on the secondary cluster.  
 

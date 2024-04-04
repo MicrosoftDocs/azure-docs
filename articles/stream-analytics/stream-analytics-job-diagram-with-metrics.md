@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot your Azure Stream Analyt
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/01/2017
+ms.date: 10/12/2022
 ---
 
 # Data-driven debugging by using the job diagram
@@ -72,7 +72,7 @@ If the preceding query step is an input processor, use the input metrics to help
 
 
 ## Get help
-For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/tags/179/azure-stream-analytics). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

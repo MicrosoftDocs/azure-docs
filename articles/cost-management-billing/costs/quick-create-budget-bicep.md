@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Create an Azure budget with Bicep
+title: Quickstart - Create a budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
 author: bandersmsft 
 ms.author: banders 
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 07/06/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 03/21/2024
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Create a budget with Bicep
@@ -64,7 +64,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -108,7 +108,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -155,7 +155,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -166,7 +166,7 @@ One Azure resource is defined in the Bicep file:
 
     ```azurecli
     myContactEmails ='("user1@contoso.com", "user2@contoso.com")'
-    myContactGroups ='("action-group-resource-id-01", "action-group-resource-id-02")'
+    myContactGroups ='("/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/microsoft.insights/actionGroups/groupone", "/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/microsoft.insights/actionGroups/grouptwo")'
     myRgFilterValues ='("resource-group-01", "resource-group-02")'
     myMeterCategoryFilterValues ='("meter-category-01", "meter-category-02")'
 
@@ -177,7 +177,7 @@ One Azure resource is defined in the Bicep file:
 
     ```azurepowershell
     $myContactEmails = @("user1@contoso.com", "user2@contoso.com")
-    $myContactGroups = @("action-group-resource-id-01", "action-group-resource-id-02")
+    $myContactGroups = @("/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/microsoft.insights/actionGroups/groupone", "/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/microsoft.insights/actionGroups/grouptwo")
     $myRgFilterValues = @("resource-group-01", "resource-group-02")
     $myMeterCategoryFilterValues = @("meter-category-01", "meter-category-02")
 
@@ -192,7 +192,7 @@ One Azure resource is defined in the Bicep file:
     - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
     - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
     - **contactEmails**: First create a variable that holds your emails and then pass that variable. Replace the sample emails with the email addresses to send the budget notification to when the threshold is exceeded.
-    - **contactGroups**: First create a variable that holds your contact groups and then pass that variable. Replace the sample contact groups with the list of action groups to send the budget notification to when the threshold is exceeded.
+    - **contactGroups**: First create a variable that holds your contact groups and then pass that variable. Replace the sample contact groups with the list of action groups to send the budget notification to when the threshold is exceeded. You must pass the resource ID of the action group, which you can get with [az monitor action-group show](/cli/azure/monitor/action-group#az-monitor-action-group-show) or [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup).
     - **resourceGroupFilterValues**: First create a variable that holds your resource group filter values and then pass that variable. Replace the sample filter values with the set of values for your resource group filter.
     - **meterCategoryFilterValues**: First create a variable that holds your meter category filter values and then pass that variable. Replace the sample filter values within parentheses with the set of values for your meter category filter.
 
@@ -237,7 +237,7 @@ Remove-AzConsumptionBudget -Name MyBudget
 
 ## Next steps
 
-In this quickstart, you created an Azure budget and deployed it using Bicep. To learn more about Cost Management and Billing and Bicep, continue on to the articles below.
+In this quickstart, you created a budget and deployed it using Bicep. To learn more about Cost Management and Billing and Bicep, continue on to the articles below.
 
 - Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview.
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal.

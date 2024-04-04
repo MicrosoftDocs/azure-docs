@@ -1,31 +1,32 @@
 ---
 title: Create a skillset
-titleSuffix: Azure Cognitive Search
-description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
-
+titleSuffix: Azure AI Search
+description: A skillset defines steps for content extraction, natural language processing, and image analysis. A skillset is attached to indexer. It's used to enrich and extract information from source data for indexing in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 01/10/2024
 ---
 
-# Create a skillset in Azure Cognitive Search
+# Create a skillset in Azure AI Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
-A skillset defines the operations that extract and enrich data to make it searchable. It executes after text and images are extracted, and after [field mappings](search-indexer-field-mappings.md) are processed.
+A skillset defines operations that generate textual content and structure from documents that contain images or unstructured text. Examples are OCR for images, entity recognition for undifferentiated text, and text translation. A skillset executes after text and images are extracted from an external data source, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
+This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
 
 Rules for skillset definition include:
 
-+ A skillset must have a unique name within the skillset collection. When you define a skillset, you're creating a top-level resource that can be used by any indexer.
-+ A skillset must contain at least one skill. A typical skillset has three to five. The maximum is 30.
++ A unique name within the skillset collection. A skillset is a top-level resource that can be used by any indexer.
++ At least one skill. Three to five skills are typical. The maximum is 30.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
 + A skillset supports chained operations, looping, and branching.
 
-Indexers drive skillset execution. You'll need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
+Indexers drive skillset execution. You need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
 > Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.
@@ -43,7 +44,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description":"A Cognitive Services resource in the same region as Azure Cognitive Search",
+      "description":"An Azure AI services resource in the same region as Azure AI Search",
       "key":"<Your-Cognitive-Services-Multiservice-Key>"
    },
    "knowledgeStore":{
@@ -62,9 +63,9 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Azure AI services), or custom skills that you provide. An example of a skills array is provided in the next section.
 
-+ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
++ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Azure AI services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
 + `knowledgeStore` (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
@@ -79,46 +80,48 @@ The end result of an enrichment pipeline is textual content in either a search i
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
 ```json
-"skills":[
-  {
-    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-    "name": "#1",
-    "description": "This skill detects organizations in the source content",
-    "context": "/document",
-    "categories": [ "Organization" ],
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "organizations",
-        "targetName": "orgs"
-      }
-    ]
-  },
-  {
-      "name": "#2",
-      "description": "This skill detects corporate logos in the source files",
-      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-      "context": "/document/normalized_images/*",
-      "visualFeatures": [
-          "brands"
-      ],
-      "inputs": [
-          {
-              "name": "image",
-              "source": "/document/normalized_images/*"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "brands"
-          }
-      ]
-  }
+"skills": [
+    {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name": "#1",
+        "description": "This skill detects organizations in the source content",
+        "context": "/document",
+        "categories": [
+            "Organization"
+        ],
+        "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "organizations",
+                "targetName": "orgs"
+            }
+        ]
+    },
+    {
+        "name": "#2",
+        "description": "This skill detects corporate logos in the source files",
+        "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+        "context": "/document/normalized_images/*",
+        "visualFeatures": [
+            "brands"
+        ],
+        "inputs": [
+            {
+                "name": "image",
+                "source": "/document/normalized_images/*"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "brands"
+            }
+        ]
+    }
 ]
 ```
 
@@ -266,25 +269,13 @@ Although skill output can be optionally cached for reuse purposes, it's usually 
 
 ## Tips for a first skillset
 
-+ Assemble a representative sample of your content in Blob Storage or another supported data source and run the [**Import data** wizard](search-import-data-portal.md). 
++ Try the [**Import data** wizard](search-import-data-portal.md). 
 
-  The wizard automates several steps that can be challenging the first time around. It defines the skillset, index, and indexer, including field mappings and output field mappings. It will also define projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
+  The wizard automates several steps that can be challenging the first time around. It defines the skillset, index, and indexer, including field mappings and output field mappings. It also defines projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
 
-  After the wizard runs, you can open each object in the Azure portal to view its JSON definition. You can also use [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document.
+  After the wizard runs, you can open each object in the Azure portal to view its JSON definition.
 
-+ Alternatively, you can [import sample Postman collections](https://github.com/Azure-Samples/azure-search-postman-samples) that provide a full articulation of the object definitions required to evaluate a skill.
-
-+ When you're ready to start from scratch on a new skillset, checking preliminary results is important. We recommend a search index for content validation because it's simpler to set up, in comparison to knowledge stores. 
-
-  For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the search index.
-
-  :::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram that shows the person entity as a skill output, indexer field mapping, and index field.":::
-
-  After you run the indexer, use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
-
-  This screenshot shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. You can view the results to decide whether a skill adds value to your solution.
-
-  :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
++ Try [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document and inspect the enriched document that the skillset creates. You can view and modify input and output settings and values. This tutorial is a good place to start: [Tutorial: Debug a skillset using Debug Sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JS Browser"
+titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob storage npm client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
 author: normesta
+
 ms.author: normesta
 ms.date: 02/25/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
@@ -28,7 +29,7 @@ The [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/tre
 
 Additional resources:
 
-[API reference](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
 ## Prerequisites
 
@@ -105,6 +106,9 @@ Follow these steps to get the Blob service SAS URL:
 1. Scroll down further and locate the **Blob service SAS URL** field
 1. Select the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
 1. Save the copied URL somewhere for use in an upcoming step.
+
+> [!NOTE]
+> The SAS token returned by the portal does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
 
 ## Create the JavaScript project
 
@@ -243,25 +247,25 @@ This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-
     http://localhost:1234
     ```
 
-## Step 1 - Create a container
+## Step 1: Create a container
 
 1. In the web app, select **Create container**. The status indicates that a container was created.
 2. In the Azure portal, verify your container was created. Select your storage account. Under **Blob service**, select **Containers**. Verify that the new container appears. (You may need to select **Refresh**.)
 
-## Step 2 - Upload a blob to the container
+## Step 2: Upload a blob to the container
 
 1. On your local computer, create and save a test file, such as *test.txt*.
 2. In the web app, select **Select and upload files**.
 3. Browse to your test file, and then select **Open**. The status indicates that the file was uploaded, and the file list was retrieved.
 4. In the Azure portal, select the name of the new container that you created earlier. Verify that the test file appears.
 
-## Step 3 - Delete the blob
+## Step 3: Delete the blob
 
 1. In the web app, under **Files**, select the test file.
 2. Select **Delete selected files**. The status indicates that the file was deleted and that the container contains no files.
 3. In the Azure portal, select **Refresh**. Verify that you see **No blobs found**.
 
-## Step 4 - Delete the container
+## Step 4: Delete the container
 
 1. In the web app, select **Delete container**. The status indicates that the container was deleted.
 2. In the Azure portal, select the **\<account-name\> | Containers** link at the top-left of the portal pane.

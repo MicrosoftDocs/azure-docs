@@ -13,13 +13,13 @@ ms.topic: how-to
 
 # Azure Data Studio dashboards
 
-[Azure Data Studio](/sql/azure-data-studio/what-is) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
+[Azure Data Studio](/azure-data-studio/what-is-azure-data-studio) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
 
 ## Connect to a data controller
 
 ### Prerequisites
 
-- Download [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+- Download [Azure Data Studio](/azure-data-studio/download-azure-data-studio)
 - Azure Arc extension is installed
 
 ### Connect
@@ -41,7 +41,7 @@ ms.topic: how-to
 7. Select **Connect**.
 
 
-After you connect to a data controller, you can view the dashboards. Azure Data Studio has dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
+After you connect to a data controller, you can view the dashboards. Azure Data Studio has dashboards for the data controller and any SQL managed instances or PostgreSQL server resources that you have.
 
 ## View the data controller dashboard
 
@@ -51,7 +51,7 @@ Here you can see details about the data controller resource such as name, region
 
 You'll notice that the layout is similar to what you might see in the Azure portal.
 
-Conveniently, you can launch the creation of a SQL managed instance or PostgreSQL Hyperscale server group by clicking the + New Instance button.
+Conveniently, you can launch the creation of a SQL managed instance or PostgreSQL server by clicking the + New Instance button.
 
 You can also open the Azure portal in context to this data controller by clicking the Open in Azure portal button.
 
@@ -71,11 +71,11 @@ You can delete the SQL managed instance from here or open the Azure portal to vi
 
 If you click on the **Connection Strings** tab, the Azure Data Studio presents a list of pre-constructed connection strings for that instance making. Copy and paste these strings into various other applications or code.
 
-## View the PostgreSQL Hyperscale server group dashboards
+## View the PostgreSQL server dashboards
 
-If the deployment includes PostgreSQL Hyperscale server groups, Azure Data Studio lists them  in the **Connections** panel in the **Azure Data Controllers** expandable panel underneath the data controller that is managing them.
+If the deployment includes PostgreSQL servers, Azure Data Studio lists them  in the **Connections** panel in the **Azure Data Controllers** expandable panel underneath the data controller that is managing them.
 
-To view the PostgreSQL Hyperscale server group dashboard for a given server group, right-click on the server group and choose Manage.
+To view the PostgreSQL server dashboard for a given server group, right-click on the server group and choose Manage.
 
 On the **Overview** tab, review details about the server group such as resource group, data controller, subscription ID, status, region and more. The tab also has links to the Grafana dashboard for viewing metrics or Kibana dashboard for viewing logs in context to that server group.
 
@@ -91,6 +91,6 @@ The **Diagnose and solve problems** tab on the left, launches the PostgreSQL tro
 
 For Azure support, select the **New support request** tab. This launches the Azure portal in context to the server group. Create an Azure support request from there.
 
-## Next steps
+## Related content
 
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

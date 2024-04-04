@@ -5,7 +5,8 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr 
 ---
 

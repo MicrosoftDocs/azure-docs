@@ -1,12 +1,12 @@
 ---
 title: Deployment Planner for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/13/2020
-ms.author: v-pgaddala
+ms.date: 03/13/2024
+ms.author: ankitadutta
 
 ---
 # About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
@@ -32,6 +32,8 @@ The tool provides the following details:
 * RPO that can be achieved for a given bandwidth
 * Impact on the desired RPO if lower bandwidth is provisioned.
 
+> [!NOTE]
+> The recommended bandwidth in Deployment planner is applicable only for compatible Hyper-V VMs. 
     
 **Azure infrastructure requirements**
 
@@ -136,7 +138,7 @@ If you have previous version of the deployment planner, do either of the followi
 
 ## Version history
 The latest Azure Site Recovery Deployment Planner tool version is 2.5.
-Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+Refer to [Azure Site Recovery Deployment Planner Version History](/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 
 ## Next steps

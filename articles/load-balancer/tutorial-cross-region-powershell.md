@@ -1,13 +1,14 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure PowerShell'
+title: 'Tutorial: Create a cross-region load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/27/2023 
+ms.custom: devx-track-azurepowershell, template-tutorial, engagement-fy23
+ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -34,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create cross-region load balancer
 
@@ -63,16 +64,16 @@ A global standard sku public IP is used for the frontend of the cross-region loa
 
 * Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
 
-* Create a front-end IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+* Create a frontend IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
 * Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 ```azurepowershell-interactive
-## Create global IP address for load balancer ##
+`## Create global IP address for load balancer ##
 $ip = @{
     Name = 'myPublicIP-CR'
     ResourceGroupName = 'MyResourceGroupLB-CR'
@@ -90,7 +91,7 @@ $fe = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @fe
 
-## Create back-end address pool ##
+## Create backend address pool ##
 $be = @{
     Name = 'myBackEndPool-CR'
 }
@@ -118,7 +119,7 @@ $lbp = @{
     BackendAddressPool = $bepool
     LoadBalancingRule = $rule
 }
-$lb = New-AzLoadBalancer @lbp
+$lb = New-AzLoadBalancer @lbp`
 ```
 
 ## Configure backend pool
@@ -135,7 +136,7 @@ In this section, you'll add two regional standard load balancers to the backend 
 * Use [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/new-azloadbalancerbackendaddresspool) to add the regional load balancer frontend to the cross-region backend pool.
 
 ```azurepowershell-interactive
-## Place the region one load balancer configuration in a variable ##
+ ## Place the region one load balancer configuration in a variable ##
 $region1 = @{
     Name = 'myLoadBalancer-R1'
     ResourceGroupName = 'CreatePubLBQS-rg-r1'
@@ -149,14 +150,14 @@ $region2 = @{
 }
 $R2 = Get-AzLoadBalancer @region2
 
-## Place the region one load balancer front-end configuration in a variable ##
+## Place the region one load balancer frontend configuration in a variable ##
 $region1fe = @{
     Name = 'MyFrontEnd-R1'
     LoadBalancer = $R1
 }
 $R1FE = Get-AzLoadBalancerFrontendIpConfig @region1fe
 
-## Place the region two load balancer front-end configuration in a variable ##
+## Place the region two load balancer frontend configuration in a variable ##
 $region2fe = @{
     Name = 'MyFrontEnd-R2'
     LoadBalancer = $R2

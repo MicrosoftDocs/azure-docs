@@ -3,12 +3,12 @@ title: 'Quickstart: Direct web traffic using Bicep'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use Bicep to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: schaffererin
-ms.author: v-eschaffer
-ms.date: 04/14/2022
+author: greg-lindsay
+ms.author: greglin
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Bicep
@@ -17,13 +17,15 @@ In this quickstart, you use Bicep to create an Azure Application Gateway. Then y
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
+![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Review the Bicep file
 
-This Bicep file creates a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+This Bicep file creates a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 

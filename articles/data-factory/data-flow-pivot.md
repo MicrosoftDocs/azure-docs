@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 # Pivot transformation in mapping data flow
@@ -47,7 +47,7 @@ In the section labeled **Value**, you can enter specific row values to be pivote
 
 For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-aggregate-functions.md).
 
-**Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffice, middle characters. 
+**Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffix, middle characters. 
 
 **Column arrangement:** If you generate more than one pivot column per pivot key, choose how you want the columns to be ordered. 
 
@@ -105,6 +105,6 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ```
 
-## Next steps
+## Related content
 
 Try the [unpivot transformation](data-flow-unpivot.md) to turn column values into row values. 

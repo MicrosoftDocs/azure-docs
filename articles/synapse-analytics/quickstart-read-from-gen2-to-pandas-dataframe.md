@@ -8,7 +8,7 @@ ms.reviewer: sngun, garye, negust
 ms.date: 07/11/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-python
 ---
 
 # Quickstart: Read data from ADLS Gen2 to Pandas dataframe in Azure Synapse Analytics
@@ -23,7 +23,7 @@ From a Synapse Studio notebook, you'll:
 
 ## Prerequisites
 
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/).
 - Synapse Analytics workspace with ADLS Gen2 configured as the default storage - You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with. For details on how to create a workspace, see [Creating a Synapse workspace](get-started-create-workspace.md).
 - Apache Spark pool in your workspace - See [Create a serverless Apache Spark pool](get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 

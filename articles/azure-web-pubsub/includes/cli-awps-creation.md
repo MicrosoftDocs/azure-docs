@@ -2,7 +2,7 @@
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 08/06/2021
+ms.date: 10/11/2022
 ms.author: lianwei
 ---
 
@@ -17,7 +17,7 @@ Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create
   > [!Important]
   > Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub in the following examples.
 
-```azurecli-interactive
+```azurecli
 az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
 ```
 

@@ -2,17 +2,17 @@
 title: Tutorial - Debug APIs in Azure API Management using request tracing
 description: Follow the steps of this tutorial to enable tracing and inspect request processing steps in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 08/08/2022
+ms.date: 03/26/2024
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---
 
 # Tutorial: Debug your APIs using request tracing
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 This tutorial describes how to inspect (trace) request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
@@ -22,7 +22,9 @@ In this tutorial, you learn how to:
 > * Trace an example call
 > * Review request processing steps
 
-:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="API inspector":::
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="Screenshot showing the API inspector." lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
+
+[!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
 
 ## Prerequisites
 
@@ -36,7 +38,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 
 1. Navigate to your API Management instance and select **Subscriptions** to review the settings.
 
-   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription":::
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Screenshot showing how to allow tracing for subscription." lightbox="media/api-management-howto-api-inspector/allow-tracing-1.png":::
 1. If tracing isn't enabled for the subscription you're using, select the subscription and enable **Allow tracing**.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
@@ -57,7 +59,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
     * If your subscription doesn't already allow tracing, you're prompted to enable it if you want to trace the call. 
     * You can also choose to send the request without tracing.
 
-      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Screenshot showing configure API tracing.":::
+      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Screenshot showing configure API tracing." lightbox="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png":::
 
 ## Review trace information
 
@@ -80,6 +82,18 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace. Trace data can be accessed for up to 24 hours.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-message-1.png" alt-text="Trace location in Azure Storage":::
+
+## Enable tracing using Ocp-Apim-Trace header
+
+When making requests to API Management using `curl`, a REST client such as Postman, or a client app, enable tracing by adding the following request headers:
+
+* **Ocp-Apim-Trace** - set value to `true`
+* **Ocp-Apim-Subscription-Key** - set value to the key for a tracing-enabled subscription that allows access to the API
+
+The response includes the **Ocp-Apim-Trace-Location** header, with a URL to the location of the trace data in Azure blob storage.
+
+For information about customizing trace information, see the [trace](trace-policy.md) policy.
+
 ## Next steps
 
 In this tutorial, you learned how to:

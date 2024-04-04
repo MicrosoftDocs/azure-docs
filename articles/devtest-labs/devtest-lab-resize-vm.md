@@ -4,7 +4,8 @@ description: Learn how to change the size of a virtual machine (VM) in Azure Dev
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/15/2022
+ms.custom: UpdateFrequency2
+ms.date: 09/30/2023
 ---
 
 # Resize a lab VM in Azure DevTest Labs

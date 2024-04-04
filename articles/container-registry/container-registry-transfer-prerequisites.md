@@ -2,8 +2,10 @@
 title: Transfer artifacts
 description: Overview of ACR Transfer and prerequisites
 ms.topic: article
-ms.date: 11/18/2021
-ms.custom:
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Transfer artifacts to another registry
@@ -74,6 +76,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 Transfer uses shared access signature (SAS) tokens to access the storage accounts in the source and target environments. Generate and store tokens as described in the following sections.
 > [!IMPORTANT]
 > While ACR Transfer will work with a manually generated SAS token stored in a Keyvault Secret, for production workloads we *strongly* recommend using [Keyvault Managed Storage SAS Definition Secrets][kv-managed-sas] instead.
+
 
 ### Generate SAS token for export
 

@@ -1,26 +1,25 @@
 ---
 title: Create virtual machines in a Flexible scale set using an ARM template
-description: Learn how to create a virtual machine scale set in Flexible orchestration mode using an ARM template.
+description: Learn how to create a Virtual Machine Scale Set in Flexible orchestration mode using an ARM template.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
-ms.service: virtual-machines
-ms.subservice: flexible-scale-sets
-ms.date: 08/05/2021
+ms.service: virtual-machine-scale-sets
+ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
+ms.custom: mimckitt, vmss-flex, devx-track-arm-template
 ---
 
 # Create virtual machines in a scale set using an ARM template
 
-This article steps through using an ARM template to create a virtual machine scale set. 
+This article steps through using an ARM template to create a Virtual Machine Scale Set. 
 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-ARM templates let you deploy groups of related resources. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
+ARM templates let you deploy groups of related resources. In a single template, you can create the Virtual Machine Scale Set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
 
 ## Review the template
@@ -49,7 +48,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "vmSku": {
         "type": "string",
-        "defaultValue": "Standard_D1_v2",
+        "defaultValue": "Standard_D2s_v3",
         "metadata": {
           "description": "Size of VMs in the VM Scale Set."
         }
@@ -92,6 +91,17 @@ ARM templates let you deploy groups of related resources. In a single template, 
           "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
       },
+      "securityType": {
+          "type": "string",
+          "defaultValue": "TrustedLaunch",
+          "allowedValues": [
+            "Standard",
+            "TrustedLaunch"
+          ],
+          "metadata": {
+            "description": "Security Type of the Virtual Machine."
+          }
+      },
       "_artifactsLocation": {
         "type": "string",
         "defaultValue": "[deployment().properties.templatelink.uri]",
@@ -126,12 +136,19 @@ ARM templates let you deploy groups of related resources. In a single template, 
       "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
       "frontEndIPConfigID": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancerName'),'loadBalancerFrontEnd')]",
       "osType": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "16.04-LTS",
-        "version": "latest"
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-focal",
+          "sku": "20_04-lts-gen2",
+          "version": "latest"
       },
       "imageReference": "[variables('osType')]",
+      "securityProfileJson": {
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          },
+          "securityType": "[parameters('securityType')]"
+      },
       "linuxConfiguration": {
         "disablePasswordAuthentication": true,
         "ssh": {
@@ -147,7 +164,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
     "resources": [
               {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2023-04-01",
             "name": "[variables('networkSecurityGroupName')]",
             "location": "[parameters('location')]",
             "properties": {
@@ -170,7 +187,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
         },
       {
         "type": "Microsoft.Network/virtualNetworks",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('virtualNetworkName')]",
         "location": "[parameters('location')]",
         "properties": {
@@ -194,7 +211,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/publicIPAddresses",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('publicIPAddressName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -210,7 +227,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/loadBalancers",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('loadBalancerName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -274,7 +291,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Compute/virtualMachineScaleSets",
-        "apiVersion": "2021-03-01",
+        "apiVersion": "2023-09-01",
         "name": "[parameters('vmssName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -302,8 +319,9 @@ ARM templates let you deploy groups of related resources. In a single template, 
               "computerNamePrefix": "[parameters('vmssName')]",
               "adminUsername": "[parameters('adminUsername')]",
               "adminPassword": "[parameters('adminPasswordOrKey')]",
-              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
             },
+            "securityProfile": "[if(equals(parameters('securityType'), 'TrustedLaunch'), variables('securityProfileJson'), null())]",
             "networkProfile": {
               "networkApiVersion": "[variables('networkApiVersion')]",
               "networkInterfaceConfigurations": [
@@ -356,7 +374,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Insights/autoscaleSettings",
-        "apiVersion": "2015-04-01",
+        "apiVersion": "2022-10-01",
         "name": "[concat(parameters('vmssName'), '-autoscalehost')]",
         "location": "[parameters('location')]",
         "dependsOn": [
@@ -431,7 +449,7 @@ These resources are defined in the template:
 
 ### Define a scale set
 
-To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a scale with a template, you define the appropriate resources. The core parts of the Virtual Machine Scale Set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|

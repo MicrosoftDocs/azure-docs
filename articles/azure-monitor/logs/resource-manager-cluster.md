@@ -2,10 +2,9 @@
 title: Resource Manager template samples for Log Analytics clusters
 description: Sample Azure Resource Manager templates to deploy Log Analytics clusters.
 ms.topic: sample
-author: yossiy
-ms.author: yossiy
+ms.custom: devx-track-arm-template
+ms.reviewer: yossiy
 ms.date: 06/13/2022
-
 ---
 
 # Resource Manager template samples for Log Analytics clusters in Azure Monitor
@@ -35,6 +34,10 @@ param location string = resourceGroup().location
 
 @description('Specify the capacity reservation value.')
 @allowed([
+  100
+  200
+  300
+  400
   500
   1000
   2000
@@ -88,6 +91,10 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
     "CommitmentTier": {
       "type": "int",
       "allowedValues": [
+        100,
+        200,
+        300,
+        400,
         500,
         1000,
         2000,

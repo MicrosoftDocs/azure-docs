@@ -1,16 +1,20 @@
 ---
 title: Enable a web application that calls web API options by using Azure Active Directory B2C
 description:  This article discusses how to enable the use of a web application that calls web API options in several ways.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web developer using Azure AD B2C, I want to configure authentication options in my web app that calls a web API, so that I can customize and enhance the authentication experience for my users.
+
 ---
 
 # Configure authentication options in a web app that calls a web API by using Azure AD B2C 
@@ -24,7 +28,7 @@ This article describes ways you can customize and enhance the Azure Active Direc
 To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. 
 
 - Update the `Instance` entry with your custom domain.
-- Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Update the `Domain` entry with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The app settings *before* the change are shown in the following JSON code: 
 

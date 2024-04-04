@@ -4,14 +4,16 @@ description: Learn about the various service tiers for Azure Database for MySQL 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL - Single Server service tiers
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can create an Azure Database for MySQL server in one of three different service tiers: Basic, General Purpose, and Memory Optimized. The service tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
@@ -56,7 +58,7 @@ Azure Database for MySQL – Single Server supports the following the backend st
 > Basic storage does not provide an IOPS guarantee. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 ### Basic storage 
-Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
+Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage uses Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
 
 ### General purpose storage 
 General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio. There are two generations of general purpose storage as described below:
@@ -102,12 +104,12 @@ General purpose storage v2 is supported in the following Azure regions:
 | West US | :heavy_check_mark: | 
 | West US 2 | :heavy_check_mark: | 
 | West Europe | :heavy_check_mark: | 
-| Central India* | :heavy_check_mark: | 
+| Central India | :heavy_check_mark: | 
 | France Central* | :heavy_check_mark: | 
 | UAE North* | :heavy_check_mark: | 
 | South Africa North* | :heavy_check_mark: |
 
-> [!Note] 
+> [!NOTE] 
 > *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview <br /> 
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, following are the limitations, <br /> 
 > * Geo-Redundant Backup will not be supported<br /> 

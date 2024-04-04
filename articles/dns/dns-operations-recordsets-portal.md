@@ -2,11 +2,11 @@
 title: Manage DNS record sets and records with Azure DNS
 description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 04/28/2021
-ms.author: rohink
+ms.date: 11/27/2023
+ms.author: greglin
 ---
 
 # Manage DNS records and record sets by using the Azure portal
@@ -21,9 +21,9 @@ To create a record set in the Azure portal, see [Create DNS records by using the
 
 ## View a record set
 
-1. In the Azure portal, go to the **DNS zone** overview page.
+1. In the Azure portal, go to the **DNS zones** overview page.
 
-1. Search for the record set and select it will open the record set properties.
+1. Select your DNS zone. The current record sets are displayed.
 
     :::image type="content" source="./media/dns-operations-recordsets-portal/overview.png" alt-text="Screenshot of contosotest.com zone overview page.":::
 

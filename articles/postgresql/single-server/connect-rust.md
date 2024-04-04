@@ -8,12 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: rust
 ms.custom: kr2b-contr-experiment
-ms.date: 06/24/2022
+ms.date: 01/29/2024
 ---
 
 # Quickstart: Use Rust to interact with Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to connect and query data in Azure Database for PostgreSQL. You can explore CRUD (create, read, update, delete) operations implemented in sample code, and run the application locally to see it in action.
 
@@ -23,7 +25,7 @@ For this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - A recent version of [Rust](https://www.rust-lang.org/tools/install) installed.
-- An Azure Database for PostgreSQL single server. Create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
+- An Azure Database for PostgreSQL single server. Create one using [Azure CLI](./quickstart-create-server-database-azure-cli.md).
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
   |Action| Connectivity method|How-to guide|
@@ -320,7 +322,7 @@ fn delete(pg_client: &mut postgres::Client) {
     deleted item info: id = 4, name = item-4, quantity = 16 
     ```
 
-4. To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-portal.md#connect-to-the-server-with-psql) and run queries against the database, for example:
+4. To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql) and run queries against the database, for example:
 
     ```sql
     select * from inventory;

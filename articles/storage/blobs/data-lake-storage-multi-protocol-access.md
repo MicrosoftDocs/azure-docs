@@ -1,18 +1,19 @@
 ---
 title: Multi-protocol access on Azure Data Lake Storage
+titleSuffix: Azure Storage
 description: Use Blob APIs and applications that use Blob APIs with Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/09/2023
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
 # Multi-protocol access on Azure Data Lake Storage
 
-Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace.
+Blob APIs work with accounts that have a hierarchical namespace. This unlocks the ecosystem of tools, applications, and services, as well as several Blob storage features to accounts that have a hierarchical namespace. 
 
 Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because Azure Data Lake Storage Gen2 had limited ecosystem support. It also had limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
 
@@ -21,7 +22,7 @@ With multi-protocol access on Data Lake Storage, you can work with your data by 
 Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](access-tiers-overview.md), and [Blob storage lifecycle management policies](./lifecycle-management-overview.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob Storage accounts without losing access to these important features.
 
 > [!NOTE]
-> Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or Blob storage features enabled by multi-protocol access remain in preview. These articles summarize the current support for Blob storage features and Azure service integrations.
+> Some Azure services or Blob storage features enabled by multi-protocol access remain in preview. These articles summarize the current support for Blob storage features and Azure service integrations.
 >
 > [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
 >

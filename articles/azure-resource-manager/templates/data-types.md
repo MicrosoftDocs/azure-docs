@@ -2,9 +2,8 @@
 title: Data types in templates
 description: Describes the data types that are available in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.author: tomfitz
-author: tfitzmac
-ms.date: 06/27/2022
+ms.custom: devx-track-arm-template
+ms.date: 03/20/2024
 ---
 
 # Data types in ARM templates
@@ -148,6 +147,8 @@ You can get a property from an object with dot notation.
     }
 }
 ```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 ## Strings
 

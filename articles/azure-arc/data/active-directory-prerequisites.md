@@ -7,15 +7,13 @@ ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/21/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Azure Arc-enabled SQL Managed Instance in Active Directory authentication with system-managed keytab - prerequisites
+# SQL Server enabled by Azure Arc in Active Directory authentication with system-managed keytab - prerequisites
 
 This document explains how to prepare to deploy Azure Arc-enabled data services with Active Directory (AD) authentication. Specifically the article describes Active Directory objects you need to configure before the deployment of Kubernetes resources.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 [The introduction](active-directory-introduction.md#compare-ad-integration-modes) describes two different integration modes:
 - *System-managed keytab* mode allows the system to create and manage the AD accounts for each SQL Managed Instance.
@@ -139,9 +137,9 @@ Whether you have created a new account for the DSA or are using an existing Acti
 
 - Select **OK** twice more to close open dialog boxes.
 
-## Next steps
+## Related content
 
 * [Deploy a customer-managed keytab Active Directory (AD) connector](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Deploy a system-managed keytab Active Directory (AD) connector](deploy-system-managed-keytab-active-directory-connector.md)
-* [Deploy an Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
-* [Connect to Azure Arc-enabled SQL Managed Instance using Active Directory authentication](connect-active-directory-sql-managed-instance.md)
+* [Deploy a SQL Managed Instance enabled by Azure Arc in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
+* [Connect to SQL Managed Instance enabled by Azure Arc using Active Directory authentication](connect-active-directory-sql-managed-instance.md)

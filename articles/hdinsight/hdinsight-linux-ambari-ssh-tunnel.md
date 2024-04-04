@@ -3,8 +3,8 @@ title: Use SSH tunneling to access Azure HDInsight
 description: Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 06/09/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 07/12/2023
 ---
 
 # Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs
@@ -87,7 +87,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 1. Select **Save**
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png" alt-text="HDInsight create putty session":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png" alt-text="HDInsight create putty session.":::
 
 1. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
 
@@ -99,7 +99,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
     |Destination|The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.|
     |Dynamic|Enables dynamic SOCKS proxy routing.|
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png" alt-text="PuTTY Configuration tunneling options":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png" alt-text="PuTTY Configuration tunneling options.":::
 
 1. Select **Add** to add the settings, and then select **Open** to open an SSH connection.
 
@@ -112,7 +112,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 1. Configure the browser to use **localhost** and the port you used when creating the tunnel as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png" alt-text="firefox browser proxy settings":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png" alt-text="firefox browser proxy settings.":::
 
    > [!NOTE]  
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
@@ -130,11 +130,11 @@ Once the cluster has been established, use the following steps to verify that yo
 
 2. From the Ambari Web UI, select HDFS from the list on the left of the page.
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png" alt-text="Apache Ambari hdfs service selected":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png" alt-text="Apache Ambari hdfs service selected.":::
 
 3. When the HDFS service information is displayed, select **Quick Links**. A list of the cluster head nodes appears. Select one of the head nodes, and then select **NameNode UI**.
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png" alt-text="Image with the QuickLinks menu expanded":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png" alt-text="Image with the QuickLinks menu expanded.":::
 
     > [!NOTE]  
     > When you select __Quick Links__, you may get a wait indicator. This condition can occur if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
@@ -143,7 +143,7 @@ Once the cluster has been established, use the following steps to verify that yo
 
 4. A page similar to the following image is displayed:
 
-    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png" alt-text="Image of the Hadoop NameNode UI":::
+    :::image type="content" source="./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png" alt-text="Image of the Hadoop NameNode UI.":::
 
     > [!NOTE]  
     > Notice the URL for this page; it should be similar to `http://hn*.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.

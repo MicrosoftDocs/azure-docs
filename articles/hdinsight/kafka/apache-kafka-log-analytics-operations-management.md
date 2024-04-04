@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to analyze logs from Apache Kaf
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/27/2022
+ms.date: 05/23/2023
 ---
 
 # Analyze logs for Apache Kafka on HDInsight
@@ -92,7 +92,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX metrics |
 
-    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Apache kafka log analytics cpu usage" border="true":::
+    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Apache kafka log analytics cpu usage." border="true":::
 
 ## Next steps
 

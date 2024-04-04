@@ -1,18 +1,18 @@
 ---
 title: Why use Azure IoT Edge for Linux on Windows? | Microsoft Docs 
 description: Benefits - Azure IoT Edge for Linux on Windows 
-keywords: 
 author: PatAltimore
 ms.author: fcabrera
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Why use Azure IoT Edge for Linux on Windows?
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 For organizations interested in running business logic and analytics on devices, Azure IoT Edge for Linux on Windows (EFLOW) enables the deployment of production Linux-based cloud-native workloads onto Windows devices. Connecting your devices to Microsoft Azure lets you quickly bring cloud intelligence to your business. At the same time, running workloads on devices allows you to respond quickly in instances with limited connectivity and reduce bandwidth costs.
 

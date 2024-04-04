@@ -4,7 +4,8 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.custom: devx-track-azurecli
+ms.date: 08/25/2023
 ms.author: victorh
 ms.topic: article
 ---
@@ -119,7 +120,7 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## Mandatory rules
 
-The following list contains conditions that cause the WAF to block the request while in Prevention Mode (in Detection Mode they are logged as exceptions). These can't be configured or disabled:
+The following list contains conditions that cause the WAF to block the request while in Prevention Mode (in Detection Mode they're logged as exceptions). These conditions can't be configured or disabled:
 
 * Failure to parse the request body results in the request being blocked, unless body inspection is turned off (XML, JSON, form data)
 * Request body (with no files) data length is larger than the configured limit
@@ -128,7 +129,7 @@ The following list contains conditions that cause the WAF to block the request w
 
 CRS 3.x specific:
 
-* Inbound anomaly score exceeded threshold
+* Inbound `anomaly score` exceeded threshold
 
 ## Next steps
 

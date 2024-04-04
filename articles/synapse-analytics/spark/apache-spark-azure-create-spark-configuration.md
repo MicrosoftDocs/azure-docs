@@ -1,7 +1,6 @@
 ---
 title: Manage Apache Spark configuration
 description: Learn how to create an Apache Spark configuration for your synapse studio.
-services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
 ms.reviewer: sngun 
@@ -18,7 +17,7 @@ In this tutorial, you will learn how to create an Apache Spark configuration for
 
 ## Create an Apache Spark Configuration 
 
-You can create custom configurations from different entry points, such as from the Apache Spark configurations page, from the Apache Spark configuration page of an existing spark pool.
+You can create custom configurations from different entry points, such as from the Apache Spark configuration page of an existing spark pool.
 
 ## Create custom configurations in Apache Spark configurations
 

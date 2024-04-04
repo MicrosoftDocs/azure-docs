@@ -2,7 +2,8 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.custom: devx-track-arm-template
+ms.date: 09/22/2023
 ---
 # ARM template best practices
 
@@ -10,7 +11,7 @@ This article shows you how to use recommended practices when constructing your A
 
 ## Template limits
 
-Limit the size of your template to 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
+Limit the size of your template to 4 MB, and each resource definition to 1 MB. The limits apply to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
 
 You're also limited to:
 
@@ -18,6 +19,7 @@ You're also limited to:
 * 256 variables
 * 800 resources (including [copy count](copy-resources.md))
 * 64 output values
+* 10 unique locations per subscription/tenant/management group scope
 * 24,576 characters in a template expression
 
 You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).

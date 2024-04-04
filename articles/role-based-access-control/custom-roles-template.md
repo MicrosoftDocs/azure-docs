@@ -6,13 +6,10 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 12/16/2020
-ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 12/01/2023
+ms.author: rolyon
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
-
 ---
 
 # Create or update Azure custom roles using an ARM template
@@ -25,13 +22,19 @@ To create a custom role, you specify a role name, permissions, and where the rol
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json":::
 
 ## Prerequisites
 
 To create a custom role, you must have:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+- Permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+You must use the following version:
+
+- `2018-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
 ## Review the template
 
@@ -173,7 +176,7 @@ Here are the changes you would need to make to the previous Quickstart template 
       "resources": [
         {
           "type": "Microsoft.Authorization/roleDefinitions",
-          "apiVersion": "2018-07-01",
+          "apiVersion": "2022-04-01",
           "name": "[parameters('roleDefName')]",
           "properties": {
             ...

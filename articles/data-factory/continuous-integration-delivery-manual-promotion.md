@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 08/10/2023 
+ms.custom:
 ---
 
 # Manually promote a Resource Manager template to each environment
@@ -27,15 +27,15 @@ Use the steps below to promote a Resource Manager template to each environment f
 
    :::image type="content" source="media/continuous-integration-delivery/custom-deployment-build-your-own-template.png" alt-text="Build your own template"::: 
 
-1. Select **Load file**, and then select the generated Resource Manager template. This is the **arm_template.json** file located in the .zip file exported in step 1.
+1. Select **Load file**, and then select the generated Resource Manager template. This is the **ARMTemplateForFactory.json** file located in the .zip file exported in step 1.
 
    :::image type="content" source="media/continuous-integration-delivery/custom-deployment-edit-template.png" alt-text="Edit template":::
 
-1. In the settings section, enter the configuration values, like linked service credentials, required for the deployment. When you're done, select **Review + create** to deploy the Resource Manager template.
+1. In the **Custom deployment** section, enter the target subscription, region, and other details required for the deployment. When you're done, select **Review + create** to deploy the Resource Manager template.
 
    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image5.png" alt-text="Settings section":::
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

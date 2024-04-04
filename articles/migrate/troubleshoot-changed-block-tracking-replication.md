@@ -1,20 +1,22 @@
 ---
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: troubleshooting
-ms.date: 06/30/2022
+ms.service: azure-migrate
+ms.date: 10/18/2023
+ms.custom: engagement-fy24
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration
 
-This article describes some common issues and specific errors you might encounter when you replicate on-premises VMware VMs using the Azure Migrate: Server Migration agentless method.
+This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
-When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine&#39;s disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
+When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
-You may occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
+You might occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
 
  - Show you how you can monitor replication status and resolve errors.
  - List some of the commonly occurring replication errors and suggest steps to remediate them.
@@ -23,16 +25,25 @@ You may occasionally see replication cycles failing for a VM. These failures can
 
 Use the following steps to monitor the replication status for your virtual machines:
 
-  1. Go to the Servers page in Azure Migrate on the Azure portal.
-  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
-  1. Navigate to the "Replicating machines" page by selecting **Replicating servers** in the Server Migration tile.
-  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
-  1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Error Details**. The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
-  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
-  1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
-  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
-  1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
- ![Image 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
+  
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+
+1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
+
+1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot. 
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
+
+1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/recent-events.png" alt-text="Screenshot of Recent Events option.":::
+
+1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/error-details.png" alt-text="Screenshot of error message in the Error details screen.":::
 
 ## Common Replication Errors
 
@@ -44,22 +55,24 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 **Error:** “Key Vault operation failed. Operation: Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+:::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/key-vault.png" alt-text="Screenshot of Key Vault.":::
 
-This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies 
+This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies. 
 
-When the portal creates the key vault, it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons
+When the portal creates the key vault, it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons:
 
-- The logged in user is a remote principal on the customer's Azure tenant (CSP subscription - and the logged in user is the partner admin). The work-around in this case is to delete the key vault, sign out from the portal, and then sign in with a user account from the customer's tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Azure Active Directory tenant that they can use. If not, they can create a new user account for themselves in the customers Azure Active Directory tenant, sign in to the portal as the new user, and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group)
+- The logged in user is a remote principal on the customer's Azure tenant (CSP subscription - and the logged in user is the partner admin). The work-around in this case is to delete the key vault, sign out from the portal, and then sign in with a user account from the customer's tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Microsoft Entra tenant that they can use. If not, they can create a new user account for themselves in the customers Microsoft Entra tenant, sign in to the portal as the new user, and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group).
 
-- The other case where this may happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
+- The other case where this might happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
 
-**Resolution**: To work around this issue, create a user access policy for user2 in the keyvault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
+**Resolution**: To work around this issue, create a user access policy for user2 in the key vault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
 
+```
 $userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, back up, restore, purge
 
+```
 
 ## DisposeArtefactsTimedOut
 
@@ -78,35 +91,42 @@ The component trying to replicate data to Azure is either down or not responding
 
 1. Ensure that the Azure Migrate appliance is up and running.
 2. Check if the gateway service is running on the appliance:
-   1.  Sign in to the Azure Migrate appliance using remote desktop and do the following.
+   1.  Sign in to the Azure Migrate appliance using remote desktop.
 
-   2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the "Microsoft Azure Gateway Service" is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
+   2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account: 
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
-    
+    ```
     _azcopy bench https://[account].blob.core.windows.net/[container]?SAS_
-    
+    ```
     **Steps to run the performance benchmark test:**
     
-      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
         
-      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migrategwsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
+      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
         
-      3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Leave Public Access Level to default selected value.
+      3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Ensure you provide *write* permission to the container. Retain Public Access Level to the default selected value.
         
-      4. Go to Shared Access Signature under Settings. Select Container in **Allowed Resource Type**.Select Generate SAS and connection string. Copy the SAS value.
+      4. Go to **Settings** > **Shared Access Signature** and select **Container** in **Allowed Resource Type**. 
+      
+      5. Select Generate SAS and connection string and copy the SAS token. If you're using PowerShell, ensure you enclose the URL with single quotation marks (**' '**). 
         
-      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps 2, 3, and 4 respectively.
+      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps b, c, and e respectively.
         
       Alternatively, [download](https://go.microsoft.com/fwlink/?linkid=2138967) the Azure Storage Explore on to the appliance and try to upload 10 blobs of ~64 MB into the storage accounts. If there's no issue, the upload should be successful.
         
-    **Resolution:** If this test fails, there&#39;s a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
+    **Resolution:** If this test fails, there's a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
     
 4.  Check for connectivity issues between Azure Migrate appliance and Service Bus:
 
-    This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform send message/receive message. If there's no issue, this should be successful.
+    > [!Note]
+    > This is applicable only for the projects that are set up with public endpoint.<br/> A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. <br/>
+    > For example, if the gateway.json contains:  <br/>
+    > *"AzureKeyVaultArmId": "/subscriptions/\<SubscriptionId\>/resourceGroups/\<ResourceGroupName\>/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*. 
+
+    This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
     **Steps to run the test:**
 
@@ -129,9 +149,9 @@ The component trying to replicate data to Azure is either down or not responding
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
     
     1. Open PowerShell in the Azure Migrate appliance and run the following command:
-    
+    ```
     _test-netconnection Key Vault URI -P 443_
-    
+    ```
     This command will attempt a TCP connection and will return an output.
     
      - In the output, check the field "_TcpTestSucceeded_". If the value is "_True_", there's no connectivity issue between the Azure Migrate Appliance and the Azure Key Vault. If the value is "False", there's a connectivity issue.
@@ -165,12 +185,13 @@ The possible causes include:
 3. **Check for connectivity issues between Azure Migrate appliance and cache Storage Account:** 
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
-    
+    ```
     _azcopy bench https://[account].blob.core.windows.net/[container]?SAS_
-    
+    ``` 
+
     **Steps to run the performance benchmark test:**
     
-      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
         
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
@@ -186,7 +207,7 @@ The possible causes include:
                 
 4.  **Connectivity issues between Azure Migrate appliance and Azure Service Bus:**
 
-    This test will check whether the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform send message/receive message. If there's no issue, this should be successful.
+    This test will check whether the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
     **Steps to run the test:**
     
@@ -215,9 +236,9 @@ The possible causes include:
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
     
     1. Open PowerShell in the Azure Migrate appliance and run the following command:
-    
+    ```
     _test-netconnection Key Vault URI -P 443_
-    
+    ```
     This command will attempt a TCP connection and will return an output.
     
     1. In the output, check the field "_TcpTestSucceeded_". If the value is "_True_", there's no connectivity issue between the Azure Migrate Appliance and the Azure Key Vault. If the value is "False", there's a connectivity issue.
@@ -228,20 +249,20 @@ The possible causes include:
 
 Error Message: 'Encountered an error while trying to fetch change blocks'
 
-The agentless replication method uses VMware's changed block tracking technology (CBT) to replicate data to Azure. CBT lets Server Migration tool track and replicate only the blocks that have changed since the last replication cycle. This error occurs if changed block tracking for a replicating virtual machine is reset or if the changed block tracking file is corrupt.
+The agentless replication method uses VMware's changed block tracking technology (CBT) to replicate data to Azure. CBT lets the Migration and modernization tool track and replicate only the blocks that have changed since the last replication cycle. This error occurs if changed block tracking for a replicating virtual machine is reset or if the changed block tracking file is corrupt.
 
 This error can be resolved in the following two ways:
 
-- If you had opted for "Automatically repair replication" by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right-click on the VM, and select **Repair Replication**.
-- If you didn't opt for "Automatically repair replication" or the above step didn't work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
+- If you had opted for **Automatically repair replication** by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right-click on the VM, and select **Repair Replication**.
+- If you didn't opt for **Automatically repair replication** or the above step didn't work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
 
-One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
+One such known issue that might cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
 ## An internal error occurred
 
-Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
+Sometimes you might hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
 
 _Error Message: An internal error occurred. [Error message]_
 
@@ -253,19 +274,19 @@ The following section lists some of the commonly seen VMware errors and how you 
 
 The issue is a known VMware issue and occurs in VDDK 6.7. You need to stop the gateway service running in the Azure Migrate appliance, [download an update from VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889), and restart the gateway service.
 
-Steps to stop gateway service:
+**Steps to stop gateway service:**
 
 1. Press Windows + R and open services.msc. Select **Microsoft Azure Gateway Service**, and stop it.
 2. Alternatively, you can open command prompt or PowerShell and enter 'Net Stop asrgwy'. Ensure you wait until you get the message that service is no longer running.
 
-Steps to start gateway service:
+**Steps to start gateway service:**
 
 1. Press Windows + R, open services.msc. Right-click on **Microsoft Azure Gateway Service**, and start it.
 2. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 ### Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
 
-If you have a virtual machine with multiple disks, you may encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
+If you have a virtual machine with multiple disks, you might encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
 
 ### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
@@ -305,6 +326,18 @@ This error occurs when there's a problem with the underlying datastore on which 
 ### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
 This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
+## Protection Readiness Error
+
+**Error Message:** Cannot replicate this virtual machine with current VMware configuration.
+
+**Possible Causes:**
+
+- Change tracking cannot be enabled for the VM as snapshots are already present for the VM.
+      
+**Recommendation:**
+
+- Delete the snapshots or enable change block tracking on the VM and retry.
+
 ## Replication cycle failed
 
 **Error ID:** 181008
@@ -327,7 +360,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 **Possible Causes:** 
 
-This may happen if:
+This might happen if:
 1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
 2. The Azure Migrate appliance is unable to connect to the vSphere host on port 902 (default port used by VMware vSphere Virtual Disk Development Kit), because TCP port 902 is being blocked on the vSphere host or by a network firewall.
 

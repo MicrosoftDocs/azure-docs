@@ -4,7 +4,6 @@ title: Azure IoT Hub Documentation
 metadata:
   title: Azure IoT Hub Documentation
   description: Learn how to use Azure IoT Hub to connect, monitor, and control billions of Internet of Things assets.
-  services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
   author: kgremban
@@ -38,18 +37,18 @@ landingContent:
      - text: Upload video, media, and large data files
        url: iot-hub-devguide-file-upload.md
 
- -   title: Process data with Azure services
-     linkLists:
-     -  linkListType: tutorial
-        links:
-        - text: Route telemetry
-          url: tutorial-routing.md
-        - text: Visualize data in Power BI
-          url: iot-hub-live-data-visualization-in-power-bi.md
-     -  linkListType: concept
-        links:
-        - text: Understand Azure IoT Hub message routing
-          url: iot-hub-devguide-messages-d2c.md
+ - title: Process data with Azure services
+   linkLists:
+   - linkListType: tutorial
+     links:
+     - text: Route telemetry
+       url: tutorial-routing.md
+     - text: Visualize data in Power BI
+       url: iot-hub-live-data-visualization-in-power-bi.md
+   - linkListType: concept
+     links:
+     - text: Understand Azure IoT Hub message routing
+       url: iot-hub-devguide-messages-d2c.md
 
  - title: Manage and monitor devices remotely
    linkLists:
@@ -72,12 +71,12 @@ landingContent:
    linkLists:
    - linkListType: tutorial
      links:
-     - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-introduction.md
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
    - linkListType: concept
      links:
-     - text: Secure your IoT deployment
-       url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
+     - text: Security best practices
+       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
      - text: Control access to IoT Hub
        url: iot-hub-devguide-security.md
 
@@ -87,8 +86,7 @@ landingContent:
      links:
      - text: Learn about Azure IoT SDKs
        url: iot-hub-devguide-sdks.md
-     - text: Use the Azure IoT Tools for VS Code
-       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+     - text: Use the Azure IoT Hub extension for VS Code
+       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
      - text: Supported device protocols
        url: iot-hub-devguide-protocols.md
-

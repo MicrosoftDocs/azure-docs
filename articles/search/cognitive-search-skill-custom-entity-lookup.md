@@ -1,14 +1,14 @@
 ---
-title: Custom Entity Lookup cognitive search skill
-titleSuffix: Azure Cognitive Search
-description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
-
-author: LiamCavanagh
-ms.author: liamca
+title: Custom Entity Lookup skill
+titleSuffix: Azure AI Search
+description: Extract different custom entities from text in an Azure AI Search enrichment pipeline.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
-ms.date: 05/19/2022
-
+ms.date: 09/07/2022
 ---
 
 # Custom Entity Lookup cognitive skill
@@ -16,7 +16,7 @@ ms.date: 05/19/2022
 The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
-> This skill isn't bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to an Azure AI services API but requires an Azure AI services key to allow more than 20 transactions. This skill is [metered by Azure AI Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 
@@ -24,7 +24,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## Data limits
 
-+ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
++ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 + The maximum size of the custom entity definition is 10 MB if it's provided as an external file, specified through the "entitiesDefinitionUri" parameter. 
 + If the entities are defined inline using the "inlineEntitiesDefinition" parameter, the maximum size is 10 KB.
 
@@ -36,7 +36,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `entitiesDefinitionUri` | Path to an external JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This file must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|`defaultLanguageCode` | (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
+|`defaultLanguageCode` | (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
 |`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
 |`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity isn't specified, this value will become the `defaultAccentSensitive` value for that entity. |
 |`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity isn't specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
@@ -404,7 +404,7 @@ This warning will be emitted if the number of matches detected is greater than t
 
 ## See also
 
-+ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/skill-examples/custom-entity-lookup-skill)
++ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/skill-examples/custom-entity-lookup-skill)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

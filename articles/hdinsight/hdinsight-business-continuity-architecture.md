@@ -1,10 +1,9 @@
 ---
 title: Azure HDInsight business continuity architectures
 description: This article discusses the different possible business continuity architectures for HDInsight
-keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ---
 
 # Azure HDInsight business continuity architectures
@@ -16,9 +15,9 @@ This article gives a few examples of business continuity architectures you might
 
 ## Apache Hive and Interactive Query
 
-[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
+[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Microsoft Entra Domain Services and Ranger Metastore.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive and interactive query architecture":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive and interactive query architecture.":::
 
 Hive event-based replication is configured between the primary and secondary clusters. This consists of two distinct phases, bootstrapping and incremental runs:
 
@@ -42,13 +41,13 @@ The secondary cluster is usually read-only. You can make the secondary cluster r
 
 In an *active primary with on-demand secondary* architecture, applications write to the active primary region while no cluster is provisioned in the secondary region during normal operations. SQL Metastore and Storage in the secondary region are persistent, while the HDInsight cluster is scripted and deployed on-demand only before the scheduled Hive replication runs.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="active primary with on-demand secondary":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="active primary with on-demand secondary.":::
 
 #### Hive active primary with standby secondary
 
 In an *active primary with standby secondary*, applications write to the active primary region while a standby scaled down secondary cluster in read-only mode runs during normal operations. During normal operations, you could choose to offload region specific read operations to secondary.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="active primary with standby secondary":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="active primary with standby secondary.":::
 
 For more information on Hive replication and code samples refer [Apache Hive replication in Azure HDInsight clusters](./interactive-query/apache-hive-replication.md)
 
@@ -77,13 +76,13 @@ If there are customer-specific libraries which are beyond what HDInsight provide
 
 Applications read and write to Spark and Hive Clusters in the primary region while no clusters are provisioned in the secondary region during normal operations. SQL Metastore, Hive Storage, and Spark Storage are persistent in the secondary region. The Spark and Hive clusters are scripted and deployed on-demand. Hive replication is used to replicate Hive Storage and Hive metastores while Azure Data Factory's `DistCP` can be used to copy standalone Spark storage. Hive clusters need to deploy before every Hive replication run because of the dependency `DistCp` compute.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="active primary with on-demand secondary Apache Spark architecture":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="active primary with on-demand secondary Apache Spark architecture.":::
 
 #### Spark active primary with standby secondary
 
 Applications read and write to Spark and Hive clusters in the primary region while standby scaled-down Hive and Spark clusters in read-only mode run in secondary region during normal operations. During normal operations, you could choose to offload region specific Hive and Spark read operations to secondary.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="active primary standby secondary Apache Spark ":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="active primary standby secondary Apache Spark .":::
 
 ## Apache HBase
 
@@ -123,19 +122,19 @@ In this cross-region set up, replication is unidirectional from the primary regi
 
 The secondary cluster operates as a normal HBase cluster that can host its own tables and can serve reads and writes from regional applications. However, writes on the replicated tables or tables native to secondary are not replicated back to the primary.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase leader follower model":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase leader follower model.":::
 
 #### HBase Replication:  Leader – Leader model
 
 This cross-region set up is very similar to the unidirectional set up except that replication happens bidirectionally between the primary region and the secondary region. Applications can use both clusters in read–write modes and updates are exchanges asynchronously between them.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase leader leader model":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase leader leader model.":::
 
 #### HBase Replication: Multi-Region or Cyclic
 
 The Multi-Region/Cyclic replication model is an extension of HBase Replication and could be used to create a globally redundant HBase architecture with multiple applications which read and write to region specific HBase clusters. The clusters can be set up in various combinations of Leader/Leader or Leader/Follower depending on business requirements.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="HBase cyclic model":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="HBase cyclic model.":::
 
 ## Apache Kafka
 
@@ -143,7 +142,7 @@ To enable cross region availability HDInsight 4.0 supports Kafka MirrorMaker whi
 
 Depending on the topic lifetime when replication started, MirrorMaker topic replication can lead to different offsets between source and replica topics. HDInsight Kafka clusters also support topic partition replication which is a high availability feature at the individual cluster level.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka replication":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka replication.":::
 
 ### Apache Kafka architectures
 
@@ -164,7 +163,7 @@ Disadvantages:
 * Eventual consistency between topics between Active and Passive clusters.
 * Failbacks to Primary may lead to message inconsistency in topics.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka active passive model":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka active passive model.":::
 
 #### Kafka Replication: Active – Active
 
@@ -180,11 +179,11 @@ Disadvantages:
 * The problem of circular replication needs to addressed.  
 * Bidirectional replication leads to higher regional data egress costs.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka active active model":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka active active model.":::
 
 ## HDInsight Enterprise Security Package
 
-This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
+This set up is used to enable multi-user functionality in both primary and secondary, as well as [Microsoft Entra Domain Services replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
 
 Ranger Metastore replication:
 
@@ -194,7 +193,7 @@ If the requirement is to keep Ranger policies in sync between primary and second
 
 Replicating Ranger policies between primary and secondary can cause the secondary to become write-enabled, which can lead to inadvertent writes on the secondary leading to data inconsistencies.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HDInsight Enterprise Security Package architecture":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HDInsight Enterprise Security Package architecture.":::
 
 ## Next steps
 

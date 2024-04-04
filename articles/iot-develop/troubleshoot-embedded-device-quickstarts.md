@@ -5,8 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: troubleshooting
-ms.date: 06/10/2021
-ms.custom: contperf-fy22q4
+ms.date: 1/23/2024
 ---
 
 # Troubleshooting the Azure RTOS embedded device quickstarts

@@ -2,10 +2,9 @@
 title: Azure Automation FAQ
 description: This article gives answers to frequently asked questions about Azure Automation.
 services: automation
-ms.subservice: 
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-python, linux-related-content
+ms.date: 10/03/2023
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 

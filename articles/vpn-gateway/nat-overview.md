@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn about NAT (Network Address Translation) in Azure VPN to connect networks with overlapping address spaces.
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 05/11/2022
+ms.topic: conceptual
+ms.date: 05/02/2023
 ms.author: cherylmc
-
+ms.custom: template-concept
 ---
 # About NAT on Azure VPN Gateway
 
@@ -40,6 +40,7 @@ Another consideration is the address pool size for translation. If the target ad
 > [!IMPORTANT]
 > * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 > * NAT is supported on IPsec cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
+> * Every Dynamic NAT rule can be assigned to a single connection.
 
 ## <a name="mode"></a>NAT mode: ingress & egress
 
@@ -51,9 +52,9 @@ Each NAT rule defines an address mapping or translating relationship for the cor
 
 For each NAT rule, the following two fields specify the address spaces before and after the translation:
 
-* **Internal Mappings**: This is the address space **before** the translation. For an ingress rule, this field corresponds to the original address space of the on-premises network. For an egress rule, this is the original VNet address space.
+* **Internal Mappings**: The address space **before** the translation. For an ingress rule, this field corresponds to the original address space of the on-premises network. For an egress rule, this is the original VNet address space.
 
-* **External Mappings**: This is the address space **after** the translation for on-premises networks (ingress) or VNet (egress). For different networks connected to an Azure VPN gateway, the address spaces for all **External Mappings** must not overlap with each other and with the networks connected without NAT.
+* **External Mappings**: The address space **after** the translation for on-premises networks (ingress) or VNet (egress). For different networks connected to an Azure VPN gateway, the address spaces for all **External Mappings** must not overlap with each other and with the networks connected without NAT.
 
 ## <a name="routing"></a>NAT and routing
 
@@ -75,7 +76,7 @@ Once a NAT rule is defined for a connection, the effective address space for the
 
 The following diagram shows an example of Azure VPN NAT configurations:
 
-:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="NAT diagram." lightbox="./media/nat-overview/vpn-nat.png" border="false":::
+:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Diagram showing NAT configuration and rules." lightbox="./media/nat-overview/vpn-nat.png":::
 
 The diagram shows an Azure VNet and two on-premises networks, all with address space of 10.0.1.0/24. To connect these two networks to the Azure VNet and VPN gateway, create the following rules:
 
@@ -88,12 +89,12 @@ The diagram shows an Azure VNet and two on-premises networks, all with address s
 In the diagram, each connection resource has the following rules:
 
 * Connection 1 (VNet-Branch1):
-    * IngressSNAT rule 1
-    * EgressSNAT rule 1
+  * IngressSNAT rule 1
+  * EgressSNAT rule 1
 
 * Connection 2 (VNet-Branch2)
-    * IngressSNAT rule 2
-    * EgressSNAT rule 1
+  * IngressSNAT rule 2
+  * EgressSNAT rule 1
 
 Based on the rules associated with the connections, here are the address spaces for each network:
 
@@ -103,7 +104,7 @@ Based on the rules associated with the connections, here are the address spaces 
 | Branch 1 | 10.0.1.0/24 | 100.0.2.0/24 |
 | Branch 2 | 10.0.1.0/24 | 100.0.3.0/24 |
 
-The diagram below shows an IP packet from Branch 1 to VNet, before and after the NAT translation:
+The following diagram shows an IP packet from Branch 1 to VNet, before and after the NAT translation:
 
 :::image type="content" source="./media/nat-overview/nat-packet.png" alt-text="Diagram showing before and after NAT translation." lightbox="./media/nat-overview/nat-packet.png" border="false":::
 
@@ -116,9 +117,9 @@ The diagram below shows an IP packet from Branch 1 to VNet, before and after the
 
 ## <a name="config"></a>NAT configuration
 
-To implement the NAT configuration as shown above, first create the NAT rules in your Azure VPN gateway, then create the connections with the corresponding NAT rules associated. See [Configure NAT on Azure VPN gateways](nat-howto.md) for steps to configure NAT for your cross-premises connections.
+To implement the NAT configuration shown in the previous section, first create the NAT rules in your Azure VPN gateway, then create the connections with the corresponding NAT rules associated. See [Configure NAT on Azure VPN gateways](nat-howto.md) for steps to configure NAT for your cross-premises connections.
 
-## NAT limitations
+## NAT limitations and considerations
 
 [!INCLUDE [NAT limitations](../../includes/vpn-gateway-nat-limitations.md)]
 

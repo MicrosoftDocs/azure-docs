@@ -4,10 +4,12 @@ description: Handle non-Unicode characters in Azure Logic Apps by converting tex
 ms.service: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Support non-Unicode character encoding in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you work with text payloads, Azure Logic Apps infers the text is encoded in a Unicode format, such as UTF-8. You might have problems receiving, sending, or processing characters with different encodings in your workflow. For example, you might get corrupted characters in flat files when working with legacy systems that don't support Unicode.
 

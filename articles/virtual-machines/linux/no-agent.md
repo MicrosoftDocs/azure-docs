@@ -1,42 +1,42 @@
 ---
-title: Create Linux images without a provisioning agent 
+title: Create Linux images without a provisioning agent
 description: Create generalized Linux images without a provisioning agent in Azure.
 author: danielsollondon
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure
-ms.date: 09/01/2020
+ms.custom: devx-track-azurecli, linux-related-content
+ms.date: 04/11/2023
 ms.author: danis
-ms.reviewer: cynthn
+ms.reviewer: mattmcinnes
 ---
 
 
 # Creating generalized images without a provisioning agent
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
-- Your Linux distro/version does not support cloud-init/Linux Agent.
+- Your Linux distro/version doesn't support cloud-init/Linux Agent.
 - You require specific VM properties to be set, such as hostname.
 
-> [!NOTE] 
+> [!NOTE]
 >
 > If you do not require any properties to be set or any form of provisioning to happen you should consider creating a specialized image.
 
-This article shows how you can setup your VM image to satisfy the Azure platform requirements and set the hostname, without installing a provisioning agent.
+This article shows how you can set up your VM image to satisfy the Azure platform requirements and set the hostname, without installing a provisioning agent.
 
 ## Networking and reporting ready
 
-In order to have your Linux VM communicating with Azure components, you will require a DHCP client to retrieve a host IP from the virtual network, as well as DNS resolution and route management. Most distros ship with these utilities out-of-the-box. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
+In order to have your Linux VM communicate with Azure components, a DHCP client is required. The client is used to retrieve a host IP, DNS resolution, and route management from the virtual network. Most distros ship with these utilities out-of-the-box. Tools that are tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
 
 > [!NOTE]
 >
 > Currently creating generalized images without a provisioning agent only supports DHCP-enabled VMs.
 
-After networking has been setup and configured, you must "report ready". This will tell Azure that the VM has been successfully provisioning.
+After networking has been set up and configured, select "report ready". This tells Azure that the VM has been successfully provisioned.
 
 > [!IMPORTANT]
 >
@@ -44,7 +44,7 @@ After networking has been setup and configured, you must "report ready". This wi
 
 ## Demo/sample
 
-This demo will show how you can take an existing Marketplace image (in this case, a Debian Buster VM) and remove the Linux Agent (walinuxagent), but also creating the most basic process to report to Azure that the VM is "ready".
+An existing Marketplace image (in this case, a Debian Buster VM) with the Linux Agent (walinuxagent) removed and a custom python script added is the easiest way to tell Azure that the VM is "ready".
 
 ### Create the resource group and base VM:
 
@@ -66,7 +66,7 @@ $ az vm create \
 
 ### Remove the image provisioning Agent
 
-Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
+Once the VM is provisioning, you can connect to it via SSH and remove the Linux Agent:
 
 ```bash
 $ sudo apt purge -y waagent
@@ -75,7 +75,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 ### Add required code to the VM
 
-Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready. 
+Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready.
 
 #### Python script
 
@@ -278,7 +278,7 @@ With the unit on the filesystem, run the following to enable it:
 $ sudo systemctl enable azure-provisioning.service
 ```
 
-Now the VM is ready to be generalized and have an image created from it. 
+Now the VM is ready to be generalized and have an image created from it.
 
 #### Completing the preparation of the image
 
@@ -299,7 +299,7 @@ $ az image create \
     --name demo1img
 ```
 
-Now we are ready to create a new VM (or multiple VMs) from the image:
+Now we're ready to create a new VM from the image. This can also be used to create multiple VMs:
 
 ```azurecli
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
@@ -309,7 +309,7 @@ $ az vm create \
     --location eastus \
     --ssh-key-value <ssh_pub_key_path> \
     --public-ip-address-dns-name demo12 \
-    --image "$IMAGE_ID" 
+    --image "$IMAGE_ID"
     --enable-agent false
 ```
 
@@ -317,7 +317,7 @@ $ az vm create \
 >
 > It is important to set `--enable-agent` to `false` because walinuxagent doesn't exist on this VM that is going to be created from the image.
 
-This VM should provisioning successfully. Logging into the newly-provisioning VM, you should be able to see the output of the report ready systemd service:
+The VM should be provisioned successfully. After Logging into the newly provisioning VM, you should be able to see the output of the report ready systemd service:
 
 ```bash
 $ sudo journalctl -u azure-provisioning.service
@@ -339,7 +339,7 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 ## Support
 
-If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
+If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We're continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
 
 ## Next steps
 

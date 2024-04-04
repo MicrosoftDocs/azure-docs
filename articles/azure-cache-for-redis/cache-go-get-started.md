@@ -7,8 +7,7 @@ ms.service: cache
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: mode-api
-
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go

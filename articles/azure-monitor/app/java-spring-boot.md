@@ -2,51 +2,51 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 03/12/2024
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Configure Azure Monitor Application Insights for Spring Boot
+# Using Azure Monitor Application Insights with Spring Boot
 
-You can enable the Azure Monitor Application Insights agent for Java by adding an argument to the JVM. When you can't do this, you can use a programmatic configuration. We detail these two configurations below. 
+> [!NOTE]
+> With _Spring Boot native image applications_, you can use [this project](https://aka.ms/AzMonSpringNative).
 
-## Addition of a JVM argument 
+There are two options for enabling Application Insights Java with Spring Boot: Java Virtual Machine (JVM) argument and programmatically.
 
-### Usual case
+## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.1.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.3.1.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.5.1.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+See the [documentation related to containers](./java-get-started-supplemental.md).
 
-```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.3.1.jar", "-jar", "<myapp.jar>"]
-```
+### Configuration
 
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` somewhere before `-jar`, for example:
+See [configuration options](./java-standalone-config.md).
 
-```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.3.1.jar" -jar <myapp.jar>
-```
+## Enabling programmatically
 
-## Programmatic configuration
+To enable Application Insights Java programmatically, you must add the following dependency:
 
-To use the programmatic configuration and attach the Application Insights agent for Java during the application startup, you must add the following dependency.
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.3.1</version>
+    <version>3.5.1</version>
 </dependency>
 ```
 
-And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
+And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class that's in the beginning line of your `main()` method.
+
+> [!WARNING]
+>
+> The invocation must be at the beginning of the `main` method.
 
 > [!WARNING]
 > 
@@ -54,11 +54,7 @@ And invoke the `attach()` method of the `com.microsoft.applicationinsights.attac
 
 > [!WARNING]
 >
-> Read-only file system is not supported.
-
-> [!WARNING]
-> 
-> The invocation must be requested at the beginning of the `main` method.
+> The temporary directory of the operating system should be writable.
 
 Example:
 
@@ -73,10 +69,77 @@ public class SpringBootApp {
 }
 ```
 
-If you want to use a JSON configuration: 
-* The `applicationinsights.json` file has to be in the classpath
-* Or you can use an environmental variable or a system property, more in the _Configuration file path_ part on [this page](../app/java-standalone-config.md). Spring properties defined in a Spring _.properties_ file are not supported.
+### Configuration
 
+Programmatic enablement supports all the same [configuration options](./java-standalone-config.md)
+as the JVM argument enablement, with the differences that are described in the next sections.
 
-> [!TIP]
-> With a programmatic configuration, the `applicationinsights.log` file containing the agent logs is located in the directory from where the JVM is launched (user directory). This default behavior can be changed (see the _Self-diagnostics_ part of [this page](../app/java-standalone-config.md)).
+#### Configuration file location
+
+By default, when enabling Application Insights Java programmatically, the configuration file `applicationinsights.json`
+is read from the classpath (`src/main/resources`, `src/test/resources`).
+
+From 3.4.3, you can configure the name of a JSON file in the classpath with the `applicationinsights.runtime-attach.configuration.classpath.file` system property.
+For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights uses the `applicationinsights-dev.json` file for configuration. To programmatically configure another file in the classpath:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.runtime-attach.configuration.classpath.file", "applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+
+> [!NOTE]
+> Spring's `application.properties` or `application.yaml` files are not supported as
+> as sources for Application Insights Java configuration.
+
+See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
+to change the location for a file outside the classpath.
+
+To programmatically configure a file outside the classpath:
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+
+#### Programmatically configure the connection string
+
+First, add the `applicationinsights-core` dependency:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-core</artifactId>
+    <version>3.5.1</version>
+</dependency>
+```
+
+Then, call the `ConnectionString.configure` method after `ApplicationInsights.attach()`:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+Alternatively, call the  `ConnectionString.configure` method from a Spring component.
+
+Enable connection string configured at runtime:
+
+```json
+{
+  "connectionStringConfiguredAtRuntime": true
+}
+```
+
+#### Self-diagnostic log file location
+
+By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing
+the agent logs are located in the directory from where the JVM is launched (user directory).
+
+To learn how to change this location, see your [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics).

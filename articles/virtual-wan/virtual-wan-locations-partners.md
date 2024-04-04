@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
@@ -48,7 +48,7 @@ The following partners are slated on our roadmap based on a terms sheet signed b
 
 ## <a name="locations"></a>Available regions
 
-[!INCLUDE [Virtual WAN regions file](../../includes/virtual-wan-regions-include.md)]
+To view the available regions for Virtual WAN, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-wan). Specify **Virtual WAN** as the product name.
 
 ## Next steps
 

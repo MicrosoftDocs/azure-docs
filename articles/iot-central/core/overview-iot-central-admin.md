@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central application administration guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
+description: How to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 06/08/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,12 +14,12 @@ ms.custom: [mvc, iot-central-frontdoor]
 
 # IoT Central application administration guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage IoT Central applications.
+An IoT Central application lets you monitor and manage your devices, letting you quickly evaluate your IoT scenario. This guide is for administrators who manage IoT Central applications.
 
 IoT Central application administration includes the following tasks:
 
-- Create applications
-- Manage security
+- Create applications.
+- Manage security.
 - Configure application settings.
 - Upgrade applications.
 - Export and share applications.
@@ -33,10 +33,10 @@ You use an *application template* to create an application. An application templ
 - Sample dashboards
 - Sample device templates
 - Simulated devices producing real-time data
-- Pre-configured rules and jobs
+- Preconfigured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-You choose the application template when you create your application. You can't change the template an application uses after it's created.
+You choose the application template when you create your application. You can't change the template an application uses after you create it.
 
 ### Custom templates
 
@@ -60,6 +60,7 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Use audit logs to track activity in your IoT Central application.
 
 To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 
@@ -80,18 +81,18 @@ An administrator can configure file uploads of an IoT Central application that l
 
 An administrator can:
 
-- Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
+- Create a copy of an application if you just need a duplicate copy of your application. For example, you might need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
 
-## Integrate with DevOps pipelines
+## Integrate with Azure Pipelines
 
-Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. You can use Azure DevOps pipelines to automate the build, test, and deployment of IoT Central application configurations.
+Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. You can use Azure Pipelines to automate the build, test, and deployment of IoT Central application configurations.
 
 Just as IoT Central is a part of your larger IoT solution, make IoT Central a part of your CI/CD pipeline.
 
-To learn more, see [Integrate IoT Central into your Azure DevOps CI/CD pipeline](howto-integrate-with-devops.md).
+To learn more, see [Integrate IoT Central into your Azure CI/CD pipeline](howto-integrate-with-devops.md).
 
 ## Monitor application health
 
@@ -115,3 +116,4 @@ Many of the tools you use as an administrator are available in the **Security** 
 ## Next steps
 
 Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Security in Azure IoT Central](overview-iot-central-security.md).
+

@@ -1,9 +1,9 @@
 ---
-title: Use the REST API to add upload storage account configuration in Azure IoT Central
-description: How to use the IoT Central REST API to add upload storage account configuration in an application
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 05/12/2022
+title: Configure uploads with the REST API in Azure IoT Central
+description: How to use the IoT Central REST API to add an upload storage account configuration in an application
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -40,6 +40,8 @@ To test the file upload, install the following prerequisites in your local devel
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 ## Add a file upload storage account configuration
+
+To add a file upload storage account configuration:
 
 ### Create a storage account
 
@@ -137,7 +139,7 @@ The response to this request looks like the following example:
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The request body has the following fields:
@@ -157,7 +159,7 @@ The request body has the following fields:
 }
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -176,7 +178,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -194,18 +196,15 @@ The response to this request looks like the following example:
 
 ## Update the file upload storage account configuration
 
-Use the following request to update a file upload blob storage account configuration in your IoT Central application:
+Use the following request to update a file upload blob storage account connection string in your IoT Central application:
 
 ```http
-PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ```json
 {
-  "account": "yourAccountName",
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName2",
-  "sasTtl": "PT1H"
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/"
 }
 ```
 
@@ -216,10 +215,10 @@ The response to this request looks like the following example:
 {
   "account": "yourAccountName",
   "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName2",
+  "container": "yourContainerName",
   "sasTtl": "PT1H",
-    "state": "succeeded",
-    "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+  "state": "succeeded",
+  "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
 }
 ```
 
@@ -228,14 +227,14 @@ The response to this request looks like the following example:
 Use the following request to delete a  storage account configuration:
 
 ```http
-DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ## Test file upload
 
 After you [configure file uploads](#add-a-file-upload-storage-account-configuration) in your IoT Central application, you can test it with the sample code. If you haven't already cloned the file upload sample repository, use the following commands to clone it to a suitable location on your local machine and install the dependent packages:
 
-```
+```cmd/sh
 git clone https://github.com/azure-Samples/iot-central-file-upload-device
 cd iotc-file-upload-device
 npm i
@@ -244,7 +243,7 @@ npm build
 
 ### Create the device template and import the model
 
-To test the file upload you run a sample device application. Create a device template for the sample device to use.
+To test the file upload, you run a sample device application. Create a device template for the sample device to use.
 
 1. Open your application in IoT Central UI.
 
@@ -256,7 +255,7 @@ To test the file upload you run a sample device application. Create a device tem
 
 1. On the **Review** page, select **Create**.
 
-1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* model file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
 
 1. Select **Publish** to publish the device template.
 
@@ -266,29 +265,28 @@ To add a device to your Azure IoT Central application:
 
 1. Choose **Devices** on the left pane.
 
-1. Select the *File Upload Device Sample* device template which you created earlier.
+1. Select the *File Upload Device Sample* device template that you created earlier.
 
 1. Select + **New** and select **Create**.
 
-1. Select the device which you created and Select **Connect**
+1. Select the device that you created and Select **Connect**
 
-Copy the values for `ID scope`, `Device ID`, and `Primary key`. You'll use these values in the device sample code.
+Copy the values for `ID scope`, `Device ID`, and `Primary key`. You use these values in the device sample code.
 
 ### Run the sample code
 
-Open the git repository you downloaded in VS code. Create an ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with the values you made a note of previously.
+Open the git repository you downloaded in VS Code. Create an ".env" file at the root of your project and add the values you copied previously. The file should look like the following sample with the values you made a note of previously.
 
-```
+```cmd/sh
 scopeId=<YOUR_SCOPE_ID>
 deviceId=<YOUR_DEVICE_ID>
 deviceKey=<YOUR_PRIMARY_KEY>
 modelId=dtmi:IoTCentral:IotCentralFileUploadDevice;1
 ```
 
-Open the git repository you downloaded in VS code. Press F5 to run/debug the sample. In your terminal window you see that the device is registered and is connected to IoT Central:
+Open the git repository you downloaded in VS Code. Press F5 to run/debug the sample. In your terminal window you see that the device is registered and is connected to IoT Central:
 
-```
-
+```cmd/sh
 Starting IoT Central device...
  > Machine: Windows_NT, 8 core, freemem=6674mb, totalmem=16157mb
 Starting device registration...
@@ -307,9 +305,9 @@ Sending telemetry: {
 
 ```
 
-The sample project comes with a sample file named *datafile.json*. This is the file that's uploaded when you use the **Upload File** command in your IoT Central application.
+The sample project comes with a sample file named *datafile.json*. This file is uploaded when you use the **Upload File** command in your IoT Central application.
 
-To test this open your application and select the device you created. Select the **Command** tab and you see a button named **Run**. When you select that button the IoT Central app calls a direct method on your device to upload the file. You can see this direct method in the sample code in the /device.ts file. The method is named *uploadFileCommand*.
+To test the upload, open your application and select the device you created. Select the **Command** tab and you see a button named **Run**. When you select that button the IoT Central app calls a direct method on your device to upload the file. You can see this direct method in the sample code in the /device.ts file. The method is named *uploadFileCommand*.
 
 Select the **Raw data** tab to verify the file upload status.
 

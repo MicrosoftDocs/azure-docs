@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 06/06/2023
 ---
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
@@ -31,7 +31,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+Verify the version of `cmake` is greater than **2.8.12** and the version of **GCC** is greater than **4.4.7**.
 
 ```sh
 cmake --version
@@ -52,7 +52,7 @@ In this tutorial, you prepare a development environment you can use to clone and
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
-```cmd\bash
+```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c.git
 cd azure-iot-sdk-c
 git submodule update --init
@@ -63,6 +63,8 @@ Expect this operation to take several minutes to complete.
 ## Review the code
 
 In the copy of the Microsoft Azure IoT SDK for C you downloaded previously, open the *azure-iot-sdk-c/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller.c* and *azure-iot-sdk-c/iothub_client/samples/pnp/pnp_temperature_controller/pnp_thermostat_component.c* files in a text editor.
+
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
@@ -85,188 +87,232 @@ The `main` function then starts a thread to send telemetry periodically.
 ```c
 int main(void)
 {
-  IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClient = NULL;
+    IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClient = NULL;
 
-  if ((deviceClient = CreateDeviceClientAndAllocateComponents()) == NULL)
-  {
-    LogError("Failure creating IotHub device client");
-  }
-  else
-  {
-    LogInfo("Successfully created device client.  Hit Control-C to exit program\n");
+    g_pnpDeviceConfiguration.modelId = g_temperatureControllerModelId;
+    g_pnpDeviceConfiguration.enableTracing = g_hubClientTraceEnabled;
 
-    int numberOfIterations = 0;
-
-    // During startup, send the non-"writable" properties.
-    PnP_TempControlComponent_ReportSerialNumber_Property(deviceClient);
-    PnP_DeviceInfoComponent_Report_All_Properties(g_deviceInfoComponentName, deviceClient);
-    PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle1, deviceClient);
-    PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle2, deviceClient);
-
-    while (true)
+    // First determine the IoT Hub / credentials / device to use.
+    if (GetConnectionSettingsFromEnvironment(&g_pnpDeviceConfiguration) == false)
     {
-      // Wake up periodically to poll.  Even if we do not plan on sending telemetry, we still need to poll periodically in order to process
-      // incoming requests from the server and to do connection keep alives.
-      if ((numberOfIterations % g_sendTelemetryPollInterval) == 0)
-      {
-          PnP_TempControlComponent_SendWorkingSet(deviceClient);
-          PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle1, deviceClient);
-          PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle2, deviceClient);
-      }
+        LogError("Cannot read required environment variable(s)");
+    }
+    // Creates the thermostat subcomponents defined by this model.  Since everything
+    // is simulated, this setup stage just creates simulated objects in memory.
+    else if (AllocateThermostatComponents() == false)
+    {
+        LogError("Failure allocating thermostat components");
+    }
+    // Create a handle to device client handle.  Note that this call may block
+    // for extended periods of time when using DPS.
+    else if ((deviceClient = CreateAndConfigureDeviceClientHandleForPnP()) == NULL)
+    {
+        LogError("Failure creating Iot Hub device client");
+        PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
+        PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
+    }
+    else
+    {
+        LogInfo("Successfully created device client.  Hit Control-C to exit program\n");
 
-      IoTHubDeviceClient_LL_DoWork(deviceClient);
-      ThreadAPI_Sleep(g_sleepBetweenPollsMs);
-      numberOfIterations++;
+        int numberOfIterations = 0;
+
+        // During startup, send what DTDLv2 calls "read-only properties" to indicate initial device state.
+        PnP_TempControlComponent_ReportSerialNumber_Property(deviceClient);
+        PnP_DeviceInfoComponent_Report_All_Properties(g_deviceInfoComponentName, deviceClient);
+        PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle1, deviceClient);
+        PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle2, deviceClient);
+
+        while (true)
+        {
+            // Wake up periodically to poll.  Even if we do not plan on sending telemetry, we still need to poll periodically in order to process
+            // incoming requests from the server and to do connection keep alives.
+            if ((numberOfIterations % g_sendTelemetryPollInterval) == 0)
+            {
+                PnP_TempControlComponent_SendWorkingSet(deviceClient);
+                PnP_ThermostatComponent_SendCurrentTemperature(g_thermostatHandle1, deviceClient);
+                PnP_ThermostatComponent_SendCurrentTemperature(g_thermostatHandle2, deviceClient);
+            }
+
+            IoTHubDeviceClient_LL_DoWork(deviceClient);
+            ThreadAPI_Sleep(g_sleepBetweenPollsMs);
+            numberOfIterations++;
+        }
+
+        // The remainder of the code is used for cleaning up our allocated resources. It won't be executed in this 
+        // sample (because the loop above is infinite and is only broken out of by Control-C of the program), but 
+        // it is included for reference.
+
+        // Free the memory allocated to track simulated thermostat.
+        PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
+        PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
+
+        // Clean up the IoT Hub SDK handle.
+        IoTHubDeviceClient_LL_Destroy(deviceClient);
+        // Free all IoT Hub subsystem.
+        IoTHub_Deinit();
     }
 
-    // Free the memory allocated to track simulated thermostat.
-    PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
-    PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
-
-    // Clean up the iothub sdk handle
-    IoTHubDeviceClient_LL_Destroy(deviceClient);
-    // Free all the sdk subsystem
-    IoTHub_Deinit();
-  }
-
-  return 0;
+    return 0;
 }
 ```
 
-In `pnp_thermostat_component.c`, the `PnP_ThermostatComponent_SendTelemetry` function shows how the device sends the temperature telemetry from a component to IoT Central:
+In `pnp_thermostat_component.c`, the `PnP_ThermostatComponent_SendCurrentTemperature` function shows how the device sends the temperature telemetry from a component to IoT Central:
 
 ```c
-void PnP_ThermostatComponent_SendTelemetry(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientLL)
+void PnP_ThermostatComponent_SendCurrentTemperature(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClient)
 {
-  PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
-  IOTHUB_MESSAGE_HANDLE messageHandle = NULL;
-  IOTHUB_CLIENT_RESULT iothubResult;
+    PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
+    IOTHUB_MESSAGE_HANDLE messageHandle = NULL;
+    IOTHUB_MESSAGE_RESULT messageResult;
+    IOTHUB_CLIENT_RESULT iothubClientResult;
 
-  char temperatureStringBuffer[32];
+    char temperatureStringBuffer[CURRENT_TEMPERATURE_BUFFER_SIZE];
 
-  if (snprintf(temperatureStringBuffer, sizeof(temperatureStringBuffer), g_temperatureTelemetryBodyFormat, pnpThermostatComponent->currentTemperature) < 0)
-  {
-    LogError("snprintf of current temperature telemetry failed");
-  }
-  else if ((messageHandle = PnP_CreateTelemetryMessageHandle(pnpThermostatComponent->componentName, temperatureStringBuffer)) == NULL)
-  {
-    LogError("Unable to create telemetry message");
-  }
-  else if ((iothubResult = IoTHubDeviceClient_LL_SendEventAsync(deviceClientLL, messageHandle, NULL, NULL)) != IOTHUB_CLIENT_OK)
-  {
-    LogError("Unable to send telemetry message, error=%d", iothubResult);
-  }
+    // Create the telemetry message body to send.
+    if (snprintf(temperatureStringBuffer, sizeof(temperatureStringBuffer), g_temperatureTelemetryBodyFormat, pnpThermostatComponent->currentTemperature) < 0)
+    {
+        LogError("snprintf of current temperature telemetry failed");
+    }
+    // Create the message handle and specify its metadata.
+    else if ((messageHandle = IoTHubMessage_CreateFromString(temperatureStringBuffer)) == NULL)
+    {
+        LogError("IoTHubMessage_PnP_CreateFromString failed");
+    }
+    else if ((messageResult = IoTHubMessage_SetContentTypeSystemProperty(messageHandle, g_jsonContentType)) != IOTHUB_MESSAGE_OK)
+    {
+        LogError("IoTHubMessage_SetContentTypeSystemProperty failed, error=%d", messageResult);
+    }
+    else if ((messageResult = IoTHubMessage_SetContentEncodingSystemProperty(messageHandle, g_utf8EncodingType)) != IOTHUB_MESSAGE_OK)
+    {
+        LogError("IoTHubMessage_SetContentEncodingSystemProperty failed, error=%d", messageResult);
+    }
+    else if ((messageResult = IoTHubMessage_SetComponentName(messageHandle, pnpThermostatComponent->componentName)) != IOTHUB_MESSAGE_OK)
+    {
+        LogError("IoTHubMessage_SetContentEncodingSystemProperty failed, error=%d", messageResult);
+    }
+    // Send the telemetry message.
+    else if ((iothubClientResult = IoTHubDeviceClient_LL_SendTelemetryAsync(deviceClient, messageHandle, NULL, NULL)) != IOTHUB_CLIENT_OK)
+    {
+        LogError("Unable to send telemetry message, error=%d", iothubClientResult);
+    }
 
-  IoTHubMessage_Destroy(messageHandle);
+    IoTHubMessage_Destroy(messageHandle);
 }
 ```
 
 In `pnp_thermostat_component.c`, the `PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property` function sends a `maxTempSinceLastReboot` property update from the component to IoT Central:
 
 ```c
-void PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientLL)
+void PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClient)
 {
-  PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
-  char maximumTemperatureAsString[32];
-  IOTHUB_CLIENT_RESULT iothubClientResult;
-  STRING_HANDLE jsonToSend = NULL;
+    PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
+    char maximumTemperatureAsString[MAX_TEMPERATURE_SINCE_REBOOT_BUFFER_SIZE];
+    IOTHUB_CLIENT_RESULT iothubClientResult;
 
-  if (snprintf(maximumTemperatureAsString, sizeof(maximumTemperatureAsString), g_maxTempSinceLastRebootPropertyFormat, pnpThermostatComponent->maxTemperature) < 0)
-  {
-    LogError("Unable to create max temp since last reboot string for reporting result");
-  }
-  else if ((jsonToSend = PnP_CreateReportedProperty(pnpThermostatComponent->componentName, g_maxTempSinceLastRebootPropertyName, maximumTemperatureAsString)) == NULL)
-  {
-    LogError("Unable to build max temp since last reboot property");
-  }
-  else
-  {
-    const char* jsonToSendStr = STRING_c_str(jsonToSend);
-    size_t jsonToSendStrLen = strlen(jsonToSendStr);
-
-    if ((iothubClientResult = IoTHubDeviceClient_LL_SendReportedState(deviceClientLL, (const unsigned char*)jsonToSendStr, jsonToSendStrLen, NULL, NULL)) != IOTHUB_CLIENT_OK)
+    if (snprintf(maximumTemperatureAsString, sizeof(maximumTemperatureAsString), g_maxTempSinceLastRebootPropertyFormat, pnpThermostatComponent->maxTemperature) < 0)
     {
-      LogError("Unable to send reported state, error=%d", iothubClientResult);
+        LogError("Unable to create max temp since last reboot string for reporting result");
     }
     else
     {
-      LogInfo("Sending maximumTemperatureSinceLastReboot property to IoTHub for component=%s", pnpThermostatComponent->componentName);
-    }
-  }
+        IOTHUB_CLIENT_PROPERTY_REPORTED maxTempProperty;
+        maxTempProperty.structVersion = IOTHUB_CLIENT_PROPERTY_REPORTED_STRUCT_VERSION_1;
+        maxTempProperty.name = g_maxTempSinceLastRebootPropertyName;
+        maxTempProperty.value =  maximumTemperatureAsString;
 
-  STRING_delete(jsonToSend);
+        unsigned char* propertySerialized = NULL;
+        size_t propertySerializedLength;
+
+        // The first step of reporting properties is to serialize IOTHUB_CLIENT_PROPERTY_WRITABLE_RESPONSE into JSON for sending.
+        if ((iothubClientResult = IoTHubClient_Properties_Serializer_CreateReported(&maxTempProperty, 1, pnpThermostatComponent->componentName, &propertySerialized, &propertySerializedLength)) != IOTHUB_CLIENT_OK)
+        {
+            LogError("Unable to serialize reported state, error=%d", iothubClientResult);
+        }
+        // The output of IoTHubClient_Properties_Serializer_CreateReported is sent to IoTHubDeviceClient_LL_SendPropertiesAsync to perform network I/O.
+        else if ((iothubClientResult = IoTHubDeviceClient_LL_SendPropertiesAsync(deviceClient, propertySerialized, propertySerializedLength,  NULL, NULL)) != IOTHUB_CLIENT_OK)
+        {
+            LogError("Unable to send reported state, error=%d", iothubClientResult);
+        }
+        else
+        {
+            LogInfo("Sending %s property to IoTHub for component %s", g_maxTempSinceLastRebootPropertyName, pnpThermostatComponent->componentName);
+        }
+        IoTHubClient_Properties_Serializer_Destroy(propertySerialized);
+    }
 }
 ```
 
 In `pnp_thermostat_component.c`, the `PnP_ThermostatComponent_ProcessPropertyUpdate` function handles writable property updates from IoT Central:
 
 ```c
-void PnP_ThermostatComponent_ProcessPropertyUpdate(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientLL, const char* propertyName, JSON_Value* propertyValue, int version)
+void PnP_ThermostatComponent_ProcessPropertyUpdate(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClient, const char* propertyName, const char* propertyValue, int version)
 {
-  PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
+    PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
 
-  if (strcmp(propertyName, g_targetTemperaturePropertyName) != 0)
-  {
-    LogError("Property=%s was requested to be changed but is not part of the thermostat interface definition", propertyName);
-  }
-  else if (json_value_get_type(propertyValue) != JSONNumber)
-  {
-    LogError("JSON field %s is not a number", g_targetTemperaturePropertyName);
-  }
-  else
-  {
-    double targetTemperature = json_value_get_number(propertyValue);
-
-    LogInfo("Received targetTemperature=%f for component=%s", targetTemperature, pnpThermostatComponent->componentName);
-    
-    bool maxTempUpdated = false;
-    UpdateTemperatureAndStatistics(pnpThermostatComponent, targetTemperature, &maxTempUpdated);
-
-    // The device needs to let the service know that it has received the targetTemperature desired property.
-    SendTargetTemperatureResponse(pnpThermostatComponent, deviceClientLL, version);
-    
-    if (maxTempUpdated)
+    if (strcmp(propertyName, g_targetTemperaturePropertyName) != 0)
     {
-      // If the Maximum temperature has been updated, we also report this as a property.
-        PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(pnpThermostatComponent, deviceClientLL);
+        LogError("Property %s was requested to be changed but is not part of the thermostat interface definition", propertyName);
     }
-  }
+    else
+    {
+        char* next;
+        double targetTemperature = strtod(propertyValue, &next);
+        if ((propertyValue == next) || (targetTemperature == HUGE_VAL) || (targetTemperature == (-1*HUGE_VAL)))
+        {
+            LogError("Property %s is not a valid number", propertyValue);
+            SendTargetTemperatureResponse(pnpThermostatComponent, deviceClient, propertyValue, PNP_STATUS_BAD_FORMAT, version, g_temperaturePropertyResponseDescriptionNotInt);
+        }
+        else
+        {
+            LogInfo("Received targetTemperature %f for component %s", targetTemperature, pnpThermostatComponent->componentName);
+            
+            bool maxTempUpdated = false;
+            UpdateTemperatureAndStatistics(pnpThermostatComponent, targetTemperature, &maxTempUpdated);
+
+            // The device needs to let the service know that it has received the targetTemperature desired property.
+            SendTargetTemperatureResponse(pnpThermostatComponent, deviceClient, propertyValue, PNP_STATUS_SUCCESS, version, NULL);
+            
+            if (maxTempUpdated)
+            {
+                // If the maximum temperature has been updated, we also report this as a property.
+                PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(pnpThermostatComponent, deviceClient);
+            }
+        }
+    }
 }
 ```
 
 In `pnp_thermostat_component.c`, the `PnP_ThermostatComponent_ProcessCommand` function handles commands called from IoT Central:
 
 ```c
-int PnP_ThermostatComponent_ProcessCommand(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, const char *pnpCommandName, JSON_Value* commandJsonValue, unsigned char** response, size_t* responseSize)
+void PnP_ThermostatComponent_ProcessCommand(PNP_THERMOSTAT_COMPONENT_HANDLE pnpThermostatComponentHandle, const char *pnpCommandName, JSON_Value* commandJsonValue, IOTHUB_CLIENT_COMMAND_RESPONSE* commandResponse)
 {
-  PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
-  const char* sinceStr;
-  int result;
+    PNP_THERMOSTAT_COMPONENT* pnpThermostatComponent = (PNP_THERMOSTAT_COMPONENT*)pnpThermostatComponentHandle;
+    const char* sinceStr;
 
-  if (strcmp(pnpCommandName, g_getMaxMinReport) != 0)
-  {
-    LogError("PnP command=%s is not supported on thermostat component", pnpCommandName);
-    result = PNP_STATUS_NOT_FOUND;
-  }
-  // See caveats section in ../readme.md; we don't actually respect this sinceStr to keep the sample simple,
-  // but want to demonstrate how to parse out in any case.
-  else if ((sinceStr = json_value_get_string(commandJsonValue)) == NULL)
-  {
-    LogError("Cannot retrieve JSON string for command");
-    result = PNP_STATUS_BAD_FORMAT;
-  }
-  else if (BuildMaxMinCommandResponse(pnpThermostatComponent, response, responseSize) == false)
-  {
-    LogError("Unable to build response for component=%s", pnpThermostatComponent->componentName);
-    result = PNP_STATUS_INTERNAL_ERROR;
-  }
-  else
-  {
-    LogInfo("Returning success from command request for component=%s", pnpThermostatComponent->componentName);
-    result = PNP_STATUS_SUCCESS;
-  }
-
-  return result;
+    if (strcmp(pnpCommandName, g_getMaxMinReportCommandName) != 0)
+    {
+        LogError("Command %s is not supported on thermostat component", pnpCommandName);
+        commandResponse->statusCode = PNP_STATUS_NOT_FOUND;
+    }
+    // See caveats section in ../readme.md; we don't actually respect this sinceStr to keep the sample simple,
+    // but want to demonstrate how to parse out in any case.
+    else if ((sinceStr = json_value_get_string(commandJsonValue)) == NULL)
+    {
+        LogError("Cannot retrieve JSON string for command");
+        commandResponse->statusCode = PNP_STATUS_BAD_FORMAT;
+    }
+    else if (BuildMaxMinCommandResponse(pnpThermostatComponent, commandResponse) == false)
+    {
+        LogError("Unable to build response for component %s", pnpThermostatComponent->componentName);
+        commandResponse->statusCode = PNP_STATUS_INTERNAL_ERROR;
+    }
+    else
+    {
+        LogInfo("Returning success from command request for component %s", pnpThermostatComponent->componentName);
+        commandResponse->statusCode = PNP_STATUS_SUCCESS;
+    }
 }
 ```
 
@@ -276,7 +322,7 @@ You use the device SDK to build the included sample code:
 
 1. Create a *cmake* subdirectory in the root folder of the device SDK, and navigate to that folder:
 
-    ```cmd\bash
+    ```cmd/sh
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
@@ -284,7 +330,7 @@ You use the device SDK to build the included sample code:
 
 1. Run the following commands to build the SDK and samples:
 
-    ```cmd\bash
+    ```cmd/sh
     cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```

@@ -1,24 +1,27 @@
 ---
-title: Manage AWS costs and usage in Cost Management
+title: Manage Amazon Web Services (AWS) costs and usage in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 02/26/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
+ms.reviewer: shasulin
 ms.custom:
 ---
 
 # Manage AWS costs and usage in Azure
 
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+
 After you've set up and configured AWS Cost and Usage report integration for Cost Management, you're ready to start managing your AWS costs and usage. This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 
 If you haven't already configured the integration, see [Set up and configure AWS Usage report integration](aws-integration-set-up-configure.md).
 
-_Before you begin_: If you're unfamiliar with cost analysis, see the [Explore and analyze costs with Cost analysis](quick-acm-cost-analysis.md) quickstart. And, if you're unfamiliar with budgets in Azure, see the [Create and manage Azure budgets](tutorial-acm-create-budgets.md) tutorial.
+_Before you begin_: If you're unfamiliar with cost analysis, see the [Explore and analyze costs with Cost analysis](quick-acm-cost-analysis.md) quickstart. And, if you're unfamiliar with budgets in Azure, see the [Create and manage budgets](tutorial-acm-create-budgets.md) tutorial.
 
 ## View AWS costs in cost analysis
 
@@ -36,11 +39,11 @@ Viewing costs by using the management group scope is the only way to see aggrega
 
 In cost analysis, open the scope picker and select the management group that holds your AWS linked accounts. Here's an example image in the Azure portal:
 
-:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Example of the Select scope view with linked accounts under a management group" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Screenshot showing the Select scope view with linked accounts under a management group." :::
 
 Here's an example showing the management group cost in cost analysis, grouped by Provider (Azure and AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Example showing Azure and AWS costs for a quarter in cost analysis" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Screenshot showing Azure and AWS costs for a quarter in cost analysis." lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Management groups aren't currently supported for Microsoft Customer Agreement (MCA) customers. MCA customers can create the connector and view their AWS data. However, MCA customers can't view their Azure costs and AWS costs together under a management group.
@@ -51,17 +54,17 @@ To view AWS link account costs, open the scope picker and select the AWS linked 
 
 Here's an example that shows selecting an AWS linked account scope.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Example of the Select scope view that shows AWS linked accounts" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Screenshot showing the Select scope view with AWS linked accounts." :::
 
 ### View AWS consolidated account costs
 
 To view AWS consolidated account costs, open the scope picker and select the AWS consolidated account. Here's an example that shows selecting an AWS consolidated account scope.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Example of the Select scope view with consolidated accounts" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Screenshot showing the Select scope view with consolidated accounts." :::
 
 This scope provides an aggregated view of all AWS linked accounts associated with the AWS consolidated account. Here's an example showing costs for an AWS consolidated account, grouped by service name.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Example showing AWS consolidated costs in cost analysis" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Screenshot showing AWS consolidated costs in cost analysis." lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### Dimensions available for filtering and grouping
 
@@ -91,7 +94,7 @@ The following table describes dimensions available to group and filter by in cos
 
 Use budgets to proactively manage costs and drive accountability in your organization. Budgets are set on the AWS consolidated account and AWS linked account scopes. Here's an example of budgets for an AWS consolidated account shown in Cost Management:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Example showing budgets for an AWS consolidated account" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Screenshot showing the Budgets page and an AWS consolidated account." :::
 
 ## AWS data collection process
 
@@ -130,7 +133,7 @@ There are two ways to get permissions to access AWS linked accounts costs:
 
 By default, the AWS connector creator is the owner of all the objects that the connector created. Including, the AWS consolidated account and the AWS linked account.
 
-In order to be able to Verify the connector settings you will need at least a contributor role, reader can not Verify connector settings
+In order to be able to Verify the connector settings you will need at least a contributor role because a reader can't Verify connector settings
 
 ### Collection failed with AssumeRole
 
@@ -153,19 +156,19 @@ This error means that Cost Management is unable to see the Cost and Usage report
 
 **Error code:** _AccessDeniedListReports_
 
-This error means that Cost Management is unable to list the object in the S3 bucket where the CUR is located. AWS IAM policy requires a permission on the bucket and on the objects in the bucket. See [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+This error means that Cost Management is unable to list the object in the S3 bucket where the CUR is located. AWS IAM policy requires a permission on the bucket and on the objects in the bucket. See [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws).
 
 ### Collection failed with Access Denied - Download report
 
 **Error code:** _AccessDeniedDownloadReport_
 
-This error means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+This error means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws) section.
 
 ### Collection failed since we did not find the Cost and Usage Report
 
 **Error code:** _FailedToFindReport_
 
-This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-policy-and-role-in-aws) section.
 
 ### Unable to create or verify connector due to Cost and Usage Report definitions mismatch
 

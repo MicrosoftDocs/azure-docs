@@ -6,17 +6,23 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/14/2019
+ms.date: 07/24/2023
 ms.author: greglin
 ---
 
 # Use Log Analytics to examine Application Gateway Web Application Firewall (WAF) Logs
 
-Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+
+## Prerequisites
+
+* An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Web Application Firewall with logs enabled. For more information, see [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+* A Log Analytics workspace. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 ## Import WAF logs
 
-To import your firewall logs into Log Analytics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When you have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
+To import your firewall logs into Log Analytics, see [Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When you have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
 
 ## Explore data with examples
 
@@ -27,9 +33,9 @@ AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
 ```
 
-This will look similar to the following query:
+This looks similar to the following query:
 
-![Log Analytics query](media/log-analytics/log-query.png)
+:::image type="content" source="media/log-analytics/log-query.png" alt-text="Screenshot of Log Analytics query." lightbox="media/log-analytics/log-query.png":::
 
 You can drill down into the data, and plot graphs or create visualizations from here. See the following queries as a starting point:
 
@@ -75,8 +81,8 @@ AzureDiagnostics
 
 Once you create a query, you can add it to your dashboard.  Select the **Pin to dashboard** in the top right of the log analytics workspace. With the previous four queries pinned to an example dashboard, this is the data you can see at a glance:
 
-![Screenshot shows an Azure dashboard where you can add your query.](media/log-analytics/dashboard.png)
+:::image type="content" source="media/log-analytics/dashboard.png" alt-text="Screenshot shows an Azure dashboard where you can add your query.":::
 
 ## Next steps
 
-[Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md)
+[Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md)

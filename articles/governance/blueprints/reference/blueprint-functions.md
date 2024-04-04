@@ -1,10 +1,12 @@
 ---
 title: Azure Blueprints functions
 description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
-ms.date: 08/17/2021
+ms.date: 09/07/2023
 ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 Azure Blueprints provides functions making a blueprint definition more dynamic. These functions are
 for use with blueprint definitions and blueprint artifacts. An Azure Resource Manager Template (ARM

@@ -3,7 +3,7 @@ title: Connect your Java function to Azure Storage
 description: Learn how to connect an HTTP-triggered Java function to Azure Storage by using a Queue storage output binding.
 author: KarlErickson
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart

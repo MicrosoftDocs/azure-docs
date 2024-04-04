@@ -1,0 +1,22 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: Speech service
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/speech-service/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /legal/cognitive-services/speech-service    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
+    items:
+    - name: Speech service           # Destination doc set name
+      tocHref: /legal/cognitive-services/speech-service      # Destination doc set route
+      topicHref: /azure/ai-services/speech-service/index    # Original doc set route

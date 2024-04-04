@@ -3,11 +3,11 @@ title: Associate a virtual machine scale set with flexible orchestration to a Ca
 description: Learn how to associate a new virtual machine scale set with flexible orchestration mode to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to
 ---
 
 # Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group
@@ -25,7 +25,10 @@ This content applies to the flexible orchestration mode. For uniform orchestrati
 
 
 > [!IMPORTANT]
-> Capacity Reservations with virtual machine set using flexible orchestration is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Capacity Reservations with virtual machine set using flexible orchestration is currently in general availability for Fault Domain equlas to 1.
+
+> [!IMPORTANT]
+> Capacity Reservations with virtual machine set using flexible orchestration is currently in Public Preview for Fault Domain greater than 1. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > During the preview, always attach reserved capacity during creation of new scale sets using flexible orchestration mode. There are known issues attaching capacity reservations to existing scale sets using flexible orchestration. Microsoft will update this page as more options become enabled during preview. 
 
 ## Associate a new virtual machine scale set to a Capacity Reservation group

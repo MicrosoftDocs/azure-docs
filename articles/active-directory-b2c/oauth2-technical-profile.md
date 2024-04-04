@@ -2,16 +2,20 @@
 title: Define an OAuth2 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 11/30/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with an OAuth2 based identity provider, I want to define an OAuth2 technical profile in a custom policy, so that I can federate with the identity provider and allow users to sign in with their existing social or enterprise identities.
+
 ---
 
 # Define an OAuth2 technical profile in an Azure Active Directory B2C custom policy
@@ -124,7 +128,7 @@ The following table lists the token endpoint metadata.
 | `HttpBinding` | No | The expected HTTP binding to the token endpoint. Possible values: `GET` or `POST`.  |
 | `AccessTokenResponseFormat` | No | The format of the access token endpoint call. For example, Facebook requires an HTTP GET method, but the access token response is in JSON format. Possible values: `Default`, `Json`, and `JsonP`. |
 | `ExtraParamsInAccessTokenEndpointResponse` | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
-|`token_endpoint_auth_method`| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview), `private_key_jwt` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|`token_endpoint_auth_method`| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic`, `private_key_jwt`. For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 |`token_signing_algorithm`| No | Specifies the signing algorithm to use when `token_endpoint_auth_method` is set to `private_key_jwt`. Possible values: `RS256` (default) or `RS512`.|
 
 ### Configure HTTP binding method
@@ -210,7 +214,7 @@ For identity providers that support private key JWT authentication, configure th
 
 ```xml
 <Item Key="AccessTokenEndpoint">https://contoso.com/oauth2/token</Item>
-<Item Key="token_endpoint_auth_method">client_secret_basic</Item>
+<Item Key="token_endpoint_auth_method">private_key_jwt</Item>
 <Item Key="token_signing_algorithm">RS256</Item>
 ```
 

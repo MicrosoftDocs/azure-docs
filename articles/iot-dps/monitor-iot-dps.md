@@ -1,9 +1,11 @@
 ---
-title: Monitoring Azure IoT Hub Device Provisioning Service 
-description: Start here to learn how to monitor Azure IoT Hub Device Provisioning Service 
+title: Monitor DPS using Azure Monitor
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Start here to learn how to monitor metrics and logs from the Azure IoT Hub Device Provisioning Service by using Azure Monitor
 author: kgremban
+
 ms.author: kgremban
-ms.topic: conceptual 
+ms.topic: how-to 
 ms.service: iot-dps
 ms.custom: subject-monitoring
 ms.date: 04/15/2022
@@ -39,7 +41,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your DPS instance to open metrics explorer scoped, by default, to the platform metrics emitted by your instance:
 

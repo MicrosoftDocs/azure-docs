@@ -2,8 +2,9 @@
 title: Create a troubleshooting template
 description: Describes how to create a template to troubleshoot Azure resource deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
+ms.custom: devx-track-bicep, devx-track-arm-template
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 04/05/2023
 ---
 
 # Create a troubleshooting template
@@ -32,7 +33,7 @@ The following ARM template and Bicep file get information from an existing stora
   "resources": [],
   "outputs": {
     "exampleOutput": {
-      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2021-04-01')]",
+      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2022-05-01')]",
       "type": "object"
     }
   }
@@ -44,7 +45,7 @@ In Bicep, use the `existing` keyword and run the deployment from the resource gr
 ```bicep
 param storageName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
   name: storageName
 }
 

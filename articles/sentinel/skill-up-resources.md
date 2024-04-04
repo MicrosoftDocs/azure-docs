@@ -10,12 +10,12 @@ ms.custom: fasttrack-edit
 
 # Microsoft Sentinel skill-up training 
 
-This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 modules that present relevant product documentation, blog posts, and other resources. 
+This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 self-paced modules that present relevant product documentation, blog posts, and other resources. 
 
 The modules listed here are split into five parts following the life cycle of a Security Operation Center (SOC):
 
 [Part 1: Overview](#part-1-overview)
-- [Module 0: Other learning and support options ](#module-0-other-learning-and-support-options)
+- [Module 0: Other learning and support options](#module-0-other-learning-and-support-options)
 - [Module 1: Get started with Microsoft Sentinel](#module-1-get-started-with-microsoft-sentinel)
 - [Module 2: How is Microsoft Sentinel used?](#module-2-how-is-microsoft-sentinel-used)
 
@@ -53,7 +53,7 @@ The modules listed here are split into five parts following the life cycle of a 
 This skill-up training is a level-400 training that's based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310). If you don't want to go as deep, or you have a specific issue to resolve, other resources might be more suitable:
 
 * Although the skill-up training is extensive, it naturally has to follow a script and can't expand on every topic. See the referenced documentation for information about each article.
-* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/learn/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/learn/certifications/exams/az-500).
+* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/certifications/exams/az-500).
 * If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Microsoft Cloud Security Private Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
 * Do you have a feature idea to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Are you a premier customer? You might want the on-site or remote, four-day _Microsoft Sentinel Fundamentals Workshop_. Contact your Customer Success Account Manager for more details.
@@ -76,8 +76,7 @@ Finally, do you want to try it yourself? The Microsoft Sentinel All-In-One Accel
 
 Thousands of organizations and service providers are using Microsoft Sentinel. As is usual with security products, most organizations don't go public about it. Still, here are a few who have:
 
-* Find [public customer use cases](https://customers.microsoft.com/home).
-* [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adopts Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
+* Find [public customer use cases](https://customers.microsoft.com/).
 * Stuart Gregg, Security Operations Manager at ASOS, posted a much more detailed [blog post from the Microsoft Sentinel experience, focusing on hunting](https://medium.com/@stuart.gregg/proactive-phishing-with-azure-sentinel-part-1-b570fff3113).
  
 
@@ -92,15 +91,15 @@ Many organizations use Microsoft Sentinel as their primary SIEM. Most of the mod
 
 #### As part of the Microsoft Security stack
 
-Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender together to protect your Microsoft workloads, including Windows, Azure, and Office:
+Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft Defender XDR together to protect your Microsoft workloads, including Windows, Azure, and Office:
 
-* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft 365 Defender](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
+* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft Defender XDR](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
 * Read [The Azure Security compass](https://aka.ms/azuresecuritycompass) (now Microsoft Security Best Practices) to understand the Microsoft blueprint for your security operations.
 * Read and watch how such a setup helps detect and respond to a WebShell attack: [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/analysing-web-shell-attacks-with-azure-defender-data-in-azure/ba-p/1724130) or [video demo](https://techcommunity.microsoft.com/t5/video-hub/webshell-attack-deep-dive/m-p/1698964).
 * View the Better Together webinar ["OT and IOT attack detection, investigation, and response."](https://youtu.be/S8DlZmzYO2s)
 
 
-#### To monitor your multi-cloud workloads
+#### To monitor your multicloud workloads
 
 The cloud is (still) new and often not monitored as extensively as on-premises workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
 
@@ -120,7 +119,7 @@ There are three common scenarios for side-by-side deployment:
 * Over time, as Microsoft Sentinel covers more workloads, you would ordinarily reverse direction and send alerts from your on-premises SIEM to Microsoft Sentinel. To do so:
     * For Splunk, see [Send data and notable events from Splunk to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237).
     * For QRadar, see [Send QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043).
-    * For ArcSight, see [Common Event Format (CEF) forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
+    * For ArcSight, see [Common Event Format (CEF) forwarding](https://community.microfocus.com/cyberres/arcsight/f/discussions/241072/using-forwarding-connector-to-send-logs-to-esm-and-logger-destination).
 
 You can also send the alerts from Microsoft Sentinel to your third-party SIEM or ticketing system by using the [Graph Security API](/graph/security-integration). This approach is simpler, but it doesn't enable sending other data. 
 
@@ -128,7 +127,7 @@ You can also send the alerts from Microsoft Sentinel to your third-party SIEM or
 #### For MSSPs
 Because it eliminates the setup cost and is location agnostic, Microsoft Sentinel is a popular choice for providing SIEM as a service. You'll find a [list of MISA (Microsoft Intelligent Security Association) member-managed security service providers (MSSPs) that use Microsoft Sentinel](https://www.microsoft.com/security/blog/2020/07/14/microsoft-intelligent-security-association-managed-security-service-providers/). Many other MSSPs, especially regional and smaller ones, use Microsoft Sentinel but aren't MISA members.
 
-To start your journey as an MSSP, read the [Microsoft Sentinel Technical Playbooks for MSSPs](https://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, which covers cloud architecture and multi-tenant support.  
+To start your journey as an MSSP, read the [Microsoft Sentinel Technical Playbooks for MSSPs](https://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, which covers cloud architecture and multitenant support.  
 
 ## Part 2: Architecting and deploying
 
@@ -239,7 +238,7 @@ After it's imported, [threat intelligence](understand-threat-intelligence.md) is
 
 * View and manage the imported threat intelligence in **Logs** in the new **Threat Intelligence** area of Microsoft Sentinel.
 
-* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents by using your imported threat intelligence.
+* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-analytics) to generate security alerts and incidents by using your imported threat intelligence.
 
 * [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators) in Microsoft Sentinel by using the threat intelligence workbook.
 
@@ -276,7 +275,7 @@ Microsoft Sentinel supports two new features for data ingestion and transformati
 
 * [**Logs ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md): Use it to send custom-format logs from any data source to your Log Analytics workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-* [**Workspace data transformations for standard logs**](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr): It uses [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
+* [**Workspace data transformations for standard logs**](../azure-monitor/essentials/data-collection-transformations-workspace.md): It uses [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
     * Azure Monitor agent (AMA)-based data connectors (based on the new Azure Monitor agent)
     * Microsoft Monitoring agent (MMA)-based data connectors (based on the legacy Azure Monitor Logs Agent)
     * Data connectors that use diagnostics settings
@@ -371,7 +370,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 * [Must Learn KQL](https://aka.ms/MustLearnKQL): A 20-part KQL series that walks you through the basics of creating your first analytics rule (includes an assessment and certificate)
 
 * The Microsoft Sentinel KQL Lab: An interactive lab that teaches KQL with a focus on what you need for Microsoft Sentinel:
-    * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    * [Learning module (SC-200 part 4)](/training/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp) or [lab URL](https://aka.ms/lademo)
     * A [Jupyter notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb) that lets you test the queries within the notebook
     * Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM) or [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-)
@@ -504,9 +503,9 @@ Another relevant solution area is *protecting remote work*. View our [Ignite ses
 
 * [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
 
-* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Azure Active Directory (Azure AD) sign-in logs, Microsoft 365 Defender for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
+* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Microsoft Entra sign-in logs, Microsoft Defender XDR for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
 
-* [Monitor Microsoft Endpoint Manager / Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255), by using queries and workbooks.
+* [Monitor Microsoft Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255) using queries and workbooks.
 
 And finally, focusing on recent attacks, learn how to [monitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
 

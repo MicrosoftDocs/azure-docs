@@ -1,15 +1,15 @@
 ---
 title: Model conversion
 description: Describes the process of converting a model for rendering
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---
 
 # Convert models
 
-Azure Remote Rendering allows you to render very complex models. To achieve maximum performance, the data must be preprocessed to be in an optimal format. Depending on the amount of data, this step might take a while. It would be impractical, if this time was spent during model loading. Also, it would be wasteful to repeat this process for multiple sessions.
+Azure Remote Rendering allows you to render complex models. To achieve maximum performance, the data must be preprocessed to be in an optimal format. Depending on the amount of data, this step might take a while. It would be impractical, if this time was spent during model loading. Also, it would be wasteful to repeat this process for multiple sessions.
 For these reasons, ARR service provides a dedicated *conversion service*, which you can run ahead of time.
 Once converted, a model can be loaded from an Azure Storage Account.
 
@@ -22,11 +22,11 @@ The conversion service supports these formats:
 * **FBX**  (version 2011 to version 2020)
 * **GLTF**/**GLB** (version 2.x)
 
-There are minor differences between the formats with regard to material property conversion, as listed in chapter [material mapping for model formats](../../reference/material-mapping.md).
+There are minor differences between the formats regarding material property conversion, as listed in chapter [material mapping for model formats](../../reference/material-mapping.md).
 
 ### Point clouds
 
-* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`
+* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`. Numerical values can be expressed either as floating-point value strings (with a decimal point) or in hexadecimal format, indicated by the `0x` prefix. The color components (red, green, blue) are expected to fall within the range of 0.0 to 255.0.
 * **PLY** : Only binary PLY files are supported. Properties other than position and color are ignored. Every PLY file has a human-readable header, which can be used to verify whether the following requirements are met:
   * file must be encoded using the `binary_little_endian 1.0` format,
   * file contains a point cloud (that is, no triangles),
@@ -35,6 +35,7 @@ There are minor differences between the formats with regard to material property
 
   In case any other properties exist, they're ignored during ingestion.
 * **E57** : E57 contains two types of data: `data3d` and `image2d`. The conversion service only loads the `data3d` part of the file, while the `image2d` part of the file is being ignored.
+* **LAS**, **LAZ** : In case color data isn't present, the intensity attribute is used as color.
 
 ## The conversion process
 

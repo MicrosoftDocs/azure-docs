@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate team skill sets"
 description: "Learn how to evaluate your team of skilled resources that will implement your Azure Synapse solution."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -50,7 +50,7 @@ The *Azure administrator* manages administrative aspects of Azure. They're respo
 
 ### Security administrator
 
-The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](#synapse-administrator), [Synapse database administrator](#synapse-database-administrator), [Synapse Spark administrator](#synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be an Azure Active Directory (Azure AD) administrator.
+The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](#synapse-administrator), [Synapse database administrator](#synapse-database-administrator), [Synapse Spark administrator](#synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be a Microsoft Entra administrator.
 
 ### Network administrator
 
@@ -132,9 +132,9 @@ The *Azure DevOps engineer* is responsible for designing and implementing strate
 
 ## Learning resources and certifications
 
-If you're interested to learn about Microsoft Certifications that may help assess your team's readiness, browse the available certifications for [Azure Synapse Analytics](/learn/certifications/browse/?expanded=azure&products=azure-synapse-analytics).
+If you're interested to learn about Microsoft Certifications that may help assess your team's readiness, browse the available certifications for [Azure Synapse Analytics](/certifications/browse/?expanded=azure&products=azure-synapse-analytics).
 
-To complete online, self-paced training, browse the available learning paths and modules for [Azure Synapse Analytics](/learn/browse/?filter-products=synapse&products=azure-synapse-analytics).
+To complete online, self-paced training, browse the available learning paths and modules for [Azure Synapse Analytics](/training/browse/?filter-products=synapse&products=azure-synapse-analytics).
 
 ## Next steps
 

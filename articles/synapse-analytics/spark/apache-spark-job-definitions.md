@@ -7,6 +7,7 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
+ms.custom: devx-track-dotnet, devx-track-python
 ms.date: 10/16/2020
 ---
 
@@ -269,4 +270,3 @@ In this section, you add an Apache Spark job definition into pipeline.
 ## Next steps
 
 Next you can use Azure Synapse Studio to create Power BI datasets and manage Power BI data. Advance to the [Linking a Power BI workspace to a Synapse workspace](../quickstart-power-bi.md) article to learn more. 
-

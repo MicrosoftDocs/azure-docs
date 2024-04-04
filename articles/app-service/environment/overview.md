@@ -3,9 +3,9 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 07/29/2022
+ms.date: 03/21/2024
 ms.author: madsd
-ms.custom: references_regions
+ms.custom: "UpdateFrequency3, references_regions"
 ---
 
 # App Service Environment overview
@@ -50,7 +50,7 @@ An App Service Environment is a single-tenant deployment of Azure App Service th
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. An App Service plan is essentially a provisioning profile for an application host. As you scale out your App Service plan, you create more application hosts with all the apps in that App Service plan on each host. A single App Service Environment v3 can have up to 200 total App Service plan instances across all the App Service plans combined. A single App Service Isolated v2 (Iv2) plan can have up to 100 instances by itself.
 
-When you're deploying onto dedicated hardware (hosts), you're limited in scaling across all App Service plans to the number of cores in this type of environment. An App Service Environment that's deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
+When you're deploying onto dedicated hardware (hosts), you're limited in scaling across all App Service plans to the number of cores in this type of environment. An App Service Environment that's deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance. Only I1v2, I2v2 and I3v2 SKU sizes are available on App Service Environment deployed on dedicated hosts.
 
 ## Virtual network support
 
@@ -69,7 +69,7 @@ A benefit of using an App Service Environment instead of a multi-tenant service 
 App Service Environment v3 differs from earlier versions in the following ways:
 
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want. 
-- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. 
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. In this case, each App Service Plan on the App Service Environment will need to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant. 
 - Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multi-tenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
@@ -78,16 +78,40 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Perform a backup and restore operation on a storage account behind a firewall.
+- Access the FTPS endpoint using a custom domain suffix.
 
 ## Pricing
 
 With App Service Environment v3, the pricing model varies depending on the type of App Service Environment deployment you have. The three pricing models are:
 
 - **App Service Environment v3**: If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
-- **Zone redundant App Service Environment v3**: There's a minimum charge of nine instances. There's no added charge for availability zone support if you have nine or more App Service plan instances. If you have fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
-- **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a small percentage of the Isolated v2 rate per core.
+- **Zone redundant App Service Environment v3**: There's a minimum charge of 18 cores. There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as additional Windows I1v2 instances.
+- **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a specialized Isolated v2 rate per vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
+
+> [!NOTE]
+> Sample calculations for zone redundant App Service Environment v3 pricing:
+> 
+> 1. Your zone redundant App Service Environment v3 has 3 Linux I1v2 instances in a single App Service plan.  
+> - An I1v2 instance has 2 cores.  
+> - In total, across your instances, you have 6 cores.  
+> - 18 cores - 6 cores = 12 cores  
+> - 12 cores is equivalent to 6 I1v2 instances.  
+> - You'll be charged for your 3 Linux I1v2 instances plus 6 additional Windows I1v2 instances.  
+>
+> 2. Your zone redundant App Service Environment v3 has 3 Linux I2v2 instances in a single App Service plan.  
+> - An I2v2 instance has 4 cores.  
+> - In total, across your instances, you have 12 cores.  
+> - 18 cores - 12 cores = 6 cores  
+> - 6 cores is equivalent to 3 I1v2 instances.  
+> - You'll be charged for your 3 Linux I2v2 instances plus 3 additional Windows I1v2 instances.  
+>
+> 3. Your zone redundant App Service Environment v3 has 4 Linux I3v2 instances in a single App Service plan.  
+> - An I3v2 instance has 8 cores.  
+> - In total, across your instances, you have 32 cores.  
+> - 32 cores is greater than 18 cores  
+> - You won't be charged for any additional cores.  
+>
 
 Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). The pricing, along with Reserved Instance pricing, is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under the Isolated v2 plan.
 
@@ -97,46 +121,85 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Public:
 
-| Region               | Normal and dedicated host    | Availability zone support   |
-| -------------------- | :--------------------------: | :-------------------------: |
-| Australia East       | ✅                           | ✅                          |
-| Australia Southeast  | ✅                           |                             |
-| Brazil South         | ✅                           | ✅                          |
-| Canada Central       | ✅                           | ✅                          |
-| Canada East          | ✅                           |                             |
-| Central India        | ✅                           | ✅                          |
-| Central US           | ✅                           | ✅                          |
-| East Asia            | ✅                           | ✅                          |
-| East US              | ✅                           | ✅                          |
-| East US 2            | ✅                           | ✅                          |
-| France Central       | ✅                           | ✅                          |
-| Germany West Central | ✅                           | ✅                          |
-| Japan East           | ✅                           | ✅                          |
-| Korea Central        | ✅                           | ✅                          |
-| North Central US     | ✅                           |                             |
-| North Europe         | ✅                           | ✅                          |
-| Norway East          | ✅                           | ✅                          |
-| South Africa North   | ✅                           | ✅                          |
-| South Central US     | ✅                           | ✅                          |
-| Southeast Asia       | ✅                           | ✅                          |
-| Sweden Central       | ✅                           | ✅                          |
-| Switzerland North    | ✅                           | ✅                          |
-| UAE North            | ✅                           |                             |
-| UK South             | ✅                           | ✅                          |
-| UK West              | ✅                           |                             |
-| West Central US      | ✅                           |                             |
-| West Europe          | ✅                           | ✅                          |
-| West US              | ✅                           |                             |
-| West US 2            | ✅                           | ✅                          |
-| West US 3            | ✅                           | ✅                          |
+| Region               | Single zone support          | Availability zone support   | Single zone support         |
+| -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
+|                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
+| Australia Central    | ✅                           |                             | ✅                           | 
+| Australia Central 2  | ✅*                          |                             | ✅                           | 
+| Australia East       | ✅                           | ✅                          | ✅                           | 
+| Australia Southeast  | ✅                           |                             | ✅                           | 
+| Brazil South         | ✅                           | ✅                          | ✅                           | 
+| Brazil Southeast     | ✅                           |                             | ✅                           |
+| Canada Central       | ✅                           | ✅                          | ✅                           |
+| Canada East          | ✅                           |                             | ✅                           | 
+| Central India        | ✅                           | ✅                          | ✅                           | 
+| Central US           | ✅                           | ✅                          | ✅                           | 
+| East Asia            | ✅                           | ✅                          | ✅                           |
+| East US              | ✅                           | ✅                          | ✅                           | 
+| East US 2            | ✅                           | ✅                          | ✅                           |
+| France Central       | ✅                           | ✅                          | ✅                           | 
+| France South         | ✅                           |                             | ✅                           | 
+| Germany North        | ✅                           |                             | ✅                           | 
+| Germany West Central | ✅                           | ✅                          | ✅                           | 
+| Italy North          | ✅                           | ✅**                        |                              | 
+| Japan East           | ✅                           | ✅                          | ✅                           | 
+| Japan West           | ✅                           |                             | ✅                           | 
+| Jio India West       |                              |                             | ✅                           | 
+| Korea Central        | ✅                           | ✅                          | ✅                           | 
+| Korea South          | ✅                           |                             | ✅                           | 
+| North Central US     | ✅                           |                             | ✅                           | 
+| North Europe         | ✅                           | ✅                          | ✅                           |
+| Norway East          | ✅                           | ✅                          | ✅                           | 
+| Norway West          | ✅                           |                             | ✅                           |
+| Poland Central       | ✅                           | ✅                          |                               |
+| Qatar Central        | ✅**                         | ✅**                        |                              |
+| South Africa North   | ✅                           | ✅                          | ✅                           |
+| South Africa West    | ✅                           |                             | ✅                           | 
+| South Central US     | ✅                           | ✅                          | ✅                           |
+| South India          | ✅                           |                             | ✅                           | 
+| Southeast Asia       | ✅                           | ✅                          | ✅                           |
+| Sweden Central       | ✅                           | ✅                          |                              |
+| Switzerland North    | ✅                           | ✅                          | ✅                           |
+| Switzerland West     | ✅                           |                             | ✅                           | 
+| UAE Central          | ✅                           |                             | ✅                           | 
+| UAE North            | ✅                           | ✅                         | ✅                           | 
+| UK South             | ✅                           | ✅                          | ✅                           | 
+| UK West              | ✅                           |                             | ✅                           | 
+| West Central US      | ✅                           |                             | ✅                           | 
+| West Europe          | ✅                           | ✅                          | ✅                           | 
+| West India           | ✅*                          |                             | ✅                           | 
+| West US              | ✅                           |                             | ✅                           | 
+| West US 2            | ✅                           | ✅                          | ✅                           | 
+| West US 3            | ✅                           | ✅                          | ✅                           | 
+
+\* Limited availability and no support for dedicated host deployments.  
+\** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government:
 
-| Region               | Normal and dedicated host   | Availability zone support   |
-| -------------------- | :-------------------------: | :-------------------------: |
-| US Gov Texas         | ✅                           |                             |
-| US Gov Arizona       | ✅                           |                             |
-| US Gov Virginia      | ✅                           |                             |
+| Region               | Single zone support          | Availability zone support   | Single zone support         |
+| -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
+|                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
+| US DoD Central       | ✅                           |                             | ✅                          |
+| US DoD East          | ✅                           |                             | ✅                          |
+| US Gov Arizona       | ✅                           |                             | ✅                         |
+| US Gov Iowa          |                              |                             |                             |
+| US Gov Texas         | ✅                           |                             | ✅                         |
+| US Gov Virginia      | ✅                           |✅                          | ✅                         |
+
+### Microsoft Azure operated by 21Vianet:
+
+| Region               | Single zone support          | Availability zone support   | Single zone support         |
+| -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
+|                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
+| China East 2         |                              |                             | ✅                          |
+| China East 3         | ✅                          |                              |                             |
+| China North 2        |                              |                             | ✅                          |
+| China North 3        | ✅                          | ✅                          |                              |
+
+### In-region data residency
+
+An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region. For more information, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
 ## App Service Environment v2
 
@@ -145,4 +208,4 @@ App Service Environment has three versions: App Service Environment v1, App Serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)
+> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)

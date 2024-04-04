@@ -1,8 +1,9 @@
 ---
-title: Request real-time and forecasted weather data using Azure Maps Weather services 
+title: Request real-time and forecasted weather data using Azure Maps Weather services
+titleSuffix: Microsoft Azure Maps
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -13,47 +14,49 @@ ms.custom: mvc
 
 # Request real-time and forecasted weather data using Azure Maps Weather services
 
-Azure Maps [Weather services](/rest/api/maps/weather) are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions. In this article, we'll show you how to request both real-time and forecasted weather data.
+Azure Maps [Weather services] are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions.
 
-In this article you’ll learn, how to:
+This article demonstrates how to request both real-time and forecasted weather data:
 
-* Request real-time (current) weather data using the [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions).
-* Request severe weather alerts using the [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts).
-* Request daily forecasts using the [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast).
-* Request hourly forecasts using the [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast).
-* Request minute by minute forecasts using the [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast).
+* Request real-time (current) weather data using the [Get Current Conditions API].
+* Request severe weather alerts using the [Get Severe Weather Alerts API].
+* Request daily forecasts using the [Get Daily Forecast API].
+* Request hourly forecasts using the [Get Hourly Forecast API].
+* Request minute by minute forecasts using the [Get Minute Forecast API].
 
 This video provides examples for making REST calls to Azure Maps Weather services.
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player?format=ny]
+
+</br>
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+* An [Azure Maps account]
+* A [subscription key]
 
     >[!IMPORTANT]
-    >The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)requires a Gen 1 (S1) or Gen 2 pricing tier.  All other APIs require an S0 pricing tier key.
+    >The [Get Minute Forecast API] requires a Gen1 (S1) or Gen2 pricing tier.
 
-This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+This tutorial uses the [Postman] application, but you may choose a different API development environment.
 
 ## Request real-time weather data
 
-The [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions) returns detailed weather conditions such as precipitation, temperature, and wind for a given coordinate location. Also, observations from the past 6 or 24 hours for a particular location can be retrieved. The response includes details like observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. RealFeel™ Temperature and ultraviolet(UV) index are also returned.
+The [Get Current Conditions API] returns detailed weather conditions such as precipitation, temperature, and wind for a given coordinate location. Also, observations from the past 6 or 24 hours for a particular location can be retrieved. The response includes details like observation date and time, description of weather conditions, weather icon, precipitation indicator flags, and temperature. RealFeel™ Temperature and ultraviolet(UV) index are also returned.
 
-In this example, you'll use the [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions) to retrieve current weather conditions at coordinates located in Seattle, WA.
+In this example, you use the [Get Current Conditions API] to retrieve current weather conditions at coordinates located in Seattle, WA.
 
 1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. 
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains current weather information.
+3. Select the blue **Send** button. The response body contains current weather information.
 
     ```json
     {
@@ -228,22 +231,22 @@ In this example, you'll use the [Get Current Conditions API](/rest/api/maps/weat
 
 ## Request severe weather alerts
 
-[Azure Maps Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts) returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service can return details such as alert type, category, level, and detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
+Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service returns details like alert type, category, level. The service also returns detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
 
-In this example, you'll use the [Get Severe Weather Alerts API](/rest/api/maps/weather/getsevereweatheralerts) to retrieve current weather conditions at coordinates located in Cheyenne, WY.
+In this example, you use the [Get Severe Weather Alerts API] to retrieve current weather conditions at coordinates located in Cheyenne, WY.
 
 >[!NOTE]
 >This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Click the blue **Send** button. If there are no severe weather alerts, the response body will contain an empty `results[]` array. If there are severe weather alerts, the response body contains something like the following JSON response:
+3. Select the blue **Send** button. If there are no severe weather alerts, the response body contains an empty `results[]` array. If there are severe weather alerts, the response body contains something like the following JSON response:
 
     ```json
     {
@@ -280,22 +283,26 @@ In this example, you'll use the [Get Severe Weather Alerts API](/rest/api/maps/w
 
 ## Request daily weather forecast data
 
-The [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.  In this example, we request for five days by setting `duration=5`.
+The [Get Daily Forecast API] returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.  In this example, we request for five days by setting `duration=5`.
 
 >[!IMPORTANT]
->In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen 1 (S1) or Gen 2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
+>In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
-In this example, you'll use the [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
+In this example, you use the [Get Daily Forecast API] to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains the five-day weather forecast data. For the sake of brevity, the JSON response below shows the forecast for the first day.
+3. Select the blue **Send** button. The response body contains the five-day weather forecast data. For the sake of brevity, the following JSON response shows the forecast for the first day.
 
     ```json
     {
@@ -529,22 +536,22 @@ In this example, you'll use the [Get Daily Forecast API](/rest/api/maps/weather/
 
 ## Request hourly weather forecast data
 
-The [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and UV index.
+The [Get Hourly Forecast API] returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and UV index.
 
 >[!IMPORTANT]
->In the S0 pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In either Gen 1 (S1) or Gen 2 pricing tier, you can request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
+>In the Gen1 (S0) pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In either Gen1 (S1) or Gen2 pricing tier, you can request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
 
-In this example, you'll use the [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
+In this example, you use the [Get Hourly Forecast API] to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the JSON response below shows the forecast for the first hour.
+3. Select the blue **Send** button. The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the following JSON response shows the forecast for the first hour.
 
     ```json
     {
@@ -640,19 +647,19 @@ In this example, you'll use the [Get Hourly Forecast API](/rest/api/maps/weather
 
 ## Request minute-by-minute weather forecast data
 
- The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) returns minute-by-minute forecasts for a given location for the next 120 minutes. Users can request weather forecasts in intervals of 1, 5 and 15 minutes. The response includes details such as the type of precipitation (including rain, snow, or a mixture of both), start time, and precipitation intensity value (dBZ).
+ The [Get Minute Forecast API] returns minute-by-minute forecasts for a given location for the next 120 minutes. Users can request weather forecasts in intervals of 1, 5 and 15 minutes. The response includes details such as the type of precipitation (including rain, snow, or a mixture of both), start time, and precipitation intensity value (dBZ).
 
-In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast be given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
+In this example, you use the [Get Minute Forecast API] to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast is given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
 
 1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
+3. Select the blue **Send** button. The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
 
     ```json
     {
@@ -746,7 +753,19 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services concepts](./weather-services-concepts.md)
+> [Weather service concepts]
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services REST API](/rest/api/maps/weather)
+> [Weather services]
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Get Current Conditions API]: /rest/api/maps/weather/getcurrentconditions
+[Get Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
+[Get Hourly Forecast API]: /rest/api/maps/weather/gethourlyforecast
+[Get Minute Forecast API]: /rest/api/maps/weather/getminuteforecast
+[Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+[Postman]: https://www.postman.com/
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Weather service concepts]: weather-services-concepts.md
+[Weather services]: /rest/api/maps/weather

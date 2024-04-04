@@ -2,16 +2,21 @@
 title: Configure authentication in a sample Node.js web API by using Azure Active Directory B2C
 description: Follow the steps in this article to learn how to configure authentication in a sample Node.js web API by using Azure AD B2C
 titleSuffix: Azure AD B2C
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
+ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to configure authentication in a Node.js web API using Azure Active Directory B2C, so that I can protect the web API with token-based authentication and ensure that requests are accompanied by a valid access token.
+
 ---
 
 # Configure authentication in a sample Node.js web API by using Azure Active Directory B2C
@@ -86,8 +91,7 @@ In this step, you create the web and the web API application registrations, and 
 To create the SPA registration, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application (for example, *App ID: 1*).
@@ -145,7 +149,7 @@ Open your web app in a code editor such as Visual Studio Code. Under the `call-p
 |---------|---------|
 |`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.3](#step-23-register-the-web-app). |
 |`APP_CLIENT_SECRET`|The client secret value for the web app you created in [step 2.4](#step-24-create-a-client-secret) |
-|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
+|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). |
 |`AUTHORITY_DOMAIN`| The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant.|
 |`APP_REDIRECT_URI`| The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal. This URL need to be publicly accessible. Leave the value as is.|
 |`LOGOUT_ENDPOINT`| The Azure AD B2C sign out endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`.|
@@ -176,7 +180,7 @@ To get the web API sample code, do one of the following:
 
 1. Modify the variable values with the user flow and application registration you created earlier: 
 
-    - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
+    - For `tenantName`, use the [name of your tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) such as `fabrikamb2c`.
     
     - For `clientID`, use the **Application (Client) ID** for the web API you created in [step 2.1](#step-21-register-the-web-api-application).
     

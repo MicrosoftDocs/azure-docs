@@ -3,8 +3,8 @@ title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MySQ
 description: This quickstart describes how to use PowerShell to create an Azure Database for MySQL server in an Azure resource group.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/20/2022
@@ -14,6 +14,8 @@ ms.custom: mvc, devx-track-azurepowershell, mode-api
 # Quickstart: Create an Azure Database for MySQL server using PowerShell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Database for MySQL server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
@@ -28,7 +30,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.MySql PowerShell module is in preview, you must install it separately from the Az

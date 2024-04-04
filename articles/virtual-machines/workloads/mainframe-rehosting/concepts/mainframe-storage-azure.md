@@ -1,8 +1,8 @@
 ---
 title: Move mainframe storage to Azure Storage
 description: Massively scalable Azure storage resources can help mainframe-based organizations migrate and modernize IBM z14 applications.
-author: njray
-ms.author: larryme
+author: johnjrayborn
+ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
@@ -119,7 +119,6 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 
 ### Azure Government
 
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft and FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### More migration resources

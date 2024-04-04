@@ -3,11 +3,11 @@ title: Quickstart - Create an Azure Analysis Services server resource by using B
 description: Quickstart showing how to an Azure Analysis Services server resource by using a Bicep file.
 ms.date: 03/08/2022
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.author: jgao
 author: mumian
 tags: azure-resource-manager, bicep
-
+ms.custom: devx-track-bicep
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 
@@ -20,7 +20,7 @@ This quickstart describes how to create an Analysis Services server resource in 
 ## Prerequisites
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+* **Microsoft Entra ID**: Your subscription must be associated with a Microsoft Entra tenant. And, you need to be signed in to Azure with an account in that Microsoft Entra ID. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Review the Bicep file
 

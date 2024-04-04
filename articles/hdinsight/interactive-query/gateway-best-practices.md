@@ -3,7 +3,7 @@ title: Gateway deep dive and best practices for Apache Hive in Azure HDInsight
 description: Learn how to navigate the best practices for running Hive queries over the Azure HDInsight gateway
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 07/25/2023
 ---
 
 # Gateway deep dive and best practices for Apache Hive in Azure HDInsight
@@ -16,7 +16,7 @@ The HDInsight gateway is the only part of an HDInsight cluster that is publicly 
 
 The following diagram provides a rough illustration of how the Gateway provides an abstraction in front of all the different host resolution possibilities within HDInsight.
 
-:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Host Resolution Diagram" border="true":::
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Host Resolution Diagram." border="true":::
 
 ## Motivation
 
@@ -34,7 +34,7 @@ The Gateway's performance degradation around queries of a large size is because 
 
 The following diagram illustrates the steps involved in a SELECT query.
 
-:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Result Diagram" border="true":::
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Result Diagram." border="true":::
 
 Apache Hive is a relational abstraction on top of an HDFS-compatible filesystem. This abstraction means **SELECT** statements in Hive correspond to **READ** operations on the filesystem. The **READ** operations are translated into the appropriate schema before reported to the user. The latency of this process increases with data size and total hops required to reach the end user.
 

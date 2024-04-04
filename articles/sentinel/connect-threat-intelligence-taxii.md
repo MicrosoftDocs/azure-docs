@@ -1,20 +1,19 @@
 ---
-title: Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds | Microsoft Docs
+title: Connect to STIX/TAXII threat intelligence feeds
+titleSuffix: Microsoft Sentinel
 description: Learn about how to connect Microsoft Sentinel to industry-standard threat intelligence feeds to import threat indicators.
-author: yelevin
+author: austinmccollum
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.date: 3/14/2024
+ms.author: austinmc
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#customer intent: As a SOC admin, I want to connect Microsoft Sentinel to a STIX/TAXII feed to ingest threat intelligence, so I can generate alerts incidents.
 ---
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
-
-**See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
 
 The most widely adopted industry standard for the transmission of threat intelligence is a [combination of the STIX data format and the TAXII protocol](https://oasis-open.github.io/cti-documentation/). If your organization receives threat indicators from solutions that support the current STIX/TAXII version (2.0 or 2.1), you can use the **Threat Intelligence - TAXII data connector** to bring your threat indicators into Microsoft Sentinel. This connector enables a built-in TAXII client in Microsoft Sentinel to import threat intelligence from TAXII 2.x servers.
 
@@ -24,8 +23,14 @@ To import STIX formatted threat indicators to Microsoft Sentinel from a TAXII se
 
 Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Microsoft Sentinel.
 
-## Prerequisites  
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+**See also**: [Connect your threat intelligence platform (TIP) to Microsoft Sentinel](connect-threat-intelligence-tip.md)
+
+## Prerequisites  
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must have a TAXII 2.0 or TAXII 2.1 **API Root URI** and **Collection ID**.
 
@@ -36,15 +41,25 @@ TAXII 2.x servers advertise API Roots, which are URLs that host Collections of t
 > [!NOTE]
 > In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the [cURL](https://en.wikipedia.org/wiki/CURL) utility to browse the discovery endpoint and request the API Root.
 
-## Enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel
+## Install the Threat Intelligence solution in Microsoft Sentinel
 
 To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
-1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
+1. Find and select the **Threat Intelligence** solution.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
+1. Select the :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png"::: **Install/Update** button.
+
+For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+
+## Enable the Threat intelligence - TAXII data connector
+
+1. To configure the TAXII data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence - TAXII** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 
 1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
@@ -53,7 +68,6 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
 
 Within a few minutes, threat indicators should begin flowing into this Microsoft Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
-
 
 
 ## IP allow listing for the Microsoft Sentinel TAXII client
@@ -91,7 +105,7 @@ When relevant, the following IP addresses are those to include in your allowlist
 :::row-end:::
 
 
-## Next steps
+## Related content
 
 In this document, you learned how to connect Microsoft Sentinel to threat intelligence feeds using the TAXII protocol. To learn more about Microsoft Sentinel, see the following articles.
 

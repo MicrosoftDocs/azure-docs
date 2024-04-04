@@ -2,13 +2,12 @@
 title: Workload classification for dedicated SQL pool
 description: Guidance for using classification to manage query concurrency, importance, and compute resources for dedicated SQL pool in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 01/24/2022
 ms.author: wiassaf
 ms.reviewer: sngun
+ms.date: 01/24/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -80,9 +79,11 @@ FROM    sys.database_role_members rm
 JOIN    sys.database_principals AS r ON rm.role_principal_id = r.principal_id
 JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
+```
 
---for each row returned run
-sp_droprolemember '[Resource Class]', membername
+```sql
+--for each row returned run in the previous query
+EXEC sp_droprolemember '[Resource Class]', membername;
 ```
 
 ## Next steps

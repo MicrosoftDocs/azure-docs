@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 02/13/2023
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 
 > [!IMPORTANT]
-> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To deploy an Azure Firewall with Availability Zones (recommended) in a Secure vWAN Hub, [this article](../firewall-manager/secure-cloud-network.md) must be used. 
+> Virtual WAN is a collection of hubs and services made available inside the hub. The user can deploy as many Virtual WANs as they need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** (*except* Azure Firewall) if the region supports Availability Zones. To deploy an Azure Firewall with Availability Zones (recommended) in a Secure vWAN Hub, [this article](../firewall-manager/secure-cloud-network.md) must be used. 
 
 ## View virtual hubs
 
@@ -37,11 +37,11 @@ The **Overview** page for your virtual WAN shows a list of virtual hubs and secu
 
 1. On the **Overview** page for your virtual WAN, select the hub that you want to convert to a secured hub. 
 
-2. Once in the hub properties, select on **Azure Firewall and Firewall Manager** under the "Security" section on the left:
+2. Once in the hub properties, select **Azure Firewall and Firewall Manager** under the "Security" section on the left:
 
    :::image type="content" source="./media/howto-firewall/vwan-convert-firewall-start.png" alt-text="Screenshot showing Azure Virtual WAN Hub properties." lightbox="./media/howto-firewall/vwan-convert-firewall-start.png":::
 
-3. Select on **Next: Azure Firewall** button at the bottom of screen: 
+3. Select **Next: Azure Firewall** button at the bottom of screen: 
 
    :::image type="content" source="./media/howto-firewall/vwan-select-hub.png" alt-text="Screenshot showing [Select virtual hubs] step in the conversion flow" lightbox="./media/howto-firewall/vwan-select-hub.png":::
 

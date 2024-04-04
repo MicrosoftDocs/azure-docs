@@ -10,7 +10,7 @@ ms.custom: subject-monitoring
 
 ---
 
-# Monitoring VPN Gateway data reference
+# Monitoring VPN Gateway - Data reference
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of VPN Gateway. See [Monitoring VPN Gateway](monitor-vpn-gateway.md) for details on collecting and analyzing monitoring data for VPN Gateway.
 
@@ -23,6 +23,8 @@ Metrics in Azure Monitor are numerical values that describe some aspect of a sys
 | **BGP Peer Status**                        | Count        | 5 minutes           | Average BGP connectivity status per peer and per instance.                              |
 | **BGP Routes Advertised**                  | Count        | 5 minutes           | Number of routes advertised per peer and per instance.                                  |
 | **BGP Routes Learned**                     | Count        | 5 minutes           | Number of routes learned per peer and per instance.                                     |
+| **Gateway Inbound Flows**                  | Count        | 5 minutes           | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.       |
+| **Gateway Outbound Flows**                 | Count        | 5 minutes           | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.     |
 | **Gateway P2S Bandwidth**                  | Bytes/s      | 1 minute            | Average combined bandwidth utilization of all point-to-site connections on the gateway. |
 | **Gateway S2S Bandwidth**                  | Bytes/s      | 5 minutes           | Average combined bandwidth utilization of all site-to-site connections on the gateway.  |
 | **P2S Connection Count**                   | Count        | 1 minute            | Count of point-to-site connections on the gateway.                                      |
@@ -38,9 +40,9 @@ Metrics in Azure Monitor are numerical values that describe some aspect of a sys
 | **Tunnel MMSA Count**                      | Count        | 5 minutes           | Number of main mode security associations present.                                      |
 | **Tunnel Peak PPS**                        | Count        | 5 minutes           | Max number of packets per second per tunnel.                                            |
 | **Tunnel QMSA Count**                      | Count        | 5 minutes           | Number of quick mode security associations present.                                     |
-| **Tunnel Total Flow Count**                | Count        | 5 minutes           | Number of distinct flows created per tunnel.                                            |
+| **Tunnel Total Flow Count**                | Count        | 5 minutes           | Number of distinct 3-tuple flows (protocol, local IP address, remote IP address) created per tunnel.                                    |
 | **User Vpn Route Count**                   | Count        | 5 minutes           | Number of user VPN routes configured on the VPN Gateway.                                |
-| **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of VNet address prefixes that are used/advertised by the gateway.                |
+| **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of virtual network address prefixes that are used/advertised by the gateway.     |
 
 ## Resource logs
 
@@ -56,5 +58,5 @@ The following resource logs are available in Azure:
 
 ## Next steps
 
-* For additional information about VPN Gateway monitoring, see [Monitoring Azure VPN Gateway](monitor-vpn-gateway.md).
+* For more information about VPN Gateway monitoring, see [Monitoring Azure VPN Gateway](monitor-vpn-gateway.md).
 * To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).

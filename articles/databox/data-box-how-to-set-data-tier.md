@@ -1,33 +1,34 @@
 ---
-title: Send data to Hot, Cold, Archive blob tier via Azure Data Box/Azure Data Box Heavy 
-description: Describes how to use Azure Data Box or Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, cold, or archive
+title: Send data to Hot, Cool, Archive blob tier via Azure Data Box/Azure Data Box Heavy 
+description: Describes how to use Azure Data Box or Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, Cool, or archive
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Use Azure Data Box or Azure Data Box Heavy to send data to appropriate Azure Storage blob tier
 
 Azure Data Box moves large amounts of data to Azure by shipping you a proprietary storage device. You fill up the device with data and return it. The data from Data Box is uploaded to a default tier associated with the storage account. You can then move the data to another storage tier.
 
-This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cold, or Archive blob tier. This article applies to both Azure Data Box and Azure Data Box Heavy.
+This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cool, or Archive blob tier. This article applies to both Azure Data Box and Azure Data Box Heavy.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Choose the correct storage tier for your data
 
-Azure storage allows three different tiers to store data in the most cost-effective manner - Hot, Cold, or Archive. Hot storage tier is optimized for storing data that is accessed frequently. Hot storage has higher storage costs than Cool and Archive storage, but the lowest access costs.
+Azure storage allows three different tiers to store data in the most cost-effective manner - Hot, Cool, or Archive. Hot storage tier is optimized for storing data that is accessed frequently. Hot storage has higher storage costs than Cool and Archive storage, but the lowest access costs.
 
-Cool storage tier is for infrequently accessed data that needs to be stored for a minimum of 30 days. The storage cost for cold tier is lower than that of hot storage tier but the data access charges are high when compared to Hot tier.
+Cool storage tier is for infrequently accessed data that needs to be stored for a minimum of 30 days. The storage cost for cool tier is lower than that of hot storage tier but the data access charges are high when compared to Hot tier.
 
 The Azure Archive tier is offline and offers the lowest storage costs but also the highest access costs. This tier is meant for data that remains in archival storage for a minimum of 180 days. For details of each of these tiers and the pricing model, go to [Comparison of the storage tiers](../storage/blobs/access-tiers-overview.md).
 
-The data from the Data Box or Data Box Heavy is uploaded to a storage tier that is associated with the storage account. When you create a storage account, you can specify the access tier as Hot or Cold. Depending upon the access pattern of your workload and cost, you can move this data from the default tier to another storage tier.
+The data from the Data Box or Data Box Heavy is uploaded to a storage tier that is associated with the storage account. When you create a storage account, you can specify the access tier as Hot or Cool. Depending upon the access pattern of your workload and cost, you can move this data from the default tier to another storage tier.
 
 You may only tier your object storage data in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. To choose the correct storage tier for your data, review the considerations detailed in [Azure Blob storage: Premium, Hot, Cool, and Archive storage tiers](../storage/blobs/access-tiers-overview.md).
 

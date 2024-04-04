@@ -3,6 +3,7 @@ title: Send Blob storage events to web endpoint - Bicep
 description: Use Azure Event Grid and a Bicep file to create Blob storage account, subscribe to events, and send events to a Webhook.
 ms.date: 07/13/2022
 ms.topic: quickstart
+ms.custom: devx-track-bicep
 ---
 
 # Quickstart: Route Blob storage events to web endpoint by using Bicep
@@ -86,8 +87,7 @@ When you upload the file to the Azure Blob storage, Event Grid sends a message t
 
 ## Clean up resources
 
-When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-).
+When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ## Next steps
 

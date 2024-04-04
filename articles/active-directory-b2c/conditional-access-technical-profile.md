@@ -2,23 +2,27 @@
 title: Conditional Access technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Conditional Access technical profiles in Azure AD B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/18/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to define a Conditional Access technical profile in a custom policy, so that I can automate risk assessment and enforce organizational policies for sign-ins, including blocking access and challenging users with multi-factor authentication.
+
 ---
 
 # Define a Conditional Access technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies. Automating risk assessment with policy conditions means risky sign-ins are at once identified and remediated or blocked.
+Microsoft Entra Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies. Automating risk assessment with policy conditions means risky sign-ins are at once identified and remediated or blocked.
 
 ## Protocol
 
@@ -58,7 +62,7 @@ The **InputClaims** element contains a list of claims to send to Conditional Acc
 | UserId | Yes | string | The identifier of the user who signs in. |
 | AuthenticationMethodsUsed | Yes |stringCollection | The list of methods the user used to sign in. Possible values: `Password`, and `OneTimePasscode`. |
 | IsFederated | Yes |boolean | Indicates whether or not a user signed in with a federated account. The value must be `false`. |
-| IsMfaRegistered | Yes |boolean | Indicates whether the user already enrolled a phone number for multi-factor authentication. |
+| IsMfaRegistered | Yes |boolean | Indicates whether the user already enrolled a method for multi-factor authentication. If the value is set to `false`, the Conditional Access policy evaluation returns a `block` challenge if action is required. |
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending them to the Conditional Access service.
 

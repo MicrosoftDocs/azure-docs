@@ -1,9 +1,12 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 11/12/2019
+ms.date: 05/26/2023
+ms.service: site-recovery
 ms.topic: conceptual
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 # Common questions - Hyper-V to Azure disaster recovery
 
@@ -41,7 +44,7 @@ If you want to replicate to a secondary datacenter, then Hyper-V VMs must be on 
 
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
-Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/new-azure-migrate-and-azure-site-recovery-enhancements-for-cloud-migration/).
 
 
 ### Can I deploy Site Recovery with VMM if I only have one VMM server?
@@ -137,12 +140,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
-Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute Microsoft peering. Replication over a site-to-site VPN network isn't supported.
-
-### Can I replicate to Azure with ExpressRoute?
-
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
-
+Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall. Replicating to Azure with site-to-site VPN is only supported when using [private endpoints](../private-link/private-endpoint-overview.md).
 
 ### Why can't I replicate over VPN?
 
@@ -176,7 +174,9 @@ Yes, you can exclude disks from replication.
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
+### Can I enable Site Recovery along with other backup or disaster recovery tools?
 
+No, enabling Site Recovery along with other backup or disaster recovery resources on the same host machine is not supported. The other tools may create a lock on the resources required for Site Recovery to funtion smoothly. This may cause ongoing replication to break. 
 
 ## Security
 

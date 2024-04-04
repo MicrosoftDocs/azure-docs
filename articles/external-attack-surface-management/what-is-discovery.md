@@ -3,7 +3,7 @@ title: What is Discovery?
 description: What is Discovery - Microsoft Defender External Attack Surface Management (Defender EASM) relies on our proprietary discovery technology to continuously define your organization’s unique Internet-exposed attack surface. 
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: conceptual
 ---
@@ -22,16 +22,13 @@ Through this process, Microsoft enables organizations to proactively monitor the
 
 To create a comprehensive mapping of your organization’s attack surface, the system first intakes known assets (i.e. “seeds”) that are recursively scanned to discover additional entities through their connections to a seed. An initial seed may be any of the following kinds of web infrastructure indexed by Microsoft:
 
-- Pages
-- Host Name
-- Domain
-- SSL Cert
-- Contact Email Address
-- IP Block
-- IP Address
-- ASN
-
-![Screenshot of Seed list view on discovery screen](media/Discovery-2.png)
+- Organization Names
+- Domains
+- IP Blocks
+- Hosts
+- Email Contacts
+- ASNs
+- Whois organizations
 
 Starting with a seed, the system then discovers associations to other online infrastructure to discover other assets owned by your organization; this process ultimately creates your attack surface inventory. The discovery process uses the seeds as the central nodes and spiders outward towards the periphery of your attack surface by identifying all the infrastructure directly connected to the seed, and then identifying all the things related to each of the things in the first set of connections, etc. This process continues until we reach the edge of what your organization is responsible for managing.
 
@@ -40,7 +37,7 @@ For example, to discover Contoso’s infrastructure, you might use the domain, c
 | Data source | Example |
 |--|--|
 | WhoIs records | Other domain names registered to the same contact email or registrant org used to register contoso.com likely also belong to Contoso |
-| WhoIs records | All domain names registered to any @contoso.com email address likely also belong to Microsoft |
+| WhoIs records | All domain names registered to any @contoso.com email address likely also belong to Contoso |
 | Whois records | Other domains associated with the same name server as contoso.com may also belong to Contoso |
 | DNS records | We can assume that Contoso also owns all observed hosts on the domains it owns and any websites that are associated with those hosts |
 | DNS records | Domains with other hosts resolving to the same IP blocks might also belong to Contoso if the organization owns the IP block |

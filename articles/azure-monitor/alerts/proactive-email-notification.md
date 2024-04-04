@@ -1,14 +1,16 @@
 ---
 title: Smart Detection notification change - Azure Application Insights
 description: Change to the default notification recipients from Smart Detection. Smart Detection lets you monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 04/01/2024
 ms.reviewer: yagil
 ---
+
 # Smart Detection e-mail notification change
 
 >[!NOTE]
->You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>You can migrate your Application Insight resources to alerts-based smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
 > See [Smart Detection Alerts migration](./alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 
@@ -43,5 +45,5 @@ Learn more about Smart Detection:
 
 - [Failure anomalies](./proactive-failure-diagnostics.md)
 - [Memory Leaks](./proactive-potential-memory-leak.md)
-- [Performance anomalies](./proactive-performance-diagnostics.md)
+- [Performance anomalies](./smart-detection-performance.md)
 

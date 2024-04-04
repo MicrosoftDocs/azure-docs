@@ -1,20 +1,20 @@
 ---
-title: Agent-based migration in Azure Migrate Server Migration
+title: Agent-based migration in the Migration and modernization tool
 description: Provides an overview of agent-based VMware VM migration in Azure Migrate.
-author: rahulg1190
-ms.author: rahugup
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/17/2020
-
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
-
 
 # Agent-based migration architecture
 
-This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
 
-Using Azure Migrate: Server Migration, you can replicate VMware VMs with a couple of options:
+Using the Migration and modernization tool, you can replicate VMware VMs with a couple of options:
 
 - Migrate VMs using agent-based replication, as described in this article.
 - Migrate VMware VMs using agentless replication. This migrates VMs without needing to install anything on them.
@@ -37,7 +37,7 @@ The table summarizes the components used for agent-based migration.
 
 **Component** | **Details** | **Installation**
 --- | --- | ---
-**Replication appliance** | The replication appliance (configuration server/process server) is an on-premises server that acts as a bridge between the on-premises environment, and Server Migration. The appliance discovers the on-premises server inventory, so that Server Migration can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to Server Migration and coordinates replication.<br/> **Process server**: Handles data replication. The process server receives server data, compresses and encrypts it, and sends to Azure. In Azure, Server Migration writes the data to managed disks. | By default the process server is installed together with the configuration server on the replication appliance.
+**Replication appliance** | The replication appliance (configuration server/process server) is an on-premises server that acts as a bridge between the on-premises environment, and the Migration and modernization tool. The appliance discovers the on-premises server inventory, so that the Migration and modernization tool can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to the Migration and modernization tool and coordinates replication.<br/> **Process server**: Handles data replication. The process server receives server data, compresses and encrypts it, and sends to Azure. In Azure, the Migration and modernization tool writes the data to managed disks. | By default the process server is installed together with the configuration server on the replication appliance.
 **Mobility service** | The Mobility service is an agent installed on each server you want to replicate and migrate. It sends replication data from the server to the process server. | Installation files for different versions of the Mobility service are located on the replication appliance. You download and install the agent you need, in accordance with the operating system and version of the server you want to replicate.
 
 ## Mobility service installation

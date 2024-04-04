@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <linearGradient id="f68f91e1-7ec4-4ac8-b59a-882b73c0547d" x1="12.296" y1="14.531" x2="12.296" y2="4.512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0078d4"/>
+      <stop offset="1" stop-color="#5ea0ef"/>
+    </linearGradient>
+    <linearGradient id="a4905f30-2347-4de4-b45f-36584458a490" x1="5.704" y1="11.037" x2="5.704" y2="1.018" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#32bedd"/>
+      <stop offset="1" stop-color="#50e6ff"/>
+    </linearGradient>
+  </defs>
+  <g id="aa6a9225-d4ec-405d-8c49-6846c6154e5a">
+    <g>
+      <path d="M17.2,4.512H11.716v5.916a1.079,1.079,0,0,1-1.111,1.041H6.716v2.453a.647.647,0,0,0,.679.609h2.76c0-.059-.009-.118-.009-.178a2.15,2.15,0,1,1,4.3,0c0,.06,0,.119-.009.178H17.2a.647.647,0,0,0,.678-.609v-8.8A.647.647,0,0,0,17.2,4.512Z" fill="url(#f68f91e1-7ec4-4ac8-b59a-882b73c0547d)"/>
+      <path d="M11.707,6.032h4.356a.34.34,0,0,1,.34.34V7.611a.34.34,0,0,1-.34.339H11.707Z" fill="#fff"/>
+      <path d="M10.605,1.018H.8a.647.647,0,0,0-.678.609v8.8a.647.647,0,0,0,.678.609h2.8a2.149,2.149,0,0,1,2.1-2.612h0A2.147,2.147,0,0,1,7.8,11.037h2.8a.647.647,0,0,0,.679-.609v-8.8A.647.647,0,0,0,10.605,1.018Z" fill="url(#a4905f30-2347-4de4-b45f-36584458a490)"/>
+      <path d="M12.3,18H5.7a.42.42,0,0,1-.419-.419V11.5a.42.42,0,1,1,.839,0v5.659h5.752V14.583a.42.42,0,1,1,.839,0v3A.42.42,0,0,1,12.3,18Z" fill="#005ba1"/>
+      <rect x="1.597" y="2.538" width="8.214" height="1.917" rx="0.339" fill="#fff"/>
+      <rect x="1.597" y="5.637" width="8.214" height="1.917" rx="0.339" fill="#fff" opacity="0.8"/>
+      <circle cx="5.704" cy="10.575" r="1.73" fill="#7de2fb"/>
+      <circle cx="12.296" cy="14.353" r="1.73" fill="#7de2fb"/>
+      <g opacity="0.8">
+        <path d="M16.063,9.131H11.716l-.007,1.428,0,.489h4.356a.34.34,0,0,0,.34-.339V9.47A.34.34,0,0,0,16.063,9.131Z" fill="#fff"/>
+        <path d="M11.692,10.509a.994.994,0,0,1-.191.533l0,.006h.21l0-.832Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+    <metadata>  
+
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">  
+
+      <rdf:li>public:false</rdf:li>  
+
+      <rdf:li>sdk:false</rdf:li>  
+
+      <rdf:li>category: New Icons</rdf:li>  
+
+   </rdf:RDF>  
+
+</metadata> 
+</svg>

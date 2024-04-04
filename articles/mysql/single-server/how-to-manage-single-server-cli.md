@@ -3,15 +3,18 @@ title: Manage server - Azure CLI - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure CLI.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom: devx-track-azurecli
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
 
-# Manage an Azure Database for MySQL Single server using the Azure CLI
+# Manage an Azure Database for MySQL single server using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article shows you how to manage your Single servers deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
@@ -74,7 +77,7 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the MySQL Single server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
+If you would just like to delete the MySQL single server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

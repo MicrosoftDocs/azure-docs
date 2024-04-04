@@ -1,8 +1,8 @@
 ---
 title: Move mainframe compute to Azure Virtual Machines
 description: Azure compute resources compare favorably to mainframe capacity so you can migrate and modernize IBM z14 applications.
-author: njray
-ms.author: larryme
+author: johnjrayborn
+ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
@@ -131,7 +131,6 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 
 ### Azure Government
 
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft and FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### More migration resources

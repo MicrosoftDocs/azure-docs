@@ -1,28 +1,25 @@
 ### YamlMime:Landing
 
-title: Apache Kafka for Confluent Cloud integration with Azure
-summary: Enables using Apache Kafka as a service.
+title: Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service
+summary: Enables using Apache Kafka and Apache Flink as a managed service on Azure
 
 metadata:
   title: Confluent Cloud with Azure documentation
-  description: Confluent Cloud integrates with Azure to offer Apache Kafka as a service.
+  description: Confluent Cloud integrates with Azure to offer Apache Kafka and Apache Flink as a service.
   ms.service: partner-services
   ms.subservice: confluent
   ms.topic: landing-page
-  ms.collection: na
-  author: flang-msft
-  ms.author: franlanglois
-  ms.date: 03/25/2022
+  ms.date: 11/20/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Confluent Cloud on Azure
+  - title: About Apache Kafka & Apache Flink on Confluent Cloud
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Apache Kafka for Confluent Cloud?
+          - text: What is Apache Kafka & Apache Flink on Confluent Cloud?
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -34,15 +31,15 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Apache Kafka for Confluent Cloud - Azure portal
+          - text: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure portal
             url: create.md
-          - text: Get started with Apache Kafka for Confluent Cloud - Azure CLI
+          - text: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
             url: create-cli.md
       - linkListType: how-to-guide
         links:
           - text: Add connectors for Confluent Cloud
             url: add-connectors.md
-          - text: Troubleshooting Apache Kafka for Confluent Cloud solutions
+          - text: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
             url: troubleshoot.md
 
   # Card

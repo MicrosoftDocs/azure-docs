@@ -4,8 +4,8 @@ description: Learn about the ownership of responsibilities for the operation of 
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 4/12/2021
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
 ---
 
@@ -404,18 +404,17 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
    <td>
 <ul>
 
-<li>Monitor utilization of control plane (master nodes)
+<li>Monitor utilization of control plane (master nodes) resources including Network, Storage and Compute capacity
 
 <li>Scale and/or resize control plane nodes to maintain quality of service
 
-<li>Monitor utilization of customer resources including Network, Storage and Compute capacity. Where autoscaling features are not enabled alert customer for any changes required to cluster resources (eg. new compute nodes to scale, additional storage, etc.)
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Use the provided OpenShift Cluster Manager controls to add or remove additional worker nodes as required.
+<li>Add or remove additional worker nodes as required.
 
 <li>Respond to Microsoft and Red Hat notifications regarding cluster resource requirements.
 </li>

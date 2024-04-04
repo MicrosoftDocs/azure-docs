@@ -1,20 +1,21 @@
 ---
 title: Skillset concepts
-titleSuffix: Azure Cognitive Search
-description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
-
+titleSuffix: Azure AI Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure AI Search. Learn important concepts and details about skillset composition.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 08/08/2023
 ---
 
-# Skillset concepts in Azure Cognitive Search
+# Skillset concepts in Azure AI Search
 
 This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts of [AI enrichment](cognitive-search-concept-intro.md).
 
-A skillset is a reusable resource in Azure Cognitive Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable resource in Azure AI Search that's attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
 The following diagram illustrates the basic data flow of skillset execution. 
 
@@ -63,7 +64,7 @@ Skills can execute independently and in parallel, or sequentially if you feed th
 
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
 
-Notice how the output of the first skill ("pages") is used in sentiment analysis, where "/document/reviews_text/pages/*" is both the context and input. For more information about path formulation, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
+Notice how the output of the first skill ("pages") is used in sentiment analysis, where "/document/reviews_text/pages/*" is both the context and input. For more information about path formulation, see [How to reference enrichments](cognitive-search-concept-annotations-syntax.md).
 
 ```json
 {
@@ -129,13 +130,13 @@ An enriched document exists for the duration of skillset execution, but can be [
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
-The initial content is metadata and the *root node* (`document\content`). The root node is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+The initial content is metadata and the *root node* (`document/content`). The root node is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
+|Azure Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
 As skills execute, output is added to the enrichment tree as new nodes. If skill execution is over the entire document, nodes are added at the first level under the root.
 
@@ -168,7 +169,7 @@ The "sourceFieldName" property specifies either a field in your data source or a
 
 ## Enrichment example
 
-Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
+Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
 
 This example also shows:
 
@@ -180,7 +181,7 @@ In this example, source fields from a CSV file include customer reviews about ho
 In the hotel reviews example, a "document" within the enrichment process represents a single hotel review.
 
 > [!TIP]
-> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or through [Postman and the REST APIs](knowledge-store-create-rest.md). You can also use [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
+> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or [REST APIs](knowledge-store-create-rest.md). You can also use [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
 
 Conceptually, the initial enrichment tree looks as follows:
 
@@ -221,7 +222,7 @@ The enrichment tree now has a new node placed under the context of the skill. Th
  
 ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
-To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference annotations](cognitive-search-concept-annotations-syntax.md).
+To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference enrichments](cognitive-search-concept-annotations-syntax.md).
 
 ### Skill #2 Language detection
 

@@ -2,18 +2,19 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.devlang: csharp, python
+ms.date: 03/20/2024
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Use the Azure Compute Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with an [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
 
 ## Benefits of the Azure Compute Gallery
 
-When you use the Azure Compute Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
+When you use the Azure Compute Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they're provisioned.
 
 You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
 
@@ -31,19 +32,23 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 ## Prerequisites
 
-> [!NOTE]
-> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
-
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+
+> [!NOTE]
+> Authentication using Microsoft Entra ID is required. If you use Shared Key Auth, you will get an authentication error.
 
 - **an Azure Compute Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
-> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Azure AD tenant.
+> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Microsoft Entra tenant.
 >
 > The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
-If you use an Azure AD application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
+If you use a Microsoft Entra application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
+
+> [!NOTE]
+> Reader permissions for the Azure Compute Gallery image are inadequate as they necessitate the execution of the following minimum action: Microsoft.Compute/disks/beginGetAccess/action for appropriate access.
+
 
 ## Prepare a Shared Image
 
@@ -60,46 +65,57 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
+If you're creating a new VM for the image, use Azure Marketplace image supported by Batch as the base image for your managed image.
 
-> [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
+To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images:
+
+- PowerShell: [Azure Batch supported images](/powershell/module/az.batch/get-azbatchsupportedimage)
+- Azure CLI:  [Azure Batch pool supported images](/cli/azure/batch/pool/supported-images)
+- Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
 
 Follow these guidelines when creating VMs:
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
-- Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
+- Don't install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
-- Ensure that the OS disk is not encrypted.
+- Ensure that the OS disk isn't encrypted.
 - Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
 - For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
 
-### Create a VM snapshot
-
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
-
-### Create an image from one or more snapshots
-
-To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. Create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
-
 ### Create an Azure Compute Gallery
+ 
+You need to create an Azure Compute Gallery to make your custom image available. Select this gallery when creating image in the following steps. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
+ 
+### Create an image
+ 
+To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
+ 
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
-Once you have successfully created your managed image, you need to create an Azure Compute Gallery to make your custom image available. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
-
+> [!NOTE]
+> If the base image has purchase plan information, ensure that the gallery image has identical purchase plan information as the base image. For more information on creating image which has purchase plan, refer to [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
+>
+> If the base image does not have purchase plan information, avoid specifying any purchase plan information for the gallery image.
+> 
+> For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
+> 
+> Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
+ 
+ 
 ## Create a pool from a Shared Image using the Azure CLI
 
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
 
-> [!NOTE]
-> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
+> [!IMPORTANT]
+> The node agent SKU id must align with the publisher/offer/SKU in order for the node to start.
 
 ```azurecli
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
     --image "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}" \
-    --node-agent-sku-id "batch.node.ubuntu 16.04"
+    --{node-agent-sku-id}
 ```
 
 ## Create a pool from a Shared Image using C#
@@ -111,7 +127,7 @@ private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(Ima
 {
     return new VirtualMachineConfiguration(
         imageReference: imageReference,
-        nodeAgentSkuId: "batch.node.windows amd64");
+        nodeAgentSkuId: {});
 }
 
 private static ImageReference CreateImageReference()
@@ -138,7 +154,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ## Create a pool from a Shared Image using Python
 
-You also can create a pool from a Shared Image by using the Python SDK: 
+You also can create a pool from a Shared Image by using the Python SDK:
 
 ```python
 # Import the required modules from the
@@ -185,7 +201,7 @@ ir = batchmodels.ImageReference(
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference=ir,
-    node_agent_sku_id="batch.node.ubuntu 18.04"
+    {node_agent_sku_id}
 )
 
 # Create the unbound pool
@@ -201,7 +217,7 @@ new_pool = batchmodels.PoolAddParameter(
 client.pool.add(new_pool)
 ```
 
-## Create a pool from a Shared Image using the Azure portal
+## Create a pool from a Shared Image or Custom Image using the Azure portal
 
 Use the following steps to create a pool from a Shared Image in the Azure portal.
 
@@ -211,16 +227,18 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. In the **Image Type** section, select **Azure Compute Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
+1. Once the node is allocated, use **Connect** to generate user and the RDP file for Windows OR use SSH to for Linux to log in to the allocated node and verify.
 
 ![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
+
 
 ## Considerations for large pools
 
 If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
 
-- **Azure Compute Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+- **Azure Compute Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you're creating a pool with 3,000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
-- **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
+- **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1,000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2,000 VMs is at least 30 minutes.
 
 ## Next steps
 

@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 11/04/2021
+ms.date: 04/05/2023
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Quickstart: Troubleshoot Bicep file deployments
@@ -12,9 +12,9 @@ This quickstart describes how to troubleshoot Bicep file deployment errors. You'
 
 There are three types of errors that are related to a deployment:
 
-- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can identify these errors.
+- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. A code editor like Visual Studio Code can identify these errors.
 - **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
-- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress.
+- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress in your Azure environment.
 
 All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history. A Bicep file with syntax errors doesn't compile into JSON and isn't shown in the activity log.
 
@@ -24,7 +24,7 @@ To complete this quickstart, you need the following items:
 
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- The latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- The latest version of either [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a Bicep file with errors
 
@@ -67,7 +67,7 @@ output vnetResult object = existingVNet
 
 Open the file in Visual Studio Code. You'll notice that Visual Studio Code identifies a syntax error. The first parameter declaration is marked with red squiggles to indicate an error.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-visual-studio-code-error.png" alt-text="Screenshot of Visual Studio Code showing error in syntax.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-visual-studio-code-error.png" alt-text="Screenshot of Visual Studio Code with red squiggles highlighting a syntax error in a Bicep file.":::
 
 The lines marked with an error are:
 
@@ -83,9 +83,9 @@ parameter storageAccountType string = 'Standard_LRS'
 
 When you hover over `parameter`, you see an error message.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of error message in Visual Studio Code.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of a detailed error message displayed in Visual Studio Code when hovering over a syntax error in a Bicep file.":::
 
-The message states: "This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration." If you attempt to deploy this file, you'll get the same error message from the deployment command.
+The message states: _This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration._ If you attempt to deploy this file, you'll get the same error message from the deployment command.
 
 If you look at the documentation for a [parameter declaration](../bicep/parameters.md), you'll see the keyword is actually `param`. When you change that syntax, the validation error disappears. The `@allowed` decorator was also marked as an error, but that error is also resolved by changing the parameter declaration. The decorator was marked as an error because it expects a parameter declaration after the decorator. This condition wasn't true when the declaration was incorrect.
 
@@ -127,11 +127,11 @@ You see an error message that indicates preflight validation failed. You also ge
 
 Because the error was caught in preflight, no deployment exists in the history.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/no-deployment.png" alt-text="Screenshot of portal with no deployment in the history.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/no-deployment.png" alt-text="Screenshot of Azure portal's deployment history section showing no deployments for a Bicep file.":::
 
 But, the failed deployment exists in the Activity Log.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/preflight-activity-log.png" alt-text="Screenshot of activity log with error.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/preflight-activity-log.png" alt-text="Screenshot of Azure portal's activity log displaying a preflight validation error for a Bicep file deployment.":::
 
 You can open details of the log entry to see the error message.
 
@@ -165,7 +165,7 @@ The deployment starts but fails with a message that the virtual network wasn't f
 
 Notice in the portal that the deployment appears in the history.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/view-deployment-history.png" alt-text="Screenshot of deployment history in portal.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/view-deployment-history.png" alt-text="Screenshot of Azure portal's deployment history section showing a failed deployment for a Bicep file.":::
 
 You can open the entry in the deployment history to get details about the error. The error also exists in the activity log.
 
@@ -179,7 +179,7 @@ The Bicep file attempts to reference a virtual network that doesn't exist in you
   'Standard_ZRS'
   'Premium_LRS'
 ])
-parameter storageAccountType string = 'Standard_LRS'
+param storageAccountType string = 'Standard_LRS'
 
 @description('Prefix for storage name.')
 param prefixName string

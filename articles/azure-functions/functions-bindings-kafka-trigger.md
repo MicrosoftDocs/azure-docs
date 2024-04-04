@@ -2,6 +2,7 @@
 title: Apache Kafka trigger for Azure Functions
 description: Use Azure Functions to run your code based on events from an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/14/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -18,19 +19,21 @@ You can use the Apache Kafka trigger in Azure Functions to run your function cod
 
 The usage of the trigger depends on the C# modality used in your function app, which can be one of the following modes:
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
+
+# [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
-# [Isolated process](#tab/isolated-process)
-
-An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
-
 ---
 
 The attributes you use depend on the specific event provider.
 
-# [Confluent](#tab/confluent/in-process)
+# [Confluent (in-process)](#tab/confluent/in-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -62,7 +65,7 @@ In the following function, an instance of `UserRecord` is available in the `Kafk
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
-# [Event Hubs](#tab/event-hubs/in-process)
+# [Event Hubs (in-process)](#tab/event-hubs/in-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -94,7 +97,7 @@ In the following function, an instance of `UserRecord` is available in the `Kafk
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
-# [Confluent](#tab/confluent/isolated-process)
+# [Confluent (isolated process)](#tab/confluent/isolated-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -110,7 +113,7 @@ The following function logs the message and headers for the Kafka Event:
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
-# [Event Hubs](#tab/event-hubs/isolated-process)
+# [Event Hubs (isolated process)](#tab/event-hubs/isolated-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -359,7 +362,7 @@ For a complete set of working Java examples for Event Hubs, see the [Kafka exten
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. 
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `KafkaTriggerAttribute` to define the function trigger. 
 
 The following table explains the properties you can set using this trigger attribute:
 
@@ -438,14 +441,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
-
-Kafka events are passed to the function as `KafkaEventData<string>` objects or arrays. Strings and string arrays that are JSON payloads are also supported.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Kafka events are currently supported as strings and string arrays that are JSON payloads.
 
+# [In-process model](#tab/in-process)
+
+Kafka events are passed to the function as `KafkaEventData<string>` objects or arrays. Strings and string arrays that are JSON payloads are also supported.
+ 
 ---
 
 ::: zone-end 
@@ -456,6 +459,8 @@ Kafka messages are passed to the function as strings and string arrays that are 
 ::: zone-end 
 
 In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Enable runtime scaling](functions-bindings-kafka.md#enable-runtime-scaling). 
+
+You can't use the **Test/Run** feature of the **Code + Test** page in the Azure Portal to work with Kafka triggers. You must instead send test events directly to the topic being monitored by the trigger.  
 
 For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
 

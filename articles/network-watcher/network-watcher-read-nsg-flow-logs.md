@@ -1,16 +1,13 @@
 ---
-title: Read NSG flow logs | Microsoft Docs
-description: Learn how to use Azure PowerShell to parse Network Security Group flow logs, which are created hourly and updated every few minutes in Azure Network Watcher.
+title: Read NSG flow logs
+description: Learn how to use Azure PowerShell to parse network security group flow logs, which are created hourly and updated every few minutes in Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/04/2021
-ms.author: damendo 
-ms.custom: devx-track-azurepowershell
+ms.date: 02/09/2021
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Read NSG flow logs
@@ -19,16 +16,13 @@ Learn how to read NSG flow logs entries with PowerShell.
 
 NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Scenario
 
-In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article are not limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
+In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article aren't limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
 
 ## Setup
 
-Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ## Retrieve the block list
 
@@ -153,7 +147,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You do not want the last value, because it is the closing bracket.
+Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You don't want the last value, because it's the closing bracket.
 
 The results of this value are shown in the following example:
 
@@ -177,7 +171,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 		}
 ```
 
-This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
+This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they're written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
 
 ## Next steps
 

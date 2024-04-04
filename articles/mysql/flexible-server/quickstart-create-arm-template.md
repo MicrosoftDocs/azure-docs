@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
+title: 'Quickstart: Create a flexible server by using Azure Resource Manager'
+description: In this quickstart, learn how to deploy a database in an instance of Azure Database for MySQL - Flexible Server by using an Azure Resource Manager template.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 07/07/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 02/16/2023
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server
+# Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using Azure Resource Manager
 
-[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
+[!INCLUDE [azure-database-for-mysql-flexible-server-abstract](../includes/Azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -24,101 +24,145 @@ ms.date: 07/07/2022
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-## Create server with public access
+## Create a server that has public access
 
-Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using public access connectivity method and also create a database on the server.
+To create an Azure Database for MySQL - Flexible Server instance by using the public access connectivity method and create a database on the server, create an *azuredeploy.json* file that has the following code examples. If necessary, update the default value for `firewallRules`.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "resourceNamePrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Provide a prefix for creating resource names."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
     "administratorLogin": {
       "type": "string"
     },
     "administratorLoginPassword": {
       "type": "securestring"
     },
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
+    "firewallRules": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "name": "rule1",
+          "startIPAddress": "192.168.0.1",
+          "endIPAddress": "192.168.0.255"
+        },
+        {
+          "name": "rule2",
+          "startIPAddress": "192.168.1.1",
+          "endIPAddress": "192.168.1.255"
+        }
+      ]
     },
     "serverEdition": {
       "type": "string",
       "defaultValue": "Burstable",
+      "allowedValues": [
+        "Burstable",
+        "GeneralPurpose",
+        "MemoryOptimized"
+      ],
       "metadata": {
-        "description": "The tier of the particular SKU, e.g. Burstable, GeneralPurpose, MemoryOptimized. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+        "description": "The tier of the specific SKU. High availability is available only for GeneralPurpose and MemoryOptimized SKUs."
       }
+    },
+    "version": {
+      "type": "string",
+      "defaultValue": "8.0.21",
+      "allowedValues": [
+        "5.7",
+        "8.0.21"
+      ],
+      "metadata": {
+        "description": "Server version"
+      }
+    },
+    "availabilityZone": {
+      "type": "string",
+      "defaultValue": "1",
+      "metadata": {
+        "description": "The availability zone information of the server. (If you don't have a preference, leave this setting blank.)"
+      }
+    },
+    "haEnabled": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled",
+        "SameZone",
+        "ZoneRedundant"
+      ],
+      "metadata": {
+        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant."
+      }
+    },
+    "standbyAvailabilityZone": {
+      "type": "string",
+      "defaultValue": "2",
+      "metadata": {
+        "description": "The availability zone of the standby server."
+      }
+    },
+    "storageSizeGB": {
+      "type": "int",
+      "defaultValue": 20
+    },
+    "storageIops": {
+      "type": "int",
+      "defaultValue": 360
+    },
+    "storageAutogrow": {
+      "type": "string",
+      "defaultValue": "Enabled",
+      "allowedValues": [
+        "Enabled",
+        "Disabled"
+      ]
     },
     "skuName": {
       "type": "string",
       "defaultValue": "Standard_B1ms",
       "metadata": {
-        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+        "description": "The name of the SKU. For example, Standard_D32ds_v4."
       }
-    },
-    "storageSizeGB": {
-      "type": "int"
-    },
-    "storageIops": {
-      "type": "int"
-    },
-    "storageAutogrow": {
-      "type": "string",
-      "defaultValue": "Enabled"
-    },
-    "availabilityZone": {
-      "type": "string",
-      "metadata": {
-        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
-      }
-    },
-    "version": {
-      "type": "string"
-    },
-    "tags": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "haEnabled": {
-      "type": "string",
-      "defaultValue": "Disabled",
-      "metadata": {
-        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
-      }
-    },
-    "standbyAvailabilityZone": {
-      "type": "string",
-      "metadata": {
-        "description": "Availability zone of the standby server."
-      }
-    },
-    "firewallRules": {
-      "type": "object",
-      "defaultValue": {}
     },
     "backupRetentionDays": {
-      "type": "int"
+      "type": "int",
+      "defaultValue": 7
     },
     "geoRedundantBackup": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled",
+        "Enabled"
+      ]
+    },
+    "serverName": {
+      "type": "string",
+      "defaultValue": "[format('{0}mysqlserver', parameters('resourceNamePrefix'))]"
     },
     "databaseName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "[format('{0}mysqldb', parameters('resourceNamePrefix'))]"
     }
-  },
-  "variables": {
-    "api": "2021-05-01",
-    "firewallRules": "[parameters('firewallRules').rules]"
   },
   "resources": [
     {
       "type": "Microsoft.DBforMySQL/flexibleServers",
-      "apiVersion": "[variables('api')]",
-      "location": "[parameters('location')]",
+      "apiVersion": "2021-12-01-preview",
       "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('skuName')]",
         "tier": "[parameters('serverEdition')]"
@@ -132,211 +176,223 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script to
           "mode": "[parameters('haEnabled')]",
           "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
         },
-        "Storage": {
+        "storage": {
           "storageSizeGB": "[parameters('storageSizeGB')]",
           "iops": "[parameters('storageIops')]",
-          "autogrow": "[parameters('storageAutogrow')]"
+          "autoGrow": "[parameters('storageAutogrow')]"
         },
-        "Backup": {
+        "backup": {
           "backupRetentionDays": "[parameters('backupRetentionDays')]",
           "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
-        }
-      },
-      "tags": "[parameters('tags')]"
-    },
-    {
-      "condition": "[greater(length(variables('firewallRules')), 0)]",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "copy": {
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial",
-        "name": "firewallRulesIterator"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
         }
       }
     },
     {
       "type": "Microsoft.DBforMySQL/flexibleServers/databases",
-      "apiVersion": "[variables('api')]",
-      "name": "[concat(parameters('serverName'),'/',parameters('databaseName'))]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
-      ],
+      "apiVersion": "2021-12-01-preview",
+      "name": "[format('{0}/{1}', parameters('serverName'), parameters('databaseName'))]",
       "properties": {
         "charset": "utf8",
         "collation": "utf8_general_ci"
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('serverName'))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "createFirewallRules",
+        "count": "[length(range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1)))]",
+        "mode": "serial",
+        "batchSize": 1
+      },
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('firewallRules-{0}', range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1))[copyIndex()])]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "ip": {
+            "value": "[parameters('firewallRules')[range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1))[copyIndex()]]]"
+          },
+          "serverName": {
+            "value": "[parameters('serverName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "serverName": {
+              "type": "string"
+            },
+            "ip": {
+              "type": "object"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+              "apiVersion": "2021-12-01-preview",
+              "name": "[format('{0}/{1}', parameters('serverName'), parameters('ip').name)]",
+              "properties": {
+                "startIpAddress": "[parameters('ip').startIPAddress]",
+                "endIpAddress": "[parameters('ip').endIPAddress]"
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('serverName'))]"
+      ]
     }
   ]
 }
 ```
 
-## Create a server with private access
+## Create a server that has private access
 
-Create a _mysql-flexible-server-template.json_ file and copy this JSON script to create a server using private access connectivity method inside a virtual network.
+Modify the following code examples to create an Azure Database for MySQL flexible server that has private access connectivity inside a virtual network:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "resourceNamePrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Provide a prefix for creating resource names."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
     "administratorLogin": {
       "type": "string"
     },
     "administratorLoginPassword": {
       "type": "securestring"
     },
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
+    "firewallRules": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "name": "rule1",
+          "startIPAddress": "192.168.0.1",
+          "endIPAddress": "192.168.0.255"
+        },
+        {
+          "name": "rule2",
+          "startIPAddress": "192.168.1.1",
+          "endIPAddress": "192.168.1.255"
+        }
+      ]
     },
     "serverEdition": {
       "type": "string",
       "defaultValue": "Burstable",
+      "allowedValues": [
+        "Burstable",
+        "GeneralPurpose",
+        "MemoryOptimized"
+      ],
       "metadata": {
-        "description": "The tier of the particular SKU, e.g. Burstable, GeneralPurpose, MemoryOptimized. High Availability is available only for GeneralPurpose and MemoryOptimized sku."
+        "description": "The tier of the specific SKU. High availability is available only for GeneralPurpose and MemoryOptimized SKUs."
       }
+    },
+    "version": {
+      "type": "string",
+      "defaultValue": "8.0.21",
+      "allowedValues": [
+        "5.7",
+        "8.0.21"
+      ],
+      "metadata": {
+        "description": "Server version"
+      }
+    },
+    "availabilityZone": {
+      "type": "string",
+      "defaultValue": "1",
+      "metadata": {
+        "description": "The availability zone information of the server. (If you have no preference, leave blank.)"
+      }
+    },
+    "haEnabled": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled",
+        "SameZone",
+        "ZoneRedundant"
+      ],
+      "metadata": {
+        "description": "High availability mode for a server: Disabled, SameZone, or ZoneRedundant"
+      }
+    },
+    "standbyAvailabilityZone": {
+      "type": "string",
+      "defaultValue": "2",
+      "metadata": {
+        "description": "The availability zone of the standby server."
+      }
+    },
+    "storageSizeGB": {
+      "type": "int",
+      "defaultValue": 20
+    },
+    "storageIops": {
+      "type": "int",
+      "defaultValue": 360
+    },
+    "storageAutogrow": {
+      "type": "string",
+      "defaultValue": "Enabled",
+      "allowedValues": [
+        "Enabled",
+        "Disabled"
+      ]
     },
     "skuName": {
       "type": "string",
       "defaultValue": "Standard_B1ms",
       "metadata": {
-        "description": "The name of the sku, e.g. Standard_D32ds_v4."
+        "description": "The name of the SKU. For example, Standard_D32ds_v4."
       }
-    },
-    "storageSizeGB": {
-      "type": "int"
-    },
-    "storageIops": {
-      "type": "int"
-    },
-    "storageAutogrow": {
-      "type": "string",
-      "defaultValue": "Enabled"
-    },
-    "availabilityZone": {
-      "type": "string",
-      "metadata": {
-        "description": "Availability Zone information of the server. (Leave blank for No Preference)."
-      }
-    },
-    "version": {
-      "type": "string"
-    },
-    "tags": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "haEnabled": {
-      "type": "string",
-      "defaultValue": "Disabled",
-      "metadata": {
-        "description": "High availability mode for a server : Disabled, SameZone, or ZoneRedundant"
-      }
-    },
-    "standbyAvailabilityZone": {
-      "type": "string",
-      "metadata": {
-        "description": "Availability zone of the standby server."
-      }
-    },
-    "vnetName": {
-      "type": "string",
-      "defaultValue": "azure_mysql_vnet",
-      "metadata": { "description": "Virtual Network Name" }
-    },
-    "subnetName": {
-      "type": "string",
-      "defaultValue": "azure_mysql_subnet",
-      "metadata": { "description": "Subnet Name" }
-    },
-    "vnetAddressPrefix": {
-      "type": "string",
-      "defaultValue": "10.0.0.0/16",
-      "metadata": { "description": "Virtual Network Address Prefix" }
-    },
-    "subnetPrefix": {
-      "type": "string",
-      "defaultValue": "10.0.0.0/24",
-      "metadata": { "description": "Subnet Address Prefix" }
     },
     "backupRetentionDays": {
-      "type": "int"
+      "type": "int",
+      "defaultValue": 7
     },
     "geoRedundantBackup": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Disabled",
+        "Enabled"
+      ]
+    },
+    "serverName": {
+      "type": "string",
+      "defaultValue": "[format('{0}mysqlserver', parameters('resourceNamePrefix'))]"
     },
     "databaseName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "[format('{0}mysqldb', parameters('resourceNamePrefix'))]"
     }
-  },
-  "variables": {
-    "api": "2021-05-01"
   },
   "resources": [
     {
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2021-05-01",
-      "name": "[parameters('vnetName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('vnetAddressPrefix')]"
-          ]
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2021-05-01",
-      "name": "[concat(parameters('vnetName'),'/',parameters('subnetName'))]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-      ],
-      "properties": {
-        "addressPrefix": "[parameters('subnetPrefix')]",
-        "delegations": [
-          {
-            "name": "MySQLflexibleServers",
-            "properties": {
-              "serviceName": "Microsoft.DBforMySQL/flexibleServers"
-            }
-          }
-        ]
-      }
-    },
-    {
       "type": "Microsoft.DBforMySQL/flexibleServers",
-      "apiVersion": "[variables('api')]",
-      "location": "[parameters('location')]",
+      "apiVersion": "2021-12-01-preview",
       "name": "[parameters('serverName')]",
-      "dependsOn": [
-        "[resourceID('Microsoft.Network/virtualNetworks/subnets/', parameters('vnetName'), parameters('subnetName'))]"
-      ],
+      "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('skuName')]",
         "tier": "[parameters('serverEdition')]"
@@ -350,130 +406,144 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script to
           "mode": "[parameters('haEnabled')]",
           "standbyAvailabilityZone": "[parameters('standbyAvailabilityZone')]"
         },
-        "Storage": {
+        "storage": {
           "storageSizeGB": "[parameters('storageSizeGB')]",
           "iops": "[parameters('storageIops')]",
-          "autogrow": "[parameters('storageAutogrow')]"
+          "autoGrow": "[parameters('storageAutogrow')]"
         },
-        "network": {
-          "delegatedSubnetResourceId": "[resourceID('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
-        },
-        "Backup": {
+        "backup": {
           "backupRetentionDays": "[parameters('backupRetentionDays')]",
           "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
         }
-      },
-      "tags": "[parameters('tags')]"
+      }
     },
     {
       "type": "Microsoft.DBforMySQL/flexibleServers/databases",
-      "apiVersion": "[variables('api')]",
-      "name": "[concat(parameters('serverName'),'/',parameters('databaseName'))]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
-      ],
+      "apiVersion": "2021-12-01-preview",
+      "name": "[format('{0}/{1}', parameters('serverName'), parameters('databaseName'))]",
       "properties": {
         "charset": "utf8",
         "collation": "utf8_general_ci"
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('serverName'))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "createFirewallRules",
+        "count": "[length(range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1)))]",
+        "mode": "serial",
+        "batchSize": 1
+      },
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "[format('firewallRules-{0}', range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1))[copyIndex()])]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "ip": {
+            "value": "[parameters('firewallRules')[range(0, if(greater(length(parameters('firewallRules')), 0), length(parameters('firewallRules')), 1))[copyIndex()]]]"
+          },
+          "serverName": {
+            "value": "[parameters('serverName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "serverName": {
+              "type": "string"
+            },
+            "ip": {
+              "type": "object"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+              "apiVersion": "2021-12-01-preview",
+              "name": "[format('{0}/{1}', parameters('serverName'), parameters('ip').name)]",
+              "properties": {
+                "startIpAddress": "[parameters('ip').startIPAddress]",
+                "endIpAddress": "[parameters('ip').endIPAddress]"
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('serverName'))]"
+      ]
     }
-
   ]
 }
 ```
 
 ## Deploy the template
 
-Select **Try it** from the following PowerShell code block to open [Azure Cloud Shell](../../cloud-shell/overview.md).
+Deploy the JSON file by using either the Azure CLI or Azure PowerShell.
 
-```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
-$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
-$location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-$adminUser = Read-Host -Prompt "Enter the Azure Database for MySQL server's administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
+# [Azure CLI](#tab/azure-cli)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateFile "D:\Azure\Templates\EngineeringSite.json
-    -serverName $serverName `
-    -administratorLogin $adminUser `
-    -administratorLoginPassword $adminPassword
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
+```azurecli
+az group create --name exampleRG --location eastus
+az deployment group create --resource-group exampleRG --template-file azuredeploy.json
 ```
 
-## Review deployed resources
+# [Azure PowerShell](#tab/azure-powershell)
 
-Follow these steps to verify if your server was created in Azure.
-
-### Azure portal
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
-1. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
-
-### PowerShell
-
-You'll have to enter the name of the new server to view the details of your Azure Database for MySQL Flexible Server.
-
-```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
-Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serverName | ft
-Write-Host "Press [ENTER] to continue..."
-```
-
-### CLI
-
-You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL Flexible Server.
-
-```azurecli-interactive
-echo "Enter your Azure Database for MySQL server name:" &&
-read serverName &&
-echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
-read resourcegroupName &&
-az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
-```
-
-## Clean up resources
-
-Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
-
-To delete the resource group:
-
-### Azure portal
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-1. In the resource group list, choose the name of your resource group.
-1. In the **Overview** page of your resource group, select **Delete resource group**.
-1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
-
-### PowerShell
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
-### CLI
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+```azurepowershell
+New-AzResourceGroup -Name exampleRG -Location eastus
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile azuredeploy.json
 ```
 
 ---
 
-## Next steps
+Complete the steps to enter the parameter values. When the deployment finishes, a message indicates a successful deployment.
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
+## Review deployed resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+To verify that your Azure Database for MySQL flexible server was created in the resource group:
 
-For a step-by-step tutorial to build an app with App Service using MySQL, see:
+# [Azure CLI](#tab/azure-cli)
 
-> [!div class="nextstepaction"]
-> [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
+```azurecli
+az resource list --resource-group exampleRG
+
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
+
+## Clean up resources
+
+To delete the resource group and all the resources that are in the resource group:
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az group delete --name exampleRG
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name exampleRG
+```
+
+---
+
+## Related content
+
+- For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- For a step-by-step tutorial that demonstrates how to build an app by using Azure App Service and MySQL, see [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md).

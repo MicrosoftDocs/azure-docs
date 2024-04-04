@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Execute Azure Machine Learning pipelines in Azure Data Factory and Synapse Analytics
@@ -19,7 +19,7 @@ Run your Azure Machine Learning pipelines as a step in your Azure Data Factory a
 
 The below video features a six-minute introduction and demonstration of this feature.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
 ## Create a Machine Learning Execute Pipeline activity with UI
 
@@ -70,7 +70,7 @@ continueOnStepFailure | Whether to continue execution of other steps in the Mach
 > [!NOTE]
 > To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [Execute Data Flow activity](control-flow-execute-data-flow-activity.md)

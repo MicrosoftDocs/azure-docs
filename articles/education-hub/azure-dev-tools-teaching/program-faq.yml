@@ -2,10 +2,9 @@
 metadata:
   title: Frequently asked questions about Azure for Students and Azure Dev Tools for Teaching
   description: Find answers to some common questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
-  author: v-dihans
+  author: rymend
   ms.author: rymend	
   ms.service: azure-education
-  ms.subservice: education-hub
   ms.topic: faq
   ms.date:  08/31/2021	
 title: Frequently asked questions about the Education Hub
@@ -18,35 +17,67 @@ sections:
       - question: |
           What happens after I use my $100 credit or I'm at the end of 12 months?
         answer: |
-          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a pay-as-you-go subscription in the Azure portal.  If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) in the Azure portal.  If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
       
       - question: |
           Who is eligible for Azure for Students?
         answer: |
           Azure for Students is available only to students who meet the following requirements:
           
-          - You must affirm that you are age 18 or older and attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
+          - You must affirm that you attend an accredited, degree-granting, two-year, or four-year educational institution where you’re a full-time student. 
           - You must verify your academic status through your organization's email address.
           - See the [Azure for Students Offer](https://azure.microsoft.com/offers/ms-azr-0170p/) for detailed terms of use.
           
           This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
           
-          This offer is limited to one Azure for Student subscription per eligible customer. It's non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
+          This offer is limited to one Azure for Student subscription per eligible customer. It's nontransferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
               
+      - question: |
+          What products are included in Azure for Students?
+        answer: |
+          :::row:::
+             :::column span="":::
+          Agents for Visual Studio<br>
+          Azure DevOps Server<br>
+          Datazen Enterprise Server<br>
+          Remote Tools for Visual Studio<br>
+          Machine Learning Server <br>
+          Microsoft R Client<br>
+          Microsoft R Server<br>
+          Microsoft Hyper-V<br>
+          Skype for Business Server<br>
+             :::column-end:::
+             :::column span="":::
+          SQL Server Developer<br>
+          SQL Server Standard<br>
+          System Center<br>
+          Visio Professional<br>
+          Visual Studio Code<br>
+          Visual Studio Community<br>
+          Visual Studio for Mac<br>
+          Windows Server<br>
+             :::column-end:::
+          :::row-end:::
+       
+      - question: |
+          Can I deploy Windows 10 and Windows 11 VMs with my Azure for Students subscription?
+        answer: |
+          Yes, as a benefit of your Azure for Students subscription, you may use Windows 10 and 11 virtual machines without the need for a Windows 11 Enterprise license.
+          
       - question: |
           Can I get Azure for Students again next year?
         answer: |
-          Yes!  You can renew your Azure for Students subscription after 1 year.  We will send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
+          Yes! You can renew your Azure for Students subscription after one year.  We send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
 
       - question: |
           Why did I receive an invoice from Microsoft?
         answer: |
-          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on docs.microsoft.com 
+          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you don't have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on Microsoft technical documentation.
       
       - question: |
           What are subscriptions, and how do they relate to Azure for Students?
         answer: |
-          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you are 12 months in) or upgrade to a pay-as-you-go subscription.
+          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you're 12 months in) or upgrade to a pay-as-you-go subscription.
 
       - question: |
           What happens with my Azure services if I don't upgrade?
@@ -64,9 +95,9 @@ sections:
           Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription to access and download the software developer tools. Go to the  [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
           
       - question: |
-          What is Microsoft Learn?
+          What is Microsoft Learn training?
         answer: |
-          [Microsoft Learn](/learn/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+          [Microsoft Learn training](/training/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
           
       - question: |
           Can Azure for Students be used for production or only for development?
@@ -83,7 +114,7 @@ sections:
       - question: |
           What is Azure for Students Starter?
         answer: |
-          Azure for Students Starter gets you started with the Azure products you need to develop in the cloud. There is no cost to you. This benefit provides you access to a free tier of the following services:
+          Azure for Students Starter gets you started with the Azure products you need to develop in the cloud. There's no cost to you. This benefit provides you access to a free tier of the following services:
           
           - Azure App Service
           - Azure Functions
@@ -99,8 +130,8 @@ sections:
         answer: |
           Azure for Students Starter is available only to students who meet the following requirements:
           
-          - You must affirm that you are age 13 or older if you reside in the United States.
-          - You must affirm that you are age 16 or older if you reside in a country other than the United States.
+          - You must affirm that you're age 13 or older if you reside in the United States.
+          - You must affirm that you're age 16 or older if you reside in a country/region other than the United States.
           - You must verify your academic status through your organization's email address. You can also use Shibboleth if it's supported by your organization.
           
           This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
@@ -122,10 +153,10 @@ sections:
           You can download this software in the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
-          What is Microsoft Learn?
+          What is Microsoft Learn training?
         answer: |
-          [Microsoft Learn](/learn/) is a free online learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
-          
+          [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths combine modules to allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+
   - name: Azure Academic Grant
     questions:
       - question: |
@@ -143,14 +174,14 @@ sections:
       - question: |
           Why do I see a $0 balance in the Azure portal?
         answer: |
-          When you go to your subscription details in the Azure portal, you will see $0.00. The offer places a 100% discount off of all services. Therefore, the portal shows you what you will be charged for during your monthly usage period, which should be $0.00.
+          When you go to your subscription details in the Azure portal, you'll see $0.00. The offer places a 100% discount off of all services. Therefore, the portal shows you what you will be charged for during your monthly usage period, which should be $0.00.
           
           To view your balance and sponsorship information, go to [Azure Sponsorships](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
           
       - question: |
           Can I apply my course credits to an existing Enterprise Agreement (EA)?
         answer: |
-          You cannot associate your course credits offer to any subscription that's on an account under an Enterprise Agreement (EA).
+          You can't associate your course credits offer to any subscription that's on an account under an Enterprise Agreement (EA).
           
           To apply course credits, you must create a new account that's outside of the EA, which we can then entitle.
           
@@ -172,7 +203,7 @@ sections:
       - question: |
           Are Azure Marketplace applications covered by course credits?
         answer: |
-          No, third party applications aren't covered by course credits. They will be charged to the credit card on the account. For more information:
+          No, third party applications aren't covered by course credits. They'll be charged to the credit card on the account. For more information:
           
           - View marketplace services at the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
           - Refer to the [Azure Sponsorship offer](https://azure.microsoft.com/offers/ms-azr-0143p/) terms and conditions.
@@ -180,7 +211,7 @@ sections:
       - question: |
           I have a previous balance due, can I pay it off with my course credits?
         answer: |
-          Azure course credits only cover usage from the time you activate the Azure Sponsorship offer. You are responsible for all charges prior to your offer start date.
+          Azure course credits only cover usage from the time you activate the Azure Sponsorship offer. You're responsible for all charges prior to your offer start date.
 
       - question: |
           How do I know if my subscription is on the Azure course credit offer?
@@ -192,7 +223,7 @@ sections:
       - question: |
           Who is eligible to purchase Microsoft Azure Dev Tools for Teaching?
         answer: |
-          Only academic institutions that have purchased a Volume Licensing (VL) agreement with Microsoft are able to enroll into Azure Dev Tools for Teaching.  If you are currently a Dev Tools for Teaching customer without a VL agreement, you can continue to renew your subscription. For more information on VL agreements for academic institutions, please visit https://aka.ms/ees 
+          Only academic institutions that have purchased a Volume Licensing (VL) agreement with Microsoft are able to enroll into Azure Dev Tools for Teaching.  If you're currently a Dev Tools for Teaching customer without a VL agreement, you can continue to renew your subscription. For more information on VL agreements for academic institutions, please visit https://aka.ms/ees 
           
           
       - question: |
@@ -200,32 +231,30 @@ sections:
         answer: |
           :::row:::
              :::column span="":::
-                Microsoft Access<br>
-          Advanced Threat Analytics<br>
+                Access<br>
           Agents for Visual Studio<br>
-          BizTalk Server<br>
-          SQL Server Mobile Report Publisher (formerly Datazen Enterprize)<br>
-          Host Integration Server<br>
-          Machine Learning Server (formerly R Server)<br>
-          Hyper-V Server<br>
-          Microsoft Project<br>
+          Azure DevOps Server<br>
+          Datazen Enterprise Server<br>
+          Machine Learning Server <br>
+          Microsoft R Client<br>
+          Microsoft R Server<br>
+          Microsoft Hyper-V<br>
+          Project Professional<br>
           Remote Tools for Visual Studio<br>
           SharePoint Server<br>
           Skype for Business Server<br>
              :::column-end:::
              :::column span="":::
-                SQL Server Developer<br>
-          SQL Server Enterprise<br>
+          SQL Server Developer<br>
           SQL Server Standard<br>
-          SQL Server Web<br>
           System Center<br>
-          Azure DevOps Server (formerly Visual Studio Team Foundation Server)<br>
-          Microsoft Visio<br>
+          Visio Professional<br>
           Visual Studio Code<br>
           Visual Studio Community<br>
           Visual Studio Enterprise<br>
           Visual Studio for Mac<br>
           Windows 10<br>
+          Windows 11 Education<br>
           Windows Server<br>
              :::column-end:::
           :::row-end:::
@@ -274,7 +303,7 @@ sections:
         answer: |
           As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions).
           
-          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem additional benefits.
+          Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem more benefits.
           
       - question: |
           Does Microsoft Azure Dev Tools for Teaching include Microsoft Office?
@@ -324,16 +353,14 @@ sections:
           
           You must also renew your subscription when it expires. It doesn't renew automatically.
           
-          If you are unable to locate your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
+          If you're unable to locate your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
           
       - question: |
           How and when do we renew our Azure Dev Tools for Teaching subscription?
         answer: |
-          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription. In a renewal email, select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription.
           
           If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
-          
-          Alternatively, go to the [Azure Dev Tools for Teaching - Renew page](https://portal.azureforeducation.microsoft.com/), and complete the renewal process.
           
           To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions), and look under **Subscriptions**.
           

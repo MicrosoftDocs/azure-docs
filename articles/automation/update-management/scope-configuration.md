@@ -9,7 +9,7 @@ ms.custom: mvc
 
 # Limit Update Management deployment scope
 
-This article describes how to work with scope configurations when using the [Update Management](overview.md) feature to deploy updates and patches to your machines. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](../../azure-monitor/insights/solution-targeting.md).
+This article describes how to work with scope configurations when using the [Update Management](overview.md) feature to deploy updates and patches to your machines. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](/previous-versions/azure/azure-monitor/insights/solution-targeting).
 
 ## About scope configurations
 

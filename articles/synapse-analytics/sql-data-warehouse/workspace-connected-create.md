@@ -1,6 +1,6 @@
 ---
-title: Enabling Synapse workspace features
-description: This document describes how a user can enable the Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW).  
+title: Enabling Azure Synapse workspace features
+description: This document describes how a user can enable the Azure Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW).  
 author: sowmi93
 ms.author: sosivara
 ms.service: synapse-analytics
@@ -10,11 +10,11 @@ ms.date: 03/07/2022
 ms.reviewer: wiassaf, sngun
 ---
 
-# Enable Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
+# Enable Azure Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
 
-All SQL data warehouse users can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace. Users can use the Synapse Studio and Workspace without impacting automation, connections, or tooling. This article explains how an existing Azure Synapse Analytics user can enable the Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW). The user can expand their existing analytics solution by taking advantage of the new feature-rich capabilities now available via the Synapse workspace and Studio.
+All SQL data warehouse users can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Azure Synapse workspace. Users can use the Synapse Studio and Workspace without impacting automation, connections, or tooling. This article explains how an existing Azure Synapse Analytics user can enable the Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW). The user can expand their existing analytics solution by taking advantage of the new feature-rich capabilities now available via the Synapse workspace and Studio.
 
-Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. This article is a guide to enable workspace features for an existing dedicated SQL pool (formerly SQL DW).
+Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. This article is a guide to enable workspace features for an existing dedicated SQL pool (formerly SQL DW). For more information, see [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/msft-docs-what-s-the-difference-between-synapse-formerly-sql-dw/ba-p/3597772). 
 
 ## Prerequisites
 Before you enable the Synapse workspace features on your data warehouse, you must ensure you have:
@@ -22,7 +22,7 @@ Before you enable the Synapse workspace features on your data warehouse, you mus
 - Rights to create and manage the SQL resources that are hosted on the SQL logical server.
 - Write permissions on the host SQL Server. 
 - Rights to create Azure Synapse resources.
-- An Azure Active Directory admin identified on the logical server.
+- A Microsoft Entra admin identified on the logical server.
 
 ## Enable Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW)
 
@@ -41,13 +41,13 @@ Follow these steps to create a Synapse workspace for your existing data warehous
 
     > [!NOTE]
     > All dedicated SQL pool (formerly SQL DW) instances hosted on the logical server are available via the new workspace.
-    > Allowing authentication via Azure Active Directory (Azure AD) only is not supported for dedicated SQL pools with Azure Synapse features enabled. Policies that enable Azure AD-only only authentication will not apply to new or existing dedicated SQL pools with Azure Synapse features enabled. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+    > Allowing authentication via Microsoft Entra-only is not supported for dedicated SQL pools with Azure Synapse features enabled. Policies that enable Microsoft Entra-only only authentication will not apply to new or existing dedicated SQL pools with Azure Synapse features enabled. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Post provisioning steps
 The following steps must be completed to ensure that your existing dedicated SQL pool (formerly SQL DW) instances can be accessed via the Synapse Studio.
 1. In the Synapse workspace overview page, select **Connected server**. The **Connected server** takes you to the connected SQL Logical server that hosts your data warehouses. In the essential menu, select **Connected server**.
 2. Open **Firewalls and virtual networks** and ensure that your client IP or a predetermined IP range has access to the logical server.
-3. Open **Active Directory admin** and ensure that an Azure AD admin has been set on the logical server.
+3. Open **Active Directory admin** and ensure that a Microsoft Entra admin has been set on the logical server.
 4. Select one of the dedicated SQL pool (formerly SQL DW) instances hosted on the logical server. In the overview page, select **Launch Synapse Studio** or go to the [Sign in to the Synapse Studio](https://web.azuresynapse.net) and sign in to your workspace.
 5. Open the **Data hub** and expand the dedicated SQL pool in the Object explorer to ensure that you've access and can query your data warehouse.
 

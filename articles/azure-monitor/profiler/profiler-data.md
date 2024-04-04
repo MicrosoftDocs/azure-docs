@@ -3,8 +3,8 @@ title: Generate load and view Application Insights Profiler data
 description: Generate load to your Azure service to view the Profiler data
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/15/2022
-ms.reviewer: jogrima
+ms.date: 09/22/2023
+ms.reviewer: charles.weininger
 ---
 
 # View Application Insights Profiler data
@@ -20,14 +20,14 @@ Let's say you're running a web performance test. You'll need traces to understan
 
 For Profiler to upload traces, your service must be actively handling requests. 
 
-If you've newly enabled Profiler, run a short [load test](/vsts/load-test/app-service-web-app-performance-test). 
+If you've newly enabled Profiler, run a short [load test with Azure Load Testing](/azure/load-testing/quickstart-create-and-run-load-test). 
 
 If your Azure service already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a **Profiler on-demand session**:
 
 1. From the Application Insights overview page for your Azure service, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
-   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
+   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance pane." lightbox="media/profiler-settings/profiler-button.png":::
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 
@@ -116,6 +116,12 @@ Methods such as **SqlCommand.Execute** indicate that the code is waiting for a d
 - There's no blocked thread waiting for the **AWAIT** to finish. 
 
 However, logically, the thread that did the **AWAIT** is "blocked", waiting for the operation to finish. The **AWAIT\_TIME** statement indicates the blocked time, waiting for the task to finish.
+
+If the **AWAIT_TIME** appears to be in framework code instead of your code, the Profiler could be showing:
+- The framework code used to execute the **AWAIT** 
+- Code used for recording telemetry about the **AWAIT** 
+
+You can uncheck the **Framework dependencies** checkbox at the top of the page to show only your code and make it easier to see where the **AWAIT** originates.  
 
 ### Blocked time
 
