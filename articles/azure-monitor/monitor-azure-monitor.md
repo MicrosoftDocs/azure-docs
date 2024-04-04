@@ -19,6 +19,7 @@ ms.service: azure-monitor
 Azure Monitor has many separate larger components. Information on monitoring each of these is mentioned below.  
 
 ### Azure Monitor core
+
 **Autoscale** - Azure Monitor Autoscale has a diagnostics feature that provides insights into the performance of your autoscale settings. For more information, see [Azure Monitor Autoscale diagnostics](autoscale/autoscale-diagnostics.md) and [Troubleshooting using autoscale metrics](autoscale/autoscale-troubleshoot.md#autoscale-metrics). 
 
 **Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](agents/azure-monitor-agent-health.md).
@@ -41,35 +42,23 @@ DCRs https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-colle
 
 **Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/essentials/resource-health.md).
 
-
-
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
 For more information about the resource types for Azure Monitor, see [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md).
 
-<!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-<!-- ## Azure Monitor platform metrics. Required section. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for Azure Monitor, see [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md#metrics).
 
-
-<!-- ## Azure Monitor resource logs. Required section. -->
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Monitor, see [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md#resource-logs).
 
-<!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-<!-- Currently unused?:
-<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information.
-[!INCLUDE [horz-monitor-imported-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-imported-logs.md)] -->
-
-<!-- ## Analyze monitoring data. Required section. -->
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 
@@ -80,18 +69,7 @@ For the available resource log categories, their associated Log Analytics tables
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
 
-<!-- ## Alerts. Required section. -->
-[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
-
-<!-- ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
-
-<!-- ONLY if applications run on your service that work with Application Insights, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
-
-<!-- ### Azure Monitor alert rules. Required section.
-**MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log. -->
-
+Refer to the links in the beginning of this article for specific Kusto queries for each of the Azure Monitor components.
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
