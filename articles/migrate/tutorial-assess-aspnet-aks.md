@@ -71,20 +71,20 @@ In this tutorial, you'll learn how to:
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-    3. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    1. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 
     | Setting | Possible Values | Comments |
     | --- | --- | --- |
     | Target Location | All locations supported by AKS | Used to generate regional cost for AKS. |
-    | Environment Type | Production <br> Dev/Test | Allows you to toggle between Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/). |
-    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | Allows you to toggle between Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/). |
+    | Environment Type | Production <br> Dev/Test | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/). |
+    | Offer/Licensing program | Pay-as-you-go <br> Enterprise Agreement | Allows you to toggle between pay-as-you-go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/). |
     | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
     | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
     | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
-    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
-    | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category. |
+    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you've opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
+    | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
 4. After reviewing the assessment settings, select **Next: Select servers to assess**.
@@ -112,7 +112,7 @@ In this tutorial, you'll learn how to:
 
 The assessment can take around 10 minutes to complete.
 
-1. 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 
@@ -174,7 +174,7 @@ For each issue or warning, you're provided the description, cause and mitigation
 
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-readiness-errors.png" alt-text="Screenshot of the readiness errors and warnings for a web app.":::
 
-Selecting the recommended cluster for the app opens the **Cluster details** page. This page surfaces details such as the number of system and user node pools, the SKU for each node pool as well as the web apps recommended for this cluster. Typically, an assessment will only generate a single cluster. The number of clusters increases when the web apps in the assessment start hitting AKS cluster limits.
+Selecting the recommended cluster for the app opens the **Cluster details** page. This page surfaces details such as the number of system and user node pools, the SKU for each node pool and the web apps recommended for this cluster. Typically, an assessment will only generate a single cluster. The number of clusters increases when the web apps in the assessment start hitting AKS cluster limits.
 
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-cluster.png" alt-text="Screenshot of the recommended cluster page.":::
 
