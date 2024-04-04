@@ -21,15 +21,15 @@ The cost displayed in this card doesn't reflect usage and other costs incurred o
 > [!NOTE]
 > Costs reflected in the card are estimates only. Pricing may vary depending on your Microsoft agreement, date of purchase, subscription type, usage costs, licensing, and currency exchange rates. Total costs may include other resource costs, licensing, and subscription implications. The costs indicated on the card may vary across regions, subscription types, sizes, and images.
 
-## Limitations and considerations
+## Prerequisites
 
 Currently, the estimated cost card feature for VMs in the Azure portal is limited to Pay-as-you-go customers. This feature isn't available or visible for other subscription types and other discount plans, such as the Savings Plan and Reserved Instances.
 
 If your subscription has policy restrictions for specific users, those users aren't able to view the cost card unless those restrictions are lifted.
 
-## Estimated cost card
+## Cost card
 
-The following sections reflect the various tabs during the VM creation process in the Azure portal. The listed resources and features are included in the estimated cost card. Referred to their respective pricing pages for further pricing information. 
+The following sections reflect the various tabs during the VM creation process in the Azure portal. The listed resources and features are included in the estimated cost card. For further pricing information, refer to their respective pricing pages linked in the following tables. 
 
 Costs associated with selecting existing resources during the VM creation process are only reflected in the cost card if those resources may incur extra charges.
 
