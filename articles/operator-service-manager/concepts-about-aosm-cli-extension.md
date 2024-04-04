@@ -27,8 +27,6 @@ The Azure CLI AOSM Extension provides a convenient, simplified interface for pub
 
 - **Optimized for initial testing** - The CLI builds AOSM resources which are optimised for simplicity and for accelerating the publish, deploy, test feedback loop.
 
-- **Complex parameter exposure** - Control which helm values or virtual machine (VM) parameters are exposed through AOSM to the operator by editing the helm `values.yaml` file for CNFs and the ARM template parameters for VNFs.
-
 ## Next Steps
 
 - Use the Azure CLI AOSM Extension to onboard an example [CNF](/quickstart-containerized-network-function-prerequisites.md) or [VNF](/quickstart-virtualized-network-function-prerequisites.md).
