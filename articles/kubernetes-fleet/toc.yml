@@ -22,7 +22,7 @@
     href: concepts-fleet.md
   - name: Update orchestration across multiple member clusters
     href: concepts-update-orchestration.md
-  - name: Kubernetes resource propagation
+  - name: Kubernetes workload orchestration
     href: concepts-resource-propagation.md
   - name: Multi-cluster layer-4 load balancing
     href: concepts-l4-load-balancing.md
