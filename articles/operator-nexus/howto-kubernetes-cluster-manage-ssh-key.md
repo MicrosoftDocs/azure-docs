@@ -1,6 +1,6 @@
 ---
-title: Manage SSH access on Azure Operator Nexus Kubernetes cluster nodes #Required; page title is displayed in search results. Include the brand.
-description: Learn how to configure and manage SSH on Azure Operator Nexus Kubernetes cluster nodes. #Required; article description that is displayed in search results. 
+title: Configure and manage SSH keys on Azure Operator Nexus Kubernetes cluster nodes #Required; page title is displayed in search results. Include the brand.
+description: Learn how to configure and manage SSH keys on Azure Operator Nexus Kubernetes cluster nodes. #Required; article description that is displayed in search results. 
 author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
@@ -9,9 +9,9 @@ ms.date: 02/06/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
-# Manage SSH keys in Azure Operator Nexus Kubernetes clusters
+# Configure and manage SSH keys on Azure Operator Nexus Kubernetes cluster nodes
 
-This article describes how to configure the SSH key on your Nexus Kubernetes agent pool and control plane nodes and how to manage the SSH keys after the cluster is created.
+This article describes how to configure and manage the SSH key on your Nexus Kubernetes agent pool and control plane nodes. SSH keys provide a secure method of accessing these nodes in your cluster.
 
 ## Prerequisites
 
