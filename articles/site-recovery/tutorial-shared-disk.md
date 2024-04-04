@@ -33,15 +33,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **Before you start, ensure you have:**
 
-- A recovery services vault,. If you don't have one, [create recovery services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault). 
-- A virtual machines as a part of the [Windows Server Failover Cluster](https://learn.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
+- A recovery services vault. If you don't have one, [create recovery services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault). 
+- A virtual machine as a part of the [Windows Server Failover Cluster](https://learn.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
 
 
 ## Enable replication for shared disks
 
-To enable replication replication for shared disks, follow these steps:
+To enable replication for shared disks, follow these steps:
 
-1. Navigate to your recovery services vault that you'll use for protecting your cluster. 
+1. Navigate to your recovery services vault that you use for protecting your cluster. 
 
     > [!NOTE]
     > Recovery services vault can be created in any region except the source region of the virtual machines.
@@ -71,7 +71,7 @@ To enable replication replication for shared disks, follow these steps:
     :::image type="content" source="media/tutorial-shared-disk/enable-replication-settings.png" alt-text="Screenshot showing shared disk settings.":::
 
 
-1. If your virtual machines have a protected shared disk, you'll see a **Shared disks** tab on the **Customize target settings** page. 
+1. If your virtual machines have a protected shared disk, you see a **Shared disks** tab on the **Customize target settings** page. 
 1. On the **Customize target settings** page > **Shared disks** tab, do the following:
     1. Select the **Shared disks** tab and verify the name and recovery disk type of the shared disks. 
     1. Select the *Churn for the virtual machine* option for your disk if you want to enable high churn.
@@ -143,7 +143,7 @@ To failover the cluster to a recovery point, follow these steps:
     :::image type="content" source="media/tutorial-shared-disk/cluster-failover.png" alt-text="Screenshot showing cluster recovery points.":::
 
 
-Join these virtual machine back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
+Join these virtual machines back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
 
 :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-option.png" alt-text="Screenshot showing recovery options.":::
 
@@ -155,7 +155,7 @@ After the failover, the Azure virtual machine created in the target region appea
 If you want to use a different recovery point for the virtual machine, do the following:
 
 1. Navigate to the virtual machine cluster page and select **Change recovery point**. 
-    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-field.png" alt-text="Screenshot showing Change Recovery Point..":::
+    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-field.png" alt-text="Screenshot showing Change Recovery Point.":::
 
 1. Select either the lowest RTO recovery point or a custom date for the recovery point needed. 
     :::image type="content" source="media/tutorial-shared-disk/change-recovery-point.png" alt-text="Screenshot showing Change Recovery Point options.":::
@@ -172,7 +172,7 @@ To complete the failover, select **Commit** on the **Overview** page. This delet
 Before you begin, ensure that:
 
 - The virtual machine status is *Failover committed*. 
-- You have access to the primary region and the necessary permissions to create a virtual machines. 
+- You have access to the primary region and the necessary permissions to create a virtual machine. 
 
 To reprotect the virtual machine, follow these steps:
 
