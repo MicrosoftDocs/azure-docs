@@ -30,8 +30,8 @@ To add one or more users to a group from the Azure mobile app:
 1. Search or scroll to find the desired group, then tap to select it.
 1. On the **Members** card, select **See All**. The current list of members is displayed.
 1. Select the **+** icon in the top right corner.
-1. Search or scroll to find users you want to add to the group, then select the user(s) by tapping the circle next to their name.
-1. Select **Add** in the top right corner to add the selected users(s) to the group.
+1. Search or scroll to find users you want to add to the group, then select one or more users by tapping the circle next to their name.
+1. Select **Add** in the top right corner to add the selected users to the group.
 
 ## Add group memberships for a specified user
 
@@ -40,16 +40,16 @@ You can also add a single user to one or more groups in the **Users** section of
 1. In **Microsoft Entra ID**, select **Users**, then search or scroll to find and select the desired user.
 1. On the **Groups** card, select **See All** to display all current group memberships for that user.
 1. Select the **+** icon in the top right corner.
-1. Search or scroll to find groups to which this user should be added, then select the group(s) by tapping the circle next to the group name.
-1. Select **Add** in the top right corner to add the user to the selected group(s).
+1. Search or scroll to find groups to which this user should be added, then select one or more groups by tapping the circle next to the group name.
+1. Select **Add** in the top right corner to add the user to the selected groups.
 
 ## Manage authentication methods or reset password for a user
 
-To [manage authentication methods](/entra/identity/authentication/concept-authentication-methods-manage) or [reset a user's password](/entra/fundamentals/users-reset-password-azure-portal), you need to do the following steps:
+To [manage authentication methods](/entra/identity/authentication/concept-authentication-methods-manage) or [reset a user's password](/entra/fundamentals/users-reset-password-azure-portal):
 
 1. In **Microsoft Entra ID**, select **Users**, then search or scroll to find and select the desired user.
 1. On the **Authentication methods** card, select **Manage**.
-1. Select **Reset password** to assign a temporary password to the user, or **Authentication methods** to manage to Tap on the desired user, then tap on “Reset password” or “Authentication methods” based on your permissions.
+1. Select **Reset password** to assign a temporary password to the user, or **Authentication methods** to manage authentication methods for self-service password reset.
 
 > [!NOTE]
 > You won't see the **Authentication methods** card if you don't have the appropriate permissions to manage authentication methods and/or password changes for a user.
@@ -65,7 +65,7 @@ If you have the [necessary permissions](/entra/id-protection/overview-identity-p
 1. In **Microsoft Entra ID**, scroll down to the **Security** card and then select **Risky users**.
 1. Search or scroll to find and select a specific risky user.
 1. Review basic information for this user, a list of their risky sign-ins, and their risk history.
-1. Select the three dots near the top of the screen to [take action on the user](/entra/id-protection/howto-identity-protection-investigate-risk). You can:
+1. To [take action on the user](/entra/id-protection/howto-identity-protection-investigate-risk), select the three dots near the top of the screen. You can:
 
    * Reset the user's password
    * Confirm user compromise
