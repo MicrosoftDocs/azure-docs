@@ -36,7 +36,6 @@ TBD
 
 ### [Defender portal](#tab/defender-portal)
 :::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR."lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
-
 ---
 
 ## Understand SOC optimization overview metrics
