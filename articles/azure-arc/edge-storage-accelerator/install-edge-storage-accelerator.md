@@ -30,12 +30,12 @@ If you require a larger cache disk size, create **config.json** with the followi
 
 Install the Edge Storage Accelerator Arc extension using the following command:
 
+> [!NOTE]
+> If you created a **config.json** file from the previous steps in [Prepare Linux](prepare-linux.md), append `--config-file "config.json"` to the following `az k8s-extension create` command. Any values set at installation time persist throughout the installation lifetime (inclusive of manual and auto-upgrades).
+
 ```bash
 az k8s-extension create --resource-group "${YOUR-RESOURCE-GROUP}" --cluster-name "${YOUR-CLUSTER-NAME}" --cluster-type connectedClusters --name hydraext --extension-type microsoft.edgestorageaccelerator
 ```
-
-> [!NOTE]
-> If you created a `config.json` from previous steps in [Prepare Linux](prepare-linux.md), append `--config-file "config.json"` to the previous `az k8s-extension create` command.
 
 ## Next steps
 

@@ -20,9 +20,13 @@ The article describes how to prepare Linux using AKS enabled by Azure Arc, Edge 
 > [!NOTE]
 > Edge Storage Accelerator is only available in the following regions: East US 2, West US 3, West Europe.
 
-### Custom Kubernetes installation on Azure IoT Operations (AIO)
+### Arc-connected Kubernetes cluster
 
-Follow the instructions to [create a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux). Use Ubuntu 22.04 on Standard D8s v3 machines with 3 SSDs attached for additional storage.
+These instructions assume that you already have an Arc-connected Kubernetes cluster. To connect an existing Kubernetes cluster to Azure Arc, [see these instructions](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).  
+
+If you want to use Edge Storage Accelerator with Azure IoT Operations, follow the [instructions to create a cluster for Azure IoT Operations](/azure/iot-operations/get-started/quickstart-deploy?tabs=linux).
+
+Use Ubuntu 22.04 on Standard D8s v3 machines with three SSDs attached for additional storage.
 
 ## Single-node and multi-node clusters
 

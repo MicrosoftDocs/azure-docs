@@ -24,7 +24,7 @@ This section describes the prerequisites for creating a persistent volume (PV).
 
 ## Storage key authentication configuration
 
-1. Create a file named **add-key.sh**. This file creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret name is used for the `secretName` value when you configure your Persistent Volume (PV). No edits or changes to the following contents are necessary:
+1. Create a file named **add-key.sh** with the following contents. No edits or changes are necessary:
 
    ```bash
    #!/usr/bin/env bash
@@ -43,7 +43,7 @@ This section describes the prerequisites for creating a persistent volume (PV).
    kubectl create secret generic -n "${NAMESPACE}" "${STORAGE_ACCOUNT}"-secret --from-literal=azurestorageaccountkey="${SECRET}" --from-literal=azurestorageaccountname="${STORAGE_ACCOUNT}"
    ```
 
-1. After you create the file, change the write permissions on the file and execute the shell script using:
+1. After you create the file, change the write permissions on the file and execute the shell script using the following commands. Running these commands creates a secret named `{YOUR_STORAGE_ACCOUNT}-secret`. This secret name is used for the `secretName` value when configuring your PV:
 
    ```bash
    chmod +x add-key.sh
@@ -54,7 +54,7 @@ This section describes the prerequisites for creating a persistent volume (PV).
 
 You must create a Persistent Volume (PV) for the Edge Storage Accelerator to create a local instance and bind to a remote BLOB storage account.  
 
-Note the name (`esa4` in this example), as you need to specify it in the `spec::volumeName` of the PVC that binds to it. Use your storage account and container that you created as part of the [prerequisites](#prerequisites).
+Note the `metadata: name:` (`esa4` in this example), as you must specify it in the `spec: volumeName` of the PVC that binds to it. Use your storage account and container that you created as part of the [prerequisites](#prerequisites).
 
 1. Create a file named **pv.yaml**:
 
@@ -77,7 +77,7 @@ Note the name (`esa4` in this example), as you need to specify it in the `spec::
        csi:
            driver: edgecache.csi.azure.com
            readOnly: false
-           ### Make sure this volumeid is unique in the cluster. You must specify it in the spec::volumeName of the PVC. ###
+           ### Make sure this volumeid is unique in the cluster. You must specify it in the spec:volumeName of the PVC. ###
            volumeHandle: YOUR_NAME_FROM_METADATA_NAME_IN_LINE_4_HERE
            volumeAttributes:
                protocol: edgecache
