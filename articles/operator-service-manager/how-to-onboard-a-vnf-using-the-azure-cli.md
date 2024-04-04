@@ -1,7 +1,7 @@
 ---
 title: How to onboard a VNF for deployment on Azure Operator Nexus using the Azure Operator Service Manager CLI extension
 description: Learn how to onboard a VNF using the Azure Operator Service Manager CLI extension.
-author: peterwhiting
+author: pjw711
 ms.author: peterwhiting
 ms.date: 03/19/2024
 ms.topic: how-to

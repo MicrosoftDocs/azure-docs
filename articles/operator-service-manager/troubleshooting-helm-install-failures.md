@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting helm install failures during Azure Operator Service Manager (AOSM) containerized network function (CNF) deployment"
 description: Learn techniques for diagnosing helm install failures during Azure Operator Service Manager (AOSM) containerized network function (CNF) deployment.
-author: peterwhiting
+author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-service-manager
 ms.topic: troubleshooting

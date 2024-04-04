@@ -1,7 +1,7 @@
 ---
 title: How to use Helm option parameters to prevent deletion on install failure
 description: Learn how to use Helm option parameters to prevent deletion on install failure.
-author: peterwhiting
+author: pjw711
 ms.author: peterwhiting
 ms.date: 03/21/2024
 ms.topic: how-to

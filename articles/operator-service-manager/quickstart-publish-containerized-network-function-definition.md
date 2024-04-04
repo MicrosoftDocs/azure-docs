@@ -81,7 +81,7 @@ Here's sample input-cnf-nfd.jsonc file:
 - **helm_packages**:
   - _name_ - The name of the Helm package.
   - _path_to_chart_ - The file path of Helm Chart on the local disk. Accepts .tgz, .tar or .tar.gz. Use Linux slash (/) file separator even if running on Windows. The path should be an absolute path or the path relative to the location of the `cnf-input.jsonc` file.
-  - _default_values_ - The file path (absolute or relative to `cnf-input.jsonc`) of value mappings on the local disk where chosen values are replaced with deploymentParameter placeholders. Accepts .yaml or .yml. If left as a blank string, a value mappings file is generated with every value mapped to a deployment parameter. - **TODO: not sure this is correct**
+  - _default_values_ - The file path (absolute or relative to `cnf-input.jsonc`) of the YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
   - _depends_on_ - Names of the Helm packages this package depends on. Leave as an empty array if there are no dependencies.
 
 ## Build the Network Function Definition (NFD)
