@@ -27,8 +27,6 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Revisions | Container app | Up to 100 | No | |
 | Replicas | Revision | Unlimited | No | Maximum replicas configurable are 300 in Azure portal and 1000 in Azure CLI. There must also be enough cores quota available. |
 
-When you set the minimum or maximum number of replicas using Azure portal, there's a default quota of 300 replicas per revision. When you use the [Azure CLI](https://learn.microsoft.com/cli/azure/containerapp/revision?view=azure-cli-latest#az-containerapp-revision-copy), there's a default quota of 1,000 replicas per revision. Note that the true number of replicas in a revision depends on various factors.
-
 ## Consumption plan
 
 | Feature | Scope | Default | Is Configurable | Remarks |
