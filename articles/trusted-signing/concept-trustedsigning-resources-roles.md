@@ -22,7 +22,7 @@ Trusted Signing has the following resource types:
 
 - **Certificate Profile**: Certificate Profiles are the configuration attributes that generate the certificates you use to sign code. They also define the trust model and scenario signed content will be consumed under. Signing roles are assigned to this resource to authorize identities in the tenant to request signing. A prerequisite for creating any Certificate Profile is to have at least one Identity Validation request completed. 
 
-- **Identity Validation**: Identity Validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is attributes of your Certificate Profile's Subject Name values (e.g. CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US). Identity validation roles are assigned to identities in the tenant to create these resources.
+- **Identity Validation**: Identity Validation performs verification of your organization or individual identity before you can sign code. The verified organization or individual identity is attributes of your Certificate Profile's Subject Name values (for example, CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US). Identity validation roles are assigned to identities in the tenant to create these resources.
 
 In the below example structure, notice that an Azure Subscription has a Resource Group. Under the Resource Group you can have one or many Trusted Signing Account resources with one or many Identity Validations and Certificate Profiles. 
 
@@ -61,7 +61,7 @@ The answer to the first question is defined by the number of artifacts in total 
 
 Identity Validations are all about establishing the identity on the certificates that are used for signing.  There are two types: Private Trust and Public Trust. These two types are defined by the level of identity validation that's required to complete the creation of an Identity Validation resource. 
 
-**Private Trust** is intended for use in situations where there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or Line of Business (LoB) scenarios. With Private Trust Identity Validations, there's minimal verification of the identity attributes (e.g. Organization Unit value) and it's tightly associated with the Azure Tenant of the subscriber (e.g. Costoso.onmicrosoft.com). The values inputted for Private Trust are otherwise not validated beyond the Azure Tenant information. 
+**Private Trust** is intended for use in situations where there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or Line of Business (LoB) scenarios. With Private Trust Identity Validations, there's minimal verification of the identity attributes (for example, Organization Unit value) and it's tightly associated with the Azure Tenant of the subscriber (for example, Costoso.onmicrosoft.com). The values inputted for Private Trust are otherwise not validated beyond the Azure Tenant information. 
 
 **Public Trust** means that all identity values must be validated in accordance to our [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This aligns with the expectations for publicly trusted code signing certificates. 
 
