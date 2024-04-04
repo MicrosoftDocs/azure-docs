@@ -12,7 +12,7 @@ Generative Artificial Intelligence (Gen-AI) based applications introduce various
 
 - **Jailbreak** - UPIA - an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors.
 
-- **Credential threat** - UPIA - an attempt by a user to get priveleged information such as usernames and passwords from the AI.
+- **Credential threat** - UPIA - an attempt by a user to get privileged information such as usernames and passwords from the AI.
 
 - **Sensitive data leak** - UPIA - an attempt by a user to bypass the model and application guardrails and obtain unauthorized sensitive data.
 
@@ -24,7 +24,7 @@ To combat these risks, Microsoft Defender for Cloud provides alerts that help yo
 
 ## Prerequisites
 
-To view alerts for Gen-AI applications, you need the following:
+To view alerts for Gen-AI applications, you need:
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 

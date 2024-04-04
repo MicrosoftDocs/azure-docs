@@ -1,14 +1,14 @@
 ---
 title: Identify Gen-AI vulnerable code repositories
-description: Learn how to use the cloud security explorer to determine all code repositories within your environment, that contain known Generative AI vulnerabilities and provision Azure OpenAI.
+description: Learn how to use the cloud security explorer to identify code repositories with Generative AI vulnerabilities and set up Azure OpenAI.
 ms.topic: how-to
 ms.date: 04/02/2024
-# customer intent: As a user, I want to learn how to identify all code repositories within my environment, that contain known Generative AI vulnerabilities and provision Azure OpenAI so that I can assess their security posture.
+# customer intent: As a user, I want to learn how to identify all code repositories within my environment, that contain known Generative AI vulnerabilities and set up Azure OpenAI so that I can assess their security posture.
 ---
 
 # Identify Gen-AI vulnerable code repositories
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) code repositories within your environment that contain known Gen-AI vulnerabilities and provision Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) code repositories within your environment that contain known Gen-AI vulnerabilities and set up Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 
     :::image type="content" source="media/identify-ai-vulnerable-code/vulnerable-results-details.png" alt-text="Screenshot that shows the details of the selected node." lightbox="media/identify-ai-vulnerable-code/vulnerable-results-details.png":::
 
-1. In the insights section, select a CVE ID from the drop down menu.
+1. In the insights section, select a CVE ID from the drop-down menu.
 
 1. Select **Open the vulnerability page**.
 
@@ -53,4 +53,4 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify Gen-AI vulnerable container images](identify-ai-vulnerable-images.md)
+> [Identify Gen-AI vulnerable container images](identify-ai-container-images.md)

@@ -1,8 +1,9 @@
 ---
 title: Identify Gen-AI attack paths
-description: Learn how to identify attack paths for your Gen-AI applications in Microsoft Defender for Cloud.
+description: Learn how to identify attack paths for your Gen-AI applications in Microsoft Defender for Cloud and enhance their security.
 ms.topic: how-to
 ms.date: 04/04/2024
+#customer intent: As a user, I want to learn how to identify attack paths for my Gen-AI applications in Microsoft Defender for Cloud so that I can enhance their security.
 ---
 
 # Identify Gen-AI attack paths
@@ -43,7 +44,7 @@ If you have one or multiple Gen-AI attack paths within your environment, you can
 
 1. Select a result.
 
-1. [Remediate the attack path](how-to-manage-attack-path.md#investigate-and-remediate-attack-paths).
+1. [Remediate the attack path](how-to-manage-attack-path.md#remediate-attack-paths).
 
 ## Next step
 

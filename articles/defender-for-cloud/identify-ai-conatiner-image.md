@@ -32,4 +32,25 @@ If you have multiple Gen-AI container images within your environment, you can us
 
 1. Select the **Container running container images with known Generative AI vulnerabilities** query template.
 
-    :::image type="content" source="media/identify-ai-vulnerable-images/gen-ai-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable container images query." lightbox="media/identify-ai-vulnerable-images/gen-ai-vulnerable-images-query.png":::
+    :::image type="content" source="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable container images query." lightbox="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png":::
+
+1. Select **Search**.
+
+1. Select a result to review its details.
+
+    :::image type="content" source="media/identify-ai-container-image/vulnerable-images-results.png" alt-text="Screenshot that shows a sample of results for the query." lightbox="media/identify-ai-container-image/vulnerable-images-results.png":::
+
+1. Select a node to review the findings.
+
+    :::image type="content" source="media/identify-ai-container-image/vulnerable-images-results-details.png" alt-text="Screenshot that shows the details of the selected node." lightbox="media/identify-ai-container-image/vulnerable-images-results-details.png":::
+
+1. In the insights section, select a CVE ID from the drop down menu.
+
+1. Select **Open the vulnerability page**.
+
+1. [Remediate the recommendation](implement-security-recommendations.md#remediate-recommendations).
+
+## Next step
+
+> [!div class="nextstepaction"]
+>

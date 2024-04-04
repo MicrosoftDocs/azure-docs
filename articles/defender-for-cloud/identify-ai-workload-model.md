@@ -38,9 +38,9 @@ If you have multiple Gen-AI workloads and models running in your environment, yo
 
 1. Select a result to review its details.
 
-    :::image type="content" source="media/identify-ai-workload-model/result-details.png" alt-text="Screenshot of the results of teh query with one of the results selected and the results detail pane open." lightbox="media/identify-ai-workload-model/result-details.png":::
+    :::image type="content" source="media/identify-ai-workload-model/result-details.png" alt-text="Screenshot of the results of the query with one of the results selected and the results detail pane open." lightbox="media/identify-ai-workload-model/result-details.png":::
 
-1. Select an additional resource to view its details.
+1. Select a node to review the findings.
 
     :::image type="content" source="media/identify-ai-workload-model/additional-resource-details.png" alt-text="Screenshot of the results with a different resource selected and its results are displayed." lightbox="media/identify-ai-workload-model/additional-resource-details.png":::
 
