@@ -159,7 +159,7 @@ azd down
 
 ## Differences for sidecar-enabled apps
 
-You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled. Specifically, you don't configure the the main container and sidecars with app settings, but directly in the resource properties. These app settings don't apply for sidecar-enabled apps:
+You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled. Specifically, you don't configure the main container and sidecars with app settings, but directly in the resource properties. These app settings don't apply for sidecar-enabled apps:
 
 - Registry authentication settings: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`.
 - Container port: `WEBSITES_PORT`
