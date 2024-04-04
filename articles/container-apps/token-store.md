@@ -43,7 +43,7 @@ Before you can create a token store for your container app, you first need an Az
 
 ## Save SAS URL as secret
 
-With SAS URL generated, you can save it in your container app as a secret.
+With SAS URL generated, you can save it in your container app as a secret. Make sure the permissions associated with your store include valid permissions to your blob storage container.
 
 1. Go to your container app in the Azure portal.
 
