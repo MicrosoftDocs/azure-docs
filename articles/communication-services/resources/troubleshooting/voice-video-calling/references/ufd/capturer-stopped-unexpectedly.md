@@ -41,4 +41,4 @@ Your application should subscribe to events from the User Facing Diagnostics and
 The end users can then take steps to resolve the issue on their own, such as checking whether they accidentally minimize the window being shared.
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

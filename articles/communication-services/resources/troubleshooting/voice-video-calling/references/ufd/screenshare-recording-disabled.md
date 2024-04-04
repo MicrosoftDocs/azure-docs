@@ -38,3 +38,6 @@ Your application should subscribe to events from the User Facing Diagnostics and
 Users can then take steps to resolve the issue on their own.
 
 The end user should also check if they disabled the screen sharing permission from OS settings.
+
+## Next steps
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

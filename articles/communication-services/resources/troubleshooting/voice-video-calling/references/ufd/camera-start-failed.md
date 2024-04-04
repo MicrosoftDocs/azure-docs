@@ -37,3 +37,6 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ```
 ## How to mitigate or resolve
 The `cameraStartFailed` UFD is due to external reasons, so your application should subscribe to events from the User Facing Diagnostics and display a message on the UI to alert users of camera start failures. To resolve this issue, users can check if there are other processes using the same camera and close them if necessary.
+
+## Next steps
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

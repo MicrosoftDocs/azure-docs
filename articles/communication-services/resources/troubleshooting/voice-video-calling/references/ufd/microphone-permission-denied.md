@@ -50,4 +50,4 @@ If a user denied the permission at browser layer previously, invoking `askDevice
 Your application should show instructions and ask the user to reset or grant the browser microphone permission manually.
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

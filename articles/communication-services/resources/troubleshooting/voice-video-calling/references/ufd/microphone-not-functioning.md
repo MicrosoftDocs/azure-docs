@@ -41,4 +41,4 @@ Users can then take steps to resolve the issue on their own.
 For example, they can unplug and plug in the headset device, or sometimes muting and unmuting the microphone can help as well.
 
 ## Next steps
-* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

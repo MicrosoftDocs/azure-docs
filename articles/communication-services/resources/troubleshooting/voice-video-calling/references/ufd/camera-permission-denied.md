@@ -47,3 +47,6 @@ The end users can then take steps to resolve the issue on their own, such as ena
 
 If a user denied the permission at browser layer previously, invoking `askDevicePermission` API doesn't trigger the permission UI prompt, but it can know the permission was denied.
 Your application should show instructions and ask the user to reset or grant the browser camera permission manually.
+
+## Next steps
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

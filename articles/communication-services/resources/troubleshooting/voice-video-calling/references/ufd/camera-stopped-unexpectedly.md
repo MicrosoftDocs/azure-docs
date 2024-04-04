@@ -40,3 +40,6 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics and display a message on the user interface to alert users of any camera state changes.
 This way ensures that users are aware of camera stopped issues and aren't surprised if other participants can't see the video.
+
+## Next steps
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

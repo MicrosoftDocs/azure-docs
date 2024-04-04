@@ -39,3 +39,6 @@ The application should invoke `DeviceManager.askDevicePermission` before the cal
 Invoking `DeviceManager.askDevicePermission` also reduces the possibility that the user doesn't respond to the UI permission prompt after the call starts.
 
 If the timeout issue is caused by hardware problems, users can try selecting a different camera device when starting the video stream.
+
+## Next steps
+* Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
