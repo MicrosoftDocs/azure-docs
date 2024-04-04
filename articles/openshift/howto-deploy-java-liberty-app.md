@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 04/34/2024
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
@@ -12,7 +12,7 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -22,12 +22,20 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-- A local machine with a Unix-like operating system installed (for example, Ubuntu, Azure Linux, or macOS, Windows Subsystem for Linux).
+- A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS or Windows Subsystem for Linux).
+- The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
 - A Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.31.0 or higher.
-- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
+
+> [!NOTE]
+> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
+>
+> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 ## Get a Red Hat pull secret
 
