@@ -810,7 +810,7 @@ to `Unknown`. The `Unknown` compliance state indicates that you must attest the 
 The following screenshot shows how a manual policy assignment with the `Unknown`
 state appears in the Azure portal:
 
-![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+:::image type="content" source="../media/effects/manual-policy-portal.png" alt-text="Screenshot of Resource compliance table in the Azure portal that shows an assigned manual policy with a compliance reason of unknown.":::
 
 When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
