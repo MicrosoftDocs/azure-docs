@@ -20,8 +20,10 @@ Through error codes, subcodes, and result categories, developers can more easily
 ## Azure Communication Services Calling SDK client error codes
 This document provides a list of codes, subcodes that can be thrown by the Calling SDK API and how you can learn more how to best mitigate these errors.
 
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-| Subcode | Code | Message | Result Categories | Additional Notes |
+
+| Subcode | Code | Message | Result Categories <br> Public Preview *| Additional Notes |
 |---------|------|---------|--------------------------|------------------|
 | 40101 | 408| Failed to create CallAgent, timeout during initialization of the calling base stack. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support. | UnexpectedClientError | |
 | 40104 | 408| Failed to create CallAgent, timeout during initialization of the calling user stack. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support. | UnexpectedClientError | |
