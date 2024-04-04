@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # screenshareRecordingDisabled UFD
-The `screenshareRecordingDisabled` UFD occurs when the SDK detects that the screen sharing permission was  denied in OS settings on macOS.
+The `screenshareRecordingDisabled` UFD with a `true` value occurs when the SDK detects that the screen sharing permission was denied in the browser or OS settings on macOS.
 
 | screenshareRecordingDisabled          | Details                |
 | --------------------------------------|------------------------|
@@ -37,7 +37,7 @@ call.feature(Features.UserFacingDiagnostics).media.on('diagnosticChanged', (diag
 Your application should subscribe to events from the User Facing Diagnostics and display a message on the user interface to alert users of any screen sharing permission issues.
 Users can then take steps to resolve the issue on their own.
 
-The end user should also check if they disabled the screen sharing permission from OS settings.
+Users should also check if they disabled the screen sharing permission from OS settings.
 
 ## Next steps
 * Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).

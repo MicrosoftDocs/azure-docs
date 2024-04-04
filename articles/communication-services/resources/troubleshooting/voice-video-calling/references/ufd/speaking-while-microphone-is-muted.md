@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # speakingWhileMicrophoneIsMuted UFD
-The `speakingWhileMicrophoneIsMuted` UFD occurs when the SDK detects that the audio input volume isn't muted although the user did mute the microphone.
+The `speakingWhileMicrophoneIsMuted` UFD with a `true` value occurs when the SDK detects that the audio input volume isn't muted although the user did mute the microphone.
 This event can remind the user who may want to speak something but forgot to unmute their microphone.
 In this case, since the microphone state in the SDK is muted, no audio is sent.
 

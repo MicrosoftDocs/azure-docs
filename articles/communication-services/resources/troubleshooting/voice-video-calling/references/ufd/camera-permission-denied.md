@@ -40,7 +40,7 @@ Additionally, your application should acquire camera browser permission before l
 If there's no permission granted, the application is unable to get the detailed information of the camera devices on the user's system.
 
 The camera permission can also be revoked during a call, so your application should also subscribe to events from the User Facing Diagnostics events to display a message on the user interface.
-The end users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they disabled the camera access at OS level.
+Users can then take steps to resolve the issue on their own, such as enabling the browser permission or checking whether they disabled the camera access at OS level.
 
 > [!NOTE]
 > Some browser platforms cache the permission results.

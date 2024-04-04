@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # networkSendQuality UFD
-The `networkSendQuality` UFD indicates that there are network quality issues for outgoing streams, such as packet loss, as detected by the ACS Calling SDK.
+The `networkSendQuality` UFD with a `Bad` value indicates that there are network quality issues for outgoing streams, such as packet loss, as detected by the ACS Calling SDK.
 This event suggests that there may be problems with the network quality issues between the local endpoint and remote endpoint.
 
 
