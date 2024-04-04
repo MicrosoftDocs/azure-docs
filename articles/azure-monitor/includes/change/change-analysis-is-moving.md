@@ -7,4 +7,4 @@ author: hhunter-ms
 ---
 
 > [!IMPORTANT]
-> Change Analysis is moving to Azure Resource Graph and is currently in preview as an Azure Resource Graph offering. Learn more about [the future of Change Analysis](../../../governance/resource-graph/changes/transitional-overview.md).
+> Change Analysis is moving to Azure Resource Graph and is currently in preview as an Azure Resource Graph offering. Learn more about [the future of Change Analysis](../../../governance/resource-graph/changes/resource-graph-changes.md##azure-monitor-change-analysis-vs-azure-resource-graph-change-analysis).
