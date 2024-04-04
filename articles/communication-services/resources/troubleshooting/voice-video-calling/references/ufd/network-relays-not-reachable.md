@@ -37,7 +37,7 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 ```
 ## How to mitigate or resolve
 Your application should subscribe to events from the User Facing Diagnostics.
-Display a message on your user interface to inform users of network quality issues.
+Display a message on your user interface and inform users of network setup issues.
 
 Users should follow the *Firewall Configuration* guideline mentioned in the [Network recommendations](../../../../../concepts/voice-video-calling/network-requirements.md) document. It's also recommended that the user also checks their Network address translation (NAT) settings or whether their firewall policy blocks User Datagram Protocol (UDP) packets.
 
