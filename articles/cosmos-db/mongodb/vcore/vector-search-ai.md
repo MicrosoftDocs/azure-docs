@@ -1,7 +1,7 @@
 ---
 title: Open-source vector databases
 titleSuffix: 
-description: Open-source vector databases
+description: Open-source vector database functionalities, examples, challenges, and solutions.
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
