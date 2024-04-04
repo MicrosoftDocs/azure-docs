@@ -5,6 +5,7 @@ services: virtual-network
 author: asudbring
 manager: Gerald DeGrace
 ms.service: virtual-network
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: allensu

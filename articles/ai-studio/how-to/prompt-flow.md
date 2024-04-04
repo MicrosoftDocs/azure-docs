@@ -2,15 +2,15 @@
 title: Prompt flow in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces prompt flow in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Prompt flow in Azure AI Studio

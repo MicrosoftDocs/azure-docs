@@ -6,7 +6,7 @@ ms.date: 02/29/2024
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.custom: engagement-fy23, references_regions
+ms.custom: engagement-fy23, references_regions, linux-related-content
 ---
 
 # Support matrix for Azure VM disaster recovery between Azure regions

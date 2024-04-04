@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 02/26/2024
+ms.date: 03/21/2024
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 

@@ -6290,6 +6290,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-metric-alerts.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-metric-alerts",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster",
             "redirect_document_id": false
@@ -6605,6 +6610,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-app-resource.md",
+            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/partners.md",
             "redirect_url": "/azure/azure-monitor/overview#integrate",
             "redirect_document_id": false
@@ -6617,6 +6627,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/resource-group-insights.md",
             "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-endpoint-sample.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-endpoint-overview#sample-data-collection-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/resource-manager-data-collection-rules.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-create-edit?tabs=arm#manually-create-a-dcr",
             "redirect_document_id": false
         }
     ]
