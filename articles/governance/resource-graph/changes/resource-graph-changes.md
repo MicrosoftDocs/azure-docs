@@ -31,14 +31,6 @@ The Azure Resource Graph Change Analysis portal experience provides:
 
 [Learn how to view the new Change Analysis experience in the portal.](./view-resource-changes.md)
 
-##
- 
-
-Change Analysis also provides some data using the following APIs:
-- `GET/LIST Microsoft.Resources/Changes`
-- `GET/LIST Microsoft.Resources/Snapshots`
-
-
 ## Supported resource types
 
 Change Analysis supports changes to resource types from the following Resource Graph tables:
@@ -77,7 +69,7 @@ The transition from Azure Monitor to Azure Resource Graph highlights some differ
 
 ## Send feedback for more data  
 
-Visit [the Change Analysis (Preview) experience](./view-resource-changes.md) on the Azure portal and submit feedback for data you'd like to see in Change Analysis and the `Microsoft.ResourceGraph/resources` API.
+Submit feedback via [the Change Analysis (Preview) experience](./view-resource-changes.md) in the Azure portal.
 
 ## Cost
 
