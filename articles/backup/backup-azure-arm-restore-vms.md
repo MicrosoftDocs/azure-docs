@@ -1,5 +1,5 @@
 ---
-title: Restore VMs by using the Azure portal
+title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
