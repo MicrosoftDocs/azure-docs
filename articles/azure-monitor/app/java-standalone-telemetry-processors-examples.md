@@ -14,20 +14,21 @@ This article provides examples of telemetry processors in Application Insights f
 
 ## Include and exclude Span samples
 
-In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
+In this section, learn how to include and exclude spans. You also learn how to exclude multiple spans and apply selective processing.
+
 ### Include spans
 
 This section shows how to include spans for an attribute processor. The processor doesn't process spans that don't match the properties.
 
 A match requires the span name to be equal to `spanA` or `spanB`. 
 
-These spans match the include properties, and the processor actions are applied:
-* Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
-* Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+These spans match the `include` properties, and the processor actions are applied:
+* `Span1` Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanB' Attributes: {env: dev, test_request: false}
+* `Span3` Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-This span doesn't match the include properties, and the processor actions aren't applied:
-* Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
+This span doesn't match the `include` properties, and the processor actions aren't applied:
+* `Span4` Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
 {
@@ -61,13 +62,13 @@ This section demonstrates how to exclude spans for an attribute processor. This 
 
 A match requires the span name to be equal to `spanA` or `spanB`.
 
-The following spans match the exclude properties, and the processor actions aren't applied:
-* Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
-* Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+The following spans match the `exclude` properties, and the processor actions aren't applied:
+* `Span1` Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanB' Attributes: {env: dev, test_request: false}
+* `Span3` Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-This span doesn't match the exclude properties, and the processor actions are applied:
-* Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
+This span doesn't match the `exclude` properties, and the processor actions are applied:
+* `Span4` Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
 {
@@ -103,13 +104,13 @@ A match requires the following conditions to be met:
 * An attribute (for example, `env` with value `dev`) must exist in the span.
 * The span must have an attribute that has key `test_request`.
 
-The following spans match the exclude properties, and the processor actions aren't applied.
-* Span1 Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
-* Span2 Name: 'spanA' Attributes: {env: dev, test_request: false}
+The following spans match the `exclude` properties, and the processor actions aren't applied.
+* `Span1` Name: 'spanB' Attributes: {env: dev, test_request: 123, credit_card: 1234}
+* `Span2` Name: 'spanA' Attributes: {env: dev, test_request: false}
 
-The following span doesn't match the exclude properties, and the processor actions are applied:
-* Span3 Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
-* Span4 Name: 'spanC' Attributes: {env: dev, dev_request: false}
+The following span doesn't match the `exclude` properties, and the processor actions are applied:
+* `Span3` Name: 'spanB' Attributes: {env: 1, test_request: dev, credit_card: 1234}
+* `Span4` Name: 'spanC' Attributes: {env: dev, dev_request: false}
 
 
 ```json
@@ -150,17 +151,16 @@ The following span doesn't match the exclude properties, and the processor actio
 ### Selective processing
 
 This section shows how to specify the set of span properties that
-indicate which spans this processor should be applied to. The include 
-properties indicate which spans should be processed. The exclude properties filter out spans that shouldn't be processed.
+indicate which spans this processor should be applied to. The `include` properties indicate which spans should be processed. The `exclude` properties filter out spans that shouldn't be processed.
 
 In the following configuration, these spans match the properties, and processor actions are applied:
 
-* Span1 Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
-* Span2 Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
+* `Span1` Name: 'spanB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
+* `Span2` Name: 'spanA' Attributes: {env: staging, test_request: false, redact_trace: true}
 
-These spans don't match the include properties, and processor actions aren't applied:
-* Span3 Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
-* Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
+These spans don't match the `include` properties, and processor actions aren't applied:
+* `Span3` Name: 'spanB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
+* `Span4` Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
 {
@@ -329,12 +329,12 @@ The following sample shows how to hash existing attribute values.
 ### Extract
 
 The following sample shows how to use a regular expression (regex) to create new attributes based on the value of another attribute.
-For example, given `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
+For example, given `url.path = /path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
 * httpProtocol: `http`
 * httpDomain: `example.com`
 * httpPath: `path`
 * httpQueryParams: `queryParam1=value1,queryParam2=value2`
-* http.url: *no* change
+* url.path: *no* change
 
 ```json
 {
@@ -345,7 +345,7 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "^(?<httpProtocol>.*):\\/\\/(?<httpDomain>.*)\\/(?<httpPath>.*)(\\?|\\&)(?<httpQueryParams>.*)",
             "action": "extract"
           }
@@ -358,7 +358,7 @@ For example, given `http.url = http://example.com/path?queryParam1=value1,queryP
 
 ### Mask
 
-For example, given `http.url = https://example.com/user/12345622` is updated to `http.url = https://example.com/user/****` using either of the below configurations.
+For example, given `url.path = https://example.com/user/12345622` is updated to `url.path = https://example.com/user/****` using either of the below configurations.
 
 
 First configuration example:
@@ -372,7 +372,7 @@ First configuration example:
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "user\\/\\d+",
             "replace": "user\\/****",
             "action": "mask"
@@ -396,7 +396,7 @@ Second configuration example with regular expression group name:
         "type": "attribute",
         "actions": [
           {
-            "key": "http.url",
+            "key": "url.path",
             "pattern": "^(?<userGroupName>[a-zA-Z.:\/]+)\d+",
             "replace": "${userGroupName}**",
             "action": "mask"
@@ -407,14 +407,14 @@ Second configuration example with regular expression group name:
   }
 }
 ```
-### Non-string typed attributes samples
+### Nonstring typed attributes samples
 
-Starting 3.4.19 GA, telemetry processors support non-string typed attributes:
+Starting 3.4.19 GA, telemetry processors support nonstring typed attributes:
 `boolean`, `double`, `long`, `boolean-array`, `double-array`, `long-array`, and `string-array`.
 
-When `attributes.type` is not provided in the json, it's default to `string`.
+When `attributes.type` isn't provided in the json, it's default to `string`.
 
-The following sample inserts the new attribute `{"newAttributeKeyStrict": "newAttributeValueStrict"}` into spans and logs where the attributes match the following:
+The following sample inserts the new attribute `{"newAttributeKeyStrict": "newAttributeValueStrict"}` into spans and logs where the attributes match the following examples:
 `{"longAttributeKey": 1234}`
 `{"booleanAttributeKey": true}`
 `{"doubleArrayAttributeKey": [1.0, 2.0, 3.0, 4.0]}`
@@ -461,7 +461,7 @@ The following sample inserts the new attribute `{"newAttributeKeyStrict": "newAt
 
 ```
 
-Additionally, non-string typed attributes support `regexp`. 
+Additionally, nonstring typed attributes support `regexp`.
 
 The following sample inserts the new attribute `{"newAttributeKeyRegexp": "newAttributeValueRegexp"}` into spans and logs where the attribute `longRegexpAttributeKey` matches the value from `400` to `499`.
 
@@ -645,6 +645,6 @@ Let's assume the input log message body is `User account with userId 123456xx fa
 
 ## Frequently asked questions
 
-### Why doesn't the log processor process logs using TelemetryClient.trackTrace()?
+### Why doesn't the log processor process log files using TelemetryClient.trackTrace()?
 
 TelemetryClient.trackTrace() is part of the Application Insights Classic SDK bridge, and the log processors only work with the new [OpenTelemetry-based instrumentation](opentelemetry-enable.md).

@@ -5,7 +5,7 @@ description: Use this article to get started using Azure OpenAI to deploy and us
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
-ms.custom: devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js
+ms.custom: devx-track-python
 ms.topic: quickstart
 author: PatrickFarley
 ms.author: pafarley
@@ -24,6 +24,12 @@ zone_pivot_groups: openai-quickstart-gpt-v
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/gpt-v-rest.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python quickstart](includes/gpt-v-python.md)]
 
 ::: zone-end
 

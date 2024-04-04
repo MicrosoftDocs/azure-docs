@@ -1,13 +1,14 @@
 ---
-title: Microsoft Defender for open-source relational databases - the benefits and features
+title: What is Defender for open-source databases
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
-ms.date: 06/19/2022
+ms.date: 04/02/2024
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
+#customer intent: As a reader, I want to understand the purpose and features of Microsoft Defender for open-source relational databases so that I can make informed decisions about its usage.
 ---
 
-# Overview of Microsoft Defender for open-source relational databases
+# What is Microsoft Defender for open-source relational databases
 
 This plan brings threat protections for the following open-source relational databases:
 
@@ -19,15 +20,22 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 
 ## Availability
 
-| Aspect | Details |
-|--|:-|
-| Release state: | General availability (GA) |
-| Pricing: | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
-| Supported environments:|:::image type="icon" source="./media/icons/yes-icon.png"::: PaaS<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc-enabled machines |
-| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md).  Flexible Server - all pricing tiers (enablement is currently only supported at resource level).|
-| Protected versions of MySQL: | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md). |
-| Protected versions of MariaDB: | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md). |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet |
+Check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for pricing information for Microsoft Defender for open-source relational databases.
+
+Defender for open-source relational database is supported on PaaS environments and not on Azure Arc-enabled machines.
+
+**Protected versions of PostgreSQL include**:
+- Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md). 
+- Flexible Server - all pricing tiers.
+
+**Protected versions of MySQL include**:
+- Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).
+- Flexible Server - all pricing tiers.
+
+**Protected versions of MariaDB include**:
+- General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).
+
+View [cloud availability](support-matrix-cloud-environment.md#cloud-support) for Defender for open-source relational databases
 
 ## What are the benefits of Microsoft Defender for open-source relational databases?
 
@@ -48,18 +56,14 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 
 Threat intelligence enriched security alerts are triggered when there are:
 
-- **Anomalous database access and query patterns** - For example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
-- **Suspicious database activities** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
-- **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
+- **Anomalous database access and query patterns** - For example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt).
+- **Suspicious database activities** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server.
+- **Brute-force attacks** – With the ability to separate simple brute force or a successful brute force.
 
 > [!TIP]
-> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-osrdb).
+> View the full list of security alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
 
+## Related articles
 
-
-## Next steps
-
-In this article, you learned about Microsoft Defender for open-source relational databases.
-
-> [!div class="nextstepaction"]
-> [Enable enhanced protections](enable-enhanced-security.md)
+- [Enable Microsoft Defender for open-source relational databases and respond to alerts](defender-for-databases-usage.md)
+- [Common questions about Defender for Databases](faq-defender-for-databases.yml)

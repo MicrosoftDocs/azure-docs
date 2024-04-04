@@ -3,12 +3,9 @@ title: Publishing to Azure Government Marketplace
 description: This article provides guidance on publishing solutions to Azure Government Marketplace.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 08/31/2021
 ---
 
@@ -112,5 +109,3 @@ Make sure that any virtual machine extensions your solution template relies on a
 
 - Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 - Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-
-

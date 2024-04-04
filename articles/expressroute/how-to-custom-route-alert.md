@@ -4,6 +4,7 @@ description: This article shows you how to use Azure Automation and Logic Apps t
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau

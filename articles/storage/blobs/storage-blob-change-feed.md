@@ -84,7 +84,7 @@ Enable change feed by using PowerShell:
 1. Install the latest PowershellGet.
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet -Repository PSGallery -Force
    ```
 
 2. Close, and then reopen the PowerShell console.
@@ -92,7 +92,7 @@ Enable change feed by using PowerShell:
 3. Install version 2.5.0 or later of the **Az.Storage** module.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
+   Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.5.0 -AllowClobber -Force
    ```
 
 4. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.

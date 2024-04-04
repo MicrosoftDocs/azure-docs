@@ -62,11 +62,11 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Su
 
 [Android]: how-to-use-android-map-control-library.md
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Get Map Attribution API]: /rest/api/maps/render-v2/get-map-attribution
-[Get Map Attribution]: /rest/api/maps/render-v2/get-map-attribution#tilesetid
+[Get Map Attribution API]: /rest/api/maps/render/get-map-attribution
+[Get Map Attribution]: /rest/api/maps/render/get-map-attribution#tilesetid
 [iOS]: how-to-use-ios-map-control-library.md
-[Render service]: /rest/api/maps/render-v2
-[Tileset Create API]: /rest/api/maps/v2/tileset/create
-[TilesetID]: /rest/api/maps/render-v2/get-map-attribution#tilesetid
+[Render service]: /rest/api/maps/render
+[Tileset Create API]: /rest/api/maps-creator/tileset/create
+[TilesetID]: /rest/api/maps/render/get-map-attribution#tilesetid
 [Web]: how-to-use-map-control.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md

@@ -259,7 +259,7 @@ The private endpoint you created should now have five DNS zones configured:
 * `privatelink.monitor.azure.com`
 * `privatelink.oms.opinsights.azure.com`
 * `privatelink.ods.opinsights.azure.com`
-* `privatelink.agentsvc.azure.automation-net`
+* `privatelink.agentsvc.azure.automation.net`
 * `privatelink.blob.core.windows.net`
 
 Each of these zones maps specific Azure Monitor endpoints to private IPs from the virtual network's pool of IPs. The IP addresses shown in the following images are only examples. Your configuration should instead show private IPs from your own network.

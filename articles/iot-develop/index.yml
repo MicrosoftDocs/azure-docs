@@ -6,13 +6,11 @@ summary: Explore the Azure IoT documentation for developing cloud-connected embe
 metadata:
   title: IoT device development
   description: Learn how to use Azure IoT for developing cloud-connected embedded devices and device applications. 
-  services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 03/28/2023
-  ms.custom: engagement-fy23
+  ms.date: 1/23/2024
 
 landingContent:
   - title: About IoT device development
@@ -31,8 +29,6 @@ landingContent:
       links:
         - text: Connect a device to IoT Hub
           url: quickstart-send-telemetry-iot-hub.md
-        - text: Connect a device to IoT Central
-          url: quickstart-send-telemetry-central.md
   - title: Get started with Azure RTOS development
     linkLists:
     - linkListType: quickstart
@@ -51,20 +47,10 @@ landingContent:
       links:
         - text: Use MQTT to connect without a device SDK
           url: tutorial-use-mqtt.md
-        - text: Connect a sample device to IoT Hub
-          url: tutorial-connect-device.md
     - linkListType: concept
       links:
         - text: Manage device reconnections
           url: concepts-manage-device-reconnections.md
-  - title: Device development framework
-    linkLists:
-    - linkListType: concept
-      links: 
-        - text: What is IoT Plug and Play?
-          url: overview-iot-plug-and-play.md
-        - text: Developer guide
-          url: concepts-developer-guide-device.md
   - title: Get started with FreeRTOS development
     linkLists:
     - linkListType: quickstart

@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: sample
-ms.date: 01/10/2019
+ms.date: 01/18/2024
 ms.author: pafarley
 
 ---

@@ -18,7 +18,7 @@ The Azure  Client configurator is a tool designed to assist you in configuring a
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
@@ -80,9 +80,9 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
     ```
 
 * Inside the `/etc/cassandra/` folder, run `sudo ./install_certs.sh`.
-        *Ensure that the script is executable by running `sudo chmod +x install_certs.sh`.
-        *The script installs and point Cassandra towards the new certs needed to connect to the Azure Managed Instance cluster.
-        *It then prompts user to restart Cassandra.
+    * Ensure that the script is executable by running `sudo chmod +x install_certs.sh`.
+    * The script installs and point Cassandra towards the new certs needed to connect to the Azure Managed Instance cluster.
+    * It then prompts user to restart Cassandra.
         :::image type="content" source="./media/configure-hybrid-cluster/script-result.png" alt-text="Screenshot of the result of running the script.":::
 
 * Once Cassandra is done restarting on all nodes, check `nodetool status`. Both datacenters should appear in the list, with their nodes in the UN (Up/Normal) state.

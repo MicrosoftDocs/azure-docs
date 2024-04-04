@@ -4,6 +4,7 @@ description: This page provides architectural recommendations for backing up Azu
 services: networking
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau 

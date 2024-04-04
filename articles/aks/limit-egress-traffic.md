@@ -2,15 +2,15 @@
 title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: allensu
-ms.date: 12/05/2023
+ms.date: 04/02/2024
 author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
+# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 
 Learn how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using the Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) Fully Qualified Domain Name (FQDN) tag that restricts outbound traffic from the AKS cluster. This article shows how you can configure your AKS Cluster traffic rules through Azure firewall.
 
@@ -130,7 +130,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
     ```azurecli-interactive
     az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
-   ```
+    ```
 
 5. Once the previous command succeeds, save the firewall frontend IP address for configuration later.
 
@@ -178,8 +178,7 @@ For information on how to override Azure's default system routes or add addition
 This section covers three network rules and an application rule you can use to configure on your firewall. You may need to adapt these rules based on your deployment.
 
 * The first network rule allows access to port 9000 via TCP.
-* The second network rule allows access to port 1194 and 123 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated-by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
-* The third network rule opens port 123 to `ntp.ubuntu.com` FQDN via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, so you'll need to adapt it when using your own options.
+* The second network rule allows access to port 1194 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated-by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
 * The fourth and fifth network rules allow access to pull containers from GitHub Container Registry (ghcr.io) and Docker Hub (docker.io).
 
 1. Create the network rules using the [`az network firewall network-rule create`][az-network-firewall-network-rule-create] command.
@@ -188,8 +187,6 @@ This section covers three network rules and an application rule you can use to c
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
-
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
 
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'ghcr' --protocols 'TCP' --source-addresses '*' --destination-fqdns ghcr.io pkg-containers.githubusercontent.com --destination-ports '443'
 
@@ -265,18 +262,18 @@ If you don't have user-assigned identities, follow the steps in this section. If
 
     The output should resemble the following example output:
 
-    ```output
-     {                                  
+    ```json
+     {
        "clientId": "<client-id>",
-        "clientSecretUrl": "<clientSecretUrl>",
-        "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+       "clientSecretUrl": "<clientSecretUrl>",
+       "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
        "location": "eastus",
-      "name": "myIdentity",
+       "name": "myIdentity",
        "principalId": "<principal-id>",
-      "resourceGroup": "aks-egress-rg",                       
+       "resourceGroup": "aks-egress-rg",
        "tags": {},
        "tenantId": "<tenant-id>",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
      }
     ```
 
@@ -284,24 +281,24 @@ If you don't have user-assigned identities, follow the steps in this section. If
 
     ```azurecli-interactive
     az identity create --name myKubeletIdentity --resource-group $RG
-   ```
+    ```
 
     The output should resemble the following example output:
 
-    ```output
-   {
+    ```json
+    {
       "clientId": "<client-id>",
-     "clientSecretUrl": "<clientSecretUrl>",
-     "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+      "clientSecretUrl": "<clientSecretUrl>",
+      "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity",
       "location": "westus2",
       "name": "myKubeletIdentity",
-     "principalId": "<principal-id>",
-      "resourceGroup": "aks-egress-rg",                       
+      "principalId": "<principal-id>",
+      "resourceGroup": "aks-egress-rg",
       "tags": {},
-     "tenantId": "<tenant-id>",
-     "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+      "tenantId": "<tenant-id>",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
-   ```
+    ```
 
   > [!NOTE]
   > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].

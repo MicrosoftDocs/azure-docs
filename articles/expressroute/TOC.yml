@@ -59,16 +59,22 @@
       href: expressroute-move.md
   - name: About ExpressRoute gateways
     href: expressroute-about-virtual-network-gateways.md
+  - name: About zone-redundant gateways for Availability Zones
+    href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
   - name: About ExpressRoute FastPath
     href: about-fastpath.md
   - name: About ExpressRoute Direct
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: About ExpressRoute Metro
+    href: metro.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
   - name: About ExpressRoute limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#expressroute-limits
+  - name: Design architecture for ExpressRoute resiliency
+    href: design-architecture-for-resiliency.md
   - name: ExpressRoute Traffic Collector
     href: traffic-collector.md
   - name: Connect Azure to public cloud
@@ -89,6 +95,8 @@
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
+  - name: Rate limit for service provider ports
+    href: provider-rate-limit.md
   - name: Routing Microsoft 365 traffic over ExpressRoute 
     href: using-expressroute-for-microsoft365.md
   - name: Routing Microsoft PSTN traffic over ExpressRoute
@@ -179,6 +187,8 @@
       href: maintenance-alerts.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
+  - name: Evaluate ExpressRoute circuit resiliency
+    href: evaluate-circuit-resiliency.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
   - name: Managing peerings

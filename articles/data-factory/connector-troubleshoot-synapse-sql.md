@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 05/19/2023
+ms.date: 01/05/2024
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/01/2022
+ms.date: 01/11/2024
 ---
 
 # Plan and manage costs of an Azure AI Search service
 
-This article explains the billing model and billable events of Azure AI Search, and provides direction for managing the costs.
+This article explains the billing model and billable events of Azure AI Search, and provides guidance for managing the costs.
 
 As a first step, estimate your baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [Select a pricing tier](search-create-service-portal.md#choose-a-tier) page when creating a service.
 
@@ -47,19 +47,19 @@ Billing is based on capacity (SUs) and the costs of running premium features, su
 
 <sup>1</sup> Applies only if you use or enable the feature.
 
-<sup>2</sup> In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), "imageAction" is the parameter that triggers image extraction. If "imageAction" is set to "none" (the default), you won't be charged for image extraction. Costs are incurred when "imageAction" parameter is set *and* you include OCR, Image Analysis, or Document Extraction in a skillset.
+<sup>2</sup> In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), `imageAction` is the parameter that triggers image extraction. If `imageAction` is set to "none" (the default), you won't be charged for image extraction. Costs are incurred when `imageAction` parameter is set *and* you include OCR, Image Analysis, or Document Extraction in a skillset.
 
-There is no meter on the number of queries, query responses, or documents ingested, although [service limits](search-limits-quotas-capacity.md) do apply at each tier.
+You aren't billed on the number of full text or vector queries, query responses, or documents ingested, although [service limits](search-limits-quotas-capacity.md) do apply at each tier.
 
 Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Several premium features such as [knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), and [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features will be included in the Azure Storage bill.
+Several premium features such as [knowledge store](knowledge-store-concept-intro.md), [debug sessions](cognitive-search-debug-session.md), and [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features are included in the Azure Storage bill.
 
 [Customer-managed keys](search-security-manage-encryption-keys.md) provide double encryption of sensitive content. This feature requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)).
 
-Skillsets can include [billable built-in skills](cognitive-search-predefined-skills.md), non-billable built-in utility skills, and custom skills. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact when using them, no Azure AI services key requirement, and no 20 document limit. 
+Skillsets can include [billable built-in skills](cognitive-search-predefined-skills.md), non-billable built-in utility skills, and custom skills. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. You aren't charged for using them. There's no API key requirement, and no 20 document limit. 
 
-A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Azure AI services key requirement and no 20 document limit on custom skills.
+A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other billable services.  There's no API key requirement and no 20 document limit on custom skills.
 
 ## Monitor costs
 
@@ -77,7 +77,7 @@ Follow these guidelines to minimize costs of an Azure AI Search solution.
 
 1. Consider [Azure Web App](../app-service/overview.md) for your front-end application so that requests and responses stay within the data center boundary.
 
-1. If you're using [AI enrichment](cognitive-search-concept-intro.md), there is an extra charge for blob storage, but the cumulative cost goes down if you enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md).
+1. If you're using [AI enrichment](cognitive-search-concept-intro.md), there's an extra charge for blob storage, but the cumulative cost goes down if you enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md).
 
 ## Create budgets
 
@@ -97,13 +97,13 @@ Search runs as a continuous service. Dedicated resources are always operational,
 
 **Can I change the billing rate (tier) of an existing search service?**
 
-In-place upgrade or downgrade is not supported. Changing a service tier requires provisioning a new service at the desired tier.
+In-place upgrade or downgrade isn't supported. Changing a service tier requires provisioning a new service at the desired tier.
 
 ## Next steps
 
 + Learn more on how pricing works with Azure AI Search. See [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 + Learn more about [replicas and partitions](search-sku-tier.md).
-+ Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Learn [how to optimize your cloud investment with Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

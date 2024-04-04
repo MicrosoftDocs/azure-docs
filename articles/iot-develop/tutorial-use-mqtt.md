@@ -4,11 +4,10 @@ description: Tutorial - Use the MQTT protocol directly to create an IoT device c
 titleSuffix: Azure IoT
 author: ryanwinter
 ms.author: rywinter
-ms.date: 03/15/2023
+ms.date: 1/23/2024
 ms.topic: tutorial
 ms.service: iot-develop
 ms.custom: devx-track-azurecli
-services: iot-develop
 #Customer intent: As a device builder, I want to see how I can use the MQTT protocol to create an IoT device client without using the Azure IoT Device SDKs.
 ---
 
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Development machine prerequisites
 

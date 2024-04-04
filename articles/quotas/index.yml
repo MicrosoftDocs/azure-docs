@@ -5,10 +5,8 @@ summary: Azure Quotas lets you view and manage quotas for many of the Azure reso
 metadata:
   title: Azure Quotas documentation
   description: Azure Quotas lets you view and manage quotas for many of the Azure resources you use in your subscriptions.
-  services: Azure Quotas
   ms.topic: landing-page
   ms.service: azure-quotas
-  ms.collection: collection
   ms.date: 08/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

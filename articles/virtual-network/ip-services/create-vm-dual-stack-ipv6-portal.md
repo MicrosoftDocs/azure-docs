@@ -8,12 +8,12 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/05/2023
-ms.custom: template-how-to, devx-track-linux
+ms.custom: template-how-to
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure portal
 
-In this article, you create a virtual machine in Azure with the Azure portal. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
+In this article, you create a virtual machine in Azure with the Azure portal. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ In this section, you create a dual-stack virtual network for the virtual machine
 1. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
 
 1. To add an IPv6 subnet, select **+ Add a subnet** and enter or select the following information:
-   
+
     | Setting | Value |
     | ------- | ----- |
     | **Subnet** |   |
@@ -69,15 +69,15 @@ In this section, you create a dual-stack virtual network for the virtual machine
 
 ## Create public IP addresses
 
-You create two public IP addresses in this section, IPv4 and IPv6. 
+You create two public IP addresses in this section, IPv4 and IPv6.
 
 ### Create IPv4 public IP address
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
-2. Select **+ Create**. 
+2. Select **+ Create**.
 
-3. Enter or select the following information in **Create public IP address**. 
+3. Enter or select the following information in **Create public IP address**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -101,7 +101,7 @@ You create two public IP addresses in this section, IPv4 and IPv6.
 ### Create IPv6 public IP address
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
-2. Select **+ Create**. 
+2. Select **+ Create**.
 
 3. Enter or select the following information in **Create public IP address**.
 
@@ -150,7 +150,7 @@ You create two public IP addresses in this section, IPv4 and IPv6.
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**. 
+4. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**.
 
 5. Enter or select the following information in the **Networking** tab.
 
@@ -165,7 +165,7 @@ You create two public IP addresses in this section, IPv4 and IPv6.
 
 6. Select **Review + create**.
 
-7. Select **Create**. 
+7. Select **Create**.
 
 8. **Generate new key pair** appears. Select **Download private key and create resource**.
 

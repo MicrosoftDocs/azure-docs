@@ -12,10 +12,9 @@ ms.date: 12/30/2023
 ms.custom:
   - devx-track-python
   - sdkv2
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - ignite-2023
+  - update-code
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
@@ -74,7 +73,9 @@ Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image
 
 To define the input data of a job that references the Web-based data, run:
 
+
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
+
 
 By defining an `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 

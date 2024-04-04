@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
@@ -14,17 +13,11 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 
 ### Azure Synapse limits for workspaces
 
-For Pay-As-You-Go, Free Trial, and Azure Pass subscription offer types:
+For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription offer types:
 
 | Resource | Default limit | Maximum limit | 
 | -------- | ------------- | ------------- |
 | Synapse workspaces in an Azure subscription | 2 | 2 |
-
-For Azure for Students offer type:
-
-| Resource | Default limit | Maximum limit | 
-| -------- | ------------- | ------------- |
-| Synapse workspaces in an Azure subscription | 0 | 0 |
 
 For other subscription offer types:
 

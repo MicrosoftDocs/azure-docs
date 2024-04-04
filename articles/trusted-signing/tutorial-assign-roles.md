@@ -9,7 +9,7 @@ ms.date: 03/21/2023 #Required; mm/dd/yyyy format.
 ---
 # Assigning roles in Trusted Signing
 
-The Trusting Signing service has a few Trusted Signing specific roles (in addition to the standard Azure roles). Use [Azure role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to assign user and group roles for the Trusted Signing specific roles. In this tutorial, you review the different Trusted Signing supported roles and assign roles to your Trusted Signing account on the Azure portal. 
+The Trusting Signing service has a few Trusted Signing specific roles (in addition to the standard Azure roles). Use [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) to assign user and group roles for the Trusted Signing specific roles. In this tutorial, you review the different Trusted Signing supported roles and assign roles to your Trusted Signing account on the Azure portal. 
 
 ## Supported roles with Trusting Signing
 The following table lists the roles that Trusted Signing supports, including what each role can access within the service’s resources. 
@@ -34,5 +34,5 @@ Complete the following steps to assign roles in Trusted Signing.
 3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current) guide to assign the relevant roles to your identities. _Note that you will need at least a Contributor role to create a Trusted Signing account and certificate profile._
 
 ## Related content 
-* [What is Azure role-based access control (RBAC)?](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * [Trusted Signing Quickstart](quickstart.md)

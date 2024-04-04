@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell

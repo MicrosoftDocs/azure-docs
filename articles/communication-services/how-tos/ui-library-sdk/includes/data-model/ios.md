@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS
+description: Learn how to use the Calling composite on iOS.
 author: garchiro7
 
 ms.author: jorgegarc
@@ -8,38 +8,41 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-### Local Participant View Data Injection
+### Local participant view data injection
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage that represents the avatar to render, and a display name they can optionally display instead. None of this information is sent to Azure Communication Services and is held locally in the UI library.
+The UI Library gives developers the ability to provide a customized experience. At launch, you can inject optional local data options. This object can contain a UI image that represents the avatar to render and a display name to optionally display instead. None of this information is sent to Azure Communication Services. It's held locally in the UI Library.
 
-#### Local Options
+#### Local options
 
-`LocalOptions` is data model that consists of `ParticipantViewData` and `SetupScreenViewData`.  By default for `ParticipantViewData`, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components. 
+`LocalOptions` is a data model that consists of `ParticipantViewData` and `SetupScreenViewData`.
 
-Similarly, for 'SetupScreenViewData', by default, the UI library displays 'Setup' as the title and nothing as subtitle. The `title` and `subtitle` in 'SetupScreenViewData' overwrites the navigation bar's title and subtitle in premeeting screen respectively. 
+For `ParticipantViewData`, by default, the UI Library displays `displayName` information injected in `RemoteOptions`. This information is sent to the Azure Communication Services back-end server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` information is displayed in all avatar components.
 
-#### Local Participant View Data
+For `SetupScreenViewData`, by default, the UI Library displays **Setup** as the title and nothing as the subtitle. The `title` and `subtitle` information in `SetupScreenViewData` overwrites the navigation bar's title and subtitle on the premeeting screen, respectively.
 
-`ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information. It's stored locally and never sent up to the server.
+#### Local participant view data
 
-#### Setup Screen View Data
+`ParticipantViewData` is an object that sets the `displayName` and `avatar` UI image for avatar components. This class is injected into the UI Library to set avatar information. It's stored locally and never sent to the server.
 
-`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on premeeting screen (also known as Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, isn't required. 
-If `subtitle` isn't defined, then it's hidden. This class is locally stored and its information isn't sent up to the server.
+#### Setup screen view data
+
+`SetupScreenViewData` is an object that sets `title` and `subtitle` for the navigation bar on the premeeting screen (also known as setup view). If you define `SetupScreenViewData`, you must also provide `title` because it's a required field. However, `subtitle` isn't required.
+
+If you don't define `subtitle`, it's hidden. This class is locally stored, and its information isn't sent to the server.
 
 #### Usage
 
 ```swift
-// LocalOptions (data not sent to server)
+// LocalOptions (data not sent to the server)
 let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
 let localSetupScreenViewData = SetupScreenViewData(title: "<NAV_TITLE>",
                                                                subtitle: "<NAV_SUBTITLE>")
 let localOptions = LocalOptions(participantViewData: localParticipantViewData, 
                                 setupScreenViewData: localSetupScreenViewData)
-// RemoteOptions (data sent to server)
+// RemoteOptions (data sent to the server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
                                   displayName: "<DISPLAY_NAME>")
@@ -47,17 +50,17 @@ let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
 callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 ```
 
-|Setup View|Calling Experience View|
+|Setup view|Calling experience view|
 | ---- | ---- |
-| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of the iOS data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of the iOS data custom model injection with name."::: |
+| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of iOS data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of iOS data custom model injection with name."::: |
 
-### Remote Participant View Data Injection
+### Remote participant view data injection
 
-On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. None of this information is sent to Azure Communication Services and is held locally in the UI library.
+On remote participant join, you can inject the view data for the remote participant. This participant view data can contain a UI image that represents the avatar to render and a display name to optionally display instead. None of this information is sent to Azure Communication Services. It's held locally in the UI Library.
 
 #### Usage
 
-To set the participant view data for remote participant, set `onRemoteParticipantJoined` completion for events handler. On remote participant join, use `CallComposite` `set(remoteParticipantViewData:, for:, completionHandler:)` to inject view data for remote participant. The participant identifier `CommunicationIdentifier` is used to uniquely identify a remote participant. The optional completion handler is used for returning result of the set operation.
+To set the view data for remote participants, set `onRemoteParticipantJoined` completion for the event handler. On remote participant join, use `set(remoteParticipantViewData:, for:, completionHandler:)` for `CallComposite` to inject view data for remote participants. The participant identifier `CommunicationIdentifier` uniquely identifies a remote participant. You use the optional completion handler to return the result of the set operation.
 
 ```swift
 callComposite.events.onRemoteParticipantJoined = { [weak callComposite] identifiers in
@@ -79,4 +82,4 @@ callComposite.events.onRemoteParticipantJoined = { [weak callComposite] identifi
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/ios-model-injection-remote.png" alt-text="Screenshot of the iOS remote participants view data injection."::: |
+| :::image type="content" source="media/ios-model-injection-remote.png" alt-text="Screenshot of iOS remote participants view data injection."::: |

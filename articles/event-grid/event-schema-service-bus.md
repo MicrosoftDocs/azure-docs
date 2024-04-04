@@ -20,6 +20,9 @@ This article provides the properties and schema for Service Bus events. For an 
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 | [Azure Service Bus to Event Grid integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overview of integrating Service Bus with Event Grid. |
 
+> [!NOTE]
+> When a failover occurs for a Service Bus namespace that's Geo-DR enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
+
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)

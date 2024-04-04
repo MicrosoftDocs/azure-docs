@@ -2,7 +2,6 @@
 title: Azure Monitor workbook tile visualizations
 description: Learn about all the Azure Monitor workbook tile visualizations.
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023

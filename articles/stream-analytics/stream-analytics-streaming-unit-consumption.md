@@ -26,9 +26,9 @@ The underlying compute power for V1 and V2 streaming units is as follows:
 For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 ## Understand streaming unit conversions and where they apply
-There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (or Azure Portal).  You will notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the Azure Portal.  This is by design, and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units).  Azure Portal displays node values 1/3, 2/3, 1, 2, 3, … etc, while Visual Studio Code, activity logs, and ASA's REST API layer display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
+There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (Azure Portal and Visual Studio Code).  You will notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the UI.  This is by design and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units).  ASA's UI displays node values 1/3, 2/3, 1, 2, 3, … etc, while backend (activity logs, REST API layer) display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
 
-| Standard  | Standard V2 (Azure Portal) | Standard V2 (Visual Studio Code, logs, Rest API) |
+| Standard  | Standard V2 (UI) | Standard V2 (Backend such as logs, Rest API, etc.) |
 | ------------- | ------------- | ------------- |
 | 1  | 1/3  | 3  |
 | 3  | 2/3  | 7  |
@@ -37,7 +37,7 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | 18  | 3  | 30  |
 | ...  | ...  | ... |
 
-This allows us to convey the same granularity and eliminate the decimal point at the API layer.  This conversion is automatic and has no impact on your job's performance.
+This allows us to convey the same granularity and eliminate the decimal point at the API layer for V2 SKUs.  This conversion is automatic and has no impact on your job's performance.
 
 ## Understand consumption and memory utilization
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.

@@ -5,12 +5,12 @@ author: tomarchermsft
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 07/24/2023
 ms.author: tarcher
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, linux-related-content
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Use Terraform to create a Linux VM
@@ -83,6 +83,8 @@ In this article, you learn how to:
 ## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+Cost information isn't presented during the virtual machine creation process for Terraform like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 ## Verify the results
 

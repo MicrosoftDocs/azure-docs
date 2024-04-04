@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 01/29/2024
 ---
 
 # Hybrid search using vectors and full text in Azure AI Search
@@ -24,13 +24,13 @@ This article explains the concepts, benefits, and limitations of hybrid search. 
 
 ## How does hybrid search work?
 
-In Azure AI Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
+In Azure AI Search, vector fields containing embeddings can live alongside textual and numerical fields, allowing you to formulate hybrid queries that execute in parallel. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
 
-Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query response provides just one result set, using RRF to determine which matches are included.
+Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm merges the results. The query response provides just one result set, using RRF to pick the most relevant matches from each query.
 
 ## Structure of a hybrid query
 
-Hybrid search is predicated on having a search index that contains fields of various [data types](/rest/api/searchservice/supported-data-types), including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text or image, audio, and video. You can use almost all query capabilities in Azure AI Search with a vector query, except for client-side interactions such as autocomplete and suggestions.
+Hybrid search is predicated on having a search index that contains fields of various [data types](/rest/api/searchservice/supported-data-types), including plain text and numbers, geo coordinates for geospatial search, and vectors for a mathematical representation of a chunk of text. You can use almost all query capabilities in Azure AI Search with a vector query, except for client-side interactions such as autocomplete and suggestions.
 
 A representative hybrid query might be as follows (notice the vector is trimmed for brevity):
 

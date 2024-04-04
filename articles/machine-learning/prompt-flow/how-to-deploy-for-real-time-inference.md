@@ -11,7 +11,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 02/22/2024
 ---
 
 
@@ -67,7 +67,7 @@ Then you need also specify the image to the `environment` in the `flow.dag.yaml`
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
 
 > [!NOTE]
-> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-a-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
 
 ## Create an online deployment
 
@@ -269,6 +269,10 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
 
+Note that you need to fill the data values according to your flow inputs. Take the sample flow used in this article **Web Classification** as example, you need to specify `data = {"url": "<the_url_to_be_classified>"}` and fill the key or token in the sample consumption code.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/consume-endpoint.png" alt-text="Screenshot of the endpoint detail page with consumption code. " lightbox = "./media/how-to-deploy-for-real-time-inference/consume-endpoint.png":::
+
 ## View endpoint metrics 
 
 ### View managed online endpoints common metrics using Azure Monitor (optional)
@@ -311,6 +315,12 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ## Troubleshoot endpoints deployed from prompt flow
 
+### Lack authorization to perform action "Microsoft.MachineLearningService/workspaces/datastores/read"
+
+If your flow contains Index Look Up tool, after deploying the flow, the endpoint needs to access workspace datastore to read MLIndex yaml file or FAISS folder containing chunks and embeddings. Hence, you need to manually grant the endpoint identity permission to do so.
+
+You can either grant the endpoint identity **AzureML Data Scientist** on workspace scope, or a custom role which contains "MachineLearningService/workspace/datastore/reader" action.
+
 ### MissingDriverProgram Error
 
 If you deploy your flow with custom environment and encounter the following error, it might be because you didn't specify the `inference_config` in your custom environment definition.
@@ -331,7 +341,14 @@ If you deploy your flow with custom environment and encounter the following erro
 
 There are 2 ways to fix this error.
 
-1. You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
+- (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
+
+
+- You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
 
     Following is an example of customized environment definition.
 
@@ -354,12 +371,6 @@ inference_config:
     path: /score
 ```
 
-2. You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
-
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
-
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
-
 ### Model response taking too long
 
 Sometimes, you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
@@ -377,7 +388,7 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
-- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-runtime-from-ui) and rerun the flow in the latest runtime and then deploy the flow again.
+- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-a-runtime-on-the-ui) and rerun the flow in the latest runtime and then deploy the flow again.
 
 ### Access denied to list workspace secret
 
@@ -394,3 +405,4 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 - [Iterate and optimize your flow by tuning prompts using variants](how-to-tune-prompts-using-variants.md)
 - [View costs for an Azure Machine Learning managed online endpoint](../how-to-view-online-endpoints-costs.md)
+- [Troubleshoot prompt flow deployments.](how-to-troubleshoot-prompt-flow-deployment.md)

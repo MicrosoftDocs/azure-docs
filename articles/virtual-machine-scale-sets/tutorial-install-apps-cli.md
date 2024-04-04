@@ -21,7 +21,7 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
@@ -65,6 +65,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image Ubuntu2204 \
+  --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

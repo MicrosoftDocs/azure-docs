@@ -3,8 +3,8 @@ title: Security, governance, and Azure Dev/Test subscriptions
 description: Manage security and governance within your organization's Dev/Test subscriptions. 
 ms.author: amast
 author: rigel512
-ms.prod: visual-studio-family
-ms.technology: vs-subscriptions
+ms.service: visual-studio-family
+ms.subservice: subscriptions
 ms.topic: how-to 
 ms.date: 10/18/2023
 ms.custom: devtestoffer

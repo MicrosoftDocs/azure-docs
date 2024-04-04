@@ -1,7 +1,6 @@
 ---
 title: Spark Common Data Model connector for Azure Synapse Analytics
 description: Learn how to use the Spark CDM connector in Azure Synapse Analytics to read and write Common Data Model entities in a Common Data Model folder on Azure Data Lake Storage.
-services: synapse-analytics 
 ms.author: AvinandaC
 ms.service: synapse-analytics
 ms.topic: conceptual

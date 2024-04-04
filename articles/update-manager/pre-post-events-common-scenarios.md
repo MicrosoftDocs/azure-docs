@@ -3,7 +3,7 @@ title: Common scenarios in pre and post events (preview) in your Azure Update Ma
 description: An overview of common scenarios for pre and post events (preview), including viewing the list of different endpoints, successful delivery to an endpoint, checking the script in Webhooks using runbooks triggered from Event Grid.
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 02/03/2024
 author: SnehaSudhir 
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -57,7 +57,7 @@ This article presents the frequently asked questions in the lifecycle of pre and
 1. On the selected maintenance configuration page, under **Settings**, select **Events**.
 1. In the **Essentials** section, view metrics to see the metrics for all the events that are part of the event subscription. In the grid, the count of the Published Events metric should match with the count of Matched Events metric. Both of these two values should also correspond with the Delivered Events count.
 1. To view the metrics specific to a pre or a post event, select the name of the event from the grid. Here, the count of Matched Events metric should match with the Delivered Events count.
-1. To view the time at which the event was triggered, hover over the line graph. [Learn more](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-eventgrid-systemtopics-metrics).
+1. To view the time at which the event was triggered, hover over the line graph. [Learn more](/azure/azure-monitor/reference/supported-metrics/microsoft-eventgrid-systemtopics-metrics).
 
 
 ## How to check an unsuccessful delivery of a pre and post events to an endpoint from Event Grid?
@@ -142,6 +142,15 @@ For more information on how to retrieve details from Automation account's activi
 
 You can view the status of the maintenance job from the ARG query mentioned above to understand if you've canceled the job or the system. The error message confirms the status of the job.
 
+The following query allows you to view the list of VMs for a given schedule or a maintenance configuration:
+
+```kusto
+maintenanceresources  
+| where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
+| where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
+| order by name desc
+```
+
 :::image type="content" source="./media/pre-post-events-common-scenarios/cancelation-query.png" alt-text="Screenshot that shows the status of job that has been canceled by system or user." lightbox="./media/pre-post-events-common-scenarios/cancelation-query.png":::
 
 ## How to check the status of the maintenance configuration?
@@ -170,6 +179,21 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 :::image type="content" source="./media/pre-post-events-common-scenarios/view-job-status.png" alt-text="Screenshot that shows how to insert the resource group, maintenance configuration." lightbox="./media/pre-post-events-common-scenarios/view-job-status.png":::
 
 ---
+
+## Why the scheduled run was cancelled by the system?
+
+The system cancels the scheduled run if one or more of the following conditions are not met:
+
+1. If the maintenance configuration has at least one pre event subscribed and the schedule time is changed within the 40-minute window before the scheduled start time.
+2. If the pre-event was created within the 40-minute window before the scheduled start time.
+
+
+## Why the post event was not sent by the system?
+
+If the user modifies the schedule run time after the pre-event has been triggered, the post event will not be sent because the scheduled time has been replaced with a new one.
+
+> [!NOTE]
+> Azure Event Grid adheres to an at-least-once delivery paradigm. This implies that, in exceptional circumstances, there is a chance of the event handler being invoked more than once for a given event. Customers are advised to ensure that their event handler actions are idempotent. In other words, if the event handler is executed multiple times, it should not have any adverse effects. Implementing idempotency ensures the robustness of your application in the face of potential duplicate event invocations.
 
 ## Next steps
 - For an overview on [pre and post scenarios](pre-post-scripts-overview.md)

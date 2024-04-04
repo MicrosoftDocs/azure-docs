@@ -2,13 +2,13 @@
 title: Batch synthesis properties - Speech service
 titleSuffix: Azure AI services
 description: Learn about the batch synthesis properties that are available for text to speech avatar. 
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar batch synthesis
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # Batch synthesis properties for text to speech avatar (preview)
@@ -29,7 +29,7 @@ The following table describes the avatar properties.
 | properties.talkingAvatarStyle             | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
 | properties.customized                     | A bool value indicating whether the avatar to be used is customized avatar or not. True for customized avatar, and false for prebuilt avatar.<br/><br/>This property is optional, and the default value is `false`.|
 | properties.videoFormat                    | The format for output video file, could be mp4 or webm.<br/><br/>The `webm` format is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
-| properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background.<br/><br/>This property is optional, and the default value is hevc.|
+| properties.videoCodec                     | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background. The synthesis speed will be slower with vp9 codec, as vp9 encoding is slower.<br/><br/>This property is optional, and the default value is hevc.|
 | properties.kBitrate (bitrateKbps)          | The bitrate for output video, which is integer value, with unit kbps.<br/><br/>This property is optional, and the default value is 2000.|
 | properties.videoCrop                      | This property allows you to crop the video output, which means, to output a rectangle subarea of the original video. This property has two fields, which define the top-left vertex and bottom-right vertex of the rectangle.<br/><br/>This property is optional, and the default behavior is to output the full video.|
 | properties.videoCrop.topLeft              |The top-left vertex of the rectangle for video crop. This property has two fields x and y, to define the horizontal and vertical position of the vertex.<br/><br/>This property is required when properties.videoCrop is set.|
@@ -65,7 +65,7 @@ The following table describes the text to speech properties.
 | Property                 | Description |
 |--------------------------|--------------------------|
 | customVoices             | A custom neural voice is associated with a name and its deployment ID, like this: "customVoices": {"your-custom-voice-name": "502ac834-6537-4bc3-9fd6-140114daa66d"}<br/><br/>You can use the voice name in your `synthesisConfig.voice` when `textType` is set to "PlainText", or within SSML text of inputs when `textType` is set to "SSML".<br/><br/>This property is required to use a custom voice. If you try to use a custom voice that isn't defined here, the service returns an error.|
-| inputs                   | The plain text or SSML to be synthesized.<br/><br/>When the textType is set to "PlainText", provide plain text as shown here: "inputs": [{"text": "The rainbow has seven colors."}]. When the textType is set to "SSML", provide text in the Speech Synthesis Markup Language (SSML) as shown here: "inputs": [{"text": "<speak version='\'1.0'\'' xml:lang='\'en-US'\''><voice xml:lang='\'en-US'\'' xml:gender='\'Female'\'' name='\'en-US-JennyNeural'\''>The rainbow has seven colors.</voice></speak>"}].<br/><br/>Include up to 1,000 text objects if you want multiple video output files. Here's example input text that should be synthesized to two video output files: "inputs": [{"text": "synthesize this to a file"},{"text": "synthesize this to another file"}].<br/><br/>You don't need separate text inputs for new paragraphs. Within any of the (up to 1,000) text inputs, you can specify new paragraphs using the "\r\n" (newline) string. Here's example input text with two paragraphs that should be synthesized to the same audio output file: "inputs": [{"text": "synthesize this to a file\r\nsynthesize this to another paragraph in the same file"}]<br/><br/>This property is required when you create a new batch synthesis job. This property isn't included in the response when you get the synthesis job.|
+| inputs                   | The plain text or SSML to be synthesized.<br/><br/>When the textType is set to "PlainText", provide plain text as shown here: "inputs": [{"text": "The rainbow has seven colors."}]. When the textType is set to "SSML", provide text in the Speech Synthesis Markup Language (SSML) as shown here: "inputs": [{"text": "<speak version='\'1.0'\'' xml:lang='\'en-US'\''><voice xml:lang='\'en-US'\'' xml:gender='\'Female'\'' name='\'en-US-AvaMultilingualNeural'\''>The rainbow has seven colors.</voice></speak>"}].<br/><br/>Include up to 1,000 text objects if you want multiple video output files. Here's example input text that should be synthesized to two video output files: "inputs": [{"text": "synthesize this to a file"},{"text": "synthesize this to another file"}].<br/><br/>You don't need separate text inputs for new paragraphs. Within any of the (up to 1,000) text inputs, you can specify new paragraphs using the "\r\n" (newline) string. Here's example input text with two paragraphs that should be synthesized to the same audio output file: "inputs": [{"text": "synthesize this to a file\r\nsynthesize this to another paragraph in the same file"}]<br/><br/>This property is required when you create a new batch synthesis job. This property isn't included in the response when you get the synthesis job.|
 | properties.billingDetails | The number of words that were processed and billed by customNeural versus neural (prebuilt) voices.<br/><br/>This property is read-only.|
 | synthesisConfig          | The configuration settings to use for batch synthesis of plain text.<br/><br/>This property is only applicable when textType is set to "PlainText".|
 | synthesisConfig.pitch    | The pitch of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](../speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when textType is set to "PlainText".|

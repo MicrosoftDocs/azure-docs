@@ -1,15 +1,14 @@
 ---
-title: Create and upload a Flatcar Container Linux VHD for use in Azure 
+title: Create and upload a Flatcar Container Linux VHD for use in Azure
 description: Learn to create and upload a VHD that contains a Flatcar Container Linux operating system.
 author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-
 ---
 # Using a prebuilt Flatcar image for Azure
 

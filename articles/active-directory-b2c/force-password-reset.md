@@ -9,11 +9,15 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure Active Directory B2C administrator, I want to set up a force password reset flow, so that I can ensure users reset their passwords when necessary for security purposes.
+
 ---
 
 # Set up a force password reset flow in Azure Active Directory B2C

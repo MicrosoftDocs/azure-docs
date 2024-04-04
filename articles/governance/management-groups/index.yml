@@ -8,7 +8,6 @@ metadata:
   description: Azure management groups help you organize your resources and subscriptions.
   ms.service: governance
   ms.topic: landing-page
-  ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 09/30/2020
@@ -19,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of management services in Azure
-            url: ../azure-management.md
+            url: ./azure-management.md
 
   - title: About Azure management groups
     linkLists:

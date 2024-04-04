@@ -5,14 +5,14 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: concept-article
-ms.date: 11/20/2023
+ms.date: 01/08/2024
 
 #CustomerIntent: As someone planning a deployment, I want to learn about my options for connectivity, so that I can start deploying
 ---
 
 # Connectivity for Azure Communications Gateway
 
-Each Azure region in your deployment connects to your core network. You need to choose the type of connection (for example, MAPS Voice or Express Route) and route traffic between your network and Azure Communications Gateway with specific IP addresses and domain names.
+Each Azure region in your deployment connects to your core network. You must choose the type of connection (for example, Microsoft Azure Peering Service Voice). You must use specific IP addresses and domain names to route traffic between your network and Azure Communications Gateway.
 
 This article describes:
 
@@ -26,17 +26,22 @@ Azure Communications Gateway supports multiple types of connection to your netwo
 - We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
 - If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended services first).
+The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended types first).
 
 |Connection type  | Operator Connect / Teams Phone Mobile  | Microsoft Teams Direct Routing  | Zoom Phone Cloud Peering | Notes |
 |---------|---------|---------|---------|---------|
-| MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Azure Internet peering for Communications Services walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
+| MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Internet peering for Peering Service Voice walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
 |ExpressRoute Microsoft Peering |✅|✅|✅|- Easy to deploy<br>- Extra cost<br>- Consult with your onboarding team and ensure that it's available in your region<br>- See [Using ExpressRoute for Microsoft PSTN services](/azure/expressroute/using-expressroute-for-microsoft-pstn)|
-|Public internet |❌|✅|✅|- No extra setup<br>- Not recommended for production|
+|Public internet |⚠️ Lab deployments only|✅|✅|- No extra setup<br>- Where available, not recommended for production |
 
-Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. Your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
+> [!NOTE]
+> The Operator Connect and Teams Phone Mobile programs do not allow production deployments to use the public internet.
+
+Set up your network as in the following diagram and configure it in accordance with any network connectivity specifications for your chosen communications services. For production deployments, your network must have two sites with cross-connect functionality. For more information on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 
 :::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Network diagram showing Azure Communications Gateway deployed into two Azure regions within one Azure Geography. The Azure Communications Gateway resource in each region connects to a communications service and both operator sites. Azure Communications Gateway uses MAPS or Express Route as its peering service between Azure and an operators network." lightbox="media/azure-communications-gateway-network.svg":::
+
+Lab deployments have one Azure service region and must connect to one site in your network.
 
 ## IP addresses and domain names
 
@@ -83,7 +88,7 @@ Azure Communications Gateway provides multiple FQDNs:
 
 You must decide whether you want these FQDNs to be `*.commsgw.azure.com` domain names or subdomains of a domain you already own, using [domain delegation with Azure DNS](../dns/dns-domain-delegation.md).
 
-Domain delegation provides topology hiding and might increase customer trust, but requires giving us full control over the subdomain that you delegate. For Microsoft Teams Direct Routing, choose domain delegation if you don't want customers to see an `*.commsgw.azure.com` in their Microsoft 365 admin centers.
+Domain delegation provides topology hiding and might increase customer trust, but requires giving us full control over the subdomain that you delegate. For Microsoft Teams Direct Routing, choose domain delegation if you don't want customers to see a `*.commsgw.azure.com` address in their Microsoft 365 admin centers.
 
 ## Related content
 

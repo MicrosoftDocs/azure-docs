@@ -3,7 +3,7 @@ title: Use Azure Monitor managed service for Prometheus as data source for Grafa
 description: Details on how to configure Azure Monitor managed service for Prometheus as data source for both Azure Managed Grafana and self-hosted Grafana in an Azure virtual machine.
 author: bwren 
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/08/2024
 ---
 
 # Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity 
@@ -146,6 +146,6 @@ This section provides answers to common questions.
 
 ## Next steps
 - [Configure self-managed Grafana to use Azure-managed Prometheus with Microsoft Entra ID](./prometheus-self-managed-grafana-azure-active-directory.md).
-- [Collect Prometheus metrics for your AKS cluster](../essentials/prometheus-metrics-enable.md).
+- [Collect Prometheus metrics for your AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

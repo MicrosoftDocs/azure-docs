@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: troubleshooting
-ms.date: 03/13/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: "As an Azure Active Directory B2C user experiencing technical issues, I want to open a support ticket, so that I can receive assistance from Microsoft support engineers to resolve my problem and contribute to service improvements."
+
 ---
 
 # Find help and open a support ticket for Azure Active Directory B2C
@@ -37,7 +41,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra tenant from the **Directories + subscriptions** menu. Currently, you can't submit support cases directly from your Azure AD B2C tenant.
      
 1. In the Azure portal, search for and select **Microsoft Entra ID**.
 

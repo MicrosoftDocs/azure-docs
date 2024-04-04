@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Authorize access to blobs and files with AzCopy and Microsoft Entra ID
@@ -178,12 +179,9 @@ Then, run any azcopy command (For example: `azcopy list https://contoso.blob.cor
 
 ### Authorize by using the AzCopy login command
 
-As an alternative to using in-memory variables, you authorize access by using the azcopy login command. However, this approach is not recommended as the azcopy login command will soon be deprecated. 
+As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
 The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy login command won't work because there is nowhere to place the token.
-
-> [!IMPORTANT]
-> The azcopy login command will soon be deprecated.
 
 #### Authorize a user identity (azcopy login command)
 
@@ -320,8 +318,8 @@ If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
-```bash
-export AZCOPY_AUTO_LOGIN_TYPE=PSCRED
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 ```
 
 For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).

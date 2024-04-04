@@ -27,8 +27,6 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
-
 ## Create a classic virtual machine and storage account
 
 1. Create a classic VM by using the Azure portal.

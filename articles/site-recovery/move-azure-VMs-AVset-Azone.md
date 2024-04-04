@@ -92,7 +92,7 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 > These steps are for a single VM. You can extend the same to multiple VMs. Go to the Recovery Services vault, select **+ Replicate**, and select the relevant VMs together.
 
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
-2. In **Operations**, select **Disaster recovery**.
+2. In **Backup + disaster recovery**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../availability-zones/az-region.md) Availability Zones.
 4. Select **Next: Advanced settings**.
 5. Choose the appropriate values for the target subscription, target VM resource group, and virtual network.

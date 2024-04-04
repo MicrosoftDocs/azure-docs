@@ -5,7 +5,6 @@ author: ApnaLakshay
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/13/2023
 ms.author: lnagpal
 ---
@@ -44,6 +43,16 @@ If a Dedicated Host is recreated with the same name, the backend retains the old
 Due to a previous bug, the system patch operation couldn't perform validation, and an invalid classification type was found in the Maintenance Configuration. The bug has been fixed and deployed. To address this issue, customers can update the Maintenance Configuration and set the correct classification type.
 
 ## Open Issues
+
+#### Schedule Patching stops working after the resource is moved
+
+If you move a resource to a different resource group or subscription, then scheduled patching for the resource stops working as this scenario is currently unsupported by the system. The team is working to provide this capability but in the meantime, as a workaround, for the resource you want to move (in static scope)
+1. You need to remove the assignment of it
+2. Move the resource to a different resource group or subscription
+3. Recreate the assignment of it
+In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
+
+If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
 
 #### Schedule didn't trigger
 

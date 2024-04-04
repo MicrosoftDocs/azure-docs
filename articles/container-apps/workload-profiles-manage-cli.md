@@ -152,7 +152,7 @@ Use the following commands to create a workload profiles environment.
         --name "<CONTAINER_APP_NAME>" \
         --target-port 80 \
         --ingress external \
-        --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+        --image mcr.microsoft.com/k8se/quickstart:latest \
         --environment "<ENVIRONMENT_NAME>" \
         --workload-profile-name "Consumption"
       ```
@@ -165,7 +165,7 @@ Use the following commands to create a workload profiles environment.
         --name "<CONTAINER_APP_NAME>" \
         --target-port 80 \
         --ingress internal \
-        --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+        --image mcr.microsoft.com/k8se/quickstart:latest \
         --environment "<ENVIRONMENT_NAME>" \
         --workload-profile-name "Consumption"
       ```

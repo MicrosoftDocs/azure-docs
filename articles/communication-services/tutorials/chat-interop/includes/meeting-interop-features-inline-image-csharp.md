@@ -9,9 +9,6 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for C#.
 
-## Sample code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropInlineImageQuickStart).
-
 ## Prerequisites 
 
 * Go through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 

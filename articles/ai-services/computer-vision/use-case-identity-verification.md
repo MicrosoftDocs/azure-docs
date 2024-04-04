@@ -10,26 +10,26 @@ ms.service: azure-ai-vision
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
 # Overview: Verification with Face 
 
-Provide the best-in-class face verification experience in your business solution using Azure AI Face service. You can verify a user's face against a government-issued ID card like a passport or driver's license. Use this verification to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a user, or proctoring an online assessment. Verification can be done when a person is onboarded to your service, and repeated when they access a digital or physical service.
+Provide the best-in-class face verification experience in your business solution using the Azure AI Face service. You can verify a user's face against a government-issued ID card like a passport or driver's license. Use this verification to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a user, or proctoring an online assessment. Verification can be done when a person is onboarded to your service, and repeated when they access a digital or physical service.
 
 :::image type="content" source="media/use-cases/face-recognition.png" alt-text="Photo of a person holding a phone up to his face to take a picture":::
 
 ## Benefits for your business 
 
-Identity verification verifies that the user is who they claim to be. Most organizations require some type of identity verification. Biometric identity verification with Face service provides the following benefits to your business:
+Verification checks that the user is who they claim to be. Most organizations require some type of identity verification. Biometric verification with Face service provides the following benefits to your business:
 
 * Seamless end user experience: instead of entering a passcode manually, users can look at a camera to get access. 
 * Improved security: biometric verification is more secure than alternative verification methods that request knowledge from users, since that can be more easily obtained by bad actors.  
 
 ## Key features 
 
-Face service can power an end-to-end, low-friction, high-accuracy identity verification solution.
+Face service can power an end-to-end, low-friction, high-accuracy, verification solution.
 
 * Face Detection ("Detection" / "Detect") answers the question, "Are there one or more human faces in this image?" Detection finds human faces in an image and returns bounding boxes indicating their locations. Face detection models alone don't find individually identifying features, only a bounding box. All of the other operations are dependent on Detection: before Face can identify or verify a person (see below), it must know the locations of the faces to be recognized.
 * Face Detection for attributes: The Detect API can optionally be used to analyze attributes about each face, such as head pose and facial landmarks, using other AI models. The attribute functionality is separate from the verification and identification functionality of Face. The full list of attributes is described in the [Face detection concept guide](concept-face-detection.md). The values returned by the API for each attribute are predictions of the perceived attributes and are best used to make aggregated approximations of attribute representation rather than individual assessments. 
@@ -38,7 +38,7 @@ Face service can power an end-to-end, low-friction, high-accuracy identity verif
 
 ## Next steps
 
-Follow a quickstart to do identity verification with Face. 
+Follow a quickstart to do verification with Face. 
 
 > [!div class="nextstepaction"]
 > [Identity verification quickstart](./quickstarts-sdk/identity-client-library.md)

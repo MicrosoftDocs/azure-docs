@@ -1,9 +1,8 @@
 ---
 title: What is Azure Relay? | Microsoft Docs
-description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
+description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.
 ms.topic: overview
-ms.date: 12/08/2022
-ms.custom: contperf-fy22q1
+ms.date: 01/04/2024
 ---
 
 # What is Azure Relay?
@@ -102,5 +101,4 @@ Follow one or more of the following quick starts, or see [Azure Relay samples on
     - [Expose an on-premises WCF service to a WCF client outside your network](service-bus-relay-tutorial.md)
     - [Expose an on-premises WCF REST service to a client outside your network](service-bus-relay-rest-tutorial.md)
 
-For a list of frequently asked questions and their answers, see [Relay FAQ](relay-faq.yml)
-
+For a list of frequently asked questions and their answers, see [Relay FAQ](relay-faq.yml).

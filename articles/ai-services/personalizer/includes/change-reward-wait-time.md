@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 07/04/2022
+ms.date: 01/19/2024
 ---
 ### Change the reward wait time
 

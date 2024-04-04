@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/18/2023
+ms.date: 01/05/2024
 ms.author: lle
 ---
 

@@ -85,8 +85,16 @@ Codeless / Agent-based | Autoinstrumentation
 Traces | Logs
 Requests | Server Spans
 Dependencies | Other Span Types (Client, Internal, etc.)
+Operation ID | Trace ID
+ID or Operation Parent ID | Span ID
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
+## Frequently asked questions
+
+#### Where can I find a list of Application Insights SDK versions and their names?
+
+A list of SDK versions and names is hosted on GitHub. For more information, see [SDK Version](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/docs/versions_and_names.md).
 
 ## Next steps
 

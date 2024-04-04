@@ -37,11 +37,13 @@ This article shows you how to use Azure CNI networking to create and use a virtu
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
 ## Configure networking
+
+For information on planning IP addressing for your AKS cluster, see [Plan IP addressing for your cluster](./azure-cni-overview.md#plan-ip-addressing-for-your-cluster).
 
 # [**Portal**](#tab/configure-networking-portal)
 
