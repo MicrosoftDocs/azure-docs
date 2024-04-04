@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Propagate resources from an Azure Kuberentes Fleet Manager (Fleet) hub cluster to member clusters (Preview)"
+title: "Quickstart: Propagate resources from an Azure Kubernetes Fleet Manager (Fleet) hub cluster to member clusters (Preview)"
 description: In this quickstart, you learn how to propagate resources from an Azure Kubernetes Fleet Manager (Fleet) hub cluster to member clusters.
 ms.date: 03/28/2024
 author: schaffererin
