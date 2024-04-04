@@ -54,7 +54,7 @@ To allow access from the Automation system managed identity to the Azure SQL dat
        ```sql
        # AutomationAccount - replace with your Automation account's name
        # ObjectID - replace with object (principal) ID for your system managed identity principal from step 1.
-       CREATE USER "AutomationAccount" FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
+       CREATE USER "AutomationAccount" FROM EXTERNAL PROVIDER WITH OBJECT_ID = `ObjectID`
        EXEC sp_addrolemember `db_owner`, "AutomationAccount"
        ```
 
