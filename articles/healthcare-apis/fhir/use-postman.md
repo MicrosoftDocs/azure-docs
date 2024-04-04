@@ -110,7 +110,7 @@ You can get the Microsoft Entra access token using your Entra account credential
 
 ![callbackURL](media/use-postman/callbackurl.png)
 
-1. In the client application registration, under API Permissions, Delegate User Impersonation from Azure Healthcare APIS under APIs my organization uses.
+1. In the client application registration, under API Permissions, add delegated User_Impersonation permission for Azure Healthcare APIS from APIs my organization uses tab.
 
 ![App-reg-permissions](media/use-postman/app-reg-permissions.png)
 
