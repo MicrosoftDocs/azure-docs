@@ -13,8 +13,8 @@ ms.subservice: calling
 ---
 
 # networkReceiveQuality UFD
-The `networkReceiveQuality` UFD with `Bad` value indicates that there are network quality issues for incoming streams, as detected by the ACS Calling SDK. 
-This suggests that there may be problems with the network connection between the local endpoint and remote endpoint.
+The `networkReceiveQuality` UFD with `Bad` value indicates the presence of network quality issues for incoming streams, as detected by the ACS Calling SDK.
+This warning suggests that there may be problems with the network connection between the local endpoint and remote endpoint.
 When this UFD fires with the `Bad` value, the user may experience degraded audio quality.
 
 | networkReceiveQualityUFD | Details                |
@@ -39,7 +39,10 @@ call.feature(Features.UserFacingDiagnostics).network.on('diagnosticChanged', (di
 ```
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
-To solve network issues, it's typically necessary to have an understanding of the network topology and the nodes that are causing the problem.
+To solve network issues, you need understand the network topology and identify the nodes that are causing the problem.
 These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
-Your application should subscribe to events from the User Facing Diagnostics  and display a message on your user interface to inform users of network quality issues and expect the audio quality degradation.
+Your application should subscribe to events from the User Facing Diagnostics. Display a message on your user interface to inform users of network quality issues and warm them about audio quality degradation.
+
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
