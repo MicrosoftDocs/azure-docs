@@ -39,7 +39,7 @@ Each IoT hub comes with built-in system endpoints to handle system and device me
 For more information, see [How to use VS Code as IoT Hub Device Simulator](https://devblogs.microsoft.com/iotdev/use-vs-code-as-iot-hub-device-simulator-say-hello-to-azure-iot-hub-in-5-minutes/).
 
 
-:::image type="content" source="./media/azure-iot-hub/send-messages.png" alt-text="Screenshot shows built-in endpoints." lightbox="./media/azure-iot-hub/send-messages.png":::
+:::image type="content" source="./media/azure-iot-hub/send-messages.png" alt-text="Screenshot shows how to send messages." lightbox="./media/azure-iot-hub/send-messages.png":::
 
 ## Code in Flink
 
