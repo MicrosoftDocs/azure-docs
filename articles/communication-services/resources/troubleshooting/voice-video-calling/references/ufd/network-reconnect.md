@@ -48,7 +48,8 @@ These parts involve network infrastructure, which is outside the scope of the AC
 
 Internally, the ACS Calling SDK will trigger reconnection after a `networkReconnect` Bad UFD is fired. If the connection recovers, `networkReconnect` Good UFD is fired.
 
-Your application should subscribe to events from the User Facing Diagnostics. Display a message on your user interface to inform users of network quality issues and warm them about audio quality degradation.
+Your application should subscribe to events from the User Facing Diagnostics.
+Display a message on your user interface that informs users of network connection issues and potential audio loss.
 
 ## Next steps
 * Learn more about [User Facing Diagnostics feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
