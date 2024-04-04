@@ -3,6 +3,9 @@ title: Manually scale nodes in an Azure Kubernetes Service (AKS) cluster
 description: Learn how to manually scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.date: 01/22/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Manually scale the node count in an Azure Kubernetes Service (AKS) cluster
@@ -174,3 +177,4 @@ In this article, you manually scaled an AKS cluster to increase or decrease the 
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
 [update-azaksnodepool]: /powershell/module/az.aks/update-azaksnodepool
 [service-quotas]: ./quotas-skus-regions.md#service-quotas-and-limits
+

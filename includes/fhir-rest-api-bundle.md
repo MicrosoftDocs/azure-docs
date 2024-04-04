@@ -70,12 +70,9 @@ Transaction bundle currently does not support
 1. Conditional Delete operation.
 2. Search operations using _search. 
 
-### Batch bundle parallel processing in public preview 
+### Bundle parallel processing 
 
-Currently Batch and transaction bundles are executed serially in FHIR service. To improve performance and throughput, we're enabling parallel processing of batch bundles in public preview.  
+Currently Batch and transaction bundles are executed serially in FHIR service. To improve performance and throughput, we're enabling parallel processing of bundles.
 To use the capability of parallel batch bundle processing-
 * Set header “x-bundle-processing-logic” value to “parallel”. 
 * Ensure there's no overlapping resource ID that is executing on DELETE, POST, PUT or PATCH operations in the same bundle.
-
-> [!IMPORTANT]
-> Bundle parallel processing is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review Supplemental Terms of Use for Microsoft Azure Previews 
