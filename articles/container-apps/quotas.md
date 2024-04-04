@@ -25,7 +25,9 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Environments | Global | Up to 20 | Yes | Limit up to 20 environments per subscription across all regions |
 | Container Apps | Environment | Unlimited | n/a | |
 | Revisions | Container app | 100 | No | |
-| Replicas | Revision | 300 | Yes | |
+| Replicas | Revision | 300 (Azure Portal) / 1000 (Azure CLI) | Yes | |
+
+Using Azure Portal, there is a limit of 300 replicas per revision. Using Azure CLI, there is a limit of 1000 replicas per revision. Please note that the true number of replicas in a revision depends on a variety of factors.
 
 ## Consumption plan
 
