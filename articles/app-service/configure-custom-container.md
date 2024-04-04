@@ -499,9 +499,9 @@ In your *docker-compose.yml* file, map the `volumes` option to `${WEBAPP_STORAGE
 wordpress:
   image: <image name:tag>
   volumes:
-  - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
-  - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
-  - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
+  - "${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html"
+  - "${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin"
+  - "${WEBAPP_STORAGE_HOME}/LogFiles:/var/log"
 ```
 
 ### Preview limitations
