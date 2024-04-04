@@ -20,7 +20,7 @@ Through error codes, subcodes, and result categories, developers can more easily
 ## Azure Communication Services Calling SDK client error codes
 This document provides a list of codes, subcodes that can be thrown by the Calling SDK API and how you can learn more how to best mitigate these errors.
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 
 | Subcode | Code | Message | Result Categories <br> Public Preview *| Additional Notes |
