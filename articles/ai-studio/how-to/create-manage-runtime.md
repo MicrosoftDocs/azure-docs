@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: sgilley
+author: sdgilley
 ---
 
 # Create and manage prompt flow runtimes in Azure AI Studio
