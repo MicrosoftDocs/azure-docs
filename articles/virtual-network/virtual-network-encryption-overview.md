@@ -6,7 +6,7 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 02/27/2024
+ms.date: 04/03/2024
 ms.custom: template-overview, references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
