@@ -10,3 +10,9 @@ ms.author: cshoe
 ---
 
 # Azure Container Apps dynamic sessions overview
+
+## Outline
+
+* Explain what sessions are and when to use them
+* Different types of sessions
+* Architecture overview

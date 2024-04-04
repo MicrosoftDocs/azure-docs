@@ -10,3 +10,9 @@ ms.author: cshoe
 ---
 
 # Azure Container Apps code interpreter sessions
+
+## Outline
+
+* Overview of code interpreter sessions and scenarios
+* Link to quickstarts for specific LLM frameworks
+* Describe how to create a pool and work with the raw HTTP APIss
