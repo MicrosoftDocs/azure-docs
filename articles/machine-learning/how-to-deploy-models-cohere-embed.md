@@ -108,7 +108,8 @@ The previously mentioned Cohere models can be consumed using the chat API.
 
 ## Embed API reference for Cohere Embed models deployed as a service
 
-## V1/embeddings request
+## v1/embeddings 
+### Request
 
 ```
     POST /v1/embeddings HTTP/1.1
@@ -117,7 +118,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
     Content-type: application/json
 ```
 
-### V1/emebeddings request schema
+### v1/emebeddings request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
 
@@ -125,7 +126,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 | --- | --- | --- | --- |
 |`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
 
-### V1/emebeddings response schema
+### v1/emebeddings response schema
 
 The response payload is a dictionary with the following fields:
 
@@ -154,7 +155,7 @@ The `usage` object is a dictionary with the following fields:
 | `total_tokens` | `integer` | Total tokens. |
 
 
-## V1/embeddings examples
+## v1/embeddings examples
 
 **Request**
 
@@ -190,7 +191,8 @@ The `usage` object is a dictionary with the following fields:
     }
 ```
 
-## V1/embed request
+## v1/embed 
+### Request
 
 ```
     POST /v1/embed HTTP/1.1
@@ -199,7 +201,7 @@ The `usage` object is a dictionary with the following fields:
     Content-type: application/json
 ```
 
-### V1/embed request schema
+### v1/embed request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embed` API call:
 
@@ -210,7 +212,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 |`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
 |`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
 
-### V1/embed response schema
+### v1/embed response schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual include the following fields in the response:
 
@@ -224,7 +226,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual include the following fiel
 
 For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed).
 
-## V1/embed examples
+## v1/embed examples
 
 ### Embeddings_floats response
 
