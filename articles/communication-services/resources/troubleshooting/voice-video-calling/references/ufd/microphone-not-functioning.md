@@ -13,9 +13,9 @@ ms.subservice: calling
 ---
 
 # microphoneNotFunctioning UFD
-The `microphoneNotFunctioning` UFD with a `true` value occurs when the SDK detects that the microphone track has been ended. This can happen in many situations.
-For example, if the user unplugs a microphone which is being used, the microphone track would be ended by the browser, and SDK would fire `microphoneNotFunctioning` UFD.
-It can also occur when the user removes the microphone permission at browser level or revokes the microphone access for browsers at OS level. The underlying layers, such as audio driver or media stack at OS level, may also end the session for some reasons, causing the browser to end the microphone track.
+The `microphoneNotFunctioning` UFD with a `true` value occurs when the SDK detects that the microphone track was ended. This happens in many situations.
+For example, if the user unplugs a microphone in use, the microphone track would be ended by the browser, and SDK would fire `microphoneNotFunctioning` UFD.
+It can also occur when the user removes the microphone permission at browser or at OS level. The underlying layers, such as audio driver or media stack at OS level, may also end the session, causing the browser to end the microphone track.
 
 | microphoneNotFunctioning              | Details                |
 | --------------------------------------|------------------------|
@@ -40,3 +40,5 @@ The application should subscribe to events from the User Facing Diagnostics Feat
 Users can then take steps to resolve the issue on their own.
 For example, they can unplug and plug in the headset device, or sometimes muting and unmuting the microphone can help as well.
 
+## Next steps
+* Learn more about [User Facing Diagnostics Feature](../../../../../concepts/voice-video-calling/user-facing-diagnostics.md).
