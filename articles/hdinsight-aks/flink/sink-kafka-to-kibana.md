@@ -34,10 +34,10 @@ For more information, refer
 
 ## Prerequisites
 
-* [Create Flink 1.16.0 cluster](./flink-create-cluster-portal.md) 
+* [Create Flink 1.17.0 cluster](./flink-create-cluster-portal.md) 
 * Elasticsearch-7.13.2 
 * Kibana-7.13.2 
-* [HDInsight 5.0 - Kafka 2.4.1](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [HDInsight 5.0 - Kafka 3.2.0](../../hdinsight/kafka/apache-kafka-get-started.md)
 * IntelliJ IDEA for development on an Azure VM which in the same Vnet
 
 
