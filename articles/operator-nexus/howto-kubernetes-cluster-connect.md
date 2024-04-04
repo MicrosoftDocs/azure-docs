@@ -108,13 +108,13 @@ Once you're connected to a cluster via Arc for Kubernetes, you can connect to in
 
 ## Create an interactive shell connection to a node using the IP address
 
-### Connecting to the cluster node from Azure jumpbox
+### Connect to the cluster node from Azure jumpbox
 
 Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to set up a direct access to the cluster's CNI network from Azure jumpbox VM. Using this approach, you can SSH into the cluster nodes, also execute `kubectl` commands against the cluster using the `kubeconfig` file.
 
 Reach out to your network administrator to set up a direct connection from Azure jumpbox VM to the cluster's CNI network.
 
-### Connecting to the cluster node from on-premises jumpbox
+### Connect to the cluster node from on-premises jumpbox
 
 Establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises jumpbox. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
 
