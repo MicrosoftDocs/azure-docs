@@ -208,7 +208,7 @@ If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError
 
 ### Pre-deployment validation errors
 
-If you are receiving a variety of pre-deployment validation of your download\upload connectivity was not successful errors, such as: 
+If you are receiving a variety of `pre-deployment validation of your download\upload connectivity was not successful` errors, such as: 
 
 `Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_Post \\\\\\\_https://vcenter-server.com/nfc/unique-identifier/disk-0.vmdk\\\\\\\_: Service Unavailable`
 
