@@ -29,10 +29,10 @@ You can browse the Cohere family of models in the [Model Catalog](model-catalog.
 In this article, you learn how to use Azure AI Studio to deploy the Cohere models as a service with pay-as-you-go billing.
 
 ### Cohere Command R 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering. 
+Command R is a highly performant generative large language model, optimized for various use cases including reasoning, summarization, and question answering. 
 
 
-*Model Architecture:* This is an auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+*Model Architecture:* An auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
 
 *Languages covered:* The model is optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
 
@@ -46,10 +46,10 @@ Pre-training data additionally included the following 13 languages: Russian, Pol
 
   
 ### Cohere Command R+
-Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering. 
+Command R+ is a highly performant generative large language model, optimized for various use cases including reasoning, summarization, and question answering. 
 
 
-*Model Architecture:* This is an auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+*Model Architecture:* An auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
 
 *Languages covered:* The model is optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
 
@@ -66,7 +66,7 @@ Pre-training data additionally included the following 13 languages: Russian, Pol
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Above mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
