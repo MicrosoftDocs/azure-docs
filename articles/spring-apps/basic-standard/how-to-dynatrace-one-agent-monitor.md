@@ -177,7 +177,7 @@ Next, go to the **Databases** section.
 
 You can find **Backtrace** from **Databases/Details/Backtrace**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Databases/Details/Backtrace page that shows the Backtrace report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png":::
 
 ## View Dynatrace OneAgent logs
 

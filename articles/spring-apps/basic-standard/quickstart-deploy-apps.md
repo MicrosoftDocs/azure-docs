@@ -430,7 +430,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
 1. Set **Public Endpoint** to *Enable*.
 1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
 
-   :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
+   :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of the Create Azure Spring App page that shows the memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
 1. In the **Before launch** section of the dialog, double-click **Run Maven Goal**.
 1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/spring-petclinic-api-gateway* folder.
