@@ -104,12 +104,12 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. Copy the **Target** URL and the **Key** token values.
 1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-   For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
 
 ## Embed API reference for Cohere Embed models deployed as a service
 
-## v1/embeddings 
-### Request
+### v1/embeddings 
+#### Request
 
 ```
     POST /v1/embeddings HTTP/1.1
@@ -118,7 +118,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
     Content-type: application/json
 ```
 
-### v1/emebeddings request schema
+#### v1/emebeddings request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
 
@@ -126,7 +126,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 | --- | --- | --- | --- |
 |`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
 
-### v1/emebeddings response schema
+#### v1/emebeddings response schema
 
 The response payload is a dictionary with the following fields:
 
@@ -155,9 +155,9 @@ The `usage` object is a dictionary with the following fields:
 | `total_tokens` | `integer` | Total tokens. |
 
 
-## v1/embeddings examples
+### v1/embeddings examples
 
-**Request**
+Request:
 
 ```json
     {    
@@ -165,7 +165,7 @@ The `usage` object is a dictionary with the following fields:
     }
 ```
 
-**Response**
+Response:
 
 ```json
     {
@@ -191,8 +191,8 @@ The `usage` object is a dictionary with the following fields:
     }
 ```
 
-## v1/embed 
-### Request
+### v1/embed 
+#### Request
 
 ```
     POST /v1/embed HTTP/1.1
@@ -201,7 +201,7 @@ The `usage` object is a dictionary with the following fields:
     Content-type: application/json
 ```
 
-### v1/embed request schema
+#### v1/embed request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embed` API call:
 
@@ -212,7 +212,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 |`truncate` |`enum string` |`NONE` |`NONE` –  Returns an error when the input exceeds the maximum input token length. <br/> `START` – Discards the start of the input. <br/> `END` – Discards the end of the input. |
 |`embedding_types` |`array of strings` |`float` |Specifies the types of embeddings you want to get back. Can be one or more of the following types. `float`, `int8`, `uint8`, `binary`, `ubinary` |
 
-### v1/embed response schema
+#### v1/embed response schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual include the following fields in the response:
 
@@ -226,11 +226,11 @@ Cohere Embed v3 - English and Embed v3 - Multilingual include the following fiel
 
 For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed).
 
-## v1/embed examples
+### v1/embed examples
 
-### Embeddings_floats response
+#### Embeddings_floats response
 
-**Request**
+Request:
 
 ```json
     {
@@ -240,7 +240,7 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
     }
 ```
 
-**Response**
+Response:
 
 ```json
     {
@@ -269,9 +269,9 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
     }
 ```
 
-### Embeddings_by_types response
+#### Embeddings_by_types response
 
-**Request**
+Request:
 
 ```json
     {
@@ -282,7 +282,7 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
     }
 ```
 
-**Response**
+Response:
 
 ```json
     {
