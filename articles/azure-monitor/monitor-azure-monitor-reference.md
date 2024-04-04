@@ -42,6 +42,12 @@ The following table lists the metrics available for the Microsoft.Insights/datac
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Insights/datacollectionrules](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-insights-datacollectionrules-metrics-include.md)]
 
+### Supported metrics for Microsoft.operationalinsight/workspaces
+
+Azure Monitor Logs / Log Analytics workspaces
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Insights/datacollectionrules](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-operationalinsights-workspaces-metrics.md)]
+
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -55,7 +61,7 @@ microsoft.insights/autoscalesettings:
 
 - `MetricTriggerRule`
 - `MetricTriggerSource`
-- `ScaleDirection~
+- `ScaleDirection`
 
 microsoft.insights/components:
 
@@ -78,6 +84,8 @@ Microsoft.Insights/datacollectionrules:
 - `InputStreamId`
 - `ResponseCode`
 - `ErrorType`
+
+
 
 <!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]

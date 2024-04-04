@@ -16,30 +16,31 @@ ms.service: azure-monitor
 <!-- ## Insights. Optional section. If your service has insights, add the following include and add information about what your Azure Monitor insights provide. You can refer to another article that gives details or add a screenshot. 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
 
-Azure monitor provides the following monitoring capabilities to monitor itself: 
+Azure Monitor has many separate larger components. Information on monitoring each of these is mentioned below.  
 
+### Azure Monitor core
 **Autoscale** - Azure Monitor Autoscale has a diagnostics feature that provides insights into the performance of your autoscale settings. For more information, see [Azure Monitor Autoscale diagnostics](./autoscale/autoscale-diagnostics,md) and [Troubleshooting using autoscale metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-troubleshoot#autoscale-metrics). 
 
 **Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](./agents/azure-monitor-agent-health.md).
 
-**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/log-ingestion-pipeline). You can monitor the latency of this pipeline using Kusto queries. For more information see [Log data ingestion time in Azure Monitor](./logs/data-ingestion-time.md#check-ingestion-time).
+DCRs https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-monitor
+
+### Azure Monitor Logs and Log Analytics
+
+**[Log Analytics Workspace Insights](./logs/log-analytics-workspace-insights-overview.md)** provides a dashboard that shows you the volume of data going through your workspace(s). You can calculate the cost of your workspace based on the data volume.
+  
+**[Log Analytics workspace health](./logs/log-analytics-workspace-health)** provides a set of queries that you can use to monitor the health of your workspace.
 
 **Optimizing and troubleshooting log queries** - Sometimes Azure Monitor KQL Log queries can take more time to run than needed or never return at all.  By monitoring the various aspects of the query, you can troubleshoot and optimize them. For more information, see [Audit queries in Azure Monitor Logs]( ./logs/query-audit) and [Optimize log queries](./logs/query-optimization).
 
-**Health of Azure resources** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-health).
+**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/log-ingestion-pipeline). You can monitor the latency of this pipeline using Kusto queries. For more information see [Log data ingestion time in Azure Monitor](./logs/data-ingestion-time.md#check-ingestion-time).
 
-**Log Analytics Workspace Insights** - Azure Monitor provides insights into the health of your Log Analytics workspace. For more information, see [Log Analytics Workspace Insights](./logs/log-analytics-workspace-insights-overview.md).
+**Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](./logs/analyze-usage.md).
 
-LIST TO ADD 
-- DONE 	query auditing/monitoring (of KQL queries I assume) – yes monitoring and auditing of KQL queries through Diagnostic logs 
-- DONE 	latency monitoring (ingestion? - yes), - 
-- DONE 	agent health monitoring  - 
-- DONE  Workspace Insights (noted)
--  much more (what else)
-    - Monitoring logs ingested volumes/cost – through Usage table , may be more
-    - Monitoring Operation table in LA- Monitor health of Log Analytics workspace in Azure Monitor - Azure Monitor | Microsoft Learn
-    - Recommended alerts (talk to Shemer)
-    - Activity Logs
+### All resources
+
+**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-health).
+
 
 
 <!-- ## Resource types. Required section. -->
@@ -91,14 +92,6 @@ For the available resource log categories, their associated Log Analytics tables
 <!-- ### Azure Monitor alert rules. Required section.
 **MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log. -->
 
-### Azure Monitor alert rules
-
-The following table lists some suggested alert rules for Azure Monitor. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md).
-
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
 
 <!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
