@@ -115,7 +115,6 @@ Application Gateway v2 offers two models for TLS termination:
  >Application Gateway v2 currently supports only Key Vault accounts in the same subscription as the Application Gateway v2 resource. Choosing a key vault under a different subscription than your Application Gateway v2 results in a failure.
 
 
-Downloading as certificate means getting the public portion. If you want both the private key and public metadata, then you can download it as secret. Once exported, the certificate in PFX format can be imported in the target AKV.
 
 
 
