@@ -52,9 +52,9 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | <li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
+| **When incident is created** | **Unified security operations platform in Microsoft Defender:**<li>A new incident is created in the Microsoft Defender portal.<br><br>**Microsoft Sentinel not onboarded to unified platform:**<li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
 | **When incident is updated**<br> | <li>An incident's status is changed (closed/reopened/triaged).<li>An incident's owner is assigned or changed.<li>An incident's severity is raised or lowered.<li>Alerts are added to an incident.<li>Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br> | <li>An alert is created by an analytics rule. |
+| **When alert is created**<br> | <li>An alert is created by a Microsoft Sentinel **Scheduled** or **NRT** analytics rule. |
 
 ## Create your automation rule
 
@@ -166,6 +166,12 @@ Use the options in the **Conditions** area to define conditions for your automat
     | - **Updated by**<br>- **Custom details key** | - Equals/Does not equal |
     | - **Tactics** | - Contains/Does not contain<br>- Added |
     | - **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
+
+    #### Conditions available with the alert trigger
+
+    The only condition that can be evaluated by rules based on the alert creation trigger is which Microsoft Sentinel analytics rule created the alert.
+
+    Automation rules based on the alert trigger will therefore only run on alerts created by Microsoft Sentinel.
 
 1. Enter a value in the field on the right. Depending on the property you chose, this might be either a text box or a drop-down in which you select from a closed list of values. You might also be able to add several values by selecting the dice icon to the right of the text box.
 
