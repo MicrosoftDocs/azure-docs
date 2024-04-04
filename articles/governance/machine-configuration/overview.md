@@ -28,7 +28,7 @@ dynamically assign configurations to machines. You can also assign configuration
 
 ![A grahic providing a high level overview of the servie Azure Machine Configuration that allows you to configure OS, app or workload level settings](./Overview.jpg)
 
-Example scenario ares provided in the following table.
+Example scenarios are provided in the following table.
 
 |              Type              |                                                                                                        Description                                                                                                         |                                                                                            Example story                                                                                            |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
