@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Manage SSH keys in Azure Operator Nexus Kubernetes clusters
 
-This article describes how to configure the SSH key on your Nexus Kubernetes agent pool and control plane nodes.
+This article describes how to configure the SSH key on your Nexus Kubernetes agent pool and control plane nodes and how to manage the SSH keys after the cluster is created.
 
 ## Prerequisites
 
