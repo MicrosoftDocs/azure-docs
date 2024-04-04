@@ -81,9 +81,11 @@ The main reason to use **alert-triggered automation** is for responding to alert
 - A playbook can be triggered by an alert and send the alert to an external ticketing system for incident creation and management, creating a new ticket for each alert.
 
 > [!NOTE]
-> - Alert-triggered automation is available only for [alerts](detect-threats-built-in.md) created by **Scheduled** analytics rules. Alerts created by **Microsoft Security** analytics rules are not supported.
+> - Alert-triggered automation is available only for alerts created by [**Scheduled** and **NRT** analytics rules](detect-threats-built-in.md). Alerts created by **Microsoft Security** analytics rules are not supported.
 >
-> - Alert-triggered automation is not currently available in the unified security operations platform in the Microsoft Defender portal.
+> - Similarly, alert-triggered automation for alerts created by Microsoft Defender XDR is not available in the unified security operations platform in the Microsoft Defender portal.
+>
+> - For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform).
 
 ### Conditions
 
