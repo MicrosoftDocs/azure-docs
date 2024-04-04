@@ -11,10 +11,10 @@ ms.author: jushiman
 # Estimate the cost of creating a Virtual Machine in the Azure portal (Preview)
 
 > [!IMPORTANT]
-> The estimated cost card feature for Virtual Machines (VM) in the Azure portal is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The estimated cost card feature for virtual machines in the Azure portal is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
-Azure virtual machines (VMs) can be created through the [Azure portal](https://portal.azure.com/). This method provides a browser-based user interface to create VMs and their associated resources. As you create VMs in the Azure portal and configure them through the different tabs during the creation process, the cost card reflects the pricing estimations based on your selections. 
+Azure virtual machines (VM) can be created through the [Azure portal](https://portal.azure.com/). This method provides a browser-based user interface to create VMs and their associated resources. As you create VMs in the Azure portal and configure them through the different tabs during the creation process, the cost card reflects the pricing estimations based on your selections. 
 
 The cost displayed in this card doesn't reflect usage and other costs incurred on the VMs beyond the creation of the resources. The final price of your VMs may factor in other respective networking, storage, and extra costs that pertain to the usage and application of the VMs. 
 
@@ -56,7 +56,7 @@ Costs associated with selecting existing resources during the VM creation proces
 |------------------------------------------|-----------------------------------------------------------|
 | [Public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) | Displays an estimate of running a public IP Address. A Standard Public IP is selected when a new IP is created as part of the default selection. |
 | [VM Data transfer](https://azure.microsoft.com/pricing/details/bandwidth/) | Estimated cost is based on inter-region data transfer routed via Microsoft Premium Global Network. |
-| [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) | A new Standard Azure Load Balancer estimate includes the cost of one rule and estimated data processed. For an existing Azure load balancer, the estimate includes only the estimated data transfer and it's assumed rules already exist. |
+| [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) | A new Standard Azure Load Balancer estimate includes the cost of one rule and estimated data processed. For an existing Azure load balancer, the estimate includes only the estimated data transfer and Azure assumes rules already exist. |
 | [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) | A new Application Gateway v2 estimate includes Fixed, Capacity units and estimate outbound data transfer costs. For this estimate, one capacity unit consumption is assumed. For an existing Azure Application gateway, only the outbound data transfer estimate is displayed. Azure assumes that other fixed costs are already paid for. |
 
 ### Management 
