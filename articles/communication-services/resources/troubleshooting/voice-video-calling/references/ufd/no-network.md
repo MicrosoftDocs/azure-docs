@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # noNetwork UFD
 The `noNetwork` UFD with `true` value occurs when there's no network available for ICE candidates being gathered, which means there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable.
-Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this can also result in `noNetwork` UFD.
+Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this failure can also result in `noNetwork` UFD.
 
 | noNetwork UFD        | Details                 |
 | ---------------------|------------------------|
