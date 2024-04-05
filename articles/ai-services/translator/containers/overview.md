@@ -71,9 +71,9 @@ When you purchase a plan, you're charged the full price immediately. During the 
 
 The aggregated value of `billedUnit` for the following meters is counted  towards the characters you licensed for your disconnected container usage:
 
-* CognitiveServices.TextTranslation.Container.OneDocumentTranslatedCharacters
+* `CognitiveServices.TextTranslation.Container.OneDocumentTranslatedCharacters`
 
-* CognitiveServices.TextTranslation.Container.TranslatedCharacters
+* `CognitiveServices.TextTranslation.Container.TranslatedCharacters`
 
 
 ## Request container access

@@ -1,8 +1,0 @@
-POST https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn HTTP/1.1
-Ocp-Apim-Subscription-Key: ba6c4278a6c0412da1d8015ef9930d44
-Content-Type:  application/json
-
-[
-    {"Text":"こんにちは"},
-    {"Text":"さようなら"}
-]
