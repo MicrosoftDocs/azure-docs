@@ -17,9 +17,8 @@ ms.subservice: calling
 Establishing a call with good user experience requires many aspects to work together:
 stable network and hardware environment, good user interface design, and timely feedback to the user on the current status and errors.
 
-When your app utilizes the ACS Calling SDK to integrate audio and video call functionality,
-if there are any issues reported by users related to the call,
-it's important to clarify whether the issue belongs to the app, SDK, or the user's environment (including device, network, browser, etc.).
+To troubleshoot issues reported by users, it's important to clarify whether the issue belongs to.
+It could be the application, SDK, or the user's environment such as device, network, or browser.
 
 But how do you approach troubleshooting in a way that's effective and efficient?
 In this article, we'll explore some strategic approaches to troubleshooting that can help you get to the root of the problem more quickly and easily.
@@ -31,10 +30,10 @@ First, you need to clarify the issues reported by the users.
 
 Sometimes when users report issues, they may not accurately describe the problem, so there may be some ambiguity.
 For example, when users report experiencing a delay during the call,
-they may refer to a delay occurring after the call is connected but before any sound is heard,
-or they mean the delay experienced between two parties while they communicate with each other.
+they may refer to a delay after the call is connected but before any sound is heard.
+Alternatively, they mean the delay experienced between two parties while they communicate with each other.
 
-These two situations are completely different and require different approaches to identify and resolve the issue.
+These two situations are different and require different approaches to identify and resolve the issue.
 It's important to gather more information from the user to understand the problem and address it accordingly.
 
 ## Understanding how often users and how many users encounter the issue
@@ -65,7 +64,12 @@ and follow the instructions provided to further troubleshoot the problem.
 If the issue reported by the user can't be found in the troubleshooting guide, you may want to consider reporting the issue.
 
 In most cases, you need to provide the callId and clear description of the issue.
-If you're able to reproduce the issue, include details, such as reproduction steps, expected result, actual result, and how often the issue occurs when you reproduce the issue.
+If you're able to reproduce the issue, include details related to the issue. For instance,
 
-For further information, see [Reporting an issue](./reporting-an-issue.md).
+* reproduction steps
+* expected result
+* actual result
+* how often the issue occurs when you reproduce the issue.
+
+For more information, see [Reporting an issue](./reporting-an-issue.md).
 
