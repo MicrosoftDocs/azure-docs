@@ -332,7 +332,7 @@ Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` ro
 ### Ingestion API
 
 
-See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.
+See the [ingestion API reference article](/rest/api/azureopenai/ingestion-jobs.md?context=/azure/ai-services/openai/context/context) for details on the request and response objects used by the ingestion API.
 
 More notes:
 
