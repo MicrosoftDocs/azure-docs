@@ -90,22 +90,7 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Grant access to your key vault
 
-Assign a role to your application that grants key permissions to your key vault using RBAC (Role-Based Access Control).
-
-### [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az role assignment create --role "Key Vault Secrets User" --assignee <app-id> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-```
-New-AzRoleAssignment -ObjectId <app-id> -RoleDefinitionName "Key Vault Secrets User" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
-``` 
----
-
-Replace <app-id>, <subscription-id>, <resource-group-name>, and <your-unique-keyvault-name> with your actual values. <app-id> is the Application (client) ID of your registered application in Azure AD.
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
 
 ## Create the sample code
 
