@@ -128,8 +128,6 @@ using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
-namespace AppInsightsWorkerServiceExample;
-
 internal class ExampleService
 {
   private readonly TelemetryClient _telemetryClient;
@@ -160,7 +158,7 @@ internal class ExampleService
 }
 ```
 
-Below, is another example using `ILogger`. In this case, when handling an exception, be sure to pass the exception as the first parameter to `LogError`. 
+The following example uses `ILogger` instead of `TelemetryClient`. This example assumes you're using the [Application Insights Logger Provider](../app/ilogger.md#console-application). As the example shows, when handling an exception, be sure to pass the exception as the first parameter to `LogError`.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -191,7 +189,7 @@ internal class LoggerExample
 ```
 
 > [!NOTE]
-> By default, the Application Insights Logger (`ApplicationInsightsLoggerProvider`) forwards exceptions to the Snapshot Debugger via `TelemetryClient.TrackException`. This behavior is controlled via the `TrackExceptionsAsExceptionTelemetry` property on the `ApplicationInsightsLoggerOptions` class. If you set `TrackExceptionsAsExceptionTelemetry` to `false` when configuring the Application Insights Logger, then the example above will not trigger the Snapshot Debugger. In this case, modify your code to call `TrackException` manually.
+> By default, the Application Insights Logger (`ApplicationInsightsLoggerProvider`) forwards exceptions to the Snapshot Debugger via `TelemetryClient.TrackException`. This behavior is controlled via the `TrackExceptionsAsExceptionTelemetry` property on the `ApplicationInsightsLoggerOptions` class. If you set `TrackExceptionsAsExceptionTelemetry` to `false` when configuring the Application Insights Logger, then the preceding example will not trigger the Snapshot Debugger. In this case, modify your code to call `TrackException` manually.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
