@@ -230,7 +230,7 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
    | **KEYVAULT_NAME** | A name for a new key vault. |
 
    ```azurecli
-   az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+   az keyvault create --enable-rbac-authorization false --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP
    ```
 
    >[!TIP]
