@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/24/2024
+ms.date: 4/5/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -34,7 +34,7 @@ You must have:
     :::image type="content" source="../media/index-retrieve/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/index-retrieve/project-left-menu.png":::
 
 1. Select **+ New index**
-1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage.
+1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud, or upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage.
 
     :::image type="content" source="../media/index-retrieve/select-source-data.png" alt-text="Screenshot of select source data." lightbox="../media/index-retrieve/select-source-data.png":::
 
@@ -51,17 +51,17 @@ You must have:
 
 1. Select **Next** after choosing index storage
 1. Configure your **Search Settings**
-    1. The ***Vector settings*** defaults to true for Add vector search to this search resource. As noted, this enables Hybrid and Hybrid + Semantic search options. Disabling this will limit vector search options to Keyword and Semantic.
+    1. The ***Vector settings*** defaults to true for Add vector search to this search resource. As noted, this enables Hybrid and Hybrid + Semantic search options. Disabling this limits vector search options to Keyword and Semantic.
     1. For the hybrid option to work, you need an embedding model. Choose an embedding model from the dropdown.
     1. Select the acknowledgment to deploy an embedding model if it doesn't already exist in your resource
 
     :::image type="content" source="../media/index-retrieve/search-settings.png" alt-text="Screenshot of configure search settings." lightbox="../media/index-retrieve/search-settings.png":::
     
-    **Important note**: if a non-Azure OpenAI model is not appearing in the dropdown follow the following steps:
-    1. Navigate to the Project settings tab in Azure AI Studio.
+    If a non-Azure OpenAI model isn't appearing in the dropdown follow these steps:
+    1. Navigate to the Project settings in [Azure AI Studio](https://ai.azure.com).
     1. Navigate to connections section in the settings tab and select New connection.
-    1. Select "Serverless Model"
-    1. Type in the name of your embedding model deployment and select Add connection. If the model does not appear in the dropdown, select the "Enter manually" option.
+    1. Select **Serverless Model**.
+    1. Type in the name of your embedding model deployment and select Add connection. If the model doesn't appear in the dropdown, select the **Enter manually** option.
     1. Enter the deployment API endpoint, model name, and API key in the corresponding fields. Then add connection.
     1. The embedding model should now appear in the dropdown.
     
@@ -85,13 +85,13 @@ You must have:
 ## Create an index from the Playground
 1. Open your AI Studio project.
 1. Navigate to the Playground tab.
-1. The Select available project index is displayed for existing indexes in the project. If an existing index is not being used, continue to the next steps.
+1. The Select available project index is displayed for existing indexes in the project. If an existing index isn't being used, continue to the next steps.
 1. Select the Add your data dropdown.
     
     :::image type="content" source="../media/index-retrieve/add-data-dropdown.png" alt-text="Screenshot of playground add your data dropdown." lightbox="../media/index-retrieve/add-data-dropdown.png":::
 
 1. If a new index is being created, select the ***Add your data*** option. Then follow the steps from ***Create an index from the Indexes tab*** to navigate through the wizard to create an index.
-    1. If there is an external index that is being used, select the ***Connect external index*** option.
+    1. If there's an external index that is being used, select the ***Connect external index*** option.
     1. In the **Index Source**
         1. Select your data source
         1. Select your AI Search Service
