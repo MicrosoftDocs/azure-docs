@@ -51,6 +51,8 @@ Sign in to:
 * The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
 * Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
+### [Portal](#tab/azure-portal)
+
 Take the following steps to order Data Box Disk.
 
 1. In the upper left corner of the portal, click **+ Create a resource**, and search for *Azure Data Box*. Click **Azure Data Box**.
@@ -208,6 +210,10 @@ If the disks aren't available, you receive a notification. If the disks are avai
 When the disk preparation is complete, the portal shows the order in **Processed** state.
 
 Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
+
+### [Azure CLI](#tab/azure-cli)
+
+---
 
 ## Cancel the order
 
