@@ -67,7 +67,7 @@ Use the information you collected in [Collect the required information for your 
 If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
 > [!NOTE]
-> The maximum size of the API request body is 4MB. We recommend entering a maximum of 1000 SIMs per JSON array to remain below this limit. If you want to provision more than 1000 SIMs, create multiple arrays and repeat the provisioning process for each. Alternatively, you can use the [Azure portal](provision-sims-azure-portal.md) to provision up to 10,000 SIMs.
+> The maximum size of the API request body is 4MB. We recommend entering a maximum of 1000 SIMs per JSON array to remain below this limit. If you want to provision more than 1000 SIMs, create multiple arrays and repeat the provisioning process for each. Alternatively, you can use the [Azure portal](provision-sims-azure-portal.md) to provision up to 10,000 SIMs per JSON file.
 
 ```json
 [

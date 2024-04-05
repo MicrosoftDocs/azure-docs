@@ -23,7 +23,7 @@ The following table lists the maximum supported limits for a range of parameters
 | RAN nodes (eNB/gNB)    | 200 per packet core |
 | Active UEs             | 10,000 per deployment (all sites) |
 | SIMs                   | 20,000 per ASE |
-| SIM provisioning       | 10,000 via Azure portal, 4MB via REST API |
+| SIM provisioning       | 10,000 per JSON file via Azure portal, 4MB per REST API call |
 
 Your chosen service package may define lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
 
