@@ -64,7 +64,8 @@ To enable replication for shared disks, follow these steps:
 
     
     > [!IMPORTANT]
-    > Ensure to select all the virtual machines representing your cluster. <br> If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected. 
+    > Ensure to select all the virtual machines representing your cluster.
+    > If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected. 
 
 1. Under **Replication settings** tab, in the **Storage** section, select **View/edit storage configurations**. This opens the **Customize target settings** page where you can view and confirm the shared disk settings.
     
@@ -84,10 +85,10 @@ To enable replication for shared disks, follow these steps:
 1. Under the **Manage** tab, do the following:
     1. In the **Shared disk clusters** section, assign a **Cluster name** for the group, which is used to represent the group throughout their disaster recovery lifecycle. This name is used to trigger any operations, monitor, or operate via PowerShell/REST. 
 
-    > [!TIP]
-    > We recommend that you use the same name as your cluster.
+        > [!TIP]
+        > We recommend that you use the same name as your cluster.
 
-    :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
+        :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
 
     1. Under **Replication policy** section, select an appropriate replication policy and extension update settings.
     1. Review the information and select **Enable replication**.  
