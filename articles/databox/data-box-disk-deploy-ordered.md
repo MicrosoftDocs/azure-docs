@@ -272,7 +272,7 @@ If the disks aren't available, you receive a notification. If the disks are avai
 
 When the disk preparation is complete, the portal shows the order in **Processed** state.
 
-Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
+Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state. 
 
 ## Cancel the order
 
