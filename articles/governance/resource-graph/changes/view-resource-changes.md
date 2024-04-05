@@ -47,16 +47,15 @@ You may need to reset filters set on the **All resources** blade in order to use
 | ------ | ----------- |
 | Subscription | This filter is in-sync with the Azure portal subscription selector. It supports multiple-subscription selection. |
 | Resource group | Select the resource group to scope to all resources within that group. By default, all resource groups are selected. |
-| Type | Filter resources to specific Azure services/resource types, like Logic App or Virtual Machine.  |
-| Location | Limit results to resources based on the location in which they were created. |
-| Name | Select **Add filter** to add this filter.</br> Search for resources by their resource name. |
-| Kind | Select **Add filter** to add this filter.</br> Filter results based on their resource account. |
-| Edge zone | Select **Add filter** to add this filter.</br> Filter resource results by their edge zones, which are small, localized Azure footprints designed to provide low latency connectivity. |
-| Tags | Select **Add filter** to add a tag filter.</br> Select the tag associated with the resources you'd like to see. |
-
-Once you narrow down the **All resources** results, select the **Changed resources** card to view the change history for those resources. For example, with the **Location** filter set to **East US**, the Change Analysis blade is limited to 15 total changes. 
-
-:::image type="content" source="./media/view-resource-changes/location-filter-changes.png" alt-text="Screenshot of the Change Analysis results based on the Location filter being set to East US.":::
+| Time span | Limit results to resources changed within a certian time range.  |
+| Change types | Types of changes made to resources. |
+| Resource types | Select **Add filter** to add this filter.</br> Search for resources by their resource type, like virtual machine. |
+| Resources | Select **Add filter** to add this filter.</br> Filter results based on their resource name. |
+| Correlation ids | Select **Add filter** to add this filter.</br> Filter resource results by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
+| Changed by types | Select **Add filter** to add a tag filter.</br> Filter resource changes based on the descriptor of who made the change. |
+| Client types | Select **Add filter** to add this filter.</br> Filter results based on how the change is initiated and performed. |
+| Operations | Select **Add filter** to add this filter.</br> Filter resources based on [their resource provider operations](../../../role-based-access-control/resource-provider-operations.md). |
+| Changed by | Select **Add filter** to add a tag filter.</br> Filter the resource changes by who made the change. |
 
 ### Sort
 
@@ -88,29 +87,29 @@ In the **Edit columns** pane, make your changes and then select **Save** to appl
 
 :::image type="content" source="./media/view-resource-changes/edit-columns-pane.png" alt-text="Screenshot of the Edit columns pane options.":::
 
-**Add a column**
+#### Add a column
 
-1. Click **+ Add column**. 
+Click **+ Add column**. 
 
-  :::image type="content" source="./media/view-resource-changes/add-column-button.png" alt-text="Screenshot of selecting the button for adding a new column.":::
+:::image type="content" source="./media/view-resource-changes/add-column-button.png" alt-text="Screenshot of selecting the button for adding a new column.":::
 
-1. Select a column property from the dropdown in the new column field.
+Select a column property from the dropdown in the new column field.
 
-  :::image type="content" source="./media/view-resource-changes/select-new-column.png" alt-text="Screenshot of the drop-down for selecting a new column.":::
+:::image type="content" source="./media/view-resource-changes/select-new-column.png" alt-text="Screenshot of the drop-down for selecting a new column.":::
 
-**Delete a column**
+#### Delete a column
 
 Select the trashcan icon to delete a column.
 
 :::image type="content" source="./media/view-resource-changes/delete-column.png" alt-text="Screenshot of the trashcan icon for deleting a column.":::
 
-**Reorder columns**
+#### Reorder columns
 
 Change the column order by either dragging and dropping a field, or selecting a column and clicking **Move up** and **Move down**.
 
 :::image type="content" source="./media/view-resource-changes/reorder-columns.png" alt-text="Screenshot of selecting a column to move up or down in the order.":::
 
-**Reset to default**
+#### Reset to default
 
 Select **Reset to defaults** to revert your changes.
 
