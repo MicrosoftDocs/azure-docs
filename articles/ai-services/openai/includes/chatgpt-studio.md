@@ -89,7 +89,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://docs-test-001.openai.azure.com/"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(

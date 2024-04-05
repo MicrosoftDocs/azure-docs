@@ -62,8 +62,8 @@ conceptualContent:
         - url: ../iot-develop/about-iot-develop.md
           itemType: concept
           text: Tools, SDKs, and hardware
-        - url: ../iot-develop/quickstart-send-telemetry-iot-hub.md
-          itemType: quickstart
+        - url: ../iot/tutorial-send-telemetry-iot-hub.md
+          itemType: tutorial
           text: Send telemetry from a device to an Azure IoT hub
         - url: ./iot-sdks.md#device-sdks
           itemType: reference

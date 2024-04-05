@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Microsoft cloud security benchmark
 description: Details of the Microsoft cloud security benchmark Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/18/2024
+ms.date: 03/28/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in Microsoft cloud security benchmark.
 For more information about this compliance standard, see
 [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md) and
+_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **Microsoft cloud security benchmark** controls. Many of the controls

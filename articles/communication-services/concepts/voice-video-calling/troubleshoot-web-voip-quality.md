@@ -90,7 +90,7 @@ For more information, see [End of Call Survey overview](end-of-call-survey-conce
 
 ## Next steps
 
-For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](https://learn.microsoft.com/microsoftteams/quality-of-experience-review-guide).
+For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide).
 
 For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../troubleshooting-info.md#calling-sdk-error-codes). You can use these codes to help determine why a call ended with disruptions.
 
