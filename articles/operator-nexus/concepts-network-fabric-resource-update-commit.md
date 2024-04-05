@@ -1,6 +1,6 @@
 ---
 title: Network Fabric resource update and commit scenarios
-description: #Required; Keep the description within 100- and 165-characters including spaces 
+description: Learn how Nexus Network Fabric's resource update flow allows you to batch and update a set of Network Fabric resources
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
@@ -12,7 +12,7 @@ ms.date: 04/03/2024
 
 # Network Fabric resource update and commit operations
 
-Currently, Nexus Network Fabric resources require that you disable a parent resource (such as an L3Isolation domain) and reput the parent or child resource with updated values and execute the administrative post action to enable and configure the devices. Network Fabric's new resource update flow allows you to  batch and update a set of Network Fabric resources via a `commitConfiguration` POST action when resources are enabled. There's no change if the user chooses the current workflow of disabling L3 Isolation domain, making changes and the enabling L3 Isolation domain. 
+Currently, Nexus Network Fabric resources require that you disable a parent resource (such as an L3Isolation domain) and reput the parent or child resource with updated values and execute the administrative post action to enable and configure the devices. Network Fabric's new resource update flow allows you to  batch and update a set of Network Fabric resources via a `commitConfiguration` POST action when resources are enabled. There's no change if you choose the current workflow of disabling L3 Isolation domain, making changes and the enabling L3 Isolation domain. 
 
 ## Network Fabric resource update overview
 
@@ -91,13 +91,13 @@ To successfully execute update resources, fabric must be in provisioned state. T
 
     - In the Greenfield deployment, the Fabric configuration state is **Accepted**  once there are any updates done Network Fabric resources. Once the `commitConfiguration` action is triggered, it moves to either **Provisioned** or **Accepted** state depending on success or failure of the action.  
 
-    - In the Brownfield deployment, the `commitConfiguration` action is supported but the supported Network Fabric resources (such as Isolation domains, Internal Networks, RoutePolicy & ACLs) must be created using GA version of the API (2023-06-15). This temporary restriction is relaxed following the migration of all resources to the latest GA version. 
+    - In the Brownfield deployment, the `commitConfiguration` action is supported but the supported Network Fabric resources (such as Isolation domains, Internal Networks, RoutePolicy & ACLs) must be created using general availability version of the API (2023-06-15). This temporary restriction is relaxed following the migration of all resources to the latest version. 
 
     - In the Brownfield deployment, the Fabric configuration state remains in a **Provisioned** state when there are changes to any supported Network Fabric resources or commitConfiguration action is triggered. This behavior is temporary until all fabrics are migrated to the latest version. 
 
 - Route policy and other related resources (IP community, IP Extended Community, IP PrefixList) updates are considered as a list replace operation. All the existing statements are removed and only the new updated statements are configured. 
 
-- Update or removal of existing subnets, routes, BGP configurations, and other relevant network params in Internal network or external networks configuration might cause traffic disruption and should be performed at operators discretion. 
+- Updating or removing existing subnets, routes, BGP configurations, and other relevant network params in Internal network or external networks configuration might cause traffic disruption and should be performed at operators discretion. 
 
 - Update of new Route policies and ACLs might cause traffic disruption depending on the rules applied.  
 
