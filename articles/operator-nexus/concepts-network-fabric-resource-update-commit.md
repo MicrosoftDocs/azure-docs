@@ -77,8 +77,6 @@ To successfully execute update resources, fabric must be in provisioned state. T
 
 ## Behavior notes and constraints
 
-- The Nexus Network Fabric update flow is disabled by default and requires you raise  a support ticket to enable the feature. 
-
 - If a parent resource is in a **Disabled** administrative state and there are changes made to either to the parent or the child resources, the `commitConfiguration` action isn't applicable. Enabling the resource would push the configuration. The commit path for such resources is triggered only when the parent resource is in the **Enabled** administrative state. 
 
 - If `commitConfiguration` fails, then the fabric remains in the **Accepted** in configuration state  until the user addresses the issues and performs a successful `commitConfiguration`. Currently, only roll-forward mechanisms are provided when failure occurs.
@@ -91,11 +89,11 @@ To successfully execute update resources, fabric must be in provisioned state. T
 
 - Network Fabric resource update is supported for both Greenfield deployments and Brownfield deployments but with some constraints. 
 
-    - In Greenfield scenario, the Fabric configuration state is **Accepted**  once there are any updates done Network Fabric resources. Once the `commitConfiguration` action is triggered, it moves to either **Provisioned** or **Accepted** state depending on success or failure of the action.  
+    - In the Greenfield deployment, the Fabric configuration state is **Accepted**  once there are any updates done Network Fabric resources. Once the `commitConfiguration` action is triggered, it moves to either **Provisioned** or **Accepted** state depending on success or failure of the action.  
 
-    - In Brownfield scenario, commitConfiguration action is supported but the supported Network Fabric resources (such as Isolation domains, Internal Networks, RoutePolicy & ACLs) must be created using GA version of the API (2023-06-15). This temporary restriction is relaxed following the migration of all resources to the latest GA version. 
+    - In the Brownfield deployment, the `commitConfiguration` action is supported but the supported Network Fabric resources (such as Isolation domains, Internal Networks, RoutePolicy & ACLs) must be created using GA version of the API (2023-06-15). This temporary restriction is relaxed following the migration of all resources to the latest GA version. 
 
-    - In Brownfield scenario, the Fabric configuration state remains in **Provisioned** state when there are changes to any supported Network Fabric resources or commitConfiguration action is triggered. This behavior  is temporary until all fabrics are migrated to the latest GA version. 
+    - In the Brownfield deployment, the Fabric configuration state remains in a **Provisioned** state when there are changes to any supported Network Fabric resources or commitConfiguration action is triggered. This behavior is temporary until all fabrics are migrated to the latest version. 
 
 - Route policy and other related resources (IP community, IP Extended Community, IP PrefixList) updates are considered as a list replace operation. All the existing statements are removed and only the new updated statements are configured. 
 
