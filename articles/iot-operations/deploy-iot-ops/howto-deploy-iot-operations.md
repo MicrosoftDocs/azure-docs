@@ -1,12 +1,12 @@
 ---
 title: Deploy extensions with Azure IoT Orchestrator
-description: Use the Azure CLI to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator
+description: Use the Azure CLI to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator.
 author: kgremban
 ms.author: kgremban
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 01/31/2024
+ms.date: 04/05/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -15,21 +15,23 @@ ms.date: 01/31/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy additional workloads to your cluster.
+Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI. Once you have Azure IoT Operations deployed, then you can use the Azure IoT Orchestrator Preview service to manage and deploy other workloads to your cluster.
 
 ## Prerequisites
 
-Cloud resources: 
+Cloud resources:
 
 * An Azure subscription.
 
-* Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment feature flag status you select, you may also need **Microsoft/Authorization/roleAssignments/write** permissions for the resource group that contains your Arc-enabled Kubernetes cluster. You can make a custom role in Azure role-based access control or assign a built-in role that grants this permission. For more information, see [Azure built-in roles for General](../../role-based-access-control/built-in-roles/general.md).
+* Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment feature flag status you select, you might also need **Microsoft/Authorization/roleAssignments/write** permissions for the resource group that contains your Arc-enabled Kubernetes cluster. You can make a custom role in Azure role-based access control or assign a built-in role that grants this permission. For more information, see [Azure built-in roles for General](../../role-based-access-control/built-in-roles/general.md).
 
   If you *don't* have role assignment write permissions, you can still deploy Azure IoT Operations by disabling some features. This approach is discussed in more detail in the [Deploy extensions](#deploy-extensions) section of this article.
 
-  If you're assigning privileged admin roles to a user or principal in the Azure portal, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+  * In the Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
 
-  :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+  * In the Azure portal, you're prompted to restrict access using conditions when you assign privileged admin roles to a user or principal. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+
+    :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
 * An Azure Key Vault that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault. If you need to create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
@@ -49,7 +51,7 @@ Development resources:
 
 A cluster host:
 
-* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). 
+* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
 
   If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update a deployment](#update-a-deployment).
 
@@ -91,15 +93,15 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    ```
 
    If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
-   
-   If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). 
+
+   If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually).
 
 1. After the deployment is complete, you can use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
    ```azurecli
    az iot ops check
    ```
-   
+
    You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
 
 ### Configure cluster network (AKS EE)
@@ -134,7 +136,7 @@ To view the pods on your cluster, run the following command:
 kubectl get pods -n azure-iot-operations
 ```
 
-It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
+It can take several minutes for the deployment to complete. Rerun the `get pods` command to refresh your view.
 
 To view your cluster on the Azure portal, use the following steps:
 
@@ -153,7 +155,7 @@ To view your cluster on the Azure portal, use the following steps:
 
 ## Update a deployment
 
-Currently, there is no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
+Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
 
 If you want to delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it, navigate to your cluster on the Azure portal. Select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that is a prerequisite for deployment and not included in a fresh deployment. 
 
