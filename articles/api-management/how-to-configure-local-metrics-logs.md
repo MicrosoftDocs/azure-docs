@@ -209,7 +209,7 @@ The self-hosted gateway also supports a number of protocols including `localsysl
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
 | telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
-| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint.  |
+| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [](#using-local-syslog-logs) for more information  |
 | telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). e.g., `7`  |
@@ -230,7 +230,63 @@ Here is a sample configuration of local logging:
         telemetry.logs.local.localsyslog.facility: "7"
 ```
 
-### Using local syslog logs on Azure Kubernetes Service (AKS)
+### Using local syslog logs
+
+#### Configuring gateway to stream logs
+
+When using local syslog as a destination for logs, the runtime needs to allow streaming logs to the destination. For Kubernetes, this means that a volume needs to be mounted which that matches the destination.
+
+Given the following configuration:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: contoso-gateway-environment
+data:
+    config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
+    telemetry.logs.local: localsyslog
+    telemetry.logs.local.localsyslog.endpoint: /dev/log
+```
+
+You can easily start streaming logs to that local syslog endpoint:
+
+```diff
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contoso-deployment
+  labels:
+    app: contoso
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contoso
+  template:
+    metadata:
+      labels:
+        app: contoso
+    spec:
+      containers:
+        name: azure-api-management-gateway
+        image: mcr.microsoft.com/azure-api-management/gateway:2.5.0
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: contoso-gateway-environment
+        # ... redacted ...
++       volumeMounts:
++       - mountPath: /dev/log
++         name: logs
++     volumes:
++     - hostPath:
++         path: /dev/log
++         type: Socket
++       name: logs
+```
+
+#### Consuming local syslog logs on Azure Kubernetes Service (AKS)
 
 When configuring to use localsyslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
 
