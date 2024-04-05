@@ -309,7 +309,7 @@ Now that you downloaded your container, you can execute the `docker run` command
 The following example shows the formatting for the `docker run` command with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format|
-|-------------|-------|---|
+|:-------------|:-------|:---:|
 | `[image]` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
 | `{LICENSE_MOUNT}` | The path where the license is downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
  | `{MODEL_MOUNT_PATH}`| The path where the machine translation models are downloaded, and mounted. Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
@@ -528,8 +528,6 @@ Here are a few more parameters and commands you can use to run the container:
 #### Usage records
 
 When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST API endpoint to generate a report about service usage.
-
-
 
 #### Arguments for storing logs
 
