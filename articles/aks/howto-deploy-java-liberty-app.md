@@ -90,12 +90,12 @@ The following steps guide you to create a Liberty runtime on AKS. After you comp
 1. Select **Next**. On the **Load Balancing** pane, next to **Connect to Azure Application Gateway?**, select **Yes**. In this section, you can customize the following deployment options:
 
    * For **Virtual network** and **Subnet**, you can optionally customize the virtual network and subnet into which the deployment places the resources. You don't need to change the remaining values from their defaults.
-   * For **TLS/SSL certificate**, you can provide the TLS/SSL certificate from Application Gateway. Leave the values at their defaults to cause the offer to generate a self-signed certificate.
+   * For **TLS/SSL certificate**, you can provide the TLS/SSL certificate from Azure Application Gateway. Leave the values at their defaults to cause the offer to generate a self-signed certificate.
 
-     Don't go to production while you're using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
+     Don't go to production with a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    * You can select **Enable cookie based affinity**, also known as sticky sessions. This article uses sticky sessions, so be sure to select this option.
 
-1. Select **Next**. This article uses all defaults on the **Operator and application** pane. However, you can customize the following deployment options:
+1. Select **Next**. On the **Operator and application** pane, this article uses all the defaults. However, you can customize the following deployment options:
 
    * You can deploy WebSphere Liberty Operator by selecting **Yes** for the option **IBM supported?**. Leaving the default **No** deploys Open Liberty Operator.
    * You can deploy an application for your selected operator by selecting **Yes** for the option **Deploy an application?**. Leaving the default **No** doesn't deploy any application.
@@ -112,7 +112,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group that you created previously. If you followed the recommended convention, enter your initials, and then select the appropriate resource group.
 1. In the list of resources in the resource group, select the resource with the **Type** value of **Container registry**.
 1. On the left pane, under **Settings**, select **Access keys**.
-1. Save aside the values for **Login server**, **Registry name**, **Username**, and **Password**. You can use the copy icon at the right of each field to copy the value of that field to the system clipboard.
+1. Save aside the values for **Login server**, **Registry name**, **Username**, and **Password**. You can use the copy icon at the right of each field to copy the value to the system clipboard.
 1. Go back to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
 1. Select the bottom-most deployment in the list. The **Deployment name** value matches the publisher ID of the offer. It contains the string `ibm`.
@@ -299,7 +299,7 @@ For your application, you can do something similar by using any other mechanism,
 
     ---
 
-1. If the test is successful, a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds` appears in the command output. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
+1. If the test is successful, a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds` appears in the command output. Go to `http://localhost:9080/` in your browser and verify that the application is accessible and all functions are working.
 
 1. Select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
