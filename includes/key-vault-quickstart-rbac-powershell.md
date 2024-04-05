@@ -12,7 +12,7 @@ ms.author: msmbaldwin
 To grant your user account permissions to your key vault through Role-Based Access Control (RBAC), assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" -SignInName <your-email-address> -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" -SignInName "<your-email-address>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
 ```
 
-Replace <your-email-address>, <subscription-id>, <resource-group-name>, and <your-unique-keyvault-name> with your actual values. <your-email-address> is your sign-in name; you can instead use the `-ObjectId` parameter and a Microsoft Entra Object ID.
+Replace `<your-email-address>`, `<subscription-id>`, `<resource-group-name>`, and `<your-unique-keyvault-name>` with your actual values. `<your-email-address>` is your sign-in name; you can instead use the `-ObjectId` parameter and a Microsoft Entra Object ID.
