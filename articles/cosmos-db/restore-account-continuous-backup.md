@@ -541,8 +541,7 @@ This command output now shows when a database was created and deleted.
 [
   {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/abcd1234-d1c0-4645-a699-abcd1234/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
-    ..
-    "name": "40e93dbd-2abe-4356-a31a-35567b777220",
+     "name": "40e93dbd-2abe-4356-a31a-35567b777220",
     "resource": {
       "database": {
         "id": "db1"
@@ -552,11 +551,10 @@ This command output now shows when a database was created and deleted.
       "ownerId": "db1",
       "ownerResourceId": "YuZAAA=="
     },
-    ..
+   
   },
   {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/abcd1234-d1c0-4645-a699-abcd1234/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
-    ..
     "name": "243c38cb-5c41-4931-8cfb-5948881a40ea",
     "resource": {
       "database": {
@@ -567,7 +565,7 @@ This command output now shows when a database was created and deleted.
       "ownerId": "spdb1",
       "ownerResourceId": "OIQ1AA=="
     },
-   ..
+ 
   }
 ]
 ```
@@ -588,16 +586,12 @@ This command output shows includes list of operations performed on all the conta
 ```json
 [
   {
-    ...
-    
       "eventTimestamp": "2021-01-08T23:25:29Z",
       "operationType": "Replace",
       "ownerId": "procol3",
       "ownerResourceId": "OIQ1APZ7U18="
-...
   },
   {
-    ...
       "eventTimestamp": "2021-01-08T23:25:26Z",
       "operationType": "Create",
       "ownerId": "procol3",
