@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 04/05/2024
 ms.author: kendownie
 ---
 
@@ -136,6 +136,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
 | Storage Sync Services per region | 100 Storage Sync Services | Yes |
+| Storage Sync Services per subscription | 15 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
 | Registered servers per Storage Sync Service | 99 servers | Yes |
 | Private endpoints per Storage Sync Service | 100 private endpoints | Yes |
