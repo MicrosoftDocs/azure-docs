@@ -1,5 +1,5 @@
 ---
-title: Shared disks in Azure Site Recovery
+title: Shared disks in Azure Site Recovery (Preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
 ms.service: site-recovery
@@ -8,22 +8,24 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Setup disaster recovery for Azure virtual machines using shared disk
+# Setup disaster recovery for Azure virtual machines using shared disk (Preview)
 
-This article describes how to protect, monitor, failover, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines with shared disk.
+This article describes how to protect, monitor, failover, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 
 Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
 
-With Azure Site Recovery for shared disk, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
+Using a shared disk, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
 
-With Azure Site Recovery for shared disk, you can:
+Using shared disk, you can:
 
-- Protect your cluster together with Azure Site Recovery for shared disk support. 
+- Protect your clusters. 
 - Create recovery points (App and Crash) that are consistent across all the virtual machines and disks of the cluster. 
 - Monitor protection and health of the cluster and all its nodes from a single page. 
 - Failover the cluster with a single click. 
 - Change recovery point and reprotect the cluster after failover with a single click. 
 - Failback the cluster to the primary region with minimal data loss and downtime.
+
+Follow these steps to use shared disks in Azure site recovery:
 
 ## Sign in to Azure
 
@@ -67,7 +69,7 @@ To enable replication for shared disks, follow these steps:
     > Ensure to select all the virtual machines representing your cluster.
     > If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected. 
 
-1. Under **Replication settings** tab, in the **Storage** section, select **View/edit storage configurations**. This opens the **Customize target settings** page where you can view and confirm the shared disk settings.
+1. Under **Replication settings** tab, in the **Storage** section, select **View/edit storage configurations**. The **Customize target settings** page opens. You can view and confirm the shared disk settings on this page.
     
     :::image type="content" source="media/tutorial-shared-disk/enable-replication-settings.png" alt-text="Screenshot showing shared disk settings.":::
 
@@ -77,7 +79,7 @@ To enable replication for shared disks, follow these steps:
     1. Select the **Shared disks** tab and verify the name and recovery disk type of the shared disks. 
     1. Select the *Churn for the virtual machine* option for your disk if you want to enable high churn.
     1. Select **Confirm Selection**. 
-    1. On the subsequent page, select **Next**.
+    1. On the **Replication settings** page, select **Next**.
     
     :::image type="content" source="media/tutorial-shared-disk/target-settings.png" alt-text="Screenshot showing shared disk selection.":::
 
@@ -94,12 +96,13 @@ To enable replication for shared disks, follow these steps:
     1. Review the information and select **Enable replication**.  
  
     > [!NOTE]
-    > Enable replication takes a minimum of 1-2 hours to complete.
+    > The replication enables in 1-2 hours.
 
 
 ## Run a failover
 
-To initiate a failover, navigate to the cluster page and select **Monitoring** > **Failover** for the entire cluster. You can't initiate the failover of each node separately, so it must be triggered through the cluster monitoring page. 
+To initiate a failover, navigate to the chosen cluster page and select **Monitoring** > **Failover** for the entire cluster.
+Trigger the failover through the cluster monitoring page as you can't initiate the failover of each node separately.
 
 Following are the two possible scenarios during a failover:
 
@@ -109,25 +112,28 @@ Following are the two possible scenarios during a failover:
 
 ### Recovery point is consistent across all the virtual machines
 
-This happens when all the virtual machines in the cluster are available when the recovery point was taken. 
+The recovery point is consistent across all the virtual machines when all the virtual machines in the cluster are available when the recovery point was taken. 
 
 To failover to a recovery point that is consistent across all the virtual machines, follow these steps:
 
 1. Navigate to the **Failover** page.
 1. In the **Recovery point** field, select *Custom* and choose a recovery point. 
+1. Retain the values in **Time span** field.
 1. In the **Custom recovery point** field, select the desired time span.  
 
     > [!NOTE]
-    > In the **Custom recovery point** field, the available options denote the number of nodes of the cluster that were protected in a healthy manner when the recovery point was taken.
+    > In the **Custom recovery point** field, the available options denote the number of nodes of the cluster that were protected in a healthy state when the recovery point was taken.
 
 On failing over to this recovery point, the virtual machines come up at that same recovery point and a cluster can be started. The shared disk is also attached to all the nodes.
 
 :::image type="content" source="media/tutorial-shared-disk/recovery-point-list.png" alt-text="Screenshot showing recovery point list.":::
 
+Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
+
 
 ### Recovery point is consistent only for a few virtual machines
 
-This happens when a few of the virtual machines in the cluster are unavailable or evicted from the cluster, down for maintenance, or shut down when a recovery point was taken when the recovery point was taken. 
+The recovery point is consistent only for a subset of virtual machines when a few of the virtual machines in the cluster are unavailable or evicted from the cluster, down for maintenance, or shut down when a recovery point was taken. 
 
 The virtual machines that are part of the cluster recovery point, failover at the selected recovery point with the shared disk attached to them. You can boot up the cluster in these nodes after failover.
 
@@ -142,7 +148,6 @@ To failover the cluster to a recovery point, follow these steps:
     :::image type="content" source="media/tutorial-shared-disk/failover-list.png" alt-text="Screenshot showing cluster recovery list."::: 
 
     :::image type="content" source="media/tutorial-shared-disk/cluster-failover.png" alt-text="Screenshot showing cluster recovery points.":::
-
 
 Join these virtual machines back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
 
@@ -189,7 +194,7 @@ Once the enable replication is in progress, you can view the protected cluster b
     :::image type="content" source="media/tutorial-shared-disk/replicated-items.png" alt-text="Screenshot showing replicated items.":::
 
 
-In the **Replicated items** page, you can see a hierarchical grouping of the clusters with the *Cluster Name* you provided in the [Enable replication](#enable-replication-for-shared-disks) step.
+The **Replicated items** page displays a hierarchical grouping of the clusters with the *Cluster Name* you provided in the [Enable replication](#enable-replication-for-shared-disks) step.
 
 From this page, you can manage your cluster's protection. You can monitor the protection of your cluster and its nodes, including the replication health, RPO, and replication status. You can also failover, reprotect, and disable replication actions. 
 
@@ -198,7 +203,7 @@ From this page, you can manage your cluster's protection. You can monitor the pr
 To disable protecting your cluster with Azure Site Recovery, follow these steps:
  
 1. Navigate to the **Cluster Monitoring** tab on the toolbar.
-1. On the **Disable Replication** page, select the appropriate reason to disable protection.
+1. On the **Disable Replication** page, select the applicable reason to disable protection.
 1. Select **OK**. 
     
     :::image type="content" source="media/tutorial-shared-disk/disable-replication.png" alt-text="Screenshot showing disable replication.":::
