@@ -514,6 +514,8 @@
     - name: Index and query geospatial data
       displayName: geospatial, geojson, spatial, index, query, geography, geometry
       href: how-to-geospatial-index-query.md
+    - name: Change partition key
+      href: change-partition-key.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput

@@ -4,7 +4,7 @@ description: Learn how to map an existing custom Distributed Name Service (DNS) 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 10/20/2023
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---

@@ -4,6 +4,7 @@ description: Describes Linux direct I/O and the best practices to follow for Azu
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.author: anfdocs

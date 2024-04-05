@@ -5,6 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 03/19/2024
 ---
 
@@ -342,3 +343,4 @@ For more information, see [CloudCasa by Catalogic Solutions](https://cloudcasa.i
 ## Next steps
 
 [Learn more about the Azure Linux Container Host on AKS](../azure-linux/intro-azure-linux.md).
+

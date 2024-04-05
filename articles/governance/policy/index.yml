@@ -22,7 +22,7 @@ landingContent:
           - text: Policy effects
             url: ./concepts/effects.md
           - text: Definition structure
-            url: ./concepts/definition-structure.md
+            url: ./concepts/definition-structure-basics.md
           - text: Scope
             url: ./concepts/scope.md
           - text: Assignment structure
