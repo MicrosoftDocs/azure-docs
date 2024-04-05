@@ -32,15 +32,15 @@ The same empirical throughput ceiling applies to volumes with manual QoS. The ma
 
 ## Automatic QoS volume quota and throughput
 
-This section describes quota management and throughput for volumes with the automatic QoS type.
+Learn about quota management and throughput for volumes with the automatic QoS type.
 
 ### Overprovisioning the volume quota
 
-If a workload’s performance is throughput-limit bound, it is possible to overprovision the automatic QoS volume quota to set a higher throughput level and achieve higher performance.  
+If a workload’s performance is throughput-limit bound, it's possible to overprovision the automatic QoS volume quota to set a higher throughput level and achieve higher performance.  
 
-For example, if an automatic QoS volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so that the throughput level is set accordingly (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
+For example, if an automatic QoS volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so the throughput level is set accordingly (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
 
-If you consistently overprovision a volume for achieving a higher throughput, consider using the manual QoS volumes or using a higher service level instead.  In this example, you can achieve the same throughput limit with half the automatic QoS volume quota by using the Ultra storage tier instead (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
+If you consistently overprovision a volume for achieving a higher throughput, consider using the manual QoS volumes or using a higher service level instead. In this example, you can achieve the same throughput limit with half the automatic QoS volume quota by using the Ultra storage tier instead (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
 
 ### Dynamically increasing or decreasing volume quota
 
@@ -62,6 +62,13 @@ If your performance requirements are temporary in nature, or if you have increas
 
 If you use manual QoS volumes, you don’t have to overprovision the volume quota to achieve a higher throughput because the throughput can be assigned to each volume independently. However, you still need to ensure that the capacity pool is pre-provisioned with sufficient throughput for your performance needs. The throughput of a capacity pool is provisioned according to its size and service level. See [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md) for more details.
 
+## Monitoring volumes for performance 
+
+Azure NetApp Files volumes can be monitored using available [Performance metrics](azure-netapp-files-metrics.md#performance-metrics-for-volumes). 
+
+When volume throughput reaches its maximum (as determined by the QoS setting), the volume response times (latency) increase. This effect can be incorrectly perceived as a performance issue caused by the storage. Increasing the volume QoS setting (manual QoS) or increasing  the volume size (auto QoS) increases the allowable volume throughput. 
+
+To check if the maximum throughput limit has been reached, monitor the metric [Throughput limit reached](azure-netapp-files-metrics.md#volumes). For more recommendations, see [Performance FAQs for Azure NetApp Files](faq-performance.md#what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance). 
 
 ## Next steps
 
