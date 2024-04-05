@@ -1504,7 +1504,7 @@ items:
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
-    href: azure-monitor-monitoring-reference.md
+    href: monitor-azure-monitor-reference.md
   - name: Supported metrics
     items:
     - name: Resource metrics

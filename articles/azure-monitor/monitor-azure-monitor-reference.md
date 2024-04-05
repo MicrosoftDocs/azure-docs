@@ -147,9 +147,6 @@ Microsoft.Insights/WorkloadMonitoring
 
 - [InsightsMetrics](/azure/azure-monitor/reference/tables/InsightsMetrics#columns)
 
-<!-- ## Activity log. Required section.
-Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and add the operations for your service.-->
-
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Monitor resource provider operations](/azure/role-based-access-control/resource-provider-operations#monitor)
 

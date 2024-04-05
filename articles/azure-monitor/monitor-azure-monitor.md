@@ -13,20 +13,17 @@ ms.service: azure-monitor
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-<!-- ## Insights. Optional section. If your service has insights, add the following include and add information about what your Azure Monitor insights provide. You can refer to another article that gives details or add a screenshot. 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
-
 Azure Monitor has many separate larger components. Information on monitoring each of these components follows.
 
-### Azure Monitor core
+## Azure Monitor core
 
 **Autoscale** - Azure Monitor Autoscale has a diagnostics feature that provides insights into the performance of your autoscale settings. For more information, see [Azure Monitor Autoscale diagnostics](autoscale/autoscale-diagnostics.md) and [Troubleshooting using autoscale metrics](autoscale/autoscale-troubleshoot.md#autoscale-metrics). 
 
 **Agent Monitoring** - You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. For more information, see [Azure Monitor Agent Health](agents/azure-monitor-agent-health.md).
 
-** Data Collection Rules(DCRs)** -  Use [detailed metrics and log](essentials/data-collection-monitor.md) to monitor the performance of your DCRs. 
+**Data Collection Rules(DCRs)** -  Use [detailed metrics and log](essentials/data-collection-monitor.md) to monitor the performance of your DCRs. 
 
-### Azure Monitor Logs and Log Analytics
+## Azure Monitor Logs and Log Analytics
 
 **[Log Analytics Workspace Insights](logs/log-analytics-workspace-insights-overview.md)** provides a dashboard that shows you the volume of data going through your workspace(s). You can calculate the cost of your workspace based on the data volume.
   
@@ -38,11 +35,11 @@ Azure Monitor has many separate larger components. Information on monitoring eac
 
 **Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](logs/analyze-usage.md).
 
-### All resources
+## All resources
 
-**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/azure/service-health/resource-health-overview/). azure/service-health/resource-health-overview
+**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/azure/service-health/resource-health-overview/). 
 
-<!-- ## Resource types. Required section. -->
+
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
 For more information about the resource types for Azure Monitor, see [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md).
@@ -62,21 +59,15 @@ For the available resource log categories, their associated Log Analytics tables
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 
-<!-- ### Azure Monitor export tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-<!-- ## Kusto queries. Required section. Add sample Kusto queries for your service after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-<!-- Add sample Kusto queries for your service here. -->
 
 Refer to the links in the beginning of this article for specific Kusto queries for each of the Azure Monitor components.
 
-<!-- ### Advisor recommendations. Required section. -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
-<!-- Add any service-specific advisor recommendations or screenshots here. -->
 
 ## Related content
-<!-- You can change the wording and add more links if useful. -->
 
 - See [Azure Monitor monitoring data reference](monitor-azure-monitor-reference.md) for a reference of the metrics, logs, and other important values created for Azure Monitor.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
