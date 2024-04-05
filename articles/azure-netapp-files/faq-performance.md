@@ -53,11 +53,11 @@ No, Azure NetApp Files does not support SMB Direct.
 
 ## Is NIC Teaming supported in Azure?
 
-NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+NIC Teaming isn't supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance. Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
 
 ## Are jumbo frames supported?
 
-Jumbo frames are not supported with Azure virtual machines.
+Jumbo frames aren't supported with Azure virtual machines.
 
 ## Next steps  
 

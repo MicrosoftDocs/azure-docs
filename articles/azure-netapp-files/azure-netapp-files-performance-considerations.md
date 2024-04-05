@@ -14,7 +14,7 @@ ms.author: anfdocs
 > This article addresses performance considerations for *regular volumes* only.   
 > For *large volumes*, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md#requirements-and-considerations). 
 
-The combination of the quota assigned to the volume and the selected service level determines the [throughput limit](azure-netapp-files-service-levels.md) for a volume with automatic QoS . For volumes with manual QoS, the throughput limit can be defined individually. When you make performance plans about Azure NetApp Files, you need to understand several considerations. 
+The combination of the quota assigned to the volume and the selected service level determines the [throughput limit](azure-netapp-files-service-levels.md) for a volume with automatic QoS. For volumes with manual QoS, the throughput limit can be defined individually. When you make performance plans about Azure NetApp Files, you need to understand several considerations. 
 
 ## Quota and throughput  
 
@@ -24,9 +24,9 @@ Typical storage performance considerations contribute to the total performance d
 
 Metrics are reported as aggregates of multiple data points collected during a five-minute interval. For more information about metrics aggregation, see [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md). 
 
-The maximum empirical throughput that has been observed in testing is 4,500 MiB/s. At the Premium storage tier, an automatic QoS volume quota of 70.31 TiB will provision a throughput limit that is high enough to achieve this level of performance.  
+The maximum empirical throughput that has been observed in testing is 4,500 MiB/s. At the Premium storage tier, an automatic QoS volume quota of 70.31 TiB provisions a throughput limit high enough to achieve this performance level.  
 
-For automatic QoS volumes, if you are considering assigning volume quota amounts beyond 70.31 TiB, additional quota may be assigned to a volume for storing more data. However, the added quota doesn't result in a further increase in actual throughput.  
+For automatic QoS volumes, if you're considering assigning volume quota amounts beyond 70.31 TiB, additional quota may be assigned to a volume for storing more data. However, the added quota doesn't result in a further increase in actual throughput.  
 
 The same empirical throughput ceiling applies to volumes with manual QoS. The maximum throughput can assign to a volume is 4,500 MiB/s.
 
