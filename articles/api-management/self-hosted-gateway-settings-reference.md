@@ -29,7 +29,7 @@ Here is an overview of all configuration options:
 
 | Name                           | Description              | Required | Default           | Availability |
 |----|------|----------|-------------------|-------------------|
-| gateway.name | Id of the self-hosted gateway resource. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
+| gateway.name | ID of the self-hosted gateway resource. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
 | config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             | v2.0+ |
 | config.service.auth | Defines how the self-hosted gateway should authenticate to the Configuration API. Currently gateway token and Microsoft Entra authentication are supported. | Yes | N/A | v2.0+ |
 | config.service.auth.azureAd.tenantId | ID of the Microsoft Entra tenant. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
