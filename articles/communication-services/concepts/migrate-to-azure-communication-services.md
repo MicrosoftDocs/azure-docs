@@ -52,7 +52,7 @@ Azure Communication Services Calling SDK is just one part of the Azure ecosystem
 
 ## Video conference feature comparison 
 
-The Azure Communication Services Calling SDK has feature parity with Twilio’s Video platform, with several additional features to further improve your communications platform. For a detailed feature comparison, check out the [Feature Map](./migrate-azure-twilio-feature-map.md).
+The Azure Communication Services Calling SDK has feature parity with Twilio’s Video platform, with several additional features to further improve your communications platform. For a detailed feature map, see [Calling SDK overview > Detailed capabilites](./voice-video-calling/calling-sdk-features.md#detailed-capabilities).
 
 ## Understand call types in Azure Communication Services
 
@@ -79,6 +79,6 @@ Azure Communication Services offers various call types. The type of call you cho
 
 ## Next steps
 
-[Azure Communication Services Calling SDK feature map](./migrate-azure-twilio-feature-map.md)
-
 [Migrate from Twilio Video to Azure Communication Services.](../tutorials/migrating-to-azure-communication-services-calling.md)
+
+For a feature map, see [Calling SDK overview > Detailed capabilites](./voice-video-calling/calling-sdk-features.md#detailed-capabilities)
