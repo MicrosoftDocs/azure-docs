@@ -17,8 +17,6 @@ ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
 
-This article helps you understand the use cases and key features of Azure NetApp Files application volume group (AVG) for Oracle.  
-
 Application volume group for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
 
 Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, online redo log and archive redo log, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
@@ -60,11 +58,11 @@ High availability deployments will include volumes in 2 availability zones for w
 
 High availability deployments include volumes in two availability zones, for which you can deploy volumes using application volume group for Oracle in both zones. You can use application-based data replication such as Data Guard. Example dual-zone volume layout:
 
-:::image type="content" source="./media/volume-hard-quota-guidelines/oracle-dual-zone-layout.png" alt-text="Diagram of dual-zone volume layout." lightbox="./media/volume-hard-quota-guidelines/oracle-dual-zone-layout.png":::
+:::image type="content" source="./media/application-volume-group-oracle-introduction/oracle-dual-zone-layout.png" alt-text="Diagram of dual-zone volume layout." lightbox="./media/application-volume-group-oracle-introduction/oracle-dual-zone-layout.png":::
 
 A fully built deployment with eight data volumes and all optional volumes in a zone with ample resource availability can resemble:
 
-:::image type="content" source="./media/volume-hard-quota-guidelines/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="./media/volume-hard-quota-guidelines/eight-volume-deployment.png":::
+:::image type="content" source="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png":::
 
 In resource-constrained zones, volumes might be deployed on shared storage endpoints due to the aforementioned anti-affinity and no-grouping algorithms. This diagram depicts an example volume layout in a resource-constrained zone: 
 
