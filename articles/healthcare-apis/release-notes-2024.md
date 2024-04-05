@@ -50,6 +50,26 @@ Learn more:
 - [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](./dicom/dicom-data-lake.md)
 - [Deploy the DICOM service with Azure Data Lake Storage](./dicom/deploy-dicom-services-in-azure-data-lake.md)
 
+### FHIR Service 
+
+#### Bundle parallelization (GA)
+Bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing.
+
+Learn more:
+- [Bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+
+#### Import operation accepts multiple resource types in single file
+
+Import operation allowed to have resource type per input file in the request parameters. With this enhance capability, you can pass multiple resource types in single file.
+
+#### Bug Fixes
+
+- **Fixed: Import operation ingest resources with same resource type and lastUpdated field value**. Before this change, resources executed in a batch with same type and lastUpdated field value were not ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
+
+- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
+
+- **Fixed: Improve performance for bundle processing**. Updates are made to the task execution method, leading to bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
+
 ## February 2024
 
 ### FHIR service
