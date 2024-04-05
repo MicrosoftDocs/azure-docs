@@ -47,6 +47,8 @@ items:
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Customizing Large Language Models (LLMs)
+      href: ./concepts/customizing-llms.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
