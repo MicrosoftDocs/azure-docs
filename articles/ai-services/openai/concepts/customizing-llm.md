@@ -94,7 +94,7 @@ They fine-tune GPT-3.5-Turbo with hundreds of requests and correct responses and
 
   - Fine-tuning has upfront costs for training the model. And additional hourly costs for hosting the custom model once it's deployed.
 
-## Getting started
+### Getting started
 
 - [When to use Azure OpenAI fine-tuning](./fine-tuning-considerations.md)
 - [Customize a model with fine-tuning](../how-to/fine-tuning.md)
