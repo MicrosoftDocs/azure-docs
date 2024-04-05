@@ -125,7 +125,7 @@ Save the configurations to a file named `metrics.yaml` and use the below command
 kubectl apply -f metrics.yaml
 ```
 
-Once the deployment finishes, run the below command to check the Pods are running. Note that your pod name will be different.
+Once the deployment finishes, run the below command to check the Pods are running. Your pod name will be different.
 
 ```console
 kubectl get pods
@@ -144,7 +144,7 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### Configure the self-hosted gateway to emit metrics
 
-Now that both StatsD and Prometheus have been deployed, we can update the configurations of the self-hosted gateway to start emitting  metrics through StatsD. The feature can be enabled or disabled using the `telemetry.metrics.local` key in the ConfigMap of the self-hosted gateway Deployment with additional options. Below is a breakdown of the available options:
+Now that both StatsD and Prometheus are deployed, we can update the configurations of the self-hosted gateway to start emitting  metrics through StatsD. The feature can be enabled or disabled using the `telemetry.metrics.local` key in the ConfigMap of the self-hosted gateway Deployment with additional options. Below is a breakdown of the available options:
 
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
@@ -190,8 +190,8 @@ Make some API calls through the self-hosted gateway, if everything is configured
 | ------------- | ------------- |
 | requests_total  | Number of API requests in the period |
 | request_duration_seconds | Number of milliseconds from the moment gateway received request until the moment response sent in full |
-| request_backend_duration_seconds | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
-| request_client_duration_seconds | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
+| request_backend_duration_seconds | Number of milliseconds spent on overall backend IO (connecting, sending, and receiving bytes)  |
+| request_client_duration_seconds | Number of milliseconds spent on overall client IO (connecting, sending, and receiving bytes)  |
 
 ## Logs
 
@@ -203,7 +203,7 @@ kubectl logs <pod-name>
 
 If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
 
-The self-hosted gateway also supports a number of protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported.
+The self-hosted gateway also supports many protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported.
 
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
