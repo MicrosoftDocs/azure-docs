@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 04/04/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -47,15 +47,17 @@ The following capabilities are only available in the Defender portal.
 |---------|---------|
 |Attack disruption for SAP  |  [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption)         |
 
+
 ### Azure portal only
 
 The following capabilities are only available in the Azure portal.
 
 |Capability  |Learn more  |
 |---------|---------|
-|Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
 |Add entities to threat intelligence from incidents | [Add entity to threat indicators](add-entity-to-threat-intelligence.md)   |
-| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](https://aka.ms/unified-soc-automation-lims). |
+| Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
+| Hunt using bookmarks | [Bookmarks](/azure/sentinel/bookmarks) aren't supported in the advanced hunting experience in the Microsoft Defender portal. In the Defender portal, they are supported in the **Microsoft Sentinel > Threat management > Hunting**. |
+|Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
 
 ## Quick reference
 
