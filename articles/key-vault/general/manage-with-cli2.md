@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -241,7 +241,7 @@ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance). If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 

@@ -84,7 +84,7 @@ In this section, you will create a console application and load data from your A
     selects = {SettingSelector(key_filter="message*", label_filter="\0")}
     config = load(connection_string=connection_string, selects=selects)
 
-   # Print True or False to indicate if "message" is found in Azure App Configuration.
+    # Print True or False to indicate if "message" is found in Azure App Configuration.
     print("message found: " + str("message" in config))
     print("test.message found: " + str("test.message" in config))
     ```
@@ -123,7 +123,7 @@ In this section, you will create a console application and load data from your A
 
     ```console
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-   ```
+    ```
 
 1. Print out the value of the environment variable to validate that it is set properly with the command below.
 
@@ -157,6 +157,7 @@ In this section, you will create a console application and load data from your A
 
     ```console
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```
 
 1. After the environment variable is properly set, run the following command to run the app locally:
 

@@ -16,15 +16,16 @@ author: Blackmist
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the former highlighted in the diagram. You can use private link to establish the private connection to your Azure AI and its default resources.
+We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the former highlighted in the diagram. You can use private link to establish the private connection to your Azure AI and its default resources. This article is for Azure AI. For information on Azure AI Services, see the [Azure AI Services documentation](/azure/ai-services/cognitive-services-virtual-networks).
 
 :::image type="content" source="../media/how-to/network/azure-ai-network-inbound.svg" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-inbound.png":::
 
 You get several Azure AI default resources in your resource group. You need to configure following network isolation configurations.
 
-- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry. Azure AI services and Azure AI Search should be public.
+- Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry.
 - Establish private endpoint connection to Azure AI default resource. Note that you need to have blob and file PE for the default storage account.
 - [Managed identity configurations](#managed-identity-configuration) to allow Azure AI hub resources access your storage account if it's private.
+- Azure AI services and Azure AI Search should be public.
 
 
 ## Prerequisites

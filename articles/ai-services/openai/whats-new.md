@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure OpenAI Service?
 titleSuffix: Azure AI services
-description: Learn about the latest news and features updates for Azure OpenAI
+description: Learn about the latest news and features updates for Azure OpenAI.
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
@@ -10,13 +10,102 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 02/15/2024
+ms.date: 04/02/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
+## April 2024
+
+### Fine-tuning is now supported in East US 2
+
+Fine-tuning is now available in East US 2 with support for:
+
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
+Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
+
+## March 2024
+
+### Risks & Safety monitoring in Azure OpenAI Studio
+
+Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
+
+[Use Risks & Safety monitoring](./how-to/risks-safety-monitor.md)
+
+### Azure OpenAI On Your Data updates
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+- You can use the [chunk size parameter](./concepts/use-your-data.md#chunk-size-preview) during data ingestion to set the maximum number of tokens of any given chunk of data in your index.
+
+### 2024-02-01 general availability (GA) API released
+
+This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.
+
+Features that are still in preview such as Assistants, text to speech (TTS), certain on your data datasources, still require a preview API version. For more information check out our [API version lifecycle guide](./api-version-deprecation.md).
+
+### Whisper general availability (GA)
+
+The Whisper speech to text model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out Whisper by following a [quickstart](./whisper-quickstart.md).
+
+### DALL-E 3 general availability (GA)
+
+DALL-E 3 image generation model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### New regional support for DALL-E 3
+
+You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
+
+### Model deprecations and retirements
+
+We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.
+
+### 2024-03-01-preview API released
+
+`2024-03-01-preview` has all the same functionality as `2024-02-15-preview` and adds two new parameters for embeddings:
+
+- `encoding_format` allows you to specify the format to generate embeddings in `float`, or `base64`. The default is `float`.
+- `dimensions` allows you set the number of output embeddings. This parameter is only supported with the new third generation embeddings models: `text-embedding-3-large`, `text-embedding-3-small`. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. The `dimensions` parameter is not supported in all versions of the OpenAI 1.x Python library, to take advantage of this parameter  we recommend upgrading to the latest version: `pip install openai --upgrade`.
+
+If you are currently using a preview API version to take advantage of the latest features, we recommend consulting the [API version lifecycle](./api-version-deprecation.md) article to track how long your current API version will be supported.
+
+### Update to GPT-4-1106-Preview upgrade plans
+
+The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after a stable version of the model is released.  
+
+For more information on the upgrade process refer to the [models page](./concepts/models.md).
+
 ## February 2024
+
+### GPT-3.5-turbo-0125 model available
+
+This model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### Third generation embeddings models available
+
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining better performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark than the second generation text-embedding-ada-002 model.
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### GPT-3.5 Turbo quota consolidation
+
+To simplify migration between different versions of the GPT-3.5-Turbo models (including 16k), we will be consolidating all GPT-3.5-Turbo quota into a single quota value.
+
+- Any customers who have increased quota approved will have combined total quota that reflects the previous increases.
+
+- Any customer whose current total usage across model versions is less than the default will get a new combined total quota by default.
 
 ### GPT-4-0125-preview model available
 

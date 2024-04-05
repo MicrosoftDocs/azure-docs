@@ -3,11 +3,11 @@ title: Azure Disk Encryption with Microsoft Entra ID for Windows VMs (previous r
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows IaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 02/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

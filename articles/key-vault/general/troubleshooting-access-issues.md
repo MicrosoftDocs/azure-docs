@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting Azure Key Vault access policy issues
 description: Troubleshooting Azure Key Vault access policy issues
-author: sebansal
-ms.author: sebansal
-ms.date: 01/20/2023
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 02/20/2024
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to

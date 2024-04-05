@@ -2,9 +2,13 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: troubleshooting
+ms.subservice: aks-security
 ms.date: 01/08/2024
+author: nickomang
+ms.author: nickoman
+
 ms.reviewer: mattmcinnes
-ms.custom: linux-related-content
+ms.custom:
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -172,6 +176,56 @@ To connect to another node in the cluster, use the `kubectl debug` command. For 
     >  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.224.0.62
     > ```
 
+## Use Host Process Container to access Windows node
+
+1. Create `hostprocess.yaml` with the following content and replacing `AKSWINDOWSNODENAME` with the AKS Windows node name.
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      labels:
+        pod: hpc
+      name: hpc
+    spec:
+      securityContext:
+        windowsOptions:
+          hostProcess: true
+          runAsUserName: "NT AUTHORITY\\SYSTEM"
+      hostNetwork: true
+      containers:
+        - name: hpc
+          image: mcr.microsoft.com/windows/servercore:ltsc2022 # Use servercore:1809 for WS2019
+          command:
+            - powershell.exe
+            - -Command
+            - "Start-Sleep 2147483"
+          imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: windows
+        kubernetes.io/hostname: AKSWINDOWSNODENAME
+      tolerations:
+        - effect: NoSchedule
+          key: node.kubernetes.io/unschedulable
+          operator: Exists
+        - effect: NoSchedule
+          key: node.kubernetes.io/network-unavailable
+          operator: Exists
+        - effect: NoExecute
+          key: node.kubernetes.io/unreachable
+          operator: Exists
+    ```
+
+2. Run `kubectl apply -f hostprocess.yaml` to deploy the Windows host process container (HPC) in the specified Windows node.
+
+3. Use `kubectl exec -it [HPC-POD-NAME] -- powershell`.
+
+4. You can run any PowerShell commands inside the HPC container to access the Windows node.
+
+> [!Note]
+>
+> You need to switch the root folder to `C:\` inside the HPC container to access the files in the Windows node.
+
 ## SSH using Azure Bastion for Windows
 
 If your Linux proxy node isn't reachable, using Azure Bastion as a proxy is an alternative. This method requires that you set up an Azure Bastion host for the virtual network in which the cluster resides. See [Connect with Azure Bastion][azure-bastion] for more details.
@@ -189,30 +243,30 @@ For convenience, AKS nodes are exposed on the cluster's virtual network through 
 1. Obtain private IPs using the `az aks machine list` command, targeting all the VMs in a specific node pool with the `--nodepool-name` flag.
 
     ```bash
-        az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
-     ```
+    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
+    ```
 
     The following example output shows the internal IP addresses of all the nodes in the node pool:
 
-     ```output
-       Name                               Ip         Family    
-    ---------------------------------  -----------  ----------- 
+    ```output
+    Name                               Ip           Family
+    ---------------------------------  -----------  -----------
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
     aks-nodepool1-33555069-vmss000001  10.224.0.6   IPv4
-    aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4            
+    aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4
     ```
     To target a specific node inside the node pool, use the `--machine-name` flag:
 
     ```bash
-        az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
-     ```
+    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
+    ```
     The following example output shows the internal IP address of all the specified node:
 
     ```output
-      Name                               Ip         Family    
-    ---------------------------------  -----------  ----------- 
+    Name                               Ip         Family
+    ---------------------------------  -----------  -----------
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
-       ```
+    ```
 
 2. SSH to the node using the private IP address you obtained in the previous step. This step is applicable for Linux machines only. For Windows machines, see [Connect with Azure Bastion][azure-bastion].
 
@@ -238,3 +292,4 @@ To learn about managing your SSH keys, see [Manage SSH configuration][manage-ssh
 [agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
 [azure-bastion-linux]:../bastion/bastion-connect-vm-ssh-linux.md
+

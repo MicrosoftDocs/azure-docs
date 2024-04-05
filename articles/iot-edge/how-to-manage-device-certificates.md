@@ -5,7 +5,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 6/23/2023
+ms.date: 03/19/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -128,7 +128,6 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 total 16
 drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
 drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
--rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
 -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-devicename.key.pem
 ```
 
@@ -252,7 +251,18 @@ To prevent errors when certificates expire, remember to manually update the file
 
 ### Example: Use device identity certificate files from PKI provider
 
-Request a TLS client certificate and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Request a TLS client certificate and a private key from your PKI provider.
+
+Device identity certificate requirements:
+
+- Standard client certificate extensions:
+    extendedKeyUsage = clientAuth
+    keyUsage = critical, digitalSignature
+- Key identifiers to help distinguish between issuing CAs with the same CN for CA certificate rotation.
+    - subjectKeyIdentifier = hash
+    - authorityKeyIdentifier = keyid:always,issuer:always
+
+Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the important field that must match.
 
 Example device identity certificate:
 

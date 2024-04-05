@@ -6,6 +6,7 @@ ms.date: 09/27/2023
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Azure Resource Manager resource group and resource deletion

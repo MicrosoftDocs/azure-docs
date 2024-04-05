@@ -6,7 +6,7 @@ services: azure-health-insights
 author: adishachar
 manager: urieinav
 ms.service: azure-health-insights
-ms.topic: overview
+ms.topic: reliability-article
 ms.date: 02/06/2024
 ms.author: adishachar
 ---

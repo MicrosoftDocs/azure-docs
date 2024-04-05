@@ -74,7 +74,7 @@ Note the following important changes before you upgrade to any of the available 
 > [!NOTE]
 > Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220401 or above. Use `az upgrade` to install the latest version of the CLI.
 
-AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster runs **`1.21.7`**, which is the latest GA patch version of *1.21*. If you want to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#use-cluster-auto-upgrade).
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster runs **`1.21.7`**, which is the latest GA patch version of *1.21*. If you want to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md).
 
 To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
@@ -327,7 +327,9 @@ Patches have a two month minimum lifecycle. To keep up to date when new patches 
 
 ## Next steps
 
-For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+For information on how to upgrade your cluster, see:
+- [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade]
+- [Upgrade multiple AKS clusters via Azure Kubernetes Fleet Manager][fleet-multi-cluster-upgrade]
 
 <!-- LINKS - External -->
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
@@ -343,3 +345,5 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
 [aks-tracker]: release-tracker.md
+[fleet-multi-cluster-upgrade]: /azure/kubernetes-fleet/update-orchestration
+

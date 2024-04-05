@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 02/19/2024
 ---
 
 # Azure HDInsight release notes
@@ -50,16 +50,12 @@ For workload specific versions, see
 - Security fixes from Ambari and Oozie components
 
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
    * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
  
-## Known issues
-
-- HMS secrets failure v1.1 HTTP 401
-
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
@@ -72,4 +68,4 @@ We are listening: You’re welcome to add more ideas and other topics here and v
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
 * [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
-* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--october-26-2023)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--january-10-2024)

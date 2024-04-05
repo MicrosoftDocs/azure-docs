@@ -1,143 +1,198 @@
 ---
-title: "Quickstart: New policy assignment with REST API"
+title: "Quickstart: Create policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/17/2021
+ms.date: 03/26/2024
 ms.topic: quickstart
 ---
+
 # Quickstart: Create a policy assignment to identify non-compliant resources with REST API
 
-The first step in understanding compliance in Azure is to identify the status of your resources.
-This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks.
+The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify non-compliant resources using REST API. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
-At the end of this process, you'll successfully identify virtual machines that aren't using managed
-disks. They're _non-compliant_ with the policy assignment.
-
-REST API is used to create and manage Azure resources. This guide uses REST API to create a policy
-assignment and to identify non-compliant resources in your Azure environment.
+This guide uses REST API to create a policy assignment and to identify non-compliant resources in your Azure environment. The examples in this article use PowerShell and the Azure CLI `az rest` commands. You can also run the `az rest` commands from a Bash shell like Git Bash.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
-  account before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or a Bash shell like Git Bash.
+- Latest version of [Azure CLI](/cli/azure/install-azure-cli).
+- [Visual Studio Code](https://code.visualstudio.com/).
+- A resource group with at least one virtual machine that doesn't use managed disks.
 
-- If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. You can also use the "Try It"
-  feature in REST documentation or tooling like PowerShell's
-  [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
-  [Postman](https://www.postman.com).
+## Review the REST API syntax
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+There are two elements to run REST API commands: the REST API URI and the request body. For information, go to [Policy Assignments - Create](/rest/api/policy/policy-assignments/create).
 
-## Create a policy assignment
+The following example shows the REST API URI syntax to create a policy definition.
 
-In this quickstart, you create a policy assignment and assign the **Audit VMs that do not use
-managed disks** (`06a78e20-9358-41c9-923c-fb736d382a4d`) definition. This policy definition
-identifies resources that aren't compliant to the conditions set in the policy definition.
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2023-04-01
+```
 
-Run the following command to create a policy assignment:
-
-   - REST API URI
-
-     ```http
-     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
-     ```
-
-   - Request Body
-
-     ```json
-     {
-       "properties": {
-         "displayName": "Audit VMs without managed disks Assignment",
-         "description": "Shows all virtual machines not using managed disks",
-         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
-         "nonComplianceMessages": [
-             {
-                 "message": "Virtual machines should use a managed disk"
-             }
-         ]
-       }
-     }
-     ```
-
-The preceding endpoint and request body uses the following information:
-
-REST API URI:
-- **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
-  enforced on. It could range from a management group to an individual resource. Be sure to replace
+- `scope`: A scope determines which resources or group of resources the policy assignment gets
+  enforced on. It could range from a management group to an individual resource. Replace
   `{scope}` with one of the following patterns:
   - Management group: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Subscription: `/subscriptions/{subscriptionId}`
   - Resource group: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Resource: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
+- `policyAssignmentName`: Creates the policy assignment name for your assignment. The name is included in the policy assignment's `policyAssignmentId` property.
 
-Request Body:
-- **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
-  without managed disks Assignment_.
-- **Description** - A deeper explanation of what the policy does or why it's assigned to this scope.
-- **policyDefinitionId** - The policy definition ID, based on which you're using to create the
-  assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
-  disks_.
-- **nonComplianceMessages** - Set the message seen when a resource is denied due to non-compliance
-  or evaluated to be non-compliant. For more information, see
-  [assignment non-compliance messages](./concepts/assignment-structure.md#non-compliance-messages).
+The following example is the JSON to create a request body file.
+
+```json
+{
+  "properties": {
+    "displayName": "",
+    "description": "",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/11111111-1111-1111-1111-111111111111",
+    "nonComplianceMessages": [
+      {
+        "message": ""
+      }
+    ]
+  }
+}
+```
+
+- `displayName`: Display name for the policy assignment.
+- `description`: Can be used to add context about the policy assignment.
+- `policyDefinitionId`: The policy definition ID that to create the assignment.
+- `nonComplianceMessages`: Set the message to use when a resource is evaluated as non-compliant. For more information, see [assignment non-compliance messages](./concepts/assignment-structure.md#non-compliance-messages).
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurecli
+az login
+
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
+```
+
+Use `az login` even if you're using PowerShell because the examples use Azure CLI [az rest](/cli/azure/reference-index#az-rest) commands.
+
+## Create a policy assignment
+
+In this example, you create a policy assignment and assign the [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) definition.
+
+A request body is needed to create the assignment. Save the following JSON in a file named _request-body.json_.
+
+```json
+{
+  "properties": {
+    "displayName": "Audit VM managed disks",
+    "description": "Policy assignment to resource group scope created with REST API",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+    "nonComplianceMessages": [
+      {
+        "message": "Virtual machines should use managed disks"
+      }
+    ]
+  }
+}
+```
+
+To create your policy assignment in an existing resource group scope, use the following REST API URI with a file for the request body. Replace `{subscriptionId}` and `{resourceGroupName}` with your values. The command displays JSON output in your shell.
+
+```azurepowershell
+az rest --method put --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks?api-version=2023-04-01 --body `@request-body.json
+```
+
+In PowerShell, the backtick (``` ` ```) is needed to escape the `at sign` (`@`) to specify a filename. In a Bash shell like Git Bash, omit the backtick.
+
+For information, go to [Policy Assignments - Create](/rest/api/policy/policy-assignments/create).
 
 ## Identify non-compliant resources
 
-To view the resources that aren't compliant under this new assignment, run the following command to
-get the resource IDs of the non-compliant resources that are output into a JSON file:
+The compliance state for a new policy assignment takes a few minutes to become active and provide results about the policy's state. You use REST API to display the non-compliant resources for this policy assignment and the output is in JSON.
 
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq 'audit-vm-manageddisks'&$apply=groupby((ResourceId))"
+To identify non-compliant resources, run the following command. Replace `{subscriptionId}` and `{resourceGroupName}` with your values used when you created the policy assignment.
+
+```azurepowershell
+az rest --method post --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01 --uri-parameters `$filter="complianceState eq 'NonCompliant' and PolicyAssignmentName eq 'audit-vm-managed-disks'"
 ```
+
+The `filter` queries for resources that are evaluated as non-compliant with the policy definition named _audit-vm-managed-disks_ that you created with the policy assignment. Again, notice the backtick is used to escape the dollar sign (`$`) in the filter. For a Bash client, a backslash (`\`) is a common escape character.
 
 Your results resemble the following example:
 
 ```json
 {
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-    "@odata.count": 3,
-    "value": [{
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3Id>"
-        }
-
-    ]
+  "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+  "@odata.count": 1,
+  "@odata.nextLink": null,
+  "value": [
+    {
+      "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+      "@odata.id": null,
+      "complianceReasonCode": "",
+      "complianceState": "NonCompliant",
+      "effectiveParameters": "",
+      "isCompliant": false,
+      "managementGroupIds": "",
+      "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.authorization/policyassignments/audit-vm-managed-disks",
+      "policyAssignmentName": "audit-vm-managed-disks",
+      "policyAssignmentOwner": "tbd",
+      "policyAssignmentParameters": "",
+      "policyAssignmentScope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+      "policyAssignmentVersion": "",
+      "policyDefinitionAction": "audit",
+      "policyDefinitionCategory": "tbd",
+      "policyDefinitionGroupNames": [
+        ""
+      ],
+      "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+      "policyDefinitionName": "06a78e20-9358-41c9-923c-fb736d382a4d",
+      "policyDefinitionReferenceId": "",
+      "policyDefinitionVersion": "1.0.0",
+      "policySetDefinitionCategory": "",
+      "policySetDefinitionId": "",
+      "policySetDefinitionName": "",
+      "policySetDefinitionOwner": "",
+      "policySetDefinitionParameters": "",
+      "policySetDefinitionVersion": "",
+      "resourceGroup": "{resourceGroupName}",
+      "resourceId": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmName}>",
+      "resourceLocation": "westus3",
+      "resourceTags": "tbd",
+      "resourceType": "Microsoft.Compute/virtualMachines",
+      "subscriptionId": "{subscriptionId}",
+      "timestamp": "2024-03-26T02:19:28.3720191Z"
+    }
+  ]
 }
 ```
 
-The results are comparable to what you'd typically see listed under **Non-compliant resources** in
-the Azure portal view.
+For more information, go to [Policy States - List Query Results For Resource Group](/rest/api/policy/policy-states/list-query-results-for-resource-group).
 
 ## Clean up resources
 
-To remove the assignment created, use the following command:
+To remove the policy assignment, use the following command. Replace `{subscriptionId}` and `{resourceGroupName}` with your values used when you created the policy assignment. The command displays JSON output in your shell.
 
-```http
-DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
+```azurepowershell
+az rest --method delete --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks?api-version=2023-04-01
 ```
 
-Replace `{scope}` with the scope you used when you first created the policy assignment.
+You can verify the policy assignment was deleted with the following command. A message is displayed in your shell.
+
+```azurepowershell
+az rest --method get --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks?api-version=2023-04-01
+```
+
+```output
+The policy assignment 'audit-vm-managed-disks' is not found.
+```
+
+For more information, go to [Policy Assignments - Delete](/rest/api/policy/policy-assignments/delete) and [Policy Assignments - Get](/rest/api/policy/policy-assignments/get).
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial for:
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./tutorials/create-and-manage.md)
+> [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

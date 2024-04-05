@@ -64,7 +64,7 @@ Several resources are defined in the Bicep file:
 
   When the deployment finishes, you should see a messaged indicating the deployment succeeded.
 
-Cost information isn't presented during the virtual machine creation process for Bicep like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for Bicep like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Review deployed resources
 

@@ -7,7 +7,7 @@ mms.subservice: confidential-computing
 ms.topic: how-to
 ms.date: 8/03/2023
 ms.author: vvenugopal
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Harden a Linux image to remove Azure guest agent

@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure confidential virtual machines FAQ
-  description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
-  author: edendcohen
+  description: Answers to frequently asked questions (FAQs) about confidential virtual machines in Azure Confidential Computing.
+  author: michamcr
   ms.topic: faq
   ms.service: virtual-machines
   ms.subservice: confidential-computing
@@ -124,6 +124,14 @@ sections:
           Can I enable or disable the new full-disk encryption scheme after VM creation?
         answer: |
           No. After you've created a confidential VM, you can't deactivate or reactivate full-disk encryption. Create a new confidential VM instead.
+
+      - question: |
+          Can I control more aspects of the Trusted Computing Base to enforce operator independent key management, attestation and disk encryption?
+        answer: |
+          Developers seeking further "separation of duties" for TCB services from the cloud service provider should use security type "NonPersistedTPM". 
+          - This experience is only available as part of the Intel TDX public preview. It has disclaimers in that, organizations that use it, or provide services with it are in control of the TCB and the responsibilities that come along with it. 
+          - This experience bypasses the native Azure services, allowing you to bring your own disk encryption, key management and attestation solution. 
+          - Each VM still has a vTPM, which should be used to retrieve hardware evidence, however the vTPM state is not persisted through reboots, meaning this solution is excellent for ephemeral workloads and organizations seeking further decoupling from the cloud service provider.
 
       - question: |
           Can I convert a non-confidential VM into a confidential VM?

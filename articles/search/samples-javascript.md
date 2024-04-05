@@ -70,5 +70,5 @@ The following samples are also published by the Azure AI Search team, but aren't
 
 | Samples | Description |
 |---------|-------------|
-| [azure-search-vector-sample.js](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo)  | Vector search sample using the Azure SDK for JavaScript |
+| [azure-search-vector-sample.js](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/readme.md)  | Vector search sample using the Azure SDK for JavaScript |
 | [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | React template for Azure AI Search (github.com) |

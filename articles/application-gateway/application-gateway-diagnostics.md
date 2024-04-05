@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/10/2024
+ms.date: 02/28/2024
 ms.author: greglin 
 ---
 
@@ -87,9 +87,12 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below.
 
 #### For Application Gateway and WAF v2 SKU
+
+> [!NOTE]
+> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
 
 |Value  |Description  |
 |---------|---------|

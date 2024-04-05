@@ -6,7 +6,7 @@ ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/04/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -26,21 +26,21 @@ If you want to update your Microsoft Entra user profile information, only a user
 
 1. Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal for Cost Management + Billing.":::
 1. Select **Properties** from the left-hand side.  
-    ![Screenshot that shows MOSP billing account properties](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information-select-properties.png" alt-text="Screenshot that shows MOSP billing account properties.":::
 1. Select **Update billing address** to update the sold-to and the bill-to addresses. Enter the new address and then select **Save**.  
-    ![Screenshot that shows update address for the MOSP billing account](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information-mosp.png" alt-text="Screenshot that shows update address for the MOSP billing account.":::
 
 ## Update an MCA billing account sold-to address
 
 1. Sign in to the Azure portal using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal](./media/change-azure-account-profile/search-cmb.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal.":::
 1. Select **Properties** from the left-hand side and then select **Update sold-to**.  
-    ![Screenshot that shows the properties for an MCA billing account where can modify the sold-to address](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-sold-to-list-properties-mca.png" alt-text="Screenshot that shows the properties for an MCA billing account where can modify the sold-to address.":::
 1. Enter the new address and select **Save**.  
-    ![Screenshot that shows updating the sold-to address for an MCA account](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-sold-to-save-mca.png" alt-text="Screenshot that shows updating the sold-to address for an MCA account.":::
 
     > [!IMPORTANT]
     > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
@@ -51,12 +51,12 @@ If you want to update your Microsoft Entra user profile information, only a user
 1. Search for **Cost Management + Billing**.  
 1. Select **Billing profiles** from the left-hand side.
 1. Select a billing profile to update the billing address.  
-    ![Screenshot that shows the Billing profiles page where you select a billing profile](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png" alt-text="Screenshot that shows the Billing profiles page where you select a billing profile.":::
 1. Select **Properties** from the left-hand side.
 1. Select **Update address**.  
-    ![Screenshot that shows where to update the address](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-bill-to-list-properties-mca.png" alt-text="Screenshot that shows where to update the address.":::
 1. Enter the new address and then select **Save**.  
-    ![Screenshot that shows updating the address](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/update-bill-to-save-mca.png" alt-text="Screenshot that shows updating the address.":::
 
 ## Update a PO number
 
@@ -100,7 +100,7 @@ You're prompted in the Azure portal to verify or update your email address every
 
 Enter the email address where you want to receive communications about your account. By entering an email address, you're opting in to receive communications from Microsoft.
 
-![Example of the prompt to update your contact information](./media/change-azure-account-profile/update-contact-information.png)
+:::image type="content" border="true" source="./media/change-azure-account-profile/update-contact-information.png" alt-text="Screenshot showing the prompt to update your contact information.":::
 
 ### Change your contact email address
 
@@ -110,7 +110,7 @@ You can change your contact email address by using one of the following methods.
 1. Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
 1. In the Azure portal, select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address.
 
-![Example of updating an email address in Azure](./media/change-azure-account-profile/azure-contact-information.png)
+:::image type="content" border="true" source="./media/change-azure-account-profile/azure-contact-information.png" alt-text="Screenshot that shows updating an email address for contact information.":::
 
 ### Opt out of marketing emails
 
@@ -118,7 +118,7 @@ To opt out of receiving marketing emails:
 
 1. Go to the [request form](https://account.microsoft.com/profile/permissions-link-request) to submit a request by using your profile email address. You'll receive a link by email to update your preferences.
 1. Select the link to open the **Manage communication permissions** page. This page shows you the types of marketing communications that the email address is opted in to. Clear any selections that you want to opt out of, and then select **Save**.  
-    ![Example of the page for managing communication permissions](./media/change-azure-account-profile/manage-communication-permissions.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/manage-communication-permissions.png" alt-text="Screenshot showing the manage communication permission page with contact options.":::
 
 When you opt out of marketing communications, you still receive service notifications, based on your account.
 
@@ -138,7 +138,7 @@ Changing the country or region for an existing account isn't supported. However,
 
 1. Sign in to the Azure portal, select **Subscription** from the left pane, and then select the subscription that you want to rename.
 1. Select **Overview**, and then select **Rename** from the command bar.  
-    ![Example of renaming Azure subscription](./media/change-azure-account-profile/rename-sub.png)
+    :::image type="content" border="true" source="./media/change-azure-account-profile/rename-sub.png" alt-text="Screenshot showing where to rename an Azure subscription.":::
 1. After you change the name, select **Save**.
 
 ## Need help? Contact us.

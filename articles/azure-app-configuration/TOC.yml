@@ -33,12 +33,16 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
-        - name: .NET Framework
+        - name: .NET/.NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: .NET Background Service
+          href: quickstart-feature-flag-dotnet-background-service.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Azure Kubernetes Service
+          href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
       items:
         - name: Azure Kubernetes Service
@@ -69,6 +73,8 @@
           href: enable-dynamic-configuration-dotnet-core.md
         - name: .NET Framework
           href: enable-dynamic-configuration-dotnet.md
+        - name: .NET Background Service
+          href: enable-dynamic-configuration-dotnet-background-service.md
         - name: Azure Functions
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot

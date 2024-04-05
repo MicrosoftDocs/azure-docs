@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/09/2024
+ms.date: 03/27/2024
 recommendations: false
 ---
 
@@ -33,7 +33,7 @@ Along with Azure OpenAI Studio, APIs and SDKs, you can also use the available st
 
 ## Web app customization
 
-You can customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Contoso.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
+You can customize the app's frontend and backend logic. The app provides several [environment variables](https://github.com/microsoft/sample-app-aoai-chatGPT#common-customization-scenarios-eg-updating-the-default-chat-logo-and-headers) for common customization scenarios such as changing the icon in the app. See the source code for the web app, and more information on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
 When customizing the app, we recommend:
 
@@ -43,12 +43,33 @@ When customizing the app, we recommend:
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
-### Updating the web app
+Sample source code for the web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as a sample only. Customers are responsible for all customization and implementation of their web apps. 
 
-We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
+## Updating the web app
 
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
+
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md#retiring-soon). 
+
+**If you haven't customized the app:**
+* You can follow the synchronization steps below
+
+**If you've customized or changed the app's source code:**
+* You will need to update your app's source code manually and redeploy it.
+    * If your app is hosted on GitHub, push your code changes to your repo, and use the synchronization steps below.
+    * If you're redeploying the app manually (for example Azure CLI), follow the steps for your deployment strategy.
+
+
+### Synchronize the web app
+
+1. If you've customized your app, update the app's source code.
+1. Navigate to your web app in the [Azure portal](https://portal.azure.com/).
+1. Select **Deployment center** in the navigation menu, under **Deployment**.
+1. Select **Sync** at the top of the screen, and confirm that the app will be redeployed. 
+
+    :::image type="content" source="../media/use-your-data/sync-app.png" alt-text="A screenshot of web app synchronization button on the Azure portal." lightbox="../media/use-your-data/sync-app.png":::
+
 
 ## Chat history
 
