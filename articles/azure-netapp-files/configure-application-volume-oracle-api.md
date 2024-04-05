@@ -53,9 +53,9 @@ The following tables describe the request body parameters and volume properties 
 
 | Volume-level request parameter | Description | Restrictions for Oracle |
 |---------|---------|---------|
-| `name` | Volume name, includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
+| `name` | Volume name, which includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
 | `tags` | Volume tags | None |
-| `zones` | Availability Zones | For Oracle AVG: <br><br> - If the region has availability zones, then you must select zones. Ex: Zones (1, 2 or 3). <br><br> - In case a region has no available zones and the use of PPG is not enabled then customer can go for regional deployment (requires PPG activation). <br><br> |
+| `zones` | Availability Zones | For Oracle AVG: <br><br> - If the region has availability zones, then you must select zones. Ex: Zones (1, 2 or 3). <br><br> - In case a region has no available zones and the use of PPG isn't enabled then customer can go for regional deployment (requires PPG activation). <br><br> |
 
 | Volume properties | Description | Oracle value restrictions |
 |---------|---------|---------|
@@ -66,7 +66,7 @@ The following tables describe the request body parameters and volume properties 
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | Oracle volumes must have a value that is one of the following: <br><br> - `ora-data1` <br> - `ora-data2` <br> - `ora-data3` <br> - `ora-data4` <br> - `ora-data5` <br> - `ora-data6` <br> - `ora-data7` <br> - `ora-data8` <br> - `ora-log` <br> - `ora-log-mirror` <br> - `ora-binary` <br> - `ora-backup` <br> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. This parameter is optional. If the region has zones available, then use of zones is always priority. | The `data`, `log` and `mirror-log`, `ora-binary` and `backup` volumes must each have a PPG specified, preferably a common PPG. |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
-| `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it is not a requirement. |
+| `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it isn't a requirement. |
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 
 ## Examples: application volume group for Oracle API request content
@@ -92,7 +92,7 @@ In the following examples, selected placeholders are specified. You should repla
 
 Oracle volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This step automates the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This command automates the extraction of the subscription ID and generates the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)echo "Subscription ID: $subId" 
     ```
