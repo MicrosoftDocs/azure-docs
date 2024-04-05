@@ -21,21 +21,21 @@ In this article, learn how to configure a private connection to Azure AI Search 
 + [Create an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
 + [Test using a browser session on the virtual machine](#connect-to-the-vm)
 
-Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
-
-You can create a private endpoint for a search service in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
-
-Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
-
-Other Azure resources that might privately connect to Azure AI Search include Azure OpenAI for "use your own data" scenarios:
+Other Azure resources that might privately connect to Azure AI Search include Azure OpenAI for "use your own data" scenarios. Azure OpenAI Studio doesn't run in a virtual network, but it can be configured on the backend to send requests over the Microsoft backbone network. Configuration for this traffic pattern is enabled by Microsoft when your request is submitted and approved. For this scenario:
 
 + Follow the instructions in this article to set up the private endpoint.
 + [Submit a request](/azure/ai-services/openai/how-to/use-your-data-securely#disable-public-network-access-1) for Azure OpenAI Studio to connect using your private endpoint.
-+ Optionally, [disable public network access]() if connections should only originate from clients in virtual network or from Azure OpenAI over a private endpoint connection.
++ Optionally, [disable public network access](#disable-public-network-access) if connections should only originate from clients in virtual network or from Azure OpenAI over a private endpoint connection.
 
-Azure OpenAI Studio doesn't run in a virtual network, but it can be configured on the backend to send requests over the Microsoft backbone network. Configuration for this traffic pattern is enabled by Microsoft when your request is submitted and approved.
+## Key points about private endpoints
 
-## Why use a Private Endpoint for secure access?
+Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
+
+Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
+
+You can create a private endpoint for a search service in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+
+## Why use a private endpoint?
 
 [Private Endpoints](../private-link/private-endpoint-overview.md) for Azure AI Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
