@@ -1,14 +1,14 @@
 ---
-title: Create a Persistent Volume Claim (PVC)
-description: Learn how to create a Persistent Volume Claim (PVC).
+title: Create a Persistent Volume Claim (PVC) (preview)
+description: Learn how to create a Persistent Volume Claim (PVC) in Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 
 ---
 
-# Create a Persistent Volume Claim (PVC)
+# Create a Persistent Volume Claim (PVC) (preview)
 
 The PVC is a persistent volume claim against the persistent volume that you can use to mount a Kubernetes pod. In this case, the `storageClassName` is `blob-edgecache` and the storage amount requested for local storage.  
 

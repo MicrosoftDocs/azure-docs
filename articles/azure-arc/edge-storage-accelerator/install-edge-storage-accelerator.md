@@ -1,5 +1,5 @@
 ---
-title: Install Edge Storage Accelerator
+title: Install Edge Storage Accelerator (preview)
 description: Learn how to install Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
@@ -8,7 +8,7 @@ ms.date: 03/12/2024
 
 ---
 
-# Install Edge Storage Accelerator
+# Install Edge Storage Accelerator (preview)
 
 This article describes the steps to install Edge Storage Accelerator.
 

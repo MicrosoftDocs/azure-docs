@@ -1,14 +1,14 @@
 ---
-title: Attach your application using the Azure IoT Operations data processor or Kubernetes native application
-description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application.
+title: Attach your application using the Azure IoT Operations data processor or Kubernetes native application (preview)
+description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application in Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 zone_pivot_groups: attach-app
 ---
 
-# Attach your application
+# Attach your application (preview)
 
 This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about PVCs, see [Create a Persistent Volume Claim](create-pvc.md).
 

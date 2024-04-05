@@ -1,14 +1,14 @@
 ---
-title: Azure Monitor and Kubernetes monitoring
-description: Learn how to monitor your deployment using Azure Monitor and Kubernetes monitoring.
+title: Azure Monitor and Kubernetes monitoring (preview)
+description: Learn how to monitor your deployment using Azure Monitor and Kubernetes monitoring in Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 
 ---
 
-# Azure Monitor and Kubernetes monitoring
+# Azure Monitor and Kubernetes monitoring (preview)
 
 This article describes how to monitor your deployment using Azure Monitor and Kubernetes monitoring.
 

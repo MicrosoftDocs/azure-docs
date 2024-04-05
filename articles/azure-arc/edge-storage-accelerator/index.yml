@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Edge Storage Accelerator documentation
+title: Edge Storage Accelerator documentation (preview)
 summary: Edge Storage Accelerator (ESA) is a first-party storage system designed for Arc-connected Kubernetes clusters.
 
 metadata:
-  title: Edge Storage Accelerator documentation
+  title: Edge Storage Accelerator documentation (preview)
   description: Edge Storage Accelerator (ESA) is a first-party storage system designed for Arc-connected Kubernetes clusters.
   ms.topic: landing-page
   author: sethmanheim

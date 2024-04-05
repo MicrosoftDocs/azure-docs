@@ -4,7 +4,7 @@ description: Learn about Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: overview
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 
 ---
 

@@ -1,15 +1,15 @@
 ---
-title: Prepare Linux using a single-node or 2-node cluster
-description: Learn how to prepare Linux with a single-node or 2-node cluster using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
+title: Prepare Linux using a single-node or 2-node cluster (preview)
+description: Learn how to prepare Linux with a single-node or 2-node cluster in Edge Storage Accelerator using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 zone_pivot_groups: platform-select
 
 ---
 
-# Prepare Linux using a single-node or 2-node cluster
+# Prepare Linux using a single-node or 2-node cluster (preview)
 
 This article describes how to prepare Linux using a single-node or 2-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux.md#prerequisites).
 

@@ -1,14 +1,14 @@
 ---
-title: Create a persistent volume
-description: Learn about creating persistent volumes.
+title: Create a persistent volume (preview)
+description: Learn about creating persistent volumes in Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 
 ---
 
-# Create a persistent volume
+# Create a persistent volume (preview)
 
 This article describes how to create a persistent volume using storage key authentication.
 

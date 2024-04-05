@@ -4,7 +4,7 @@ description: Learn about new features and known issues in Edge Storage Accelerat
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/08/2024
 
 ---
 
