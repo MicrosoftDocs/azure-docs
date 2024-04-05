@@ -7,11 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-<<<<<<< HEAD
-ms.date: 04/04/2024
-=======
 ms.date: 03/27/2024
->>>>>>> 62e902f9e3a2068dc4425a0092501a7ed6a06038
 recommendations: false
 ---
 
