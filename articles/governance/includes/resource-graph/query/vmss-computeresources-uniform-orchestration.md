@@ -33,7 +33,7 @@ Search-AzGraph -Query "ComputeResources | where type =~ 'microsoft.compute/virtu
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ComputeResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachinescalesets%2Fvirtualmachines%27%0D%0A%7C%20extend%20powerState%20%3D%20properties.extended.instanceView.powerState.code%0D%0A%7C%20project%20name%2C%20powerState%2C%20id" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ComputeResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachinescalesets%2Fvirtualmachines%27%0D%0A%7C%20extend%20powerState%20%3D%20properties.extended.instanceView.powerState.code%0D%0A%7C%20project%20name%2C%20powerState%2C%20id" target="_blank">portal.azure.us</a>

@@ -125,7 +125,7 @@ After deploying your Kubernetes manifest, if the cluster isn't compliant with de
 **Warning**
 
 ```
-PS C:\Users\testUser\Code>  kubectl apply -f pod.yml
+$ kubectl apply -f pod.yml
 Warning: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <livenessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
 Warning: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <readinessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
 Warning: [azurepolicy-k8sazurev1restrictedlabels-67c4210cc58f28acdfdb] Label <{"kubernetes.azure.com"}> is reserved for AKS use only
@@ -137,7 +137,7 @@ pod/my-pod created
 **Enforcement**
 
 ```
-PS C:\Users\testUser\Code>  kubectl apply -f pod.yml
+$ kubectl apply -f pod.yml
 Error from server (Forbidden): error when creating ".\pod.yml": admission webhook "validation.gatekeeper.sh" denied the request: [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <livenessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
 [azurepolicy-k8sazurev2containerenforceprob-0e8a839bcd103e7b96a8] Container <my-container> in your Pod <my-pod> has no <readinessProbe>. Required probes: ["readinessProbe", "livenessProbe"]
 [azurepolicy-k8sazurev2containerallowedimag-1ff6d14b2f8da22019d7] Container image my-image for container my-container has not been allowed.
@@ -199,3 +199,4 @@ To learn more, see [workload validation in Gatekeeper](https://open-policy-agent
 [Azure-Policy-built-in-definition-docs]: /azure/aks/policy-reference#policy-definitions
 [Azure-Policy-compliance-portal]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Compliance
 [Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy
+

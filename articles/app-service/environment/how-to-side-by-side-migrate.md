@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/28/2024
+ms.date: 4/4/2024
 ms.author: jordanselig
 ---
 # Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3 (Preview)
@@ -106,7 +106,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01 --query properties.windowsOutboundIpAddresses"
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.windowsOutboundIpAddresses
 ```
 
 ## 5. Update dependent resources with new outbound IPs
@@ -232,7 +232,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 10. Get the inbound IP addresses for your new App Service Environment v3 and update dependent resources
 
-You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address. You should account for both the old and new inbound IP at this point. You can remove the dependencies on the previous IP address after you complete the next step.
+You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address. This step is where you can validate your new environment and make any remaining necessary updates to your dependent resources.
 
 > [!IMPORTANT]
 > During the preview, the new inbound IP might be returned incorrectly due to a known bug. Open a support ticket to receive the correct IP addresses for your App Service Environment v3.
@@ -243,20 +243,22 @@ You can get the new inbound IP address for your new App Service Environment v3 b
 For ILB App Service Environments, get the private inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.internalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.internalInboundIpAddresses
 ```
 
 For ELB App Service Environments, get the public inbound IP address by running the following command:
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.externalInboundIpAddresses
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.externalInboundIpAddresses
 ```
 
-## 11. Redirect customer traffic and complete migration
+## 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues that means you're ready to complete the migration. If you want to test your App Service Environment v3 front ends, you can do so by using the inbound IP address you got in the previous step.
 
-Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 front ends by running the following command. This command also deletes your old environment.
+Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 by running the following command. This command also deletes your old environment.
+
+If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to revert the migration. Don't run the DNS change command if you need to revert the migration. For more information, see [Revert migration](./side-by-side-migrate.md#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"
@@ -269,8 +271,6 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 ```
 
 During this step, you get a status of `CompletingMigration`. When you get a status of `MigrationCompleted`, the traffic redirection step is done and your migration is complete.
-
-If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to revert the migration. Don't run the above command if you need to revert the migration. For more information, see [Revert migration](side-by-side-migrate.md#redirect-customer-traffic-and-complete-migration).
 
 ## Next steps
 
