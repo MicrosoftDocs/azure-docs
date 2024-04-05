@@ -350,6 +350,10 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API, and is 5 by default. |
 | **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API, and set to 3 by default. |
 
+### Uncited references
+
+It's possible for the model to return `"TYPE":"UNCITED_REFERENCE"` instead of `"TYPE":CONTENT` in the API for documents that are retrieved from the data source, but not included in the citation. This can be useful for debugging, and you can control this behavior by modifying the **strictness** and **retrieved documents** runtime parameters described above.
+
 ### System message
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
@@ -550,10 +554,9 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
 ### Failed ingestion jobs
-
-To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
-
 
 **Quota Limitations Issues** 
 
@@ -582,6 +585,10 @@ Break down the input documents into smaller documents and try again.
 Resolution: 
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
+
+### 503 errors when sending queries with Azure AI Search
+
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the amount of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
 
 ## Regional availability and model support
 
