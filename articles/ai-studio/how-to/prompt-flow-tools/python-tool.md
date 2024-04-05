@@ -16,7 +16,7 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
-The prompt flow *Python* tool offers customized code snippets as self-contained executable nodes. You can quickly create Python tools, edit code, and verify results.
+The prompt flow Python tool offers customized code snippets as self-contained executable nodes. You can quickly create Python tools, edit code, and verify results.
 
 ## Build with the Python tool
 
@@ -46,8 +46,8 @@ The list of inputs change based on the arguments of the tool function, after you
 
 | Name   | Type   | Description                                          | Required |
 |--------|--------|------------------------------------------------------|---------|
-| Code   | string | Python code snippet                                  | Yes     |
-| Inputs | -      | List of the tool function parameters and its assignments | -       |
+| Code   | string | The Python code snippet.                                  | Yes     |
+| Inputs | -      | The list of the tool function parameters and its assignments. | -       |
 
 ## Outputs
 
@@ -102,7 +102,7 @@ def my_python_tool(message: str) -> str:
     return 'hello ' + message
 ```
 
-## Consume custom connection in the Python tool
+## Consume a custom connection in the Python tool
 
 If you're developing a Python tool that requires calling external services with authentication, you can use the custom connection in a prompt flow. It allows you to securely store the access key and then retrieve it in your Python code.
 
@@ -124,7 +124,7 @@ Create a custom connection that stores all your large language model API key or 
     
     :::image type="content" source="../../media/prompt-flow/custom-connection-keys.png" alt-text="Screenshot that shows adding extra information to a custom connection in AI Studio." lightbox = "../../media/prompt-flow/custom-connection-keys.png":::
 
-### Consume custom connection in Python
+### Consume a custom connection in Python
 
 To consume a custom connection in your Python code:
 

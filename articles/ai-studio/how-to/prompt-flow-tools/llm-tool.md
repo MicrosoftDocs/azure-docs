@@ -17,7 +17,7 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
-To use large language models (LLMs) for natural language processing, you use the prompt flow *LLM* tool.
+To use large language models (LLMs) for natural language processing, you use the prompt flow LLM tool.
 
 > [!NOTE]
 > For embeddings to convert text into dense vector representations for various natural language processing tasks, see [Embedding tool](embedding-tool.md).

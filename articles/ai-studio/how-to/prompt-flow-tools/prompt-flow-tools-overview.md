@@ -32,14 +32,16 @@ The following table provides an index of tools in prompt flow.
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Azure AI Language tools*](https://microsoft.github.io/promptflow/integrations/tools/azure-ai-language-tool.html) | This collection of tools is a wrapper for various Azure AI Language APIs, which can help effectively understand and analyze documents and conversations. The capabilities currently supported include Abstractive Summarization, Extractive Summarization, Conversation Summarization, Entity Recognition, Key Phrase Extraction, Language Detection, PII Entity Recognition, Conversational PII, Sentiment Analysis, Conversational Language Understanding, and Translator. You can learn how to use them by the [Sample flows](https://github.com/microsoft/promptflow/tree/e4542f6ff5d223d9800a3687a7cfd62531a9607c/examples/flows/integrations/azure-ai-language). Support contact: taincidents@microsoft.com | Custom | [promptflow-azure-ai-language](https://pypi.org/project/promptflow-azure-ai-language/) |
 
-_*The asterisks indicate custom tools that the community created. Custom tools extend prompt flow's capabilities for specific use cases. The prompt flow team doesn't officially maintain or endorse these tools. When you encounter questions or issues for these tools, prioritize by using the support contact if the description provides it._
+*The asterisks indicate custom tools that the community created. Custom tools extend prompt flow's capabilities for specific use cases. The prompt flow team doesn't officially maintain or endorse these tools. When you encounter questions or issues for these tools, prioritize by using the support contact if the description provides it.
 
 To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
 ## Remarks
+
 - If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
 - To install the custom tools, if you're using the automatic runtime, you can readily install the publicly released package by adding the custom tool package name in the `requirements.txt` file in the flow folder. Then select **Save and install** to start installation. After completion, the custom tools appear in the tool list. If you want to use a local or private feed package, build an image first, and then set up the runtime based on your image. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
-:::image type="content" source="../../media/prompt-flow/install-package-on-automatic-runtime.png" alt-text="Screenshot that shows how to install packages on automatic runtime."lightbox = "../../media/prompt-flow/install-package-on-automatic-runtime.png":::
+
+   :::image type="content" source="../../media/prompt-flow/install-package-on-automatic-runtime.png" alt-text="Screenshot that shows how to install packages on automatic runtime."lightbox = "../../media/prompt-flow/install-package-on-automatic-runtime.png":::
 
 ## Next steps
 
