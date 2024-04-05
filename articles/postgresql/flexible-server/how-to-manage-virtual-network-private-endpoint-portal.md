@@ -58,7 +58,6 @@ To create an Azure Database for PostgreSQL flexible server instance, take the fo
    |**Server name**| Enter a unique server name.|
    |**Region**|Select an Azure region where you want to want your Azure Database for PostgreSQL flexible server instance to reside.|
    |**PostgreSQL version**|Select the required database version of the Azure Database for PostgreSQL flexible server instance.|
-   |**Admin username** |Enter an administrator name of your choosing.|
    |**Workload type**|Select one of the available tiers for the service.|
    |**Compute + Storage**|Select the pricing tier that you need for the server, based on the workload.|
    |**Availability zone**|Select the availability zone in which you want your instance deployed, or 'No preference' for the service to choose one for you.|
