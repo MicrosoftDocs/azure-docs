@@ -88,7 +88,7 @@ You must have:
 1. The Select available project index is displayed for existing indexes in the project. If an existing index isn't being used, continue to the next steps.
 1. Select the Add your data dropdown.
     
-    :::image type="content" source="../media/index-retrieve/add-data-dropdown.png" alt-text="Screenshot of playground add your data dropdown." lightbox="../media/index-retrieve/add-data-dropdown.png":::
+    :::image type="content" source="../media/index-retrieve/add-data-dropdown.png" alt-text="Screenshot of the playground add your data dropdown." lightbox="../media/index-retrieve/add-data-dropdown.png":::
 
 1. If a new index is being created, select the ***Add your data*** option. Then follow the steps from ***Create an index from the Indexes tab*** to navigate through the wizard to create an index.
     1. If there's an external index that is being used, select the ***Connect external index*** option.
@@ -97,7 +97,7 @@ You must have:
         1. Select your AI Search Service
         1. Select the index to be used.
 
-        :::image type="content" source="../media/index-retrieve/connect-external-index.png" alt-text="Screenshot of playground add your data dropdown." lightbox="../media/index-retrieve/connect-external-index.png":::
+        :::image type="content" source="../media/index-retrieve/connect-external-index.png" alt-text="Screenshot of the page where you select an index." lightbox="../media/index-retrieve/connect-external-index.png":::
         
     1. Select **Next** after configuring search settings.
     1. In the **Index settings**
