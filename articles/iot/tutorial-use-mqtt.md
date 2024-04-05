@@ -4,9 +4,9 @@ description: Tutorial - Use the MQTT protocol directly to create an IoT device c
 titleSuffix: Azure IoT
 author: ryanwinter
 ms.author: rywinter
-ms.date: 1/23/2024
+ms.date: 04/04/2024
 ms.topic: tutorial
-ms.service: iot-develop
+ms.service: iot
 ms.custom: devx-track-azurecli
 #Customer intent: As a device builder, I want to see how I can use the MQTT protocol to create an IoT device client without using the Azure IoT Device SDKs.
 ---
@@ -199,7 +199,7 @@ if (rc != MOSQ_ERR_SUCCESS)
 printf("Publish returned OK\r\n");
 ```
 
-To learn more, see [Sending device-to-cloud messages](../iot/iot-mqtt-connect-to-iot-hub.md#sending-device-to-cloud-messages).
+To learn more, see [Sending device-to-cloud messages](./iot-mqtt-connect-to-iot-hub.md#sending-device-to-cloud-messages).
 
 ## Receive a cloud-to-device message
 
@@ -252,7 +252,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to receive cloud-to-device messages](../iot/iot-mqtt-connect-to-iot-hub.md#receiving-cloud-to-device-messages).
+To learn more, see [Use MQTT to receive cloud-to-device messages](./iot-mqtt-connect-to-iot-hub.md#receiving-cloud-to-device-messages).
 
 ## Update a device twin
 
@@ -348,7 +348,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to update a device twin reported property](../iot/iot-mqtt-connect-to-iot-hub.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](../iot/iot-mqtt-connect-to-iot-hub.md#retrieving-a-device-twins-properties).
+To learn more, see [Use MQTT to update a device twin reported property](./iot-mqtt-connect-to-iot-hub.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](./iot-mqtt-connect-to-iot-hub.md#retrieving-a-device-twins-properties).
 
 ## Clean up resources
 
@@ -359,6 +359,6 @@ To learn more, see [Use MQTT to update a device twin reported property](../iot/i
 Now that you've learned how to use the Mosquitto MQTT library to communicate with IoT Hub, a suggested next step is to review:
 
 > [!div class="nextstepaction"]
-> [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)
+> [Communicate with your IoT hub using the MQTT protocol](./iot-mqtt-connect-to-iot-hub.md)
 > [!div class="nextstepaction"]
 > [MQTT Application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
