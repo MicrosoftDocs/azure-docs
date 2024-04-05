@@ -1,5 +1,5 @@
 ---
-title: Network Fabric resource update and commit scenarios
+title: Update and commit Network Fabric resources 
 description: Learn how Nexus Network Fabric's resource update flow allows you to batch and update a set of Network Fabric resources.
 author: HollyCl
 ms.author: HollyCl
@@ -10,7 +10,7 @@ ms.date: 04/03/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Network Fabric resource update and commit operations
+# Update and commit Network Fabric resources
 
 Currently, Nexus Network Fabric resources require that you disable a parent resource (such as an L3Isolation domain) and reput the parent or child resource with updated values and execute the administrative post action to enable and configure the devices. Network Fabric's new resource update flow allows you to  batch and update a set of Network Fabric resources via a `commitConfiguration` POST action when resources are enabled. There's no change if you choose the current workflow of disabling L3 Isolation domain, making changes and the enabling L3 Isolation domain. 
 
