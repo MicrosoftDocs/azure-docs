@@ -1,13 +1,16 @@
 ---
 title: Connect a Confluent organization to Azure resources
 titlesuffix: partner-solutions
-description: This article describes how to connect a Confluent organization to other Azure resources using Service Connector.
+description: Follow step-by-step instructions to connect an app deployed to Azure App Service to a Confluent organization using Service Connector.
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
-ms.custom: service-connector
 ms.date: 03/27/2024
-# CustomerIntent: As a Confluent developer, I want learn about the quickest way to connect a Confluent organization to other Azure services.
+ms.custom:
+  - service-connector
+  - ai-gen-docs-bap
+  - ai-gen-desc
+  - ai-seo-date:04/05/2024
 ---
 
 # How to connect a Confluent organization to other Azure resources using Service Connector
@@ -94,7 +97,7 @@ Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent
 
 1. Select **Next: Review + Create**  to review the provided information and select **Create**.
 
-## View and edit conections
+## View and edit connections
 
 To review your existing connections, in the Azure portal, go to your application deployed to Azure App Service, Azure Container Apps, Azure Spring Apps, or AKS and open Service Connector from the left menu.
 
