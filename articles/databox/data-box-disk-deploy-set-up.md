@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 04/05/2024
 ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -16,6 +16,11 @@ ms.author: shaas
 ::: zone target="docs"
 
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk
+
+> [!IMPORTANT]
+> Hardware encryption support for Data Box Disk is currently available for regions within the US, Europe, and Japan.
+>
+> Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
@@ -67,7 +72,10 @@ Before you begin, make sure that:
 
 ## Connect to disks and get the passkey
 
-1. Use the included cable to connect the disk to the client computer running a supported OS as stated in the prerequisites.
+> [!IMPORTANT]
+> Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk Unlock tool**.
+
+1. Use the included cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
     ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
 
@@ -80,6 +88,8 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 ## Unlock disks on Windows client
 
 Perform the following steps to connect and unlock your disks.
+
+### [Windows](#tab/windows)
 
 1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
 2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
@@ -143,17 +153,17 @@ Perform the following steps to connect and unlock your disks.
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
 
-## Unlock disks on Linux client
+### [Linux](#tab/linux)
 
-Perform the following steps to connect and unlock your disks.
 
+<!--
 1. In the Azure portal, go to **General > Device details**.
-2. Download the Data Box Disk toolset corresponding to the Linux client.
+1. Download the Data Box Disk toolset corresponding to the Linux client.
 
     > [!div class="nextstepaction"]
     > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
 
-3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command:
+1. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command:
 
     `chmod +x DataBoxDiskUnlock_x86_64`
 
@@ -169,7 +179,7 @@ Perform the following steps to connect and unlock your disks.
         -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
     ```
 
-4. Execute the script so that it installs all the binaries needed for the Data Box Disk Unlock software. Use `sudo` to run the command as root. Once the binaries are successfully installed, you will see a note to that effect on the terminal.
+1. Execute the script so that it installs all the binaries needed for the Data Box Disk Unlock software. Use `sudo` to run the command as root. Once the binaries are successfully installed, you will see a note to that effect on the terminal.
 
     `sudo ./DataBoxDiskUnlock_Prep.sh`
 
@@ -189,8 +199,8 @@ Perform the following steps to connect and unlock your disks.
         Do you wish to continue? y|n :|
     ```
 
-
-5. Type `y` to continue the install. The packages that the script installs are:
+-->
+<!--1. Type `y` to continue the install. The packages that the script installs are:
    - **epel-release** - Repository that contains the following three packages.
    - **dislocker and fuse-dislocker** - These utilities helps decrypting BitLocker encrypted disks.
    - **ntfs-3g** - Package that helps mount NTFS volumes.
@@ -203,8 +213,10 @@ Perform the following steps to connect and unlock your disks.
      Loaded plugins: fastestmirror, refresh-packagekit, security
      Setting up Remove Process
      Resolving Dependencies
-     --> Running transaction check
-     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution
+
+     Running transaction check
+     Package epel-release.noarch 0:6-8 will be erased  Finished Dependency Resolution
+
      Dependencies Resolved
      Package        Architecture        Version        Repository        Size
      Removing:  epel-release        noarch         6-8        @extras        22 k
@@ -225,7 +237,7 @@ Perform the following steps to connect and unlock your disks.
      OpenSSL is already installed.
      ```
 
-6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes.
+1. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes.
 
    Type the following command.
 
@@ -248,7 +260,7 @@ Perform the following steps to connect and unlock your disks.
    ```
    The mount point for the volume that you can copy your data to is displayed.
 
-7. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
+1. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
 
     `sudo ./DataBoxDiskUnlock_x86_64 /Help`
 
@@ -273,14 +285,99 @@ Perform the following steps to connect and unlock your disks.
     END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
     ```
 
-8. Once the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders.
+1. Once the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders.
 
     ![Data Box Disk contents 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
     > [!NOTE]
     > Don't format or modify the contents or existing file structure of the disk.
+-->
+
+Perform the following steps to connect and unlock Data Box disks on a Linux-based machine.
+
+> [!WARNING]
+> Enabling the TPM on a device might require a reboot.
+>
+> The following example contains the `reboot` command. Ensure that no data will be lost before running the script.
+
+1.	The Trusted Platofrm Module (TPM) must be enabled on Linux systems for SATA-based drives. To enable TPM, set `libata.allow_tpm` to `1` by editing the GRUB config as shown in the following example. More details can be found on the Drive-Trust-Alliance public Wiki located at [https://github.com/Drive-Trust-Alliance/sedutil/wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
+
+    ```bash
+    sudo nano /etc/default/grub
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1"
+    sudo update-grub
+    reboot
+    ```
+
+1.  Download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin), copy the **Data Box Disk Unlock Utility** and extract it to a local path on the machine.
+1.	Download the [SEDUtil](https://github.com/Drive-Trust-Alliance/sedutil/wiki/Executable-Distributions). For more information, visit the [Drive-Trust-Alliance public Wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
+
+    > [!IMPORTANT]
+    > SEDUtil is an external utility for Self-Encrypting Drives. This is not managed by Microsoft. More information, including license information for this utility, can be found at [https://sedutil.com/](https://sedutil.com/).
+
+1.	Extract `SEDUtil` to a local path on the machine and add the extracted tool path to the `PATH` environment variable. This is required in a later step when the utility utilizes `SEDUtil` to unlock the disk. 
+1. Validate that `SEDUtil` has been extracted to a local path and that the `PATH` environment variable contains the it's path. This can be done using one of the following examples.
+
+    ### [Ubuntu](#tab/ubuntu)
+
+    Validate the above setup by running below command from any path.
+
+    ```bash
+    sudo sedutil-cli --scan
+    ```
+
+    The following example output confirms that the validation completed successfully.
+   
+    :::image type="content" source="media/data-box-disk-quickstart-portal/scan-results.png" alt-text="Screen capture showing the successful results when scanning a system for Data Box Disks." lightbox="media/data-box-disk-quickstart-portal/scan-results-lrg.png":::
+
+    ### [Another distro](#tab/another)
+
+    Steps for another distro go here.
+
+    ---
+
+1.  Azure disks can be identified using the following command. Disk serial numbers can be verified for a volume using the following command.
+
+     ```bash
+     sedutil-cli --query <volume> 
+     ```
+
+    :::image type="content" source="media/data-box-disk-quickstart-portal/disk-serial.png" alt-text="Screen capture of example output of the sedutil tool showing identified volumes." lightbox="media/data-box-disk-quickstart-portal/disk-serial-lrg.png":::
+   
+1.	Run the **Data Box Disk Unlock Utility** from the Linux toolset extracted in a previous step. Supply the passkey from the Azure portal you obtained from the **Connect to disks** section. Optionally, you can specify a list of Bitlocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes as shown in the following example.
+
+    ```bash
+    chmod +x DataBoxDiskUnlock_x86_64
+    sudo ./DataBoxDiskUnlock_x86_64 /Volumes:'/dev/sdb' /PassKey:'<Your passkey from Azure portal>' /sed
+    ```
+   
+    The following example output indicates that the volume was successfully unlocked. The mount point is also displayed for the volume in whick your data can be copied.
+
+    :::image type="content" source="media/data-box-disk-quickstart-portal/disk-unlocked.png" alt-text="Screen capture showing showing a successfully unlocked data box disk.":::
+
+    > [!IMPORTANT]
+    > Repeat the steps to unlock the disk for any future disk reinserts.
+
+    You can use the help switch if you need additional assistance with the Data Box Disk Unlock Utility as shown in the following example.
+
+    ```bash
+    sudo ./DataBoxDiskUnlock_x86_64 /Help /SED
+    ```
+
+    The following image shows the sample output.
+    :::image type="content" source="media/data-box-disk-quickstart-portal/help-output.png" alt-text="Screen capture displaying sample output from the Data Box Disk Unlock Utility help command." lightbox="media/data-box-disk-quickstart-portal/help-output-lrg.png":::
+
+1. After the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to folders based on the desired destination data type.
+1. After the required data is copied to the disk, make sure to unmount and remove the disk safely using the following command.
+    ```bash
+    sudo .\/DataBoxDiskUnlock_x86_64 \/Unmount  \/sed
+    ```
+
+    The following example output confirms that the volume unmounted successfully.    
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
+
+---
 
 ::: zone-end
 

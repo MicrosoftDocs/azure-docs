@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 04/05/2024
 ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
@@ -42,16 +42,23 @@ Before you begin, make sure that:
 
 * You have a client computer available from which you can copy the data. Your client computer must:
   * Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-  * Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it's a Windows client.  
+  * Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it's a Windows client.
+
+> [!IMPORTANT]
+> Hardware encryption support for Data Box Disk is currently available for regions within the US, Europe, and Japan.
+>
+> Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.  
 
 ## Order Data Box Disk
+
+You can order Data Box Disks using either the Azure Portal or Azure CLI.
+
+### [Portal](#tab/azure-portal)
 
 Sign in to:
 
 * The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
 * Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
-
-### [Portal](#tab/azure-portal)
 
 Take the following steps to order Data Box Disk.
 
