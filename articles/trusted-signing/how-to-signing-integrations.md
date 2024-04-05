@@ -5,7 +5,7 @@ author: microsoftshawarma #Required; your GitHub user alias, with correct capita
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/21/2024 #Required; mm/dd/yyyy format.
+ms.date: 04/04/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
@@ -17,7 +17,8 @@ Trusted Signing currently supports the following signing integrations:
 * ADO Task
 * PowerShell for Authenticode
 * Azure PowerShell - App Control for Business CI Policy
-We constantly work to support more signing integrations and will update the above list if/when more are available. 
+
+We constantly work to support more signing integrations and update the above when more become available. 
 
 This article explains how to set up each of the above Trusted Signing signing integrations.
 
@@ -119,6 +120,6 @@ This section explains how to set up other not [SignTool](#set-up-signtool-with-t
 
 * PowerShell for Authenticode – To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module. 
 
-* Azure PowerShell – App Control for Business CI Policy - App Control for Windows [link to CI policy signing tutorial].
+* Azure PowerShell: App Control for Business CI Policy – To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](https://learn.microsoft.com/en-us/powershell/module/az.codesigning/?view=azps-11.4.0).
 
 * Trusted Signing SDK – To create your own signing integration our [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk) is publicly available.
