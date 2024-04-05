@@ -39,7 +39,7 @@ It's important to gather more information from the user to understand the proble
 ## Understanding how often users and how many users encounter the issue
 
 When the user reports an issue, we need to understand the frequency of the problem occurrence.
-Only happening once and always happening are completely different situations.
+Only happening once and always happening are different situations.
 
 For some issues, we can also use [Call Diagnostics](../../../../concepts/voice-video-calling/call-diagnostics.md) tool and [Azure Monitor Log](../../../../concepts/analytics/logs/voice-and-video-logs.md) to understand how many users could have encountered similar problems.
 
@@ -53,7 +53,8 @@ including concept documents, quickstart guides, tutorials, known issues, and tro
 It's also important to check the known issues or service limitation page for information on the reported issue.
 Sometimes, the issues reported by users may be due to limitations of the service itself, such as the number of videos that can be viewed during a large meeting.
 Or it could be due to the behavior of the user's browser or device itself.
-For example, if a mobile browser is running in the background or the phone is locked, the browser may stop sending video frames or only send black frames.
+For example, if a mobile browser is running in the background or the phone is locked, different platforms may have different behaviors.
+The browser may stop sending video frames or only sends black frames.
 
 The troubleshooting guide, in particular, addresses various issues that may arise when using the ACS Calling SDK.
 You can check the list of common issues in the troubleshooting guide to see if there's a similar issue reported by the user,
