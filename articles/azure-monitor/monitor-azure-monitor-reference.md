@@ -86,9 +86,6 @@ Microsoft.Insights/datacollectionrules:
 - `ResponseCode`
 - `ErrorType`
 
-
-
-<!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Monitor/accounts
@@ -103,10 +100,7 @@ Microsoft.Insights/datacollectionrules:
 ### Supported resource logs for Microsoft.Insights/datacollectionrules
 [!INCLUDE [Microsoft.Insights/datacollectionrules](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-insights-datacollectionrules-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
-
-<!-- Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. These files are auto generated from the REST API. -->
 
 ### Application Insights
 microsoft.insights/components
