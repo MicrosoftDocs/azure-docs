@@ -81,7 +81,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. In the Azure portal, go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting one of the .NET metrics under **Performance (.NET)** or **Request (.NET)** in the **Metric** drop-down, and `Avg` for **Aggregation** to see the timeline for that metric.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png" alt-text="Screenshot of the Azure portal that shows available filters in the Metrics page." lightbox="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Metrics page with available filters." lightbox="media/quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png":::
 
 1. Select **Add filter** in the toolbar, select `App=solar-system-weather` to see CPU usage only for the **solar-system-weather** app.
 
@@ -144,7 +144,7 @@ az spring app logs \
 
 You're shown logs like this:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of the Azure portal that shows the CLI log output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of the Azure CLI log streaming output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
 
 > [!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionalities.
@@ -242,7 +242,7 @@ Navigate to the `Failures/Exceptions` blade - you can see a collection of except
 
 Select an exception to see the end-to-end transaction and stacktrace in context:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg" alt-text="Screenshot of the petclinic exception details." lightbox="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg" alt-text="Screenshot of the petclinic-microservices page that shows the End-to-end transaction exception details." lightbox="media/quickstart-logs-metrics-tracing/end-to-end-transaction-details.jpg":::
 
 ::: zone-end
 
