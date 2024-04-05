@@ -67,10 +67,10 @@ If the issue reported by the user can't be found in the troubleshooting guide, y
 In most cases, you need to provide the callId and clear description of the issue.
 If you're able to reproduce the issue, include details related to the issue. For instance,
 
-* how to reproduce the issue, including preconditions and steps
+* steps for reproducing the issue, including preconditions
 * what the result you expect to see
 * what the result you actually see
-* how often the issue occurs when you reproduce the issue.
+* frequency of occurrence when reproducing the issue
 
 For more information, see [Reporting an issue](./reporting-an-issue.md).
 
