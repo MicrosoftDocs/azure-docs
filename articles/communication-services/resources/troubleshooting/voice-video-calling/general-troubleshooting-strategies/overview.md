@@ -21,7 +21,7 @@ To troubleshoot issues reported by users, it's important to clarify whether the 
 It could be the application, SDK, or the user's environment such as device, network, or browser.
 
 But how do you approach troubleshooting in a way that's effective and efficient?
-In this article, we'll explore some strategic approaches to troubleshooting that can help you get to the root of the problem more quickly and easily.
+In this article, we explore some strategic approaches to troubleshooting that can help you get to the root of the problem more quickly and easily.
 
 
 ## Clarifying the issues reported by the users
@@ -81,5 +81,5 @@ Besides the troubleshooting guide, here are some articles of interest to you.
 * Learn how to [Optimizing Call Quality](../../../../concepts/voice-video-calling/manage-call-quality.md).
 * Learn more about [Call Diagnostics](../../../../concepts/voice-video-calling/call-diagnostics.md).
 * Learn more about [Troubleshooting VoIP Call Quality](../../../../concepts/voice-video-calling/troubleshoot-web-voip-quality.md).
-* See [Known issues in Azure Communication Services calling WebJS SDKs](../../../../concepts/voice-video-calling/known-issues-webjs.md?pivots=all-browsers).
+* See [Known issues](../../../../concepts/voice-video-calling/known-issues-webjs.md?pivots=all-browsers).
 
