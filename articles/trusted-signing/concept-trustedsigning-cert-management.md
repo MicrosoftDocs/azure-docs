@@ -28,7 +28,7 @@ In addition to the standard features, the certificates also include the followin
 
 To help reduce the impact of signing misuse and abuse, Trusted Signing certificates are renewed daily and are only valid for 72 hours. These short-lived certificates enable revocation actions to be as acute as a single day or as broad as needed, to cover any incidents of misuse and abuse.
 
-For example, if it's determined that a subscriber signed code that was malware or PUA (Potentially Unwanted Application) as defined by [How Microsoft identifies malware and potentially unwanted applications](https://learn.microsoft.com/microsoft-365/security/defender/criteria?view=o365-worldwide), the revocation actions can be isolated to only revoking the certificate that signed the malware or PUA. Thus, the revocation only impacts the code that was signed with that certificate, on the day it was issued, and not any of the code signed prior to or after that day.
+For example, if it's determined that a subscriber signed code that was malware or PUA (Potentially Unwanted Application) as defined by [How Microsoft identifies malware and potentially unwanted applications](https://learn.microsoft.com/microsoft-365/security/defender/criteria), the revocation actions can be isolated to only revoking the certificate that signed the malware or PUA. Thus, the revocation only impacts the code that was signed with that certificate, on the day it was issued, and not any of the code signed prior to or after that day.
 
 ### Subscriber Identity Validation Extended Key Usage (EKU)
 

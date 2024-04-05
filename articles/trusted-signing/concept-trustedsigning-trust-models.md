@@ -30,7 +30,7 @@ Trusted Signing provides two primary trust models to support a wide variety of s
 
 Public-Trust is one of the models provided in Trusted Signing and is the most commonly used model. The certificates are issued from a CA that complies with the [CA/Browser Forum's Baseline Requirements for Code-Signing Certificates](https://cabforum.org/working-groups/code-signing/documents/) and is included a relying party's root certificate program such as the [Microsoft Root Certificate Program](https://learn.microsoft.com/security/trusted-root/program-requirements). 
 
-Trusted Signing's Public-Trust Identity Validation and Certificate Profiles are backed by a CA included in the Microsoft Root Certificate Program. The Public-Trust Root CA certificate is [Microsoft Identity Verification Root Certificate Authority 2020](http://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and complies with the [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). 
+Trusted Signing's Public-Trust Identity Validation and Certificate Profiles are backed by a CA included in the Microsoft Root Certificate Program. The Public-Trust Root CA certificate is [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and complies with the [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). 
 
 The Public-Trust resources in Trusted Signing are designed to support the following signing scenarios and security features:
 
@@ -48,9 +48,9 @@ Public-Trust is recommended for signing any artifact that is to be shared public
 Private-Trust is the other trust model provided in Trusted Signing. It's for opt-in trust where the signatures aren't broadly trusted across the ecosystem. The CA hierarchy used for Trusted Signing's Private-Trust resources isn't default trusted in any root program and in Windows. Rather, it's specifically designed for use in [App Control for Windows (formerly known as Windows Defender Application Control)](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/wdac) features including:
 
 
-* [Use code signing for added control and protection with WDAC](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-code-signing-for-better-control-and-protection)
-* [Use signed policies to protect Windows Defender Application Control against tampering](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)
-* [Allow LOB Win32 apps on Intune-managed S Mode devices](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/deployment/lob-win32-apps-on-s)
+* [Use code signing for added control and protection with WDAC](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-code-signing-for-better-control-and-protection)
+* [Use signed policies to protect Windows Defender Application Control against tampering](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)
+* [Optional: Create a code signing cert for Windows Defender Application Control](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/create-code-signing-cert-for-wdac)
 
 For more information on how to configure and sign WDAC Policy with Trusted Signing reference, [Quickstart Guide](./quickstart.md) 
 
