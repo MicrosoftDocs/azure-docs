@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 11/02/2023
+ms.date: 04/05/2024
 manager: nitinme
 keywords: ChatGPT
 
@@ -15,6 +15,9 @@ keywords: ChatGPT
 ## Working with the GPT-3.5-Turbo and GPT-4 models
 
 The following code snippet shows the most basic way to use the GPT-3.5-Turbo and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [GPT-3.5-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
+
+> [!NOTE]  
+> In the Azure OpenAI documentation we refer to GPT-3.5-Turbo, and GPT-35-Turbo interchangeably. The official name of the model on OpenAI is `gpt-3.5-turbo`, but for Azure OpenAI due to Azure specific character constraints the underlying model name is `gpt-35-turbo`.
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -541,6 +544,12 @@ In this example, once the token count is reached, the oldest messages in the con
 An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages list to start a brand new conversation with the full token limit available.
 
 The token counting portion of the code demonstrated previously is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
+
+## Troubleshooting
+
+### Do not use ChatML syntax with the Chat Completions endpoints
+
+We have found that some customers will try using the [legacy ChatML syntax](./chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model which is [slated for retirement](../concepts/model-retirements.md). Attempting to use ChatML syntax with newer models and the chat completions endpoint can result in unexpected model response behavior and is not recommended.  
 
 ## Next steps
 

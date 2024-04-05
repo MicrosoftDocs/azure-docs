@@ -109,6 +109,10 @@ items:
       href: ./how-to/integrate-synapseml.md
     - name: Deploy and use web apps
       href: ./how-to/use-web-app.md
+    - name: Legacy
+      items:
+      - name: Chat Markup Language (ChatML)
+        href: ./how-to/chat-markup-language.md 
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
