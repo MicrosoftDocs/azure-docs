@@ -549,7 +549,7 @@ The token counting portion of the code demonstrated previously is a simplified v
 
 ### Do not use ChatML syntax with the Chat Completions endpoint
 
-We have found that some customers will try using the [legacy ChatML syntax](./chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model which is [slated for retirement](../concepts/model-retirements.md). Attempting to use ChatML syntax with newer models and the chat completions endpoint can result errors as well as unexpected model response behavior, and is not recommended.  
+We have found that some customers will try using the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model which is [slated for retirement](../concepts/model-retirements.md). Attempting to use ChatML syntax with newer models and the chat completions endpoint can result errors as well as unexpected model response behavior, and is not recommended.  
 
 | Error |Cause | Solution |
 |---|---|---|
