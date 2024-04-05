@@ -58,7 +58,7 @@ To use the ACL integration, your client application must assume the identity of 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
-For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](azure/redis/identity).
+For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
 
 ## Using data access configuration with your cache
 
@@ -133,5 +133,5 @@ The following table includes links to code samples, which demonstrate how to con
 ## Related content
 
 - [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)
-- [Reference pages for identity](azure/redis/identity)
+- [Reference pages for identity](/cli/azure/redis/identity)
 
