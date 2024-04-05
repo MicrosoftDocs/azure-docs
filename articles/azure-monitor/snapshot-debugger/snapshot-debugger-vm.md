@@ -197,4 +197,4 @@ internal class LoggerExample
 
 - Generate traffic to your application that can trigger an exception. Then wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 - See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
-- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
+- [Troubleshoot](snapshot-debugger-troubleshoot.md) Snapshot Debugger problems.
