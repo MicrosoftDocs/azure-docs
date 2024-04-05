@@ -3,17 +3,14 @@ title: Connect an ESPRESSIF ESP-32 to Azure IoT Hub quickstart
 description: Use Azure IoT middleware for FreeRTOS to connect an ESPRESSIF ESP32-Azure IoT Kit device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: iot
 ms.devlang: c
-ms.topic: quickstart
-ms.date: 1/23/2024
+ms.topic: tutorial
+ms.date: 04/04/2024
 #Customer intent: As a device builder, I want to see a working IoT device sample using FreeRTOS to connect to Azure IoT Hub.  The device should be able to send telemetry and respond to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # Quickstart: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub
-
-**Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
-**Total completion time**:  45 minutes
 
 In this quickstart, you use the Azure IoT middleware for FreeRTOS to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
 
@@ -135,12 +132,12 @@ To build the image:
 To flash the image:
 1. On the ESP32 DevKit, locate the Micro USB port, which is highlighted in the following image:
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/esp-azure-iot-kit.png" alt-text="Photo of the ESP32-Azure IoT Kit board.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/esp-azure-iot-kit.png" alt-text="Photo of the ESP32-Azure IoT Kit board.":::
 
 1. Connect the Micro USB cable to the Micro USB port on the ESP32 DevKit, and then connect it to your computer.
 1. Open Windows **Device Manager**, and view **Ports** to find out which COM port the ESP32 DevKit is connected to.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/esp-device-manager.png" alt-text="Screenshot of Windows Device Manager displaying COM port for a connected device.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/esp-device-manager.png" alt-text="Screenshot of Windows Device Manager displaying COM port for a connected device.":::
 
 1. In **ESP-IDF 5.0 CMD**, run the following command, replacing the *\<Your-COM-port\>* placeholder and brackets with the correct COM port from the previous step. For example, replace the placeholder with `COM3`. 
 
@@ -189,7 +186,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 1. Select **IoT Plug and Play components**.
 1. Select **Default component**. IoT Explorer displays the IoT Plug and Play components that are implemented on your device.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of the device's default component in IoT Explorer.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of the device's default component in IoT Explorer.":::
 
 1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
 
@@ -208,7 +205,7 @@ To view and edit device properties using Azure IoT Explorer:
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryFrequencySecs` value to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on the device in IoT Explorer.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on the device in IoT Explorer.":::
 
 1. IoT Explorer responds with a notification. 
  
@@ -235,11 +232,11 @@ To view telemetry in Azure IoT Explorer:
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer.":::
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer.":::
 
 1. Select **Stop** to end receiving events.
 
@@ -277,7 +274,7 @@ To call a method in Azure IoT Explorer:
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **ToggleLed1** command, select **Send command**. The LED on the ESP32 DevKit toggles on or off.  You should also see a notification in IoT Explorer. 
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling a method in IoT Explorer.":::
+    :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling a method in IoT Explorer.":::
 
 1. For the **DisplayText** command, enter some text in the **content** field. 
 1. Select **Send command**.  The text displays on the ESP32 DevKit screen. 
@@ -305,7 +302,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot-develop/troubleshoot-embedded-device-quickstarts.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -318,6 +315,6 @@ In this quickstart, you built a custom image that contains the Azure IoT middlew
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Connect a simulated general device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated general device to IoT Hub](./tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](./concepts-using-c-sdk-and-embedded-c-sdk.md)
