@@ -31,6 +31,8 @@ Azure Stream Analytics supports the following four function types:
 * Azure Machine Learning 
 
 You can use these functions for scenarios such as real-time scoring using machine learning models, string manipulations, complex mathematical calculations, encoding and decoding data. 
+> [!IMPORTANT]
+> C# user-defined functions for Azure Stream Analytics will be retired on September 30th 2024. After that date, it won't be possible to use the feature.
 
 ## Limitations
 
