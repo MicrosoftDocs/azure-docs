@@ -3,13 +3,13 @@ title: Troubleshooting your Informatica deployment
 description: This article provides information about getting support and troubleshooting an Informatica integration.
 
 ms.topic: overview
-ms.date: 03/29/2024
+ms.date: 04/02/2024
 
 ---
 
-# Troubleshooting Informatica integration with Azure
+# Troubleshooting Intelligent Data Management Cloud (Preview) - Azure Native ISV Service
 
-You can get support for your Informatica deployment through a **New Support request**. The procedure for creating the request is here. In addition, we included other troubleshooting for problems you might experience in creating and using an Informatica deployment.
+You can get support for your Informatica deployment through a **New Support request**. The procedure for creating the request is here. In addition, we included other troubleshooting for problems you might experience in creating and using an Intelligent Data Management Cloud (Preview) - Azure Native ISV Service resource.
 
 ## Getting support  
 
@@ -26,6 +26,19 @@ You can get support for your Informatica deployment through a **New Support requ
 ### Unable to create an Informatica resource as not a subscription owner  
 
 The Informatica integration must be set up by users who have _Owner_ access on the Azure subscription. Ensure you have the appropriate _Owner_ access before starting to set up this integration.
+
+### Unable to create an Informatica resource when the details are not present in User profile
+
+User profile needs to be updated with Key business information for Informatica resource creation. You can update by:
+
+1. Select **Users** and fill out the details.
+     :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile.png" alt-text="Screenshot of a user resource provider in the Azure portal.":::
+
+1. Search with **UserName** in users interface.
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-two.png" alt-text="Screenshot of a searching for user in the Azure portal.":::
+
+1. Edit **UserInformation**.
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-three.png" alt-text="Screenshot of a user information in the Azure portal.":::
 
 ## Next steps
 

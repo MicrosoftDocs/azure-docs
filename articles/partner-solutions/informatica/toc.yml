@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Informatica Intelligent Data Management Cloud (IDMC)
+  - name: What is Informatica Intelligent Data Management Cloud (IDMC) 
     href: informatica-overview.md
 - name: Quickstarts
   expanded: true
