@@ -27,17 +27,17 @@ You can get support for your Informatica deployment through a **New Support requ
 
 The Informatica integration must be set up by users who have _Owner_ access on the Azure subscription. Ensure you have the appropriate _Owner_ access before starting to set up this integration.
 
-### Unable to create an Infromatica resource when the details are not present in User profile
+### Unable to create an Informatica resource when the details are not present in User profile
 
-User profile needs to be updated with Key business information for Informatica resource creation. You can update the by 
+User profile needs to be updated with Key business information for Informatica resource creation. You can update by:
 
 1. Select **Users** and fill out the details.
      :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile.png" alt-text="Screenshot of a user resource provider in the Azure portal.":::
 
-1. Search with **UserName** in users interface
+1. Search with **UserName** in users interface.
     :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-two.png" alt-text="Screenshot of a searching for user in the Azure portal.":::
 
-1. Edit **UserInformttion**
+1. Edit **UserInformation**.
     :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-three.png" alt-text="Screenshot of a user information in the Azure portal.":::
 
 ## Next steps
