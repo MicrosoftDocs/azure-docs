@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # Overview of general troubleshooting strategies
 
-Ensuring a satifying experience during a call requires many elements to work together:
+Ensuring a satisfying experience during a call requires many elements to work together:
 
 * stable network and hardware environment
 * good user interface design
@@ -48,7 +48,7 @@ Understanding the issue reproducibility and how many users are affected can help
 
 ## Referring to documentation
 
-The documenation for Azure Communication Services Calling SDK is rich and covers many subjects,
+The documentation for Azure Communication Services Calling SDK is rich and covers many subjects,
 including concept documents, quickstart guides, tutorials, known issues, and troubleshooting guides.
 
 Take time to check the known issues and the service limitation page.
@@ -65,12 +65,12 @@ and follow the instructions provided to further troubleshoot the problem.
 
 If the issue reported by the user isn't present in the troubleshooting guide, consider reporting the issue.
 
-In most cases, you need to provide the callId togethr with a clear description of the issue.
+In most cases, you need to provide the callId together with a clear description of the issue.
 If you're able to reproduce the issue, include details related to the issue. For instance,
 
 * steps to reproduce the issue, including preconditions (platform, network conditions, ect...)
 * what result do you expect to see
-* what result are you actually see
+* what result do you actually see
 * reproducibility rate of the issue
 
 For more information, see [Reporting an issue](./reporting-an-issue.md).
