@@ -1,7 +1,7 @@
 ---
 title: Vector database
 titleSuffix: Azure Cosmos DB
-description: Vector database
+description: Vector database functionalities, implementation, and comparison.
 author: wmwxwa
 ms.author: wangwilliam
 ms.reviewer: sidandrews
@@ -27,7 +27,13 @@ A vector database is a database designed to store and manage [vector embeddings]
 
 In a vector database, embeddings are indexed and queried through [vector search](#vector-search) algorithms based on their vector distance or similarity. A robust mechanism is necessary to identify the most relevant data. Some well-known vector search algorithms include Hierarchical Navigable Small World (HNSW), Inverted File (IVF), DiskANN, etc.
 
-Besides the typical vector database functionalities above, an integrated vector database in a highly performant NoSQL or relational database converts the existing raw data in your account into embeddings and stores them alongside your original data. This way, you can avoid the extra cost of replicating your data in a separate vector database. Moreover, this architecture keeps your vector embeddings and original data together, which better facilitates multi-modal data operations, and you can achieve greater data consistency, scale, and performance.
+### Integrated vector database vs pure vector database
+
+There are two common types of vector database implementations - pure vector database and integrated vector database in a NoSQL or relational database.
+
+A pure vector database is designed to efficiently store and manage vector embeddings, along with a small amount of metadata; it is separate from the data source from which the embeddings are derived.
+
+A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database converts the existing data in a NoSQL or relational database into embeddings and stores them alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## What are some vector database use cases?
 
