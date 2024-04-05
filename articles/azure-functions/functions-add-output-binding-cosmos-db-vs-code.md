@@ -42,7 +42,7 @@ Now, you create an Azure Cosmos DB account as a [serverless account type](../cos
 
     |Prompt| Selection|
     |--|--|
-    |**Select an Azure Database Server**| Choose **Core (SQL)** to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB](../cosmos-db/introduction.md). |
+    |**Select an Azure Database Server**| Choose **Core (NoSQL)** to create a document database that you can query by using a SQL syntax or a Query Copilot ([Preview](../cosmos-db/nosql/query/how-to-enable-use-copilot.md) converting natural language prompts to queries. [Learn more about the Azure Cosmos DB](../cosmos-db/introduction.md). |
     |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
     |**Select a capacity model**| Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. 
     |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
