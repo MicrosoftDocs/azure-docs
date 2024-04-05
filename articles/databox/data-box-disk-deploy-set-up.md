@@ -55,7 +55,7 @@ Before you begin, make sure that:
     - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
     - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.
 
-## Unpack your disks
+## Unpack disks
 
  Perform the following steps to unpack your disks.
 
@@ -70,7 +70,7 @@ Before you begin, make sure that:
 
 4. Save the box and packaging foam for return shipment of the disks.
 
-## Connect to disks and get the passkey
+## Connect disks and get the passkey
 
 > [!IMPORTANT]
 > Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk Unlock tool**.
@@ -85,7 +85,7 @@ Before you begin, make sure that:
 
 Depending on whether you are connected to a Windows or Linux client, the steps to unlock the disks are different.
 
-## Unlock disks on Windows client
+## Unlock disks
 
 Perform the following steps to connect and unlock your disks.
 
@@ -328,7 +328,7 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
 
     The following example output confirms that the validation completed successfully.
    
-    :::image type="content" source="media/data-box-disk-quickstart-portal/scan-results.png" alt-text="Screen capture showing the successful results when scanning a system for Data Box Disks." lightbox="media/data-box-disk-quickstart-portal/scan-results-lrg.png":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/scan-results.png" alt-text="Screen capture showing the successful results when scanning a system for Data Box Disks." lightbox="media/data-box-disk-deploy-set-up/scan-results-lrg.png":::
 
     ### [Another distro](#tab/another)
 
@@ -342,7 +342,7 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
      sedutil-cli --query <volume> 
      ```
 
-    :::image type="content" source="media/data-box-disk-quickstart-portal/disk-serial.png" alt-text="Screen capture of example output of the sedutil tool showing identified volumes." lightbox="media/data-box-disk-quickstart-portal/disk-serial-lrg.png":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-serial.png" alt-text="Screen capture of example output of the sedutil tool showing identified volumes." lightbox="media/data-box-disk-deploy-set-up/disk-serial-lrg.png":::
    
 1.	Run the **Data Box Disk Unlock Utility** from the Linux toolset extracted in a previous step. Supply the passkey from the Azure portal you obtained from the **Connect to disks** section. Optionally, you can specify a list of Bitlocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes as shown in the following example.
 
@@ -353,7 +353,7 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
    
     The following example output indicates that the volume was successfully unlocked. The mount point is also displayed for the volume in whick your data can be copied.
 
-    :::image type="content" source="media/data-box-disk-quickstart-portal/disk-unlocked.png" alt-text="Screen capture showing showing a successfully unlocked data box disk.":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlocked.png" alt-text="Screen capture showing showing a successfully unlocked data box disk.":::
 
     > [!IMPORTANT]
     > Repeat the steps to unlock the disk for any future disk reinserts.
@@ -365,7 +365,7 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
     ```
 
     The following image shows the sample output.
-    :::image type="content" source="media/data-box-disk-quickstart-portal/help-output.png" alt-text="Screen capture displaying sample output from the Data Box Disk Unlock Utility help command." lightbox="media/data-box-disk-quickstart-portal/help-output-lrg.png":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/help-output.png" alt-text="Screen capture displaying sample output from the Data Box Disk Unlock Utility help command." lightbox="media/data-box-disk-deploy-set-up/help-output-lrg.png":::
 
 1. After the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to folders based on the desired destination data type.
 1. After the required data is copied to the disk, make sure to unmount and remove the disk safely using the following command.

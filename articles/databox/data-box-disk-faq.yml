@@ -154,7 +154,7 @@ sections:
         answer: |
           In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal for your operating system. Run the tool on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks. 
           
-          For step-by-step instructions, go to [Unlock disks on a Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on a Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
+          For step-by-step instructions, go to [Unlock disks](data-box-disk-deploy-set-up.md#unlock-disks).
           
       - question: |
           Can I use a Linux host computer to connect and copy the data on to the Data Box Disks?
