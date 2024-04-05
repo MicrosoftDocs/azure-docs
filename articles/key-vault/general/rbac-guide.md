@@ -345,7 +345,7 @@ New-AzRoleDefinition -InputFile role.json
 
 # [Azure portal](#tab/azure-portal)
 
-test
+See [Create or update Azure custom roles using the Azure portal](./../role-based-access-control/custom-roles-portal.md).
 
 ---
 
