@@ -53,6 +53,9 @@
           href: quickstart-container-apps.md
     - name: Deployment
       items:
+        - name: Overview
+          href: quickstart-deployment-overview.md
+          displayName: ARM, Resource Manager, Template
         - name: Bicep
           href: quickstart-bicep.md
           displayName: ARM, Resource Manager, Template
