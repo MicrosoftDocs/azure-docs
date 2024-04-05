@@ -14,10 +14,10 @@ ms.subservice: calling
 
 # Reporting an issue
 
-If the issue reported by the user can't be found in the troubleshooting guide, you may want to consider reporting the issue.
+If the issue reported by the user can't be found in the troubleshooting guide, consider reporting the issue.
 
 Sometimes the problem comes from the app itself.
-In this case, you can test the calling sample
+In this case, you can test the issue against the calling sample
 [https://github.com/Azure-Samples/communication-services-web-calling-tutorial](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) 
 to see if the problem can also be reproduced in the calling sample.
 
