@@ -4131,7 +4131,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-using-migration-tool.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-using-migration-tool",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
             "redirect_document_id": false
         },
         {
@@ -6257,6 +6257,46 @@
         {
             "source_path_from_root": "/articles/azure-monitor/autoscale/tutorial-autoscale-performance-schedule.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-automatic-migration.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-automatic-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-classic.overview.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-classic.overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-classic-portal.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-classic-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-enable-template.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-enable-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-prepare-migration.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-prepare-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-understand-migration.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-understand-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-webhooks.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-webhooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/api-alerts.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/api-alerts",
             "redirect_document_id": false
         },
         {
