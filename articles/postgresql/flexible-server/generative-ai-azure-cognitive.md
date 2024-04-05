@@ -93,8 +93,8 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 ### `azure_cognitive.detect_language`
 
 ```postgresql
-azure_cognitive.detect_language(text text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000(
-azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000(
+azure_cognitive.detect_language(text text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
+azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 ```
 
 #### Arguments
