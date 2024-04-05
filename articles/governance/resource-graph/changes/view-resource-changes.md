@@ -35,9 +35,13 @@ Realistically, you only want to see the change history results for the resources
 
 ### Filter
 
-To narrow down the change history results to your specific needs, start by using any of the filters available on the **All Resources** blade. 
+Use any of the filters available at the top of the Change Analysis blade to narrow down the change history results to your specific needs.
 
-:::image type="content" source="./media/view-resource-changes/all-resources-filter.png" alt-text="Screenshot of the filters available on the All Resources blade that help narrow down the Change Analysis results.":::
+:::image type="content" source="./media/view-resource-changes/changes-filter.png" alt-text="Screenshot of the filters available on the Change Analysis blade that help narrow down the Change Analysis results.":::
+
+You may need to reset filters set on the **All resources** blade in order to use the resource changes filters.
+
+:::image type="content" source="./media/view-resource-changes/reset-filters.png" alt-text="Screenshot of the banner indicating that you may need to reset filters from the All Resources blade.":::
 
 | Filter | Description |
 | ------ | ----------- |
