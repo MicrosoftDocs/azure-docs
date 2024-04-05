@@ -23,7 +23,9 @@ The surge of AI-powered applications created another layer of complexity, becaus
 
 Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from caching to backup to vector search. It provides the data infrastructure for modern applications like AI, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
 
-## An AI database providing industry-leading capabilities... for free
+## An AI database providing industry-leading capabilities...
+
+## ...for free
 
 Azure Cosmos DB is a fully managed NoSQL, relational, and vector database. It offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
 
@@ -49,11 +51,11 @@ Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
 
-## An AI database for more than just AI apps
+## ...for more than just AI apps
 
 Besides AI, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
-## An AI database with unmatched reliability and flexibility
+## ...with unmatched reliability and flexibility
 
 ### Guaranteed speed at any scale
 
