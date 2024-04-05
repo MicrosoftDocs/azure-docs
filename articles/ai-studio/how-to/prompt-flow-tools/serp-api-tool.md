@@ -70,7 +70,7 @@ The following input parameters are available.
 
 ## Outputs
 
-The JSON representation from a `serpapi` query.
+The JSON representation from a `serpapi` query:
 
 | Engine   | Return type | Output                                                |
 |----------|-------------|-------------------------------------------------------|
