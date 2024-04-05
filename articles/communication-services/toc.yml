@@ -395,7 +395,7 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
-        - name: How to migrate from Twilio video to Azure Communication Services
+        - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
@@ -652,6 +652,10 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Migrate to Azure Communication Services
+      items:
+      - name: Migrate from Twilio Video to Azure Communication Services
+        href: concepts/migrate-to-azure-communication-services.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation

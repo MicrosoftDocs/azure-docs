@@ -178,18 +178,18 @@ items:
       displayName: endpoint
     - name: Deploy Azure OpenAI models
       href: how-to/deploy-models-openai.md
-    - name: Deploy Llama 2 family models
-      href: how-to/deploy-models-llama.md
-      displayName: maas, as a service
-    - name: Deploy Mistral family models
-      href: how-to/deploy-models-mistral.md
-      displayName: maas, as a service
     - name: Deploy Cohere models
       items:
       - name: Deploy Cohere Command models
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+    - name: Deploy Llama 2 family models
+      href: how-to/deploy-models-llama.md
+      displayName: maas
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
