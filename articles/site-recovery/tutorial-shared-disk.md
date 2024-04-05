@@ -52,7 +52,7 @@ To enable replication for shared disks, follow these steps:
 
     :::image type="content" source="media/tutorial-shared-disk/enable-site-replication.png" alt-text="Screenshot showing Enable Replication.":::
 
-1. In the **Enable Replication** page, do the following:
+1. In the **Enable replication** page, do the following:
     1. Under the **Source** tab, 
         1. Select the **Region**, **Subscription**, and the **Resource group** your virtual machines are in.
         1. Retain values for the **Virtual machine deployment model** and **Disaster recovery between availabiity zone?** fields.
@@ -62,7 +62,7 @@ To enable replication for shared disks, follow these steps:
 
     1. Under the **Virtual machines** tab, select all the virtual machines that are part of your cluster. 
         > [!NOTE]
-        > - Ensure to select all the virtual machines representing your cluster. If you wish to protect multiple clusters, select all the virtual machines of all the clusters in this step.
+        > - If you wish to protect multiple clusters, select all the virtual machines of all the clusters in this step.
         > - If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected.    
         > - Don’t select the Active Directory virtual machines as Azure Site Recovery shared disk doesn't support Active Directory virtual machines.
 
@@ -70,16 +70,12 @@ To enable replication for shared disks, follow these steps:
         :::image type="content" source="media/tutorial-shared-disk/enable-replication-machines.png" alt-text="Screenshot showing select virtual machines.":::
  
 
-    1. Under **Replication settings** tab, 
-        1. in the **Storage** section, select **View/edit storage configuration**. The **Customize target settings** page opens. You can view and confirm the shared disk settings on this page.        
-        1. Retain values for all other fields.
+    1. Under **Replication settings** tab, retain values for all  fields. In the **Storage** section, select **View/edit storage configuration**. 
         
         :::image type="content" source="media/tutorial-shared-disk/enable-replication-settings.png" alt-text="Screenshot showing shared disk settings.":::
 
-
  
-    1. If your virtual machines have a protected shared disk, you see a **Shared disks** tab on the **Customize target settings** page. 
-        On the **Customize target settings** page > **Shared disks** tab, do the following:
+    1. If your virtual machines have a protected shared disk, on the **Customize target settings** page > **Shared disks** tab, do the following:
         1. Verify the name and recovery disk type of the shared disks. 
         1. To enable high churn, select the *Churn for the virtual machine* option for your disk.
         1. Select **Confirm Selection**. 
@@ -95,7 +91,7 @@ To enable replication for shared disks, follow these steps:
     
             :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
 
-        We recommend that you use the same name as your cluster
+        We recommend that you use the same name as your cluster.
     1. Under **Replication policy** section, select an appropriate replication policy and extension update settings.
     1. Review the information and select **Enable replication**.  
  
@@ -158,7 +154,7 @@ To failover the cluster to a recovery point, follow these steps:
 1. Select **Failover**.
 
 
-Join these virtual machines back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
+Join these virtual machines back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as successful.
 
 :::image type="content" source="media/tutorial-shared-disk/cluster-failover.png" alt-text="Screenshot showing cluster recovery points.":::
 
@@ -172,11 +168,12 @@ If you want to use a different recovery point for the virtual machine, do the fo
     :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-option.png" alt-text="Screenshot showing recovery options.":::
 
 1. On the **Change recovery point** page, select either the lowest RTO recovery point or a custom date for the recovery point needed. 
-    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point.png" alt-text="Screenshot showing Change Recovery Point options.":::    
+
+    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-field.png" alt-text="Screenshot showing Change Recovery Point."::: 
 
 1. Select **Change recovery point**.
-    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-field.png" alt-text="Screenshot showing Change Recovery Point.":::
 
+    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point.png" alt-text="Screenshot showing Change Recovery Point options.":::   
 
 
 ## Commit failover
