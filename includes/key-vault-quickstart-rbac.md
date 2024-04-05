@@ -19,7 +19,7 @@ az role assignment create --role "Key Vault Secrets User" --assignee "<app-id>" 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To grant your application permissions to your key vault through Role-Based Access Control (RBAC), assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](//powershell/module/az.keyvault/new-azRoleAssignment).
+To grant your application permissions to your key vault through Role-Based Access Control (RBAC), assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.keyvault/new-azRoleAssignment).
 
 ```
 New-AzRoleAssignment -ObjectId "<app-id>" -RoleDefinitionName "Key Vault Secrets User" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
@@ -27,4 +27,4 @@ New-AzRoleAssignment -ObjectId "<app-id>" -RoleDefinitionName "Key Vault Secrets
 
 ---
 
-Replace `<app-id>`, `<subscription-id>`, `<resource-group-name>`, and `<your-unique-keyvault-name>` with your actual values. `<app-id>` is the Application (client) ID of your registered application in Azure AD.
+Replace \<app-id\>, \<subscription-id\>, \<resource-group-name\> and \<your-unique-keyvault-name\> with your actual values. \<app-id\> is the Application (client) ID of your registered application in Azure AD.

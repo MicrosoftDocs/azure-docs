@@ -236,6 +236,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
@@ -294,11 +295,12 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
       ![Secret tab - error](../media/rbac/image-13.png)
 
-### Creating custom roles 
+### Creating custom roles
 
 [az role definition create command](/cli/azure/role/definition#az-role-definition-create)
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az role definition create --role-definition '{ \
    "Name": "Backup Keys Operator", \
@@ -315,6 +317,7 @@ az role definition create --role-definition '{ \
     "AssignableScopes": ["/subscriptions/{subscriptionId}"] \
 }'
 ```
+
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
@@ -339,6 +342,11 @@ $roleDefinition | Out-File role.json
 
 New-AzRoleDefinition -InputFile role.json
 ```
+
+# [Azure portal](#tab/azure-portal)
+
+test
+
 ---
 
 For more Information about how to create custom roles, see:

@@ -15,4 +15,4 @@ To grant your user account permissions to your key vault through Role-Based Acce
 az role assignment create --role "Key Vault Secrets User" --assignee "<your-email-address>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
 ```
 
-Replace `<your-email-address>`, `<subscription-id>`, `<resource-group-name>`, and `<your-unique-keyvault-name>` with your actual values. `<your-email-address>` is your sign-in name.
+Replace \<your-email-address\>, \<subscription-id\>, \<resource-group-name\> and \<your-unique-keyvault-name\> with your actual values. \<your-email-address\> is your sign-in name.
