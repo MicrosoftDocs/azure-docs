@@ -89,7 +89,7 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
-      ....
+      ...
     }
   }
 }
