@@ -110,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
+To learn about adding feature flag and Key Vault reference to an App Configuration store, check ARM template examples below.
 
 - [ARM template for feature flag](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
 - [ARM template for Key Vault reference](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
