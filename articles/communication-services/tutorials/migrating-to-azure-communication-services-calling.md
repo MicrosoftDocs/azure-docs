@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Migrating from Twilio video to ACS
+title: Tutorial - Migrate from Twilio Video to Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to migrate a calling product from Twilio to Azure Communication Services.
+description: Learn how to migrate a calling product from Twilio Video to Azure Communication Services.
 author: sloanster
 services: azure-communication-services
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 ---
 
-# Migrating from Twilio Video to Azure Communication Services
+# Migrate from Twilio Video to Azure Communication Services
 
 This article describes how to migrate an existing Twilio Video implementation to the [Azure Communication Services Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md). Both Twilio Video and Azure Communication Services Calling SDK are cloud-based platforms that enable developers to add voice and video calling features to their web applications.
 

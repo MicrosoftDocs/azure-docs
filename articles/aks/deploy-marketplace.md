@@ -61,10 +61,9 @@ Kubernetes application-based container offers can't be deployed on AKS for Azure
 1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under **Categories** select **Containers**.
 
    :::image type="content" source="./media/deploy-marketplace/containers-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the container category on the left side highlighted." lightbox="./media/deploy-marketplace/containers.png":::
-
+   
    > [!IMPORTANT]
-   > The **Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
-
+   > The **Containers** category includes Kubernetes applications. This walkthrough is specific to Kubernetes applications. 
 1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
 
    :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal. 'See More' is highlighted." lightbox="./media/deploy-marketplace/see-more.png":::
@@ -183,6 +182,7 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 
 - Learn more about [exploring and analyzing costs][billing].
 - Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
+
 - Learn more about [deploying a Kubernetes application through an ARM template](/azure/aks/deploy-application-template)
 
 <!-- LINKS -->
