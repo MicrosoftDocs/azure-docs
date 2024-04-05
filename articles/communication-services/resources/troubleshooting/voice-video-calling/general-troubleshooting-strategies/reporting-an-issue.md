@@ -46,15 +46,9 @@ In most cases, you also need to include details, such as
   * browser name and version
   * ACS SDK version
 * call info
-  * Call Id (if the issue happened during a call)
+  * Call Id (when the issue happened during a call)
   * Participant Id (if there were multiple participants in the call, but only some of them experienced the issue)
 
 If you can only reproduce the issue on a specific device platform (for example, iPhone X), also include the device model when you report the issue.
 
-Depending on the type of issue, we may ask you to provide additional logs when we investigate the issue.
-
-## Related links
-
-TODO:
-Link how to gather logs / callid /etc
-
+Depending on the type of issue, we may ask you to provide logs when we investigate the issue.
