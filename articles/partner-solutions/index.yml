@@ -90,5 +90,5 @@ productDirectory:
     - title: Informatica
       imageSrc: ./media/index/informatica.svg
       links:
-        - url: ./astronomer/informatica-overview.md
+        - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.

@@ -15,7 +15,7 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 - An Informatica Orgnization. If you don't have an Informtica Organization. Please refer to [Get started with Informatica – An Azure Native ISV Service](informatica-create.md)
 
-- NAT gateway is enabled for Subnet used for creation of serverless runtime environment. Please refer to [Get started with Informatica – An Azure Native ISV Service] ( https://learn.microsoft.com/en-us/azure/nat-gateway/quickstart-create-nat-gateway-portal)
+- A NAT gateway is enabled for the subnet used for creation of serverless runtime environment. Please refer to [Quickstart: Create a NAT gateway using the Azure portal](azure/nat-gateway/quickstart-create-nat-gateway-portal).
 
 ## Create an advanced serverless deployment
 

@@ -32,13 +32,13 @@ The Informatica integration must be set up by users who have _Owner_ access on t
 User profile needs to be updated with Key business information for Informatica resource creation. You can update the by 
 
 1. Select **Users** and fill out the details.
-     :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile.png" alt-text="Screenshot of a user resource provider":::
+     :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile.png" alt-text="Screenshot of a user resource provider in the Azure portal.":::
 
 1. Search with **UserName** in users interface
-    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profiletwo.png" alt-text="Screenshot of a searching for user":::
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profiletwo.png" alt-text="Screenshot of a searching for user in the Azure portal.":::
 
 1. Edit **UserInformttion**
-    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profilethree.png" alt-text="Screenshot of a user information":::
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profilethree.png" alt-text="Screenshot of a user information in the Azure portal.":::
 
 ## Next steps
 
