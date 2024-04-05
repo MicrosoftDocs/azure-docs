@@ -244,7 +244,7 @@ You can lock down a search service to prevent it from admitting any request from
 
 1. Select **Disabled** on the **Firewalls and virtual networks** tab.
 
-You can also use the [Azure CLI](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update), [Azure PowerShell](/powershell/module/az.search/set-azsearchservice), or the [Management REST API](/rest/api/searchmanagement/services/update), setting `public-access` or `public-network-access` to `disabled`.
+You can also use the [Azure CLI](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update&preserve-view=true), [Azure PowerShell](/powershell/module/az.search/set-azsearchservice), or the [Management REST API](/rest/api/searchmanagement/services/update), setting `public-access` or `public-network-access` to `disabled`.
 
 ## Clean up resources
 

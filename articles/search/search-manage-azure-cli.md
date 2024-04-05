@@ -26,7 +26,7 @@ You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in Azure
 Use the [**az search module**](/cli/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
-> * [List search services in a subscription](#list-search-services)
+> * [List search services in a subscription](#list-services-in-a-subscription)
 > * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Create a service with a private endpoint](#create-a-service-with-a-private-endpoint)

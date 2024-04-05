@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 0403/2024
+ms.date: 04/03/2024
 ---
 
 # Make outbound connections through a shared private link
