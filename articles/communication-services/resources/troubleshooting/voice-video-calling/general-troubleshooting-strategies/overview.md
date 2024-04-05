@@ -19,7 +19,7 @@ stable network and hardware environment, good user interface design, and timely 
 
 When your app utilizes the ACS Calling SDK to integrate audio and video call functionality,
 if there are any issues reported by users related to the call,
-it is very important to clarify whether the issue belongs to the app, SDK, or the user's environment (including device, network, browser, etc.).
+it's very important to clarify whether the issue belongs to the app, SDK, or the user's environment (including device, network, browser, etc.).
 
 But how do you approach troubleshooting in a way that's effective and efficient?
 In this article, we'll explore some strategic approaches to troubleshooting that can help you get to the root of the problem more quickly and easily.
@@ -46,7 +46,7 @@ For some issues, we can also use Call Diagnostics tool and Azure Logs to underst
 
 Understanding the frequency of the problem occurrence and how many users are affected can help you decide the priority of the issue.
 
-## Refering to document
+## Referring to document
 
 There are many document resources available for Azure Communication Services Calling SDK,
 including concept documents, quickstart guides, tutorials, known issues, and troubleshooting guides.
@@ -57,14 +57,15 @@ Or it could be due to the behavior of the user's browser or device itself.
 For example, if a mobile browser is running in the background or the phone is locked, the browser may stop sending video frames or only send black frames.
 
 The troubleshooting guide, in particular, addresses various issues that may arise when using the ACS Calling SDK.
-You can check the list of common issues in the troubleshooting guide to see if there is a similar issue reported by the user,
+You can check the list of common issues in the troubleshooting guide to see if there's a similar issue reported by the user,
 and follow the instructions provided to further troubleshoot the problem.
 
 ## Reporting an issue
 
-If the issue reported by the user cannot be found in the troubleshooting guide, you may want to consider reporting the issue.
+If the issue reported by the user can't be found in the troubleshooting guide, you may want to consider reporting the issue.
 
-In most cases, you will need to provide the callId and clear description of the issue.
-If you are able to reproduce the issue, please include details, such as reproduction steps, expected result, actual result, and how often the issue occurs when you reproduce the issue.
+In most cases, you'll need to provide the callId and clear description of the issue.
+If you're able to reproduce the issue, include details, such as reproduction steps, expected result, actual result, and how often the issue occurs when you reproduce the issue.
 
-Please check [Reporting an issue](./reporting-an-issue.md) for further information.
+See [Reporting an issue](./reporting-an-issue.md) for further information.
+
