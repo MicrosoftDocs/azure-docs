@@ -189,6 +189,8 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    - name: Manage domain suppression lists with Azure Communication Services Management SDKs
+      href: quickstarts/email/manage-suppression-list-management-sdks.md
     - name: Sending emails using SMTP 
       items:
         - name: Setting up SMTP Authentication

@@ -103,7 +103,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 *abfsGen2.java*
 
 > [!Note]
-> Replace [Apache Kafka on HDInsight cluster](../../hdinsight/kafka/apache-kafka-get-started.md) bootStrapServers with your own brokers for Kafka 2.4 or 3.2
+> Replace [Apache Kafka on HDInsight cluster](../../hdinsight/kafka/apache-kafka-get-started.md) bootStrapServers with your own brokers for Kafka 3.2
 
 ``` java
 package contoso.example;
