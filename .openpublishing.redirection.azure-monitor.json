@@ -6625,7 +6625,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/azure-monitor/azure-monitor-monitoring-reference.md",
+            "source_path_from_root": "/articles/azure-monitor/azure-monitor-monitoring-reference.md",
             "redirect_url": "/azure/azure-monitor/monitor-azure-monitor-reference",
             "redirect_document_id": false
         },
