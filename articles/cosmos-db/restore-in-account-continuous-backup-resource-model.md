@@ -30,7 +30,7 @@ The `RestoreParameters` resource contains the restore operation details incl
 
 The following JSON is a sample database account resource with continuous backup enabled:
 
-```json
+``` 
 { 
     "properties": { 
         "resource": { 
@@ -46,7 +46,7 @@ The following JSON is a sample database account resource with continuous backup 
 
 The following JSON is a sample MongoDB collection restore request in a subscription with an ID of `00000000-0000-0000-0000-000000000000`, an account with an instance ID of `abcd1234-d1c0-4645-a699-abcd1234`, a collection named `legacy-records-coll`, and the timestamp `2023-01-01T00:00:00Z`.
 
-```json
+``` 
 { 
     "properties": { 
         "resource": { 
