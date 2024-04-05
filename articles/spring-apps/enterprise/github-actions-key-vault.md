@@ -56,11 +56,11 @@ The credential you created above can get only general information about the Key 
 
 Go to the **Key Vault** dashboard in Azure portal, select the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type** and `This resource` for **scope**.  You should see the credential you created in previous step:
 
-:::image type="content" source="media/github-actions-key-vault/key-vault1.png" alt-text="Set access policy" lightbox="media/github-actions-key-vault/key-vault1.png":::
+:::image type="content" source="media/github-actions-key-vault/key-vault1.png" alt-text="Screenshot of the Azure portal that shows the Access control page with the Role assignments tab highlighted." lightbox="media/github-actions-key-vault/key-vault1.png":::
 
 Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the **Access policies** menu, then select the **Add Access Policy** link.  Select `Secret Management` for **Template**, then select **Principal**. Paste the credential name in **Principal**/**Select** input box:
 
-:::image type="content" source="media/github-actions-key-vault/key-vault2.png" alt-text="Select" lightbox="media/github-actions-key-vault/key-vault2.png":::
+:::image type="content" source="media/github-actions-key-vault/key-vault2.png" alt-text="Screenshot of the Azure portal that shows the Add access policy page with the Principal pane open." lightbox="media/github-actions-key-vault/key-vault2.png":::
 
 Select the **Add** button in the **Add access policy** dialog, then select **Save**.
 
@@ -90,7 +90,7 @@ Again, results:
 
 Copy the entire JSON string.  Go back to **Key Vault** dashboard. Open the **Secrets** menu, then select the **Generate/Import** button. Input the secret name, such as `AZURE-CREDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text field, rather than a multi-line text area.  You can paste the complete JSON string there.
 
-:::image type="content" source="media/github-actions-key-vault/key-vault3.png" alt-text="Full scope credential" lightbox="media/github-actions-key-vault/key-vault3.png":::
+:::image type="content" source="media/github-actions-key-vault/key-vault3.png" alt-text="Screenshot of the Azure portal that shows the Create a secret page." lightbox="media/github-actions-key-vault/key-vault3.png":::
 
 ## Combine credentials in GitHub Actions
 

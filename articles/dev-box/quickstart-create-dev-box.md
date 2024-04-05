@@ -76,7 +76,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 ## Connect to a dev box
 
-After you create a dev box, you can connect remotely to the developer virtual machine. Microsoft Dev Box supports connecting to a dev box in the following ways:
+After you create a dev box, you can connect remotely to the developer virtual machine. You can connect from your desktop, laptop, tablet, or phone. Microsoft Dev Box supports connecting to a dev box in the following ways:
 
 - Connect through the browser from within the developer portal
 - Connect by using a remote desktop client application

@@ -1,5 +1,5 @@
 ---
-title: Send browser (web push) notifications with Azure Notification Hubs (preview)
+title: Send browser (web push) notifications with Azure Notification Hubs
 description: Learn about support for browser push notifications in Azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
@@ -7,18 +7,15 @@ manager: femila
 ms.service: notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: article
-ms.date: 03/14/2024
+ms.date: 03/19/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 03/14/2024
+ms.lastreviewed: 03/19/2024
 ---
 
-# Web push notifications with Azure Notification Hubs (preview)
+# Web push notifications with Azure Notification Hubs
 
 This article describes how to send browser push notifications to single users through Azure Notification Hubs.
-
-> [!NOTE]
-> This feature is currently in preview. To access browser push features [on the Azure portal, use this link](https://portal.azure.com/?feature.browserpush=true).
 
 At a high level, the process is:
 
@@ -86,9 +83,7 @@ To subscribe to browser push notifications on your web site, you can use VAPID k
 
 ### Set credentials in Azure portal
 
-You can set credentials for browser push in the Azure portal using the browser credentials. For the preview, [use this link to access the Azure portal](https://portal.azure.com/?feature.browserpush=true) in order to manage browser push features.
-
-To set browser push credentials in the portal, follow these steps:
+To set browser push credentials in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open the **Browser (Web Push)** blade in your notification hub.
 

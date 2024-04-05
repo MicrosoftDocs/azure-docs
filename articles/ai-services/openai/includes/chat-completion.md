@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 11/02/2023
+ms.date: 04/05/2024
 manager: nitinme
 keywords: ChatGPT
 
@@ -16,6 +16,9 @@ keywords: ChatGPT
 
 The following code snippet shows the most basic way to use the GPT-3.5-Turbo and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [GPT-3.5-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
+> [!NOTE]  
+> In the Azure OpenAI documentation we refer to GPT-3.5-Turbo, and GPT-35-Turbo interchangeably. The official name of the model on OpenAI is `gpt-3.5-turbo`, but for Azure OpenAI due to Azure specific character constraints the underlying model name is `gpt-35-turbo`.
+
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -24,7 +27,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 
@@ -110,11 +113,13 @@ Microsoft was founded by Bill Gates and Paul Allen. They established the company
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -171,7 +176,7 @@ Every response includes a `finish_reason`. The possible values for `finish_reaso
 * **stop**: API returned complete model output.
 * **length**: Incomplete model output due to max_tokens parameter or token limit.
 * **content_filter**: Omitted content due to a flag from our content filters.
-* **null**:API response still in progress or incomplete.
+* **null**: API response still in progress or incomplete.
 
 Consider setting `max_tokens` to a slightly higher value than normal such as 300 or 500. This ensures that the model doesn't stop generating text before it reaches the end of the message.
 
@@ -312,7 +317,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )
 
@@ -338,7 +343,7 @@ while True:
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -359,7 +364,7 @@ while True:
 
 ---
 
-When you run the code above you will get a blank console window. Enter your first question in the window and then hit enter. Once the response is returned, you can repeat the process and keep asking questions.
+When you run the code above you'll get a blank console window. Enter your first question in the window and then hit enter. Once the response is returned, you can repeat the process and keep asking questions.
 
 ## Managing conversations
 
@@ -383,7 +388,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 )
 
@@ -462,7 +467,7 @@ import openai
 import os
 
 openai.api_type = "azure"
-openai.api_version = "2023-05-15" 
+openai.api_version = "2024-02-01" 
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
@@ -500,7 +505,7 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
         return num_tokens_from_messages(messages, model="gpt-4-0613")
     else:
         raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+            f"""num_tokens_from_messages() is not implemented for model {model}."""
         )
     num_tokens = 0
     for message in messages:
@@ -539,6 +544,16 @@ In this example, once the token count is reached, the oldest messages in the con
 An alternative approach is to limit the conversation duration to the max token length or a certain number of turns. Once the max token limit is reached and the model would lose context if you were to allow the conversation to continue, you can prompt the user that they need to begin a new conversation and clear the messages list to start a brand new conversation with the full token limit available.
 
 The token counting portion of the code demonstrated previously is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
+
+## Troubleshooting
+
+### Don't use ChatML syntax with the Chat Completions endpoint
+
+We have found that some customers will try using the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model which is [slated for retirement](../concepts/model-retirements.md). Attempting to use ChatML syntax with newer models and the chat completions endpoint can result errors as well as unexpected model response behavior, and is not recommended.  
+
+| Error |Cause | Solution |
+|---|---|---|
+| 400 - *Failed to generate output due to special tokens in the input.*  | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array does not contain any legacy ChatML tokens. If you are upgrading from a legacy model, please exclude all special tokens before submitting an API request to the model.|
 
 ## Next steps
 

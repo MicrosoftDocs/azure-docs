@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 03/20/2024
 
-#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose connectivity problems in Azure.
+#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal.
 ---
 
 # Troubleshoot outbound connections using the Azure portal
@@ -18,13 +18,20 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- A virtual machine with Network Watcher agent VM extension installed on it. To manually install the agent, see [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json) or [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json). To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+
+- Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+
+- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
+    - to 169.254.169.254 over port 80
+    - to 168.63.129.16 over port 8037
+
 - A second virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested (for Port scanner diagnostic test).
 
 > [!NOTE]
-> - By default, Azure enables Network Watcher in a region when you create a virtual network in it.
-> - When you use connection troubleshoot, Azure automatically installs the Network Watcher agent VM extension on the source virtual machine if it's not already installed. 
+> When you use connection troubleshoot, Azure portal automatically installs the Network Watcher agent VM extension on the source virtual machine if it's not already installed.
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 
 ## Test connectivity to a virtual machine
 
@@ -108,7 +115,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
 ## Test connectivity to a web address
 
-In this section, you test connectivity between a virtual machine and a web address.
+In this section, you test the connectivity between a virtual machine and a web address.
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -150,7 +157,7 @@ In this section, you test connectivity between a virtual machine and a web addre
 
 ## Test connectivity to an IP address
 
-In this section, you test connectivity between a virtual machine and an IP address of another virtual machine.
+In this section, you test the connectivity between a virtual machine and an IP address of another virtual machine.
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -165,7 +172,7 @@ In this section, you test connectivity between a virtual machine and an IP addre
     | **Probe Settings** |  |
     | Preferred IP version | Select **IPv4**. The other available options are: **Both** and **IPv6**. |
     | Protocol | Select **TCP**. The other available option is: **ICMP**. |
-    | Destination port | Enter any port number. Connection troubleshoot doesn't run port scanner test when the destination is an IP address. |
+    | Destination port | Enter **3389**. |
     | Source port | Leave blank or enter a source port number that you want to test. |
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, and **Next hop**. |

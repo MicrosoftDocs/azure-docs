@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 02/19/2024
+ms.date: 04/01/2024
 ms.reviewer: sharrai
 ms.service: backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -19,6 +19,11 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 >- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Premium SSD v2](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
 >- Enhanced policy now supports protecting both Ultra SSD and Premium SSD v2.
 >- Backups for VMs having [data access authentication enabled disks](../virtual-machines/windows/download-vhd.md?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
+>- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
+>- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
+
+
+
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
@@ -57,7 +62,7 @@ Follow these steps:
 
 5. On **Create policy**, perform the following actions:
 
-   - **Policy sub-type**: Select **Enhanced** type. By default, the policy type is set to **Standard**.
+   - **Policy sub-type**: Select **Enhanced** type.
    
      :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot showing to select backup policies subtype as enhanced.":::
 	 
@@ -256,7 +261,6 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
->- We support Enhanced policy configuration through [Recovery Services vault](./backup-azure-arm-vms-prepare.md) and [VM Manage blade](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
 >- For hourly backups, the last backup of the day is transferred to vault. If backup fails, the first backup of the next day is transferred to vault.
 >- Enhanced policy is only available to unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
 >- Back up an Azure VM with disks that has public network access disabled is not supported.

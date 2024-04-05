@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/02/2024
+ms.date: 03/20/2024
 ---
 
 # Use Bicep linter

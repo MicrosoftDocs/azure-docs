@@ -2,10 +2,10 @@
 title: Azure Communication Services Voice and Video Insights Preview
 titleSuffix: An Azure Communication Services concept document
 description: Descriptions of data visualizations available for Voice and Video Communications Services via Workbooks
-author:  timmitchell
+author:  mkhribech
 services: azure-communication-services
 
-ms.author: timmitchell
+ms.author: mkhribech
 ms.date: 03/08/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
