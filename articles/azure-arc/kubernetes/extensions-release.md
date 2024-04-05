@@ -174,11 +174,19 @@ Changes made for this version:
 
 For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
 
+## Azure AI Video Indexer
+
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
+
+Azure AI Video Indexer enabled by Arc runs video and audio analysis on edge devices. The solution is designed to run on Azure Stack Edge Profile, a heavy edge device, and supports many video formats, including MP4 and other common formats. It supports several languages in all basic audio-related models.
+
+For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azure-video-indexer/azure-video-indexer-enabled-by-arc-quickstart).
+
 ## Edge Storage Accelerator
 
 - **Supported distributions**: AKS enabled by Azure Arc, AKS Edge Essentials, Ubuntu
 
-[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services.
+[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Azure Arc Services.
 
 For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
 
