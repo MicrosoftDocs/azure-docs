@@ -358,7 +358,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Connect an STMicroelectronics B-L475E-IOT01A to IoT Central](quickstart-devkit-stm-b-l475e.md)
 

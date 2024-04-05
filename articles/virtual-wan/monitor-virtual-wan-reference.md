@@ -54,7 +54,7 @@ $MetricInformation.Data
 
 * **Start Time and End Time** - This time is based on UTC. Ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
 
-* **Sum Aggregation Type** - This aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. The **Max** and **Min** aggregation types aren't meaningful. 
+* **Sum Aggregation Type** - The **sum** aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. For example, if you set the Time granularity to 5 minutes, each data point will correspond to the number of bytes sent in that 5 minute interval. To convert this to Gbps, you can divide this number by 37500000000. Based on the virtual hub's [capacity](hub-settings.md#capacity), the hub router can support between 3 Gbps and 50 Gbps. The **Max** and **Min** aggregation types aren't meaningful at this time. 
  
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
@@ -94,13 +94,15 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 | Metric | Description|
 | --- | --- |
 | **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| **Gateway Inbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.|
+| **Gateway Outbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.|
 | **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
 | **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
 | **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
-| **Tunnel Flow Count** | Number of distinct flows created per link connection.|
+| **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
 
 ### <a name="p2s-metrics"></a>Point-to-site VPN gateway metrics
 

@@ -193,4 +193,4 @@ If the previous steps didn't help, try:
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns).
