@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 04/03/2024
 ---
 
 # Create a Private Endpoint for a secure connection to Azure AI Search
 
-In this article, learn how to secure an Azure AI Search service so that it can't be accessed over a public internet connection:
+In this article, learn how to configure a private connection to Azure AI Search so that it admits requests from clients in a virtual network instead of over a public internet connection:
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
 + [Configure a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
@@ -25,8 +25,15 @@ Private endpoints are provided by [Azure Private Link](../private-link/private-l
 
 You can create a private endpoint for a search service in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
-> [!NOTE]
-> Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
+Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.
+
+Other Azure resources that might privately connect to Azure AI Search include Azure OpenAI for "use your own data" scenarios:
+
++ Follow the instructions in this article to set up the private endpoint.
++ [Submit a request](/azure/ai-services/openai/how-to/use-your-data-securely#disable-public-network-access-1) for Azure OpenAI Studio to connect using your private endpoint.
++ Optionally, [disable public network access]() if connections should only originate from clients in virtual network or from Azure OpenAI over a private endpoint connection.
+
+Azure OpenAI Studio doesn't run in a virtual network, but it can be configured on the backend to send requests over the Microsoft backbone network. Configuration for this traffic pattern is enabled by Microsoft when your request is submitted and approved.
 
 ## Why use a Private Endpoint for secure access?
 
@@ -228,6 +235,16 @@ To work around this restriction, connect to Azure portal from a browser on a vir
 1. Follow the [steps to provision a VM that can access the search service through a private endpoint](#create-virtual-machine-private-endpoint).
 
 1. On a virtual machine in your virtual network, open a browser and sign in to the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
+
+## Disable public network access
+
+You can lock down a search service to prevent it from admitting any request from the public internet. You can use the Azure portal for this step.
+
+1. In the Azure portal, on the leftmost pane of your search service page, select **Networking**.
+
+1. Select **Disabled** on the **Firewalls and virtual networks** tab.
+
+You can also use the [Azure CLI](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update), [Azure PowerShell](/powershell/module/az.search/set-azsearchservice), or the [Management REST API](/rest/api/searchmanagement/services/update), setting `public-access` or `public-network-access` to `disabled`.
 
 ## Clean up resources
 
