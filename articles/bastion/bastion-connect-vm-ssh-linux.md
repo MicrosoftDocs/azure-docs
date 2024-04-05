@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: bastion
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 10/13/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ---
 
@@ -41,7 +41,7 @@ In order to make a connection, the following roles are required:
 In order to connect to the Linux VM via SSH, you must have the following ports open on your VM:
 
 * Inbound port: SSH (22) ***or***
-* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion). This setting requires the **Standard** SKU tier.
+* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion). This setting requires the **Standard** SKU tier or higher.
 
 ## Bastion connection page
 
@@ -51,7 +51,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 1. On the **Bastion** page, the settings that you can configure depend on the Bastion [SKU](bastion-overview.md#sku) tier that your bastion host has been configured to use.
 
-   * If you're using the **Standard** SKU, **Connection Settings** values (ports and protocols) are visible and can be configured.
+   * If you're using the **Standard** SKU or higher, **Connection Settings** values (ports and protocols) are visible and can be configured.
 
       :::image type="content" source="./media/bastion-connect-vm-ssh-linux/bastion-connect-full.png" alt-text="Screenshot shows connection settings for the Standard SKU." lightbox="./media/bastion-connect-vm-ssh-linux/bastion-connect-full.png":::
 
@@ -78,7 +78,7 @@ Use the following steps to authenticate using username and password.
 
 1. To authenticate using a username and password, configure the following settings.
 
-   * **Connection Settings** (Standard SKU only)
+   * **Connection Settings** (Available for the Standard SKU or higher.)
 
      * **Protocol**: Select SSH.
      * **Port**: Specify the port number.
@@ -99,7 +99,7 @@ Use the following steps to authenticate using a password from Azure Key Vault.
 
 1. To authenticate using a password from Azure Key Vault, configure the following settings.
 
-   * **Connection Settings** (Standard SKU only)
+   * **Connection Settings** (Available for the Standard SKU or higher.)
 
      * **Protocol**: Select SSH.
      * **Port**: Specify the port number.
@@ -129,7 +129,7 @@ Use the following steps to authenticate using an SSH private key from a local fi
 
 1. To authenticate using a private key from a local file, configure the following settings.
 
-   * **Connection Settings** (Standard SKU only)
+   * **Connection Settings** (Available for the Standard SKU or higher.)
 
      * **Protocol**: Select SSH.
      * **Port**: Specify the port number.
@@ -150,7 +150,7 @@ Use the following steps to authenticate using a private key stored in Azure Key 
 
 1. To authenticate using a private key stored in Azure Key Vault, configure the following settings. For the Basic SKU, connection settings can't be configured and will instead use the default connection settings: SSH and port 22.
 
-   * **Connection Settings** (Standard SKU only)
+   * **Connection Settings** (Available for the Standard SKU or higher.)
 
      * **Protocol**: Select SSH.
      * **Port**: Specify the port number.
