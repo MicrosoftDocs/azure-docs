@@ -164,7 +164,8 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
-Please note that default probes are currently **not** applied on Workload Profile envirnoments when using the Consumption plan.
+> [!NOTE]
+> Default probes are not applied on workload profile environments when using the Consumption plan.
 
 | Probe type | Default values |
 | -- | -- |
