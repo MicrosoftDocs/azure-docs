@@ -1,6 +1,6 @@
 ---
-title: Resolve Azure and on-premises domains
-description: Configure Azure and on-premises DNS to resolve private DNS zones and on-premises domains
+title: Resolve Azure and on-premises domains.
+description: Configure Azure and on-premises DNS to resolve private DNS zones and on-premises domains.
 services: dns
 author: greg-lindsay
 ms.service: dns
@@ -111,6 +111,6 @@ The path for this query is: client's default DNS resolver (10.100.0.2) > on-prem
 * Learn how to create an Azure DNS Private Resolver by using [Azure PowerShell](./dns-private-resolver-get-started-powershell.md) or [Azure portal](./dns-private-resolver-get-started-portal.md).
 * Understand how to [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md) using the Azure DNS Private Resolver.
 * Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
-* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
+* Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).
