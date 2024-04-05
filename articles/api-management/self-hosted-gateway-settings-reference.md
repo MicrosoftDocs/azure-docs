@@ -98,7 +98,7 @@ This guidance helps you provide the required information to define how to authen
 | telemetry.logs.std.level  | Defines the log level of logs sent to standard stream. Value is one of the following options: `all`, `debug`, `info`, `warn`, `error` or `fatal`. | No |  `info` | v2.0+ |
 | telemetry.logs.std.color  | Indication whether or not colored logs should be used in standard stream. | No |  `true` | v2.0+ |
 | telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` | v2.0+ |
-| telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A | v2.0+ |
+| telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. See [local syslog documentation](how-to-configure-local-metrics-logs.md#using-local-syslog-logs) for more details on configuration. | N/A | v2.0+ |
 | telemetry.logs.local.localsyslog.facility  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A | v2.0+ |
 | telemetry.logs.local.rfc5424.endpoint  |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A | v2.0+ |
 | telemetry.logs.local.rfc5424.facility  | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A | v2.0+ |
