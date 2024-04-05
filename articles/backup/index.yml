@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 03/04/2024
+  ms.date: 03/14/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Agentless multi-disk crash-consistent VM backup (preview)
+            url: backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md
           - text: Azure Files vaulted backup (preview)
             url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Azure Database for MySQL - Flexible Server long-term retention (preview)
@@ -71,16 +73,6 @@ landingContent:
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
             url: azure-kubernetes-service-backup-overview.md
-          - text: Back up database instance snapshots
-            url: sap-hana-database-about.md#back-up-database-instance-snapshots
-          - text: Multi-user authorization for Backup vault 
-            url: multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Enhanced soft delete
-            url: backup-azure-enhanced-soft-delete-about.md
-          - text: Azure Kubernetes Service backup
-            url: azure-kubernetes-service-backup-overview.md
-          - text: Selective Disk backup with Enhanced policy for Azure VM
-            url: selective-disk-backup-restore.md
           - text: Azure Database for PostgreSQL Flexible server backup (preview) 
             url: backup-azure-database-postgresql-flex-overview.md
           

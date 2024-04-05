@@ -105,7 +105,9 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
+
+This article describes network settings related to disabling public network for Azure OpenAI resources, Azure AI search resources, and storage accounts. Using selected networks with IP rules is not supported, because the services' IP addresses are dynamic.
 
 ## Create resource group
 
@@ -372,40 +374,4 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 
 ### Inference API
 
-See the [inference API reference article](/azure/ai-services/openai/reference#completions-extensions) for details on the request and response objects used by the inference API.   
-
-More notes:
-
-* **Do not** set `dataSources[0].parameters.key`. The service uses system assigned managed identity to authenticate the Azure AI Search.
-* **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, to enable vector search (with `queryType` set properly), use `embeddingDeploymentName`.
-
-Example:
-
-```bash
-accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
-curl -i -X POST https://my-resource.openai.azure.com/openai/deployments/turbo/extensions/chat/completions?api-version=2023-10-01-preview \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $accessToken" \
--d \
-'
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "https://my-search-service.search.windows.net",
-                "indexName": "my-index",
-                "queryType": "vector",
-                "embeddingDeploymentName": "ada"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "Who is the primary DRI for QnA v2 Authoring service?"
-        }
-    ]
-}
-'
-```
+See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.   

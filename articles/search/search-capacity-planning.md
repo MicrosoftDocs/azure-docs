@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 04/03/2024
 ---
 
 # Estimate and manage capacity of a search service
@@ -85,7 +85,7 @@ With a rough estimate in hand, you might double that amount to budget for two in
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
-1. [Review service limits at each tier](./search-limits-quotas-capacity.md#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#service-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
@@ -208,7 +208,11 @@ If your search service appears to be stalled in a provisioning state, check for 
 
 ## Partition and replica combinations
 
-A Basic service can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. You need a minimum of two replicas for high availability on queries.
+On search services created before April 3, 2024: Basic can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. 
+
+On search services created after April 3, 2024 in [supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits): Basic can have up to three partitions and three replicas. The maximum SU limit is nine to support a full complement of partitions and replicas.
+
+For search services on any billable tier, regardless of creation date, you need a minimum of two replicas for high availability on queries.
 
 All Standard and Storage Optimized search services can assume the following combinations of replicas and partitions, subject to the 36-SU limit allowed for these tiers. 
 

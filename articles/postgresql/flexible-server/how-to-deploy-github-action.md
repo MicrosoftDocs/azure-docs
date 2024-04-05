@@ -41,7 +41,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Copy the Azure Database for PostgreSQL flexible server connection string
 
@@ -59,7 +59,7 @@ You use the connection string as a GitHub secret.
 
 ## Configure the GitHub secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
 

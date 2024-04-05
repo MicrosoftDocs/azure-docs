@@ -454,6 +454,19 @@ Azure service: [Azure Blueprints](/azure/governance/blueprints/)
 > | Microsoft.Blueprint/blueprints/versions/delete | Delete any blueprints |
 > | Microsoft.Blueprint/blueprints/versions/artifacts/read | Read any blueprint artifacts |
 
+## Microsoft.Carbon
+
+Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Carbon/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
+> | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/operations/read | read operations |
+
 ## Microsoft.Consumption
 
 Programmatic access to cost and usage data for your Azure resources.
@@ -1009,7 +1022,6 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/checkZonePeers/action | Check Zone Peers |
 > | Microsoft.Resources/changes/read | Gets or lists changes |
 > | Microsoft.Resources/checkPolicyCompliance/read | Check the compliance status of a given resource against resource policies. |
-> | Microsoft.Resources/dataBoundaries/write | Tenant level opt-in to data boundary |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Microsoft.Resources/deployments/write | Creates or updates an deployment. |
 > | Microsoft.Resources/deployments/delete | Deletes a deployment. |

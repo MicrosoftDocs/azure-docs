@@ -56,8 +56,8 @@ Each recommendation provides the following information:
 
 Every recommendation in Defender for Cloud has an associated risk level that represents how exploitable and impactful the security issue is in your environment. The risk assessment engine takes into account factors such as internet exposure, sensitivity of data, lateral movement possibilities, and attack path remediation. You can prioritize recommendations based on their risk levels.
 
-> [!NOTE]
-> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) is in public preview and doesn't affect the secure score.
+> [!IMPORTANT]
+> [Risk prioritization](risk-prioritization.md) doesn't affect the secure score.
 
 ### Example
 
@@ -65,22 +65,13 @@ The MCSB standard is an Azure Policy initiative that includes multiple complianc
 
 As Defender for Cloud continually assesses and finds resources that don't satisfy this control, it marks the resources as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
 
-### Custom recommendations (Azure)
+### Custom recommendations
 
-To create custom recommendations for Azure subscriptions, you currently need to use Azure Policy.
+All customers with Azure subscriptions can create custom recommendations based on Azure Policy. With Azure Policy, you create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud.
 
-You create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud. [Learn more](custom-security-policies.md).
+Custom recommendations based on Kusto Query Language (KQL) are available for all clouds, but require enabling the [Defender CSPM plan](concept-cloud-security-posture-management.md). With these recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with KQL. A query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
 
-### Custom recommendations (AWS or GCP)
-
-To create custom recommendations for AWS or GCP resources, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled.
-
-Custom standards act as a logical grouping for custom recommendations. You can assign custom recommendations to one or more custom standards.
-
-In custom recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with Kusto Query Language (KQL). A simple query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
-
-For more information about creating custom recommendations for AWS and GCP resources, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/creating-custom-recommendations-amp-standards-for-aws-gcp/ba-p/3810248) and
-[this article](create-custom-recommendations.md).
+For more information, see [Create custom security standards and recommendations in Microsoft Defender for Cloud](create-custom-recommendations.md).
 
 ## Next steps
 

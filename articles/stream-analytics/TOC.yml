@@ -235,8 +235,6 @@
       href: geo-redundancy.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
-    - name: Configure alerts
-      href: stream-analytics-set-up-alerts.md
   - name: Manage Stream Analytics clusters
     items:
     - name: Create and delete private endpoints
@@ -335,6 +333,10 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+    - name: Configure alerts
+      href: stream-analytics-set-up-alerts.md
+    - name: Use activity and resource logs
+      href: stream-analytics-job-diagnostic-logs.md
   - name: Optimize jobs
     items:
     - name: Job simulation
@@ -419,8 +421,6 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Watermark delay increase
       href: stream-analytics-job-analysis-with-metric-dimensions.md
-    - name: Activity and resource logs
-      href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
     - name: Error codes

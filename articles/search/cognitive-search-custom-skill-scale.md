@@ -9,51 +9,42 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/01/2022
+ms.date: 03/18/2024
 ---
 
 # Efficiently scale out a custom skill
 
 Custom skills are web APIs that implement a specific interface. A custom skill can be implemented on any publicly addressable resource. The most common implementations for custom skills are:
-* Azure Functions for custom logic skills
-* Azure Webapps for simple containerized AI skills
-* Azure Kubernetes service for more complex or larger skills.
 
-## Prerequisites
-
-+ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
-
-+ Set up your environment. You could start with [this tutorial end-to-end](../azure-functions/create-first-function-vs-code-python.md) to set up serverless Azure Function using Visual Studio Code and Python extensions.
++ Azure Functions for custom logic skills
++ Azure Web apps for simple containerized AI skills
++ Azure Kubernetes service for more complex or larger skills.
 
 ## Skillset configuration
 
-Configuring a custom skill for maximizing throughput of the indexing process requires an understanding of the skill, indexer configurations and how the skill relates to each document. For example, the number of times a skill is invoked per document and the expected duration per invocation.
-
-### Skill settings
-
-On the [custom skill](cognitive-search-custom-skill-web-api.md) set the following parameters.
+The following properties on a [custom skill](cognitive-search-custom-skill-web-api.md) are used for scale. Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the inputs and outputs that a custom skill should implement.
 
 1. Set `batchSize` of the custom skill to configure the number of records sent to the skill in a single invocation of the skill.
 
-2. Set the `degreeOfParallelism` to calibrate the number of concurrent requests the indexer will make to your skill.
+1. Set the `degreeOfParallelism` to calibrate the number of concurrent requests the indexer makes to your skill.
 
-3. Set `timeout`to a value sufficient for the skill to respond with a valid response.
+1. Set `timeout`to a value sufficient for the skill to respond with a valid response.
 
-4. In the `indexer` definition, set [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
+1. In the `indexer` definition, set [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
 
 ### Considerations
 
-Setting these variables to optimize the indexers performance requires determining if your skill performs better with many concurrent small requests or fewer large requests. A few questions to consider are:
+ There's no "one size fits all" set of recommendations. You should plan on testing different configurations to reach an optimum result. Scale up strategies are based on fewer large requests, or many small requests.
 
-* What is the skill invocation cardinality? Does the skill execute once for each document, for instance a document classification skill, or could the skill execute multiple times per document, a paragraph classification skill?
++ Skill invocation cardinality: make sure you know whether the custom skill executes once for each document (`/document/content`) or multiple times per document (`/document/reviews_text/pages/*`). If it's multiple times per document, stay on the lower side of `batchSize` and `degreeOfParallelism` to reduce churn, and try setting indexer batch size to incrementally higher values for more scale.
 
-* On average how many documents are read from the data source to fill out a skill request based on the skill batch size? Ideally, this should be less than the indexer batch size. With batch sizes greater than 1 your skill can receive records from multiple source documents. For example if the indexer batch count is 5 and the skill batch count is 50 and each document generates only five records, the indexer will need to fill a custom skill request across multiple indexer batches.
++ Coordinate custom skill `batchSize` and indexer `batchSize`, and make sure you're not creating bottlenecks. For example, if the indexer batch size is 5, and the skill batch size is 50, you would need 10 indexer batches to fill a custom skill request. Ideally, skill batch size should be less than or equal to indexer batch size.
 
-* The average number of requests an indexer batch can generate should give you an optimal setting for the degrees of parallelism. If your infrastructure hosting the skill cannot support that level of concurrency, consider dialing down the degrees of parallelism. As a best practice, test your configuration with a few documents to validate your choices on the parameters.
++ For `degreeOfParallelism`, use the average number of requests an indexer batch can generate to guide your decision on how to set this value. If your infrastructure hosting the skill, for example an Azure function, can't support high levels of concurrency, consider dialing down the degrees of parallelism. You can test your configuration with a few documents to validate your understanding of average number of requests.
 
-* Testing with a smaller sample of documents, evaluate the execution time of your skill to the overall time taken to process the subset of documents. Does your indexer spend more time building a batch or waiting for a response from your skill? 
++ Although your object is scale and support of high volumes, testing with a smaller sample of documents helps quantify different stages of execution. For example, you can evaluate the execution time of your skill, relative to the overall time taken to process the subset of documents. This helps you answer the question: does your indexer spend more time building a batch or waiting for a response from your skill? 
 
-* Consider the upstream implications of parallelism. If the input to a custom skill is an output from a prior skill, are all the skills in the skillset scaled out effectively to minimize latency?
++ Consider the upstream implications of parallelism. If the input to a custom skill is an output from a prior skill, are all the skills in the skillset scaled out effectively to minimize latency?
 
 ## Error handling in the custom skill
 
@@ -83,7 +74,7 @@ Start by testing your custom skill with a REST API client to validate:
 
 * Returns a valid HTTP status code
 
-Create a [debug session](cognitive-search-debug-session.md) to add your skill to the skillset and make sure it produces a valid enrichment. While a debug session does not allow you to tune the performance of the skill, it enables you to ensure that the skill is configured with valid values and returns the expected enriched objects.
+Create a [debug session](cognitive-search-debug-session.md) to add your skill to the skillset and make sure it produces a valid enrichment. While a debug session doesn't allow you to tune the performance of the skill, it enables you to ensure that the skill is configured with valid values and returns the expected enriched objects.
 
 ## Best practices
 
@@ -91,17 +82,8 @@ Create a [debug session](cognitive-search-debug-session.md) to add your skill to
 
 * Consider setting the batch size on the indexer and skill to ensure that each data source batch generates a full payload for your skill.
 
-* For long running tasks, set the timeout to a high enough value to ensure the indexer does not error out when processing documents concurrently.
+* For long running tasks, set the timeout to a high enough value to ensure the indexer doesn't error out when processing documents concurrently.
 
 * Optimize the indexer batch size, skill batch size, and skill degrees of parallelism to generate the load pattern your skill expects, fewer large requests or many small requests.
 
 * Monitor custom skills with detailed logs of failures as you can have scenarios where specific requests consistently fail as a result of the data variability.
-
-
-## Next steps
-Congratulations! Your custom skill is now scaled right to maximize throughput on the indexer. 
-
-+ [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Add an Azure Machine Learning skill](./cognitive-search-aml-skill.md)
-+ [Use debug sessions to test changes](./cognitive-search-debug-session.md)

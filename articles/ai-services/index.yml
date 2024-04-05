@@ -6,14 +6,14 @@ brand: azure
 
 metadata:
   title: Azure AI services documentation
-  description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
+  description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and prebuilt and customizable APIs and models. 
   ms.service: azure-ai-services
   ms.topic: hub-page
   author: eric-urban
   ms.author: eur
   manager: nitinme
   ms.custom: ignite-2023
-  ms.date: 11/15/2023
+  ms.date: 3/19/2024
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -23,9 +23,9 @@ highlightedContent:
     - title: What is Azure AI Studio?
       itemType: overview
       url: ../ai-studio/what-is-ai-studio.md
-    - title: Azure AI Studio quickstart
-      itemType: quickstart
-      url: ../ai-studio/quickstarts/playground-completions.md
+    - title: Azure AI Studio copilot tutorial
+      itemType: tutorial
+      url: ../ai-studio/tutorials/deploy-copilot-ai-studio.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md
@@ -39,37 +39,37 @@ productDirectory:
     # Card
     - title: Azure OpenAI
       imageSrc: ./media/service-icons/azure-openai.svg
-      summary: Perform a wide variety of natural language tasks
+      summary: Perform a wide variety of natural language tasks.
       url: ./openai/index.yml
     # Card
     - title: Speech
       imageSrc: ./media/service-icons/speech.svg
-      summary: Speech to text, text to speech, translation and speaker recognition
+      summary: Speech to text, text to speech, translation, and speaker recognition
       url: ./speech-service/index.yml
     # Card
     - title: Language
       imageSrc: ./media/service-icons/language.svg
-      summary: Build apps with industry-leading natural language understanding capabilities
+      summary: Build apps with industry-leading natural language understanding capabilities.
       url: ./language-service/index.yml
     # Card
     - title: Translator
       imageSrc: ./media/service-icons/translator.svg
-      summary: Translate more than 100 languages and dialects
+      summary: Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects.
       url: ./translator/index.yml
     # Card
     - title: Vision
       imageSrc: ./media/service-icons/vision.svg
-      summary: Analyze content in images and videos
+      summary: Analyze content in images and videos.
       url: ./computer-vision/index.yml
     # Card
     - title: Custom Vision
       imageSrc: ./media/service-icons/custom-vision.svg
-      summary: Customize image recognition to fit your business
+      summary: Customize image recognition for your business.
       url: ./custom-vision-service/index.yml
     # Card
     - title: Face
       imageSrc: ./media/service-icons/face.svg
-      summary: Detect and identify people and emotions in images
+      summary: Detect and identify people and emotions in images.
       url: ./computer-vision/overview-identity.md
     # Card
     - title: Content Safety
@@ -79,32 +79,32 @@ productDirectory:
     # Card
     - title: Bot Service
       imageSrc: ./media/service-icons/bot-services.svg
-      summary: Create bots and connect them across channels
+      summary: Create bots and connect them across channels.
       url: /composer/
     # Card
     - title: Document Intelligence
       imageSrc: ./media/service-icons/document-intelligence.svg
-      summary: Turn documents into usable data at a fraction of the time and cost
+      summary: Turn documents into intelligent data-driven solutions.
       url: ./document-intelligence/index.yml
     # Card
     - title: Azure AI Search
       imageSrc: ./media/service-icons/search.svg
-      summary: Bring AI-powered cloud search to your mobile and web apps
+      summary: Bring AI-powered cloud search to your mobile and web applications.
       url: ../search/index.yml
     # Card
     - title: Video Indexer
       imageSrc: ./media/service-icons/video-indexer.svg
-      summary: Extract actionable insights from your videos
+      summary: Extract actionable insights from your videos.
       url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
       imageSrc: ./media/service-icons/immersive-reader.svg
-      summary: Help users read and comprehend text
+      summary: Help users read and comprehend text.
       url: ./immersive-reader/index.yml
       
 additionalContent:
   sections:
-    - title: Additional resources
+    - title: Further resources
       items:
         - title: Demo & customization studios
           links:

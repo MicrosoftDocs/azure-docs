@@ -17,7 +17,7 @@ For more information on Azure confidential ledger and examples of what can be st
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 

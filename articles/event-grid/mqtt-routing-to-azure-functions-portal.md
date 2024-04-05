@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Route MQTT messages to Azure Functions - portal'
-description: 'Tutorial: Use custom topics in Azure Event Grid to route MQTT messages to Azure Event Hubs by using the Routing feature for Event Grid namespaces.'
+description: 'Use custom topics in Azure Event Grid to route MQTT messages to Azure Functions by using the Routing feature. You use the Azure portal to do this tutorial.'
 ms.topic: tutorial
 ms.date: 03/13/2024
 author: george-guirguis
@@ -11,14 +11,6 @@ ms.subservice: mqtt
 # Tutorial: Route MQTT messages in Azure Event Grid to Azure Functions using custom topics - Azure portal
 
 In this tutorial, you learn how to route MQTT messages received by an Azure Event Grid namespace to an Azure function via an Event Grid custom topic by following these steps:
-
-> [!div class="checklist"]
-> * Create an Azure function using Event Grid trigger
-> * Create an Event Grid topic (custom topic)
-> * Add a subscription to the topic using the function
-> * Create namespace, clients, topic spaces, and permission bindings
-> * Configure routing messages to Azure function via custom topic
-> * Test using MQTTX tool
 
 If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
 

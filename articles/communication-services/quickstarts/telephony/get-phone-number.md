@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: references_regions, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-azcli-azp-azpnew-java-net-python-csharp-js
+zone_pivot_groups: acs-azp-azpnew-azcli-java-csharp-js-python
 ---
 
 # Quickstart: Get and manage phone numbers
@@ -32,7 +32,7 @@ zone_pivot_groups: acs-azcli-azp-azpnew-java-net-python-csharp-js
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Azure portal](./includes/phone-numbers-net.md)]
+[!INCLUDE [C#](./includes/phone-numbers-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -51,7 +51,7 @@ zone_pivot_groups: acs-azcli-azp-azpnew-java-net-python-csharp-js
 
 Common Questions and Issues:
 
-- When a phone number is released, the phone number shows up in your ACS resource on Azure Portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number shows up in your ACS resource on Azure portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
 
 - When a Communication Services resource is deleted, the phone numbers associated with that resource are automatically released at the same time.
 
