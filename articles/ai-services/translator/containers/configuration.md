@@ -14,7 +14,7 @@ recommendations: false
 
 # Configure Translator Docker containers
 
-Azure AI services provide each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
+Azure AI services provide each container with a common configuration framework. You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 
 The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has both required and optional settings. The required container-specific settings are the billing settings.
 
@@ -27,7 +27,7 @@ The container has the following configuration settings:
 |Yes|[ApiKey](#apikey-configuration-setting)|Tracks billing information.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetric support to your container.|
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
-|Yes|[EULA](#eula-setting)| Indicates that you've accepted the license for the container.|
+|Yes|[EULA](#eula-setting)| Indicates that you accepted the end-user license agreement (EULA) for the container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
 |No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
@@ -58,7 +58,7 @@ This setting can be found in the following place:
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-container.md#required-elements). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../../cognitive-services-custom-subdomains.md). |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](translator-how-to-install-container.md#required-input). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../../cognitive-services-custom-subdomains.md). |
 
 ## EULA setting
 
@@ -80,11 +80,10 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 |`<proxy-password>`|string|The password associated with `<proxy-user>` for the proxy.|
 ||||
 
-
 ```bash
 docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
---mount type=bind,src=/home/azureuser/output,target=/output \
+--mount type-bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
 Billing=<endpoint> \
@@ -143,7 +142,7 @@ The `Disk` logging provider supports the following configuration settings:
 ```bash
 docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
---mount type=bind,src=/home/azureuser/output,target=/output \
+--mount type-bind,src=/home/azureuser/output,target=/output \
 -e apikey={API_KEY} \
 -e eula=accept \
 -e billing={ENDPOINT_URI} \

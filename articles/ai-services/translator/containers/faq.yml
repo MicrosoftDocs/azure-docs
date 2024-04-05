@@ -1,0 +1,21 @@
+### YamlMime:FAQ
+metadata:
+   title: Azure AI Translator containers frequently asked questions (FAQ)
+   description: Translator container Frequently asked questions
+   author: laujan
+   manager: nitinme
+   ms.service: azure-ai-translator
+   ms.topic: faq
+   ms.date: 03/11/2024
+   ms.author: lajanuar
+title: Frequently asked questions (FAQ)
+summary:  |
+  Frequently asked questions about Azure AI Translator containers.
+
+sections:
+  - questions:
+      - question: What is the difference between the Azure AI Translator cloud service and the Azure AI Translator container?
+        answer: Azure AI containers are an alternative to the Azure AI cloud services. Translator containers offer a subset of the cloud services capabilities. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services.
+
+      - question: How do I access and use the Translator gated preview container?
+        answer: To access a gated preview container, you must have a valid Azure subscription and request access to the gated preview. You can run a gated preview container if your Translator resource was created with the approved Azure subscription ID. You can't run the container until your Azure subscription is approved for [connected](https://aka.ms/csgate-translator) or [disconnected](https://aka.ms/csdisconnectedcontainers) container access.
