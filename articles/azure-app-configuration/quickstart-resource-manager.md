@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires Azure Resource Manager role and Azure App Configuration [data plane role](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#arm-authentication-mode) ARM authentication mode.
+Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires Azure Resource Manager role and Azure App Configuration [data plane role](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
 
 ## Review the template
 
@@ -110,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-To learn about adding feature flag and Key Vault reference to an App Configuration store, check ARM template examples below.
+To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
 - [ARM template for feature flag](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
 - [ARM template for Key Vault reference](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
