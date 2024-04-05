@@ -3,9 +3,9 @@ title: Overview of Azure IoT device types
 description: Learn the different device types supported by Azure IoT and the tools available.
 author: ryanwinter
 ms.author: rywinter
-ms.service: iot-develop
+ms.service: iot
 ms.topic: conceptual
-ms.date: 1/23/2024
+ms.date: 04/04/2024
 ---
 
 # Overview of Azure IoT device types
@@ -48,4 +48,4 @@ Below is a table showing some of the defining differences between an MCU and an 
 ## Next steps
 The IoT device type that you choose directly impacts how the device is connected to Azure IoT.
 
-Browse the different [Azure IoT SDKs](about-iot-sdks.md) to find the one that best suits your device needs.
+Browse the different [Azure IoT SDKs](./iot-sdks.md) to find the one that best suits your device needs.
