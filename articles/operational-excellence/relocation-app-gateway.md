@@ -40,10 +40,10 @@ ms.custom:
 
 ## Redeploy
 
-To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the old Application Gateway set up to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required. 
+To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway set up to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required. 
 
 
-If you only want tp relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../reliability/migrate-app-gateway-v2.md).
+If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../reliability/migrate-app-gateway-v2.md).
 
 **To create a separate Application Gateway, WAF (optional) and IP address:**
 
@@ -60,16 +60,16 @@ If you only want tp relocate in order to gain availability zones support, see [M
 
 1. If you have a WAF config or custom rules-only WAF Policy, [transition it to to a full WAF policy](../web-application-firewall/ag/migrate-policy.md).
 
-1. If you use a zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, follow the guidelines and strategies in [Zero-trust network for web applications with Azure Firewall and Application Gatewayl](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
+1. If you use a zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, follow the guidelines and strategies in [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
 
 1. Verify that the Application Gateway and WAF are working as intended.
 
 1. Migrate your configuration to the new public IP address.
      1. Switch Public and Private endpoints in order to point to the new application gateway. 
      1. Migrate your DNS configuration to the new Public- and/or Private  IP address.
-     1. Update endpoints in consumer applications/services. While, consumer application/services updates are usually done by means of a properties change and re-deployment, use this manual method whenever a new hostname is used in respect to deployment in the source region.
+     1. Update endpoints in consumer applications/services. Consumer application/services updates are usually done by means of a properties change and redeployment. However, perform this method whenever a new hostname is used in respect to deployment in the source region.
 
-1. Delete the old Application Gateway and WAF resources.
+1. Delete the source Application Gateway and WAF resources.
 
 ## Relocate certificates for Premium TLS Termination (Application Gateway v2)
 
