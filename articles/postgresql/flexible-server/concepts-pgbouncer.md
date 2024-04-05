@@ -27,17 +27,20 @@ PgBouncer in Azure Database for PostgreSQL flexible server supports [Microsoft E
 
 To enable PgBouncer, go to the **Server parameters** pane in the Azure portal, search for **PgBouncer**, and change the `pgbouncer.enabled` setting to `true`. There's no need to restart the server.
 
-You can configure PgBouncer settings by using these parameters:
+You can configure PgBouncer settings by using these parameters.
+
+> [!NOTE]
+> The following list of PgBouncer server parameters is visible on the **Server parameters** pane only if the `pgbouncer.enabled` server parameter is set to `true`. Otherwise, they're deliberately hidden.
 
 | Parameter name             | Description | Default |
 |----------------------|--------|-------------|
 | `pgbouncer.default_pool_size` | Set this parameter value to the number of connections per user/database pair.      | `50`       |
-| `pgBouncer.max_client_conn` | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | `5000`     |
-| `pgBouncer.pool_mode` | Set this parameter value to `TRANSACTION` for transaction pooling (which is the recommended setting for most workloads).      | `TRANSACTION`     |
-| `pgBouncer.min_pool_size` | Add more server connections to the pool if the number is below this minimum.    |   `0` (disabled)   |
+| `pgbouncer.max_client_conn` | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | `5000`     |
+| `pgbouncer.pool_mode` | Set this parameter value to `TRANSACTION` for transaction pooling (which is the recommended setting for most workloads).      | `TRANSACTION`     |
+| `pgbouncer.min_pool_size` | Add more server connections to the pool if the number is below this minimum.    |   `0` (disabled)   |
 | `pgbouncer.ignore_startup_parameters` | Enter a comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore the `extra_float_digits` parameter. Some parameters are allowed; all others raise an error. This ability is needed to tolerate overenthusiastic Java Database Connectivity (JDBC) wanting to unconditionally set `extra_float_digits=2` in startup packets. Use this option if the library that you use reports errors such as `pq: unsupported startup parameter: extra_float_digits`. |   |
 | `pgbouncer.query_wait_timeout` | Set the maximum time (in seconds) that queries are allowed to spend waiting for execution. If the query isn't assigned to a server during that time, the client is disconnected. | `120s` |
-| `pgBouncer.stats_users` | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named `PgBouncer`).    |      |
+| `pgbouncer.stats_users` | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named `PgBouncer`).    |      |
 
 For more information about PgBouncer configurations, see the [pgbouncer.ini documentation](https://www.pgbouncer.org/config.html).
 
