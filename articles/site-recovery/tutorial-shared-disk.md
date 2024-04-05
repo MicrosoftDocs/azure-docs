@@ -48,50 +48,54 @@ To enable replication for shared disks, follow these steps:
     > [!NOTE]
     > Recovery services vault can be created in any region except the source region of the virtual machines.
 
-1. Select **Enable Site Recovery** to open the **Enable Replication** page.
+1. Select **Enable Site Recovery**.
 
     :::image type="content" source="media/tutorial-shared-disk/enable-site-replication.png" alt-text="Screenshot showing Enable Replication.":::
 
-1. In the **Enable Replication** page, under the **Source** tab, select the **Region**, **Subscription**, and the **Resource group** your virtual machines are in. 
+1. In the **Enable Replication** page, do the following:
+    1. Under the **Source** tab, 
+        1. Select the **Region**, **Subscription**, and the **Resource group** your virtual machines are in.
+        1. Retain values for the **Virtual machine deployment model** and **Disaster recovery between availabiity zone?** fields.
 
-    :::image type="content" source="media/tutorial-shared-disk/enable-replication-source.png" alt-text="Screenshot showing Select Region.":::
+        :::image type="content" source="media/tutorial-shared-disk/enable-replication-source.png" alt-text="Screenshot showing Select Region.":::
 
 
-1. Under the **Virtual machines** tab, select all the virtual machines that are part of your cluster. 
-    > [!NOTE]
-    > If you wish to protect multiple clusters, select all the virtual machines of all the clusters in this step. 
-    > Don’t select the Active Directory virtual machines. Azure Site Recovery shared disk doesn't support Active Directory virtual machines.
+    1. Under the **Virtual machines** tab, select all the virtual machines that are part of your cluster. 
+        > [!NOTE]
+        > - Ensure to select all the virtual machines representing your cluster. If you wish to protect multiple clusters, select all the virtual machines of all the clusters in this step.
+        > - If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected.    
+        > - Don’t select the Active Directory virtual machines as Azure Site Recovery shared disk doesn't support Active Directory virtual machines.
 
-    :::image type="content" source="media/tutorial-shared-disk/enable-replication-machines.png" alt-text="Screenshot showing select virtual machines.":::
 
+        :::image type="content" source="media/tutorial-shared-disk/enable-replication-machines.png" alt-text="Screenshot showing select virtual machines.":::
+ 
+
+    1. Under **Replication settings** tab, 
+        1. in the **Storage** section, select **View/edit storage configuration**. The **Customize target settings** page opens. You can view and confirm the shared disk settings on this page.        
+        1. Retain values for all other fields.
+        
+        :::image type="content" source="media/tutorial-shared-disk/enable-replication-settings.png" alt-text="Screenshot showing shared disk settings.":::
+
+
+ 
+    1. If your virtual machines have a protected shared disk, you see a **Shared disks** tab on the **Customize target settings** page. 
+        On the **Customize target settings** page > **Shared disks** tab, do the following:
+        1. Verify the name and recovery disk type of the shared disks. 
+        1. To enable high churn, select the *Churn for the virtual machine* option for your disk.
+        1. Select **Confirm Selection**. 
     
-    > [!IMPORTANT]
-    > Ensure to select all the virtual machines representing your cluster.
-    > If you don't select all the virtual machines, Site Recovery prompts you to choose the ones you missed. If you continue without selecting them, then the shared disks for those machines won't be protected. 
+        
+        :::image type="content" source="media/tutorial-shared-disk/target-settings.png" alt-text="Screenshot showing shared disk selection.":::
 
-1. Under **Replication settings** tab, in the **Storage** section, select **View/edit storage configurations**. The **Customize target settings** page opens. You can view and confirm the shared disk settings on this page.
-    
-    :::image type="content" source="media/tutorial-shared-disk/enable-replication-settings.png" alt-text="Screenshot showing shared disk settings.":::
-
-
-1. If your virtual machines have a protected shared disk, you see a **Shared disks** tab on the **Customize target settings** page. 
-1. On the **Customize target settings** page > **Shared disks** tab, do the following:
-    1. Select the **Shared disks** tab and verify the name and recovery disk type of the shared disks. 
-    1. Select the *Churn for the virtual machine* option for your disk if you want to enable high churn.
-    1. Select **Confirm Selection**. 
     1. On the **Replication settings** page, select **Next**.
+    1. Under the **Manage** tab, do the following:
+        1. In the **Shared disk clusters** section, assign a **Cluster name** for the group, which is used to represent the group throughout their disaster recovery lifecycle. 
+        
+            This name is used to trigger any operations, monitor, or operate via PowerShell/REST. 
     
-    :::image type="content" source="media/tutorial-shared-disk/target-settings.png" alt-text="Screenshot showing shared disk selection.":::
+            :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
 
-
-1. Under the **Manage** tab, do the following:
-    1. In the **Shared disk clusters** section, assign a **Cluster name** for the group, which is used to represent the group throughout their disaster recovery lifecycle. This name is used to trigger any operations, monitor, or operate via PowerShell/REST. 
-
-        > [!TIP]
-        > We recommend that you use the same name as your cluster.
-
-        :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
-
+        We recommend that you use the same name as your cluster
     1. Under **Replication policy** section, select an appropriate replication policy and extension update settings.
     1. Review the information and select **Enable replication**.  
  
@@ -116,17 +120,20 @@ The recovery point is consistent across all the virtual machines when all the vi
 
 To failover to a recovery point that is consistent across all the virtual machines, follow these steps:
 
-1. Navigate to the **Failover** page.
+1. Navigate to the **Failover** page from the shared disk vault.
 1. In the **Recovery point** field, select *Custom* and choose a recovery point. 
 1. Retain the values in **Time span** field.
 1. In the **Custom recovery point** field, select the desired time span.  
 
+    :::image type="content" source="media/tutorial-shared-disk/recovery-point-list.png" alt-text="Screenshot showing recovery point list.":::
+
     > [!NOTE]
-    > In the **Custom recovery point** field, the available options denote the number of nodes of the cluster that were protected in a healthy state when the recovery point was taken.
+    > In the **Custom recovery point** field, the available options shows the number of nodes of the cluster that were protected in a healthy state when the recovery point was taken.
+1. Select **Failover**.
 
 On failing over to this recovery point, the virtual machines come up at that same recovery point and a cluster can be started. The shared disk is also attached to all the nodes.
 
-:::image type="content" source="media/tutorial-shared-disk/recovery-point-list.png" alt-text="Screenshot showing recovery point list.":::
+
 
 Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
 
@@ -139,32 +146,37 @@ The virtual machines that are part of the cluster recovery point, failover at th
 
 To failover the cluster to a recovery point, follow these steps:  
 
-1. Navigate to the **Failover** page.
+1. Navigate to the **Failover** page from the shared disk vault.
 1. In the **Recovery point** field, select *Custom* and choose a recovery point.
+1. Retain values for the **Time span** field.
 1. Select an individual recovery point for the virtual machines that are *not* part of the cluster recovery point.  
     
     These virtual machines then failover like independent virtual machines and the shared disk is no longer attached to them. 
 
     :::image type="content" source="media/tutorial-shared-disk/failover-list.png" alt-text="Screenshot showing cluster recovery list."::: 
 
-    :::image type="content" source="media/tutorial-shared-disk/cluster-failover.png" alt-text="Screenshot showing cluster recovery points.":::
+1. Select **Failover**.
+
 
 Join these virtual machines back to the cluster (and shared disk) manually after validating any ongoing maintenance activity and data integrity. Once the failover is complete, the **Cluster failover** site recovery job shows all the jobs as completed.
 
-:::image type="content" source="media/tutorial-shared-disk/change-recovery-point-option.png" alt-text="Screenshot showing recovery options.":::
-
+:::image type="content" source="media/tutorial-shared-disk/cluster-failover.png" alt-text="Screenshot showing cluster recovery points.":::
 
 ## Change recovery point
 
-After the failover, the Azure virtual machine created in the target region appears in Virtual Machines. Ensure that the virtual machine is running and sized appropriately. 
+After the failover, the Azure virtual machine created in the target region appear on the **Virtual machines** page. Ensure that the virtual machine is running and sized appropriately. 
 
 If you want to use a different recovery point for the virtual machine, do the following:
 
-1. Navigate to the virtual machine cluster page and select **Change recovery point**. 
+1. Navigate to the virtual machine **Overview** page and select **Change recovery point**. 
+    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-option.png" alt-text="Screenshot showing recovery options.":::
+
+1. On the **Change recovery point** page, select either the lowest RTO recovery point or a custom date for the recovery point needed. 
+    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point.png" alt-text="Screenshot showing Change Recovery Point options.":::    
+
+1. Select **Change recovery point**.
     :::image type="content" source="media/tutorial-shared-disk/change-recovery-point-field.png" alt-text="Screenshot showing Change Recovery Point.":::
 
-1. Select either the lowest RTO recovery point or a custom date for the recovery point needed. 
-    :::image type="content" source="media/tutorial-shared-disk/change-recovery-point.png" alt-text="Screenshot showing Change Recovery Point options.":::
 
 
 ## Commit failover
@@ -184,8 +196,8 @@ To reprotect the virtual machine, follow these steps:
 
 1. Navigate to the virtual machine **Overview** page.
 1. Select **Re-protect** to view protection and replication details. 
-1. Review the details and select **OK**.
     :::image type="content" source="media/tutorial-shared-disk/reprotect.png" alt-text="Screenshot showing reprotection list.":::
+1. Review the details and select **OK**.
 
 
 ## Monitor protection
@@ -196,13 +208,13 @@ Once the enable replication is in progress, you can view the protected cluster b
 
 The **Replicated items** page displays a hierarchical grouping of the clusters with the *Cluster Name* you provided in the [Enable replication](#enable-replication-for-shared-disks) step.
 
-From this page, you can manage your cluster's protection. You can monitor the protection of your cluster and its nodes, including the replication health, RPO, and replication status. You can also failover, reprotect, and disable replication actions. 
+From this page, you can monitor the protection of your cluster and its nodes, including the replication health, RPO, and replication status. You can also failover, reprotect, and disable replication actions. 
 
 ## Disable replication
 
-To disable protecting your cluster with Azure Site Recovery, follow these steps:
+To disable replication of your cluster with Azure Site Recovery, follow these steps:
  
-1. Navigate to the **Cluster Monitoring** tab on the toolbar.
+1. Select **Cluster Monitoring** on the virtual machine **Overview** page.
 1. On the **Disable Replication** page, select the applicable reason to disable protection.
 1. Select **OK**. 
     
@@ -214,4 +226,4 @@ To disable protecting your cluster with Azure Site Recovery, follow these steps:
 Learn more about:
 
 -  [Azure managed disk](../virtual-machines/disks-shared.md).
--  [Supported scenarios for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
+-  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
