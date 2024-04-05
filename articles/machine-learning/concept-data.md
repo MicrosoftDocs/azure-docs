@@ -46,11 +46,11 @@ See [Create datastores](how-to-datastore.md) for more information about datastor
 
 Each Azure Machine Learning workspace has a default storage account (Azure storage account) that contains the following datastores:
 
-| Datastore name | Storage container name | Desccription |
-|---|---|---|
-| `workspaceblobstore` | `{workspace-id}-blobstore` | Stores data uploads, job code snapshots, and pipeline data cache. |
-| `workspaceworkingdirectory` | `{workspace-id}-code` | Stores data for notebooks, compute instances, and prompt flow. |
-| `workspacefilestore` | `{workspace-id}-file` | Alternative container for data upload. |
+| Datastore name | Data storage type | Data storage name | Description |
+|---|---|---|---|
+| `workspaceblobstore` | Blob container | `{workspace-id}-blobstore` | Stores data uploads, job code snapshots, and pipeline data cache. |
+| `workspaceworkingdirectory` | File share | `{workspace-id}-code` | Stores data for notebooks, compute instances, and prompt flow. |
+| `workspacefilestore` | File share | `{workspace-id}-file` | Alternative container for data upload. |
 | `workspaceartifactstore` | `{workspace-id}-azureml` | Storage for assets such as metrics, models, and components. |
 
 ## Data types
