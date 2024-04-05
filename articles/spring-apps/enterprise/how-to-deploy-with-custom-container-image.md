@@ -245,7 +245,7 @@ AppPlatformContainerEventLogs
 | where App == "hw-20220317-1b"
 ```
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the Azure Monitor that shows the container events log.":::
 
 ### Scan your image for vulnerabilities
 

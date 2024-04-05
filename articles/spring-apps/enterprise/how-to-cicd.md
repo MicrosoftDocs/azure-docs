@@ -119,7 +119,7 @@ To deploy using a pipeline, follow these steps:
   
    Your pipeline settings should match the following image.
 
-   :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::
+   :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of the Azure DevOps portal that shows the New pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::
 
    You can also build and deploy your projects using following pipeline template. This example first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Apps task for Azure Pipelines.
 
