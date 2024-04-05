@@ -257,7 +257,7 @@ To use a Whisper model for batch transcription, you need to set the `model` prop
 > [!IMPORTANT]
 > For Whisper models, you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API.
 
-Whisper models by batch transcription are supported in the East US, Southeast Asia, and West Europe regions.
+Whisper models by batch transcription are supported in the Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe regions.
 
 ::: zone pivot="rest-api"
 You can make a [Models_ListBaseModels](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_ListBaseModels) request to get available base models for all locales.
