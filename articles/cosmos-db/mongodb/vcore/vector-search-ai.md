@@ -1,7 +1,7 @@
 ---
 title: Open-source vector databases
 titleSuffix: 
-description: Open-source vector databases
+description: Open-source vector database functionalities, examples, challenges, and solutions.
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
@@ -64,7 +64,7 @@ Therefore, while free initially, open-source vector databases incur significant 
 
 ## Addressing the challenges
 
-A fully managed database service helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database. The Integrated Vector Database in Azure Cosmos DB for MongoDB vCore offers a life-time free tier. It allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, upgrading is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco).
+A fully managed database service helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database; moreover, some managed vector database services offer a life-time free tier. An example is the Integrated Vector Database in Azure Cosmos DB for MongoDB. It allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, upgrading is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco).
 
 ## Next steps
 > [!div class="nextstepaction"]
