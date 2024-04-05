@@ -209,7 +209,7 @@ The self-hosted gateway also supports a number of protocols including `localsysl
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
 | telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
-| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [](#using-local-syslog-logs) for more information  |
+| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [below](#using-local-syslog-logs) for more details.  |
 | telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). e.g., `7`  |
