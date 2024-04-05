@@ -35,10 +35,10 @@ User profile needs to be updated with Key business information for Informatica r
      :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile.png" alt-text="Screenshot of a user resource provider in the Azure portal.":::
 
 1. Search with **UserName** in users interface
-    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profiletwo.png" alt-text="Screenshot of a searching for user in the Azure portal.":::
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-two.png" alt-text="Screenshot of a searching for user in the Azure portal.":::
 
 1. Edit **UserInformttion**
-    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profilethree.png" alt-text="Screenshot of a user information in the Azure portal.":::
+    :::image type="content" source="media/informatica-troubleshoot/informatica-user-profile-three.png" alt-text="Screenshot of a user information in the Azure portal.":::
 
 ## Next steps
 
