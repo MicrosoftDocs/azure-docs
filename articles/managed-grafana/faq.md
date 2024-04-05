@@ -37,7 +37,7 @@ No. Currently all Grafana plugins are preinstalled. Managed Grafana supports all
 
 ## In terms of pricing, what constitutes an active user in Azure Managed Grafana?
 
-The Azure Managed Grafana [pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-grafana/) mentions a price per active user. 
+The Azure Managed Grafana [pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) mentions a price per active user. 
 
 An active user is billed only once for accessing multiple Azure Managed Grafana instances under the same Azure Subscription. 
 
