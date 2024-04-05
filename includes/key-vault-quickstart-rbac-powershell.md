@@ -9,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-To grant your user account permissions to your key vault through Role-Based Access Control (RBAC), assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
+To grant your application permissions to your key vault through Role-Based Access Control (RBAC), assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" -SignInName "<your-email-address>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
