@@ -34,13 +34,13 @@ Azure Monitor has many separate larger components. Information on monitoring eac
 
 **Optimizing and troubleshooting log queries** - Sometimes Azure Monitor KQL Log queries can take more time to run than needed or never return at all.  By monitoring the various aspects of the query, you can troubleshoot and optimize them. For more information, see [Audit queries in Azure Monitor Logs](logs/query-audit.md) and [Optimize log queries](logs/query-optimization.md).
 
-**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. For more information, see [Log Ingestion pipeline](logs/log-ingestion-pipeline.md). You can monitor the latency of this pipeline using Kusto queries. For more information, see [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md#check-ingestion-time).
+**Log Ingestion pipeline latency** - Azure Monitor provides a highly scalable log ingestion pipeline that can ingest logs from any source. You can monitor the latency of this pipeline using Kusto queries. For more information, see [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md#check-ingestion-time).
 
 **Log Analytics usage** - You can monitor the data ingestion for your Log Analytics workspace. For more information, see [Analyze usage in Log Analytics](logs/analyze-usage.md).
 
 ### All resources
 
-**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/azure/service-health/resource-health-overview.md).
+**Health of any Azure resource** - Azure Monitor resources are tied into the resource health feature, which provides insights into the health of any Azure resource. For more information, see [Resource health](/azure/service-health/resource-health-overview/). azure/service-health/resource-health-overview
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
