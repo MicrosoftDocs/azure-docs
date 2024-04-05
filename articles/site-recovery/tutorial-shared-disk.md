@@ -96,7 +96,7 @@ To enable replication for shared disks, follow these steps:
     1. Review the information and select **Enable replication**.  
  
     > [!NOTE]
-    > The replication enables in 1-2 hours.
+    > The replication gets enabled in 1-2 hours.
 
 
 ## Run a failover
