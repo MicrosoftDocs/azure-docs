@@ -31,22 +31,22 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 
 ## Manage Azure App Configuration data in deployment
 
-Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it is recommended to set your configuration store's ARM authentication mode to **Pass-through**. This ensures that data access requires a combination of data plane and ARM management roles as well as ensuring that data access can be properly attributed to the deployment caller for auditing purpose.
+Azure App Configuration data, such as key-values and snapshots, can be managed in deployment. When managing App Configuration data using this method, it's recommended to set your configuration store's Azure Resource Manager authentication mode to **Pass-through**. This authentication mode ensures that data access requires a combination of data plane and Azure Resource Manager management roles and ensuring that data access can be properly attributed to the deployment caller for auditing purpose.
 
-### ARM authentication mode
+### Azure Resource Manager authentication mode
 
 # [Azure portal](#tab/portal)
 
-To configure the ARM authentication mode of an Azure App Configuration resource in the Azure portal, follow these steps:
+To configure the Azure Resource Manager authentication mode of an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal
 2. Locate the **Access settings** setting under **Settings**
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access settings blade":::
+    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access settings blade.":::
 
 3. Select the recommended **Pass-through** authentication mode under **Azure Resource Manager Authentication Mode**
 
-    :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode":::
+    :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot showing pass-through authentication mode being selected under Azure Resource Manager Authentication Mode.":::
 
 ---
 
@@ -55,7 +55,7 @@ To configure the ARM authentication mode of an Azure App Configuration resource 
 
 ### Azure App Configuration Authorization
 
-When your App Configuration resource has its ARM authentication mode set to **Pass-through**, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment. This is in addition to baseline management permission requirements of the resource.  Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/\*/read and Microsoft.AppConfiguration/configurationStores/\*/write. Built-in roles with this action include:
+When your App Configuration resource has its Azure Resource Manager authentication mode set to **Pass-through**, you must have Azure App Configuration data plane permissions to read and manage Azure App Configuration data in deployment. This requirement is in addition to baseline management permission requirements of the resource. Azure App Configuration data plane permissions include Microsoft.AppConfiguration/configurationStores/\*/read and Microsoft.AppConfiguration/configurationStores/\*/write. Built-in roles with this action include:
 
 - App Configuration Data Owner
 - App Configuration Data Reader
@@ -67,27 +67,29 @@ To learn more about Azure RBAC and Microsoft Entra ID, see [Authorize access to 
 When an App Configuration resource is restricted to private network access, deployments accessing App Configuration data through public networks will be blocked. To enable successful deployments when access to an App Configuration resource is restricted to private networks the following actions must be taken:
 
 - [Azure Resource Management Private Link](../azure-resource-manager/management/create-private-link-access-portal.md) must be set up
-- The App Configuration resource must have ARM authentication mode set to **Pass-through**
-- The App Configuration resource must have ARM private network access enabled
-- Deployments accessing App Configuration data must run through the configured ARM private link
+- The App Configuration resource must have Azure Resource Manager authentication mode set to **Pass-through**
+- The App Configuration resource must have Azure Resource Manager private network access enabled
+- Deployments accessing App Configuration data must run through the configured Azure Resource Manager private link
 
 If all of these criteria are met, then deployments accessing App Configuration data will be successful.
 
 # [Azure portal](#tab/portal)
 
-To enable ARM private network access for an Azure App Configuration resource in the Azure portal, follow these steps:
+To enable Azure Resource Manager private network access for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal
 2. Locate the **Networking** setting under **Settings**
 
-    :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources networking blade":::
+    :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources networking blade.":::
 
 3. Check **Enable Azure Resource Manager Private Access** under **Private Access**
 
-    :::image type="content" border="true" source="./media/quickstarts/deployment/enable-arm-private-access.png" alt-text="Screenshot showing Enable Azure Resource Manager Private Access is checked":::
+    :::image type="content" border="true" source="./media/quickstarts/deployment/enable-azure-resource-manager-private-access.png" alt-text="Screenshot showing Enable Azure Resource Manager Private Access is checked.":::
 
 > [!NOTE]
-> ARM private access can only be enabled under **Pass-through** authentication mode.
+> Azure Resource Manager private network access can only be enabled under **Pass-through** authentication mode.
+
+---
 
 ## Next steps
 

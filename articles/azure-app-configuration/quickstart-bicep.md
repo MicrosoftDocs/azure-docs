@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Managing an Azure App Configuration resource with Bicep file requires an Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires an Azure Resource Manager role and addtional an Azure App Configuration [data plane role](concept-enable-rbac.md) when the configuration store's ARM authentication mode is set to [pass-through](./quickstart-deployment-overview.md#arm-authentication-mode) ARM authentication mode.
+Managing an Azure App Configuration resource with Bicep file requires an Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires an Azure Resource Manager role and an additional Azure App Configuration [data plane role](concept-enable-rbac.md) when the configuration store's ARM authentication mode is set to [pass-through](./quickstart-deployment-overview.md#arm-authentication-mode) ARM authentication mode.
 
 ## Review the Bicep file
 

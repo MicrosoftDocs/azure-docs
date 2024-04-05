@@ -12,7 +12,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart describes how to :
+This quickstart describes how to:
 
 - Deploy an App Configuration store using an Azure Resource Manager template (ARM template).
 - Create key-values in an App Configuration store using ARM template.
