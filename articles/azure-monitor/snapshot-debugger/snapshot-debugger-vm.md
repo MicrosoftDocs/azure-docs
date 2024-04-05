@@ -94,7 +94,7 @@ using Microsoft.ApplicationInsights.SnapshotCollector;
 builder.Services.Configure<SnapshotCollectorConfiguration>(builder.Configuration.GetSection("SnapshotCollector"));
 ```
 
-Next, add a `SnapshotCollector` section to *appsettings.json* where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
+Next, add a `SnapshotCollector` section to _appsettings.json_ where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
 
 ```json
 {
@@ -114,7 +114,7 @@ Next, add a `SnapshotCollector` section to *appsettings.json* where you can over
 }
 ```
 
-If you need to customize the Snapshot Collector's behavior manually, without using *appsettings.json*, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
+If you need to customize the Snapshot Collector's behavior manually, without using _appsettings.json_, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
 ```csharp
 builder.Services.AddSnapshotCollector(config => config.IsEnabledInDeveloperMode = true);
 ```
