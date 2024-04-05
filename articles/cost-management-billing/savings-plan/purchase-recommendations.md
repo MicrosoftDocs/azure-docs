@@ -19,7 +19,7 @@ Azure savings plan purchase recommendations are provided through [Azure Advisor]
 
 The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Saving plan recommendations are generated using your actual on-demand usage and costs (including any negotiated on-demand discounts).
 
-We start by looking at your hourly and total on-demand usage costs incurred from savings plan-eligible resources in the last 7, 30, and 60 days. We determine what the optimal savings plan commitment would have been for each of these hours - this is done by applying the appropriate savings plan discounts to all your savings plan-eligible usage in each hour. We consider each one of these commitments a candidate for a savings plan recommendation. We then run hundreds of simulations using each of these candidates to determine what your total cost would have been if you had purchased a savings plan equal to the candiate.
+We start by looking at your hourly and total on-demand usage costs incurred from savings plan-eligible resources in the last 7, 30, and 60 days. We determine what the optimal savings plan commitment would have been for each of these hours - this is done by applying the appropriate savings plan discounts to all your savings plan-eligible usage in each hour. We consider each one of these commitments a candidate for a savings plan recommendation. We then run hundreds of simulations using each of these candidates to determine what your total cost would have been if you had purchased a savings plan equal to the candidate.
 
 Here's a video that explains how savings plan recommendations are generated.
 
