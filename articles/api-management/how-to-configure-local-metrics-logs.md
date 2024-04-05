@@ -22,7 +22,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 
 ### Deploy StatsD and Prometheus to the cluster
 
-Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We will access the Prometheus dashboard via its Service.
+Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
 > The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
@@ -153,7 +153,7 @@ Now that both StatsD and Prometheus have been deployed, we can update the config
 | telemetry.metrics.local.statsd.sampling  | n/a | Specifies metrics sampling rate. Value can be between 0 and 1. e.g., `0.5`|
 | telemetry.metrics.local.statsd.tag-format  | n/a | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value can be `none`, `librato`, `dogStatsD`, `influxDB`. |
 
-Here is a sample configuration:
+Here's a sample configuration:
 
 ```yaml
 apiVersion: v1
@@ -216,7 +216,7 @@ The self-hosted gateway also supports a number of protocols including `localsysl
 | telemetry.logs.local.journal.endpoint  | n/a | Specifies journal endpoint.  |
 | telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Specifies UDP endpoint that accepts JSON data: file path, IP:port, or hostname:port.
 
-Here is a sample configuration of local logging:
+Here's a sample configuration of local logging:
 
 ```yaml
     apiVersion: v1
