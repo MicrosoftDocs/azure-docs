@@ -466,7 +466,7 @@ The secret should be created in kube-system namespace and then the configmap/CRD
 
 Below are the details about how to provide the TLS config settings through a configmap or CRD.
 
-- To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+- To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside your mtls enabled app.
         An example tlsConfig inside the config map should look like this:
 
 ```yaml
@@ -477,7 +477,7 @@ tls_config:
     insecure_skip_verify: false
 ```
 
-- To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+- To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside your mtls enabled app.
     An example tlsConfig inside a Podmonitor should look like this:
 
 ```yaml
