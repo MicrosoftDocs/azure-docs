@@ -1,7 +1,7 @@
 ---
 title: General troubleshooting strategies - Reporting an issue
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn how to report an issue
+description: Learn how to report an issue.
 author: enricohuang
 ms.author: enricohuang
 
@@ -46,8 +46,8 @@ In most cases, you also need to include details, such as
   * browser name and version
   * ACS SDK version
 * call info
-  * Call Id (when the issue happened during a call)
-  * Participant Id (if there were multiple participants in the call, but only some of them experienced the issue)
+  * `Call Id` (when the issue happened during a call)
+  * `Participant Id` (if there were multiple participants in the call, but only some of them experienced the issue)
 
 If you can only reproduce the issue on a specific device platform (for example, iPhone X), also include the device model when you report the issue.
 
