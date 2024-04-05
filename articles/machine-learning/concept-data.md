@@ -42,6 +42,17 @@ Azure Data Lake Gen2| ✓ | ✓|
 
 See [Create datastores](how-to-datastore.md) for more information about datastores.
 
+### Default datastores
+
+Each Azure Machine Learning workspace has a default storage account (Azure storage account) that contains the following datastores:
+
+| Datastore name | Storage container name | Desccription |
+|---|---|---|
+| `workspaceblobstore` | `{workspace-id}-blobstore` | Stores data uploads, job code snapshots, and pipeline data cache. |
+| `workspaceworkingdirectory` | `{workspace-id}-code` | Stores data for notebooks, compute instances, and prompt flow. |
+| `workspacefilestore` | `{workspace-id}-file` | Alternative container for data upload. |
+| `workspaceartifactstore` | `{workspace-id}-azureml` | Storage for assets such as metrics, models, and components. |
+
 ## Data types
 
 A URI (storage location) can reference a file, a folder, or a data table. A machine learning job input and output definition requires one of the following three data types:
