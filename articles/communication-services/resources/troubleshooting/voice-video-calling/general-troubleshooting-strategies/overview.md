@@ -41,7 +41,7 @@ It's important to gather more information from the user to understand the proble
 When the user reports an issue, we need to understand the frequency of the problem occurrence.
 Only happening once and always happening are different situations.
 
-For some issues, we can also use [Call Diagnostics](../../../../concepts/voice-video-calling/call-diagnostics.md) tool and [Azure Monitor Log](../../../../concepts/analytics/logs/voice-and-video-logs.md) to understand how many users could have encountered similar problems.
+For some issues, we can also use [Call Diagnostics](../../../../concepts/voice-video-calling/call-diagnostics.md) tool and [Azure Monitor Log](../../../../concepts/analytics/logs/voice-and-video-logs.md) to understand how many users could have similar problems.
 
 Understanding the frequency of the problem occurrence and how many users are affected can help you decide the priority of the issue.
 
@@ -73,4 +73,13 @@ If you're able to reproduce the issue, include details related to the issue. For
 * frequency of occurrence when reproducing the issue
 
 For more information, see [Reporting an issue](./reporting-an-issue.md).
+
+## Next steps
+
+Besides the troubleshooting guide, here are some articles of interest to you.
+
+* Learn how to [Optimizing Call Quality](../../../../concepts/voice-video-calling/manage-call-quality.md).
+* Learn more about [Call Diagnostics](../../../../concepts/voice-video-calling/call-diagnostics.md).
+* Learn more about [Troubleshooting VoIP Call Quality](../../../../concepts/voice-video-calling/troubleshoot-web-voip-quality.md).
+* See [Known issues in Azure Communication Services calling WebJS SDKs](../../../../concepts/voice-video-calling/known-issues-webjs.md?pivots=all-browsers).
 
