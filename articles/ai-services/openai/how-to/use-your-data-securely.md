@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/13/2024
+ms.date: 04/05/2024
 recommendations: false
 ---
 
