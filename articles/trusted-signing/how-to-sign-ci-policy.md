@@ -32,7 +32,7 @@ Endpoint "https://scus.codesigning.azure.net/"
 CodeSigningAccountName "youracsaccount" 
 CertificateProfileName "youracscertprofile" 
 ```
-5. [Get the root certificate](https://learn.microsoft.com/en-us/powershell/module/az.codesigning/get-azcodesigningrootcert) to be added to the trust store
+5. [Get the root certificate](https://learn.microsoft.com/powershell/module/az.codesigning/get-azcodesigningrootcert) to be added to the trust store
 ```
 Get-AzCodeSigningRootCert -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer
 ```
