@@ -20,7 +20,7 @@ Both products are cloud-based platforms that enable developers to add voice and 
 
 In this article, we describe the main features and functions of the Azure Communication Services, and link to a document comparing both platforms. We also provide links to instructions for migrating an existing Twilio Programmable Video implementation to Azure Communication Services Calling SDK.
 
-## What is Azure Communicaton Services? 
+## What is Azure Communication Services? 
 
 Azure Communication Services are cloud-based APIs and SDKs that you can use to seamlessly integrate communication tools into your applications. Improve your customers’ communication experience using our multichannel communication APIs to add voice, video, chat, text messaging/SMS, email, and more.
 
@@ -52,7 +52,7 @@ Azure Communication Services Calling SDK is just one part of the Azure ecosystem
 
 ## Video conference feature comparison 
 
-The Azure Communication Services Calling SDK has feature parity with Twilio’s Video platform, with several additional features to further improve your communications platform. For a detailed feature map, see [Calling SDK overview > Detailed capabilites](./voice-video-calling/calling-sdk-features.md#detailed-capabilities).
+The Azure Communication Services Calling SDK has feature parity with Twilio’s Video platform, with several additional features to further improve your communications platform. For a detailed feature map, see [Calling SDK overview > Detailed capabilities](./voice-video-calling/calling-sdk-features.md#detailed-capabilities).
 
 ## Understand call types in Azure Communication Services
 
@@ -81,4 +81,4 @@ Azure Communication Services offers various call types. The type of call you cho
 
 [Migrate from Twilio Video to Azure Communication Services.](../tutorials/migrating-to-azure-communication-services-calling.md)
 
-For a feature map, see [Calling SDK overview > Detailed capabilites](./voice-video-calling/calling-sdk-features.md#detailed-capabilities)
+For a feature map, see [Calling SDK overview > Detailed capabilities](./voice-video-calling/calling-sdk-features.md#detailed-capabilities)
