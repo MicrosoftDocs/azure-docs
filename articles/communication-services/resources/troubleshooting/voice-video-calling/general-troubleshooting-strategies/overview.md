@@ -68,7 +68,7 @@ If the issue reported by the user isn't present in the troubleshooting guide, co
 In most cases, you need to provide the callId together with a clear description of the issue.
 If you're able to reproduce the issue, include details related to the issue. For instance,
 
-* steps to reproduce the issue, including preconditions (platform, network conditions, ect...)
+* steps to reproduce the issue, including preconditions (platform, network conditions, ect)
 * what result do you expect to see
 * what result do you actually see
 * reproducibility rate of the issue
