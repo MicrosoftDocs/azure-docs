@@ -2,7 +2,7 @@
 title: Quickstart - Teams interop group calls on Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to place Microsoft Teams interop group calls with Azure Communication Calling SDK.
-author: Filippos Zampounis
+author: fizampou
 ms.author: fizampou
 ms.date: 04/04/2024
 ms.topic: quickstart
