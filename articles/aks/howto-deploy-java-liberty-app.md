@@ -138,7 +138,7 @@ export DB_RESOURCE_GROUP_NAME=<db-resource-group>
 ### [PowerShell](#tab/in-powershell)
  
 ```powershell
-$Env:DB_RESOURCE_GROUP_NAME="<your-database-resource-group-name>"
+$Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 ```
 
 ---
