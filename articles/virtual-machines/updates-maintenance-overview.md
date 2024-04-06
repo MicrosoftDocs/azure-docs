@@ -25,11 +25,11 @@ Maintenance platform aims to provide customers with *unified maintenance experie
 
 Host maintenance is performed on the physical hosts where VMs are located and are usually transparent to the customers. But some updates can have an impact that is tolerated by most customers. During these updates the VMs that are allocated on the hosts might freeze (*non-rebootful updates*), reboot (*rebootful updates*) or be live migrated to another updated hosts. Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-### Dedicated hosts/Isolated VMs vs Shared Hosts  
+### Dedicated hosts, Isolated VMs and Shared Hosts  
    
    Host maintenance experience is available for [Dedicated](dedicated-hosts.md) hosts, [Isolated](isolation.md) VMs, and Shared hosts. Dedicated hosts are hosts in which all VMs are owned by one customer. Shared hosts are hosts in which VMs from multiple end-customers reside together. Isolated VMs are large machines that are isolated to a specific hardware type and dedicated to a single customer.  
 
-   On [Dedicated](dedicated-hosts.md) hosts, customers have host maintenance experience available for impact <1sec or >=1sec. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. [Isolated](isolation.md) VMs have maintenance control experience available like Dedicated hosts.  
+   On [Dedicated](dedicated-hosts.md) hosts, customers have host maintenance experience available for all updates. Customers can opt into a maintenance control and schedule maintenance window based on their needs within 35days from last maintenance date. [Isolated](isolation.md) VMs have maintenance control experience available like Dedicated hosts.  
 
 Customer can use [maintenance control](maintenance-configurations.md) to:
 
@@ -42,7 +42,7 @@ On Shared hosts, customers have maintenance experience available for rebootful u
 
 ### Maintenance notifications  
    
-   Azure provides notifications before, during, and after maintenance operations. Scheduled events provide notifications before an event starts and while it is in progress so your application can react automatically. Flash health events enable you to consume and analyze alerts and trends in VMs availability for reporting and root cause analysis.  
+   Azure provides notifications before, during, and after maintenance operations. [Scheduled events](./windows/scheduled-events.md) provide notifications before an event starts and while it is in progress so your application can react automatically. [Flash Health Events](flash-overview.md) enable you to consume and analyze alerts and trends in VMs availability for reporting and root cause analysis.  
    
    #### Scheduled Events  
       

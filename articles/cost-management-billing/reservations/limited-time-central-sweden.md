@@ -8,7 +8,7 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: banders
-ms.custom: references_regions
+ms.custom: references_regions, linux-related-content
 ---
 
 # Save on select Linux VMs in Sweden Central for a limited time

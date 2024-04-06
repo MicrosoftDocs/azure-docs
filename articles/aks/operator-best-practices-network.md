@@ -3,7 +3,10 @@ title: Best practices for network resources in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 
 ---
 
@@ -81,7 +84,7 @@ Since you don't create the virtual network and subnets separately from the AKS c
 * Simple websites with low traffic.
 * Lifting and shifting workloads into containers.
 
-For most production deployments, you should plan for and use Azure CNI networking.
+For production deployments, both kubenet and Azure CNI are valid options. Environments which require separation of control and management, Azure CNI may the preferred option.  Additionally, kubenet is suited for Linux only environments where IP address range conservation is a priority.
 
 You can also [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking]. Like Azure CNI networking, these address ranges shouldn't overlap each other or any networks associated with the cluster (virtual networks, subnets, on-premises and peered networks).
 
@@ -248,3 +251,4 @@ This article focused on network connectivity and security. For more information 
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+

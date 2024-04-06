@@ -5,7 +5,8 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 01/16/2024
+ms.date: 04/02/2024
+ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
 ---
@@ -22,35 +23,34 @@ The Open Liberty Operator simplifies the deployment and management of applicatio
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* You can use Azure Cloud Shell or a local terminal.
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
+* Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Ensure [Git](https://git-scm.com) is installed.
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
 >
 > :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
-* If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
-  * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
-
 ## Create a Liberty on AKS deployment using the portal
 
 The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you have an Azure Container Registry and an Azure Kubernetes Service cluster for deploying your containerized application.
 
-1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM Liberty on AKS*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 
 1. Select **Create**.
 
@@ -59,29 +59,25 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
    
-    Create environment variables in your shell for the resource group names for the cluster and the database.
- 
-    ### [Bash](#tab/in-bash)
- 
-    ```bash
-    export RESOURCE_GROUP_NAME=<your-resource-group-name>
-    export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
-    ```
- 
-    ### [PowerShell](#tab/in-powershell)
- 
-    ```powershell
-    $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
-    $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
-    ```
- 
-    ---
+   1. Create environment variables in your shell for the resource group name for the cluster.
 
-1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. The remaining values do not need to be changed from their default values.
+      ### [Bash](#tab/in-bash)
+
+      ```bash
+      export RESOURCE_GROUP_NAME=<your-resource-group-name>
+      ```
+
+      ### [PowerShell](#tab/in-powershell)
+
+      ```powershell
+      $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
+      ```
+
+1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. For our purposes, just keep all the defaults on this pane.
 
 1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
 
-   1. You can customize the **virtual network** and **subnet** into which the deployment will place the resources. The remaining values do not need to be changed from their default values.
+   1. You can optionally customize the **virtual network** and **subnet** into which the deployment places the resources. The remaining values don't need to be changed from their default values.
    1. You can provide the **TLS/SSL certificate** presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can select **Enable cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
 
@@ -94,7 +90,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
 ## Capture selected information from the deployment
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the third step.
+If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, go to the newly created resource group and skip to the third step.
 
 1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
@@ -103,7 +99,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Save aside the values for **Login server**, **Registry name**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
 1. Navigate again to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
-1. Select the bottom-most deployment in the list. The **Deployment name** will match the publisher ID of the offer. It will contain the string `ibm`.
+1. Select the bottom-most deployment in the list. The **Deployment name** matches the publisher ID of the offer. It contains the string `ibm`.
 1. In the left pane, select **Outputs**.
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
@@ -112,26 +108,42 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    ### [Bash](#tab/in-bash)
 
-   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command outputs the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
    ### [PowerShell](#tab/in-powershell)
 
-   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell (excluding the `| base64` portion), append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command outputs the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
     ---
 
-These values will be used later in this article. Note that several other useful commands are listed in the outputs.
+   These values are used later in this article. Note that several other useful commands are listed in the outputs.
 
-> [!NOTE]
-> You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
-> * *appDeploymentTemplateYaml* is populated if and only if the deployment **does not include** an application.
-> * *appDeploymentYaml* is populated if and only if the deployment **does include** an application.
+   > [!NOTE]
+   > You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
+   > * *appDeploymentTemplateYaml* is populated if and only if the deployment **does not include** an application.
+   > * *appDeploymentYaml* is populated if and only if the deployment **does include** an application.
 
 ## Create an Azure SQL Database
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
+Create environment variables in your shell for the resource group name for the database.
+ 
+### [Bash](#tab/in-bash)
+ 
+```bash
+export DB_RESOURCE_GROUP_NAME=<your-database-resource-group-name>
+```
+ 
+### [PowerShell](#tab/in-powershell)
+ 
+```powershell
+$Env:DB_RESOURCE_GROUP_NAME="<your-database-resource-group-name>"
+```
+
+---
+
+Now that the database and AKS cluster are created, we can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -141,7 +153,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 
-There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
+There are a few samples in the repository. We use *java-app/*. Here's the file structure of the application.
 
 #### [Bash](#tab/in-bash)
 
@@ -163,7 +175,7 @@ git checkout 20240109
 
 ---
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 ```
 java-app
@@ -195,14 +207,13 @@ In directory *liberty/config*, the *server.xml* file is used to configure the DB
 
 ### Build the project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
+Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
 #### [Bash](#tab/in-bash)
 
-
 ```bash
 cd $BASE_DIR/java-app
-# The following variables will be used for deployment file generation into target.
+# The following variables are used for deployment file generation into target.
 export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
 export REGISTRY_NAME=<Azure-Container-Registry-name>
 export USER_NAME=<Azure-Container-Registry-username>
@@ -221,16 +232,16 @@ mvn clean install
 ```powershell
 cd $env:BASE_DIR\java-app
 
-# The following variables will be used for deployment file generation into target.
-$Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
-$Env:REGISTRY_NAME=<Azure-Container-Registry-name>
-$Env:USER_NAME=<Azure-Container-Registry-username>
-$Env:PASSWORD=<Azure-Container-Registry-password>
-$Env:DB_SERVER_NAME=<server-name>.database.windows.net
-$Env:DB_NAME=<database-name>
-$Env:DB_USER=<server-admin-login>@<server-name>
-$Env:DB_PASSWORD=<server-admin-password>
-$Env:INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
+# The following variables are used for deployment file generation into target.
+$Env:LOGIN_SERVER="<Azure-Container-Registry-Login-Server-URL>"
+$Env:REGISTRY_NAME="<Azure-Container-Registry-name>"
+$Env:USER_NAME="<Azure-Container-Registry-username>"
+$Env:PASSWORD="<Azure-Container-Registry-password>"
+$Env:DB_SERVER_NAME="<server-name>.database.windows.net"
+$Env:DB_NAME="<database-name>"
+$Env:DB_USER="<server-admin-login>@<server-name>"
+$Env:DB_PASSWORD="<server-admin-password>"
+$Env:INGRESS_TLS_SECRET="<ingress-TLS-secret-name>"
 
 mvn clean install
 ```
@@ -241,7 +252,7 @@ mvn clean install
 
 You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
+1. Start the application using `liberty:run`. `liberty:run` also uses the environment variables defined in the previous step.
 
    #### [Bash](#tab/in-bash)
 
@@ -347,7 +358,7 @@ Use the following steps to deploy and test the application:
 
 1. Connect to the AKS cluster.
 
-   Paste the value of **cmdToConnectToCluster** into a Bash shell and execute.
+   Paste the value of **cmdToConnectToCluster** into a shell and execute.
 
 1. Apply the DB secret.
 
@@ -367,7 +378,7 @@ Use the following steps to deploy and test the application:
 
     ---
 
-   You'll see the output `secret/db-secret-sql created`.
+   You see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
 
@@ -430,7 +441,7 @@ Use the following steps to deploy and test the application:
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
 
-   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
+   1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command creates an environment variable whose value you can paste straight into the browser.
 
       #### [Bash](#tab/in-bash)
 

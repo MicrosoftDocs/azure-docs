@@ -3,6 +3,7 @@ title: Prepare an Debian Linux VHD
 description: Learn how to create Debian VHD images for VM deployments in Azure.
 author: srijang
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 11/10/2021

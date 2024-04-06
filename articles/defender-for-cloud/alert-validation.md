@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
@@ -69,7 +70,7 @@ After the Microsoft Defender for Endpoint agent is installed on your machine, as
 
     :::image type="content" source="media/alert-validation/powershell-no-exit.png" alt-text="Screenshot showing PowerShell message line." lightbox="media/alert-validation/powershell-no-exit.png":::
 
-Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-malware-testfile/) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.  
+Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-malware-testfile/) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.
 
 > [!NOTE]
 > When reviewing test alerts for Windows, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus).

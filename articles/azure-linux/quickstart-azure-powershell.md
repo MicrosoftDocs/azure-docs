@@ -4,7 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for an AK
 author: schaffererin
 ms.author: schaffererin
 ms.service: microsoft-linux
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: quickstart
 ms.date: 11/20/2023
 ---

@@ -15,14 +15,14 @@ Microsoft Defender for Cloud's integration with ServiceNow allows customers to c
 
 ## Prerequisites
 
-- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html). 
+- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
 - The following roles are required:
-    - To create the integration: Security Admin, Contributor, or Owner.
+  - To create the integration: Security Admin, Contributor, or Owner.
 
-## Connect ServiceNow to Defender for Cloud
+## Connect a ServiceNow account to Defender for Cloud
 
 To connect a ServiceNow account to a Defender for Cloud account:
 

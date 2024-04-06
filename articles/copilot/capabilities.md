@@ -62,7 +62,10 @@ While Microsoft Copilot for Azure (preview) can perform many types of tasks, it'
 
 Keep in mind these current limitations:
 
-- The number of chats per day that a user can have, and the number of requests per chat, are limited. When you open Microsoft Copilot for Azure (preview), you'll see details about these limitations.
+- Any action taken on more than 10 resources must be performed outside of Microsoft Copilot for Azure.
+
+- You can only make 15 requests during any given chat, and you only have 10 chats in a 24 hour period.
+
 - Some responses that display lists will be limited to the top five items.
 - For some tasks and queries, using a resource's name will not work, and the Azure resource ID must be provided.
 - Microsoft Copilot for Azure (preview) is currently available in English only.
