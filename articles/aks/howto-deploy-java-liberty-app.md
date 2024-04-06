@@ -127,7 +127,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-Create an environment variable in your shell for the resource group name for the database.
+1. Create an environment variable in your shell for the resource group name for the database.
  
 ### [Bash](#tab/in-bash)
  
