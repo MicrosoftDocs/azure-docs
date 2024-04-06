@@ -1,5 +1,5 @@
 ---
-title: Latest restorable timestamp, use cases, examples for an Azure Cosmos DB container
+title: Latest restorable timestamp use cases, examples for an Azure Cosmos DB container
 description: The latest restorable timestamp API provides the latest restorable timestamp for containers on accounts with continuous mode backup. Using this API, you can get the restorable timestamp to trigger live account restore or monitor the data that is being backed up.
 author: kanshiG
 ms.author: govindk
@@ -17,7 +17,7 @@ Azure Cosmos DB offers an API to get the latest restorable timestamp of a contai
 
 This API also takes the account location as an input parameter and returns the latest restorable timestamp for the given container in this location. If an account exists in multiple locations, then the latest restorable timestamp for a container in different locations could be different because the backups in each location are taken independently.
 
-By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for API for NoSQL, MongoDB, Table, and Gremlin accounts.
+By default, this API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for API for NoSQL, MongoDB, Table, and Gremlin accounts.
 
 ## Use cases
 
@@ -31,15 +31,15 @@ You can use latest restorable timestamp in the following use cases:
 
 ## Semantics
 
-The latest restorable timestamp for a container is the minimum timestamp upto, which backup of all its partitions in a location were taken. This api calculates the latest restorable timestamp by retrieving the latest backup timestamp for each partition of the container in a location and returns the minimum timestamp of all these timestamps. If the data for all its partitions is backed up and there was no new data written to those partitions, then it returns the maximum of current timestamp and the last data backup timestamp.
+The latest restorable timestamp for a container is the minimum timestamp upto, which backup of all its partitions in a location were taken. This API calculates the latest restorable timestamp by retrieving the latest backup timestamp for each partition of the container in a location and returns the minimum timestamp of all these timestamps. If the data for all its partitions is backed up and there was no new data written to those partitions, then it returns the maximum of current timestamp and the last data backup timestamp.
 
 If a partition hasn't taken any backup yet but it has some data to be backed up, then it will return the minimum Unix (epoch) timestamp that is, January 1, 1970, midnight UTC (Coordinated Universal Time). In such cases, user must retry until it gives a timestamp greater than epoch timestamp.
 
 ## Latest restorable timestamp calculation
 
-The following example describes the expected outcome of latest restorable timestamp Api in different scenarios. In each scenario, we discuss about the current log backup state of partition, pending data to be backed up and how it affects the overall latest restorable timestamp calculation for a container.
+The following example describes the expected outcome of latest restorable timestamp API in different scenarios. In each scenario, we discuss about the current log backup state of partition, pending data to be backed up and how it affects the overall latest restorable timestamp calculation for a container.
 
-Let's say, we have an account, which exists in two regions (East US and West US). We have a container "cont1", which has two partitions (Partition1 and Partition2). If we send a request to get the latest restorable timestamp for this container at timestamp 't3', the overall latest restorable timestamp for this container will be calculated as follows:
+Let's say, we have an account, which exists in two regions (East US,West US). We have a container "cont1", which has two partitions (Partition1,Partition2). If we send a request to get the latest restorable timestamp for this container at timestamp 't3', the overall latest restorable timestamp for this container will be calculated as follows:
 
 ##### Case1: Data for all the partitions hasn't been backed up yet
 
@@ -89,7 +89,7 @@ Yes. This API can be used for account provisioned with continuous backup mode or
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 #### Will restorable timestamp work for deleted resources?
-No. It applies only to live resources (databases, collections or account). You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
+No. It applies only to live resources (databases, collections, or account). You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 ## Next steps
 
