@@ -116,7 +116,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
     ---
 
-   These values are used later in this article. Note that several other useful commands are listed in the outputs.
+   These values are used later in this article. Several other useful commands are listed in the outputs.
 
    > [!NOTE]
    > You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
