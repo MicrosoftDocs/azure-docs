@@ -1396,22 +1396,6 @@ items:
         href: alerts/test-action-group-errors.md
     - name: Legacy alerts
       items:
-      - name: About classic alerts
-        href: alerts/alerts-classic.overview.md
-      - name: Prepare for migration
-        href: alerts/alerts-prepare-migration.md
-      - name: Understand the migration tool
-        href: alerts/alerts-understand-migration.md
-      - name: Automatic migration process
-        href: alerts/alerts-automatic-migration.md
-      - name: Manage classic metric alerts
-        href: alerts/alerts-classic-portal.md
-      - name: Classic metric alert using a Resource Manager template
-        href: alerts/alerts-enable-template.md
-      - name: Classic metric alert calling a webhook
-        href: alerts/alerts-webhooks.md
-      - name: Legacy Log Analytics alerts API
-        href: alerts/api-alerts.md
       - name: Upgrade from the legacy Log Analytics alerts API
         href: alerts/alerts-log-api-switch.md
       - name: Edit log search alerts created in previous versions
