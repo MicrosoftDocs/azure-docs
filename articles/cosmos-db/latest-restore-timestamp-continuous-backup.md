@@ -88,7 +88,7 @@ Yes. This API can be used for account provisioned with continuous backup mode or
 #### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
-#### Will restorable timestamp work for deleted accounts?
+#### Will restorable timestamp work for deleted resources?
 No. It applies only to live resources (databases, collections or account). You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 ## Next steps
