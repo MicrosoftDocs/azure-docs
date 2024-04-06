@@ -102,7 +102,9 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md  
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Add Teams interop group calls to your app
+          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
