@@ -54,11 +54,11 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
 
-    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
@@ -138,11 +138,11 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
 
-    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
@@ -212,7 +212,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
@@ -318,7 +318,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
 1. Select **Scope** and set the scope to **Directory** for the query.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
