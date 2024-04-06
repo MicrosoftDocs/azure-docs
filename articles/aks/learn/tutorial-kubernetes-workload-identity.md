@@ -103,7 +103,7 @@ To help simplify steps to configure the identities required, the steps below def
 1. Create an Azure Key Vault in resource group you created in this tutorial using the [az keyvault create][az-keyvault-create] command.
 
     ```azurecli-interactive
-    az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}"
+    az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}" --enable-rbac-authorization false
     ```
 
     The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
