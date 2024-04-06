@@ -44,7 +44,7 @@ The **Details** page is the default page loaded in the **Live View** section. Th
 
 You can navigate between information categories by selecting from the drop-down at the top right corner of the page.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/details.png" alt-text="Screenshot of the Details page." lightbox="media/monitor-apps-by-application-live-view/details.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/details.png" alt-text="Screenshot of the Application Live View demo app that shows the Details page." lightbox="media/monitor-apps-by-application-live-view/details.png":::
 
 ## Health page
 
@@ -55,7 +55,7 @@ The **Health** page includes the following features:
 - View a list of all the components that make up the health of the app, such as readiness, liveness, and disk space.
 - View a display of the status and details associated with each of the components.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/health.png" alt-text="Screenshot of the Health page." lightbox="media/monitor-apps-by-application-live-view/health.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/health.png" alt-text="Screenshot of the Application Live View that shows the Health page." lightbox="media/monitor-apps-by-application-live-view/health.png":::
 
 ## Environment page
 
@@ -70,7 +70,7 @@ The **Environment** page includes the following features:
 - Reset the environment property to the original state by selecting **Reset**.
 - Add new environment properties to the app, and edit or remove overridden environment variables in the **Applied Overrides** section.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Application Live View that shows the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
 
 > [!NOTE]
 > You must set `management.endpoint.env.post.enabled=true` in the app config properties of the app, and a corresponding, editable environment must be present in the app.
@@ -90,7 +90,7 @@ The **Log Levels** page includes the following features:
 - Reset the log levels to the original state by selecting **Reset**.
 - Reset all the loggers to default state by selecting **Reset All** at the top right corner of the page.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/log-levels.png" alt-text="Screenshot of the Log Levels page." lightbox="media/monitor-apps-by-application-live-view/log-levels.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/log-levels.png" alt-text="Screenshot of the Application Live View that shows the Log Levels page." lightbox="media/monitor-apps-by-application-live-view/log-levels.png":::
 
 ## Threads page
 
@@ -120,7 +120,7 @@ The **Memory** page includes the following features:
 - View graphs to display the GC pauses and GC events.
 - Download heap dump data using the **Heap Dump** button at the top right corner.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/memory.png" alt-text="Screenshot of the Memory page." lightbox="media/monitor-apps-by-application-live-view/memory.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/memory.png" alt-text="Screenshot of the Application Live View that shows the Memory page." lightbox="media/monitor-apps-by-application-live-view/memory.png":::
 
 > [!NOTE]
 > This graphical visualization happens in real-time and shows real-time data only. As mentioned previously, the Application Live View features do not store any information. That means the graphs visualize the data over time only for as long as you stay on that page.

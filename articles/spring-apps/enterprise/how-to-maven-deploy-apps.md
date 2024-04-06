@@ -41,7 +41,7 @@ To create a Spring project for use in this article, use the following steps:
 
    The following image shows the recommended Spring Initializr setup for this sample project.
 
-   :::image type="content" source="media/how-to-maven-deploy-apps/initializr-page.png" alt-text="Screenshot of Spring Initializr.":::
+   :::image type="content" source="media/how-to-maven-deploy-apps/initializr-page.png" alt-text="Screenshot of the Spring Initializr page that shows the recommended settings.":::
 
    This example uses Java version 8. If you want to use Java version 11, change the option under **Project Metadata**.
 
@@ -148,7 +148,7 @@ To generate configurations and deploy the app, follow these steps:
 
 After deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
-:::image type="content" source="media/how-to-maven-deploy-apps/access-app-browser.png" alt-text="Screenshot of app in browser.":::
+:::image type="content" source="media/how-to-maven-deploy-apps/access-app-browser.png" alt-text="Screenshot of the hello spring app as seen in browser.":::
 
 ## Clean up resources
 

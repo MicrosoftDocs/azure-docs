@@ -160,7 +160,7 @@ This section provides troubleshooting information.
   - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
   - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
-    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
+    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot of the Azure Spring Apps instance that shows the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
 - Take the following actions if you successfully attach debugger but can't remotely debug the app instance:
 
@@ -202,7 +202,7 @@ This section provides troubleshooting information.
   - Check the RBAC role to make sure that you're authorized to remotely debug an app instance.
   - Make sure that you're connecting to a valid instance. Refresh the deployment to get the latest instances.
 
-    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot showing the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
+    :::image type="content" source="media/how-to-remote-debugging-app-instance/refresh-instance.png" alt-text="Screenshot of the Azure Spring Apps instance that shows the Refresh command." lightbox="media/how-to-remote-debugging-app-instance/refresh-instance.png":::
 
 - Take the following action if you successfully attach debugger but can't remotely debug the app instance:
 
