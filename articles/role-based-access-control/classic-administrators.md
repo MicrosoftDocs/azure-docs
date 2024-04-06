@@ -58,7 +58,7 @@ If you still have classic administrators, use the following steps to help you pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal to [get a list of your Co-Administrators](#view-classic-administrators).
+1. Use the Azure portal to [get a list of your Co-Administrators](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they're active users.
 
@@ -102,7 +102,7 @@ If you still have classic administrators, use the following steps to help you pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal to [get your Service Administrator](#view-classic-administrators).
+1. Use the Azure portal to [get your Service Administrator](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they're an active user.
 
@@ -144,7 +144,7 @@ Follow these steps to list the Service Administrator and Co-Administrators for a
 
 # [Azure Resource Graph](#tab/azure-resource-graph)
 
-Follow these steps to list the Service Administrator and Co-Administrators in your subscriptions using Azure Resource Graph.
+Follow these steps to list the number of Service Administrator and Co-Administrators in your subscriptions using Azure Resource Graph.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
@@ -160,7 +160,7 @@ Follow these steps to list the Service Administrator and Co-Administrators in yo
 
     :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
 
-1. Run the following query to get the number Service Administrators and Co-Administrators and subscription based on the scope.
+1. Run the following query to list the number Service Administrators and Co-Administrators based on the scope.
 
     ```kusto
     authorizationresources
@@ -174,7 +174,7 @@ Follow these steps to list the Service Administrator and Co-Administrators in yo
 
     The following shows an example of the results. The **count_** column is the number of Service Administrators or Co-Administrators for a subscription.
 
-    :::image type="content" source="./media/classic-administrators/resource-graph-classic-admin-list.png" alt-text="Screenshot of message box when removing a Co-Administrator." lightbox="./media/classic-administrators/resource-graph-classic-admin-list.png":::
+    :::image type="content" source="./media/classic-administrators/resource-graph-classic-admin-list.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows the number Service Administrators and Co-Administrators based on the subscription." lightbox="./media/classic-administrators/resource-graph-classic-admin-list.png":::
 
 ---
 
