@@ -2,8 +2,12 @@
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
+ms.subservice: aks-upgrade
 ms.custom: azure-kubernetes-service, devx-track-azurecli
 ms.date: 01/26/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -309,3 +313,4 @@ For a detailed discussion of upgrade best practices and other considerations, se
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+

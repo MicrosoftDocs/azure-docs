@@ -13,7 +13,7 @@ sections:
     questions:
       - question: Can I enable virtual network encryption on an existing virtual network, virtual machine, network interface, or NSG? 
         answer: |
-          Yes.
+          Yes. For more information about enabling virtual network encryption on an existing virtual network, see [Enable encryption](/azure/virtual-network/how-to-create-encryption-portal#enable-encryption).
       
       - question: How do I verify my data is encrypted?
         answer: |

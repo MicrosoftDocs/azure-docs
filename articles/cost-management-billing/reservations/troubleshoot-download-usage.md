@@ -20,7 +20,7 @@ This article helps you understand and troubleshoot why the reserved instance usa
 1. Select a reservation.
 1. On the reservation overview page, the default view shows usage for the last seven days. You can select **Download as CSV** to download the reservation's usage details.
 1. When you change the time range, the option to **Download as CSV** becomes unavailable.
-    :::image type="content" source="./media/troubleshoot-download-usage/download-csv-unavailable.png" alt-text="Example showing Download as CSV being unavailable" lightbox="./media/troubleshoot-download-usage/download-csv-unavailable.png" :::
+    :::image type="content" source="./media/troubleshoot-download-usage/download-csv-unavailable.png" alt-text="Screenshot showing  reservation properties where download as CSV is unavailable." lightbox="./media/troubleshoot-download-usage/download-csv-unavailable.png" :::
 
 ## Cause
 

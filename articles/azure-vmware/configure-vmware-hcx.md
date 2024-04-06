@@ -3,7 +3,7 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -62,7 +62,7 @@ In your data center, connect or pair the VMware HCX Cloud Manager in Azure VMwar
    > To successfully establish a site pair:
    > * Your VMware HCX Connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
-   > * A service account from your external identity source, such as Active Directory, is recommended for site pairing connections. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+   > * A service account from your external identity source, such as Active Directory, is recommended for site pairing connections. For more information about setting up separate accounts for connected services, see [Access and identity architecture](./architecture-identity.md).
 
    A screen displays the connection (pairing) between your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector.
 

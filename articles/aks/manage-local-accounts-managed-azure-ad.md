@@ -2,7 +2,11 @@
 title: Manage local accounts with AKS-managed Microsoft Entra integration
 description: Learn how to managed local accounts when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 04/20/2023
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ---
 
@@ -123,3 +127,4 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac-integration]: manage-azure-rbac.md
+

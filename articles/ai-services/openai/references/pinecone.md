@@ -5,14 +5,14 @@ description: Learn how to use Azure OpenAI on your Pinecone data Python & REST A
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/14/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-python
 ---
 
-# Data source - Pinecone
+# Data source - Pinecone (preview)
 
 The configurable options of Pinecone when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
 

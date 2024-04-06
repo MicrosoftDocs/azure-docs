@@ -461,6 +461,11 @@
             "source_path_from_root": "/articles/aks/command-invoke.md",
             "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/operator-best-practices-run-at-scale.md",
+            "redirect_url": "/azure/aks/best-practices-performance-scale-large",
+            "redirect_document_id": false
         }
     ]
 }

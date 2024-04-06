@@ -7,7 +7,7 @@ author: jushiman
  ms.topic: include
  ms.date: 12/08/2023
 ms.author: jushiman
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Supported distributions and drivers
@@ -40,7 +40,10 @@ The GRID drivers redistributed by Azure don't work on most non-NV series VMs lik
 |Ubuntu 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9, 8.6, 8.8<br/><br/>SUSE Linux Enterprise Server 15 SP2, 12 SP2,12 SP5<br/><br/>Rocky Linux 8.4| NVIDIA vGPU 16.3, driver branch [R535](https://download.microsoft.com/download/1/4/4/14450d0e-a3f2-4b0a-9bb4-a8e729e986c4/NVIDIA-Linux-x86_64-535.154.05-grid-azure.run)(.exe) <br/><br/> NVIDIA vGPU 16.2, driver branch [R535](https://download.microsoft.com/download/2/e/8/2e85b622-d376-4166-be95-38fd60f18eda/NVIDIA-Linux-x86_64-535.54.03-grid-azure.run)(.exe)|
 
 > [!Note]
->The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. 
+>For Azure NVads A10 v5 VMs we recommend customers to always be on the latest driver version. The latest NVIDIA major driver branch(n) is only backward compatbile with the previous major branch(n-1). For eg, vGPU 17.x is backward compatible with vGPU 16.x only. Any VMs still runnig n-2 or lower may see driver failures when the latest drive branch is rolled out to Azure hosts.
+>>
+>NVs_v3 VMs only support **vGPU 16 or lower** driver version.
+>
 
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.

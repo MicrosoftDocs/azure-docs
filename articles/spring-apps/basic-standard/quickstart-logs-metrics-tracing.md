@@ -161,15 +161,15 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Select **Streaming Logs** from the drop-down list.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-logs.png" alt-text="Select streaming logs" lightbox="media/quickstart-logs-metrics-tracing/streaming-logs.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-logs.png" alt-text="Screenshot of IntelliJ that shows the Azure Explorer pane with the context menu open and the Streaming Logs option highlighted." lightbox="media/quickstart-logs-metrics-tracing/streaming-logs.png":::
 
 1. Select **Instance**.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/select-instance.png" alt-text="Select instance" lightbox="media/quickstart-logs-metrics-tracing/select-instance.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/select-instance.png" alt-text="Screenshot of IntelliJ that shows the Select Instance dialog box." lightbox="media/quickstart-logs-metrics-tracing/select-instance.png":::
 
 1. The streaming log is visible in the output window.
 
-   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-log-output.png" alt-text="Streaming log output" lightbox="media/quickstart-logs-metrics-tracing/streaming-log-output.png":::
+   :::image type="content" source="media/quickstart-logs-metrics-tracing/streaming-log-output.png" alt-text="Screenshot of IntelliJ that shows the Azure Streaming Log pane." lightbox="media/quickstart-logs-metrics-tracing/streaming-log-output.png":::
 
  To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 

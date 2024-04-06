@@ -26,7 +26,7 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 
 * Java 8 or a more recent version with long-term support (LTS) 1.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Clone or download the sample app
 

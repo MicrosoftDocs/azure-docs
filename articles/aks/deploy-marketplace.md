@@ -5,6 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 08/18/2023
+ms.subservice: aks-developer
 ms.custom: ignite-fall-2022, references_regions
 ---
 
@@ -192,5 +193,6 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
 
 

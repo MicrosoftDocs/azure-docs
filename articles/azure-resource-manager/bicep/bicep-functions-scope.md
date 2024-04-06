@@ -3,7 +3,7 @@ title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/17/2022
+ms.date: 03/20/2024
 ---
 
 # Scope functions for Bicep
