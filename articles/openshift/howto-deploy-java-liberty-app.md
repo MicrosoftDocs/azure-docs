@@ -105,6 +105,12 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*.
 
+1. Create an environment variable in your shell for the resource group name.
+
+   ```bash
+   export RESOURCE_GROUP_NAME=<your-resource-group-name>
+   ```
+
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
 
 1. After selecting the region, select **Next**.
@@ -205,6 +211,12 @@ The following steps guide you through creating an Azure SQL Database single data
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
+
+1. Create an environment variable in your shell for the resource group name for the database.
+ 
+```bash
+export DB_RESOURCE_GROUP_NAME=<db-resource-group>
+```
 
 Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
 
@@ -396,8 +408,8 @@ Use the following steps to deploy and test the application:
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, ARO cluster, Azure SQL Database, and all related resources.
 
 ```bash
-az group delete --name abc1228rg --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## Next steps
