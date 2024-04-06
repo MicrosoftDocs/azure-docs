@@ -15,6 +15,12 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## Prerequisites
 
 Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.

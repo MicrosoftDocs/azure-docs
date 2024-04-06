@@ -5,11 +5,11 @@ description: Learn how to configure the native VPN client on a Windows computer 
 author: cherylmc
 ms.topic: how-to
 ms.service: vpn-gateway
-ms.date: 01/25/2024
+ms.date: 03/19/2024
 ms.author: cherylmc
 ---
 
-# Configure the Windows native VPN client for P2S Certificate Authentication connections
+# Configure Windows native VPN client for P2S certificate authentication connections
 
 If your point-to-site (P2S) VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you can connect to your virtual network using the native VPN client that's part of your Windows operating system. This article walks you through the steps to configure the native VPN client and connect to your virtual network.
 
@@ -28,7 +28,7 @@ Before beginning the workflow, verify that you're on the correct VPN client conf
 
 The VPN client profile configuration package contains specific folders. The files within the folders contain the settings needed to configure the VPN client profile on the client computer. The files and the settings they contain are specific to the VPN gateway and the type of authentication and tunnel your VPN gateway is configured to use.
 
-Locate and unzip the VPN client profile configuration package you generated. For Certificate authentication and IKEv2/SSTP, you'll see the following files:
+Locate and unzip the VPN client profile configuration package you generated. For certificate authentication and IKEv2/SSTP, you'll see the following files:
 
 * **WindowsAmd64** and **WindowsX86** contain the Windows 64-bit and 32-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just AMD.
 * **Generic** contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn’t present.
@@ -42,11 +42,17 @@ You can use the same VPN client configuration package on each Windows client com
 >[!NOTE]
 >You must have Administrator rights on the Windows client computer from which you want to connect.
 
-1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
+### Install the VPN client configuration package
 
+1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 1. Double-click the package to install it. If you see a SmartScreen popup, select **More info**, then **Run anyway**.
 
-1. Install the client certificate. Typically, you can do this by double-clicking the certificate file and providing a password (if required). For more information, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
+### Install the client certificate
+
+Each computer needs a client certificate in order to authenticate. If the client certificate isn't already installed on the local computer, you can install it using the following steps:
+
+1. Locate the client certificate. For more information about client certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
+1. Install the client certificate. Typically, you can do this by double-clicking the certificate file and providing a password (if required).
 
 ## Connect
 

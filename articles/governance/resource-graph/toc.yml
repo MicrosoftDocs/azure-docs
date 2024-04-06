@@ -51,18 +51,21 @@
     href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
-  - name: Language examples
-    items:
-    - name: Starter queries
-      displayName: query language, data explorer, count, list, show
-      href: ./samples/starter.md
-    - name: Advanced queries
-      displayName: query language, data explorer, list, regex
-      href: ./samples/advanced.md
-  - name: Index by category
+  - name: Starter queries
+    displayName: query language, data explorer, count, list, show, samples
+    href: ./samples/starter.md
+  - name: Advanced queries
+    displayName: query language, data explorer, list, regex, samples
+    href: ./samples/advanced.md
+  - name: Sample queries by category
+    displayName: samples, category
     href: ./samples/samples-by-category.md
-  - name: Index by table
+  - name: Sample queries by table
+    displayName: samples, table
     href: ./samples/samples-by-table.md
+  - name: Alerts samples
+    displayName: samples, alerts
+    href: ./samples/alerts-samples.md
 - name: Concepts
   items:
   - name: Understanding the query language

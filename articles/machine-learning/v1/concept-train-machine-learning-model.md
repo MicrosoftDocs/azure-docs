@@ -5,7 +5,7 @@ description: Learn how to train models with Azure Machine Learning (v1). Explore
 services: machine-learning
 ms.service: machine-learning
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.subservice: core
 ms.topic: conceptual

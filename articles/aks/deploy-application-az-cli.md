@@ -5,6 +5,7 @@ author: maanasagovi
 ms.author: maanasagovi
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.subservice: aks-developer
 ms.date: 05/15/2023
 ---
 
@@ -76,3 +77,4 @@ To deploy the application (extension) through Azure CLI, follow the steps outlin
 
 - Learn about [Kubernetes applications available through Marketplace](deploy-marketplace.md).
 - Learn about [cluster extensions](cluster-extensions.md).
+

@@ -67,7 +67,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 1. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
 
-   :::image type="content" source="media/how-to-permissions/permissions.png" alt-text="Screenshot that shows the results of searching for Microsoft.app." lightbox="media/how-to-permissions/permissions.png":::
+   :::image type="content" source="media/how-to-permissions/permissions.png" alt-text="Screenshot of the Azure portal that shows the Add permissions page search results with Microsoft Azure Spring Apps highlighted." lightbox="media/how-to-permissions/permissions.png":::
 
 1. Select the permissions for the Developer role.
 

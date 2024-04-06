@@ -4,7 +4,7 @@ description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/23/2024
 ms.author: caiqing
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -51,7 +51,7 @@ Use the following steps to enable App Accelerator using the Azure portal:
 1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then select **Next: VMware Tanzu settings**.
 1. On the **VMware Tanzu settings** tab, select **Enable App Accelerator**.
 
-   :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu settings tab of the Azure Spring Apps Create screen, with the Enable App Accelerator checkbox highlighted." lightbox="media/how-to-use-accelerator/create-instance.png":::
+   :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu settings tab with the Enable App Accelerator checkbox highlighted." lightbox="media/how-to-use-accelerator/create-instance.png":::
 
 1. Specify other settings, and then select **Review and Create**.
 1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to **Yes**. Select **Create** to create the Enterprise plan instance.

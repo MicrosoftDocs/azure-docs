@@ -4,7 +4,7 @@ description: Learn how to migrate from the HTTP application routing feature to t
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 11/03/2023
 ---
 
@@ -127,3 +127,4 @@ After migrating to the application routing add-on, learn how to [monitor Ingress
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+

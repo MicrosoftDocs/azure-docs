@@ -3,7 +3,7 @@ title: Create a Linux VM in Azure from a template
 description: How to use the Azure CLI to create a Linux VM from a Resource Manager template
 author: mattmcinnes
 ms.service: virtual-machines
-ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template, linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 02/01/2023
@@ -18,7 +18,7 @@ Learn how to create a Linux virtual machine (VM) by using an Azure Resource Mana
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-sshkey%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-sshkey%2Fazuredeploy.json":::
 
 ## Templates overview
 
