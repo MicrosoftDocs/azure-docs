@@ -6,7 +6,7 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/04/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -17,11 +17,9 @@ The application tries to subscribe to a video when [isAvailable](/javascript/api
 Subscribing a video in this case results in failure.
 
 This error is expected from SDK's perspective as applications shouldn't subscribe to a video that is currently not available.
-## How to detect
-### SDK
-If you subscribe to a video that is unavailable, the `createView` API throws an error.
+## How to detect using the SDK
+If you subscribe to a video that is unavailable, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API throws an error.
 
-The error code/subcode is
 
 | error            | Details                                               |
 |------------------|-------------------------------------------------------|
@@ -34,6 +32,6 @@ The error code/subcode is
 While the SDK throws an error in this scenario,
 applications should refrain from subscribing to a video when the remote video isn't available, as it doesn't satisfy the precondition.
 
-The general recommended practice is to monitor the isAvailable change within the `isAvailable` event callback function and to subscribe to the video when `isAvailable` changes to `true`.
-However, if there's asynchronous processing in the application layer that might cause some delay before invoking `createView` API.
+The recommended practice is to monitor the isAvailable change within the `isAvailable` event callback function and to subscribe to the video when `isAvailable` changes to `true`.
+However, if there's asynchronous processing in the application layer that might cause some delay before invoking [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API.
 In such case, applications can check isAvailable again before invoking the createView API.

@@ -6,7 +6,7 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -20,16 +20,15 @@ or due to issues with the camera on the sending end, or if the video input track
 or if the video sender drops the call unexpectedly.
 
 
-## How to detect
-### SDK
+## How to detect using SDK
 
-Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Bu using the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), your application can register a listener callback to detect the network condition changes and listen for other end user impacting events.
 
 At the video sending end, you can check events with the values of `networkReconnect`, `networkSendQuality`, `cameraFreeze`, `cameraStoppedUnexpectedly`.
 
 At the receiving end, you can check events with the values of `networkReconnect` and `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
+In addition, the [media quality stats API ](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
 
 For the quality of the video sending end, you can check the metrics `packetsLost`, `rttInMs`, `frameRateSent`, `frameWidthSent`, `frameHeightSent`, and `availableOutgoingBitrate`.
 

@@ -6,21 +6,19 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # The video sender has high CPU load
-When the web browser detects high CPU load or poor network conditions, it can apply extra constraints on the video encoder.
-If the user's machine has high CPU load, the final resolution sent out can be lower than the intended resolution.
+When the web browser detects high CPU load or poor network conditions, it can apply extra restraints on the output video resolution. If the user's machine has high CPU load, the final resolution sent out can be lower than the intended resolution.
 It's an expected behavior, as lowering the encoding resolution can reduce the CPU load.
 It's important to note that this behavior is controlled by the browser, and we're unable to control it at the JavaScript layer.
 
-## How to detect
-### SDK
-Although WebRTC Stats API provides `qualityLimitationReason` in the stats report, the ACS Web Calling SDK currently has no plans to expose this information in the MediaStats feature.
+## How to detect in the SDK
+The WebRTC Stats API provides of [`qualityLimitationReason`](https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason) can provide more detailed analysis of why the media quality in the stream is reduced. 
 
 ## How to mitigate or resolve
 When the browser detects high CPU load, it degrades the encoding resolution, which isn't an issue from the SDK perspective.

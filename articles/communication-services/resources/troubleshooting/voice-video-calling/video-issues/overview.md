@@ -1,12 +1,12 @@
 ---
-title: Video issues - Overview
+title: Video issues - Overview of how to understand and mitigate quality issues
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Overview of video issues
 author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/11/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -14,26 +14,26 @@ ms.subservice: calling
 
 # Overview of video issues
 
-Establishing a video call involves many components and processes, such as the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
-If there's a problem in any of these stages, users on the receiving end may encounter video-related issues.
-For example, they may complain about being unable to see the video or the poor quality of the video.
-Therefore, understanding how video packets flow from the sender to the receiver is crucial for debugging video issues.
+Establishing a video call involves many components and processes to setup an end to end video experience. Steps include the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
+If there's a problem in any of these stages, users ma video-related quality issues.
+For example, users may complain about being unable to see the video or the poor quality of the video.
+Therefore, understanding how video content flow from the sender to the receiver is crucial for debugging and mitigating video issues.
 
 ## How a video call works from an end-to-end perspective
 
 :::image type="content" source="./media/video-stream-flow.png" alt-text="The end-to-end flow of video stream data":::
 
-Here we use an ACS group call as an example.
+Here we use an Azure Communication Services group call as an example.
 
 When the sender starts video in a call, the SDK internally retrieves the camera video stream via a browser API.
 After the SDK completes the handshake at the signaling layer with the server, it begins sending the video stream to the server.
 The browser performs video encoding and packetization at the RTP(Real-time Transport Protocol) layer for transmission.
 The other participants in the call receive notifications from the server, indicating the availability of a video stream from the sender.
-The app can decide whether to subscribe to the video stream or not. 
-If the app subscribes to the video stream from the server (for example, using createView API), the server forwards the sender's video packets to the receiver.
+Your application can decide whether to subscribe to the video stream or not. 
+If your applications subscribes to the video stream from the server (for example, using [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API), the server forwards the sender's video packets to the receiver.
 The receiver's browser decodes and renders the incoming video.
 
-When you use ACS Web Calling SDL for video calls, the SDK and browser may adjust the video quality of the sender based on the available bandwidth.
+When you use ACS Web Calling SDK for video calls, the SDK and browser may adjust the video quality of the sender based on the available bandwidth.
 The adjustment may include changes in resolution, frames per second, and target bitrate.
 Additionally, CPU overload on the sender side can also influence the browser's decision on the target resolution for encoding.
 
@@ -65,4 +65,3 @@ Here we list several common video issues, along with potential causes for each i
 * The receiver has poor network
 * Heavy load on the environment of the video sender or receiver
 * The receiver subscribes multiple incoming video streams
-

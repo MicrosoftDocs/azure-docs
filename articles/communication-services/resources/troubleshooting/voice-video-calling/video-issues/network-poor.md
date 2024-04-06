@@ -6,33 +6,30 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # The network is poor during the call
-The quality of the network greatly affects video quality, and both the sender and receiver's network quality are both important.
-For example, if the sender's network bandwidth becomes poor, the sender's SDK may adjust the video's encoding resolution and frame rate according to the bandwidth estimation.
-The browser itself also has degradation rules that could affect the encoding resolution and framerate.
-Therefore, even if the original input resolution is high, it's likely that the final video resolution sent out can be low due to network issues.
+The quality of the network greatly affects video quality, and both on the sender and receiver's side.
+If the sender's network bandwidth becomes poor, the sender's SDK may adjust the video's encoding resolution and frame rate accordings so that it won't send more data than the current network can support.
 
-Similarly, when the receiver's bandwidth becomes poor in a group call and the simulcast is enabled on the sender's side, the server may forward a lower resolution stream.
+Similarly, when the receiver's bandwidth becomes poor in a group call and the [simulcast](../../../../concepts/voice-video-calling/simulcast) is enabled on the sender's side, the server may forward a lower resolution stream.
 This mechanism can reduce the impact of the network on the receiver's side.
 
-Other network characteristics, such as packet loss, round trip time, and jitter, also affect the video quality that users experience.
+Other network characteristics, such as packet loss, round trip time, and jitter, also affect the video quality that effects users calling quality experience.
 
-## How to detect
-### SDK
+## How to detect using the SDK
 
-Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+The [User Facing Diagnostics API ](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) gives feedback to clients of real time network impacting events happening
 
 For the network quality of the video sending end, you can check events with the values of `networkReconnect` and `networkSendQuality`.
 
 For the network quality of the receiving end, you can check events with the values of `networkReconnect` and `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
+In addition, the [media quality stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and video quality.
 
 For the quality of the video sending end, you can check the metrics `packetsLost`, `rttInMs`, `frameRateSent`, `frameWidthSent`, `frameHeightSent`, and `availableOutgoingBitrate`.
 
@@ -41,11 +38,12 @@ For the quality of the receiving end, you can check the metrics `packetsLost`, `
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
 To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
-These parts involve network infrastructure, which is outside the scope of the ACS Calling SDK.
 
-However, the ACS Calling SDK and browser can adaptively adjust the video quality according to the network condition.
+The ACS Calling SDK and browser adaptively will adjust the video quality according to the networks condition.
 It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly.
 In this way, users can be aware of any network quality issues and aren't surprised if they experience low-quality video during a call.
 
-If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
+You should also consider monitoring your client [media quality and network status](../../../../concepts/voice-video-calling/media-quality-sdk?pivots=platform-web) and consider make changes to your client as needed. For instance you might consider automatically turning off incoming video streams when you notice that the client is experience degraded network performance. In other instances you might give feedback to a user that they should turn off their camera because they have a poor internet connection.
+
+If you have a hypothesis that the user's network environment to be poor or unstanble, you can also use the [Video Constraint API ](../../../../concepts/voice-video-calling/video-constraints.md) to limit the maximum resolution, maximum frames per second (fps), and\or maximum bitrate sent or received reduce the bandwidth required for transmitting video.
 

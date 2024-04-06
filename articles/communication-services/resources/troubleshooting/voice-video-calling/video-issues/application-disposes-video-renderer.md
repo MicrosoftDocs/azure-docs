@@ -6,24 +6,20 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/04/2024
+ms.date: 04/05/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# The application disposes the video renderer while subscribing the video
-The `createView` promise API doesn't resolve immediately, as there are multiple underlying asynchronous operations involved in the video subscription process.
+# Your application disposes the video renderer while subscribing to a video
+The [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview)  API doesn't resolve immediately, as there are multiple underlying asynchronous operations involved in the video subscription process and thus this API response is an asynchronous response.
 
-If the application disposes of the render object while the video subscription is in progress, the `createView` API throws an error.
+If your application disposes of the render object while the video subscription is in progress, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API throws an error.
 
-It's an expected error from SDK's perspective as the application decides to dispose of the renderer object.
-## How to detect
-### SDK
-You get an error while invoking the `createView` API.
+## How to detect using the SDK
 
-The error code/subcode is
 
-| error            | Details                                               |
+| Error           | Details                                               |
 |------------------|-------------------------------------------------------|
 | code             | 405(Method Not Allowed)                               |
 | subcode          | 43209                                                 |
@@ -31,7 +27,6 @@ The error code/subcode is
 | resultCategories | Expected                                              |
 
 ## How to mitigate or resolve
-The application should verify whether it intends to dispose the renderer or if it's due to an unexpected renderer disposal.
-The unexpected renderer disposal can be triggered when certain UI resources release at the application layer.
-If the application indeed has the potential to dispose of the renderer during video subscription, it should gracefully handle this error thrown by the SDK.
-Therefore, we can ensure that the end user is informed that the video subscription has been canceled.
+Your  application should verify whether it intends to dispose the renderer or if it's due to an unexpected renderer disposal.
+The unexpected renderer disposal can be triggered when certain user interface resources are released in the application layer.
+If your application indeed needs to dispose of the renderer video during video subscription, it should gracefully handle this error thrown by the SDK.
