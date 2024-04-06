@@ -36,7 +36,7 @@ let captionsCallFeature: SDK.CaptionsCallFeature = call.feature(SDK.Features.Cap
 
 
 ## Get captions object
-You need to get and cast the Captions object to utilize Captions specific features
+You need to get and cast the Captions object to utilize Captions specific features.
 ``` typescript
 let captions: SDK.Captions;
 if (captionsCallFeature.captions.kind === 'Captions') {
@@ -115,7 +115,7 @@ captions.on('SpokenLanguageChanged', spokenLanguageChangedHandler)
 ```
 
 ## Start captions
-Once you've set up all your listeners, you can now start adding captions.
+Once you have set up all your listeners, you can now start adding captions.
 ``` typescript
 try {
     await captions.startCaptions({ spokenLanguage: 'en-us' });
