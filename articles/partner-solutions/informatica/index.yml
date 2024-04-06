@@ -7,7 +7,7 @@ metadata:
   title: Informatica 
   description: Informatica integrates with Azure to combine the benefits of Informatica Intelligent Data Management Cloud and the Azure cloud.
   ms.topic: landing-page
-  ms.date: 04/02/2024
+  ms.date: 04/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Manage your Informatica organization
             url: informatica-manage.md
+          - text: Manage your advanced serverless runtime and Informatica IDMC organization
+            url: informatica-manage-serverless.md
 
   # Card
   - title: Create an Informatica organization
