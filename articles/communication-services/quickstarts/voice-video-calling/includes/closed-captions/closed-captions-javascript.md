@@ -59,7 +59,7 @@ captions.on('CaptionsActiveChanged', captionsActiveChangedHandler);
 ### Add a listener for captions data received
 Handle the returned CaptionsInfo data object. 
 
-Note: The object contains a resultType prop that indicates whether the data is a partial caption or a finalized version of the caption. ResultType `partial` indicates live unedited caption, while `final` indicates a finalized interpreted version of the sentence (i.e includes punctuation and capitalization).
+Note: The object contains a resultType prop that indicates whether the data is a partial caption or a finalized version of the caption. ResultType `Partial` indicates live unedited caption, while `Final` indicates a finalized interpreted version of the sentence (i.e includes punctuation and capitalization).
 
 ```typescript
 const captionsReceivedHandler : CaptionsHandler = (data: CaptionsInfo) => { 
