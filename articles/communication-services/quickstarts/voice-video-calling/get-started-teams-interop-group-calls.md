@@ -153,3 +153,16 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 :::image type="content" source="../../media/javascript/acs-group-teams-calls-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 Insert the Teams ids into the text box split by comma and press *Place Group Call* to start the group call from within your Communication Services application.
+
+## Clean up resources
+
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+
+## Next steps
+
+For more information, see the following articles:
+
+- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
+- Get started with the [UI Library](../ui-library/get-started-composites.md)
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
