@@ -3501,6 +3501,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/migrate-v2-to-v3.md",
+      "redirect_url": "/azure/ai-services/speech-service/migrate-v3-1-to-v3-2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/migrate-v2-to-v3.md",
+      "redirect_url": "/azure/ai-services/speech-service/migrate-v3-1-to-v3-2",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/translator/connector/document-translation-flow.md",
       "redirect_url": "/azure/ai-services/translator/connector/document-translation-flow",
       "redirect_document_id": true
