@@ -28,7 +28,7 @@ Will Co-Administrators and Service Administrator lose access after August 31, 20
 
 How do I know what subscriptions have classic administrators?
 
-- You can use an Azure Resource Graph query to list subscriptions with either Service Administrator or Co-Administrator. For steps see [List classic administrators](#list-classic-administrators).
+- You can use an Azure Resource Graph query to list subscriptions with Service Administrator or Co-Administrator role assignments. For steps see [List classic administrators](#list-classic-administrators).
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
@@ -40,7 +40,7 @@ What is the equivalent Azure role I should assign for Service Administrator?
 
 Why do I need to migrate to Azure RBAC?
 
-- Azure RBAC offers fine grained access control, compatibility with Microsoft Entra Privileged Identity Management (PIM), and full audit logs support. All future investments will be in Azure RBAC.
+- Classic administrators will be retired. Azure RBAC offers fine grained access control, compatibility with Microsoft Entra Privileged Identity Management (PIM), and full audit logs support. All future investments will be in Azure RBAC.
 
 What about the Account Administrator role?
 
@@ -58,7 +58,7 @@ If you still have classic administrators, use the following steps to help you pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal to [get a list of your Co-Administrators](#list-classic-administrators).
+1. Use the Azure portal or Azure Resource Graph to [list of your Co-Administrators](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they're active users.
 
@@ -102,7 +102,7 @@ If you still have classic administrators, use the following steps to help you pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal to [get your Service Administrator](#list-classic-administrators).
+1. Use the Azure portal or Azure Resource Graph to [list your Service Administrator](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they're an active user.
 
