@@ -24,7 +24,8 @@ Overview of steps:
 1. ⁠Unzip the Az.CodeSigning module to a folder
 2. ⁠Open Windows PowerShell [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest)
 3. In the Az.CodeSigning folder, run 
-```Import-Module .\Az.CodeSigning.psd1
+```
+Import-Module .\Az.CodeSigning.psd1
 ``` 
 4. Optionally you can create a `metadata.json` file:
 ```
