@@ -20,21 +20,6 @@ This article shows you how to quickly deploy JBoss EAP Server on an Azure virtua
 - Install a Java SE implementation version 8 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
 - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
-  > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
-- After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. You also use the *Pool IDs* as the *RHSM Pool ID with EAP entitlement* later in this article.
-  1. Sign in to your [Red Hat account](https://sso.redhat.com).
-  1. If you just created your Red Hat Account, when you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
-
-     :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
-
-  1. Open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub) in a new tab. This link takes you to all of the subscriptions in your account for the appropriate SKU.
-  1. Select the first subscription from the **All purchased Subscriptions** table.
-  1. Copy and write down the value following **Master Pools** from **Pool IDs**.
-
-> [!NOTE]
-> The Azure Marketplace offer you're going to use in this article includes support for Red Hat Satellite for license management. Using Red Hat Satellite is beyond the scope of this quick start. For an overview on Red Hat Satellite, see [Red Hat Satellite](https://aka.ms/red-hat-satellite). To learn more about moving your Red Hat JBoss EAP and Red Hat Enterprise Linux subscriptions to Azure, see [Red Hat Cloud Access program](https://aka.ms/red-hat-cloud-access-overview).
 
 ## Deploy JBoss EAP Server on Azure VM
 
