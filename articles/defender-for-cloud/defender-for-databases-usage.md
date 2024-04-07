@@ -1,14 +1,14 @@
 ---
-title: Respond to Defender OSS alerts
+title: Respond to Defender open-source database alerts
 description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
-ms.date: 04/02/2024
+ms.date: 04/07/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
 #customer intent: As a reader, I want to learn how to configure Microsoft Defender for open-source relational databases to enhance the security of my databases.
 ---
 
-# Respond to Defender OSS alerts
+# Respond to Defender open-source database alerts
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
