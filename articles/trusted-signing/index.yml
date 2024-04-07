@@ -24,6 +24,12 @@ landingContent:
         links:
           - text: Implement Signing Integrations with Trusted Signing
             url: how-to-signing-integrations.md
+  - title: CI Policy Signing
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Sign CI Policies with Trusted Signing
+            url: how-to-sign-ci-policy.md
   - title: Overview
     linkLists:
         - linkListType: overview
