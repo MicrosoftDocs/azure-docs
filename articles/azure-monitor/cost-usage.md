@@ -13,19 +13,20 @@ This article describes the different ways that Azure Monitor charges for usage a
 [!INCLUDE [azure-monitor-cost-optimization](../../includes/azure-monitor-cost-optimization.md)]
 
 ## Pricing model
-Azure Monitor uses a consumption-based pricing (pay-as-you-go) billing model where you only pay for what you use. Features of Azure Monitor that are enabled by default do not incur any charge, including collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/metrics-supported.md). 
+
+Azure Monitor uses a consumption-based pricing (pay-as-you-go) billing model where you only pay for what you use. Features of Azure Monitor that are enabled by default do not incur any charge. This includes collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/metrics-supported.md). 
 
 Several other features don't have a direct cost, but you instead pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed current pricing for each is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 | Type | Description |
 |:---|:---|
-| Logs | Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). This will typically be the bulk of Azure Monitor charges for most customers. There is no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
+| Logs |Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). Log data ingestion will typically be the largest component of Azure Monitor charges for most customers. There is no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
 | Platform Logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there is a charge for the workspace data ingestion and collection. |
 | Metrics | There is no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There is a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
-| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log search alerts](alerts/alerts-types.md#log-alerts) configured for [at scale monitoring](alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1), the cost will also depend on the number of time series created by the dimensions resulting from your query. |
-| Web tests | There is a cost for [standard web tests](app/availability-standard-tests.md) and [multi-step web tests](app/availability-multistep.md) in Application Insights. Multi-step web tests have been deprecated.
+| Alerts | Alerts are charged based on the type and number of [signals](alerts/alerts-overview.md) used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [log search alerts](alerts/alerts-types.md#log-alerts) configured for [at scale monitoring](alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1), the cost also depends on the number of time series created by the dimensions resulting from your query. |
+| Web tests | There is a cost for [standard web tests](app/availability-standard-tests.md) and [multi-step web tests](app/availability-multistep.md) in Application Insights. Multi-step web tests are deprecated.|
 
 A list of Azure Monitor billing meter names is available [here](cost-meters.md). 
 
@@ -60,7 +61,7 @@ To limit the view to Azure Monitor charges, [create a filter](../cost-management
 - Insight and Analytics
 - Application Insights
 
-Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
+Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
 
 >[!NOTE]
@@ -70,14 +71,14 @@ Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also 
 ### Automated mails and alerts
 Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 
-- **Daily cost analysis emails.** Once you've configured your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
-  - **Budget alerts.** To be notified if there are significant increases in your spending, create a [budget alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) for a single workspace or group of workspaces. 
+- **Daily cost analysis emails.** After you configure your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
+- **Budget alerts.** To be notified if there are significant increases in your spending, create a [budget alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) for a single workspace or group of workspaces. 
 
 ### Export usage details
 
 To gain deeper understanding of your usage and costs, create exports using **Cost Analysis**. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
-These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, [billing meter](cost-meters.md), and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
+These exports are in CSV format and contain a list of daily usage (billed quantity and cost) by resource, [billing meter](cost-meters.md), and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
 
 For example, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
@@ -92,14 +93,18 @@ Add a filter on the **Instance ID** column for **contains workspace** or **conta
 
 ## View data allocation benefits
 
-There are several approaches to view the benefits a workspace receives from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
+There are several approaches to view the benefits a workspace receives from offers that are part of other products. These offers are:
+
+1. [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and 
+
+1. [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
 ### View benefits in a usage export
 
 Since a usage export has both the number of units of usage and their cost, you can use this export to see the amount of benefits you are receiving. In the usage export, to see the benefits, filter the *Instance ID* column to your workspace. (To select all of your workspaces in the spreadsheet, filter the *Instance ID* column to "contains /workspaces/".) Then filter on the Meter to either of the following two meters:
 
 - **Standard Data Included per Node**: this meter is under the service "Insight and Analytics" and tracks the benefits received when a workspace in either in Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance and/or has [Defender for Servers](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) enabled. Each of these provide a 500 MB/server/day data allowance.
-- **Free Benefit - M365 Defender Data Ingestion**: this  meter, under the service "Azure Monitor", tracks the benefit from the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
+- **Free Benefit - M365 Defender Data Ingestion**: this meter, under the service "Azure Monitor", tracks the benefit from the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
 ### View benefits in Usage and estimated costs
 
