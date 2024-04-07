@@ -1,6 +1,6 @@
 ---
-title: Configure settings for the Spring Cloud Eureka Server component in Azure Container Apps (preview)
-description: Learn to configure the Spring Cloud Eureka Server component in Azure Container Apps.
+title: Configure settings for the Eureka Server for Spring component in Azure Container Apps (preview)
+description: Learn to configure the Eureka Server for Spring component in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -9,9 +9,9 @@ ms.date: 03/15/2024
 ms.author: cshoe
 ---
 
-# Configure settings for the Spring Cloud Eureka Server component in Azure Container Apps (preview)
+# Configure settings for the Eureka Server for Spring component in Azure Container Apps (preview)
 
-Spring Cloud Eureka Server is mechanism for centralized service discovery for microservices. Use the following guidance to learn how to configure and manage your Spring Cloud Eureka Server component.
+Eureka Server for Spring is mechanism for centralized service discovery for microservices. Use the following guidance to learn how to configure and manage your Eureka Server for Spring component.
 
 ## Show
 
@@ -20,7 +20,7 @@ You can view the details of an individual component by name using the `show` com
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
 ```azurecli
-az containerapp env java-component spring-cloud-eureka show \
+az containerapp env java-component eureka-server-for-spring show \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <JAVA_COMPONENT_NAME>
@@ -51,7 +51,7 @@ az containerapp update \
   --resource-group <RESOURCE_GROUP>
 ```
 
-## Allowed configuration list for your Spring Cloud Eureka
+## Allowed configuration list for your Eureka Server for Spring
 
 The following list details supported configurations. You can find more details in [Spring Cloud Eureka Server](https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server).
 
@@ -60,13 +60,13 @@ The following list details supported configurations. You can find more details i
 
 ### Configuration options
 
-The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Cloud Eureka Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Eureka Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_discovery_first_bootstrap_using_eureka_and_webclient) docs.
+The `az containerapp update` command uses the `--configuration` parameter to control how the Eureka Server for Spring is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Eureka Server](https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server) docs.
 
 The following configuration settings are available on the `eureka.server` configuration property.
 
 | Name | Description | Default Value|
 |--|--|--|
-| `enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Anytime, the number of renewals drops below the threshold percentage as defined by `renewal-percent-threshold`. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Spring Cloud Eureka Java component](#limitations)  | `false` |
+| `enable-self-preservation` | When enabled, the server keeps track of the number of renewals it should receive from the server. Anytime, the number of renewals drops below the threshold percentage as defined by `renewal-percent-threshold`. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Eureka Server for Spring Java component](#limitations)  | `false` |
 | `renewal-percent-threshold` | The minimum percentage of renewals expected from the clients in the period specified by `renewal-threshold-update-interval-ms`. If renewals drop below the threshold, expirations are disabled when `enable-self-preservation` is enabled. | `0.85` |
 | `renewal-threshold-update-interval-ms` | The interval at which the threshold as specified in `renewal-percent-threshold` is updated. | `0` |
 | `expected-client-renewal-interval-seconds` | The interval at which clients are expected to send their heartbeats. The default value is to `30` seconds. If clients send heartbeats at a different frequency, make this value match the sending frequency to ensure self-preservation works as expected. | `30` |
@@ -94,9 +94,9 @@ The following configuration settings are available on the `eureka.server` config
 
 ## Call between applications
 
-This example shows you how to write Java code to call between applications registered with the Spring Cloud Eureka component. When container apps are bound with Eureka, they communicate with each other through the Eureka server.
+This example shows you how to write Java code to call between applications registered with the Eureka Server for Spring component. When container apps are bound with Eureka, they communicate with each other through the Eureka server.
 
-The example creates two applications, a caller and a callee. Both applications communicate among each other using the Spring Cloud Eureka component. The callee application exposes an endpoint that is called by the caller application.
+The example creates two applications, a caller and a callee. Both applications communicate among each other using the Eureka Server for Spring component. The callee application exposes an endpoint that is called by the caller application.
 
 1. Create the callee application. Enable the Eureka client in your Spring Boot application by adding the `@EnableDiscoveryClient` annotation to your main class.
 
@@ -168,7 +168,7 @@ The example creates two applications, a caller and a callee. Both applications c
     }
     ```
 
-Now you have a caller and callee application that communicate with each other using Spring Cloud Eureka Java components. Make sure both applications are running and bind with the Eureka server before testing the `/call-callee` endpoint in the caller application.
+Now you have a caller and callee application that communicate with each other using Eureka Server for Spring Java components. Make sure both applications are running and bind with the Eureka server before testing the `/call-callee` endpoint in the caller application.
 
 ## Limitations
 
@@ -181,4 +181,4 @@ Now you have a caller and callee application that communicate with each other us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a managed Spring Cloud Eureka Server](spring-cloud-eureka-server.md)
+> [Tutorial: Connect to a managed Eureka Server for Spring](spring-cloud-eureka-server.md)
