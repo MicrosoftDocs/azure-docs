@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/19/2024
+ms.date: 4/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---

@@ -6,7 +6,7 @@ author: heikora
 manager: dongli
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/21/2024
+ms.date: 4/15/2024
 ms.author: heikora
 ms.devlang: csharp
 ms.custom: devx-track-csharp
