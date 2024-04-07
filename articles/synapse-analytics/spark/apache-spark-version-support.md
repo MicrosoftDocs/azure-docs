@@ -86,32 +86,26 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads from versions 2.4, 3.1, 3.2, or 3.3 to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It is important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
 
-### Step 1: Evaluate and Plan
+### Step 1: Evaluate and plan
 - **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version (2.4, 3.1, 3.2, or 3.3) and the target version (e.g., 3.4).
 - **Analyze Codebase:** Carefully examine your Spark code to identify the use of deprecated or modified APIs. Pay particular attention to SQL queries and User Defined Functions (UDFs), which may be affected by the upgrade.
 
-### Step 2: Create a New Spark Pool for Testing
+### Step 2: Create a new Spark pool for testing
 - **Create a New Pool:** In Azure Synapse, go to the Spark pools section and set up a new Spark pool. Select the target Spark version (e.g., 3.4) and configure it according to your performance requirements.
 - **Configure Spark Pool Configuration:** Ensure that all libraries and dependencies in your new Spark pool are updated or replaced to be compatible with Spark 3.4.
 
-### Step 3: Migrate and Test Your Code
+### Step 3: Migrate and test your code
 - **Migrate Code:** Update your code to be compliant with the new or revised APIs in Apache Spark 3.4. This involves addressing deprecated functions and adopting new features as detailed in the official Apache Spark documentation.
 - **Test in Development Environment:** Test your updated code within a development environment in Azure Synapse, not locally. This step is essential for identifying and fixing any issues before moving to production.
 - **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It is critical to monitor the application for any unexpected behaviors.  Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
 
----
-
-**Question:** What steps should be taken in migrating from 2.4 to 3.X?
+**Question:** What steps should be taken in migrating from 2.4 to 3.X? <br>
 **Answer:** Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
 
----
-
-**Question:** I got an error when I tried to upgrade Spark pool runtime using PowerShell cmdlet when they have attached libraries.
-**Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
-    1. Recreate Spark Pool 3.3 from the ground up.
-    1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
-
----
+**Question:** I got an error when I tried to upgrade Spark pool runtime using PowerShell cmdlet when they have attached libraries. <br>
+**Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps: <br>
+1. Recreate Spark Pool 3.3 from the ground up.
+1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
 
 ## Related content
 
