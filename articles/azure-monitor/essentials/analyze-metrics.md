@@ -120,6 +120,8 @@ Use the time picker to change the **Time range** for your data, such as the last
 
 In addition to changing the time range with the time picker, you can pan and zoom by using the controls in the chart area.
 
+## Interactive Chart features
+
 ### Pan across metrics data
 
 To pan, select the left and right arrows at the edge of the chart. The arrow control moves the selected time range back and forward by one half of the chart's time span. If you're viewing the past 24 hours, selecting the left arrow causes the time range to shift to span a day and a half to 12 hours ago.
