@@ -102,7 +102,7 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.ContainerInstance](./permissions/containers.md#microsoftcontainerinstance) | Easily run containers on Azure without managing servers. | [Container Instances](/azure/container-instances/) |
 > | [Microsoft.ContainerRegistry](./permissions/containers.md#microsoftcontainerregistry) | Store and manage container images across all types of Azure deployments. | [Container Registry](/azure/container-registry/) |
-> | [Microsoft.ContainerService](./permissions/containers.md#microsoftcontainerservice) | Accelerate your containerized application development without compromising security. | [Azure Kubernetes Service (AKS)](/azure/aks/) |
+> | [Microsoft.ContainerService](./permissions/containers.md#microsoftcontainerservice) | Accelerate your containerized application development without compromising security. | [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) |
 > | [Microsoft.RedHatOpenShift](./permissions/containers.md#microsoftredhatopenshift) |  | [Azure Red Hat OpenShift](/azure/openshift/) |
 
 <a name='microsoftdocumentdb'></a>
@@ -275,6 +275,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Features](./permissions/management-and-governance.md#microsoftfeatures) |  | [Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.GuestConfiguration](./permissions/management-and-governance.md#microsoftguestconfiguration) | Audit settings inside a machine using Azure Policy. | [Azure Policy](/azure/governance/policy/) |
 > | [Microsoft.Intune](./permissions/management-and-governance.md#microsoftintune) | Enable your workforce to be productive on all their devices, while keeping your organization's information protected. |  |
+> | [Microsoft.Maintenance](./permissions/management-and-governance.md#microsoftmaintenance) |  | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations)<br/>[Azure Update Manager](/azure/update-manager/overview) |
 > | [Microsoft.ManagedServices](./permissions/management-and-governance.md#microsoftmanagedservices) |  | [Azure Lighthouse](/azure/lighthouse/) |
 > | [Microsoft.Management](./permissions/management-and-governance.md#microsoftmanagement) | Use management groups to efficiently apply governance controls and manage groups of Azure subscriptions. | [Management Groups](/azure/governance/management-groups/) |
 > | [Microsoft.PolicyInsights](./permissions/management-and-governance.md#microsoftpolicyinsights) | Summarize policy states for the subscription level policy definition. | [Azure Policy](/azure/governance/policy/) |
