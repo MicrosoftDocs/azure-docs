@@ -149,8 +149,6 @@
           href: sap/cross-workspace.md
         - name: Respond to SAP incidents with playbooks
           href: sap/sap-incident-response-playbooks.md
-        - name: Automatic attack disruption for SAP
-          href: sap/deployment-attack-disrupt.md
         - name: Deployment guide
           items: 
           - name: Overview
@@ -167,6 +165,8 @@
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
             href: sap/deployment-solution-configuration.md
+          - name: Deploy automatic attack disruption for SAP
+            href: sap/deployment-attack-disrupt.md
           - name: Update the connector
             href: sap/update-sap-data-connector.md      
           - name: Disable the connector
