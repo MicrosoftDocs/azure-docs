@@ -23,7 +23,7 @@ Watch the following video for an overview of creating and working with metrics c
 
 ## Create a metric chart using PromQL
 
-You can now create charts using Prometheus query language (PromQL) for metrics store in an Azure Monitor workspace. For more information, see [Metrics explorer with PromQL (Preview)](./metrics-explorer.md).
+You can now create charts using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. For more information, see [Metrics explorer with PromQL (Preview)](./metrics-explorer.md).
 
 ## Create a metric chart
 

@@ -23,6 +23,7 @@ Azure Monitor managed service for Prometheus can currently collect data from any
 - Azure Kubernetes service (AKS)
 - Azure Arc-enabled Kubernetes
 - Any server or Kubernetes cluster running self-managed Prometheus using [remote-write](./remote-write-prometheus.md).
+- Virtual Machines and Virtual Machine Scale Sets configured for remote write to a Prometheus server.
 
 ## Enable
 The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics.
@@ -30,7 +31,12 @@ The only requirement to enable Azure Monitor managed service for Prometheus is t
 - To collect Prometheus metrics from your Kubernetes cluster, see [Enable monitoring for Kubernetes clusters](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 - To configure remote-write to collect data from your self-managed Prometheus server, see [Azure Monitor managed service for Prometheus remote write](./remote-write-prometheus.md).
 
+## Azure Monitor Metrics Explorer with PromQL
+
+Metrics Explorer with PromQL allows you to analyze and visualize platform metrics, and use Prometheus query language (PromQL) to query Prometheus and other metrics stored in an Azure Monitor workspace. Metrics Explorer with PromQL is available from the **Metrics** menu item of any Azure Monitor workspace in the Azure portal. See [Metrics Explorer with PromQL](./metrics-explorer-promql.md) for more information.
+
 ## Grafana integration
+
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). [Connect your Azure Monitor workspace to a Grafana workspace](./azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
 ## Rules and alerts
