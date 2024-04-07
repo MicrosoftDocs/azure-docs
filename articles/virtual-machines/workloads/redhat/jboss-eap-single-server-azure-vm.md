@@ -171,7 +171,7 @@ The following steps will guide you to create a "Hello World" application and the
    - Run `mvn package` in the root directory of your project to build the application. This will generate a `.war` file in the `target` directory.
 
 7. **Deploy the Application on JBoss EAP:**
-  - Open the JBoss EAP admin console (usually accessible at `http://<public-ip>:9990`).
+  - Open the JBoss EAP admin console (`http://<public-ip-address-of-ipconfig1>:9990`).
   - Deploy the `.war` file using the admin console by uploading the file in the "Deployments" section.
       :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-upload-content.png" alt-text="Screenshot of the JBoss EAP management console Deployments tab with Upload Content menu item highlighted." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-upload-content.png":::
 
