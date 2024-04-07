@@ -1,3 +1,12 @@
+---
+author: varun-dhawan
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: include
+ms.date: 04/07/2024
+ms.author: varundhawan
+---
+
 |**Extension Name**                                                                          |**Description**                                                                                                                                                  |**Postgres 16**|**Postgres 15**|**Postgres 14**|**Postgres 13**|**Postgres 12**|**Postgres 11**|
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|-----------|-----------|------------|
 |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)        |Used to parse an address into constituent elements.                                                                                                              |3.3.3      |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
