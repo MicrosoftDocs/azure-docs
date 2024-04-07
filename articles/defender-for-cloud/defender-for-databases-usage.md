@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for open-source relational databases
+title: Respond to Defender OSS alerts
 description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
 ms.date: 04/02/2024
 ms.topic: how-to
@@ -8,7 +8,7 @@ author: dcurwin
 #customer intent: As a reader, I want to learn how to configure Microsoft Defender for open-source relational databases to enhance the security of my databases.
 ---
 
-# Enable Microsoft Defender for open-source relational databases and respond to alerts
+# Respond to Defender OSS alerts
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
@@ -20,20 +20,15 @@ To get alerts from the Microsoft Defender plan you'll first need to enable it as
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-## Enable enhanced security
+## Prerequisites
 
-1. From [the Azure portal](https://portal.azure.com), open the configuration page of the database server you want to protect.
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-1. From the security menu on the left, select **Microsoft Defender for Cloud**.
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-1. If enhanced security isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Microsoft Defender for [Database type]** (for example, "Microsoft Defender for MySQL") and select **Save**.
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS account](quickstart-onboard-aws.md)
 
-    :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Enable Microsoft Defender for MySQL." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
-
-    > [!TIP]
-    > This page in the portal will be the same regardless of the database type (PostgreSQL, MySQL, or MariaDB).
-
-## Respond to security alerts
+## Respond to alerts in Defender for Cloud
 
 When Microsoft Defender for Cloud is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
 
