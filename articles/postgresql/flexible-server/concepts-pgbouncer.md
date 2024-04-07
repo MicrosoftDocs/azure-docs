@@ -40,6 +40,10 @@ You can configure PgBouncer, settings with these parameters:
 
 For more information about PgBouncer configurations, see [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
+The following table shows the versions of PgBouncer currently deployed together with each major version of PostgreSQL: 
+
+[!INCLUDE [pgbouncer-table](./includes/pgbouncer-table.md)]
+
 > [!IMPORTANT]
 > Upgrading of PgBouncer is managed by Azure.
 
