@@ -178,7 +178,7 @@ Added token count and token error properties to the `EvaluationProperties` prope
 ### Model copy
 
 The following changes are for the scenario where you copy a model.
-- Added the new [Models_Copy](h/rest/api/speechtotext/models/copy) operation. Here's the schema in the new copy operation: `"$ref": "#/definitions/ModelCopyAuthorization"` 
+- Added the new [Models_Copy](/rest/api/speechtotext/models/copy) operation. Here's the schema in the new copy operation: `"$ref": "#/definitions/ModelCopyAuthorization"` 
 - Deprecated the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) operation. Here's the schema in the deprecated copy operation: `"$ref": "#/definitions/ModelCopy"`
 - Added the new [Models_AuthorizeCopy](/rest/api/speechtotext/models/authorize-copy) operation that returns `"$ref": "#/definitions/ModelCopyAuthorization"`. This returned entity can be used in the new [Models_Copy](/rest/api/speechtotext/models/copy) operation.
 
