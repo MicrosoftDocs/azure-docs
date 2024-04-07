@@ -88,7 +88,7 @@ try {
 ```
 
 ## Configure Spark to use the external Hive Metastore
-After creating the linked service to the external Hive Metastore successfully, you need to setup a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
+After creating the linked service to the external Hive Metastore successfully, you need to set up a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
 
 Here are the configurations and descriptions:
 
