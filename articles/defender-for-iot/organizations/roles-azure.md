@@ -43,7 +43,7 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 | **[View Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | ✔ | ✔ |✔ | ✔ |
 | **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
 
-For an overview for creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles.md). You will also need the list of [Internet of Things security permissions used for creating a custom role](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity)
+For an overview about creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles.md). To properly set-up the role you will need the list of [Internet of Things security permissions](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity).
 
 ## Next steps
 
