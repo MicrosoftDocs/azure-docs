@@ -92,7 +92,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 
 1. In Microsoft Sentinel, on the **Configuration > Data connectors** page, navigate to your **Microsoft Sentinel for SAP** data connector and select **Open the connector page**.
 
-1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" **Show commands** button.
+1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the **Show commands** button.
 
 1. Copy the **Role assignment command** displayed run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID.
 
