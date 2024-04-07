@@ -41,7 +41,7 @@ If you change the archive settings on a table with existing data, the relevant d
 
 ### What happens to data when you delete a table in a Log Analytics workspace
 
-A Log Analytics workspace can contain several [types of tables in Logs tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
+A Log Analytics workspace can contain several [types of tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
 
 |Table type|Data retention|Recommendations|
 |-|-|-|
