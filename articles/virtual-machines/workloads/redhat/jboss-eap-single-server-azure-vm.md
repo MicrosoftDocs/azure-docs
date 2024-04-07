@@ -16,17 +16,20 @@ This article shows you how to quickly deploy JBoss EAP Server on an Azure virtua
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+- [Azure CLI installed](/cli/azure/install-azure-cli)
+- Install a Java SE implementation version 8 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
+- Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
 - After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. You also use the *Pool IDs* as the *RHSM Pool ID with EAP entitlement* later in this article.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
-  1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
+  1. If you just created your Red Hat Account, when you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
 
      :::image type="content" source="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png" alt-text="Screenshot of selecting 'Personal' for the 'Account Type'." lightbox="media/jboss-eap-single-server-azure-vm/update-account-type-as-personal.png":::
 
-  1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
+  1. Open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub) in a new tab. This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
   1. Copy and write down the value following **Master Pools** from **Pool IDs**.
 
@@ -56,7 +59,7 @@ The following steps show you how to find the JBoss EAP Server on Azure VM offer 
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0823jbosseapvm*.
 1. Under **Instance details**, select the region for the deployment.
 1. Leave the default VM size for **Virtual machine size**.
-1. Leave the default option **OpenJDK 17** for **JDK version**.
+1. Leave the default option **OpenJDK 8** for **JDK version**.
 1. Leave the default value **jbossuser** for **Username**.
 1. Leave the default option **Password** for **Authentication type**.
 1. Fill in password for **Password**. Use the same value for **Confirm password**.
@@ -69,11 +72,6 @@ The following steps show you how to fill out **JBoss EAP Settings** pane and sta
 1. Leave the default value **jbossadmin** for **JBoss EAP Admin username**.
 1. Fill in JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Write down the value for later use.
 1. Leave the default option **No** for **Connect to an existing Red Hat Satellite Server?**.
-1. Fill in your RHSM username for **RHSM username**. The value is the same one that has been prepared in the prerequisites section.
-1. Fill in your RHSM password for **RHSM password**. Use the same value for **Confirm password**. The value is the same one that has been prepared in the prerequisites section.
-1. Fill in your RHSM pool ID for **RHSM Pool ID with EAP entitlement**. The value is the same one that has been prepared in the prerequisites section.
-1. Select **Next: Networking**.
-1. Select **Next: Database**.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
@@ -86,7 +84,7 @@ By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtu
 
 1. On the deployment page, select **Deployment details** to expand the list of Azure resource deployed. Select network security group `jbosseap-nsg` to open its details page.
 1. Under **Settings**, select **Inbound security rules**. Select **+ Add** to open **Add inbound security rule** panel for adding a new inbound security rule.
-1. Fill in *9990* for **Destination port ranges**. Fill in *Port_jbosseap* for **Name**. Select **Add**. Wait until the security rule created.
+1. Fill in *9990,8080* for **Destination port ranges**. Fill in *Port_jbosseap* for **Name**. Select **Add**. Wait until the security rule created.
 1. Select **X** icon to close the network security group `jbosseap-nsg` details page. You're switched back to the deployment page.
 1. Select the resource ending with `-nic` (with type `Microsoft.Network/networkInterfaces`) to open its details page.
 1. Under **Settings**, select **IP configurations**. Select `ipconfig1` from the list of IP configurations to open its configuration details panel.
@@ -108,19 +106,97 @@ By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtu
 > [!NOTE]
 > You can also follow the guide [Connect to environments privately using Azure Bastion host and jumpboxes](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/connect-to-environments-privately) and visit the **Red Hat JBoss Enterprise Application Platform** management console with the URL `http://<private-ip-address-of-vm>:9990`.
 
+
+## Optional: Deploy the app to the JBoss EAP Server
+
+The following steps will guide you to create a "Hello World" application and then deploy it on JBoss EAP.
+
+2. **Create a Maven Project:**
+
+   - Open a terminal or command prompt.
+
+   - Navigate to the directory where you want to create your project.
+
+   - Run the following Maven command to create a new Java web application:
+
+     ```bash
+     mvn archetype:generate -DgroupId=com.example -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+     ```
+
+     Replace `com.example` with your desired package name and `helloworld` with your project name.
+
+3. **Project Structure:**
+
+   - Navigate to the newly created project directory (`helloworld`).
+
+   - The project directory will have the following structure:
+
+     ```
+     helloworld
+     ├── src
+     │   └── main
+     │       ├── java
+     │       └── webapp
+     │           └── WEB-INF
+     │               └── web.xml
+     └── pom.xml
+     ```
+
+4. **Add a Servlet Class:**
+
+   - In the `src/main/java` directory, create a new package (e.g., `com.example`).
+
+   - Inside this package, create a new Java class, `HelloWorldServlet.java`, with the following content:
+
+     ```java
+     package com.example;
+     
+     import java.io.IOException;
+     import javax.servlet.ServletException;
+     import javax.servlet.annotation.WebServlet;
+     import javax.servlet.http.HttpServlet;
+     import javax.servlet.http.HttpServletRequest;
+     import javax.servlet.http.HttpServletResponse;
+     
+     @WebServlet("/hello")
+     public class HelloWorldServlet extends HttpServlet {
+         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+             response.getWriter().print("Hello World!");
+         }
+     }
+     ```
+
+5. **Update `pom.xml`:**
+
+   - Add dependencies for Java EE APIs to your `pom.xml` file to ensure you have the necessary libraries to compile the servlet:
+
+     ```xml
+     <dependencies>
+         <dependency>
+             <groupId>javax.servlet</groupId>
+             <artifactId>javax.servlet-api</artifactId>
+             <version>4.0.1</version>
+             <scope>provided</scope>
+         </dependency>
+     </dependencies>
+     ```
+
+6. **Build the Project:**
+
+   - Run `mvn package` in the root directory of your project to build the application. This will generate a `.war` file in the `target` directory.
+
+7. **Deploy the Application on JBoss EAP:**
+  - Open the JBoss EAP admin console (usually accessible at `http://<public-ip>:9990`).
+  - Deploy the `.war` file using the admin console by uploading the file in the "Deployments" section.
+      :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-upload-content.png" alt-text="Screenshot of the JBoss EAP management console Deployments tab with Upload Content menu item highlighted." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-upload-content.png":::
+
+8. **Access the Application:**
+   - Once deployed, you can access your "Hello World" application by navigating to `http://<public-ip-address-of-ipconfig1>:8080/helloworld/hello` in your web browser.
+
+
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the JBoss EAP Server deployed on Azure VM, unregister the JBoss EAP server and remove Azure resources.
-
-Run the following command to unregister the JBoss EAP server and VM from Red Hat subscription management.
-
-```azurecli
-az vm run-command invoke\
-    --resource-group <resource-group-name> \
-    --name <vm-name> \
-    --command-id RunShellScript \
-    --scripts "sudo subscription-manager unregister"
-```
+To avoid Azure charges, you should clean up unnecessary resources. 
 
 Run the following command to remove the resource group, VM, network interface, virtual network, and all related resources.
 
