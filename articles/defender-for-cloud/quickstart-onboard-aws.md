@@ -1,9 +1,8 @@
 ---
 title: Connect your AWS account
-description: Defend your AWS resources by using Microsoft Defender for Cloud.
+description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.custom:
-ms.date: 01/03/2024
+ms.date: 04/07/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -134,6 +133,18 @@ Make sure the selected Log Analytics workspace has a security solution installed
 
 Defender for Servers assigns tags to your Azure ARC resources on top of your EC2 instances to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
 
+### Defender for Databases
+
+If you choose the Defender for open-source relational databases plan, you need:
+
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md)
+
+- **Region availability**: All regions
+
 ### Defender CSPM
 
 If you choose the Microsoft Defender CSPM plan, you need:
@@ -195,7 +206,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
-1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server.
+1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server and open-source relational databases on RDS.
 
     (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 

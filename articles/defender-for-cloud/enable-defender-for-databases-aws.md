@@ -28,6 +28,8 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 - At least one connected [AWS account](quickstart-onboard-aws.md)
 
+- **Region availability**: All regions
+
 ## Enable Defender for open-source relational databases on your AWS account
 
 1. Sign in to [the Azure portal](https://portal.azure.com)
@@ -39,15 +41,15 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 1. Toggle RDS to **On**.
 
 1. Set the permission type.
-1. 
+
 1. In the deployment sections, select **Download**.
-1. 
+
 1. Follow the update stack in AWS instructions.
-1. 
+
 1. Check the box confirming the CloudFormation template has been updated on AWS environment (Stack).
-1. 
+
 1. Select **Review and generate**.
-1. 
+
 1. Review and confirm that the following permissions ad added to enable threat protection:
 
     | Permission added | Description |
