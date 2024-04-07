@@ -169,11 +169,15 @@ To receive these entitlements for Log Analytics workspaces or Application Insigh
 Depending on the number of nodes of the suite that your organization purchased, moving some subscriptions into a Per GB (pay-as-you-go) pricing tier might be advantageous, but this requires careful consideration.
 
 
-Also, if you move a subscription to the new Azure monitoring pricing model in April 2018, the Per GB tier is the only tier available. Moving a subscription to the new Azure monitoring pricing model isn't advisable if you have an Operations Management Suite subscription.
-
 > [!TIP]
 > If your organization has Microsoft Operations Management Suite E1 or E2, it's usually best to keep your Log Analytics workspaces in the Per-Node (OMS) pricing tier and your Application Insights resources in the Enterprise pricing tier. 
 >
+
+## Azure Migrate data benefits
+
+Workspaces linked to [classic Azure Migrate](/azure/migrate/migrate-services-overview#azure-migrate-versions) have received free data benefits for the data tables related to Azure Migrate (`ServiceMapProcess_CL`, `ServiceMapComputer_CL`, `VMBoundPort`, `VMConnection`, `VMComputer`, `VMProcess`, `InsightsMetrics`). This version of Azure Migrate was retired in February 2024. 
+
+Starting from 1 July 2024, the data benefit for Azure Migrate in Log Analytics will no longer be available. We suggest moving to the [Azure Migrate agentless dependency analysis](/azure/migrate/how-to-create-group-machine-dependencies-agentless). If you continue with agent-based dependency analysis, standard [Azure Monitor charges](https://azure.microsoft.com/pricing/details/monitor/) will apply for the data ingestion that enables dependency visualization. 
 
 ## Next steps
 
