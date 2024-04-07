@@ -1,14 +1,15 @@
 ---
 title: Automatic attack disruption for SAP | Microsoft Sentinel
-description: Learn about deploying automatic attack disruption for SAP with the unified security operations platform.
+description: Learn how to deploy automatic attack disruption for SAP with the unified security operations platform.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 04/01/2024
 appliesto:
-  - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+  - Microsoft Sentinel in the Azure portal
+  - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security engineer, I want to use automatic attack disruption for SAP in the Microsoft Defender portal.
+#customerIntent: As a security engineer, I want to deploy automatic attack disruption for SAP with the unified security operations platform.
 ---
 
 # Automatic attack disruption for SAP (Preview)
@@ -17,17 +18,17 @@ Microsoft Defender XDR correlates millions of individual signals to identify act
 
 When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified SOC platform. This article describes how to ensure that your SAP system is ready to support automatic attack disruption for SAP in the Microsoft Defender portal.
 
+Attack disruption for SAP is configured by updating your data connector agent version and ensuring that the relevant role is applied. However, attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.
+
 For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-## Attack disruption with the unified security operations platform
+## Prerequisites
 
-Attack disruption for SAP is configured by updating your data connector agent version and ensuring that the relevant role is applied. However, attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.
+- To deploy attack disruption for SAP, make sure that you configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
 
-To use attack disruption for SAP, make sure that you configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
-
-## Required SAP data connector agent version and role assignments
+## Deploy automatic attack disruption for SAP
 
 Attack disruption for SAP requires that you have:
 
@@ -35,12 +36,14 @@ Attack disruption for SAP requires that you have:
 - The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role.
 - The **/MSFTSEN/SENTINEL_RESPONDER** SAP role, applied to your SAP system and assigned to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
-**To use attack disruption for SAP**, deploy a new agent, or update your current agent to the latest version. For more information, see:
+### Deploy or update your agent version
+
+To use attack disruption for SAP, deploy a new agent, or update your current agent to the latest version. For more information, see:
 
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md), especially [Update your data connector agent for attack disruption](update-sap-data-connector.md#update-your-data-connector-agent-for-attack-disruption).
 
-**To verify your current agent version**, run the following query from the Microsoft Sentinel **Logs** page:
+To verify your current agent version, run the following query from the Microsoft Sentinel **Logs** page:
 
 ```Kusto
 SAP_HeartBeat_CL
@@ -53,9 +56,11 @@ SAP_HeartBeat_CL
     Current_Agent_Version = agent_ver_s
 ```
 
-## Apply and assign the /MSFTSEN/SENTINEL_RESPONDER SAP role to your SAP system
+### Apply and assign the /MSFTSEN/SENTINEL_RESPONDER SAP role to your SAP system
 
 Attack disruption is supported by the new **/MSFTSEN/SENTINEL_RESPONDER** SAP role, which you must apply to your SAP system and assign to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
+
+To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
 
 1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
