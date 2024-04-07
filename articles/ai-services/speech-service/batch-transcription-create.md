@@ -29,7 +29,7 @@ With batch transcriptions, you submit [audio data](batch-transcription-audio-dat
 
 ::: zone pivot="rest-api"
 
-To create a transcription, use the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation of the [Speech to text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
+To create a transcription, use the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation of the [Speech to text REST API](rest-speech-to-text.md#batch-transcription). Construct the request body according to the following instructions:
 
 - You must set either the `contentContainerUrl` or `contentUrls` property. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `locale` property. This value should match the expected locale of the audio data to transcribe. You can't change the locale later.
