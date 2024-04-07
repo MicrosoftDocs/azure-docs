@@ -99,11 +99,13 @@ This guide provides a structured approach for users looking to upgrade their Azu
 - **Test in Development Environment:** Test your updated code within a development environment in Azure Synapse, not locally. This step is essential for identifying and fixing any issues before moving to production.
 - **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It is critical to monitor the application for any unexpected behaviors.  Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
 
-**Question:** What steps should be taken in migrating from 2.4 to 3.X? <br>
+**Question:** What steps should be taken in migrating from 2.4 to 3.X?
+
 **Answer:** Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
 
-**Question:** I got an error when I tried to upgrade Spark pool runtime using PowerShell cmdlet when they have attached libraries. <br>
-**Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps: <br>
+**Question:** I got an error when I tried to upgrade Spark pool runtime using PowerShell cmdlet when they have attached libraries.
+
+**Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
 1. Recreate Spark Pool 3.3 from the ground up.
 1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
 
