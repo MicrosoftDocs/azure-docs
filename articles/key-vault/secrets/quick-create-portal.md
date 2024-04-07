@@ -6,8 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
-ms.date: 01/30/2024
+ms.date: 04/04/2024
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -31,16 +30,16 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To add a secret to the vault, follow the steps:
 
-1. Navigate to your new key vault in the Azure portal
-1. On the Key Vault settings pages, select **Secrets**.
-1. Select on **Generate/Import**.
+1. Navigate to your key vault in the Azure portal:
+1. On the Key Vault left-hand sidebar, select **Objects** then select **Secrets**.
+1. Select **+ Generate/Import**.
 1. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
     - **Name**: Type a name for the secret. The secret name must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -. For more information on naming, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
-    - **Value**: Type a value for the secret. Key Vault APIs accept and return secret values as strings. 
+    - **Value**: Type a value for the secret. Key Vault APIs accept and return secret values as strings.
     - Leave the other values to their defaults. Select **Create**.
 
-Once that you receive the message that the secret has been successfully created, you may select on it on the list. 
+Once you receive the message that the secret has been successfully created, you may select on it on the list.
 
 For more information on secrets attributes, see [About Azure Key Vault secrets](./about-secrets.md)
 
@@ -50,7 +49,7 @@ If you select on the current version, you can see the value you specified in the
 
 :::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="Secret properties":::
 
-By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
+By clicking "Show Secret Value" button in the right pane, you can see the hidden value.
 
 :::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Secret value appeared":::
 

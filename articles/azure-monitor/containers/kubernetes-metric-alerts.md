@@ -130,7 +130,7 @@ The following tables list the details of each recommended alert rule. Source cod
 
 ### Prometheus community alert rules
 
-**Cluster level alerts**
+#### Cluster level alerts
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
 |:---|:---|:---:|:---:|
@@ -147,14 +147,14 @@ The following tables list the details of each recommended alert rule. Source cod
 | KubeQuotaAlmostFull | The utilization of Kubernetes resource quotas is between 90% and 100% of the hard limits for the last 15 minutes. | >0.9 <1 | 15 |
 
 
-**Node level alerts**
+#### Node level alerts
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
 |:---|:---|:---:|:---:|
 | KubeNodeUnreachable | A node has been unreachable for the last 15 minutes. | 1 | 15 |
 | KubeNodeReadinessFlapping | The readiness status of a node has changed more than 2 times for the last 15 minutes. | 2 | 15 |
 
-**Pod level alerts**
+#### Pod level alerts
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
 |:---|:---|:---:|:---:|
