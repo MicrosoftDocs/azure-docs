@@ -823,7 +823,7 @@ In this section, we use Azure CLI to set the event handlers and use [awps-tunnel
 
 We set the URL template to use `tunnel` scheme so that Web PubSub routes messages through the `awps-tunnel`'s tunnel connection. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI. Since we listen events in path `/eventhandler` as the previous step sets, we set the url template to `tunnel:///eventhandler`.
 
-Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub.
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-create) command to create the event handler settings for the `Sample_ChatApp` hub.
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
@@ -883,6 +883,229 @@ The complete code sample of this tutorial can be found [here][code-python].
 Open `http://localhost:8080/index.html`. You can input your user name and start chatting.
 
 <!-- Adding Lazy Auth part with `connect` handling -->
+
+## Lazy Auth with `connect` event handler
+
+In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-client-events.md#connect). Now let's use `connect` event handler to acheive the similar as what the [negotiate](#negotiate) section does.
+
+### Update hub settings
+
+First let's update hub settings to also include `connect` event handler, we need to also allow anonymous connect so that clients without JWT access token can connect to the service.
+
+Use the Azure CLI [az webpubsub hub update](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the `Sample_ChatApp` hub.
+
+  > [!Important]
+  > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
+
+```azurecli-interactive
+az webpubsub hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --allow-anonymous true --event-handler url-template="tunnel:///eventhandler" user-event-pattern="*" system-event="connected" system-event="connect"
+```
+
+### Update upstream logic to handle connect event
+
+Now let's update upstream logic to handle connect event. We could also remove the negotiate endpoint now. As similar to what we do in negotiate endpoint as demo purpose, we also read id from the query parameters. In connect event, the original client query is preserved in connect event requet body.
+
+# [C#](#tab/csharp)
+
+Inside the class `Sample_ChatApp`, override `OnConnectAsync()` to handle `connect` event:
+
+```csharp
+sealed class Sample_ChatApp : WebPubSubHub
+{
+    private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
+
+    public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
+    {
+        _serviceClient = serviceClient;
+    }
+
+    public override ValueTask<ConnectEventResponse> OnConnectAsync(ConnectEventRequest request, CancellationToken cancellationToken)
+    {
+        if (request.Query.TryGetValue("id", out var id))
+        {
+            return new ValueTask<ConnectEventResponse>(request.CreateResponse(userId: id.FirstOrDefault(), null, null, null));
+        }
+
+        // The SDK catches this exception and returns 401 to the caller
+        throw new UnauthorizedAccessException("Request missing id");
+    }
+
+    public override async Task OnConnectedAsync(ConnectedEventRequest request)
+    {
+        Console.WriteLine($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
+    }
+
+    public override async ValueTask<UserEventResponse> OnMessageReceivedAsync(UserEventRequest request, CancellationToken cancellationToken)
+    {
+        await _serviceClient.SendToAllAsync(RequestContent.Create(
+        new
+        {
+            from = request.ConnectionContext.UserId,
+            message = request.Data.ToString()
+        }),
+        ContentType.ApplicationJson);
+
+        return new UserEventResponse();
+    }
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+Update server.js to handle the client connect event:
+
+```javascript
+const express = require("express");
+const { WebPubSubServiceClient } = require("@azure/web-pubsub");
+const { WebPubSubEventHandler } = require("@azure/web-pubsub-express");
+
+const app = express();
+const hubName = "Sample_ChatApp";
+
+let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hubName);
+
+let handler = new WebPubSubEventHandler(hubName, {
+  path: "/eventhandler",
+  handleConnect: async (req, res) => {
+    if (req.context.query.id){
+      res.success({ userId: req.context.query.id });
+    } else {
+      res.fail(401, "missing user id");
+    }
+  },
+  onConnected: async (req) => {
+    console.log(`${req.context.userId} connected`);
+  },
+  handleUserEvent: async (req, res) => {
+    if (req.context.eventName === "message")
+      await serviceClient.sendToAll({
+        from: req.context.userId,
+        message: req.data,
+      });
+    res.success();
+  },
+});
+app.use(express.static("public"));
+app.use(handler.getMiddleware());
+
+app.listen(8080, () => console.log("server started"));
+```
+
+# [Java](#tab/java)
+Now let's add the logic to handle the connect event `azure.webpubsub.sys.connect`:
+```java
+// validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+app.options("/eventhandler", ctx -> {
+    ctx.header("WebHook-Allowed-Origin", "*");
+});
+
+// handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+app.post("/eventhandler", ctx -> {
+    String event = ctx.header("ce-type");
+    if ("azure.webpubsub.sys.connect".equals(event)) {
+        System.out.println("Connecting.");
+        if (){
+            ctx.status(200);
+
+        } else {
+            ctx.status(401).text("missing user id");
+
+        }
+        String id = ctx.header("ce-userId");
+    } else if ("azure.webpubsub.sys.connected".equals(event)) {
+        String id = ctx.header("ce-userId");
+        System.out.println(id + " connected.");
+        ctx.status(200);
+    } else if ("azure.webpubsub.user.message".equals(event)) {
+        String id = ctx.header("ce-userId");
+        String message = ctx.body();
+        service.sendToAll(String.format("{\"from\":\"%s\",\"message\":\"%s\"}", id, message), WebPubSubContentType.APPLICATION_JSON);
+        ctx.status(200);
+    }
+});
+
+```
+
+# [Python](#tab/python)
+Now let's handle the system `connect` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connect`. We add the logic after abuse protection:
+
+```python
+@app.route('/eventhandler', methods=['POST', 'OPTIONS'])
+def handle_event():
+    if request.method == 'OPTIONS':
+        if request.headers.get('WebHook-Request-Origin'):
+            res = Response()
+            res.headers['WebHook-Allowed-Origin'] = '*'
+            res.status_code = 200
+            return res
+    elif request.method == 'POST':
+        user_id = request.headers.get('ce-userid')
+        type = request.headers.get('ce-type')
+        if type == 'azure.webpubsub.sys.connect':
+            print(f"{user_id} connected")
+            return '', 204
+        elif type == 'azure.webpubsub.sys.connected':
+            print(f"{user_id} connected")
+            return '', 204
+        elif type == 'azure.webpubsub.user.message':
+            # default uses JSON
+            service.send_to_all(message={
+                'from': user_id,
+                'message': request.data.decode('UTF-8')
+            })
+            # returned message is also received by the client
+            return {
+                'from': "system",
+                'message': "message handled by server"
+            }, 200
+        else:
+            return 'Bad Request', 400
+```
+
+---
+
+### Update index.html to direct connect
+
+Now let's update the web page to direct connect to Web PubSub service. One thing to mention is that now for demo purpose the Web PubSub service endpoint is hard-coded into the client code, please update the service hostname `<the host name of your service>` in the below html with the value from your own service. It might be still useful to fetch the Web PubSub service endpoint value from your server, it gives you more flexibility and controllability to where the client connects to.
+
+```html
+<html>
+  <body>
+    <h1>Azure Web PubSub Chat</h1>
+    <input id="message" placeholder="Type to chat...">
+    <div id="messages"></div>
+    <script>
+      (async function () {
+        let hostname = "<the host name of your service>";
+        let id = prompt('Please input your user name');
+        let ws = new WebSocket(`wss://${hostname}/client/hubs/Sample_ChatApp?id=${id}`);
+        ws.onopen = () => console.log('connected');
+
+        let messages = document.querySelector('#messages');
+        
+        ws.onmessage = event => {
+          let m = document.createElement('p');
+          let data = JSON.parse(event.data);
+          m.innerText = `[${data.type || ''}${data.from || ''}] ${data.message}`;
+          messages.appendChild(m);
+        };
+
+        let message = document.querySelector('#message');
+        message.addEventListener('keypress', e => {
+          if (e.charCode !== 13) return;
+          ws.send(message.value);
+          message.value = '';
+        });
+      })();
+    </script>
+  </body>
+
+</html>
+```
+
+### Rerun the server
+
+Now [rerun the server](#run-the-web-server) and visit the web page following the instructions before. If you've stopped `awps-tunnel`, please also rerun the tunnel tool. 
 
 ## Next steps
 
