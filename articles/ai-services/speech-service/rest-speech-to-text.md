@@ -21,13 +21,13 @@ Speech to text REST API is used for [batch transcription](batch-transcription.md
 > Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
 > [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.2)
+> [See the Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.2&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.1 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1)
+> [See the Speech to text REST API v3.1 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.0 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0)
+> [See the Speech to text REST API v3.0 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
 
 Use Speech to text REST API to:
 

@@ -99,7 +99,7 @@ Added the [Models_GetFile](/rest/api/speechtotext/models/get-file) operation to 
 
 You must update the base path in your code from `/speechtotext/v3.0` to `/speechtotext/v3.1`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base`.
 
-The name of each `operationId` in version 3.1 is prefixed with the object name. For example, the `operationId` for "Create Model" changed from [CreateModel](/rest/api/speechtotext/create-model/create-model?view=rest-speechtotext-v3.0) in version 3.0 to [Models_Create](/rest/api/speechtotext/models/create?view=rest-speechtotext-v3.1) in version 3.1.
+The name of each `operationId` in version 3.1 is prefixed with the object name. For example, the `operationId` for "Create Model" changed from [CreateModel](/rest/api/speechtotext/create-model/create-model?view=rest-speechtotext-v3.0&preserve-view=true) in version 3.0 to [Models_Create](/rest/api/speechtotext/models/create?view=rest-speechtotext-v3.1&preserve-view=true) in version 3.1.
 
 The `/models/{id}/copyto` operation (includes '/') in version 3.0 is replaced by the `/models/{id}:copyto` operation (includes ':') in version 3.1.
 
@@ -110,7 +110,7 @@ The `/webhooks/{id}/test` operation (includes '/') in version 3.0 is replaced by
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1)
-* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0)
+* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
+* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
 
 

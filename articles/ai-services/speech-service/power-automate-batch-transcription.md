@@ -12,7 +12,7 @@ ms.date: 1/21/2024
 
 # Power automate batch transcription
 
-This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#transcriptions) directly.
+This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#batch-transcription) directly.
 
 In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](../../logic-apps/index.yml).
 

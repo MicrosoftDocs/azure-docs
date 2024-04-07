@@ -298,6 +298,6 @@ You must update the base path in your code from `/speechtotext/v3.1` to `/speech
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.22)
-* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1)
-* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0)
+* [Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.2&preserve-view=true)
+* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
+* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
