@@ -79,7 +79,7 @@ Be sure to check for any other available updates, such as:
 - Microsoft Sentinel solution for SAP® applications security content, in the **Microsoft Sentinel solution for SAP® applications** solution.
 - Relevant watchlists, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists).
 
-## Update your data connector agent for attack disruption
+## Update your system for attack disruption
 
 Automatic attack disurption for SAP is supported with the unified security operations platform in the Microsoft Defender portal, and requires:
 
