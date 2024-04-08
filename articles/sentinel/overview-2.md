@@ -14,6 +14,20 @@ Microsoft Sentinel is a scalable, cloud-native solution that delivers an intelli
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+## Enable out of the box security content
+
+Microsoft Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/overview/content-hub-azure-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal that shows the security content available with a solution":::
+
+# [Defender portal](#tab/defender-portal)
+
+:::image type="content" source="media/overview/content-hub-defender-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal that shows the security content available with a solution":::
+
+---
+
 ## Collect data at cloud scale
 
 After you onboard Microsoft Sentinel into your workspace, use data connectors to start ingesting your data into Microsoft Sentinel.
@@ -37,6 +51,8 @@ The Microsoft Sentinel **Data connectors** page lists the installed or in-use da
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/overview/data-connector-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel data connectors page in the Defender portal that shows a list of available connectors.":::
+
+---
 
 For more information, see the following resources:
 
@@ -76,3 +92,6 @@ Notebooks
 Automation 
 
 Playbooks 
+
+
+## Related content
