@@ -39,6 +39,19 @@ Audit logs and sign in logs in Microsoft Entra ID are similar to the activity lo
 
 ## App and workload data
 
+### Application data
+Application monitoring in Azure Monitor is done with [Application Insights](/azure/azure-monitor/app/app-insights-overview/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
+
+See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
+
+| Data type | Description | Data collection method |
+|:---|:---|:---|
+| Logs | Operational data about your application including page views, application requests, exceptions, and traces. Also includes dependency information between application components to support Application Map and data correlation. | Application logs are stored in a Log Analytics workspace that you select as part of the onboarding process. |
+| Metrics | Numeric data measuring the performance of your application and user requests measured over intervals of time. | Metric data is stored in both Azure Monitor Metrics and the Log Analytics workspace. |
+| Traces | Traces are a series of related events tracking end-to-end requests through the components of your application. | Traces are stored in the Log Analytics workspace for the app. |
+
+## Infrastructure data sources
+
 ### Virtual machine data
 Azure virtual machines create the same activity logs and platform metrics as other Azure resources. In addition to this host data though, you need to monitor the guest operating system and the workloads running on it, which requires the [Azure Monitor agent](./agents/agents-overview.md) or [SCOM Managed Instance](./vm/scom-managed-instance-overview.md). The following table includes the most common data to collect from VMs. See [Monitor virtual machines with Azure Monitor: Collect data](./vm/monitor-virtual-machine-data-collection.md) for a more complete description of the different kinds of data you can collect from virtual machines.
 
@@ -52,20 +65,6 @@ Azure virtual machines create the same activity logs and platform metrics as oth
 | IIS logs | Logs created by Internet Information Service (IIS). | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect IIS logs with Azure Monitor Agent](./agents/data-collection-iis.md). |
 | SNMP traps | Widely deployed management protocol for monitoring and configuring Linux devices and appliances. | See [Collect SNMP trap data with Azure Monitor Agent](./agents/data-collection-snmp-data.md). |
 | Management pack data | If you have an existing investment in SCOM, you can migrate to the cloud while retaining your investment in existing management packs using [SCOM MI](./vm/scom-managed-instance-overview.md). | SCOM MI stores data collected by management packs in an instance of SQL MI. See [Configure Log Analytics for Azure Monitor SCOM Managed Instance](/system-center/scom/configure-log-analytics-for-scom-managed-instance) to send this data to a Log Analytics workspace. |
-
-### Application data
-Application monitoring in Azure Monitor is done with [Application Insights](/azure/azure-monitor/app/app-insights-overview/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
-
-See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
-
-| Data type | Description | Data collection method |
-|:---|:---|:---|
-| Logs | Operational data about your application including page views, application requests, exceptions, and traces. Also includes dependency information between application components to support Application Map and data correlation. | Application logs are stored in a Log Analytics workspace that you select as part of the onboarding process. |
-| Metrics | Numeric data measuring the performance of your application and user requests measured over intervals of time. | Metric data is stored in both Azure Monitor Metrics and the Log Analytics workspace. |
-| Traces | Traces are a series of related events tracking end-to-end requests through the components of your application. | Traces are stored in the Log Analytics workspace for the app. |
-
-
-## Infrastructure data sources
 
 ### Kubernetes cluster data
 Azure Kubernetes Service (AKS) clusters create the same activity logs and platform metrics as other Azure resources. In addition to this host data though, they generate a common set of cluster logs and metrics that you can collect from your AKS clusters and Arc-enabled Kubernetes clusters.
