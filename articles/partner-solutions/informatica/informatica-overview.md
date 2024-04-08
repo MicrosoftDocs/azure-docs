@@ -46,18 +46,13 @@ For single sign-on, the Tenant Admin would need to enable _Allow User Consent fo
 
 ## Informatica resources
 
-To learn more about Informatica Intelligent Data Management Cloud:
+To learn more about Informatica Intelligent Data Management Cloud : https://www.informatica.com/products.html
 
-<!-- Add links for IDMC -->
+To get started on IDMC : https://docs.informatica.com/integration-cloud/data-integration/current-version/getting-started/preface.html
 
-To get started on IDMC:
+If you’re using IDMC to connect with Azure data services: https://docs.informatica.com/integration-cloud/data-integration-connectors/current-version.html
 
-<!-- Add links for IDMC get started-->
-
-If you’re using IDMC to connect with Azure data services:
-
-<!-- Add links for IDMC get started-->
-
+To know more about Informatica : https://docs.informatica.com/ 
 ## Next steps
 
 - To create an instance of Informatica Intelligent Data Management Cloud - Azure Native ISV Service, see [QuickStart: Get started with Informatica](informatica-create.md).
