@@ -86,11 +86,11 @@ The following input parameters are available.
 
 The following output parameters are available.
 
-| Return Type | Description                              |
+| Return type | Description                              |
 |-------------|------------------------------------------|
 | string      | The text of one response of conversation |
 
-## Next step
+## Next steps
 
 - Learn more about [how to process images in prompt flow](../flow-process-image.md).
 - Learn more about [how to create a flow](../flow-develop.md).
