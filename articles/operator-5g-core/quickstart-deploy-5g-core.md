@@ -50,13 +50,18 @@ ARC is used to enable communication from the Azure Operator 5G Core resource pro
 
 Use the following Azure CLI command:
 
-`$ az connectedk8s connect --name <ARC NAME> --resource-group <RESOURCE GROUP> --custom-locations-oid <LOCATION> --kube-config <KUBECONFIG FILE>`
+```azurecli
+$ az connectedk8s connect --name <ARC NAME> --resource-group <RESOURCE GROUP> --custom-locations-oid <LOCATION> --kube-config <KUBECONFIG FILE>
+```
 
 ### ARC-enable the cluster for Nexus Azure Kubernetes Services
 
 Retrieve the Nexus AKS connected cluster ID with the following command. You need this cluster ID to create the custom location.
 
- `$ az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv` 
+```azurecli
+$ az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv
+```
+
 
 ## Install the Network Function Manager Kubernetes extension
 
@@ -113,35 +118,35 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 
 | CLUSTERSERVICES                | Description                                                                                                 | Platform    |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------|-------------|
-| `admin-password`            | the admin password for all PaaS UIs. This password must be the same across all charts.                               | all         |
-| `alert-host`               | the alert host IP address                                                                                   | Azure only  |
-| `alertmgr-lb-ip`            | the IP address of the Prometheus Alert manager load balancer                                                | all         |
+| `admin-password`            | The admin password for all PaaS UIs. This password must be the same across all charts.                               | all         |
+| `alert-host`               | The alert host IP address                                                                                   | Azure only  |
+| `alertmgr-lb-ip`            | The IP address of the Prometheus Alert manager load balancer                                                | all         |
 | `customLocationId`         | The customer location ID path                                                                               | all         |
-|`db-etcd-lb-ip`         | the IP address of the ETCD server load balancer IP                                                          | all         |
-| `elastic-password`              | the Elasticsearch server admin password                                                                     | all         |
-| `elasticsearch-host`             | the Elasticsearch host IP address                                                                           | all         |
-| `fluentd-targets-host`           | the Fluentd target host IP address                                                                          | all         |
-| `grafana-lb-ip`               | the IP address of the Grafana load balancer.                                                                | all         |
+|`db-etcd-lb-ip`         | The IP address of the ETCD server load balancer IP                                                          | all         |
+| `elastic-password`              | The Elasticsearch server admin password                                                                     | all         |
+| `elasticsearch-host`             | The Elasticsearch host IP address                                                                           | all         |
+| `fluentd-targets-host`           | The Fluentd target host IP address                                                                          | all         |
+| `grafana-lb-ip`               | The IP address of the Grafana load balancer.                                                                | all         |
 | `grafana-url`                   | The Grafana UI URL -&lt; https://IP:xxxx&gt; -  customer defined port number                                | all         |
-| `istio-proxy-include-ip-ranges`  | the allowed Ingress IP ranges for Istio proxy. - default is " \* "                                          | all         |
-| `jaeger-host`                    | the Jaeger target host IP address                                                                           | all         |
-| `kargo-lb-ip`                    | the Kargo load balancer IP address                                                                          | all         |
+| `istio-proxy-include-ip-ranges`  | The allowed Ingress IP ranges for Istio proxy. - default is " \* "                                          | all         |
+| `jaeger-host`                    | The Jaeger target host IP address                                                                           | all         |
+| `kargo-lb-ip`                    | The Kargo load balancer IP address                                                                          | all         |
 | `multus-deployed`                | boolean on whether Multus is deployed or not.                                                               | Azure only  |
-| `nfs-filepath`                   | the NFS (Network File System) file path where PaaS components store data - Nexus default "/filestore"  | Azure only  |
-| `nfs-server`                    | the NFS (Network File System) server IP address                                                             | Azure only  |
-| `oam-lb-subnet`                  | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.                    | Azure only  |
-| `redis-cluster-lb-ip`            | the IP address of the Redis cluster load balancer                                                           | Nexus only  |
-| `redis-limit-cpu`                | the max CPU limit for each Redis server POD                                                                 | all         |
-| `redis-limit-mem`                | the max memory limit for each Redis POD                                                                     | all         |
-| `redis-primaries`               | the number of Redis primary shard PODs                                                                      | all         |
-| `redis-replicas`                 | the number of Redis replica instances for each primary shard                                                | all         |
-| `redis-request-cpu`              | the Min CPU request for each Redis POD                                                                      | all         |
-| `redis-request-mem`              | the min memory request for each Redis POD                                                                   | all         |
-| `thanos-lb-ip`                   | the IP address of the Thanos load balancer.                                                                 | all         |
-| `timer-lb-ip`                    | the IP address of the Timer load balancer.                                                                  | all         |
-|`tlscrt`                         | the TLS (Transport Layer Security) certificate in plain text  used in cert manager                          | all         |
-| `tlskey`                         | the TLS key in plain text, used in cert manager                                                             | all         |
-|`unique-name-suffix`             | the unique name suffix for all generated PaaS service logs                                                  | all         |
+| `nfs-filepath`                   | The NFS (Network File System) file path where PaaS components store data - Nexus default "/filestore"  | Azure only  |
+| `nfs-server`                    | The NFS (Network File System) server IP address                                                             | Azure only  |
+| `oam-lb-subnet`                  | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.                    | Azure only  |
+| `redis-cluster-lb-ip`            | The IP address of the Redis cluster load balancer                                                           | Nexus only  |
+| `redis-limit-cpu`                | The max CPU limit for each Redis server POD                                                                 | all         |
+| `redis-limit-mem`                | The max memory limit for each Redis POD                                                                     | all         |
+| `redis-primaries`               | The number of Redis primary shard PODs                                                                      | all         |
+| `redis-replicas`                 | The number of Redis replica instances for each primary shard                                                | all         |
+| `redis-request-cpu`              | The Min CPU request for each Redis POD                                                                      | all         |
+| `redis-request-mem`              | The min memory request for each Redis POD                                                                   | all         |
+| `thanos-lb-ip`                   | The IP address of the Thanos load balancer.                                                                 | all         |
+| `timer-lb-ip`                    | The IP address of the Timer load balancer.                                                                  | all         |
+|`tlscrt`                         | The  Transport Layer Security (TLS) certificate in plain text  used in cert manager                          | all         |
+| `tlskey`                         | The TLS key in plain text, used in cert manager                                                             | all         |
+|`unique-name-suffix`             | The unique name suffix for all generated PaaS service logs                                                  | all         |
 
  
 
@@ -156,9 +161,9 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | `amf-ingress-gw-li-lb-ip`  | The IP address for the AMF Ingress Gateway Lawful intercept POD IP                         | all         |
 | `amf-mme-ppe-lb-ip1 \*`   | The IP address for the AMF/MME external load balancer (for SCTP associations)              | all         |
 | `amf-mme-ppe-lb-ip2`     | The IP address for the AMF/MME external load balancer (for SCTP associations)  (second IP).   | all         |
-| `elasticsearch-host`     | the Elasticsearch host IP address                                                          | all         |
+| `elasticsearch-host`     | The Elasticsearch host IP address                                                          | all         |
 | `external-gtpc-svc-ip`    | The IP address for the external GTP-C IP service address for N26 interface                 | all         |
-| `fluentd-targets-host`    | the Fluentd target host IP address                                                         | all         |
+| `fluentd-targets-host`    | The Fluentd target host IP address                                                         | all         |
 | `gn-lb-subnet`            | The subnet name for the GN-interface load balancer.                                        | Azure only  |
 | `grafana-url`            | The Grafana UI URL -&lt; https://IP:xxxx&gt; -  customer defined port number               | all         |
 | `gtpc\_agent-n26-mme`   | The IP address for the GTPC agent N26 interface to the cMME. AMF-MME                       | all         |
@@ -167,15 +172,15 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | `gtpc-agent-ext-svc-name`| The external service name for the GTP-C (GPRS Tunneling Protocol Control Plane) agent.    | all         |
 | `gtpc-agent-ext-svc-type`  | The external service type for the GTPC agent.                                              | all         |
 | `gtpc-agent-lb-ip`       | The IP address for the GTPC agent load balancer.                                           | all         |
-| `jaeger-host`              | the Jaeger target host IP address                                                          | all         |
+| `jaeger-host`              | The Jaeger target host IP address                                                          | all         |
 | `li-lb-subnet`            | The subnet name for the LI load balancer.                                                  | all         |
-|`nfs-filepath`            | the NFS (Network File System) file path where PaaS components store data              | Azure only  |
-|`nfs-server`              | the NFS (Network File System) server IP address                                            | Azure only  |
-| `oam-lb-subnet`        | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
+|`nfs-filepath`            | The Network File System (NFS) file path where PaaS components store data              | Azure only  |
+|`nfs-server`              | The NFS server IP address                                            | Azure only  |
+| `oam-lb-subnet`        | The subnet name for the Operations, Administration, and Maintenance (OAM) load balancer.   | Azure only  |
 | `sriov-subnet`             | The name of the SRIOV subnet                                                               | Azure only  |
 | `ulb-endpoint-ips1`        | Not required since we're using lb-ppe in Azure Operator 5G Core. Leave blank                           | all         |
 | ulb-endpoint-ips2        | Not required since we're using lb-ppe in Azure Operator 5G Core. Leave blank                           | all         |
-| `unique-name-suffix`       | the unique name suffix for all generated PaaS service logs                                 | all         |
+| `unique-name-suffix`       | The unique name suffix for all generated PaaS service logs                                 | all         |
 
  
 ### SMF Deployment Parameters
@@ -183,22 +188,22 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | SMF Parameters           | Description                                                                                | Platform    |
 |--------------------------|--------------------------------------------------------------------------------------------|-------------|
 | `aes256cfb128Key`         | The AES-256-CFB-128 encryption key. Default value is an empty string.                      | all         |
-| `elasticsearch-host`      | the Elasticsearch host IP address                                                          | all         |
-| `fluentd-targets-host`  | the Fluentd target host IP address                                                         | all         |
+| `elasticsearch-host`      | The Elasticsearch host IP address                                                          | all         |
+| `fluentd-targets-host`  | The Fluentd target host IP address                                                         | all         |
 | `gn-lb-subnet`            | The subnet name for the GN-interface load balancer.                                        | Azure only  |
 | `grafana-url`             | The Grafana UI URL -&lt; https://IP:xxxx&gt; - customer defined port number                | all         |
 | `gtpc-agent-ext-svc-name` | The external service name for the GTPC agent.                                              | all         |
 | `gtpc-agent-ext-svc-type`  | The external service type for the GTPC agent.                                              | all         |
 | `gtpc-agent-lb-ip`        | The IP address for the GTPC agent load balancer.                                           | all         |
 | `inband-data-agent-lb-ip` | The IP address for the inband data agent load balancer.                                    | all         |
-|`jaeger-host`              | the jaeger target host IP address                                                          | all         |
+|`jaeger-host`              | The jaeger target host IP address                                                          | all         |
 | `lcdr-filepath`          | The filepath for the local CDR charging                                                    | all         |
 | `li-lb-subnet`             | The subnet for the LI subnet.                                                              | Azure only  |
 | `max-instances-in-smfset` | The maximum number of instances in the SMF set - value is set to 3                         | all         |
 | `n4-lb-subnet`             | The subnet name for N4 load balancer service.                                              | Azure only  |
-| `nfs-filepath`           | the NFS (Network File System) file path where PaaS components store data              | Azure only  |
-| `nfs-server`             | the NFS (Network File System) server IP address                                            | Azure only  |
-| `oam-lb-subnet`            | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
+| `nfs-filepath`           | The NFS (Network File System) file path where PaaS components store data              | Azure only  |
+| `nfs-server`             | The NFS (Network File System) server IP address                                            | Azure only  |
+| `oam-lb-subnet`            | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
 | `pfcp-c-loadbalancer-ip` | The IP address for the PFCP-C load balancer.                                               | all         |
 | `pfcp-ext-svc-name`       | The external service name for the PFCP.                                                    | all         |
 | `pfcp-ext-svc-type`       | The external service type for the PFCP.                                                    | all         |
@@ -213,7 +218,7 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | `sriov-subnet`           | The name of the SRIOV subnet                                                               | Azure only  |
 | `sshd-cipher-suite`        | The cipher suite for SSH (Secure Shell) connections.                                       | all         |
 | `tls-cipher-suite`        | The TLS cipher suite.                                                                      | all         |
-| `unique-name-suffix`      | the unique name suffix for all PaaS service logs                                           | all         |
+| `unique-name-suffix`      | The unique name suffix for all PaaS service logs                                           | all         |
 
 ### UPF Deployment Parameters 
 
@@ -221,22 +226,22 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|-------------|
 | `admin-password`                         |  "admin"                                                                                               |             |
 | `aes256cfb128Key`                        | The AES-256-CFB-128 encryption key. AES encryption key used by cfgmgr                                   | all         |
-|`alert-host`                          | the alert host IP address                                                                               | all         |
-| `elasticsearch-host`                     | the Elasticsearch host IP address                                                                       | all         |
+|`alert-host`                          | The alert host IP address                                                                               | all         |
+| `elasticsearch-host`                     | The Elasticsearch host IP address                                                                       | all         |
 | `fileserver-cephfs-enabled-true-false`   | A boolean value indicating whether CephFS is enabled for the file server.                               |             |
 | `fileserver-cfg-storage-class-name`      | The storage class name for file server storage.                                                         | all         |
 | `fileserver-requests-storage`            | The storage size for file server requests.                                                              | all         |
 | `fileserver-web-storage-class-name`      | The storage class name for file server web storage.                                                     | all         |
-| `fluentd-targets-host`                   | the Fluentd target host IP address                                                                      | all         |
+| `fluentd-targets-host`                   | The Fluentd target host IP address                                                                      | all         |
 | `gn-lb-subnet`                           | The subnet name for the GN-interface load balancer.                                                     |             |
 | `grafana-url`                          | The Grafana UI URL -&lt; https://IP:xxxx&gt; -  customer defined port number                            | all         |
-| `jaeger-host`                            | the jaeger target host IP address                                                                       | all         |
+| `jaeger-host`                            | The jaeger target host IP address                                                                       | all         |
 | `l3am-max-ppe`                           | The maximum number of Packet processing engines (PPE) that are supported in user plane          | all         |
 |`l3am-spread-factor`                      | The spread factor determines the number of PPE instances where sessions of a single PPE are backed up   | all         |
 | `n4-lb-subnet`                         | The subnet name for N4 load balancer service.                                                           | Azure only  |
-| `nfs-filepath`                          | the NFS (Network File System) file path where PaaS components store data                           | Azure only  |
-| `nfs-server`                           | the NFS (Network File System) server IP address                                                         | Azure only  |
-| `oam-lb-subnet`                          | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.                | Azure only  |
+| `nfs-filepath`                          | The NFS (Network File System) file path where PaaS components store data                           | Azure only  |
+| `nfs-server`                           | The NFS (Network File System) server IP address                                                         | Azure only  |
+| `oam-lb-subnet`                          | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.                | Azure only  |
 | `pfcp-ext-svc-name`                      | The name of the PFCP (Packet Forwarding Control Protocol) external service.                             | Azure only  |
 | `pfcp-u-external-fqdn`                   | The external fully qualified domain name for the PFCP-U.                                                | all         |
 | `pfcp-u-lb-ip`                        | The IP address for the PFCP-U (Packet Forwarding Control Protocol - User Plane) load balancer.          | all         |
@@ -250,7 +255,7 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 |`tdef-sc-name`                          | TDEF storage class name                                                                                 | Nexus only  |
 | `tls-cipher-suite`                      | The cipher suite for TLS (Transport Layer Security) connections.                                        | all         |
 | `tvs-enabled-true-false`                | A boolean value indicating whether TVS (Traffic video shaping) is enabled. Default is false              | Nexus only  |
-| `unique-name-suffix`                    | the unique name suffix for all PaaS service logs                                                        | all         |
+| `unique-name-suffix`                    | The unique name suffix for all PaaS service logs                                                        | all         |
 | `upf-cfgmgr-lb-ip`                       | The IP address for the UPF configuration manager load balancer.                                         | all         |
 | `upf-ingress-gw-lb-fqdn`                | The fully qualified domain name for the UPF ingress gateway LI.                                         | all         |
 | `upf-ingress-gw-lb-ip`                 | The IP address for the User Plane Function (UPF) ingress gateway load balancer.                         | all         |
@@ -263,15 +268,15 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | NRF Parameters        | Description                                                                                | Platform    |
 |-----------------------|--------------------------------------------------------------------------------------------|-------------|
 | `aes256cfb128Key`       |  The AES-256-CFB-128 encryption key is Customer generated                                  | All         |
-| `elasticsearch-host`   | the Elasticsearch host IP address                                                          | All         |
+| `elasticsearch-host`   | The Elasticsearch host IP address                                                          | All         |
 | `grafana-url`           | The Grafana UI URL -&lt; https://IPaddress:xxxx&gt; , customer defined port number         | All         |
-| `jaeger-host`          | the Jaeger target host IP address                                                          | All         |
-| `nfs-filepath`          | the NFS (Network File System) file path where PaaS components store data              | Azure only  |
-| `nfs-server`           | the NFS (Network File System) server IP address                                            | Azure only  |
+| `jaeger-host`          | The Jaeger target host IP address                                                          | All         |
+| `nfs-filepath`          | The NFS (Network File System) file path where PaaS components store data              | Azure only  |
+| `nfs-server`           | The NFS (Network File System) server IP address                                            | Azure only  |
 | `nrf-cfgmgr-lb-ip`    | The IP address for the NRF Configuration Manager POD.                                      | All         |
 | `nrf-ingress-gw-lb-ip`  | The IP address of the load balancer for the NRF ingress gateway.                           | All         |
-| `oam-lb-subnet`         | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
-| `unique-name-suffix`    | the unique name suffix for all generated PaaS service logs                                 | All         |
+| `oam-lb-subnet`         | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
+| `unique-name-suffix`    | The unique name suffix for all generated PaaS service logs                                 | All         |
 
  
 ### NSSF Deployment Parameters
@@ -279,23 +284,23 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | NSSF Parameters        | Description                                                                                | Platform    |
 |------------------------|--------------------------------------------------------------------------------------------|-------------|
 |`aes256cfb128Key`        |  The AES-256-CFB-128 encryption key is Customer generated                                  | all         |
-| `elasticsearch-host`    | the Elasticsearch host IP address                                                          | all         |
-| `fluentd-targets-host`  | the Fluentd target host IP address                                                         | all         |
+| `elasticsearch-host`    | The Elasticsearch host IP address                                                          | all         |
+| `fluentd-targets-host`  | The Fluentd target host IP address                                                         | all         |
 | `grafana-url`           | The Grafana UI URL -&lt; https://IP:xxxx&gt; - customer defined port number                | all         |
-| `jaeger-host`            | the Jaeger target host IP address                                                          | all         |
-| `nfs-filepath`           | the NFS (Network File System) file path where PaaS components store data              | Azure only  |
-| `nfs-server`            | the NFS (Network File System) server IP address                                            | Azure only  |
+| `jaeger-host`            | The Jaeger target host IP address                                                          | all         |
+| `nfs-filepath`           | The NFS (Network File System) file path where PaaS components store data              | Azure only  |
+| `nfs-server`            | The NFS (Network File System) server IP address                                            | Azure only  |
 | `nssf-cfgmgr-lb-ip`     | The IP address for the NSSF Configuration Manager POD.                                     | all         |
-| `nssf-ingress-gw-lb-ip`  | the IP address for the NSSF Ingress Gateway load balancer IP                               | all         |
-|`oam-lb-subnet`          | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
-|`unique-name-suffix`     | the unique name suffix for all generated PaaS service logs                                 | all         |
+| `nssf-ingress-gw-lb-ip`  | The IP address for the NSSF Ingress Gateway load balancer IP                               | all         |
+|`oam-lb-subnet`          | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
+|`unique-name-suffix`     | The unique name suffix for all generated PaaS service logs                                 | all         |
 
  
 ### Observability Services Parameters 
 
 | OBSERVABILITY parameters  | Description                                                                                | Platform    |
 |---------------------------|--------------------------------------------------------------------------------------------|-------------|
-| `admin-password`            | the admin password for all PaaS UIs. This password must be the same across all charts.                  | all         |
+| `admin-password`            | The admin password for all PaaS UIs. This password must be the same across all charts.                  | all         |
 | `elastalert-lb-ip`          | The IP address of the Elastalert load balancer.                                            | all         |
 | `elastic-lb-ip`             | The IP address of the Elastic load balancer.                                               | all         |
 | `elasticsearch-host`        | The host IP of the Elasticsearch server IP                                                 | all         |
@@ -307,10 +312,10 @@ Mobile Packet Core resources are deployed via Bicep scripts that take parameters
 | `keycloak-lb-ip`            | The IP address of the Keycloak load balancer                                               | all         |
 | `kibana-lb-ip`            | The IP address of the Kibana load balancer                                                 | all         |
 | `kube-prom-lb-ip`          | The IP address of the Kube-prom load balancer                                              | all         |
-| `nfs-filepath`              | the NFS (Network File System) file path where PaaS components store data              | Azure only  |
-| `nfs-server`                | the NFS (Network File System) server IP address                                            | Azure only  |
-|`oam-lb-subnet`             | the subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
-| `unique-name-suffix`        | the unique name suffix for all PaaS service logs                                           | all         |
+| `nfs-filepath`              | The NFS (Network File System) file path where PaaS components store data              | Azure only  |
+| `nfs-server`                | The NFS (Network File System) server IP address                                            | Azure only  |
+|`oam-lb-subnet`             | The subnet name for the OAM (Operations, Administration, and Maintenance) load balancer.   | Azure only  |
+| `unique-name-suffix`        | The unique name suffix for all PaaS service logs                                           | all         |
 |                           |                                                                                            |             |
  
 
