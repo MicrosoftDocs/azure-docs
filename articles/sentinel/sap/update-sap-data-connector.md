@@ -87,7 +87,7 @@ Automatic attack disurption for SAP is supported with the unified security opera
 
 - A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to. 
 
-- The identity of your data connector agent VM assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. If this role isn't assigned, make sure to [assign this role manually](#assign-the-microsoft-sentinel-business-applications-agent-operator-azure-role-manually).
+- The identity of your data connector agent VM assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. If this role isn't assigned, make sure to [assign these roles manually](#assign-required-azure-roles-manually).
 
 - The **/MSFTSEN/SENTINEL_RESPONDER** SAP role [applied to your SAP system and assigned to the SAP user account](#apply-and-assign-the-sentinel-responder-sap-role-to-your-sap-system) used by Microsoft Sentinel's SAP data connector agent.
 
@@ -110,24 +110,25 @@ To verify your current agent version, run the following query from the Microsoft
 
 Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-If you're updating your agent from a version earlier than 90847355, make sure to assign this role manually. Use the procedure for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the role.
+If these roles aren't yet assigned, make sure to assign them manually. Use the procedure for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the roles.
 
 To perform this procedure, you must be a resource group owner on your Microsoft Sentinel workspace.
 
 #### [Azure portal](#tab/azure)
 
-1. In Microsoft Sentinel, on the **Configuration > Data connectors** page, navigate to your **Microsoft Sentinel for SAP** data connector and select **Open the connector page**.
+1. In Microsoft Sentinel, on the **Configuration > Data connectors** page, go to your **Microsoft Sentinel for SAP** data connector and select **Open the connector page**.
 
 1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the **Show commands** button.
 
-1. Copy the **Role assignment command** displayed run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID.
+1. Copy the **Role assignment command** and **TBD command** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
+    
 
     To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or registered application name, depending on the type of identity you're using to access your key vault. Copy the value of the **Object ID** field to use with your copied command.
 
-    This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
+    These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
 > [!IMPORTANT]
-> Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
+> Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option. <!--do we need this for reader too?-->
 >
 > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
 
@@ -142,10 +143,11 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
 
-1. Assign the **Microsoft Sentinel Business Applications Agent Operator** by running the following command:
+1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
     ```bash
     az role assignment create --assignee <OBJ_ID> --role "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+    az role assignment create --assignee <Object_ID> --role "Reader" --scope /subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<agent_id>
     ```
 
     Replace placeholder values as follows:
