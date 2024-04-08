@@ -334,22 +334,22 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. <a name="role"></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. <a name="role"></a>Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment command** and <!--tbd--> from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example: <!--replace screenshot-->
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
     To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM name. Copy the value of the **Object ID** field to use with your copied command.
 
-    This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
+    These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
     > [!IMPORTANT]
-    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
+    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
     >
-    > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
+    > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
 1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
 
@@ -446,22 +446,22 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
+    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** from step 1 and run it on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Copy the **Role assignment command** <!--and TBD--> from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example: <!--need new screenshot-->
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
     To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your application name. Copy the value of the **Object ID** field to use with your copied command.
 
-    This command assigns the **Microsoft Sentinel Business Applications Agent Operator** Azure role to your VM's application identity, including only the scope of the specified agent's data in the workspace.
+    These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's application identity, including only the scope of the specified agent's data in the workspace.
 
     > [!IMPORTANT]
-    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
+    > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
     >
-    > If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
+    > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
 1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent command** in step 2. For example:
 
