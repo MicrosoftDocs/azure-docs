@@ -24,9 +24,11 @@ For details surrounding authentication and authorization, refer to the following
 
 ## Why use the built-in authentication?
 
-You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date.
+You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards and keep your implementation up to date.
 
-The built-in authentication feature for Container Apps can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.
+With the built-in authentication feature for Container Apps, you can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application. 
+
+The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
@@ -57,17 +59,17 @@ By default, each container app issues its own unique cookie or token for authent
 
 ## Feature architecture
  
-The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, every incoming HTTP request passes through the security layer before being handled by your application.
+The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, your application handles each incoming HTTP request after it passes through the security layer.
 
 :::image type="content" source="media/authentication/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a sidecar container which interacts with identity providers before allowing traffic to the app container" lightbox="media/authentication/architecture.png":::
 
 The platform middleware handles several things for your app:
 
-* Authenticates users and clients with the specified identity provider(s)
+* Authenticates users and clients with the specified identity providers
 * Manages the authenticated session
 * Injects identity information into HTTP request headers
 
-The authentication and authorization module runs in a separate container, isolated from your application code. As the security container doesn't run in-process, no direct integration with specific language frameworks is possible. However, relevant information your app needs is provided in request headers as explained below.
+The authentication and authorization module runs in a separate container, isolated from your application code. As the security container doesn't run in-process, no direct integration with specific language frameworks is possible. However, relevant information your app needs is provided in request headers as explained in this article.
 
 ### Authentication flow
 
@@ -77,9 +79,9 @@ The authentication flow is the same for all providers, but differs depending on 
 
 * **With provider SDK** (_client-directed flow_ or _client flow_): The application signs users in to the provider manually and then submits the authentication token to Container Apps for validation. This approach is typical for browser-less apps that don't present the provider's sign-in page to the user. An example is a native mobile app that signs users in using the provider's SDK.
 
-Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](#customize-sign-in-and-sign-out).
+Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign in and sign out](#customize-sign-in-and-sign-out).
 
-The table below shows the steps of the authentication flow.
+The table shows the steps of the authentication flow.
 
 | Step | Without provider SDK | With provider SDK |
 | - | - | - |
@@ -108,9 +110,9 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   > [!NOTE]
   > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
 
-## Customize sign-in and sign-out
+## Customize sign-in and sign out
 
-Container Apps Authentication provides built-in endpoints for sign-in and sign-out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
+Container Apps Authentication provides built-in endpoints for sign in and signs out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
 
 ### Use multiple sign-in providers
 
@@ -156,7 +158,7 @@ The token format varies slightly according to the provider. See the following ta
 |-|-|-|
 | `aad` | `{"access_token":"<ACCESS_TOKEN>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
 | `microsoftaccount` | `{"access_token":"<ACCESS_TOKEN>"}` or `{"authentication_token": "<TOKEN>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
+| `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<USER_ACCESS_TOKEN>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCES_TOKEN_SECRET>"}` | |
 | | | |
@@ -181,25 +183,25 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 ### Sign out of a session
 
-Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request conducts the following actions:
+Users can sign out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request conducts the following actions:
 
 * Clears authentication cookies from the current session.
 * Deletes the current user's tokens from the token store.
-* For Microsoft Entra ID and Google, performs a server-side sign-out on the identity provider.
+* Performs a server-side sign out on the identity provider for Microsoft Entra ID and Google.
 
-Here's a simple sign-out link in a webpage:
+Here's a simple sign out link in a webpage:
 
 ```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```console
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-It's recommended that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+It recommends that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
 
 URL must be hosted in the same domain when using fully qualified URLs.
 
