@@ -70,7 +70,7 @@ items:
   - name: Migrate
     href: architecture-migrate.md
   - name: Well Architected Framework
-    href: https://learn.microsoft.com/azure/well-architected/azure-vmware/
+    href: /azure/well-architected/azure-vmware/
   - name: Cloud Adoption Framework
     items:
       - name: Azure VMware Solution landing zone accelerator
