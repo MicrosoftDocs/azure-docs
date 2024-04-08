@@ -11,17 +11,17 @@ ms.author: wellee
 
 # How to restart a Network Virtual Appliance in an Azure Virtual WAN hub
 
-The following article shows you how to restart Network Virtual Appliances (NVAs) deployed in the Virtual WAN hub. This article does not apply to NVAs deployed as Virtual Machines or Virtual Machine Scale Sets in a Virtual Network connected to Virutal WAN hubs.
+The following article shows you how to restart Network Virtual Appliances (NVAs) deployed in the Virtual WAN hub. This article does not apply to NVAs deployed as Virtual Machines or Virtual Machine Scale Sets in a Virtual Network connected to Virtual WAN hubs.
 
 ## Prerequisites
 
-Verify that you've met the following criteria before beginning your configuration:
+Verify that your deployment meets the following prerequisites before attempting to restart the NVA instances:
 * A Network Virtual Appliance is deployed in a Virtual WAN hub. For more information on NVAs deployed in the Virtual WAN hub, see [Integrated NVA documentation](../../articles/virtual-wan/about-nva-hub.md).
-* The Network Virtual Appliance's provisioning state is "Succeeded".
+* The Network Virtual Appliance's provisioning state is "Succeeded."
 
 ## Considerations
 * Only one instance of a Virtual WAN NVA can be restarted at a time from Azure Portal. If you need to restart multiple NVA instances, wait for an NVA instance to finish restarting before proceeding to the next instance. 
-* You can only restart a NVA if the provisioning state of the NVA is succeeded. Wait for any ongoing operations to finish before restarting a NVA instance.  
+* You can only restart an NVA if the provisioning state of the NVA is succeeded. Wait for any ongoing operations to finish before restarting an NVA instance.  
 
 ## Restart the NVA
 
@@ -32,18 +32,18 @@ Verify that you've met the following criteria before beginning your configuratio
 3. Select **Instances** under Settings.
     :::image type="content" source="./media/network-virtual-appliance-restart/instances.png"alt-text="Screenshot showing instance level settings for NVA."lightbox="./media/network-virtual-appliance-restart/instances.png":::
 4. Select the instance of the NVA you want to restart.
-    :::image type="content" source="./media/network-virtual-appliance-restart/select-instance.png"alt-text="Screenshot showing how to select a NVA instance."lightbox="./media/network-virtual-appliance-restart/select-instance.png":::
+    :::image type="content" source="./media/network-virtual-appliance-restart/select-instance.png"alt-text="Screenshot showing how to select an NVA instance."lightbox="./media/network-virtual-appliance-restart/select-instance.png":::
 5. Select **Restart**.
-    :::image type="content" source="./media/network-virtual-appliance-restart/restart.png"alt-text="Screenshot showing how to restart a NVA instance."lightbox="./media/network-virtual-appliance-restart/restart.png":::
+    :::image type="content" source="./media/network-virtual-appliance-restart/restart.png"alt-text="Screenshot showing how to restart an NVA instance."lightbox="./media/network-virtual-appliance-restart/restart.png":::
 6. Confirm the restart by selecting **Yes**.
-    :::image type="content" source="./media/network-virtual-appliance-restart/confirm-restart.png"alt-text="Screenshot showing how to confirm you want to restart a NVA instance."lightbox="./media/network-virtual-appliance-restart/confirm-restart.png":::
+    :::image type="content" source="./media/network-virtual-appliance-restart/confirm-restart.png"alt-text="Screenshot showing how to confirm you want to restart an NVA instance."lightbox="./media/network-virtual-appliance-restart/confirm-restart.png":::
 
 
 ## Troubleshooting
 
 The following section describes common issues associated with restarting an NVA instance.
 
-* **NVA provisioning state needs to be successful**: If the NVA is in an "Updating" or "Failed" state you cannot execute restart operations on the NVA. Wait for any existing operation on the NVA to finish before trying to restart again.
+* **NVA provisioning state needs to be successful**: If the NVA is in an "Updating" or "Failed" state, you can't execute restart operations on the NVA. Wait for any existing operation on the NVA to finish before trying to restart again.
 * **Restart already in progress**: Multiple concurrent restart operations are not supported. If there is a restart operation running on the NVA resource already, wait for the operation to finish before attempting to restart a different instance.
 * **Operations on the NVA are not allowed at this time. Please try again later**: Try the restart-operation again is 15-30 minutes.
 * **The NVA operation failed due to an intermittent error**: Try the restart operation again.
