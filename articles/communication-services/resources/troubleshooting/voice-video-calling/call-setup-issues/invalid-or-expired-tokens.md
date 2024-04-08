@@ -28,10 +28,9 @@ The error code/subcode is
 | code             | 401 (UNAUTHORIZED)                                    |
 | subcode          | 40235                                                 |
 | message          | AccessToken expired                                   |
-| resultCategories | Expected                                              |
 
 When the signaling layer detects the access token expiry, it may change its connection state.
-The application can subscribe to the [connectionStateChanged](/javascript/api/azure-communication-services/%40azure/communication-calling/callagent@azure-communication-calling-callagent-on-2) event and check its failure reason.
+The application can subscribe to the [connectionStateChanged](/javascript/api/azure-communication-services/%40azure/communication-calling/callagent@azure-communication-calling-callagent-on-2) event. 
 
 ## How to mitigate or resolve
 If you have a long-running call that could exceed the lifetime of the token, you need to implement refreshing logic in your application.
