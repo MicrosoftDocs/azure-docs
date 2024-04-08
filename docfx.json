@@ -1078,11 +1078,13 @@
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
-        "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
-        "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
-        "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
-        "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
+        "articles/cosmos-db/nosql/*.md": "nosql",
+        "articles/cosmos-db/mongodb/*.md": "mongodb",       
+        "articles/cosmos-db/mongodb/vcore/*.md": "mongodb-vcore",
+        "articles/cosmos-db/postgresql/*.md": "postgresql",
+        "articles/cosmos-db/cassandra/*.md": "apache-cassandra",
+        "articles/cosmos-db/graph/*.md": "apache-gremlin",
+        "articles/cosmos-db/table/*.md": "table",
         "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
       "monikerRange": {
