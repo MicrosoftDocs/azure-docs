@@ -9,7 +9,6 @@ ms.date: 2/26/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
-ms.custom: references_regions
 ---
 
 # Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI Studio
@@ -25,7 +24,7 @@ The prompt flow Azure OpenAI GPT-4 Turbo with Vision tool enables you to use you
 
     Currently, you must apply for access to this service. To apply for access to Azure OpenAI, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [Azure AI hub resource](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your project's **Deployments** pane, select `gpt-4` as the model name and `vision-preview` as the model version.
+- An [Azure AI hub resource](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in [one of the regions that support GPT-4 Turbo with Vision](../../../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). When you deploy from your project's **Deployments** page, select `gpt-4` as the model name and `vision-preview` as the model version.
 
 ## Build with the Azure OpenAI GPT-4 Turbo with Vision tool
 

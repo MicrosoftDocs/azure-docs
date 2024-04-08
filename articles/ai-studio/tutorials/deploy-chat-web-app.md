@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: tutorial
 ms.date: 2/8/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: aahi
+author: aahill
 ---
 
 # Tutorial: Deploy a web app for chat on your data
