@@ -20,14 +20,14 @@ Large Language Model Operations, or **LLMOps**, describes the operational practi
 
 Use the descriptions below to find your *LLMOps Maturity Model* ranking level. These levels provide a general understanding and practical application level of your organization. The guidelines provide you with helpful links to expand your LLMOps knowledge base.  
 
-Or use this [LLMOps Maturity Model Assessment]() to determine your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
+Or use this [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/) to determine your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
 
 Your results from the assessment corresponds to a *LLMOps Maturity Model* ranking level, providing a general understanding and practical application level of your organization. These guidelines provide you with helpful links to expand your LLMOps knowledge base
 
 ## <a name="level1"></a>Level 1 - initial
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](): initial (0-9).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): initial (0-9).
 
 **Description:** Your organization is at the initial foundational stage of LLMOps maturity. You're exploring the capabilities of LLMs but haven't yet developed structured practices or systematic approaches.
 
@@ -51,7 +51,7 @@ To better understand LLMOps, consider available MS Learning courses and workshop
 ## <a name="level2"></a> Level 2 - defined
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](): maturing (9-14).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (9-14).
 
 **Description:** Your organization has started to systematize LLM operations, with a focus on structured development and experimentation. However, there's room for more sophisticated integration and optimization.
 
@@ -72,7 +72,7 @@ To improve your capabilities and skills, learn how to develop more complex promp
 ## <a name="level3"></a> Level 3 - managed
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](): maturing (15-19).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): maturing (15-19).
 
 **Description:** Your organization is managing advanced LLM workflows with proactive monitoring and structured deployment strategies. You're close to achieving operational excellence.
 
@@ -88,7 +88,7 @@ To expand your base knowledge, focus on continuous improvement and innovation in
 ## <a name="level4"></a> Level 4 - optimized
 
 > [!TIP]
-> Score from [LLMOps Maturity Model Assessment](): optimized (19-28).
+> Score from [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/): optimized (19-28).
 
 **Description:** Your organization demonstrates operational excellence in LLMOps. You have a sophisticated approach to LLM application development, deployment, and monitoring.
 
