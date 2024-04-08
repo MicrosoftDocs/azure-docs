@@ -889,6 +889,28 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
+  - name: AI security
+    items:
+      - name: Overview
+        displayName: AI, machine learning, Defender for AI
+        href: defender-for-ai-introduction.md
+      - name: Identify vulnerabilities
+        items:
+        - name: Identify vulnerabilities on AI container images
+          displayName: AI, vulnerabilities, container images
+          href: identify-ai-container-image.md
+        - name: Identify vulnerabilities in AI code repositories
+          displayName: AI, vulnerabilities, code repositories
+          href: identify-ai-vulnerable-code.md
+        - name: Identify AI workloads and models in use
+          displayName: AI, workloads, models
+          href: identify-ai-workload-model.md
+      - name: Review AI alerts
+        displayName: AI, alerts
+        href: review-alerts-for-ai.md
+      - name: Review recommendations for AI applications
+        displayName: AI, recommendations
+        href: review-recommendations-for-ai.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)

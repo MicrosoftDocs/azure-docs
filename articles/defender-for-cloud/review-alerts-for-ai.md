@@ -1,12 +1,12 @@
 ---
-title: Review alerts for Gen-AI applications
+title: Review alerts for AI applications
 description: Learn how to review alerts for Gen-AI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 04/08/2024
 #customer intent: As a user, I want to learn how to review alerts for Gen-AI applications in Microsoft Defender for Cloud so that I can improve the security of my Gen-AI applications.
 ---
 
-# Review alerts for Gen-AI applications
+# Review alerts for AI applications
 
 Generative Artificial Intelligence (Gen-AI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
 
@@ -36,7 +36,7 @@ To view alerts for Gen-AI applications, you need:
 
 ## Review Gen-AI alerts in Defender for Cloud
 
-To review alerts for Gen-AI applications in Microsoft Defender for Cloud:
+Alerts in Defender for Cloud help you identify and respond to security issues in your Gen-AI applications.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -50,7 +50,7 @@ To review alerts for Gen-AI applications in Microsoft Defender for Cloud:
 
 1. In the value field, select **microsoft.cognitiveservices**.
 
-    :::image type="content" source="media/review-alerts-for-ai/filter-cognitive.png" alt-text="Screenshot that shows the microsoft.cognitveservices button selected.":::
+    :::image type="content" source="media/review-alerts-for-ai/filter-cognitive.png" alt-text="Screenshot that shows the microsoft.cognitveservices button selected." lightbox="media/review-alerts-for-ai/filter-cognitive.png":::
 
 1. Select **Ok**.
 

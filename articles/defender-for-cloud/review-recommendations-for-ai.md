@@ -1,12 +1,12 @@
 ---
-title: Review recommendations for Gen-AI applications
-description: Learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud.
+title: Review recommendations for AI applications
+description: Learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud to secure your AI environments.
 ms.topic: how-to
 ms.date: 04/01/2024
 #customer intent: As a user, I want to learn how to review recommendations for Gen-AI applications in Microsoft Defender for Cloud so that I can improve the security of my Gen-AI applications.
 ---
 
-# Review recommendations for Gen-AI applications
+# Review recommendations for AI applications
 
 Microsoft Defender for Cloud provides recommendations that provide practical steps to remediate security issues, and improve security posture. You can review recommendations for your Generative Artificial Intelligence (Gen-AI) applications in Microsoft Defender for Cloud so that you receive recommendations for your AI resources.
 
@@ -24,7 +24,7 @@ To view recommendations for Gen-AI applications, you need the following:
 
 ## Review Gen-AI recommendations in Defender for Cloud
 
-To review recommendations for Gen-AI applications in Microsoft Defender for Cloud:
+Recommendations in Defender for Cloud help you identify and respond to security issues in your Gen-AI applications.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ To review recommendations for Gen-AI applications in Microsoft Defender for Clou
 
 1. Select **Azure AI services**.
 
-    :::image type="content" source="media/review-recommendations-for-ai/ai-service-filter.png" alt-text="Screenshot that shows the resource type filter value being set to Azure AI services.":::
+    :::image type="content" source="media/review-recommendations-for-ai/ai-service-filter.png" alt-text="Screenshot that shows the resource type filter value being set to Azure AI services." lightbox="media/review-recommendations-for-ai/ai-service-filter.png":::
 
 1. Select **Apply**.
 

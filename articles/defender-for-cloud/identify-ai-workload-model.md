@@ -1,12 +1,12 @@
 ---
-title: Identify Gen-AI workloads and models 
+title: Identify AI workloads and models in use
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/08/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
-# Identify Gen-AI workloads and models
+# Identify AI workloads and models in use
 
 Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
