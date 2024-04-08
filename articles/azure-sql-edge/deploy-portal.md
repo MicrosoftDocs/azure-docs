@@ -28,7 +28,7 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 
 ## Deploy Azure SQL Edge Module using IoT Hub
 
-Azure SQL Edge can be deployed using instructions from [Deploy modules from Azure portal](https://learn.microsoft.com/en-us/azure/iot-edge/how-to-deploy-modules-potal?view=iotedge-1.4). The image URI for Azure SQL Edge is `mcr.microsoft.com/azure-sql-edge:latest`.
+Azure SQL Edge can be deployed using instructions from [Deploy modules from Azure portal](/azure/iot-edge/how-to-deploy-modules-potal). The image URI for Azure SQL Edge is `mcr.microsoft.com/azure-sql-edge:latest`.
 
 1. On the **Add IoT Edge Module** page, specify the desired values for the *IoT Edge Module Name*, *Image URI*, *Restart Policy* and *Desired Status*.
 
