@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 02/21/2024
+ms.date: 04/08/2024
 ms.author: lajanuar
 ---
 

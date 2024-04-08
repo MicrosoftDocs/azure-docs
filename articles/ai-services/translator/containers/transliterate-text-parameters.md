@@ -8,11 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 02/21/2024
+ms.date: 04/08/2024
 ms.author: lajanuar
 ---
 
 # Container: Transliterate Text
+
+**Convert characters or letters of a source language to the corresponding characters or letters of a target language.**
 
 ## Request URL
 

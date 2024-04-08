@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 04/08/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -420,7 +420,7 @@ There are several ways to validate that the container is running:
 | `http://localhost:5000/status` | Requested with GET. Verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the required  HTTP headers and body format. |
 
-:::image type="content" source="media/container-webpage.png" alt-text="Screenshot of the container home page":::
+:::image type="content" source="media/container-webpage.png" alt-text="Screenshot of the container home page.":::
 
 [!INCLUDE [Diagnostic container](../includes/diagnostics-container.md)]
 
