@@ -26,7 +26,7 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 
 ## Check groundedness without reasoning
 
-In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
+In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false`.
 
 #### [cURL](#tab/curl)
 
@@ -108,11 +108,11 @@ To test a summarization task instead of a question answering (QnA) task, use the
 
 ```json
 {
-    "Domain": "Medical",
-    "Task": "Summarization",
-    "Text": "Ms Johnson has been in the hospital after experiencing a stroke.",
-    "GroundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
-    "Reasoning": false
+    "domain": "Medical",
+    "task": "Summarization",
+    "text": "Ms Johnson has been in the hospital after experiencing a stroke.",
+    "groundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
+    "reasoning": false
 }
 ```
 
@@ -155,10 +155,9 @@ The JSON objects in the output are defined here:
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
 | **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
-| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
-| -**`Text`**   |  The specific text that is ungrounded.  | String   |
+| -**`text`**   |  The specific text that is ungrounded.  | String   |
 
 ## Check groundedness with reasoning
 
@@ -189,7 +188,7 @@ In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning fe
 
 ### Make the API request
 
-In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+In your request to the Groundedness detection API, set the `"reasoning"` body parameter to `true`, and provide the other needed parameters:
     
 ```json
  {
@@ -333,10 +332,9 @@ The JSON objects in the output are defined here:
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
 | **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
-| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
-| -**`Text`**   |  The specific text that is ungrounded.  | String   |
+| -**`text`**   |  The specific text that is ungrounded.  | String   |
 | -**`offset`**   |  An object describing the position of the ungrounded text in various encoding.  | String   |
 | - `offset > utf8`       | The offset position of the ungrounded text in UTF-8 encoding.      | Integer   |
 | - `offset > utf16`      | The offset position of the ungrounded text in UTF-16 encoding.       | Integer |
@@ -345,7 +343,7 @@ The JSON objects in the output are defined here:
 | - `length > utf8`       | The length of the ungrounded text in UTF-8 encoding.      | Integer   |
 | - `length > utf16`      | The length of the ungrounded text in UTF-16 encoding.       | Integer |
 | - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |Integer    |
-| -**`Reason`** |  Offers explanations for detected ungroundedness. | String  |
+| -**`reason`** |  Offers explanations for detected ungroundedness. | String  |
 
 ## Clean up resources
 
