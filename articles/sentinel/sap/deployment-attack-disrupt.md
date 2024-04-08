@@ -31,10 +31,10 @@ For more information, see [Automatic attack disruption in Microsoft Defender XDR
 Automatic attack disruption for SAP requires:
 
 - A data connector agent version 90847355 or higher.
-- The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role.
+- The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles.
 - The **/MSFTSEN/SENTINEL_RESPONDER** SAP role must be applied to your SAP system and assigned to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
-To use attack disruption for SAP, deploy a new agent, or update your current agent to the latest version. Make sure to assign the **Microsoft Sentinel Business Applications Agent Operator** Azure role and the  **/MSFTSEN/SENTINEL_RESPONDER** SAP role role as required.
+To use attack disruption for SAP, deploy a new agent, or update your current agent to the latest version. Make sure to assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles and the **/MSFTSEN/SENTINEL_RESPONDER** SAP role role as required.
 
 For more information, see:
 
