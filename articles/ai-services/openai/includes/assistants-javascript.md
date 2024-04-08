@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/01/2024
+ms.date: 04/08/2024
 ---
 
-<a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai-assistants" target="_blank">Library source code</a> | <a href="https://www.npmjs.com/package/@azure/openai-assistants" target="_blank">Package (PyPi)</a> |
+<a href="/javascript/api/@azure/openai-assistants" target="_blank">Reference documentation</a> | <a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai-assistants" target="_blank">Library source code</a> | <a href="https://www.npmjs.com/package/@azure/openai-assistants" target="_blank">Package (npm)</a> |
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ In our code we are going to specify the following values:
 |:---|:---|
 | **Assistant name** | Your deployment name that is associated with a specific model. |
 | **Instructions** | Instructions are similar to system messages this is where you give the model guidance about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses. You can also provide examples of the steps it should take when answering responses. |
-| **Model** | This is where you set which model deployment name to use with your assistant. The retrieval tool requires `gpt-35-turbo (1106)` or `gpt-4 (1106-preview)` model. **Set this value to your deployment name, not the model name unless it is the same.** |
+| **Model** | This is the deployment name. |
 | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
 
 ### Tools
@@ -69,24 +69,205 @@ Create and run an assistant with the following:
 
 #### [TypeScript](#tab/typescript)
 
-```javascript
-JS code here
+```typescript
+import {
+  AssistantsClient,
+  AssistantCreationOptions,
+  ToolDefinition,
+  Assistant,
+  AssistantThread,
+  ThreadMessage,
+  ThreadRun,
+  ListResponseOf,
+} from "@azure/openai-assistants";
+import { DefaultAzureCredential } from "@azure/identity";
+
+import "dotenv/config";
+
+// Recommended for secure credential management
+const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+
+if (!azureOpenAIEndpoint) {
+  throw new Error(
+    "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
+  );
+}
+const getClient = (): AssistantsClient => {
+  const credential = new DefaultAzureCredential();
+  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+  return assistantsClient;  
+}
+
+// Not recommended - for local demo purposes only
+// const azureOpenAIKey = process.env.AZURE_OPENAI_KEY as string;
+// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+// const credential = new AzureKeyCredential(azureOpenAIKey);
+// const getClient = (): AssistantsClient => {
+//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+//   return assistantsClient;
+// }
+
+const assistantsClient: AssistantsClient = getClient();
+
+const options: AssistantCreationOptions = {
+  model: "gpt-4-1106-preview", // Deployment name seen in Azure AI Studio
+  name: "Math Tutor",
+  instructions:
+    "You are a personal math tutor. Write and run JavaScript code to answer math questions.",
+  tools: [{ type: "code_interpreter" } as ToolDefinition],
+};
+const role = "user";
+const message = "I need to solve the equation `3x + 11 = 14`. Can you help me?";
+const message2 = "What is 3x + 11 = 14?";
+
+// Create an assistant
+const assistantResponse: Assistant = await assistantsClient.createAssistant(options);
+console.log(`Assistant created: ${JSON.stringify(assistantResponse)}`);
+
+// Create a thread
+const assistantThread: AssistantThread = await assistantsClient.createThread({});
+console.log(`Thread created: ${JSON.stringify(assistantThread)}`);
+
+// Add a user question to the thread
+const threadResponse: ThreadMessage = await assistantsClient.createMessage(
+  assistantThread.id,
+  role,
+  message
+);
+console.log(`Message created:  ${JSON.stringify(threadResponse)}`);
+
+// Run the thread
+let runResponse: ThreadRun = await assistantsClient.createRun(assistantThread.id, {
+  assistantId: assistantResponse.id,
+});
+console.log(`Run created:  ${JSON.stringify(runResponse)}`);
+
+// Wait for the assistant to respond
+do {
+  await new Promise((r) => setTimeout(r, 500));
+  runResponse = await assistantsClient.getRun(
+    assistantThread.id,
+    runResponse.id
+  );
+} while (
+  runResponse.status === "queued" ||
+  runResponse.status === "in_progress"
+);
+
+// Get the messages
+const runMessages: ListResponseOf<ThreadMessage> = await assistantsClient.listMessages(assistantThread.id);
+for (const runMessageDatum of runMessages.data) {
+  for (const item of runMessageDatum.content) {
+    if (item.type === "text") {
+      console.log(`Message content: ${JSON.stringify(item.text?.value)}`);
+    }
+  }
+}
 ```
-
-
 
 #### [JavaScript](#tab/javascript)
 
-```typescript
-TS code here
-```
+```javascript
+import {
+  AssistantsClient
+} from "@azure/openai-assistants";
+import { DefaultAzureCredential } from "@azure/identity";
+
+import "dotenv/config";
+
+// Recommended for secure credential management
+const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
+
+if (!azureOpenAIEndpoint) {
+  throw new Error(
+    "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
+  );
+}
+const getClient = () => {
+  const credential = new DefaultAzureCredential();
+  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+  return assistantsClient;  
+}
+
+// Not recommended - for local demo purposes only
+// const azureOpenAIKey = process.env.AZURE_OPENAI_KEY as string;
+// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+// const credential = new AzureKeyCredential(azureOpenAIKey);
+// const getClient = (): AssistantsClient => {
+//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+//   return assistantsClient;
+// }
+
+const assistantsClient = getClient();
+
+const options = {
+  model: "gpt-4-1106-preview", // Deployment name seen in Azure AI Studio
+  name: "Math Tutor",
+  instructions:
+    "You are a personal math tutor. Write and run JavaScript code to answer math questions.",
+  tools: [{ type: "code_interpreter" }],
+};
+const role = "user";
+const message = "I need to solve the equation `3x + 11 = 14`. Can you help me?";
+const message2 = "What is 3x + 11 = 14?";
+
+// Create an assistant
+const assistantResponse = await assistantsClient.createAssistant(options);
+console.log(`Assistant created: ${JSON.stringify(assistantResponse)}`);
+
+// Create a thread
+const assistantThread = await assistantsClient.createThread({});
+console.log(`Thread created: ${JSON.stringify(assistantThread)}`);
+
+// Add a user question to the thread
+const threadResponse = await assistantsClient.createMessage(
+  assistantThread.id,
+  role,
+  message
+);
+console.log(`Message created:  ${JSON.stringify(threadResponse)}`);
+
+// Run the thread
+let runResponse = await assistantsClient.createRun(assistantThread.id, {
+  assistantId: assistantResponse.id,
+});
+console.log(`Run created:  ${JSON.stringify(runResponse)}`);
+
+// Wait for the assistant to respond
+do {
+  await new Promise((r) => setTimeout(r, 500));
+  runResponse = await assistantsClient.getRun(
+    assistantThread.id,
+    runResponse.id
+  );
+} while (
+  runResponse.status === "queued" ||
+  runResponse.status === "in_progress"
+);
+
+// Get the messages
+const runMessages = await assistantsClient.listMessages(assistantThread.id);
+for (const runMessageDatum of runMessages.data) {
+  for (const item of runMessageDatum.content) {
+    if (item.type === "text") {
+      console.log(`Message content: ${JSON.stringify(item.text?.value)}`);
+    }
+  }
+}```
 
 --- 
 
 ## Output
 
-```json
-
+```console
+Assistant created: {"id":"asst_zXaZ5usTjdD0JGcNViJM2M6N","createdAt":"2024-04-08T19:26:38.000Z","name":"Math Tutor","description":null,"model":"daisy","instructions":"You are a personal math tutor. Write and run JavaScript code to answer math questions.","tools":[{"type":"code_interpreter"}],"fileIds":[],"metadata":{}}
+Thread created: {"id":"thread_KJuyrB7hynun4rvxWdfKLIqy","createdAt":"2024-04-08T19:26:38.000Z","metadata":{}}
+Message created:  {"id":"msg_o0VkXnQj3juOXXRCnlZ686ff","createdAt":"2024-04-08T19:26:38.000Z","threadId":"thread_KJuyrB7hynun4rvxWdfKLIqy","role":"user","content":[{"type":"text","text":{"value":"I need to solve the equation `3x + 11 = 14`. Can you help me?","annotations":[]},"imageFile":{}}],"assistantId":null,"runId":null,"fileIds":[],"metadata":{}}
+Created run
+Run created:  {"id":"run_P8CvlouB8V9ZWxYiiVdL0FND","object":"thread.run","status":"queued","model":"daisy","instructions":"You are a personal math tutor. Write and run JavaScript code to answer math questions.","tools":[{"type":"code_interpreter"}],"metadata":{},"usage":null,"assistantId":"asst_zXaZ5usTjdD0JGcNViJM2M6N","threadId":"thread_KJuyrB7hynun4rvxWdfKLIqy","fileIds":[],"createdAt":"2024-04-08T19:26:39.000Z","expiresAt":"2024-04-08T19:36:39.000Z","startedAt":null,"completedAt":null,"cancelledAt":null,"failedAt":null}
+Message content: "The solution to the equation \\(3x + 11 = 14\\) is \\(x = 1\\)."
+Message content: "Yes, of course! To solve the equation \\( 3x + 11 = 14 \\), we can follow these steps:\n\n1. Subtract 11 from both sides of the equation to isolate the term with x.\n2. Then, divide by 3 to find the value of x.\n\nLet me calculate that for you."
+Message content: "I need to solve the equation `3x + 11 = 14`. Can you help me?"
 ```
 
 It is important to remember that while the code interpreter gives the model the capability to respond to more complex queries by converting the questions into code and running that code iteratively in JavaScript until it reaches a solution, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
