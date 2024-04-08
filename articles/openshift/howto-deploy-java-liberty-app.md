@@ -22,7 +22,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-- A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS or Windows Subsystem for Linux).
+- A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -30,7 +30,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 - A Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
-- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
+- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
@@ -123,9 +123,9 @@ The following steps show you how to fill out the **ARO** pane shown in the follo
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
+1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-a-microsoft-entra-service-principal-from-the-azure-portal) section.
 
-1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
+1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-a-microsoft-entra-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
 
 1. After filling in the values, select **Next**.
 
@@ -213,10 +213,10 @@ The following steps guide you through creating an Azure SQL Database single data
    > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
 
 1. Create an environment variable in your shell for the resource group name for the database.
- 
-```bash
-export DB_RESOURCE_GROUP_NAME=<db-resource-group>
-```
+
+   ```bash
+   export DB_RESOURCE_GROUP_NAME=<db-resource-group>
+   ```
 
 Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
 
