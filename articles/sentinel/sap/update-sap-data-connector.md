@@ -141,9 +141,9 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
 > [!IMPORTANT]
-> Assigning the **Microsoft Sentinel Business Applications Agent Operator** role via the CLI assigns the role only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option. <!--do we need this for reader too?-->
+> Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
 >
-> If you must assign the role [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the role on a small scope, such as only on the Microsoft Sentinel workspace.
+> If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
 #### [Command line](#tab/cli)
 
