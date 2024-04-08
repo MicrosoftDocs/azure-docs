@@ -128,7 +128,7 @@ To complete the configuration modification, do the following steps:
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SASL_SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SASL_SSL`
 
-    :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-with-sasl.png" alt-text="Screenshot showing how to edit  Kafka sasl configuration properties in Ambari." border="true":::
+    :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-with-sasl.png" alt-text="Screenshot showing how to edit  Kafka configuration properties in Ambari." border="true":::
 
 1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. 
 
