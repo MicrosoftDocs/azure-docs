@@ -473,17 +473,17 @@ To establish firewall rules between Azure and the undercloud, the Operator must 
 
 | S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
 |------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
-| 1    | Azure virtual Network  | Undercloud            | 22 TCP          | No              | For SSH to undercloud servers from the CM subnet.        |
-| 2    | Azure virtual Network  | Undercloud            | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
-| 3    | Azure virtual Network  | Undercloud            | 5900 TCP        | No             | Gnmi                                                     |
-| 4    | Azure virtual Network  | Undercloud            | 6030 TCP        | No             | Gnmi Certs                                               |
-| 5    | Azure virtual Network  | Undercloud            | 6443 TCP        | No             | To access undercloud K8S cluster                         |
-| 6    | Undercloud             | Azure virtual Network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC and NNF runtime upgrade|
-| 7    | Undercloud             | Azure virtual Network | 3128 TCP        | No             | Proxy to connect to public Azure endpoints               |
-| 8    | Undercloud             | Azure virtual Network | 53 TCP and UDP  | No             | DNS                                                      |
-| 9    | Undercloud             | Azure virtual Network | 123 UDP         | No             | NTP                                                      |
-| 10   | Undercloud             | Azure virtual Network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
-| 11   | Undercloud             | Azure virtual Network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
+| 1    | Azure virtual network  | Undercloud            | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
+| 2    | Azure virtual network  | Undercloud            | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
+| 3    | Azure virtual network  | Undercloud            | 5900 TCP        | No             | Gnmi                                                     |
+| 4    | Azure virtual network  | Undercloud            | 6030 TCP        | No             | Gnmi Certs                                               |
+| 5    | Azure virtual network  | Undercloud            | 6443 TCP        | No             | To access undercloud K8S cluster                         |
+| 6    | Undercloud             | Azure virtual network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC, NNF runtime upgrade   |
+| 7    | Undercloud             | Azure virtual network | 3128 TCP        | No             | Proxy to connect to global Azure endpoints               |
+| 8    | Undercloud             | Azure virtual network | 53 TCP and UDP  | No             | DNS                                                      |
+| 9    | Undercloud             | Azure virtual network | 123 UDP         | No             | NTP                                                      |
+| 10   | Undercloud             | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
+| 11   | Undercloud             | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
 
 
 ## Install CLI extensions and sign-in to your Azure subscription
