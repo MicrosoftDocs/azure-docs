@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: manashgoswami
 ms.author: manashg
 ms.reviewer: ssalgado
-ms.date: 06/7/2023
+ms.date: 04/08/2024
 ms.custom: automl
 ---
 
@@ -24,7 +24,7 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 
 ## How does AutoML work?
 
-During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The better the score for the metric you want to optimize for, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
+During training, Azure Machine Learning creates many pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The better the score for the metric you want to optimize for, the better the model is considered to "fit" your data.  It stops once it hits the exit criteria defined in the experiment. 
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
@@ -54,14 +54,14 @@ Apply automated ML when you want Azure Machine Learning to train and tune a mode
 ML professionals and developers across industries can use automated ML to:
 + Implement ML solutions without extensive programming knowledge
 + Save time and resources
-+ Leverage data science best practices
++ Apply data science best practices
 + Provide agile problem-solving
 
 ### Classification
 
-Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-configure-auto-train.md#data-featurization). You can also find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
+Classification is a type of supervised learning in which models learn to use training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-configure-auto-train.md#data-featurization). You can also find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
 
-The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. 
+The main goal of classification models is to predict which categories new data fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. 
 
 See an example of classification and automated machine learning in this Python notebook: [Bank Marketing](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing.ipynb).
 
@@ -78,7 +78,7 @@ See an example of regression and automated machine learning for predictions in t
 
 Building forecasts is an integral part of any business, whether it's revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. You can find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
 
-An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
+An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become more dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
 Advanced forecasting configuration includes:
 * holiday detection and featurization
@@ -184,7 +184,7 @@ See the [AutoML package](/python/api/azure-ai-ml/azure.ai.ml.automl) for changin
 
 ## AutoML & ONNX
 
-With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
+With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on various platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
 
 See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-algorithms).
 
@@ -201,7 +201,7 @@ Tutorials are end-to-end introductory examples of AutoML scenarios.
 
 + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
    
-How-to articles provide additional detail into what functionality automated ML offers. For example, 
+How-to articles provide more detail into what functionality automated ML offers. For example, 
 
 + Configure the settings for automatic training experiments
     + [Without code in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
