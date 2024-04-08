@@ -44,6 +44,10 @@ You can configure PgBouncer settings by using these parameters.
 
 For more information about PgBouncer configurations, see the [pgbouncer.ini documentation](https://www.pgbouncer.org/config.html).
 
+The following table shows the versions of PgBouncer currently deployed, together with each major version of PostgreSQL:
+
+[!INCLUDE [pgbouncer-table](./includes/pgbouncer-table.md)]
+
 ## Benefits
 
 By using the built-in PgBouncer feature with Azure Database for PostgreSQL flexible server, you can get these benefits:
