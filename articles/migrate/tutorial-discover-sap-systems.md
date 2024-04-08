@@ -1,12 +1,12 @@
 ---
 title: Discover SAP systems with Azure Migrate Discovery and assessment 
-description: Learn how to discover SAP systems with the Azure Migrate Discovery and assessment.
+description: Learn how to discover SAP systems with Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/07/2024
+ms.date: 03/19/2024
 ms.custom: 
 
 ---
@@ -42,9 +42,7 @@ To set up a migration project, follow these steps:
     2. **PROJECT DETAILS**:
         1. **Project**: Enter the project name.
         2. **Region**: Select the region in which you want to create the project.
-    
-     > [!Note]
-     > In the **Advanced** configuration, the default connectivity is set to public endpoint. You can also create an Azure Migrate project with private endpoint connectivity. [Learn more.](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+        1. **Advanced**: Expand this option and select a desired **Connectivity method**. <br/>By default, the **Public endpoint** is selected. If you want to create an Azure Migrate project with the private endpoint connectivity, select **Private endpoint**. [Learn more.](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
 1. Select **Create**.
 
@@ -96,7 +94,7 @@ The following table summarizes the file fields to fill in:
 | SAP Product <sup>*</sup> | SAP application component. <br/>For example, SAP S/4HANA 2022, SAP ERP ENHANCE, and so on. |
 | SAP Product Version | The version of the SAP product. |
 | Operating System <sup>*</sup> | The operating system running on the host server. |
-| Database Type | Optional column and it is not applicable for all SAP Instance Types except **Database**.|
+| Database Type | Optional column and it isn't applicable for all SAP Instance Types except **Database**.|
 | SAPS* | The SAP Application Performance Standard (SAPS) for each server in the SAP system. |
 | CPU | The number of CPUs on the on-premises server. |
 | Max. CPUload[%] | The maximum CPU load in percentage of the on-premises server. Exclude the percentage symbol while you enter this value. |
@@ -108,7 +106,7 @@ The following table summarizes the file fields to fill in:
 | Total Disk Size(GB) <sup>*</sup> | Total disk volume capacity of the on-premises server. Include the disk volume for each individual disk and provide the total sum. |
 | Total Disk IOPS <sup>*</sup> | Total disk Input/Output Operations Per Second (IOPS) of all the disks on the on-premises server. |
 | Source DB Size(GB) <sup>*</sup> | The size of on-premises database. |
-| Target HANA RAM Size(GB) | Optional column and it is **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
+| Target HANA RAM Size(GB) | Optional column and it's **Not Applicable** for all SAP Instance Types except **DB**. Fill this field only when migrating an AnyDb database to SAP S/4HANA and provide the desired target HANA database size. |
 
 <sup>*</sup> These fields are mandatory.
 
@@ -119,7 +117,7 @@ To import SAP systems inventory, follow these steps:
 
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, from the **Discover** dropdown menu, select **Using import**.
-1. On the **Discover** page, under **Import the file**, upload the .xls file.
+1. On the **Discover** page, under **Import the file**, upload the XLS file.
 1. Select **Import**.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/import-excel.png" alt-text="Screenshot that shows how to import SAP inventory." lightbox="./media/tutorial-discover-sap-systems/import-excel.png":::

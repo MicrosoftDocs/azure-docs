@@ -1,19 +1,19 @@
 ---
 title: Assess SAP systems for the migration 
-description: Learn how to assess SAP systems with the Azure Migrate Discovery and assessment.
+description: Learn how to assess SAP systems with Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/07/2024
+ms.date: 03/19/2024
 ms.custom: 
 
 ---
 
 # Tutorial: Assess SAP systems for migration to Azure (preview)
 
-As part of your migration journey to Azure, assess the appropriate environment on Azure that meets the needs of your on-premises SAP inventory and workloads.
+As part of your migration journey to Azure, assess the appropriate environment on Azure that meets the need of your on-premises SAP inventory and workloads.
 
 This tutorial explains how to perform assessments for your on-premises SAP systems using import option for Discovery. This assessment helps to generate an assessment report, featuring cost, and sizing recommendations based on cost and performance. 
 
@@ -56,7 +56,7 @@ To create an assessment for the discovered SAP systems, follow these steps:
 1. On **Edit settings** page, do the following:
     1. **Target settings**:
         1. **Primary location**: Select Azure region to which you want to migrate. Azure SAP systems configuration and cost recommendations are based on the location that you specify.
-        1. **is Disaster Recovery (DR) Environment required?**: Select **Yes** to enable Disaster Recovery (DR) for your SAP systems.
+        1. **is Disaster Recovery (DR) environment required?**: Select **Yes** to enable Disaster Recovery (DR) for your SAP systems.
         1. **Disaster Recovery (DR) location**: Select DR location if DR is enabled.
 
             :::image type="content" source="./media/tutorial-assess-sap-systems/target-settings-edit.png" alt-text="Screenshot that shows the fields in target settings." lightbox="./media/tutorial-assess-sap-systems/target-settings-edit.png":::
@@ -71,7 +71,7 @@ To create an assessment for the discovered SAP systems, follow these steps:
     1. **Availability settings**:
         1. **Production**:
             1. **Deployment type**: Select a desired deployment type.
-            1. **Compute availability**: For HA system type, select a desired compute availability option for the assessment.
+            1. **Compute availability**: For High Availability (HA) system type, select a desired compute availability option for the assessment.
         1. **Non-production**:
             1. **Deployment type**: Select a desired deployment type.                       
         
@@ -89,7 +89,7 @@ To run an assessment, follow these steps:
 1. Select **Create assessment**.
 
 > [!NOTE]
-> Assessments take approximately 5-10 minutes to complete. We recommend you to wait for 5 to 10 minutes after you select **Create assessment**. Refresh the page and check if the assessment computation is completed.
+> After you select **Create assessment**, wait for 5 to 10 minutes and refresh the page to check if the assessment computation is completed.
 
 ## Review an assessment
 
@@ -107,5 +107,5 @@ To review an assessment, follow these steps:
     :::image type="content" source="./media/tutorial-assess-sap-systems/sap-on-azure.png" alt-text="Screenshot that shows to select SAP on Azure." lightbox="./media/tutorial-assess-sap-systems/sap-on-azure.png":::
 
 > [!NOTE]
-> When you update any of the assessment settings, a new assessment is triggered, which takes a few minutes to complete and update the results.
+> When you update any of the assessment settings, it triggers a new assessment, which takes a few minutes to reflect the updates.
 

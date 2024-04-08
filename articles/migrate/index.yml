@@ -94,11 +94,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Assess SAP Systems
+          - text: About assessment of SAP systems
             url: ./concepts-azure-sap-systems-assessment.md
       - linkListType: tutorial
         links:
-          - text: Discover SAP Systems
+          - text: Discover SAP systems
             url: ./tutorial-discover-sap-systems.md
   - title: Learn more
     linkLists:
