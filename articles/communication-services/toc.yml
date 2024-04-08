@@ -797,6 +797,8 @@ items:
         href: concepts/analytics/logs/rooms-logs.md
       - name: Rooms metrics 
         href: concepts/analytics/rooms-metrics.md
+      - name: Closed captions logs
+        href: concepts/analytics/logs/closed-captions-logs.md
     - name: Service events via EventGrid
       items:
       - name: Overview
