@@ -182,21 +182,31 @@ items:
     href: document-translation/faq.md
 - name: Containers
   items:
+  - name: What is Azure AI Translator container?
+    displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+    href: containers/overview.md
   - name: Install and run containers
     displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
     href: containers/translator-how-to-install-container.md
-  - name: Configure containers
+  - name: Container configuration guide
     displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
-    href: containers/translator-container-configuration.md
-  - name: Use containers in disconnected environments
-    displayName: text,docker,pull,mcr,registry,commitment,parameters
-    href: containers/translator-disconnected-containers.md
+    href: containers/configuration.md
   - name: Deploy user-managed glossary
     displayName: dynamic, glossary, dictionary, case-sensitive, match
     href: containers/deploy-user-managed-glossary.md
-  - name: "Container: Translate"
-    displayName: textType,text type,preview,POST,parameters,request,
-    href: containers/translator-container-supported-parameters.md
+  - name: Reference
+    items:
+      - name: "Container: Translate text"
+        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+        href: containers/translate-text-parameters.md
+      - name: "Container: Transliterate text"
+        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+        href: containers/transliterate-text-parameters.md
+      - name: "Container: Translate documents"
+        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+        href: containers/translate-document-parameters.md
+  - name: Translator container FAQ
+    href: containers/faq.yml
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
