@@ -73,7 +73,12 @@ Microsoft Sentinel uses both query time and ingestion time normalization to tran
 Add intro
 ### Analytics 
 
-Detect patterns of activity and identify security threats across your organization by using analytic rules. Use out of the box analytic rule templates packaged with security content in the content hub or create your own. 
+To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses analytics to group alerts into incidents. Incidents are groups of related alerts that together indicate an actionable possible-threat that you investigate and resolve. Use the out of the box rules as-is, or as a starting point to build your own rules. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents. For more information, see the following resources:
+
+- [Detect threats out-of-the-box](detect-threats-built-in.md)
+- [Create a custom analytics rule from scratch](detect-threats-custom.md)
+- [Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
+
 
 ### MITRE ATT&CK coverage
 
@@ -98,6 +103,10 @@ Hunt
 Notebooks
 
 ## Respond
+
+Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services and your existing tools.
+
+
 Automation 
 
 Playbooks 
