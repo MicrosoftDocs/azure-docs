@@ -17,7 +17,7 @@ zone_pivot_groups: dapr-languages-set
 In this tutorial, you create publisher and subscriber microservices that leverage [the Microservices Pub/sub API](./dapr-overview.md#supported-microservices-apis) (powered by Dapr) to communicate using messages for event-driven architectures. You'll:
 
 > [!div class="checklist"]
-> * Create and run the application locally. 
+> * Create a publisher microservice and a subscriber microservice that leverage the pub/sub API to communicate using messages for event-driven architectures. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with provided Bicep. 
 
 The sample pub/sub project includes:
@@ -53,7 +53,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-nodejs-servicebus
    ```
 
-### Run the applications
+### Run the applications using the Dapr CLI
 
 Start by running the `order-processor` subscriber service.
 
@@ -265,7 +265,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-python-servicebus
    ```
 
-### Run the applications
+### Run the applications using the Dapr CLI
 
 Start by running the `order-processor` subscriber service.
 
@@ -477,7 +477,7 @@ Before deploying the application to Azure Container Apps, run the `order-process
    cd pubsub-dapr-csharp-servicebus
    ```
 
-### Run the applications
+### Run the applications using the Dapr CLI
 
 Start by running the `order-processor` subscriber service
 
@@ -679,6 +679,6 @@ azd down
 ## Next steps
 
 - Learn more about [deploying applications to Azure Container Apps](./microservices-dapr.md).
-- [Enable token authentication for requests.](./dapr-authentication-token.md)
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
 - [Scale your applications using KEDA scalers](./dapr-keda-scaling.md)

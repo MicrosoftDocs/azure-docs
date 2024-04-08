@@ -219,7 +219,7 @@
       href: enable-dapr.md
   - name: Configure
     items:
-    - name: Components
+    - name: Dapr components
       href: dapr-components.md
     - name: Dapr component resiliency (preview)
       href: dapr-component-resiliency.md
