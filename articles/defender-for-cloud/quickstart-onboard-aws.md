@@ -33,7 +33,7 @@ Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with 
 
 The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
+Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
 
 - audience validation
 
