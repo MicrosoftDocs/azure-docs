@@ -470,7 +470,6 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 
 To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services.
 
-
 | S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
 |------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
 | 1    | Azure virtual network  | Cluster               | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
@@ -484,6 +483,10 @@ To establish firewall rules between Azure and the Nexus Cluster, the operator mu
 | 9    | Cluster                | Azure virtual network | 123 UDP         | No             | NTP                                                      |
 | 10   | Cluster                | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
 | 11   | Cluster                | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
+
+**Acronyms:**
+- TCP: Transmission Control Protocol.
+- UDP: User Datagram Protocol.
 
 
 ## Install CLI extensions and sign-in to your Azure subscription
