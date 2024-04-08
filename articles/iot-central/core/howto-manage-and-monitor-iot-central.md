@@ -172,7 +172,7 @@ To view IoT Central metrics in the portal:
 1. Navigate to your IoT Central application resource in the portal. By default, IoT Central resources are located in a resource group called **IOTC**.
 1. To create a chart from your application's metrics, select **Metrics** in the **Monitoring** section.
 
-:::image type="content" source="media/howto-manage-and-monitor-iot-central/metrics.png" alt-text="Screenshot that shows example metrics in the Azure portal.":::
+:::image type="content" source="media/howto-manage-and-monitor-iot-central/metrics.png" alt-text="Screenshot that shows example metrics in the Azure portal." lightbox="media/howto-manage-and-monitor-iot-central/metrics.png":::
 
 ### Export logs and metrics
 
