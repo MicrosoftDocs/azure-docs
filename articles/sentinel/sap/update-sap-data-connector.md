@@ -106,7 +106,7 @@ To verify your current agent version, run the following query from the Microsoft
       Current_Agent_Version = agent_ver_s
   ```
 
-### Assign the Microsoft Sentinel Business Applications Agent Operator Azure role manually
+### Assign required Azure roles manually
 
 Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role.
 
