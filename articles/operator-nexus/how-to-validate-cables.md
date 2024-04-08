@@ -13,7 +13,7 @@ ms.date: 04/04/2024
 
 In a rapidly evolving telecommunications environment, the cable validation of the Nexus Network Fabric is crucial for effective infrastructure management. As consumer demand grows, so does the need to expand the infrastructure. When customers begin to establish and oversee multiple Network Fabrics instances, these validations become vital. They enable early detection of issues related to cabling. 
 
-This feature pertains to cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. 
+This article explains the post validation Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It is vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 ## Prerequisites
 
