@@ -6,12 +6,11 @@ summary: Learn how to use ExpressRoute to set up a fast, private connection to M
 metadata:
   title: ExpressRoute documentation 
   description: Learn about ExpressRoute
-  services: expressroute
   ms.service: expressroute 
   ms.topic: landing-page 
   author: duongau 
   ms.author: duau 
-  ms.date: 12/22/2022
+  ms.date: 12/28/2023
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -87,6 +86,25 @@ landingContent:
             url: designing-for-high-availability-with-expressroute.md
           - text: Design for Disaster Recovery with private peering
             url: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+    # Card
+  - title: Resiliency
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Design architecture for ExpressRoute resiliency
+            url: design-architecture-for-resiliency.md
+          - text: ExpressRoute Metro
+            url: metro.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create maximum resiliency with ExpressRoute circuits
+            url: expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview
+          - text: Create maximum resiliency with ExpressRoute gateways
+            url: expressroute-howto-linkvnet-portal-resource-manager.md?pivots=expressroute-preview
+      - linkListType: architecture
+        links:
+          - text: ExpressRoute reliability - Azure Well-Architected Framework
+            url: /azure/well-architected/service-guides/azure-expressroute#reliability
   # Card
   - title: Learn about ExpressRoute architecture
     linkLists:

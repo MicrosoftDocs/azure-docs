@@ -2,8 +2,8 @@
 
 title: Create Azure Arc data controller | Direct connect mode
 description: Explains how to create the data controller in direct connect mode. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
@@ -21,7 +21,7 @@ This article describes how to create the Azure Arc data controller in direct con
 
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy Arc data controller
 
@@ -69,7 +69,7 @@ Deploy the Azure Arc data controller using released profile
 ##### [Linux](#tab/linux)
 
 ```azurecli
-az arcdata dc create -name <name> -g ${resourceGroup} --custom-location ${customLocationName} --cluster-name ${clusterName} --connectivity-mode direct --profile-name <the-deployment-profile> --auto-upload-metrics true --auto-upload-logs true --storage-class <storageclass>
+az arcdata dc create --name <name> -g ${resourceGroup} --custom-location ${customLocationName} --cluster-name ${clusterName} --connectivity-mode direct --profile-name <the-deployment-profile> --auto-upload-metrics true --auto-upload-logs true --storage-class <storageclass>
 
 # Example
 az arcdata dc create --name arc-dc1 --resource-group my-resource-group ----custom-location cl-name --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-metrics true --auto-upload-logs true --storage-class mystorageclass
@@ -78,7 +78,7 @@ az arcdata dc create --name arc-dc1 --resource-group my-resource-group ----custo
 ##### [Windows (PowerShell)](#tab/windows)
 
 ```azurecli
-az arcdata dc create -name <name> -g $ENV:resourceGroup --custom-location $ENV:customLocationName --cluster-name $ENV:clusterName --connectivity-mode direct --profile-name <the-deployment-profile> --auto-upload-metrics true --auto-upload-logs true --storage-class <storageclass>
+az arcdata dc create --name <name> -g $ENV:resourceGroup --custom-location $ENV:customLocationName --cluster-name $ENV:clusterName --connectivity-mode direct --profile-name <the-deployment-profile> --auto-upload-metrics true --auto-upload-logs true --storage-class <storageclass>
 
 # Example
 az arcdata dc create --name arc-dc1 --g $ENV:resourceGroup --custom-location $ENV:customLocationName --cluster-name $ENV:clusterName --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-metrics true --auto-upload-logs true --storage-class mystorageclass
@@ -116,8 +116,8 @@ The deployment status of the Arc data controller on the cluster can be monitored
 kubectl get datacontrollers --namespace arc
 ```
 
-## Next steps
+## Related content
 
 [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
-[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

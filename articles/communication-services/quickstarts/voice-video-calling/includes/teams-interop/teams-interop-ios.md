@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Join a Teams meeting from an iOS app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS
-author: chpalm
+author: tophpalmer
 ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: include
@@ -14,6 +14,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 - A working [Communication Services calling iOS app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- An [access token](../../../identity/access-tokens.md).
 
 We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again. 
 

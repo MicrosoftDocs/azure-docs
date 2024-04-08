@@ -2,14 +2,17 @@
 title: Migrate with dump and restore - Azure Database for MariaDB
 description: This article explains two common ways to back up and restore databases in your Azure database for MariaDB by using tools such as mysqldump, MySQL Workbench, and phpMyAdmin.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.subservice: migration-guide
+ms.custom:
 ms.topic: how-to
 ms.date: 04/19/2023
 ---
 
 # Migrate your MariaDB database to an Azure database for MariaDB by using dump and restore
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article explains two common ways to back up and restore databases in your Azure database for MariaDB:
 
@@ -47,13 +50,13 @@ You can use MySQL utilities such as mysqldump and mysqlpump to dump and load dat
 
 To optimize performance when you're dumping large databases, keep in mind the following considerations:
 
-- Use the `exclude-triggers` option in mysqldump. Exclude triggers from dump files to avoid having the trigger commands fire during the data restore. 
-- Use the `single-transaction` option to set the transaction isolation mode to REPEATABLE READ and send a START TRANSACTION SQL statement to the server before dumping data. Dumping many tables within a single transaction causes some extra storage to be consumed during the restore. The `single-transaction` option and the `lock-tables` option are mutually exclusive. This is because LOCK TABLES causes any pending transactions to be committed implicitly. To dump large tables, combine the `single-transaction` option with the `quick` option. 
+- Use the `exclude-triggers` option in mysqldump. Exclude triggers from dump files to avoid having the trigger commands fire during the data restore.
+- Use the `single-transaction` option to set the transaction isolation mode to REPEATABLE READ and send a START TRANSACTION SQL statement to the server before dumping data. Dumping many tables within a single transaction causes some extra storage to be consumed during the restore. The `single-transaction` option and the `lock-tables` option are mutually exclusive. This is because LOCK TABLES causes any pending transactions to be committed implicitly. To dump large tables, combine the `single-transaction` option with the `quick` option.
 - Use the `extended-insert` multiple-row syntax that includes several VALUE lists. This approach results in a smaller dump file and speeds up inserts when the file is reloaded.
 - Use the `order-by-primary` option in mysqldump when you're dumping databases, so that the data is scripted in primary key order.
 - Use the `disable-keys` option in mysqldump when you're dumping data, to disable foreign key constraints before the load. Disabling foreign key checks helps improve performance. Enable the constraints and verify the data after the load to ensure referential integrity.
 - Use partitioned tables when appropriate.
-- Load data in parallel. Avoid too much parallelism, which could cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal. 
+- Load data in parallel. Avoid too much parallelism, which could cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal.
 - Use the `defer-table-indexes` option in mysqlpump when you're dumping databases, so that index creation happens after table data is loaded.
 - Copy the backup files to an Azure blob store and perform the restore from there. This approach should be a lot faster than performing the restore across the internet.
 
@@ -67,10 +70,10 @@ mysqldump --opt -u <uname> -p<pass> <dbname> > <backupfile.sql>
 
 The parameters to provide are:
 
-- *\<uname>*: Your database user name 
-- *\<pass>*: The password for your database (note that there is no space between -p and the password) 
-- *\<dbname>*: The name of your database 
-- *\<backupfile.sql>*: The file name for your database backup 
+- *\<uname>*: Your database user name
+- *\<pass>*: The password for your database (note that there is no space between -p and the password)
+- *\<dbname>*: The name of your database
+- *\<backupfile.sql>*: The file name for your database backup
 - *\<--opt>*: The mysqldump option
 
 For example, to back up a database named *testdb* on your MariaDB server with the user name *testuser* and with no password to a file testdb_backup.sql, use the following command. The command backs up the `testdb` database into a file called `testdb_backup.sql`, which contains all the SQL statements needed to re-create the database.
@@ -88,7 +91,7 @@ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 To back up more than one database at once, use the --database switch and list the database names, separated by spaces.
 
 ```bash
-mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
+mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
 ## Create a database on the target server

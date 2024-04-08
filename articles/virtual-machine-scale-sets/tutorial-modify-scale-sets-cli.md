@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurecli, linux-related-content
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using Azure CLI
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using the Azure CLI.
@@ -118,17 +118,19 @@ az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type
 az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
 ```
 
-Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
+Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're increasing the instance count to five.
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode flexible \
-  --image RHEL \
+  --image RHELRaw8LVMGen2 \
   --admin-username azureuser \
   --generate-ssh-keys \
-  --upgrade-policy Rolling \
   --instance-count 5
 ```
 
@@ -206,7 +208,7 @@ The exact presentation of the output depends on the options you provide to the c
 }
 ```
 
-These properties describe the configuration of a VM instance within a scale set, not the configuration of the scale set as a whole. 
+These properties describe the configuration of a VM instance within a scale set, not the configuration of the scale set as a whole.
 
 You can perform updates to individual VM instances in a scale set just like you would a standalone VM. For example, attaching a new data disk to instance 1:
 
@@ -234,15 +236,15 @@ Running [az vm show](/cli/azure/vm#az-vm-show) again, we now will see that the V
         "toBeDetached": false,
       }
     ],
-    
+
 ```
 
 ## Add an Instance to your scale set
 
-There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to. 
+There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to.
 
 ```azurecli-interactive
-az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHEL
+az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHELRaw8LVMGen2
 ```
 
 ```output
@@ -265,28 +267,28 @@ az vm list --resource-group myResourceGroup --output table
 ```
 
 ```output
-Name                 ResourceGroup    Location    
+Name                 ResourceGroup    Location
 -------------------  ---------------  ----------
 myNewInstance         myResourceGroup  eastus
 myScaleSet_Instance1  myResourceGroup  eastus
 myScaleSet_Instance1  myResourceGroup  eastus
-``` 
+```
 
 ## Bring VMs up-to-date with the latest scale set model
 
 > [!NOTE]
-> Upgrade modes are not currently supported on Virtual Machine Scale Sets using Flexible orchestration mode. 
+> Upgrade modes are not currently supported on Virtual Machine Scale Sets using Flexible orchestration mode.
 
 Scale sets have an "upgrade policy" that determine how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
 
-- **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
+- **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time.
 - **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
 - **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs until a manual update is triggered.
- 
+
 If your scale set is set to manual upgrades, you can trigger a manual upgrade using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 ```azurecli
-az vmss update --resource-group myResourceGroup --name myScaleSet 
+az vmss update --resource-group myResourceGroup --name myScaleSet
 ```
 
 >[!NOTE]
@@ -299,7 +301,7 @@ Virtual Machine Scale Sets will generate a unique name for each VM in the scale 
 
 - Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
 - Uniform orchestration mode: `{scale-set-name}_{instance-id}`
- 
+
 In the cases where you need to reimage a specific instance, use [az vmss reimage](/cli/azure/vmss#az-vmss-reimage) and specify the instance names.
 
 ```azurecli
@@ -335,10 +337,10 @@ Let's say you have a scale set with an Azure Load Balancer, and you want to repl
 ```azurecli-interactive
 # Remove the load balancer backend pool from the scale set model
 az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
-    
+
 # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
 az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
-    
+
 # Add the application gateway backend pool to the scale set model
 az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
 ```

@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Now that you're able to connect to your FHIR server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we’ll walk through writing and accessing the web application.
 
@@ -23,7 +25,7 @@ Once the web application is available, **Go to resource**. Select **App Service 
 
 Included is the code that you can input into **index.html**. You’ll need to update the following items:
 * **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
-* **authority** - Update with your Azure AD tenant ID
+* **authority** - Update with your Microsoft Entra tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
 * **scopes** - Update to reflect the full URL for your audience
 
@@ -150,8 +152,3 @@ You’ve successfully deployed the Azure API for FHIR, registered a public clien
 >[Supported Features](fhir-features-supported.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
-
-
-
-

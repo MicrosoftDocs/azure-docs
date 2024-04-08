@@ -2,7 +2,11 @@
 title: View kubelet logs in Azure Kubernetes Service (AKS)
 description: Learn how to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
 ms.topic: article
+ms.subservice: aks-monitoring
 ms.date: 05/09/2023
+author: nickomang
+ms.author: nickoman
+
 
 #Customer intent: As a cluster operator, I want to view the logs for the kubelet that runs on each node in an AKS cluster to troubleshoot problems.
 ---
@@ -12,6 +16,7 @@ ms.date: 05/09/2023
 When operating an Azure Kubernetes Service (AKS) cluster, you may need to review logs to troubleshoot a problem. Azure portal has a built-in capability that allows you to view logs for AKS [main components][aks-main-logs] and [cluster containers][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from AKS nodes for troubleshooting purposes.
 
 This article shows you how you can use `journalctl` to view *kubelet* logs on an AKS node.
+Alternatively, customers can collect kubelet logs using the [syslog collection feature in Azure Monitor - Container Insights](https://aka.ms/CISyslog).
 
 ## Before you begin
 
@@ -82,3 +87,4 @@ If you need more troubleshooting information for the Kubernetes main, see [view 
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md
+

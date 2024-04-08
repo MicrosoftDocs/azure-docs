@@ -2,8 +2,11 @@
 title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 06/20/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Configure an AKS cluster
@@ -12,19 +15,19 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS supports Ubuntu 22.04 as the only node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at nodepool creation for Kubernetes versions 1.24 and below. 
+AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at node pool creation for Kubernetes versions 1.24 and below. 
 
-AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at nodepool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+AKS supports Windows Server 2022 as the default operating system (OS) for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at node pool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and isn't supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used on Kubernetes version 1.19 and higher. For Windows Server 2019 and 2022 node pools, `containerd` is generally available and is the only runtime option on Kubernetes version 1.23 and higher. Docker is being retired and won't be supported as of May 2023. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used on Kubernetes version 1.19 and higher. For Windows Server 2019 and 2022 node pools, `containerd` is generally available and is the only runtime option on Kubernetes version 1.23 and higher. As of May 2023, Docker is retired and no longer supported. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
-[`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. `Containerd` was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses is built on top of `containerd`.
+[`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. `Containerd` was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017.  AKS uses the current Moby (upstream Docker) version, which is built on top of `containerd`.
 
 With a `containerd`-based node and node pools, instead of talking to the `dockershim`, the kubelet talks directly to `containerd` using the CRI (container runtime interface) plugin, removing extra hops in the data flow when compared to the Docker CRI implementation. As such, you see better pod startup latency and less resource (CPU and memory) usage.
 
-By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enable kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow.
+By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enable kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow. For more details on the origin of the `dockershim` and its deprecation, see the [Dockershim removal FAQ][kubernetes-dockershim-faq].
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
@@ -35,9 +38,9 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 >
 > `containerd` with Windows Server 2019 and 2022 node pools is generally available, and is the only container runtime option in Kubernetes 1.23 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of May 2023. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 >
-> It is highly recommended you test your workloads on AKS node pools with `containerd` before using clusters with a Kubernetes version that supports `containerd` for your node pools.
+> We highly recommend testing your workloads on AKS node pools with `containerd` before using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
-### `Containerd` limitations/differences
+### `containerd` limitations/differences
 
 * For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes. For more information on `crictl`, see [General usage][general-usage] and [Client configuration options][client-config-options].
 
@@ -62,63 +65,25 @@ Additionally, not all VM images support Gen2 VMs. On AKS, Gen2 VMs use [AKS Ubun
 
 Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 only.
 
-### Generation 2 virtual machines on Windows (preview)
+### Generation 2 virtual machines on Windows
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+#### Limitations
 
 * Generation 2 VMs are supported on Windows for WS2022 only.
 * Generation 2 VMs are default for Windows clusters greater than or equal to Kubernetes 1.25.
-  * If your Kubernetes version is greater than 1.25, you only need to set the `vm_size` to get the generation 2 node pool. You can still use WS2019 generation 1 if you define that in the `os_sku`.
-  * If your Kubernetes version less than 1.25, you can set the `os_sku` to WS2022 and set the `vm_size` to generation 2 to get the generation 2 node pool.
-
-#### Install the aks-preview Azure CLI extension
-
-* Install or update the aks-preview Azure CLI extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    # Install the aks-preview extension
-    az extension add --name aks-preview
-
-    # Update to the latest version of the aks-preview extension
-    az extension update --name aks-preview
-    ```
-
-#### Register the AKSWindows2022Gen2Preview feature flag
-
-1. Register the AKSWindows2022Gen2Preview feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-2. Verify the registration using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
-    ```
-
-3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace "Microsoft.ContainerService"
-    ```
+* If you select a vm size which supports both Gen 1 and Gen 2, the default for windows node pools will be Gen 1. To specify Gen 2, use custom header `UseWindowsGen2VM=true`.
 
 #### Add a Windows node pool with a generation 2 VM
 
 * Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli
-    # Sample command
-    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
-    --kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os-sku Windows2022
-
-    # Default command
-    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --node-vm-size Standard_D32_v4 --os-type Windows --aks-custom-headers UseWindowsGen2VM=true
     ```
 
-* Determine whether you're on generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
+The above example will create a WS2022 node pool with a Gen 2 VM. If you're using a vm size which only supports Gen 2, you do not need to add the custom header. If you're using a kubernetes version where Windows Server 2022 is not default, you need to specify `--os-sku`.  
+
+* Check whether you're using generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
 
     ```azurecli
     az aks nodepool show
@@ -134,7 +99,7 @@ For more information, see [Support for generation 2 VMs on Azure](../virtual-mac
 
 ## Default OS disk sizing
 
-When you create a new cluster or add a new node pool to an existing cluster, by default the OS disk size is determined by the number for vCPUs. The number of vCPUs is based on the VM SKU, and in the following table we list the default values:
+When you create a new cluster or add a new node pool to an existing cluster, the number for vCPUs by default determines the OS disk size. The number of vCPUs is based on the VM SKU, and in the following table we list the default values:
 
 |VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mbps) |
 |--|--|--|--|
@@ -154,7 +119,7 @@ Configure the cluster to use ephemeral OS disks when the cluster is created. Use
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument. You can also choose to add other ephemeral OS node pools as described below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument. You can also choose to add other ephemeral OS node pools, which we cover in the following section.
 
 ## Use Ephemeral OS on existing clusters
 
@@ -194,7 +159,7 @@ kubectl get pods --all-namespaces
 
 ### Deploy an Azure Linux AKS cluster with an ARM template
 
-To add Azure Linux to an existing ARM template, you need to do the following:
+To add Azure Linux to an existing ARM template, you need to make the following changes:
 
 - Add `"osSKU": "AzureLinux"` and `"mode": "System"` to agentPoolProfiles property.
 - Set the apiVersion to 2021-03-01 or newer: `"apiVersion": "2021-03-01"`
@@ -302,8 +267,7 @@ The following deployment uses the ARM template `azurelinuxaksarm.json`.
             "count": "[parameters('agentCount')]",
             "vmSize": "[parameters('agentVMSize')]",
             "osType": "[parameters('osType')]",
-            "osSKU": "[parameters('osSKU')]",
-            "storageProfile": "ManagedDisks"
+            "osSKU": "[parameters('osSKU')]"
           }
         ],
         "linuxProfile": {
@@ -379,7 +343,7 @@ To specify a custom resource group name, install the `aks-preview` Azure CLI ext
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name during cluster creation.
+The Azure resource provider in your subscription automatically creates the secondary resource group. You can only specify the custom resource group name during cluster creation.
 
 As you work with the node resource group, keep in mind that you can't:
 
@@ -482,22 +446,22 @@ az provider register --namespace Microsoft.ContainerService
 
 ### Create an AKS cluster with node resource group lockdown
 
-To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This allows you to view the resources, but not modify them.
+To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This configuration allows you to view the resources, but not modify them.
 
 ```azurecli-interactive
-az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks create -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Update an existing cluster with node resource group lockdown
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level ReadOnly
 ```
 
 ### Remove node resource group lockdown from a cluster
 
 ```azurecli-interactive
-az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestricted
+az aks update -n aksTest -g aksTest --nrg-lockdown-restriction-level Unrestricted
 ```
 
 
@@ -515,6 +479,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [azurerm-azurelinux]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [general-usage]: https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/#general-usage
 [client-config-options]: https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md#client-configuration-options
+[kubernetes-dockershim-faq]: https://kubernetes.io/blog/2022/02/17/dockershim-faq/#why-was-the-dockershim-removed-from-kubernetes
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -526,7 +491,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: create-node-pools.md#add-a-windows-server-node-pool-with-containerd
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
@@ -535,3 +500,4 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
 [az-vm-list]: /cli/azure/vm#az_vm_list
+

@@ -12,8 +12,8 @@ ms.author: chenyl
 
 This article shows you how to create a managed identity for Azure Web PubSub Service and how to use it.
 
-> [!Important] 
-> Azure Web PubSub Service can support only one managed identity. That means you can add either a system-assigned identity or a user-assigned identity. 
+> [!Important]
+> Azure Web PubSub Service can support only one managed identity. That means you can add either a system-assigned identity or a user-assigned identity.
 
 ## Add a system-assigned identity
 
@@ -23,9 +23,9 @@ To set up a managed identity in the Azure portal, you'll first create an Azure W
 
 2. Select **Identity**.
 
-4. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
+3. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
-    :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
 
 ## Add a user-assigned identity
 
@@ -41,7 +41,7 @@ Creating an Azure Web PubSub Service instance with a user-assigned identity requ
 
 5. Search for the identity that you created earlier and selects it. Select **Add**.
 
-    :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
 
 ## Use a managed identity in client events scenarios
 
@@ -51,29 +51,48 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
 1. Add a system-assigned identity or user-assigned identity.
 
-2. Navigate to the rule and switch on the **Authentication**.
+2. Navigate to **Configure Hub Settings** and add or edit an event handler upstream.
 
-    :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
+   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
-3. Select application. The application ID will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
-    - Use default AAD application.
-    - Select from existing AAD applications. The application ID of the one you choose will be used.
-    - Specify an AAD application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+3. In the **Authentication** section, select **Use Authentication** and check **Specify the issued token audience**. The audience will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
 
-    > [!NOTE]
-    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
+   - Select from existing Microsoft Entra applications. The application ID of the one you choose will be used.
+   - The Application ID URI of the service principal.
+
+   > [!IMPORTANT]
+   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+
+#### Authentication in a function app
+
+You can easily set access validation for a function app without code changes by using the Azure portal:
+
+1. In the Azure portal, go to the function app.
+1. Select **Authentication** from the menu.
+1. Select **Add identity provider**.
+1. On the **Basics** tab, in the **Identity provider** dropdown list, select **Microsoft**.
+1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
+1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
+
+   :::image type="content" source="media/howto-use-managed-identity/function-entra.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
+1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
+1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
+
+After you configure these settings, the function app will reject requests without an access token in the header.
 
 ### Validate access tokens
+
+If you're not using WebApp or Azure Function, you can also validate the token.
 
 The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 
 To validate access tokens, your app should also validate the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The Azure Active Directory (Azure AD) middleware has built-in capabilities for validating access tokens. You can browse through our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
+The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse through our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
 
-We provide libraries and code samples that show how to handle token validation. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+We provide libraries and code samples that show how to handle token validation. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language out there. For more information about Microsoft Entra authorization libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
-Specially, if the event handler hosts in Azure Function or Web Apps, an easy way is to [Configure Azure AD login](../app-service/configure-authentication-provider-aad.md).
+Specially, if the event handler hosts in Azure Function or Web Apps, an easy way is to [Configure Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).
 
 ## Use a managed identity for Key Vault reference
 

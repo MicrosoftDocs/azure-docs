@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: guywild
 ms.author: guywild
 ms.reviewer: ilanawaitser
-ms.date: 07/01/2022
+ms.date: 07/26/2023
 # Customer intent: As a data analyst, I want to use the native machine learning capabilities of Azure Monitor Logs to gain insights from my log data without having to export data outside of Azure Monitor.
 ---
 

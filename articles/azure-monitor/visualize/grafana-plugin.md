@@ -26,7 +26,7 @@ Follow these steps to set up Grafana.
 ### Set up Azure Managed Grafana
 Azure Managed Grafana is optimized for the Azure environment and works seamlessly with Azure Monitor. You can:
 
-- Manage user authentication and access control by using Azure Active Directory identities.
+- Manage user authentication and access control by using Microsoft Entra identities.
 - Pin charts from the Azure portal directly to Azure Managed Grafana dashboards.
 
 Use this [quickstart guide](../../managed-grafana/quickstart-managed-grafana-portal.md) to create an Azure Managed Grafana workspace by using the Azure portal.
@@ -45,7 +45,7 @@ Sign in to Grafana by using the endpoint URL of your Azure Managed Grafana works
 
 Azure Managed Grafana includes an Azure Monitor data source plug-in. By default, the plug-in is preconfigured with a managed identity that can query and visualize monitoring data from all resources in the subscription in which the Grafana workspace was deployed. Skip ahead to the section "Build a Grafana dashboard."
 
-![Screenshot that shows the Azure Managed Grafana home page.](./media/grafana-plugin/azure-managed-grafana.png)
+:::image type="content" source="./media/grafana-plugin/azure-managed-grafana.png" lightbox="./media/grafana-plugin/azure-managed-grafana.png" alt-text="Screenshot that shows the Azure Managed Grafana home page.":::
 
 You can expand the resources that can be viewed by your Azure Managed Grafana workspace by [configuring additional permissions](../../managed-grafana/how-to-permissions.md) to assign the included managed identity the [Monitoring Reader role](../roles-permissions-security.md) on other subscriptions or resources.
 
@@ -53,7 +53,7 @@ You can expand the resources that can be viewed by your Azure Managed Grafana wo
 
 1. Select **Add data source**, filter by the name **Azure**, and select the **Azure Monitor** data source.
 
-    ![Screenshot that shows Azure Monitor data source selection.](./media/grafana-plugin/azure-monitor-data-source-list.png)
+    :::image type="content" source="./media/grafana-plugin/azure-monitor-data-source-list.png" lightbox="./media/grafana-plugin/azure-monitor-data-source-list.png" alt-text="Screenshot that shows Azure Monitor data source selection.":::
 
 1. Pick a name for the data source and choose between managed identity or app registration for authentication.
 
@@ -67,35 +67,35 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
 
 1. Select **Save & test** and Grafana will test the credentials. You should see a message similar to the following one.
     
-   ![Screenshot that shows Azure Monitor data source with config-approved managed identity.](./media/grafana-plugin/managed-identity.png)
+   :::image type="content" source="./media/grafana-plugin/managed-identity.png" lightbox="./media/grafana-plugin/managed-identity.png" alt-text="Screenshot that shows Azure Monitor data source with config-approved managed identity.":::
 
 ### Use app registration
 
-1. Create a service principal. Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources:
-    * See [Create an Azure AD app and service principal in the portal](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID), and client secret (Application key value).
-    * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group, or resource you want to monitor.
+1. Create a service principal. Grafana uses a Microsoft Entra service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources:
+    * See [Create a Microsoft Entra app and service principal in the portal](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID), and client secret (Application key value).
+    * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Microsoft Entra application on the subscription, resource group, or resource you want to monitor.
   
 1. Provide the connection details you want to use:
-    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Azure China.
+    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Microsoft Azure operated by 21Vianet.
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
         > * Tenant ID is the Azure Directory ID.
-        > * Client ID is the Azure Active Directory Application ID.
-        > * Client Secret is the Azure Active Directory Application key value.
+        > * Client ID is the Microsoft Entra Application ID.
+        > * Client Secret is the Microsoft Entra Application key value.
 
 1. Select **Save & test** and Grafana will test the credentials. You should see a message similar to the following one.
     
-   ![Screenshot that shows Azure Monitor data source configuration with the approved app registration.](./media/grafana-plugin/app-registration.png)
+   :::image type="content" source="./media/grafana-plugin/app-registration.png" lightbox="./media/grafana-plugin/app-registration.png" alt-text="Screenshot that shows Azure Monitor data source configuration with the approved app registration.":::
 
 ## Use out-of-the-box dashboards
 
 Azure Monitor contains out-of-the-box dashboards to use with Azure Managed Grafana and the Azure Monitor plugin.
 
-:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards.":::
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" lightbox="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards.":::
  
 Azure Monitor also supports out-of-the-box dashboards for seamless integration with Azure Monitor managed service for Prometheus. These dashboards are automatically deployed to Azure Managed Grafana when linked to Azure Monitor managed service for Prometheus.
 
-:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards for Azure Monitor managed service for Prometheus.":::
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" lightbox="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards for Azure Monitor managed service for Prometheus.":::
 ## Build a Grafana dashboard
 
 1. Go to the Grafana home page and select **New Dashboard**.
@@ -104,12 +104,12 @@ Azure Monitor also supports out-of-the-box dashboards for seamless integration w
 
 1. A blank graph shows up on your dashboard. Select the panel title and select **Edit** to enter the details of the data you want to plot in this graph chart.
 
-    ![Screenshot that shows Grafana new panel dropdown list options.](./media/grafana-plugin/grafana-new-graph-dark.png)
+    :::image type="content" source="./media/grafana-plugin/grafana-new-graph-dark.png" lightbox="./media/grafana-plugin/grafana-new-graph-dark.png" alt-text="Screenshot that shows Grafana new panel dropdown list options.":::
 
 1. Select the Azure Monitor data source you've configured.
    * Visualizing Azure Monitor metrics: Select **Azure Monitor** in the service dropdown list. A list of selectors shows up where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace `Microsoft.Compute/VirtualMachines`. After you've selected VMs and metrics, you can start viewing their data in the dashboard.
 
-     ![Screenshot that shows Grafana panel config for Azure Monitor metrics.](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+     :::image type="content" source="./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png" lightbox="./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png" alt-text="Screenshot that shows Grafana panel config for Azure Monitor metrics.":::
    * Visualizing Azure Monitor log data: Select **Azure Log Analytics** in the service dropdown list. Select the workspace you want to query and set the query text. You can copy here any log query you already have or create a new one. As you enter your query, IntelliSense suggests autocomplete options. Select the visualization type, **Time series** > **Table**, and run the query.
     
      > [!NOTE]
@@ -117,17 +117,17 @@ Azure Monitor also supports out-of-the-box dashboards for seamless integration w
      > The default query provided with the plug-in uses two macros: `$__timeFilter()` and `$__interval`. 
      > These macros allow Grafana to dynamically calculate the time range and time grain, when you zoom in on part of a chart. You can remove these macros and use a standard time filter, such as `TimeGenerated > ago(1h)`, but that means the graph wouldn't support the zoom-in feature.
     
-     ![Screenshot of Grafana panel config for Azure Monitor logs.](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     :::image type="content" source="./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png" lightbox="./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png" alt-text="Screenshot of Grafana panel config for Azure Monitor logs.":::
 
 1. The following dashboard has two charts. The one on the left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
 
-    ![Screenshot of Grafana dashboards with two panels.](media/grafana-plugin/grafana6.png)
+    :::image type="content" source="media/grafana-plugin/grafana6.png" lightbox="media/grafana-plugin/grafana6.png" alt-text="Screenshot of Grafana dashboards with two panels.":::
 
 ## Pin charts from the Azure portal to Azure Managed Grafana
 
 In addition to building your panels in Grafana, you can also quickly pin Azure Monitor visualizations from the Azure portal to new or existing Grafana dashboards by adding panels to your Grafana dashboard directly from Azure Monitor. Go to **Metrics** for your resource. Create a chart and select **Save to dashboard**, followed by **Pin to Grafana**. Choose the workspace and dashboard and select **Pin** to complete the operation.
 
-[![Screenshot that shows the Pin to Grafana option in the Azure Monitor metrics explorer.](media/grafana-plugin/grafana-pin-to.png)](media/grafana-plugin/grafana-pin-to-expanded.png#lightbox)
+:::image type="content" source="media/grafana-plugin/grafana-pin-to.png" lightbox="media/grafana-plugin/grafana-pin-to.png" alt-text="Screenshot that shows the Pin to Grafana option in the Azure Monitor metrics explorer.":::
 
 ## Advanced Grafana features
 
@@ -145,7 +145,7 @@ Usage
 
 You can configure a variable that will list all available **Solution** values and then update your query to use it. To create a new variable, select the dashboard's **Settings** button in the top right area, select **Variables**, and then select **New**. On the variable page, define the data source and query to run to get the list of values.
 
-![Screenshot that shows a Grafana configure variable.](./media/grafana-plugin/grafana-configure-variable-dark.png)
+:::image type="content" source="./media/grafana-plugin/grafana-configure-variable-dark.png" lightbox="./media/grafana-plugin/grafana-configure-variable-dark.png" alt-text="Screenshot that shows a Grafana configure variable.":::
 
 After it's created, adjust the query to use the selected values, and your charts will respond accordingly:
 
@@ -156,13 +156,13 @@ Usage
 | sort by TimeGenerated
 ```
 
-![Screenshot that shows Grafana use variables.](./media/grafana-plugin/grafana-use-variables-dark.png)
+:::image type="content" source="./media/grafana-plugin/grafana-use-variables-dark.png" lightbox="./media/grafana-plugin/grafana-use-variables-dark.png" alt-text="Screenshot that shows Grafana use variables.":::
 
 ### Create dashboard playlists
 
 One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Select **Play** to see the dashboards cycle through. You might want to display them on a large wall monitor to provide a status board for your group.
 
-![Screenshot that shows a Grafana playlist example.](./media/grafana-plugin/grafana7.png)
+:::image type="content" source="./media/grafana-plugin/grafana7.png" lightbox="./media/grafana-plugin/grafana7.png" alt-text="Screenshot that shows a Grafana playlist example.":::
 ## Optional: Monitor other datasources in the same Grafana dashboards
 
 There are many data source plug-ins that you can use to bring these metrics together in a dashboard.
@@ -175,7 +175,7 @@ Here are good reference articles on how to use Telegraf, InfluxDB, Azure Monitor
 
 Here's an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
 
-![Screenshot that shows a Grafana dashboard with multiple panels.](media/grafana-plugin/grafana8.png)
+:::image type="content" source="media/grafana-plugin/grafana8.png" lightbox="media/grafana-plugin/grafana8.png" alt-text="Screenshot that shows a Grafana dashboard with multiple panels.":::
 ## Clean up resources
 
 If you've set up a Grafana environment on Azure, you're charged when resources are running whether you're using them or not. To avoid incurring additional charges, clean up the resource group created in this article.

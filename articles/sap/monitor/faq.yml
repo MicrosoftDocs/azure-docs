@@ -21,12 +21,17 @@ sections:
           Do I have to pay for Azure Monitor for SAP solutions?  
         answer: |
           There's no licensing fee for Azure Monitor for SAP solutions. However, you're responsible for the cost of managed resource group components.  
-          
+     
+      - question: |
+          Do I need specific permission on Azure Subscription to deploy Azure Monitor for SAP solutions?  
+        answer: |
+           You need to have contributor or owner access to deploy Azure Monitor for SAP solutions.  
+
       - question: |
           In which regions is this service available?  
         answer: |
            The Azure Monitor for SAP solutions service is available in the following regions: 
-           **East US 2**, **West US 2**, **East US**, **Central US**, **South Central US**, **West US 3**, **North Central US**, **West Central US**, **West US**, **North Europe**, **West Europe**, **Australia East**, **Australia Central**, **Australia Southeast**, **Central India**, **South India**, **East Asia**, **Southeast Asia**.
+           **East US 2**, **West US 2**, **East US**, **Central US**, **South Central US**, **West US 3**, **North Central US**, **West Central US**, **West US**, **North Europe**, **West Europe**, **Australia East**, **Australia Central**, **Australia Southeast**, **Central India**, **South India**, **East Asia**, **Southeast Asia**, **Sweden Central**, **UK South**, **West US 2**, **Germany West Central**, **Canada Central** and **Brazil South**.
 
       - question: |
           Do I need to give permissions to allow the deployment of a managed resource group in my subscription?  

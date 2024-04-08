@@ -50,8 +50,6 @@ For any questions or feedback about the dataset, contact platinumgenomes@illumin
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-platinum-genomes -->
 
-> [!TIP]
-> **[Download the dataset instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-platinum-genomes)**.
 
 ## Getting the Illumina Platinum Genomes from Azure Open Datasets and Doing Initial Analysis 
 

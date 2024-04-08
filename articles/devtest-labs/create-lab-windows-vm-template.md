@@ -4,8 +4,8 @@ description: Use an Azure Resource Manager (ARM) template to create a lab that h
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 01/03/2022
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, UpdateFrequency2
+ms.date: 09/30/2023
 ---
 
 # Quickstart: Use an ARM template to create a lab in DevTest Labs
@@ -44,7 +44,7 @@ The [Azure Lab Services Community public GitHub repository](https://github.com/A
 
 1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the quickstart ARM template:
 
-   [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json":::
 
 1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, complete the following items:
 

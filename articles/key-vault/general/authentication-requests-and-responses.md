@@ -2,14 +2,13 @@
 title: Authentication, requests and responses
 description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
@@ -32,7 +31,6 @@ Here are the URL suffixes used to access each type of object
 |Secrets|/secrets|
 |Certificates| /certificates|
 |Storage account keys|/storageaccounts
-||
 
 Azure Key Vault supports JSON formatted requests and responses. Requests to the Azure Key Vault are directed to a valid Azure Key Vault URL using HTTPS with some URL parameters and JSON encoded request and response bodies.
 
@@ -106,9 +104,9 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 ```  
 
 ## Authentication  
- All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
+ All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Microsoft Entra access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Microsoft Entra ID](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Access tokens must be sent to the service using the HTTP Authorization header:  
 

@@ -16,6 +16,8 @@
     href: quick-create-bicep.md
   - name: Create virtual network - ARM template
     href: quick-create-template.md
+  - name: Create virtual network - Terraform
+    href: quick-create-terraform.md
   expanded: true
 - name: Tutorials
   items:
@@ -39,18 +41,10 @@
       href: virtual-networks-udr-overview.md
     - name: Backend Connectivity Interoperability
       items:
-      - name: Preface and Test Setup
-        href: ../networking/connectivty-interoperability-preface.md?toc=/azure/virtual-network/toc.json
-      - name: Test Setup Configuration
-        href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/virtual-network/toc.json
       - name: Control Plane Analysis
-        href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
-      - name: Data Plane Analysis
-        href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/virtual-network/toc.json
+        href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
     - name: Container networking
       href: container-networking-overview.md
-    - name: Cross-network connectivity
-      href: ../expressroute/cross-network-connectivity.md?toc=/azure/virtual-network/toc.json
     - name: Peering
       href: virtual-network-peering-overview.md
   - name: Integrate Azure services
@@ -289,20 +283,12 @@
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
     - name: Network interfaces (NICs)
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
-    - name: Manual move
+    - name: Manual relocation
       items:
-      - name: Network security groups - Portal
-        href: move-across-regions-nsg-portal.md
-      - name: Network security groups - PowerShell
-        href: move-across-regions-nsg-powershell.md
-      - name: Virtual networks - Portal
-        href: move-across-regions-vnet-portal.md
-      - name: Virtual networks - PowerShell
-        href: move-across-regions-vnet-powershell.md
-      - name: Public IPs - Portal
-        href: move-across-regions-publicip-portal.md
-      - name: Public IPs - PowerShell
-        href: move-across-regions-publicip-powershell.md
+      - name: Network security groups (NSG)
+        href: ../operational-excellence/relocation-virtual-network-nsg.md?toc=/azure/virtual-network/toc.json
+      - name: Virtual networks
+        href: ../operational-excellence/relocation-virtual-network.md?toc=/azure/virtual-network/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
@@ -331,6 +317,8 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
+  - name: DHCP server on Azure Virtual Machine
+    href: how-to-dhcp-azure.md
   - name: Monitor virtual network
     href: monitor-virtual-network.md
   - name: Classic deployment

@@ -3,6 +3,7 @@ title: Prepare Windows lab template
 description: Prepare a Windows-based lab template in Azure Lab Services. Configure commonly used software and OS settings, such as Windows Update, OneDrive, and Microsoft 365.
 services: lab-services
 ms.service: lab-services
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -18,7 +19,7 @@ This article describes best practices and tips for preparing a Windows-based lab
 
 ## Install and configure OneDrive
 
-When a lab user resets a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
+When a lab user reimages a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
 
 ### Install OneDrive
 
@@ -67,11 +68,9 @@ Folders like Documents, Downloads, and Pictures are often used to store lab user
         Learn how to [find your Microsoft 365 organization ID](/onedrive/find-your-office-365-tenant-id).  Alternately, you can also get the organization ID by using the following PowerShell script:
 
         ```powershell
-        Install-Module MSOnline -Confirm
-        Connect-MsolService
-        $officeTenantID = Get-MSOLCompanyInformation |
-            Select-Object -expand objectID |
-            Select-Object -expand Guid
+        Install-Module Microsoft.Graph -Scope CurrentUser
+        Connect-MgGraph -Scopes "User.Read"
+        $officeTenantID = Get-MgOrganization | Select-Object -expand Id
         ```
 
     1. Configure OneDrive to prompt to move known folders to OneDrive by using the following PowerShell script:
@@ -98,18 +97,6 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "FilesOnDemandEnabled" -Value "00000001" -PropertyType DWORD
 ```
 
-### Silently sign in users to OneDrive
-
-You can configure OneDrive to automatically sign in with the Windows credentials of the logged on lab user.  Automatic sign-in is useful for scenarios where lab users signs in with their organizational account.
-
-Use the following PowerShell script to enable automatic sign-in:
-
-```powershell
-New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
-    -Name "SilentAccountConfig" -Value "00000001" -PropertyType DWORD
-```
-
 ### Disable the OneDrive tutorial
 
 By default, after you finish the OneDrive setup, a tutorial is launched in the browser. Use the following script to disable the tutorial from showing:
@@ -122,7 +109,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### Set the maximum download size of a user's OneDrive
 
-To prevent that OneDrive automatically uses a large amount of disk space on the lab virtual machine when syncing files, you can configure a maximum size threshold. When a lab user has a OneDrive that's larger than the threshold (in MB), the user receives a prompt to choose which folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files to the machine. This setting is used in combination with [automatic sign-in of users to OneDrive](#silently-sign-in-users-to-onedrive) and where [on-demand files](#use-onedrive-files-on-demand) isn't enabled.
+To prevent that OneDrive automatically uses a large amount of disk space on the lab virtual machine when syncing files, you can configure a maximum size threshold. When a lab user has a OneDrive that's larger than the threshold (in MB), the user receives a prompt to choose which folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files to the machine. This setting is used where [on-demand files](#use-onedrive-files-on-demand) isn't enabled.
 
 Use the following PowerShell script to set the maximum size threshold. In our example, `1111-2222-3333-4444` is the organization ID and `0005000` sets a threshold of 5 GB.
 

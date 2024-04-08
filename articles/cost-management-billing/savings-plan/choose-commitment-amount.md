@@ -6,9 +6,8 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -16,9 +15,11 @@ ms.author: banders
 
 You should purchase savings plans based on consistent base usage. Committing to a greater spend than your historical usage could result in an underutilized commitment, which should be avoided when possible. Unused commitment doesn't carry over from one hour to the next. Usage exceeding the savings plan commitment is charged using more expensive pay-as-you-go rates.
 
+Software costs aren't covered by savings plans. For more information, see [Software costs not included in saving plans](software-costs-not-included.md).
+
 ## Savings plan purchase recommendations
 
-Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure simulates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The commitment amount that maximizes your savings is recommended. To learn more about how recommendations are generated, see [How hourly commitment recommendations are generated](purchase-recommendations.md#how-hourly-commitment-recommendations-are-generated).
+Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure simulates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The commitment amount that maximizes your savings is recommended. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
 For example, you might incur about $500 in hourly pay-as-you-go compute charges most of the time, but sometimes usage spikes to $700. Azure determines your total costs (hourly savings plan commitment plus pay-as-you-go charges) if you had either a $500/hour or a $700/hour savings plan. Since the $700 usage is sporadic, the recommendation calculation is likely to determine that a $500 hourly commitment provides greater total savings. As a result, the $500/hour plan would be the recommended commitment.
 

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Networking for Azure Virtual Machine Scale Sets

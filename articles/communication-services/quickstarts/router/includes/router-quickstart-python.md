@@ -4,7 +4,6 @@ description: include file
 services: azure-communication-services
 author: williamzhao
 manager: bga
-
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/09/2023
@@ -35,7 +34,7 @@ mkdir jobrouter-quickstart && cd jobrouter-quickstart
 
 ### Install the package
 
-You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0b1](https://pypi.org/project/azure-communication-jobrouter) or above.
+You'll need to use the Azure Communication Job Router client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-jobrouter) or above.
 
 From a console prompt, execute the following command:
 
@@ -48,11 +47,17 @@ pip install azure-communication-jobrouter
 Create a new file called `router-quickstart.py` and add the basic program structure.
 
 ```python
-import os
-from datetime import datetime, timedelta
+import time
 from azure.communication.jobrouter import (
     JobRouterClient,
     JobRouterAdministrationClient
+)
+from azure.communication.jobrouter.models import (
+    LongestIdleMode,
+    RouterWorkerSelector,
+    LabelOperator,
+    RouterChannel,
+    CloseJobOptions
 )
 
 class RouterQuickstart(object):
@@ -69,23 +74,20 @@ Job Router clients can be authenticated using your connection string acquired fr
 
 ```python
 # Get a connection string to our Azure Communication Services resource.
-connection_string = "your_connection_string"
-router_admin_client = JobRouterAdministrationClient(connection_string)
-router_client = JobRouterClient(connection_string)
+router_admin_client = JobRouterAdministrationClient.from_connection_string(conn_str = "your_connection_string")
+router_client = JobRouterClient.from_connection_string(conn_str = "your_connection_string")
 ```
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfterUtc**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **distribution_policy_id**, a **name**, an **offer_expires_after_seconds** value, and a distribution **mode**.
 
 ```python
-distribution_policy = router_admin_client.create_distribution_policy(
-    distribution_policy_id="distribution-policy-1",
-    distribution_policy = DistributionPolicy(
-        offer_expires_after = timedelta(minutes = 1),
-        mode = LongestIdleMode(),
-        name = "My distribution policy"
-    ))
+distribution_policy = router_admin_client.upsert_distribution_policy(
+    distribution_policy_id ="distribution-policy-1",
+    offer_expires_after_seconds = 60,
+    mode = LongestIdleMode(),
+    name = "My distribution policy")
 ```
 
 ## Create a queue
@@ -93,12 +95,10 @@ distribution_policy = router_admin_client.create_distribution_policy(
 Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```python
-queue = router_admin_client.create_queue(
+queue = router_admin_client.upsert_queue(
     queue_id = "queue-1",
-    queue = RouterQueue(
-        name = "My Queue",
-        distribution_policy_id = distribution_policy.id
-    ))
+    name = "My Queue",
+    distribution_policy_id = distribution_policy.id)
 ```
 
 ## Submit a job
@@ -106,20 +106,18 @@ queue = router_admin_client.create_queue(
 Now, we can submit a job directly to that queue, with a worker selector that requires the worker to have the label `Some-Skill` greater than 10.
 
 ```python
-job = router_client.create_job(
+job = router_client.upsert_job(
     job_id = "job-1",
-    job = RouterJob(
-        channel_id = "voice",
-        queue_id = queue.id,
-        priority = 1,
-        requested_worker_selectors = [
-            RouterWorkerSelector(
-                key = "Some-Skill",
-                label_operator = LabelOperator.GreaterThan,
-                value = 10
-            )
-        ]
-    ))
+    channel_id = "voice",
+    queue_id = queue.id,
+    priority = 1,
+    requested_worker_selectors = [
+        RouterWorkerSelector(
+            key = "Some-Skill",
+            label_operator = LabelOperator.GREATER_THAN,
+            value = 10
+        )
+    ])
 ```
 
 ## Create a worker
@@ -127,20 +125,16 @@ job = router_client.create_job(
 Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```python
-worker = router_client.create_worker(
+worker = router_client.upsert_worker(
     worker_id = "worker-1",
-    router_worker = RouterWorker(
-        total_capacity = 1,
-        queue_assignments = {
-            "queue-1": {}
-        },
-        labels = {
-            "Some-Skill": LabelValue(11)
-        },
-        channel_configurations = {
-            "voice": ChannelConfiguration(capacity_cost_per_job = 1)
-        }
-    ))
+    capacity = 1,
+    queues = ["queue-1"],
+    labels = {
+        "Some-Skill": 11
+    },
+    channels = [RouterChannel(channel_id = "voice", capacity_cost_per_job = 1)],
+    available_for_offers = True
+)
 ```
 
 ## Receive an offer
@@ -149,7 +143,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```python
-time.sleep(3)
+time.sleep(10)
 worker = router_client.get_worker(worker_id = worker.id)
 for offer in worker.offers:
     print(f"Worker {worker.id} has an active offer for job {offer.job_id}")
@@ -178,8 +172,17 @@ print(f"Worker {worker.id} has completed job {accept.job_id}")
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```python
-router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, disposition_code = "Resolved")
+router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, options = CloseJobOptions(disposition_code = "Resolved"))
 print(f"Worker {worker.id} has closed job {accept.job_id}")
+```
+
+## Delete the job
+
+Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
+```python
+router_client.delete_job(accept.job_id)
+print(f"Deleting {accept.job_id}")
 ```
 
 ## Run the code
@@ -189,10 +192,12 @@ To run the code, make sure you are on the directory where your `router-quickstar
 ```console
 python router-quickstart.py
 
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Azure Communication Services - Job Router Quickstart
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
@@ -200,7 +205,7 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/operation-groups).
 
 <!-- LINKS -->
 

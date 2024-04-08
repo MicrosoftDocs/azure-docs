@@ -2,13 +2,13 @@
 title: Azure Data Box Gateway 1905 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway 1905 running general availability release.
 services: databox
-author: alkohli
+author: stevenmatthew
  
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 11/11/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Azure Data Box Edge and Azure Data Box Gateway 1905 release notes

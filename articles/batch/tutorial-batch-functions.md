@@ -4,7 +4,7 @@ description: Learn how to apply OCR to scanned documents as they're added to a s
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/21/2023
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: mvc, devx-track-csharp
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions
@@ -34,10 +34,10 @@ In this section, you use the Azure portal to create the Batch pool and Batch job
 ### Create a pool
 
 1. Sign in to the Azure portal using your Azure credentials.
-1. Create a pool by selecting **Pools** on the left side navigation, and then the select the **Add** button above the search form. 
+1. Create a pool by selecting **Pools** on the left side navigation, and then the select the **Add** button above the search form.
 
     :::image type="content" source="./media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
- 
+
 	1. Enter a **Pool ID**. This example names the pool `ocr-pool`.
     1. Select **canonical** as the **Publisher**.
     1. Select **0001-com-ubuntu-server-jammy** as the **Offer**.
@@ -46,7 +46,7 @@ In this section, you use the Azure portal to create the Batch pool and Batch job
 	1. Set the **Mode** in the **Scale** section to **Fixed**, and enter 3 for the **Target dedicated nodes**.
 	1. Set **Start task** to **Enabled** the start task, and enter the command `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` in **Command line**. Be sure to set the **Elevation level** as **Pool autouser, Admin**, which allows start tasks to include commands with `sudo`.
 	1. Select **OK**.
-  
+
 ### Create a job
 
 1. Create a job on the pool by selecting **Jobs** in the left side navigation, and then choose the **Add** button above the search form.
@@ -94,14 +94,14 @@ In this section, you create the Azure Function that triggers the OCR Batch job w
 
 ## Trigger the function and retrieve results
 
-Upload any or all of the scanned files from the [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) directory on GitHub to your input container. 
+Upload any or all of the scanned files from the [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) directory on GitHub to your input container.
 
 You can test your function from Azure portal on the **Code + Test** page of your function.
 
- 1. Select **Test/run** on the **Code + Test** page. 
+ 1. Select **Test/run** on the **Code + Test** page.
  1. Enter the path for your input container in **Body** on the **Input** tab.
  1. Select **Run**.
- 
+
  After a few seconds, the file with OCR applied is added to the output container. Log information outputs to the bottom window. The file is then visible and retrievable on Storage Explorer.
 
 Alternatively, you can find the log information on the **Monitor** page:

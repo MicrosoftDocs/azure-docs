@@ -4,7 +4,7 @@ description: Migrate bulk data offline that's compatible with Azure File Sync. A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/21/2023
 ms.author: kendownie
 ---
 
@@ -93,7 +93,7 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 ## Phase 4: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up in the line of sight to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, you need to set it up with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).

@@ -5,7 +5,7 @@ description: Learn how to use point-in-time restore to restore a set of block bl
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: normesta

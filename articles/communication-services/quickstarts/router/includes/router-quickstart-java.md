@@ -36,11 +36,11 @@ mvn archetype:generate -DgroupId=com.communication.jobrouter.quickstart -Dartifa
 
 ### Include the package
 
-You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0-beta.1/jar) or above.
+You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0/jar) or above.
 
 #### Include the BOM file
 
-Include the `azure-sdk-bom` to your project to take dependency on the Public Preview version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
+Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
 To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
 
 ```xml
@@ -69,16 +69,13 @@ and then include the direct dependency in the dependencies section without the v
 ```
 
 #### Include direct dependency
-
 If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
-
-[//]: # ({x-version-update-start;com.azure:azure-communication-jobrouter;current})
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-jobrouter</artifactId>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -89,15 +86,16 @@ Go to the /src/main/java/com/communication/quickstart directory and open the `Ap
 ```java
 package com.communication.quickstart;
 
-import com.azure.communication.common.*;
-import com.azure.communication.identity.*;
-import com.azure.communication.identity.models.*;
-import com.azure.core.credential.*;
+import com.azure.communication.jobrouter.JobRouterAdministrationClient;
+import com.azure.communication.jobrouter.JobRouterAdministrationClientBuilder;
+import com.azure.communication.jobrouter.JobRouterClient;
+import com.azure.communication.jobrouter.JobRouterClientBuilder;
 import com.azure.communication.jobrouter.*;
+import com.azure.communication.jobrouter.models.*;
 
-import java.io.IOException;
-import java.time.*;
-import java.util.*;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 public class App
 {
@@ -115,9 +113,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 
 ```java
 // Get a connection string to our Azure Communication Services resource.
-String connectionString = "your_connection_string";
-JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString(connectionString).buildClient();
-JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(connectionString).buildClient();
+JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString("your_connection_string").buildClient();
+JobRouterClient routerClient = new JobRouterClientBuilder().connectionString("your_connection_string").buildClient();
 ```
 
 ## Create a distribution policy
@@ -126,11 +123,8 @@ Job Router uses a distribution policy to decide how Workers will be notified of 
 
 ```java
 DistributionPolicy distributionPolicy = routerAdminClient.createDistributionPolicy(
-    new CreateDistributionPolicyOptions(
-        "distribution-policy-1",
-        Duration.ofMinutes(1),
-        new LongestIdleMode())
-    .setName("My distribution policy"));
+    new CreateDistributionPolicyOptions("distribution-policy-1", Duration.ofMinutes(1), new LongestIdleMode())
+        .setName("My distribution policy"));
 ```
 
 ## Create a queue
@@ -139,8 +133,7 @@ Create the Queue by specifying an **ID**, **name**, and provide the **Distributi
 
 ```java
 RouterQueue queue = routerAdminClient.createQueue(
-    new CreateQueueOptions("queue-1", distributionPolicy.getId())
-        .setName("My queue")
+    new CreateQueueOptions("queue-1", distributionPolicy.getId()).setName("My queue")
 );
 ```
 
@@ -151,10 +144,8 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 ```java
 RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
     .setPriority(1)
-    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
-        .setKey("Some-Skill")
-        .setLabelOperator(LabelOperator.GREATER_THAN)
-        .setValue(new LabelValue(10)))));
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new RouterValue(10)))));
 ```
 
 ## Create a worker
@@ -164,9 +155,9 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```java
 RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
-        .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
-        .setLabels(Map.of("Some-Skill", new LabelValue(11)))
-        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration().setCapacityCostPerJob(1))));
+        .setQueues(List.of(queue.getId()))
+        .setLabels(Map.of("Some-Skill", new RouterValue(11)))
+        .setChannels(List.of(new RouterChannel("voice", 1))));
 ```
 
 ## Receive an offer
@@ -175,10 +166,10 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```java
-Thread.sleep(3000);
+Thread.sleep(10000);
 worker = routerClient.getWorker(worker.getId());
 for (RouterJobOffer offer : worker.getOffers()) {
-    System.out.printf("Worker %s has an active offer for job %s", worker.getId(), offer.getJobId());
+    System.out.printf("Worker %s has an active offer for job %s\n", worker.getId(), offer.getJobId());
 }
 ```
 
@@ -188,7 +179,7 @@ Then, the worker can accept the job offer by using the SDK, which assigns the jo
 
 ```java
 AcceptJobOfferResult accept = routerClient.acceptJobOffer(worker.getId(), worker.getOffers().get(0).getOfferId());
-System.out.printf("Worker %s is assigned job %s", worker.getId(), accept.getJobId());
+System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJobId());
 ```
 
 ## Complete the job
@@ -196,18 +187,26 @@ System.out.printf("Worker %s is assigned job %s", worker.getId(), accept.getJobI
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJob(new CompleteJobOptions("job-1", accept.getAssignmentId()));
-System.out.printf("Worker %s has completed job %s", worker.getId(), accept.getJobId());
+routerClient.completeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
+System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
 ## Close the job
 
-Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
+Once the worker is ready to take on new jobs, the worker should close the job.
 
 ```java
-routerClient.closeJob(new CloseJobOptions("job-1", accept.getAssignmentId())
-    .setDispositionCode("Resolved"));
-System.out.printf("Worker %s has closed job %s", worker.getId(), accept.getJobId());
+routerClient.closeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
+System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
+```
+
+## Delete the job
+
+Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
+```java
+routerClient.deleteJob(accept.getJobId());
+System.out.printf("Deleting job %s\n", accept.getJobId());
 ```
 
 ## Run the code
@@ -234,11 +233,11 @@ The expected output describes each completed action:
 
 ```console
 Azure Communication Services - Job Router Quickstart
-
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
@@ -246,7 +245,7 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-jobrouter) or [REST API reference](/rest/api/communication/jobrouter/job-router-operations).
 
 <!-- LINKS -->
 

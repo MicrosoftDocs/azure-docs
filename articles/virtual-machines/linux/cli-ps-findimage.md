@@ -1,5 +1,5 @@
 ---
-title: Find and use marketplace purchase plan information using the CLI    
+title: Find and use marketplace purchase plan information using the CLI
 description: Learn how to use the Azure CLI to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -8,15 +8,18 @@ ms.date: 02/09/2023
 author: ebolton-cyber
 ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922
+ms.custom: devx-track-azurecli, GGAL-freshness922, linux-related-content
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
-You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md). 
+You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md).
 
 ## Terminology
 
@@ -25,7 +28,7 @@ A Marketplace image in Azure has the following attributes:
 * **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE.
 * **Offer**: The name of a group of related images created by a publisher. Examples: 0001-com-ubuntu-server-jammy, RHEL, sles-15-sp3.
 * **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 22_04-lts-gen2, 8-lvm-gen2,  gen2.
-* **Version**: The version number of an image SKU. 
+* **Version**: The version number of an image SKU.
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
 
@@ -41,24 +44,18 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *Ubuntu2204*.
+The output includes the image URN. If you omit the `--all` option, you can see the *UrnAlias* for each image, if available. *UrnAlias* is a shortened version created for popular images like *Ubuntu2204*.
 The Linux image alias names and their details outputted by this command are:
 
 ```output
 Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
 --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
-x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
 x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                                CentOS85Gen2             latest
-x64             debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                      Debian                   latest
 x64             Debian11                      Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                       Debian-11                latest
-x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
 x64             flatcar-container-linux-free  kinvolk                 stable-gen2                         kinvolk:flatcar-container-linux-free:stable-gen2:latest                         FlatcarLinuxFreeGen2     latest
-x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
 x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                             OpenSuseLeap154Gen2      latest
-x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
 x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                   RHELRaw8LVMGen2          latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
-x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
 x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                    Ubuntu2204               latest
 ```
 
@@ -83,22 +80,27 @@ You can filter the list of images by `--publisher` or another parameter to limit
 For example, the following command displays all Debian offers:
 
 ```azurecli-interactive
-az vm image list --offer Debian --all --output table 
+az vm image list --offer Debian --all --output table
 ```
 
+You can limit your results to a single architecture by adding the `--architecture` parameter. For example, to display all Arm64 images available from Canonical:
+
+```azurecli-interactive
+az vm image list --architecture Arm64 --publisher Canonical --all --output table
+```
 
 ## Look at all available images
- 
+
 Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image) commands in sequence. With these commands, you determine these values:
 
 1. List the image publishers for a location. In this example, we're looking at the *West US* region.
-    
+
     ```azurecli-interactive
     az vm image list-publishers --location westus --output table
     ```
 
 1. For a given publisher, list their offers. In this example, we add *RedHat* as the publisher.
-    
+
     ```azurecli-interactive
     az vm image list-offers --location westus --publisher RedHat --output table
     ```
@@ -130,7 +132,7 @@ If you deploy a VM with a Resource Manager template, you set the image parameter
 
 ## Check the purchase plan information
 
-Some VM images in the Azure Marketplace have extra license and purchase terms that you must accept before you can deploy them programmatically.  
+Some VM images in the Azure Marketplace have extra license and purchase terms that you must accept before you can deploy them programmatically.
 
 To deploy a VM from such an image, you'll need to accept the image's terms the first time you use it, once per subscription. You'll also need to specify *purchase plan* parameters to deploy a VM from that image
 
@@ -158,7 +160,7 @@ Output:
 }
 ```
 
-Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) 
+Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.)
 
 ```azurecli-interactive
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -191,7 +193,7 @@ To view and accept the license terms, use the [az vm image terms](/cli/azure/vm/
 
 ```azurecli-interactive
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest
-``` 
+```
 
 The output includes a `licenseTextLink` to the license terms, and indicates that the value of `accepted` is `true`:
 
@@ -216,11 +218,11 @@ To accept the terms, type:
 
 ```azurecli-interactive
 az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
-``` 
+```
 
 ## Deploy a new VM using the image parameters
 
-With information about the image, you can deploy it using the `az vm create` command. 
+With information about the image, you can deploy it using the `az vm create` command.
 
 To deploy an image that doesn't have plan information, like the latest Ubuntu Server 18.04 image from Canonical, pass the URN for `--image`:
 
@@ -231,7 +233,7 @@ az vm create \
    --name myVM \
    --admin-username azureuser \
    --generate-ssh-keys \
-   --image Canonical:UbuntuServer:18.04-LTS:latest 
+   --image Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
 
@@ -256,7 +258,7 @@ If you get a message about accepting the terms of the image, review section [Acc
 
 ## Using an existing VHD with purchase plan information
 
-If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to give the purchase plan information when creating a new VM from that VHD. 
+If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to give the purchase plan information when creating a new VM from that VHD.
 
 If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
 
@@ -277,7 +279,7 @@ az vm create \
   --attach-os-disk myVHD \
   --plan-name planName \
   --plan-publisher planPublisher \
-  --plan-product planProduct 
+  --plan-product planProduct
 ```
 
 

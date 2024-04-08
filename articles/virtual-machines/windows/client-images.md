@@ -1,14 +1,12 @@
 ---
-title: Use Windows client images in Azure 
+title: Use Windows client images in Azure
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
 author: ebolton-cyber
 ms.author: edewebolton
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/15/2017
-
 ---
 # Use Windows client in Azure for dev/test scenarios
 
@@ -47,8 +45,6 @@ If you do not know your offer ID, you can obtain it through the Azure portal.
 - On the *Subscriptions* window:
   ![Offer ID details from the Azure portal](./media/client-images/offer-id-azure-portal.png) 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window. 
-- You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
-  ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps
 You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

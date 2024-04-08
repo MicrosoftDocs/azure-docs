@@ -2,28 +2,25 @@
 title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/01/2023
-ms.reviewer: jogrima
+ms.date: 09/21/2023
+ms.reviewer: ryankahng
 ---
 
 # Enable Profiler for Azure App Service apps
 
-Application Insights Profiler is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher. Follow these steps even if you've included the Application Insights SDK in your application at build time.
+Application Insights Profiler is preinstalled as part of the Azure App Service runtime. You can run Profiler on ASP.NET and ASP.NET Core apps running on App Service by using the Basic service tier or higher. Follow these steps, even if you included the Application Insights SDK in your application at build time.
 
 To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps instructions](profiler-aspnetcore-linux.md).
 
 > [!NOTE]
-> Codeless installation of Application Insights Profiler follows the .NET Core support policy.
-> For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+> Codeless installation of Application Insights Profiler follows the .NET Core support policy. For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## Prerequisites
-
-You need:
 
 - An [Azure App Service ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).
 - An [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) connected to your App Service app.
 
-## Verify the Always on setting is enabled
+## Verify the "Always on" setting is enabled
 
 1. In the Azure portal, go to your App Service instance.
 1. Under **Settings** on the left pane, select **Configuration**.
@@ -80,20 +77,22 @@ Set these values by using:
 
 ## Enable Profiler for regional clouds
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 |App setting    | US Government Cloud | China Cloud |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
-## Enable Azure Active Directory authentication for profile ingestion
+<a name='enable-azure-active-directory-authentication-for-profile-ingestion'></a>
 
-Application Insights Profiler supports Azure Active Directory (Azure AD) authentication for profile ingestion. For all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
+## Enable Microsoft Entra authentication for profile ingestion
 
-Profiler only supports Azure AD authentication when you reference and configure Azure AD by using the [Application Insights SDK](../app/asp-net-core.md#configure-the-application-insights-sdk) in your application.
+Application Insights Profiler supports Microsoft Entra authentication for profile ingestion. For all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
 
-To enable Azure AD for profile ingestion:
+Profiler only supports Microsoft Entra authentication when you reference and configure Microsoft Entra ID by using the [Application Insights SDK](../app/asp-net-core.md#configure-the-application-insights-sdk) in your application.
+
+To enable Microsoft Entra ID for profile ingestion:
 
 1. Create and add the managed identity to authenticate against your Application Insights resource to your App Service:
 
@@ -101,7 +100,7 @@ To enable Azure AD for profile ingestion:
 
    1.  [User-assigned managed identity documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
 
-1. [Configure and enable Azure AD](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication) in your Application Insights resource.
+1. [Configure and enable Microsoft Entra ID](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication) in your Application Insights resource.
 
 1. Add the following application setting to let the Profiler agent know which managed identity to use.
 

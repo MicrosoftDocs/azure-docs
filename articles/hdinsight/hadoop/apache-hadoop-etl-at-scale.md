@@ -1,10 +1,10 @@
 ---
-title: Extract, transform, and load (ETL) at scale - Azure HDInsight 
+title: Extract, transform, and load (ETL) at scale - Azure HDInsight
 description: Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 11/17/2022
+ms.custom: hdinsightactive
+ms.date: 12/05/2023
 ---
 
 # Extract, transform, and load (ETL) at scale
@@ -13,7 +13,7 @@ Extract, transform, and load (ETL) is the process by which data is acquired from
 
 The use of HDInsight in the ETL process is summarized by this pipeline:
 
-:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="HDInsight ETL at scale overview" border="false":::
+:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="HDInsight ETL at scale overview." border="false":::
 
 The following sections explore each of the ETL phases and their associated components.
 

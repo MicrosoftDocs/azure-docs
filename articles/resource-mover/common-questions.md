@@ -1,12 +1,11 @@
 ---
 title: Common questions about Azure Resource Mover?
-description: Get answers to common questions about  Azure Resource Mover
+description: Get answers to common questions about  Azure Resource Mover.
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
-ms.custom: ignite-2022, engagement-fy23, UpdateFrequency.5
+ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ---
 
@@ -29,39 +28,35 @@ Azure Resource Mover is currently available as follows:
 | Support | Details|
 |-------- | -------|
 |Move support | Azure resources that are supported for a move with Resource Mover can be moved from any public region to another public region and within regions in China. Moving resources within Azure Gov is also supported (US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, US Gov Virginia).  US Sec East/West/West Central are not currently supported.|
-|Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Azure China region is also supported with the metadata region China North2.|
+|Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Microsoft Azure operated by 21Vianet region is also supported with the metadata region China North2.|
 
 ### What resources can I move across regions using Resource Mover?
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
-- NICs
+- Azure virtual machines and associated disks (Azure Spot virtual machines are not currently supported)
+- Network Interface Cards
 - Availability sets 
 - Azure virtual networks 
-- Public IP addresses (Public IP will not be retained across Azure region)
+- Public IP addresses (Public IP are be retained across Azure region)
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
 
 ### Can I move disks across regions?
 
-You can't select disks as resources to the moved across regions. However, disks are moved as part of a VM move.
+You can't select disks as resources to the moved across regions. However, disks are moved as part of a virtual machine move.
 
 ### How can I move my resources across subscription?
 
 Currently, Azure Resource Mover only supports move across regions within the same subscription. Move across subscriptions is not supported. 
 
-However, on the Azure Portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+However, on the Azure portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Moving across regions and across subscriptions is a two-step process:
 
 1. Move resources across regions using Azure Resource Mover.
 1. Use Azure Resource Manager (ARM) to move across subscriptions once resources are in the desired target region.
-
-### What does it mean to move a resource group?
-
-When a resource is selected for move, the corresponding resource group is added automatically for moving. This is so that the destination resource can be placed in a resource group. You can choose to customize and provide an existing resource group after it's added for move. Moving a resource group doesn't mean that all the resources in the source resource group will be moved.
 
 ### Can I move resources across subscriptions when I move them across regions?
 
@@ -72,7 +67,7 @@ No. Resource Mover service doesn't store customer data, it only stores metadata 
 
 ### Where is the metadata for moving across regions stored?
 
-It's stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently, metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public region.
+It's stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently, metadata is stored in East US 2 and North Europe. We plan to expand this coverage to other regions. This doesn't restrict you from moving resources across any public region.
 
 ### Is the collected metadata encrypted?
 
@@ -82,7 +77,7 @@ Yes, both in transit and at rest.
 
 ### How is managed identity used in Resource Mover?
 
-[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Azure AD.
+[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity (MSI)) provides Azure services with an automatically managed identity in Microsoft Entra ID.
 - Resource Mover uses managed identity so that it can access Azure subscriptions to move resources across regions.
 - A move collection needs a system-assigned identity, with access to the subscription that contains resources you're moving.
 
@@ -118,7 +113,7 @@ Change the source/target combinations as needed using the change option in the p
 
 ### What happens when I remove a resource from a list of move resources?
 
-You can remove resources that you've added to the move list. The exact remove behavior depends on the resource state. [Learn more](remove-move-resources.md#vm-resource-state-after-removing).
+You can remove resources that you added to the move list. The exact remove behavior depends on the resource state. [Learn more](remove-move-resources.md#vm-resource-state-after-removing).
 
 
 ## Next steps

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Custom Translator v1.0 upgrade
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: reference

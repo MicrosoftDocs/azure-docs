@@ -18,18 +18,12 @@ Make sure to choose your Durable Functions development language at the top of th
 
 > [!IMPORTANT]   
 > This article supports both Python v1 and Python v2 programming models for Durable Functions.  
-> The Python v2 programming model is currently in preview. 
 
 ## Python v2 programming model
 
-Durable Functions provides preview support of the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. During the preview, you can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
+Durable Functions is supported in the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. You must also check `host.json` to make sure your app is referencing [Extension Bundles](../functions-bindings-register.md#extension-bundles) version 4.x to use the v2 model with Durable Functions. 
 
-Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
-
-1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](../functions-run-local.md#install-extensions).
- 
-1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview.
-
+You can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
 ::: zone-end
 
 ## Orchestration trigger
@@ -434,7 +428,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 You can use regular input and output bindings in addition to the activity trigger binding. 
 
 ::: zone pivot="programming-language-javascript" 
-For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
+For example, you can take the input to your activity binding, and send a message to an Event Hub using the Event Hubs output binding:
 
 ```json
 {
@@ -550,7 +544,7 @@ public static Task Run(
     [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
-    return starter.StartNewAsync("HelloWorld", input);
+    return starter.StartNewAsync<string>("HelloWorld", input);
 }
 ```
 
@@ -725,7 +719,7 @@ Internally, this trigger binding polls the configured durable store for new enti
 The entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
 
 > [!NOTE]
-> Entity triggers aren't yet supported for isolated worker process apps.
+> Entity triggers are currently in **preview** for isolated worker process apps. [Learn more.](durable-functions-dotnet-entities.md)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
 The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:

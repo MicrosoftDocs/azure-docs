@@ -5,9 +5,9 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.reviewer: mjbrown
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
@@ -113,6 +113,6 @@ You also have the option of building your own [self-hosted Windows agent](/azure
 
 ## Next steps
 
-To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](./local-emulator.md).
+To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](emulator.md).
 
-To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](./local-emulator-export-ssl-certificates.md)
+To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](emulator.md)

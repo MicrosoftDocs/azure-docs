@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 06/19/2023
+ms.date: 02/22/2024
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -81,10 +81,10 @@ Enable replication as follows:
 
     :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware/select-vms-expanded.png":::
 
-6. In **Target settings**, select the subscription and target region. Specify the resource group in which the Azure VMs reside after migration.
+6. In **Target settings**, select the subscription, target region, and Storage account.
    > [!Note]
-   > The region for the project cannot be changed after the first replication is initiated. Please select the region carefully.
-7. In **Virtual Network**, select the Azure VNet/subnet which the Azure VMs join after migration.
+   > After starting first replication of a VM, the storage account cannot be changed. The default option selected in drop down will be used to create a new storage account. If the option is not selected, the storage account will be created in final step of enabling replication.
+7. In **Virtual Network**, select the Azure VNet/subnet, which the Azure VMs join after migration.
 8. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
@@ -133,19 +133,10 @@ Enable replication as follows:
 > [!NOTE]
 > You can update replication settings any time before replication starts (**Manage** > **Replicating machines**). You can't change settings after replication starts.
 
-### Provisioning for the first time
-
-If this is the first VM you're replicating in the project, the Migration and modernization tool automatically provisions these resources, in same resource group as the project.
-
-- **Service bus**: The Migration and modernization tool uses the service bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: The Migration and modernization tool uses the gateway storage account to store state information about the VMs being replicated.
-- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication.
-
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by clicking on **Replicating servers** in **Migration and modernization**.
+2. Monitor replication status by clicking on the numerical value next to **Azure VM** in **Migration and modernization**.
 
      ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -166,7 +157,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -187,14 +178,14 @@ Do a test migration as follows:
 
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
-    >- Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
+    >- Select **Manage** > **Replicating machines** > **Machine containing SQL server** > **Compute and Network** and select **Yes** to register with SQL VM RP.
     >- Select Azure Hybrid benefit for SQL Server if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.hs.
 
 ## Migrate VMs
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicating servers**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select numerical value next to **Azure VM**.
 
     ![Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
 
@@ -227,6 +218,7 @@ After you've verified that the test migration works as expected, you can migrate
     - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).

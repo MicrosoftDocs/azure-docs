@@ -1,7 +1,7 @@
 ---
 title: Media streaming quickstart
 titleSuffix: An Azure Communication Services quickstart document
-description: Provides a quick start for developers to get audio streams through media streaming APIs from ACS calls.
+description: Provides a quick start for developers to get audio streams through media streaming APIs from Azure Communication Services calls.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -30,7 +30,7 @@ Get started with using audio streams through Azure Communication Services Media 
 
 
 ## Message schema
-When ACS has received the URL for your WebSocket server, it will create a connection to it. Once ACS has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets.
+When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets.
 
 ``` code
 {
@@ -46,7 +46,7 @@ When ACS has received the URL for your WebSocket server, it will create a connec
 ```
 
 ## Audio streaming schema
-After sending through the metadata packet, ACS will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
+After sending through the metadata packet, Azure Communication Services will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
 
 ``` code
 {

@@ -8,8 +8,10 @@ ms.date: 09/20/2021
 # Troubleshoot authentication and authorization issues - Azure Event Hubs
 The [Troubleshoot connectivity issues](troubleshooting-guide.md) article provides tips for troubleshooting connectivity issues with Azure Event Hubs. This article provides tips and recommendations for troubleshooting authentication and authorization issues with Azure Event Hubs. 
 
-## If you are using Azure Active Directory
-If you are using Azure Active Directory (Azure AD) to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **Azure role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
+<a name='if-you-are-using-azure-active-directory'></a>
+
+## If you are using Microsoft Entra ID
+If you are using Microsoft Entra ID to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **Azure role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
 
 ### Azure roles
 - [Azure Event Hubs Data owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) for complete access to Event Hubs resources.
@@ -27,8 +29,8 @@ For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-
 
 For more information, see the following articles:
 
-- [Authenticate an application with Azure Active Directory to access Event Hubs resources](authenticate-application.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](authenticate-application.md)
+- [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)
 
 ## If you are using Shared access signatures (SAS)
 If you are using [SAS](authenticate-shared-access-signature.md), follow these steps: 

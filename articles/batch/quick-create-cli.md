@@ -3,7 +3,7 @@ title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
 ms.date: 04/12/2023
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content
 ---
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job
@@ -104,7 +104,7 @@ az batch job create \
 
 ## Create job tasks
 
-Batch provides several ways to deploy apps and scripts to compute nodes. Use the [az batch task create](/cli/azure/batch/task#az-batch-task-create) command to create tasks to run in the job. Each task has a command line that specifies an app or script. 
+Batch provides several ways to deploy apps and scripts to compute nodes. Use the [az batch task create](/cli/azure/batch/task#az-batch-task-create) command to create tasks to run in the job. Each task has a command line that specifies an app or script.
 
 The following Bash script creates four identical, parallel tasks called `myTask1` through `myTask4`. The task command line displays the Batch environment variables on the compute node, and then waits 90 seconds.
 
@@ -167,7 +167,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-You can view the contents of the standard output file in a text editor. The following example shows a typical *stdout.txt* file. The standard output from this task shows the Azure Batch environment variables that are set on the node. You can refer to these environment variables in your Batch job task command lines, and in the apps and scripts the command lines run. 
+You can view the contents of the standard output file in a text editor. The following example shows a typical *stdout.txt* file. The standard output from this task shows the Azure Batch environment variables that are set on the node. You can refer to these environment variables in your Batch job task command lines, and in the apps and scripts the command lines run.
 
 ```text
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myJob/job-1/myTask1

@@ -10,17 +10,14 @@ ms.author: williamzhao
 ms.date: 06/07/2023
 ms.topic: how-to
 ms.service: azure-communication-services
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to create a scheduled job
 ---
 
 # Scheduling a job
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
-In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you will need to create a scheduled job in Job Router.
+In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you need to create a scheduled job in Job Router.
 
 ## Prerequisites
 
@@ -33,7 +30,7 @@ In the context of a call center, customers may want to receive a scheduled callb
 
 ## Create a job using the ScheduleAndSuspendMode
 
-In the following example, a job is created that will be scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduleAt` parameter.  This assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there is an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
+In the following example, a job is created that is scheduled 3 minutes from now by setting the `MatchingMode` to `ScheduleAndSuspendMode` with a `scheduleAt` parameter.  This example assumes that you've already [created a queue](manage-queue.md) with the queueId `Callback` and that there's an active [worker registered](../../concepts/router/matching-concepts.md) to the queue with available capacity on the `Voice` channel.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -49,15 +46,16 @@ await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "Voic
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-    channelId: "Voice",
-    queueId: "Callback",
-    matchingMode: {
-        modeType: "scheduleAndSuspendMode",
-        scheduleAndSuspendMode: {
+await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "Voice",
+        queueId: "Callback",
+        matchingMode: {
+            kind: "scheduleAndSuspend",
             scheduleAt: new Date(Date.now() + 3 * 60000)
         }
-    }
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -66,12 +64,11 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_job(job_id = "job1", router_job = RouterJob(
+client.upsert_job(
+    job_id = "job1",
     channel_id = "Voice",
     queue_id = "Callback",
-    matching_mode = JobMatchingMode(
-        mode_type = "scheduleAndSuspendMode",
-        schedule_and_suspend_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3)))))
+    matching_mode = ScheduleAndSuspendMode(schedule_at = datetime.utcnow() + timedelta(minutes = 3)))
 ```
 
 ::: zone-end
@@ -85,9 +82,12 @@ client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
 
 ::: zone-end
 
+> [!NOTE]
+> The job's status after being scheduled is initially `PendingSchedule`, and once Job Router successfully schedules the job, the status is updated to `Scheduled`.
+
 ## Wait for the scheduled time to be reached, then queue the job
 
-When the scheduled time has been reached, Job Router will emit a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation).  If this event has been subscribed, the event can be parsed into a variable called `eventGridEvent`.  At this time, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker.
+When the scheduled time has been reached, the job's status is updated to `WaitingForActivation` and Job Router emits a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation) to Event Grid.  If this event has been subscribed, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker, which updates the job's status to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -97,7 +97,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    await client.UpdateJobAsync(new UpdateJobOptions(jobId: eventGridEvent.Data.JobId)
+    await client.UpdateJobAsync(new RouterJob(jobId: eventGridEvent.Data.JobId)
     {
         MatchingMode = new QueueAndMatchMode(),
         Priority = 100
@@ -115,9 +115,12 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    await client.updateJob(eventGridEvent.data.jobId, {
-        matchingMode: { modeType: "queueAndMatchMode", queueAndMatchMode: {} },
-        priority: 100
+    await client.path("/routing/jobs/{jobId}", eventGridEvent.data.jobId).patch({
+      body: {
+          matchingMode: { kind: "queueAndMatch" },
+          priority: 100
+      },
+      contentType: "application/merge-patch+json"
     });
 }
 ```
@@ -132,8 +135,9 @@ if (eventGridEvent.event_type == "Microsoft.Communication.RouterJobWaitingForAct
 {
     # Perform required actions here
 
-    client.update_job(job_id = eventGridEvent.data.job_id,
-        matching_mode = JobMatchingMode(mode_type = queueAndMatchMode, queue_and_match_mode = {}),
+    client.upsert_job(
+        job_id = eventGridEvent.data.job_id,
+        matching_mode = queue_and_match_mode = {},
         priority = 100)
 }
 ```
@@ -148,7 +152,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    client.updateJob(new UpdateJobOptions(eventGridEvent.Data.JobId)
+    client.updateJob(new RouterJob(eventGridEvent.Data.JobId)
         .setMatchingMode(new QueueAndMatchMode())
         .setPriority(100));
 }
@@ -158,4 +162,4 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 
 ## Next steps
 
-- Learn how to [accept the Job Router offer](accept-decline-offer.md) that will be issued once a matching worker has been found for the job.
+- Learn how to [accept the Job Router offer](accept-decline-offer.md) that is issued once a matching worker has been found for the job.

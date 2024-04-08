@@ -2,8 +2,11 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 03/19/2024
+author: tamram
+ms.author: tamram
 
+ms.subservice: aks-storage
 ---
 
 # Storage options for applications in Azure Kubernetes Service (AKS)
@@ -24,7 +27,7 @@ This article introduces the core concepts that provide storage to your applicati
 * [Storage classes](#storage-classes)
 * [Persistent volume claims](#persistent-volume-claims)
 
-![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-options.png)
+![Diagram of storage options for applications in an Azure Kubernetes Services (AKS) cluster.](media/concepts-storage/aks-storage-concept.png)
 
 ## Ephemeral OS disk
 
@@ -133,9 +136,15 @@ Like using a secret:
 
 Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
-You can use [Azure Disk](azure-csi-disk-storage-provision.md) or [Azure Files](azure-csi-files-storage-provision.md) to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
+You can use the following Azure Storage data services to provide the PersistentVolume:
 
-![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
+* [Azure Disk](azure-csi-disk-storage-provision.md)
+* [Azure Files](azure-csi-files-storage-provision.md)
+* [Azure Container Storage][azure-container-storage] (preview).
+
+ As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
+
+![Diagram of persistent volumes in an Azure Kubernetes Services (AKS) cluster.](media/concepts-storage/aks-storage-persistent-volume.png)
 
 A cluster administrator can *statically* create a PersistentVolume, or the volume is created *dynamically* by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or File storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
 
@@ -150,7 +159,7 @@ The StorageClass also defines the *reclaimPolicy*. When you delete the persisten
 
 For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
 
-| Permission | Reason |
+| Storage class | Description |
 |---|---|
 | `managed-csi` | Uses Azure StandardSSD locally redundant storage (LRS) to create a Managed Disk. The reclaim policy ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. The storage class also configures the persistent volumes to be expandable, you just need to edit the persistent volume claim with the new size. |
 | `managed-csi-premium` | Uses Azure Premium locally redundant storage (LRS) to create a Managed Disk. The reclaim policy again ensures that the underlying Azure Disk is deleted when the persistent volume that used it's deleted. Similarly, this storage class allows for persistent volumes to be expanded. |
@@ -192,7 +201,7 @@ A PersistentVolumeClaim requests storage of a particular StorageClass, access mo
 
 The pod definition includes the volume mount once the volume has been connected to the pod.
 
-![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volume-claims.png)
+![Diagram of persistent volume claims in an Azure Kubernetes Services (AKS) cluster.](media/concepts-storage/aks-storage-persistent-volume-claim.png)
 
 Once an available storage resource has been assigned to the pod requesting storage, PersistentVolume is *bound* to a PersistentVolumeClaim. Persistent volumes are 1:1 mapped to claims.
 
@@ -251,15 +260,15 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 
 ## Next steps
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage] and [AKS Storage Considerations][azure-aks-storage-considerations].
 
 To see how to use CSI drivers, see the following how-to articles:
 
-- [Enable Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
+- [Container Storage Interface (CSI) drivers for Azure Disk, Azure Files, and Azure Blob storage on Azure Kubernetes Service][csi-storage-drivers]
 - [Use Azure Disk CSI driver in Azure Kubernetes Service][azure-disk-csi]
 - [Use Azure Files CSI driver in Azure Kubernetes Service][azure-files-csi]
-- [Use Azure Blob storage CSI driver (preview) in Azure Kubernetes Service][azure-blob-csi]
-- [Integrate Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
+- [Use Azure Blob storage CSI driver in Azure Kubernetes Service][azure-blob-csi]
+- [Configure Azure NetApp Files with Azure Kubernetes Service][azure-netapp-files]
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -292,3 +301,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
 [azure-disk-customer-managed-key]: azure-disk-customer-managed-keys.md
+[azure-aks-storage-considerations]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage
+[azure-container-storage]: ../storage/container-storage/container-storage-introduction.md
+

@@ -29,13 +29,13 @@ ms.topic: include
 
      **OpenVPN**
 
-     * **Requirements:** When you select the **OpenVPN** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN is selected as the tunnel type, you may specify multiple authentication methods. You can choose any subset of Azure Certificate, Azure Active Directory, or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
+     * **Requirements:** When you select the **OpenVPN** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN is selected as the tunnel type, you may specify multiple authentication methods. You can choose any subset of Azure Certificate, Microsoft Entra ID, or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
      **OpenVPN and IKEv2**
 
-     * **Requirements:** When you select the **OpenVPN and IKEv2** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN and IKEv2 is selected as the tunnel type, you may specify multiple authentication methods. You can choose Azure Active Directory along with either Azure Certificate or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
+     * **Requirements:** When you select the **OpenVPN and IKEv2** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN and IKEv2 is selected as the tunnel type, you may specify multiple authentication methods. You can choose Microsoft Entra ID along with either Azure Certificate or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
-1. Configure the **Authentication** methods you want to use. Each authentication method is in a separate tab: **Azure certificate**, **RADIUS authentication**, and **Azure Active Directory**. Some authentication methods are only available on certain tunnel types.
+1. Configure the **Authentication** methods you want to use. Each authentication method is in a separate tab: **Azure certificate**, **RADIUS authentication**, and **Microsoft Entra ID**. Some authentication methods are only available on certain tunnel types.
 
    On the tab for the authentication method you want to configure, select **Yes** to reveal the available configuration settings.
 
@@ -51,11 +51,11 @@ ms.topic: include
 
       :::image type="content" source="media/virtual-wan-p2s-configuration/radius-authentication.png" alt-text="Screenshot of RADIUS authentication page.":::
 
-   * **Example - Azure Active Directory authentication**
+   * **Example - Microsoft Entra authentication**
 
-      To configure this setting, the tunnel type on the Basics page must be OpenVPN. Azure Active Directory-based authentication is only supported with OpenVPN.
+      To configure this setting, the tunnel type on the Basics page must be OpenVPN. Microsoft Entra ID-based authentication is only supported with OpenVPN.
 
-      :::image type="content" source="media/virtual-wan-p2s-configuration/configure.png" alt-text="Azure Active Directory authentication page.":::
+      :::image type="content" source="media/virtual-wan-p2s-configuration/configure.png" alt-text="Microsoft Entra authentication page.":::
 
 1. When you have finished configuring the settings, select **Review + create** at the bottom of the page.
 

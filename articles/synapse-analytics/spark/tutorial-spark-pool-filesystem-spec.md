@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: JasonWHowell
 ms.author: jasonh
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
@@ -146,7 +145,7 @@ Run the following code.
    
    # Set variables
    local_file_name = "<local_file_name>"
-   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.core.net/"+local_file_name
    
    # Generate local file for testing 
    with open(local_file_name, mode='w') as f:

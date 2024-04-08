@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the constant value of Pi. For more information, see [Pi](https://wikiped
   
 ## Syntax
   
-```sql
+```nosql
 PI()  
 ```  
 
@@ -30,20 +31,13 @@ Returns a numeric expression.
 
 ## Examples
   
-The following example returns the constant value of Pi.  
+The following example returns the constant value of Pi.
   
-```sql
-SELECT VALUE
-    PI()
-```
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/pi/query.sql" highlight="2":::
 
-```json
-[
-  3.141592653589793
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/pi/result.json":::
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)

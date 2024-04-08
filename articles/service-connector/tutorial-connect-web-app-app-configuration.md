@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Connect a web app to Azure App Configuration with Service Connector'
 description: Learn how you can connect an ASP.NET Core application hosted in Azure Web Apps to App Configuration using Service Connector'
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/24/2022
+ms.date: 1/5/2024
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
+Run `az login` in the Azure CLI to sign in to Azure.
 
 ## Set up Azure resources
 
@@ -47,7 +47,7 @@ Start by creating your Azure resources.
 
 1. Deploy the web app to Azure
 
-    Run `az login` to sign in to and follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor role.
+    Follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor or Owner role.
 
     ### [SMI](#tab/smi)
 
@@ -314,11 +314,13 @@ Optionally, do the following tests:
 
 1. Navigate to your Azure web app by going to `https://<myWebAppName>.azurewebsites.net/` and refresh the page. You'll see that the message is updated to "hello".
 
-## Cleanup
+## Clean up resources
 
-Once you're done, delete the Azure resources you created.
+Once you're done, if you're not going to use these Azure resources any longer, delete them by running the `az group delete` command. This command deletes your resource group and all the resources within it.
 
-`az group delete -n <myResourceGroupName> --yes`
+```azurecli
+az group delete -n <myResourceGroupName> --yes
+```
 
 ## Next steps
 

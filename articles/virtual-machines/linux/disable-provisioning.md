@@ -6,8 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
-ms.workload: infrastructure
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 04/11/2023
 ms.author: danis
 ms.reviewer: cynthn
@@ -15,7 +14,7 @@ ms.reviewer: cynthn
 
 # Disable or remove the Linux Agent from VMs and images
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
@@ -81,7 +80,7 @@ sudo zypper --non-interactive remove python-azure-agent
 
 > [!IMPORTANT]
 >
-> You can remove all associated artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
+> You can remove all associated artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only.
 
 If you know you will not ever reinstall the Linux Agent again, then you can run the following:
 
@@ -117,7 +116,7 @@ sudo rm -f /var/log/waagent.log
 If you have an image that already contains cloud-init, and you want to remove the Linux agent, but still provision using cloud-init, run the steps in Step 2 (and optionally Step 3) as root to remove the Azure Linux Agent and then the following will remove the cloud-init configuration and cached data, and prepare the VM to create a custom image.
 
 ```bash
-sudo cloud-init clean --logs --seed 
+sudo cloud-init clean --logs --seed
 ```
 
 ## Deprovision and create an image
@@ -157,10 +156,10 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 ```azurecli-interactive
 az sig image-version create \
-    -g $sigResourceGroup 
-    --gallery-name $sigName 
-    --gallery-image-definition $imageDefName 
-    --gallery-image-version 1.0.0 
+    -g $sigResourceGroup
+    --gallery-name $sigName
+    --gallery-image-definition $imageDefName
+    --gallery-image-version 1.0.0
     --managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/images/MyManagedImage
 ```
 

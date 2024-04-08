@@ -1,13 +1,11 @@
 ---
 title: Azure Peering Service connection 
 description: Learn about Microsoft Azure Peering Service connection.
-services: peering-service
 author: halkazwini
-ms.service: peering-service
-ms.topic: conceptual
-ms.date: 05/31/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.service: peering-service
+ms.topic: concept-article
+ms.date: 07/23/2023
 ---
 
 # Peering Service connection
@@ -18,18 +16,17 @@ A connection typically refers to a logical information set, identifying a Peerin
 - Connectivity partner
 - Connectivity partner Primary service location
 - Connectivity partner Backup service location
-- Customer's physical location
 - IP prefixes
 
 Customer can establish a single connection or multiple connections as per the requirement. A connection is also used as a unit of telemetry collection. For instance, to opt for telemetry alerts, customer must define the connection that will be monitored.
 
 > [!NOTE]
-> When you sign up for Peering Service, we analyze your Windows and Microsoft 365 telemetry in order to provide you with latency measurements for your selected prefixes. Currently telemetry data is supported for /24 or bigger size prefixes only.
+> When you sign up for Peering Service, we analyze your Windows and Microsoft 365 telemetry in order to provide you with latency measurements for your selected prefixes.
 > For more information about connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).
 
 ## How to create a peering service connection?
 
-**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure below. Here, the customer is required to provide a logical name, Service Provider(SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
+**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure. Here, the customer is required to provide a logical name, Service Provider (SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
 
 :::image type="content" source="./media/connection/peering-service-connections.png" alt-text="Diagram shows geo redundant connections.":::
 

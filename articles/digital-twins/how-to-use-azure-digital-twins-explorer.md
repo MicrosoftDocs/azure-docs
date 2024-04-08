@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -98,8 +97,6 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 ### Explore twin data
 
 Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **Twin Graph** panel.
@@ -160,6 +157,8 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 1. In the **Property** field, select the property whose historized data you'd like to view. If the property is not numeric, but it consists of numeric values, use the **Cast property value to number** option to attempt to cast this data to numbers so it can be visualized on the chart.
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
+
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 1. Choose a **Label** for the time series and select **Update**.  
 
@@ -271,8 +270,6 @@ This section describes how to perform the following management activities:
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 ### View flat list of twins and relationships
 
 The **Twins** panel shows a flat list of your twins and their associated relationships. You can search for twins by name, and expand them for details about their incoming and outgoing relationships.
@@ -282,8 +279,6 @@ The **Twins** panel shows a flat list of your twins and their associated relatio
 ### Create twins
 
 You can create a new digital twin from its model definition in the **Models** panel.
-
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
@@ -328,8 +323,6 @@ You can also choose to delete all of the twins in your instance at the same time
 
 ## Explore models and the Model Graph
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
 
 The **Models** panel:
@@ -337,6 +330,8 @@ The **Models** panel:
 
 The **Model Graph** panel:
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Model Graph panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 You can use these panels to [view your models](#view-models).
 
@@ -350,6 +345,8 @@ The Model Graph panel also provides several abilities to customize your graph vi
 You can view a flat list of the models in your instance in the **Models** panel. This list is searchable using the **Search** bar in the panel.
 
 You can use the **Model Graph** panel to view a graphical representation of the models in your instance, along with the relationships, inheritance, and components that connect them to each other.
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 #### View model definition
 
@@ -411,8 +408,6 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
 
 ## Manage models
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
-
 You can use the **Models** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Models panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel.png":::
@@ -427,6 +422,8 @@ For information about the viewing experience for models, see [Explore models and
 ### Upload models
 
 You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 

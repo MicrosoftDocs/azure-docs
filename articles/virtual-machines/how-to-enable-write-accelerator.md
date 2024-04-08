@@ -1,14 +1,13 @@
 ---
-title: Azure Write Accelerator 
+title: Azure Write Accelerator
 description: Documentation on how to enable and use Write Accelerator
 author: raiye
 manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 04/11/2023
 ms.author: raiye
-ms.subservice: disks 
+ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -47,7 +46,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 
 | VM SKU | Number of Write Accelerator disks | Write Accelerator Disk IOPS per VM |
 | --- | --- | --- |
-| M416ms_v2, M416s_v2| 16 | 20000 |
+| M416ms_v2, M416s_8_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
 | M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
 | M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |
@@ -55,6 +54,11 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5000 |
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
+| Standard_M12s_v3, Standard_M12ds_v3 | 1 | 5000 |
+| Standard_M24s_v3, Standard_M24ds_v3 | 2 | 5000 |
+| Standard_M48s_1_v3, Standard_M48ds_1_v3 | 4 | 5000 |
+| Standard_M96s_1_v3, Standard_M96ds_1_v3, Standard_M96s_2_v3, Standard_M96ds_2_v3 | 8 | 10000 |
+| Standard_M176s_3_v3, Standard_M176ds_3_v3, Standard_M176s_4_v3, Standard_M176ds_4_v3 | 16 | 20000 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM. Attached disks cannot exceed the write accelerator IOPS limit for a VM. For an example, even though the attached disks can do 30,000 IOPS, the system does not allow the disks to go above 20,000 IOPS for M416ms_v2.
 
@@ -71,8 +75,8 @@ The following prerequisites apply to the usage of Write Accelerator at this poin
 
 ## Enabling Azure Write Accelerator using Azure PowerShell
 
-The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
-In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
+The Azure PowerShell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
+In order to enable or deploy disks supported by Write Accelerator, the following PowerShell commands got changed, and extended to accept a parameter for Write Accelerator.
 
 A new switch parameter, **-WriteAccelerator** has been added to the following cmdlets:
 
@@ -80,6 +84,9 @@ A new switch parameter, **-WriteAccelerator** has been added to the following cm
 - [Add-AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk)
 - [Set-AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk)
 - [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
+
+>[!NOTE]
+> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance.
 
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
@@ -145,8 +152,8 @@ $vmName="myVM"
 #Specify your Resource Group
 $rgName = "myWAVMs"
 #data disk name
-$datadiskname = "test-log001" 
-#new Write Accelerator status ($true for enabled, $false for disabled) 
+$datadiskname = "test-log001"
+#new Write Accelerator status ($true for enabled, $false for disabled)
 $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname
@@ -169,9 +176,9 @@ You can enable Write Accelerator via the portal where you specify your disk cach
 
 You can use the [Azure CLI](/cli/azure/) to enable Write Accelerator.
 
-To enable Write Accelerator on an existing disk, use [az vm update](/cli/azure/vm#az-vm-update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+To enable Write Accelerator on an existing disk, use [az vm update](/cli/azure/vm#az-vm-update), you can use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-To attach a disk with Write Accelerator enabled use [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach), you may use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+To attach a disk with Write Accelerator enabled use [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach), you can use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
 To disable Write Accelerator, use [az vm update](/cli/azure/vm#az-vm-update), setting the properties to false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
@@ -185,7 +192,7 @@ To run armclient, you need to install it through Chocolatey. You can install it 
 
 Using cmd.exe, run the following command: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-Using Power Shell, run the following command: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+Using PowerShell, run the following command: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 Now you can install the armclient by using the following command in either cmd.exe or PowerShell `choco install armclient`
 

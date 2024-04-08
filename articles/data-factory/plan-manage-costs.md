@@ -1,13 +1,13 @@
 ---
 title: Plan to manage costs for Azure Data Factory
 description: Learn how to plan for and manage costs for Azure Data Factory by using cost analysis in the Azure portal.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 10/21/2022
+ms.date: 10/20/2023
 ---
 
 # Plan to manage costs for Azure Data Factory
@@ -60,8 +60,8 @@ Azure Data Factory is a serverless and elastic data integration service built fo
 When you create or use Azure Data Factory resources, you might get charged for the following meters:
 
 - Orchestration Activity Runs - You're charged for it based on the number of activity runs orchestrate.
-- Data Integration Unit (DIU) Hours – For copy activities run on Azure Integration Runtime, you're charged based on number of DIU used and execution duration.
-- vCore Hours – for data flow execution and debugging, you're charged for based on compute type, number of vCores, and execution duration.
+- Data Integration Unit (DIU) Hours - For copy activities run on Azure Integration Runtime, you're charged based on number of DIU used and execution duration.
+- vCore Hours - for data flow execution and debugging, you're charged for based on compute type, number of vCores, and execution duration.
 
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Data Factory costs. There's a separate line item for each meter.
@@ -111,9 +111,6 @@ Here's an example showing costs for just Data Factory.
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Data Factory costs by resource group are also shown. From here, you can explore costs on your own.
 
 ### Monitor costs at pipeline level with Cost Analysis
-
-> [!NOTE]
-> Monitoring costs at pipeline level is a preview feature currently only available in Azure Data Factory, and not Synapse pipelines.
 
 In certain cases, you may want a granular breakdown of cost of operations within our factory, for instance, for charge back purposes. Integrating Azure Billing [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) platform, Data Factory can separate out billing charges for each pipeline. By **opting in** Azure Data Factory detailed billing reporting for a factory, you can better understand how much each pipeline is costing you, within the aforementioned factory.
 
@@ -186,7 +183,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do other data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
-## Next steps
+## Related content
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

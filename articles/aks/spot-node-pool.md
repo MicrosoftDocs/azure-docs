@@ -3,7 +3,10 @@ title: Add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster
 description: Learn how to add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.date: 03/29/2023
+author: schaffererin
+ms.author: schaffererin
 
+ms.subservice: aks-nodes
 #Customer intent: As a cluster operator or developer, I want to learn how to add an Azure Spot node pool to an AKS Cluster.
 ---
 
@@ -131,6 +134,7 @@ In this article, you learned how to add a Spot node pool to an AKS cluster. For 
 [pricing-windows]: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
 [spot-toleration]: #verify-the-spot-node-pool
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [vmss-spot]: ../virtual-machine-scale-sets/use-spot.md
 [upgrade-cluster]: upgrade-cluster.md
+

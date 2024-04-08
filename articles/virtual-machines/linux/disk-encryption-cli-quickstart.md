@@ -8,12 +8,12 @@ ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
 ms.date: 03/29/2023
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api, linux-related-content
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a Linux virtual machine (VM).
 
@@ -93,7 +93,7 @@ When encryption is enabled, you will see "EnableEncryption" in the returned outp
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault. 
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault.
 
 ```azurecli-interactive
 az group delete --name "myResourceGroup"

@@ -2,15 +2,14 @@
 title: What is sentiment analysis and opinion mining in the Language service?
 titleSuffix: Azure AI services
 description: An overview of the sentiment analysis feature in Azure AI services, which helps you find out what people think of a topic by mining text for clues.
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 07/19/2023
-ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
+ms.date: 01/25/2024
+ms.author: jboback
+ms.custom: language-service-sentiment-opinion-mining
 ---
 
 # What is sentiment analysis and opinion mining?
@@ -37,7 +36,7 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
-#### [Custom model](#tab/custom)
+#### [Custom model (preview)](#tab/custom)
 
 Custom sentiment analysis enables users to build custom AI models to classify text into sentiments pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
@@ -62,6 +61,15 @@ Follow these steps to get the most out of your model:
 
 6. **Classify text**: Use your custom model for sentiment analysis tasks.
 
+## Development options
+
+|Development option  |Description  |
+|---------|---------|
+|Language studio     | Language Studio is a web-based platform that lets you try entity linking with text examples without an Azure account, and your own data when you sign up.       |
+|REST API     | Integrate sentiment analysis into your applications programmatically using the REST API.    |
+
+For more information, see [sentiment analysis quickstart](./custom/quickstart.md).   
+
 ## Reference documentation
 
 As you use Custom sentiment analysis, see the following reference documentation and samples for the Language service:
@@ -76,7 +84,7 @@ As you use Custom sentiment analysis, see the following reference documentation 
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 ## Next steps
 

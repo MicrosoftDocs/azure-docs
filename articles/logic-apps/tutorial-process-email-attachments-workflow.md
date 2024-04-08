@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 03/08/2023
+ms.date: 01/04/2024
 ---
 
 # Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
@@ -109,7 +109,7 @@ Now, connect Storage Explorer to your storage account so you can confirm that yo
 
 1. In the browser window that appears, sign in with your Azure account.
 
-1. Return to Storage Explorer and the **Account Management** window, and check that correct Azure Active Directory (Azure AD) tenant and subscription are selected.
+1. Return to Storage Explorer and the **Account Management** window, and check that correct Microsoft Entra tenant and subscription are selected.
 
 1. On the Storage Explorer activity bar, select **Open Connect Dialog**. 
 

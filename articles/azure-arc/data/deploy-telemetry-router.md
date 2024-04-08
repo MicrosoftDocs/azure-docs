@@ -110,6 +110,6 @@ metricsdc-fm7jh                      2/2     Running     0          15h
 metricsui-qqgbv                      2/2     Running     0          15h
 ```
 
-## Next steps
+## Related content
 
 - [Add exporters and pipelines to your telemetry router](adding-exporters-and-pipelines.md)

@@ -12,7 +12,7 @@
 
 ## Clean up resources
 
-When you're done using the resources created, you can delete the resource group and all its resources.
+When you finish using the resources that you created, you can delete the resource group and all its resources:
 
 1. In the Azure portal, search for and select **Resource groups**.
 
@@ -20,4 +20,4 @@ When you're done using the resources created, you can delete the resource group 
 
 1. On the **test-rg** page, select **Delete resource group**.
 
-1. Enter **test-rg** in **Enter resource group name to confirm deletion** and select **Delete**.
+1. Enter **test-rg** in **Enter resource group name to confirm deletion**, and then select **Delete**.

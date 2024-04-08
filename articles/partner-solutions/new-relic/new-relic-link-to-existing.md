@@ -3,7 +3,6 @@ title: Link Azure Native New Relic Service to an existing account
 description: Learn how to link to an existing New Relic account.
 
 ms.topic: quickstart
-ms.custom: template-quickstart
 ms.date: 02/16/2023
 ---
 

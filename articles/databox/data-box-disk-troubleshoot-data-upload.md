@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 01/24/2023
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Review copy errors in uploads from Azure Data Box Disk

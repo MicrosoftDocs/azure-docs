@@ -9,14 +9,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.reviewer: mattmcinnes
 ms.date: 04/06/2023
-
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Configure LVM and RAID on encrypted devices
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article is a step-by-step process for how to perform Logical Volume Management (LVM) and RAID on encrypted devices. The process applies to the following environments:
 
@@ -30,14 +28,14 @@ This article is a step-by-step process for how to perform Logical Volume Managem
 
 ## Scenarios
 
-The procedures in this article support the following scenarios:  
+The procedures in this article support the following scenarios:
 
 - Configure LVM on top of encrypted devices (LVM-on-crypt)
 - Configure RAID on top of encrypted devices (RAID-on-crypt)
 
-After the underlying device or devices are encrypted, then you can create the LVM or RAID structures on top of that encrypted layer. 
+After the underlying device or devices are encrypted, then you can create the LVM or RAID structures on top of that encrypted layer.
 
-The physical volumes (PVs) are created on top of the encrypted layer. The physical volumes are used to create the volume group. You create the volumes and add the required entries on /etc/fstab. 
+The physical volumes (PVs) are created on top of the encrypted layer. The physical volumes are used to create the volume group. You create the volumes and add the required entries on /etc/fstab.
 
 ![Diagram of the layers of LVM structures](./media/disk-encryption/lvm-raid-on-crypt/000-lvm-raid-crypt-diagram.png)
 
@@ -59,10 +57,10 @@ The Azure Disk Encryption dual-pass version is on a deprecation path and should 
 
 When you're using the "on-crypt" configurations, use the process outlined in the following procedures.
 
->[!NOTE] 
+>[!NOTE]
 >We're using variables throughout the article. Replace the values accordingly.
 
-### Deploy a VM 
+### Deploy a VM
 The following commands are optional, but we recommend that you apply them on a newly deployed virtual machine (VM).
 
 PowerShell:
@@ -99,7 +97,7 @@ $storageType = 'Standard_LRS'
 $dataDiskName = ${VMNAME} + '_datadisk0'
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $LOCATION -CreateOption Empty -DiskSizeGB 5
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName ${RGNAME}
-$vm = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME} 
+$vm = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 0
 Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 ```
@@ -138,7 +136,7 @@ Portal:
 OS:
 
 ```bash
-lsblk 
+lsblk
 ```
 ![List of attached disks in the OS](./media/disk-encryption/lvm-raid-on-crypt/004-lvm-raid-check-disks-os.png)
 
@@ -152,7 +150,7 @@ This configuration is done at the operating system level. The corresponding disk
 Check the device letter assigned to the new disks. In this example, we're using four data disks.
 
 ```bash
-lsblk 
+lsblk
 ```
 ![Data disks attached to the OS](./media/disk-encryption/lvm-raid-on-crypt/004-lvm-raid-check-disks-os.png)
 
@@ -174,7 +172,7 @@ mkdir /tempdata${disk}; \
 echo "UUID=${diskuuid} /tempdata${disk} ext4 defaults,nofail 0 0" >> /etc/fstab; \
 mount -a; \
 done
-``` 
+```
 
 ### Verify that the disks are mounted properly
 ```bash
@@ -193,7 +191,7 @@ cat /etc/fstab
 PowerShell using a key encryption key (KEK):
 
 ```powershell
-$sequenceVersion = [Guid]::NewGuid() 
+$sequenceVersion = [Guid]::NewGuid()
 Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 -VMName ${VMNAME} `
 -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
@@ -250,10 +248,10 @@ lsblk
 
 The extension will add the file systems to /var/lib/azure_disk_encryption_config/azure_crypt_mount (an old encryption) or to /etc/crypttab (new encryptions).
 
->[!NOTE] 
+>[!NOTE]
 >Do not modify any of these files.
 
-This file will take care of activating these disks during the boot process so that LVM or RAID can use them later. 
+This file will take care of activating these disks during the boot process so that LVM or RAID can use them later.
 
 Don't worry about the mount points on this file. Azure Disk Encryption will lose the ability to get the disks mounted as a normal file system after we create a physical volume or a RAID device on top of those encrypted devices. (This will remove the file system format that we used during the preparation process.)
 
@@ -298,7 +296,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ```
 ![Verification that a physical volume was created](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
->[!NOTE] 
+>[!NOTE]
 >The /dev/mapper/device names here need to be replaced for your actual values based on the output of **lsblk**.
 
 #### Verify the information for physical volumes
@@ -330,7 +328,7 @@ pvs
 ```bash
 lvcreate -L 10G -n lvdata1 vgdata
 lvcreate -L 7G -n lvdata2 vgdata
-``` 
+```
 
 #### Check the created logical volumes
 
@@ -377,8 +375,8 @@ It's important to make sure that the **nofail** option is added to the mount poi
 
 If you don't use the **nofail** option:
 
-- The OS will never get into the stage where Azure Disk Encryption is started and the data disks are unlocked and mounted. 
-- The encrypted disks will be unlocked at the end of the boot process. The LVM volumes and file systems will be automatically mounted until Azure Disk Encryption unlocks them. 
+- The OS will never get into the stage where Azure Disk Encryption is started and the data disks are unlocked and mounted.
+- The encrypted disks will be unlocked at the end of the boot process. The LVM volumes and file systems will be automatically mounted until Azure Disk Encryption unlocks them.
 
 You can test rebooting the VM and validate that the file systems are also automatically getting mounted after boot time. This process might take several minutes, depending on the number and sizes of file systems.
 
@@ -406,7 +404,7 @@ mdadm --create /dev/md10 \
 ```
 ![Information for configured RAID via the mdadm command](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
->[!NOTE] 
+>[!NOTE]
 >The /dev/mapper/device names here need to be replaced with your actual values, based on the output of **lsblk**.
 
 ### Check/monitor RAID creation
@@ -424,7 +422,7 @@ mkfs.ext4 /dev/md10
 
 Create a new mount point for the file system, add the new file system to /etc/fstab, and mount it:
 
->[!NOTE] 
+>[!NOTE]
 >This cycle iterates only on one device for this particular example, is built this way to be used for multiple md devices if needed.
 
 ```bash

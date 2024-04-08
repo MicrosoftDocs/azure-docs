@@ -2,16 +2,16 @@
 title: "PowerShell: Migrate SQL Server to SQL Managed Instance offline"
 titleSuffix: Azure Database Migration Service
 description: Learn to offline migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
-ms.reviewer: craigg
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
 ms.custom:
-  - seo-lt-2019
   - fasttrack-edit
   - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service
@@ -40,7 +40,7 @@ To complete these steps, you need:
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem).
@@ -86,7 +86,7 @@ $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 $service = New-AzDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
-  -Sku Basic_2vCores `  
+  -Sku Basic_2vCores `
   -VirtualSubnetId $vSubNet.Id`
 ```
 
@@ -112,7 +112,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance’:
+The next example shows creation of Connection Info for an Azure SQL Managed Instance named ‘targetmanagedinstance’:
 
 ```powershell
 $targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
@@ -179,7 +179,7 @@ $backupFileShare = New-AzDmsFileShare -Path $backupFileSharePath -Credential $ba
 
 The next step is to select the source and target databases by using the `New-AzDmsSelectedDB` cmdlet.
 
-The following example is for migrating a single database from SQL Server to a Azure SQL Managed Instance:
+The following example is for migrating a single database from SQL Server to an Azure SQL Managed Instance:
 
 ```powershell
 $selectedDbs = @()
@@ -189,7 +189,7 @@ $selectedDbs += New-AzDmsSelectedDB -MigrateSqlServerSqlDbMi `
   -BackupFileShare $backupFileShare `
 ```
 
-If an entire SQL Server instance needs a lift-and-shift into a Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
+If an entire SQL Server instance needs a lift-and-shift into an Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
 
 ```powershell
 $Query = "(select name as Database_Name from master.sys.databases where Database_id>4)";
@@ -200,7 +200,7 @@ foreach($DataBase in $Databases.Database_Name)
     {
       $SourceDB=$DataBase
       $TargetDB=$DataBase
-      
+
 $selectedDbs += New-AzureRmDmsSelectedDB -MigrateSqlServerSqlDbMi `
                                               -Name $SourceDB `
                                               -TargetDatabaseName $TargetDB `
@@ -252,11 +252,11 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 The `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
-* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected.
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
 * *ServiceName*. Azure Database Migration Service instance in which to create the task.
-* *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
-* *TaskName*. Name of task to be created. 
+* *ProjectName*. Name of Azure Database Migration Service project in which to create the task.
+* *TaskName*. Name of task to be created.
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
 * *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
 * *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to source server.
@@ -302,12 +302,12 @@ To monitor the migration, perform the following tasks.
     To combine migration details such as properties, state, and database information associated with the migration, use the following code snippet:
 
     ```powershell
-    $CheckTask= Get-AzDataMigrationTask 	-ResourceGroupName myResourceGroup `
-                                        	-ServiceName $service.Name `
-                                       	-ProjectName $project.Name `
-                                        	-Name myDMSTask `
-                                        	-ResultType DatabaseLevelOutput `
-    					-Expand 
+    $CheckTask = Get-AzDataMigrationTask -ResourceGroupName myResourceGroup `
+                                         -ServiceName $service.Name `
+                                         -ProjectName $project.Name `
+                                         -Name myDMSTask `
+                                         -ResultType DatabaseLevelOutput `
+                                         -Expand
     Write-Host ‘$CheckTask.ProjectTask.Properties.Output’
     ```
 
@@ -321,11 +321,11 @@ To monitor the migration, perform the following tasks.
       Write-Host "migration task running"
     }
     else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
-    { 
+    {
       Write-Host "Migration task is completed Successfully"
     }
     else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
-    { 
+    {
       Write-Host "Migration Task Failed"
     }
     ```

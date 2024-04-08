@@ -2,18 +2,18 @@
 title: Create an Azure virtual machine with a dual-stack network - Azure portal
 titleSuffix: Azure Virtual Network
 description: In this article, learn how to use the Azure portal to create a virtual machine with a dual-stack virtual network in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 12/05/2023
 ms.custom: template-how-to
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure portal
 
-In this article, you'll create a virtual machine in Azure with the Azure portal. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
+In this article, you create a virtual machine in Azure with the Azure portal. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.
 
 ## Prerequisites
 
@@ -21,15 +21,15 @@ In this article, you'll create a virtual machine in Azure with the Azure portal.
 
 ## Create a virtual network
 
-In this section, you'll create a dual-stack virtual network for the virtual machine.
+In this section, you create a dual-stack virtual network for the virtual machine.
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **+ Create**.
+1. Select **+ Create**.
 
-4. In the **Basics** tab of **Create virtual network**, enter or select the following information.
+1. In the **Basics** tab of **Create virtual network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -40,59 +40,89 @@ In this section, you'll create a dual-stack virtual network for the virtual mach
     | Name | Enter **myVNet**. |
     | Region | Select **East US 2**. |
 
-5. Select the **IP Addresses** tab, or **Next: IP Addresses**.
+1. Select the **IP Addresses** tab, or **Next**>**Next**.
 
-6. Leave the default IPv4 address space of **10.1.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.1.0.0/16**.
+1. Leave the default IPv4 address space of **10.0.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.0.0.0/16**.
 
-7. Select the **Add IPv6 address space** box.
+1. Select the **default** subnet.
 
-8. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
+1. On the **Edit subnet** page, enter **myBackendSubnet** in **Subnet name** and select **Save**.
 
-9. To add an IPv6 subnet, select **default** under **Subnet name**. If default is missing, select **+ Add subnet**.
+1. Select **Add IPv6 address space** from the dropdown menu.
 
-10. In **Subnet name**, enter **myBackendSubnet**.
+1. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
 
-11. Leave the default IPv4 subnet of **10.1.0.0/24** in **Subnet address range**. Enter **10.1.0.0/24** if missing.
-
-12. Select the box next to **Add IPv6 address space**.
-
-13. In **IPv6 address range**, enter **2404:f800:8000:122::/64**.
-
-14. Select **Save**. If creating a subnet, select **Add**.
-
-15. Select the **Review + create**.
-
-16. Select **Create**.
-
-## Create public IP addresses
-
-You'll create two public IP addresses in this section, IPv4 and IPv6. 
-
-1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
-
-2. Select **+ Create**. 
-
-3. Enter or select the following information in **Create public IP address**. 
+1. To add an IPv6 subnet, select **+ Add a subnet** and enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | IP version | Select **Both**. |
-    | SKU | Leave the default of **Standard**. |
-    | **Ipv4 IP Address Configuration** |   |
-    | Name | Enter **myPublicIP-IPv4**. |
-    | Routing preference | Leave the default of **Microsoft network**. |
-    | Idle timeout (minutes) | Leave the default of **4**. |
-    | **IPv6 IP Address Configuration** |   |
-    | Name | Enter **myPublicIP-IPv6**. |
-    | Idle timeout (minutes) | Leave the default of **4**. |
+    | **Subnet** |   |
+    | Subnet name | Enter **myBackendSubnet**. |
+    | Address range | Leave default of **2404:f800:8000:122::**. |
+    | Size | Leave the default of **/64**. |
+
+1.  Select **Add**.
+
+1. Select the **Review + create**.
+
+1. Select **Create**.
+
+## Create public IP addresses
+
+You create two public IP addresses in this section, IPv4 and IPv6.
+
+### Create IPv4 public IP address
+
+1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+2. Select **+ Create**.
+
+3. Enter or select the following information in **Create public IP address**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | Location | Select **East US 2**. |
     | Availability zone | Select **Zone redundant**. |
+    | **Instance details** |   |
+    | Name | Enter **myPublicIP-IPv4**. |
+    | IP version | Select **IPv4**. |
+    | SKU | Leave the default of **Standard**. |
+    | Tier | Leave the default of **Regional**. |
+    | **IP address assignment** |   |
+    | Routing preference | Leave the default of **Microsoft network**. |
+    | Idle timeout (minutes) | Leave the default of **4**. |
+    | DNS name label | Enter **myPublicIP-IPv4**. |
 
-4. Select **Create**. 
+4. Select **Review + create** then **Create**.
 
-### Create virtual machine
+### Create IPv6 public IP address
+1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+2. Select **+ Create**.
+
+3. Enter or select the following information in **Create public IP address**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | Location | Select **East US 2**. |
+    | Availability zone | Select **Zone redundant**. |
+    | **Instance details** |   |
+    | Name | Enter **myPublicIP-IPv6**. |
+    | IP version | Select **IPv6**. |
+    | SKU | Leave the default of **Standard**. |
+    | Tier | Leave the default of **Regional**. |
+    | **IP address assignment** |   |
+    | DNS name label | Enter **myPublicIP-IPv6**. |
+
+4. Select **Review + create** then **Create**.
+
+## Create virtual machine
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -120,7 +150,7 @@ You'll create two public IP addresses in this section, IPv4 and IPv6.
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-4. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**. 
+4. Select the **Networking** tab, or **Next: Disks** then **Next: Networking**.
 
 5. Enter or select the following information in the **Networking** tab.
 
@@ -135,11 +165,11 @@ You'll create two public IP addresses in this section, IPv4 and IPv6.
 
 6. Select **Review + create**.
 
-7. Select **Create**. 
+7. Select **Create**.
 
-8. **Generate new key pair** will appear. Select **Download private key and create resource**.
+8. **Generate new key pair** appears. Select **Download private key and create resource**.
 
-9. The private key will download to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
+9. The private key downloads to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
 
 10. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -147,9 +177,9 @@ You'll create two public IP addresses in this section, IPv4 and IPv6.
 
 12. Stop **myVM**.
 
-### Network interface configuration
+## Network interface configuration
 
-A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you'll add the IPv6 configuration to the existing network interface.
+A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you add the IPv6 configuration to the existing network interface.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -182,7 +212,7 @@ A network interface is automatically created and attached to the chosen virtual 
 
 ## Test SSH connection
 
-You'll connect to the virtual machine with SSH to test the IPv4 public IP address.
+You connect to the virtual machine with SSH to test the IPv4 public IP address.
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
@@ -215,5 +245,3 @@ For more information about IPv6 and IP addresses in Azure, see:
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
 - [What is Azure Virtual Network IP Services?](ip-services-overview.md)
-
-

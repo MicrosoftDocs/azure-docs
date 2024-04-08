@@ -1,13 +1,12 @@
 ---
-title: Create Linux images without a provisioning agent 
+title: Create Linux images without a provisioning agent
 description: Create generalized Linux images without a provisioning agent in Azure.
 author: danielsollondon
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 04/11/2023
 ms.author: danis
 ms.reviewer: mattmcinnes
@@ -16,14 +15,14 @@ ms.reviewer: mattmcinnes
 
 # Creating generalized images without a provisioning agent
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
 - Your Linux distro/version doesn't support cloud-init/Linux Agent.
 - You require specific VM properties to be set, such as hostname.
 
-> [!NOTE] 
+> [!NOTE]
 >
 > If you do not require any properties to be set or any form of provisioning to happen you should consider creating a specialized image.
 
@@ -76,7 +75,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 ### Add required code to the VM
 
-Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready. 
+Also inside the VM, because we've removed the Azure Linux Agent we need to provide a mechanism to report ready.
 
 #### Python script
 
@@ -279,7 +278,7 @@ With the unit on the filesystem, run the following to enable it:
 $ sudo systemctl enable azure-provisioning.service
 ```
 
-Now the VM is ready to be generalized and have an image created from it. 
+Now the VM is ready to be generalized and have an image created from it.
 
 #### Completing the preparation of the image
 
@@ -310,7 +309,7 @@ $ az vm create \
     --location eastus \
     --ssh-key-value <ssh_pub_key_path> \
     --public-ip-address-dns-name demo12 \
-    --image "$IMAGE_ID" 
+    --image "$IMAGE_ID"
     --enable-agent false
 ```
 

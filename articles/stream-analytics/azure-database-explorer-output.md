@@ -1,10 +1,9 @@
 ---
-title: Azure Data Explorer output from Azure Stream Analytics 
+title: Azure Data Explorer output from Azure Stream Analytics
 description: This article describes using Azure Data Explorer as an output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/01/2023
 ---
@@ -32,7 +31,7 @@ The following table lists the property names and their descriptions for creating
 | Subscription | The Azure subscription that you want to use for your cluster. |
 | Cluster | A unique name that identifies your cluster. The domain name \<region\>.kusto.windows.net is appended to the cluster name that you provide. The name can contain only lowercase letters and numbers. It must contain 4 to 22 characters. |
 | Database | The name of the database where you're sending the output. The database name must be unique within the cluster. |
-| Authentication | A [managed identity from Azure Active Directory (Azure AD)](../active-directory/managed-identities-azure-resources/overview.md), which allows your cluster to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. Managed identity configuration is currently supported only to [enable customer-managed keys for your cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault/). |
+| Authentication | A [managed identity from Microsoft Entra ID](../active-directory/managed-identities-azure-resources/overview.md), which allows your cluster to easily access other Microsoft Entra protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. Managed identity configuration is currently supported only to [enable customer-managed keys for your cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault/). |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 
 ## Partitioning

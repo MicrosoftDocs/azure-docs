@@ -5,7 +5,7 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 03/18/2024
 ms.author: cherylmc
 
 ---
@@ -32,15 +32,15 @@ If you haven't already done so, make sure you complete the following items:
 
 * Download and install the Azure VPN Client. For steps, see one of the following articles:
 
-  * [Certificate authentication](point-to-site-vpn-client-cert-windows.md#download-the-azure-vpn-client)
-  * [Azure AD authentication](openvpn-azure-ad-client.md#download)
+  * [Certificate authentication](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)
+  * [Microsoft Entra authentication](openvpn-azure-ad-client.md#download)
 
 ## Working with VPN client profile configuration files
 
-The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), do the following:
+The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), use the following steps:
 
 1. Locate the profile configuration file and open it using the editor of your choice.
-1. Using the examples in the sections below, modify the file as necessary, then save your changes.
+1. Using the examples in the following sections, modify the file as necessary, then save your changes.
 1. Import the file to configure the Azure VPN client. You can import the file for the Azure VPN Client using these methods:
 
    * **Azure VPN Client interface**: Open the Azure VPN Client and click **+** and then **Import**. Locate the modified xml file, configure any additional settings in the Azure VPN Client interface (if necessary), then click **Save**.
@@ -50,6 +50,9 @@ The steps in this article require you to modify and import the Azure VPN Client 
 ## DNS
 
 ### Add DNS suffixes
+
+> [!NOTE]
+> At this time, additional DNS suffixes for the Azure VPN Client aren't generated in a format that can be properly used by macOS. The specified values for DNS suffixes don't persist for macOS.
 
 To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 
@@ -62,7 +65,7 @@ To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnss
           <dnssuffix>.xyz.com</dnssuffix>
           <dnssuffix>.etc.net</dnssuffix>
     </dnssuffixes>
-    
+
 </clientconfig>
 </azvpnprofile>
 ```
@@ -75,17 +78,17 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 <azvpnprofile>
 <clientconfig>
 
-	<dnsservers>
-		<dnsserver>x.x.x.x</dnsserver>
-        	<dnsserver>y.y.y.y</dnsserver>
-	</dnsservers>
-    
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+            <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+
 </clientconfig>
 </azvpnprofile>
 ```
 
 > [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
+> The OpenVPN Microsoft Entra client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
 
 ## Routing
@@ -109,23 +112,23 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
    ```xml
   <azvpnprofile>
   <clientconfig>
-          
+
     <includeroutes>
-    	<route>
-    		<destination>0.0.0.0</destination><mask>1</mask>
-    	</route>
-    	<route>
-    		<destination>128.0.0.0</destination><mask>1</mask>
-    	</route>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
+        </route>
     </includeroutes>
-           
+
   </clientconfig>
   </azvpnprofile>
   ```
-  
+
 > [!NOTE]
-> - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
-> - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+> * The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
+> * A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 
 ### Add custom routes
 
@@ -135,44 +138,48 @@ You can add custom routes. Modify the downloaded profile XML file and add the **
 <azvpnprofile>
 <clientconfig>
 
-	<includeroutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-		<route>
-    			<destination>y.y.y.y</destination><mask>24</mask>
-    		</route>
-	</includeroutes>
-    
+    <includeroutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+        <route>
+                <destination>y.y.y.y</destination><mask>24</mask>
+            </route>
+    </includeroutes>
+
 </clientconfig>
 </azvpnprofile>
 ```
 
 ### Block (exclude) routes
 
-You block (exclude) routes. Modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
+The ability to completely block routes isn't supported by the Azure VPN Client. The Azure VPN Client doesn't support dropping routes from the local routing table. Instead, you can exclude routes from the VPN interface. Modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
 
 ```xml
 <azvpnprofile>
 <clientconfig>
 
-	<excluderoutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-		<route>
-    			<destination>y.y.y.y</destination><mask>24</mask>
-    		</route>
-	</excluderoutes>
-    
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+        <route>
+            <destination>y.y.y.y</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
+
 </clientconfig>
 </azvpnprofile>
 ```
 
 > [!NOTE]
-> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
-> - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
+> * To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
+> * If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
+
+## Azure VPN Client version information
+
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
 
 ## Next steps
 
@@ -180,4 +187,3 @@ For more information about P2S VPN, see the following articles:
 
 * [About point-to-site VPN](point-to-site-about.md)
 * [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)
-

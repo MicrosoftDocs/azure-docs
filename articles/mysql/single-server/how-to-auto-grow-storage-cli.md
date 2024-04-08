@@ -4,8 +4,8 @@ description: This article describes how you can enable auto grow storage using t
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: devx-track-azurecli
 ms.date: 06/20/2022
 ---
@@ -26,7 +26,7 @@ To complete this how-to guide:
 
 - You need an [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

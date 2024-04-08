@@ -3,15 +3,13 @@ title: Oracle Azure Virtual Machines DBMS deployment for SAP workload | Microsof
 description: Oracle Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.date: 07/13/2023
+ms.date: 01/21/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # Azure Virtual Machines Oracle DBMS deployment for SAP workload
@@ -58,9 +56,10 @@ Installing or migrating existing SAP on Oracle systems to Azure, the following d
 5.  ASM removes the requirement for Mirror Log. Follow the guidance from Oracle in Note [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 6.  Use ASMLib and don't use udev
 7.  Azure NetApp Files deployments should use Oracle dNFS (Oracle’s own high performance Direct NFS solution)
-8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
+8.  Large Oracle databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
     - Set Linux Huge Pages to 75% of Physical RAM size
     - Set SGA to 90% of Huge Page size
+    - Set the Oracle parameter USE_LARGE_PAGES = **ONLY** - The value ONLY is preferred over the value TRUE as the value ONLY is suppossed to deliver more consistent and predictable performance. The value TRUE may allocate both large 2MB and standard 4K pages. The value ONLY is going to always force large 2MB pages. If the number of available huge pages is not sufficient or not correctly configured, the database instance is going to fail to start with error code: *ora-27102 :  out of memory Linux_x86_64 Error 12 : cannot allocate memory*. If there is insufficient contiguous memory Oracle the Operating System may need to be restarted and/or the Operating System Huge Page parameters reconfigured
 9.  Oracle Home should be located outside of the “root” volume or disk. Use a separate disk or ANF volume. The disk holding the Oracle Home should be 64GB or larger
 10. The size of the boot disk for large high performance Oracle database servers is important. As a minimum a P10 disk should be used for M-series or E-series. Don't use small disks such as P4 or P6. A small disk can cause performance issues.
 11. Accelerated Networking must be enabled on all VMs. Upgrade to the latest OL release if there are any problems enabling Accelerated Networking
@@ -68,7 +67,8 @@ Installing or migrating existing SAP on Oracle systems to Azure, the following d
 
 For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [<u>2039619</u>](https://launchpad.support.sap.com/#/notes/2039619).
 
-General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
+General information about running SAP Business Suite on Oracle can be found in the [<u>SAP on Oracle community page</u>](https://www.sap.com/community/topic/oracle.html). SAP on Oracle on Azure is only supported on Oracle Linux (and not Suse or Red Hat) for application and database servers.
+ASCS/ERS servers can use RHEL/SUSE because Oracle client isn't installed or used on these VMs. Application Servers (PAS/AAS) shouldn't be installed on these VMs. Refer to SAP Note [3074643 - OLNX: FAQ: if Pacemaker for Oracle Linux is supported in SAP Environment](https://me.sap.com/notes/3074643). Oracle RAC isn't supported on Azure because RAC would require Multicast networking.
 
 ## Storage configuration
 
@@ -79,14 +79,49 @@ There are two recommended storage deployment patterns for SAP on Oracle on Azure
 
 Customers currently running Oracle databases on EXT4 or XFS file systems with LVM are encouraged to move to ASM. There are considerable performance, administration and reliability advantages to running on ASM compared to LVM. ASM reduces complexity, improves supportability and makes administration tasks simpler. This documentation contains links for Oracle DBAs to learn how to install and manage ASM.
 
+Azure provides [multiple storage solutions](../../virtual-machines/disks-types.md).  The table below details the support status 
+
+| Storage type  | Oracle support    | Sector Size     | Oracle Linux 8.x or higher | Windows Server 2019 |
+|--------|------------|--------| ------| -----|
+| **Block Storage Type** | | | | |
+| Premium SSD | Supported | 512e | ASM Recommended. LVM Supported | No support for ASM on Windows |
+| Premium SSD v2 | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| Standard SSD | Not supported | | | |
+| Standard HDD | Not supported | | | |
+| Ultra disk | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| | | | | |
+| **Network Storage Types** | | | | | 
+| Azure NetApp Service (ANF) | Supported | - | Oracle dNFS Required | Not supported |
+| Azure Files NFS | Not supported | | |
+| Azure files SMB | Not supported | | |
+
+Additional considerations that apply list like:
+1. No support for DIRECTIO with 4K Native sector size. Recommended settings for FILESYSTEMIO_OPTIONS for LVM configurations:
+   - LVM - If disks with 512/512e geometry are used, FILESYSTEMIO_OPTIONS = SETALL
+   - LVM - If disks with 4K Native geometry are used, FILESYSTEMIO_OPTIONS = ASYNC 
+2. Oracle 19c and higher fully supports 4K Native sector size with both ASM and LVM
+3. Oracle 19c and higher on Linux – when moving from 512e storage to 4K Native storage Log sector sizes must be changed  
+4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”
+5. No support for ASM on Windows platforms
+6. No support for 4K Native sector size for Log volume on Windows platforms.  SSDv2 and Ultra Disk must be changed to 512e via the “Edit Disk” pencil icon in the Azure Portal
+7. 4K Native sector size is supported only on Data volumes for Windows platforms.  4K isn't supported for Log volumes on Windows
+8. It's recommended to review these MOS articles:
+    - Oracle Linux: File System's Buffer Cache versus Direct I/O (Doc ID 462072.1)
+    - Supporting 4K Sector Disks (Doc ID 1133713.1)
+    - Using 4k Redo Logs on Flash, 4k-Disk and SSD-based Storage (Doc ID 1681266.1)
+    - Things To Consider For Setting filesystemio_options And disk_asynch_io (Doc ID 1987437.1)
+
+It's recommended to use Oracle ASM on Linux with ASMLib.  Performance, administration, support and configuration are optimized with deployment pattern.  Oracle ASM and Oracle dNFS are going to  set the correct parameters or bypass parameters (such as FILESYSTEMIO_OPTIONS) and therefore deliver better performance and reliability. 
+
+
 ### Oracle Automatic Storage Management (ASM)
 
 Checklist for Oracle Automatic Storage Management:
 
 1.  All SAP on Oracle on Azure systems are running **ASM** including Development, QAS and Production. Small, Medium and Large databases
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
-    is used and not UDEV. UDEV is required for multiple SANs, a scenario that does not exist on Azure
-3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage has built in triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
+    is used and not UDEV. UDEV is required for multiple SANs, a scenario that doesn't exist on Azure
+3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage provides triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
 4.  No Mirror Log is required for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
 6.  ASM Allocation Unit size = 4MB (default). VLDB OLAP systems such as BW may benefit from larger ASM Allocation Unit size. Change only after confirming with Oracle support
@@ -200,26 +235,25 @@ Documentation is available with:
 
 Run an Oracle AWR report as the first step when troubleshooting a performance problem. Disk performance metrics are detailed in the AWR report.
 
-Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools. Documentation which might help is available here:
+Disk performance can be monitored from inside Oracle Enterprise Manager and via external tools. Documentation, which might help is available here:
 - [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
 - [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/asmcmd-diskgroup-commands.html#GUID-55F7A91D-2197-467C-9847-82A3308F0392)
 
-OS level monitoring tools can't monitor ASM disks as there is no recognizable file system. Freespace monitoring must be done from within Oracle.
+OS level monitoring tools can't monitor ASM disks as there's no recognizable file system. Freespace monitoring must be done from within Oracle.
 
 ### Training Resources on Oracle Automatic Storage Management (ASM)
 
-Oracle DBAs that are not familiar with Oracle ASM follow the training materials and resources here:
+Oracle DBAs that aren't familiar with Oracle ASM follow the training materials and resources here:
 - [Sap on Oracle with ASM on Microsoft Azure - Part1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-oracle-with-asm-on-microsoft-azure-part1/ba-p/1865024)
 - [Oracle19c DB \[ ASM \] installation on \[ Oracle Linux 8.3 \] \[ Grid \| ASM \| UDEV \| OEL 8.3 \] \[ VMware \] - YouTube](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 - [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
-- [Oracle for SAP Technology Update (April 2022)](https://www.oracle.com/a/ocom/docs/ora4sap-technology-update-5112158.pdf)
+- [Oracle for SAP Development Update (May 2022)](https://www.oracle.com/a/ocom/docs/sap-on-oracle-dev-update.pdf)
 - [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
 - [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
 - [Using RMAN to migrate to ASM \| The Oracle Mentor (wordpress.com)](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
 - [<u>What is Oracle ASM to Azure IaaS? - Simple Talk (red-gate.com)</u>](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
 - [ASM Command-Line Utility (ASMCMD) (oracle.com)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
 - [Useful asmcmd commands - DBACLASS DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
-- [Moving your SAP Database to Oracle Automatic Storage Management 11g Release 2 - A Best Practices Guide](https://www.sap.com/documents/2016/08/f2e8c029-817c-0010-82c7-eda71af511fa.html)
 - [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
 
 ## Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)
@@ -263,7 +297,7 @@ or other backup tools.
 
 ## SAP on Oracle on Azure with LVM
 
-ASM is the default recommendation from Oracle for all SAP systems of any size on Azure. Performance, Reliability and Support are better for customers using ASM. Oracle provide documentation and training for DBAs to transition to ASM and every customer who has migrated to ASM has been pleased with the benefits. In cases where the Oracle DBA team doesn't follow the recommendation from Oracle, Microsoft and SAP to use ASM the following LVM configuration should be used.
+ASM is the default recommendation from Oracle for all SAP systems of any size on Azure. Performance, Reliability and Support are better for customers using ASM. Oracle provides documentation and training for DBAs to transition to ASM and every customer who migrated to ASM has been pleased with the benefits. In cases where the Oracle DBA team doesn't follow the recommendation from Oracle, Microsoft and SAP to use ASM the following LVM configuration should be used.
 
 Note that: when creating LVM the “-i” option must be used to evenly distribute data across the number of disks in the LVM group.
 
@@ -388,12 +422,12 @@ SAP on Oracle on Azure also supports Windows. The recommendations for Windows de
 1.  The following Windows releases are recommended:
     Windows Server 2022 (only from Oracle Database 19.13.0 on)
     Windows Server 2019 (only from Oracle Database 19.5.0 on)
-2.  There is no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
+2.  There's no support for ASM on Windows. Windows Storage Spaces should be used to aggregate disks for optimal performance
 3.  Install the Oracle Home on a dedicated independent disk (don't install Oracle Home on the C: Drive)
 4.  All disks must be formatted NTFS
 5.  Follow the Windows Tuning guide from Oracle and enable large pages, lock pages in memory and other Windows specific settings
 
-At the time, of writing ASM for Windows customers on Azure isn't supported. SWPM for Windows does not support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
+At the time, of writing ASM for Windows customers on Azure isn't supported. SWPM for Windows doesn't support ASM currently. VLDB SAP on Oracle migrations to Azure have required ASM and have therefore selected Oracle Linux.
 
 ## Storage Configurations for SAP on Oracle on Windows
 

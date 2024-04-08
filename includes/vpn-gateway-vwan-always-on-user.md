@@ -1,8 +1,8 @@
 ---
-  ms.topic: include
+ ms.topic: include
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 05/23/2022
+ ms.date: 08/11/2023
  ms.author: cherylmc
 
 
@@ -10,13 +10,13 @@
 ---
 
 
-1. Install client certificates on the Windows 10 or later client, as shown in this [point-to-site VPN client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate must be in the current user store.
+1. Install client certificates on the Windows client, as shown in this [point-to-site VPN client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate must be in the current user store.
 
-1. Configure the Always On VPN client through PowerShell, Configuration Manager, or Intune by following the instructions in [Configure Windows 10 or later client Always On VPN connections](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. You can configure the Always On VPN client through PowerShell, Configuration Manager, or Intune by following the instructions in [Configure Windows 10 or later client Always On VPN connections](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### Example configuration for the user tunnel
 
-After you've configured the virtual network gateway and installed the client certificate in the local machine store on the Windows 10 or later client, configure a client device tunnel by using the following examples:
+After you've configured the virtual network gateway and installed the client certificate in the local machine store on the Windows client, configure a client device tunnel by using the following examples. Note that these examples have been validated on Windows 10.
 
 1. Copy the following text, and save it as *usercert.ps1*:
 

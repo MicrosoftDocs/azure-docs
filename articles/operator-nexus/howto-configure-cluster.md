@@ -5,7 +5,7 @@ author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 02/08/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -28,7 +28,7 @@ The metrics generated from the logging data are available in [Azure Monitor metr
 
 ## Create a Cluster
 
-The Cluster resource represents an on-premises deployment of the platform
+The Infrastructure Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
@@ -55,6 +55,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --network fabric-id "$NFC_ID" \
   --cluster-service-principal application-id="$SP_APP_ID" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
+  --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
   --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
 
@@ -99,6 +100,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | SP_PASS                   | Service Principal Password                                                                                            |
 | SP_ID                     | Service Principal ID                                                                                                  |
 | TENANT_ID                 | Subscription tenant ID                                                                                                |
+| KV_RESOURCE_ID            | Key Vault ID                                                                                                          |
 | CLUSTER_TYPE              | Type of cluster, Single or MultiRack                                                                                  |
 | CLUSTER_VERSION           | NC Version of cluster                                                                                                 |
 | TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                               |
@@ -150,7 +152,7 @@ az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
   --resource-group "$CLUSTER_RESOURCE_GROUP" \
   --subscription "$SUBSCRIPTION_ID" \
-  --no-wait --debug 
+  --no-wait --debug
 ```
 
 > [!TIP]
@@ -166,6 +168,19 @@ The hardware validation procedure runs various test and checks against the machi
 provided through the Cluster's rack definition. Based on the results of these checks
 and any user skipped machines, a determination is done on whether sufficient nodes
 passed and/or are available to meet the thresholds necessary for deployment to continue.
+
+> [!IMPORTANT]
+> The hardware validation process will write the results to the specified `analyticsWorkspaceId` at Cluster Creation.
+> Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
+> This capability is only visible during a new deployment (Green Field); existing cluster will not have the logs available retroactively.
+
+By default, the hardware validation process writes the results to the configured Cluster `analyticsWorkspaceId`.
+However, due to the nature of Log Analytics Workspace data collection and schema evaluation, there can be ingestion delay that can take several minutes or more.
+For this reason, the Cluster deployment proceeds even if there was a failure to write the results to the Log Analytics Workspace.
+To help address this possible event, the results, for redundancy, are also logged within the Cluster Manager.
+
+In the provided Cluster object's Log Analytics Workspace, a new custom table with the Cluster's name as prefix and the suffix `*_CL` should appear.
+In the _Logs_ section of the LAW resource, a query can be executed against the new `*_CL` Custom Log table.
 
 #### Cluster Deploy Action with skipping specific bare-metal-machine
 
@@ -219,14 +234,29 @@ See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track
 
 ## Cluster deployment validation
 
-View the status of the cluster:
+View the status of the cluster on the portal, or via the Azure CLI:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
+The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
+Some examples of deployment progress shown in detailedStatusMessage are `Hardware validation is in progress.` (if cluster is deployed with hardware validation) ,`Cluster is bootstrapping.`, `KCP initialization in progress.`, `Management plane deployment in progress.`, `Cluster extension deployment in progress.`, `waiting for "<rack-ids>" to be ready`, etc.
+
+:::image type="content" source="./media/nexus-deploy-kcp-status.png" lightbox="./media/nexus-deploy-kcp-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress kcp init.":::
+
+:::image type="content" source="./media/nexus-deploy-extension-status.png" lightbox="./media/nexus-deploy-extension-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress extension application.":::
+
 The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
+
+:::image type="content" source="./media/nexus-deploy-complete-status.png" lightbox="./media/nexus-deploy-complete-status.png" alt-text="Screenshot of Azure portal showing cluster deploy complete.":::
+
+View the management version of the cluster:
+
+```azurecli
+az k8s-extension list --cluster-name <cluster> --resource-group "$MANAGED_CLUSTER_RG" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
+```
 
 ## Cluster deployment Logging
 
@@ -234,3 +264,5 @@ Cluster create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
+
+:::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::

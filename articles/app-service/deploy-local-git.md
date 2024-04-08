@@ -3,14 +3,18 @@ title: Deploy from local Git repo
 description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code from your local machine.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 02/29/2024
 ms.reviewer: dariac
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+author: cephalin
+ms.author: cephalin
 ---
 # Local Git deployment to Azure App Service
 
 This how-to guide shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
+
+> [!NOTE]
+> When [SCM basic authentication is disabled](configure-basic-auth-disable.md), Local Git deployment doesn't work, and you can't configure Local Git deployment in the app's Deployment Center.
 
 ## Prerequisites
 
@@ -64,7 +68,7 @@ In the portal, you need to create an app first, then configure deployment for it
 
 ## Configure an existing app
 
-If you haven't created an app yet, see [Create a Git enabled app](#create-a-git-enabled-app) instead.
+If you don't have an app yet, see [Create a Git enabled app](#create-a-git-enabled-app) instead.
 
 # [Azure CLI](#tab/cli)
 
@@ -97,7 +101,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
 
-1. From the left menu, select **Deployment Center** > **Settings**. Select **Local Git** in **Source**, then click **Save**.
+1. From the left menu, select **Deployment Center** > **Settings**. Select **Local Git** in **Source**, then select **Save**.
 
     ![Shows how to enable local Git deployment for App Service in the Azure portal](./media/deploy-local-git/enable-portal.png)
 
@@ -122,7 +126,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 
     If your Git remote URL already contains the username and password, you won't be prompted. 
    
-1. Review the output. You may see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
+1. Review the output. You might see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
    
 1. Browse to your app in the Azure portal to verify that the content is deployed.
 
@@ -143,23 +147,23 @@ When you push commits to your App Service repository, App Service deploys the fi
     git push azure main
     ```
 
-    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure Portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
+    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
 
 ## Troubleshoot deployment
 
-You may see the following common error messages when you use Git to publish to an App Service app in Azure:
+You might see the following common error messages when you use Git to publish to an App Service app in Azure:
 
 |Message|Cause|Resolution
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|The app isn't up and running.|Start the app in the Azure portal. Git deployment isn't available when the web app is stopped.|
-|`Couldn't resolve host 'hostname'`|The address information for the 'azure' remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.|
+|`Couldn't resolve host 'hostname'`|The address information for the `azure` remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the `azure` remote is correct. If needed, remove and recreate this remote using the correct URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the main branch: `git push azure main`.|
-|`Error - Changes committed to remote repository but deployment to website failed.`|You pushed a local branch that doesn't match the app deployment branch on 'azure'.|Verify that current branch is `master`. To change the default branch, use `DEPLOYMENT_BRANCH` application setting (see [Change deployment branch](#change-deployment-branch)). |
-|`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the 'azure' remote.|Run `git push` again, specifying the main branch: `git push azure main`.|
+|`Error - Changes committed to remote repository but deployment to website failed.`|You pushed a local branch that doesn't match the app deployment branch on `azure`.|Verify that current branch is `master`. To change the default branch, use `DEPLOYMENT_BRANCH` application setting (see [Change deployment branch](#change-deployment-branch)). |
+|`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the `azure` remote.|Run `git push` again, specifying the main branch: `git push azure main`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
-## Additional resources
+## More resources
 
 - [App Service build server (Project Kudu documentation)](https://github.com/projectkudu/kudu/wiki)
 - [Continuous deployment to Azure App Service](deploy-continuous-deployment.md)

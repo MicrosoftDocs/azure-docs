@@ -1,11 +1,9 @@
 ---
 author: jboback
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 02/17/2023
-ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 # [Document summarization](#tab/document-summarization)
@@ -90,7 +88,7 @@ def sample_extractive_summarization(client):
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.textanalytics import (
         TextAnalyticsClient,
-        ExtractSummaryAction
+        ExtractiveSummaryAction
     ) 
 
     document = [
@@ -104,7 +102,7 @@ def sample_extractive_summarization(client):
     poller = client.begin_analyze_actions(
         document,
         actions=[
-            ExtractSummaryAction(max_sentence_count=4)
+            ExtractiveSummaryAction(max_sentence_count=4)
         ],
     )
 

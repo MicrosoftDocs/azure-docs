@@ -2,9 +2,9 @@
 title: Use the Azure Maps Services module
 titleSuffix:  Microsoft Azure Maps
 description: Learn about the Azure Maps services module. See how to load and use this helper library to access Azure Maps REST services in web or Node.js applications.
-author: dubiety
-ms.author: yuchungchen
-ms.date: 06/26/2023
+author: sinnypan
+ms.author: sipa
+ms.date: 03/27/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,6 +14,12 @@ ms.custom: devx-track-js
 # Use the Azure Maps services module
 
 The Azure Maps Web SDK provides a [services module]. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
+
+> [!NOTE]
+>
+> **Azure Maps Web SDK Service Module retirement**
+>
+> The Azure Maps Web SDK Service Module is now deprecated and will be retired on 9/30/26. To avoid service disruptions, we recommend migrating to the Azure Maps JavaScript REST SDK by 9/30/26. For more information, see [JavaScript/TypeScript REST SDK Developers Guide (preview)](how-to-dev-guide-js-sdk.md).
 
 ## Use the services module in a webpage
 
@@ -35,7 +41,7 @@ The Azure Maps Web SDK provides a [services module]. This module is a helper lib
       import * as service from "azure-maps-rest";
       ```
 
-1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client is created.
+1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Microsoft Entra credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client is created.
 
     If you use a subscription key for authentication:
 
@@ -55,7 +61,7 @@ The Azure Maps Web SDK provides a [services module]. This module is a helper lib
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    If you use Azure AD for authentication:
+    If you use Microsoft Entra ID for authentication:
 
     ```javascript
     // Enter your Azure AD client ID.
@@ -226,9 +232,7 @@ The following image is a screenshot showing the results of this sample code, a t
 :::image type="content" source="./media/how-to-use-services-module/services-module-in-webpage.png"alt-text="A screenshot of an HTML table showing the address searched and the resulting coordinates.":::
 
 <!-------------------------------------------------------
-<iframe height="500" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true]
 --------------------------------------------------------->
 
 ## Azure Government cloud support

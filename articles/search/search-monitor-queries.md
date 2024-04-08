@@ -1,27 +1,29 @@
 ---
 title: Monitor queries
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in resource logs.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 02/21/2024
 ---
 
-# Monitor query requests in Azure Cognitive Search
+# Monitor query requests in Azure AI Search
 
 This article explains how to measure query performance and volume using built-in metrics and resource logging. It also explains how to get the query strings entered by application users.
 
-The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged operations and metrics.
+The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must [add a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) that specifies a storage option for persisting logged operations and metrics. We recommend **Log Analytics workspace** as a destination for logged operations. Kusto queries and data exploration target a Log Analytics workspace.
 
 Conditions that maximize the integrity of data measurement include:
 
 + Use a billable service (a service created at either the Basic or a Standard tier). The free service is shared by multiple subscribers, which introduces a certain amount of volatility as loads shift.
 
-+ Use a single replica and partition, if possible, to create a contained and isolated environment. If you use multiple replicas, query metrics are averaged across multiple nodes, which can lower the precision of results. Similarly, multiple partitions mean that data is divided, with the potential that some partitions might have different data if indexing is also underway. When tuning query performance, a single node and partition gives a more stable environment for testing.
++ Use a single replica and partition, if possible, to create a contained and isolated environment. If you use multiple replicas, query metrics are averaged across multiple nodes, which can lower the precision of results. Similarly, multiple partitions mean that data is divided, with the potential that some partitions might have different data if indexing is also underway. When you tune query performance, a single node and partition gives a more stable environment for testing.
 
 > [!TIP]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
@@ -30,7 +32,7 @@ Conditions that maximize the integrity of data measurement include:
 
 Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one-minute window. One-minute intervals (TimeGrain = "PT1M") for metrics is fixed within the system.
 
-It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metrics.
+It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in metrics.
 
 | Aggregation Type | Description |
 |------------------|-------------|
@@ -64,19 +66,19 @@ Consider the following example of **Search Latency** metrics: 86 queries were sa
 
 ### Throttled queries
 
-Throttled queries refers to queries that are dropped instead of process. In most cases, throttling is a normal part of running the service.  It is not necessarily an indication that there is something wrong.
+Throttled queries refers to queries that are dropped instead of processed. In most cases, throttling is a normal part of running the service. It isn't necessarily an indication that there's something wrong.
 
-Throttling occurs when the number of requests currently processed exceed the available resources. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
+Throttling occurs when the number of requests in execution exceed capacity. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
 
 The service determines whether to drop requests based on resource consumption. The percentage of resources consumed across memory, CPU, and disk IO are averaged over a period of time. If this percentage exceeds a threshold, all requests to the index are throttled until the volume of requests is reduced. 
 
-Depending on your client, a throttled request can be indicated in these ways:
+Depending on your client, a throttled request is indicated in these ways:
 
-+ A service returns an error "You are sending too many requests. Please try again later." 
++ A service returns an error `"You are sending too many requests. Please try again later."` 
 + A service returns a 503 error code indicating the service is currently unavailable. 
-+ If you are using the portal (for example, Search Explorer), the query is dropped silently and you will need to click Search again.
++ If you're using the portal (for example, Search Explorer), the query is dropped silently and you need to select **Search** again.
 
-To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that did not execute.
+To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that didn't execute.
 
 | Aggregation Type | Throttling |
 |------------------|-----------|
@@ -88,7 +90,7 @@ To confirm throttled queries, use **Throttled search queries** metric. You can e
 
 For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-In the following screenshot, the first number is the count (or number of metrics sent to the log). Additional aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
+In the following screenshot, the first number is the count (or number of metrics sent to the log). Other aggregations, which appear at the top or when hovering over the metric, include average, maximum, and total. In this sample, no requests were dropped.
 
 ![Throttled aggregations](./media/search-monitor-usage/metrics-throttle.png "Throttled aggregations")
 
@@ -100,7 +102,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
-2. Under Metric, choose one from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values will be sampled over each time interval.
+2. Under Metric, choose one from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values are sampled over each time interval.
 
    ![Metrics explorer for QPS metric](./media/search-monitor-usage/metrics-explorer-qps.png "Metrics explorer for QPS metric")
 
@@ -108,27 +110,27 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 4. Choose a visualization. The default is a line chart.
 
-5. Layer additional aggregations by choosing **Add metric** and selecting different aggregations.
+5. Layer more aggregations by choosing **Add metric** and selecting different aggregations.
 
-6. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
+6. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, select and hold the left mouse button, drag to the other side of area, and release the button. The chart zooms in on that time range.
 
 ## Return query strings entered by users
 
-When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](monitor-azure-cognitive-search.md), specifying a log analytics workspace or another storage option.
+When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already specified [a destination for logged operations](/azure/azure-monitor/essentials/create-diagnostic-settings), either a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
-1. Run the following expression to search Query.Search operations, returning a tabular result set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements exclude query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
+1. Run the following expression to search `Query.Search` operations, returning a tabular result set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements exclude query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
 
    ```kusto
       AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2020-06-30&search=*"
+   | where Query_s != "?api-version=2023-07-01-preview&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2020-06-30&search=*&%24filter=HotelName`).
+1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2023-11-01&search=*&%24filter=HotelName`.
 
    ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
 
@@ -153,15 +155,17 @@ Add the duration column to get the numbers for all queries, not just those that 
 
 ## Create a metric alert
 
-A  metric alert establishes a threshold at which you will either receive a notification or trigger a corrective action that you define in advance. 
+A  metric alert establishes a threshold for sending a notification or triggering a corrective action that you define in advance. You can create alerts related to query execution, but you can also create them for resource health, search service configuration changes, skill execution, and document processing (indexing).
 
-For a search service, it's common to create a metric alert for search latency and throttled queries. If you know when queries are dropped, you can look for remedies that reduce load or increase capacity. For example, if throttled queries increase during indexing, you could postpone it until query activity subsides.
+All thresholds are user-defined, so you should have an idea of what activity level should trigger the alert.
 
-When pushing the limits of a particular replica-partition configuration, setting up alerts for query volume thresholds (QPS) is also helpful.
+For query monitoring, it's common to create a metric alert for search latency and throttled queries. If you know *when* queries are dropped, you can look for remedies that reduce load or increase capacity. For example, if throttled queries increase during indexing, you could postpone it until query activity subsides.
 
-1. Under the Monitoring section, select **Alerts** and then click **+ New alert rule**. Make sure your search service is selected as the resource.
+If you're pushing the limits of a particular replica-partition configuration, setting up alerts for query volume thresholds (QPS) is also helpful.
 
-1. Under Condition, click **Add**.
+1. Under **Monitoring**, select **Alerts** and then select **Create alert rule**.
+
+1. Under Condition, select **Add**.
 
 1. Configure signal logic. For signal type, choose **metrics** and then select the signal.
 
@@ -169,19 +173,15 @@ When pushing the limits of a particular replica-partition configuration, setting
 
 1. Next, scroll down to Alert logic. For proof-of-concept, you could specify an artificially low value for testing purposes.
 
-   ![Alert logic](./media/search-monitor-usage/alert-logic-qps.png "Alert logic")
-
 1. Next, specify or create an Action Group. This is the response to invoke when the threshold is met. It might be a push notification or an automated response.
 
 1. Last, specify Alert details. Name and describe the alert, assign a severity value, and specify whether to create the rule in an enabled or disabled state.
 
-   ![Alert details](./media/search-monitor-usage/alert-details.png "Alert details")
-
-If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
+If you specified an email notification, you receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
 
 ## Next steps
 
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)
+> [Monitor operations and activity in Azure AI Search](monitor-azure-cognitive-search.md)

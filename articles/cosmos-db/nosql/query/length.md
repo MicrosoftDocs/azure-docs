@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the number of characters in the specified string expression.
   
 ## Syntax
   
-```sql
+```nosql
 LENGTH(<string_expr>)  
 ```  
   
@@ -37,31 +38,16 @@ Returns a numeric expression.
 ## Examples
   
 The following example returns the length of a static string.  
-  
-```sql
-SELECT VALUE {
-    stringValue: LENGTH("AdventureWorks"),
-    emptyString: LENGTH(""),
-    nullValue: LENGTH(null),
-    numberValue: LENGTH(0),
-    arrayValue: LENGTH(["Adventure", "Works"])
-}
-```  
-  
-```json
-[
-  {
-    "stringValue": 14,
-    "emptyString": 0
-  }
-] 
-```  
+
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/length/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/length/result.json":::
 
 ## Remarks
 
 - This system function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`REVERSE`](reverse.md)

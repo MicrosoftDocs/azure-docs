@@ -3,7 +3,6 @@ title: Rooms metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of rooms metrics available in the Azure portal.
 author: mkhribech
-manager: timmitchell
 services: azure-communication-services
 ms.author: mkhribech
 ms.date: 06/26/2023
@@ -13,7 +12,7 @@ ms.subservice: data
 ---
 # Rooms metrics overview
 
-Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) to:
+Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Monitor metrics explorer](../../../azure-monitor\essentials\analyze-metrics.md) to:
 
 - Plot your own charts.
 - Investigate abnormalities in your metric values.

@@ -1,8 +1,8 @@
 ---
 title: Create a data source for Android maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Android SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -17,6 +17,12 @@ The Azure Maps Android SDK stores data in data sources. Using data sources optim
 
 - **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
 - **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## GeoJSON data source
 
@@ -773,10 +779,10 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 - [Road tiles]
 - [Traffic incidents]
 - [Traffic flow]
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
-> When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `azmapsdomain.invalid`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
+> When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `azmapsdomain.invalid`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Microsoft Entra authentication.
 
 To display data from a vector tile source on the map, connect the source to one of the data rendering layers. All layers that use a vector source must specify a `sourceLayer` value in the options. The following code loads the Azure Maps traffic flow vector tile service as a vector tile source, then displays it on a map using a line layer. This vector tile source has a single set of data in the source layer called "Traffic flow". The line data in this data set has a property called `traffic_level` that is used in this code to select the color and scale the size of lines.
 
@@ -1045,9 +1051,9 @@ See the following articles for more code samples to add to your maps:
 [Polygon layer]: how-to-add-shapes-to-android-map.md
 [Tile layer]: how-to-add-tile-layer-android-map.md
 <!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

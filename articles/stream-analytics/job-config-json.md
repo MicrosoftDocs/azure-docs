@@ -19,7 +19,10 @@ The following fields are supported in the *JobConfig.json* file used to [create 
     "EventsLateArrivalMaxDelayInSeconds": "integer",
     "EventsOutOfOrderMaxDelayInSeconds": "integer",
     "EventsOutOfOrderPolicy": "string",
-    "StreamingUnits": "integer",
+    "Sku": {
+    "Name": "string",
+    "StreamingUnits": "integer"
+    },
     "CompatibilityLevel": "string",
     "UseSystemAssignedIdentity": "boolean",
     "GlobalStorage": {
@@ -39,9 +42,10 @@ The following fields are supported in the *JobConfig.json* file used to [create 
 |EventsLateArrivalMaxDelayInSeconds|integer|No|The maximum tolerable delay in seconds where events arriving late could be included. Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify indefinite time. If the property is absent, it's interpreted to have a value of -1.|
 |EventsOutOfOrderMaxDelayInSeconds|integer|No|The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.|
 |EventsOutOfOrderPolicy|string|No|Indicates the policy to apply to events that arrive out of order in the input event stream. - Adjust or Drop|
-|StreamingUnits|integer|Yes|Specifies the number of streaming units that the streaming job uses.|
+|Sku.Name|string|No|Specifies the SKU name of the job. Acceptable values are "Standard" and "StandardV2".|
+|Sku.StreamingUnits|integer|Yes|Specifies the number of streaming units that the streaming job uses. [Learn more](stream-analytics-streaming-unit-consumption.md).|
 |CompatibilityLevel|string|No|Controls certain runtime behaviors of the streaming job. - Acceptable values are "1.0", "1.1", "1.2"|
-|UseSystemAssignedIdentity|boolean|No|Set true to enable this job to communicate with other Azure services as itself using a Managed Azure Active Directory Identity.|
+|UseSystemAssignedIdentity|boolean|No|Set true to enable this job to communicate with other Azure services as itself using a Managed Microsoft Entra identity.|
 |GlobalStorage.AccountName|string|No|Global storage account is used for storing content related to your stream analytics job, such as SQL reference data snapshots.|
 |GlobalStorage.AccountKey|string|No|Corresponding key for global storage account.|
 |DataSourceCredentialDomain|string|No|Reserved Property for credential local storage.|

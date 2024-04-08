@@ -1,13 +1,13 @@
 ---
 title: How to improve LUIS application
 description:  Learn how to improve LUIS application
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/19/2024
 ---
 
 # How to improve a LUIS app

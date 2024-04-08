@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 08/07/2023
 ms.author: cherylmc
-
 ---
 # Install client certificates for P2S certificate authentication connections
 

@@ -2,10 +2,10 @@
 title: Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities 
 description: Shows you how to use Resource Manager templates to upgrade from Azure Blob Storage to Data Lake Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 01/18/2024
 ms.author: normesta
 ---
 
@@ -25,6 +25,7 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 > [!div class="checklist"]
 > - [Review feature support](#review-feature-support)
 > - [Ensure the segments of each blob path are named](#ensure-the-segments-of-each-blob-path-are-named)
+> - [Prevent write activity to the storage account](#prevent-write-activity-to-the-storage-account)
 
 ### Review feature support
 
@@ -45,11 +46,24 @@ In some cases, you will have to allow time for clean-up operations after a featu
 
 > [!IMPORTANT]
 > You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
-> Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For migration options, see [Migrate a storage account](../common/storage-account-overview.md#migrate-a-storage-account).
+> Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
 ### Ensure the segments of each blob path are named
 
 The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
+
+### Prevent write activity to the storage account
+
+The upgrade might fail if an application writes to the storage account during the upgrade. To prevent such write activity:
+
+1. Quiesce any applications or services that might perform write operations.
+
+2. Release or break existing leases on containers and blobs in the storage account.
+
+After the upgrade has completed, break the leases you created to resume allowing write access to the containers and blobs.
+
+> [!WARNING]
+> Breaking an active lease without gracefully disabling applications or virtual machines that are currently accessing those resources could have unexpected results. Be sure to quiesce any current write activities before breaking any current leases.
 
 ## Perform the upgrade
 
@@ -199,7 +213,7 @@ The migration process creates a directory for each path segment of a blob. Data 
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.29.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that has installed is `2.29.0` or higher by using the following command.
 
    ```azurecli
     az --version

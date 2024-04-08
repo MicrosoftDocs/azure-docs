@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Large Instances?
     href: what-is-azure-large-instances.md
-  - name: Working with Azure Large Instances in the Azure portal
+  - name: Work with Azure Large Instances in the Azure portal
     href: work-with-azure-large-instances-in-azure-portal.md
 - name: Getting started
   items:
@@ -20,5 +20,5 @@
   items:
   - name: Azure Large Instances for Epic workload
     href: ./workloads/epic/index.yml
-- name: FAQ
-  href: faq.md
+  - name: FAQ
+    href: faq.md

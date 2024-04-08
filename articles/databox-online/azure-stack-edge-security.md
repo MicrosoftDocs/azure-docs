@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge security and data protection
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge helps you ensure that only authorized entities can view, modify, or delete your data.
 
@@ -86,7 +88,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge Pro FPGA](azure-stack-edge-manage-shares.md).
 
-For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trust-center).
 
 ## Next steps
 

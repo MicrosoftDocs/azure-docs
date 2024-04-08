@@ -1,5 +1,7 @@
 ---
 title: Connect BareMetal Infrastructure instances in Azure
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
@@ -38,7 +40,7 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Sign in to the Azure subscription you use for the BareMetal instance deployment through the Azure CLI. Register the `BareMetalInfrastructure` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 

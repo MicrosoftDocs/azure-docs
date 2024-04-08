@@ -1,13 +1,11 @@
 ---
 title: Configure DNS forwarder for Azure VMware Solution
-description: Learn how to configure DNS forwarder for Azure VMware Solution using the Azure portal. 
+description: Learn how to configure DNS forwarder for Azure VMware Solution using the Azure portal.
 ms.topic: how-to
-ms.custom: contperf-fy22q1
+ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 04/11/2022
-
-#Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T Data Center DNS Service.>  
-
+ms.date: 2/27/2024
+#Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T Data Center DNS Service.
 ---
 
 # Configure a DNS forwarder in the Azure portal
@@ -27,13 +25,11 @@ This capability uses the DNS Forwarder Service in NSX-T Data Center. A DNS servi
 >[!TIP]
 >If desired, you can also use the conditional forwarding rules for workload segments by configuring virtual machines on those segments to use the NSX-T Data Center DNS Service IP address as their DNS server.
 
-
 ## Architecture
 
 The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments.
 
 :::image type="content" source="media/networking/dns/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
-
 
 ## Configure DNS forwarder
 
@@ -53,7 +49,7 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
    >
    >As a result, DNS zone names that would otherwise be valid in NSX-T Data Center may need adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
 
-      It takes several minutes to complete, and you can follow the progress from **Notifications**. You’ll see a message in the Notifications when the DNS zone has been created.
+      It takes several minutes to complete, you can follow the progress from **Notifications**. You see a message in the Notifications when the DNS zone is created.
 
 1. Ignore the message about a default DNS zone because one gets created for you as part of your private cloud.
 
@@ -61,7 +57,6 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
 
    >[!TIP]
    >For private clouds created on or after July 1, 2021, you can ignore the message about a default DNS zone as one is created for you during private cloud creation.
-
 
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, for private clouds created on or after July 1, 2021, you _must_ edit the DNS service from the Simplified Networking experience in the Azure portal for any configuration changes made to the default Tier-1 Gateway.  
@@ -72,7 +67,7 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
-   It takes several minutes to complete, and once finished, you'll see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T Data Center DNS Service. 
+   It takes several minutes to complete, and once finished, you see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T Data Center DNS Service. 
 
 1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
@@ -80,22 +75,21 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
    1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > Check **TNT##-DNS-FORWARDER-ZONE**.  Then select **Edit**.
    
    ![AVS-DNS](https://user-images.githubusercontent.com/7501186/226980095-b0576824-e1b7-46dc-b726-58670e4e3096.png)
-
    
    2. Change DNS server entries to valid reachable IP addresses.  Then select **OK**
    
    ![Edit_DNS_Zone](https://user-images.githubusercontent.com/7501186/226980023-8b92fce9-310e-4934-9045-238bcd5d921f.png)
    
    >[!IMPORTANT]
-   >A DNS endpoint that is unreachable by the NSX-T DNS server will result in an NSX-T alarm stating that the endpoint is unreachable.  In cases of the default configuration provided with AVS, this is due to internet that is disabled by default.  The alarm can be acknowledged and ignored, or the default configuration above can be changed to a valid endpoint.
+   >A DNS endpoint that is unreachable by the NSX-T DNS server will result in an NSX-T alarm stating that the endpoint is unreachable.  In cases of the default configuration provided with Azure VMware Solution, this is due to internet that is disabled by default.  The alarm can be acknowledged and ignored, or the default configuration can be changed to a valid endpoint.
 
 ## Verify name resolution operations
 
-After you’ve configured the DNS forwarder, you’ll have a few options available to verify name resolution operations. 
+After you configure the DNS forwarder, you have some options available to verify name resolution operations. 
 
-### NSX-T Manager
+### VMware NSX-T Manager
 
-NSX-T Manager provides the DNS Forwarder Service statistics at the global service level and on a per-zone basis. 
+NSX-T Manager provides the DNS Forwarder Service statistics at the global service level and on a per zone basis. 
 
 1. In NSX-T Manager, select **Networking** > **DNS**, and then expand your DNS Forwarder Service.
 
@@ -106,7 +100,6 @@ NSX-T Manager provides the DNS Forwarder Service statistics at the global servic
    The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see the forwarded queries to the DNS services specified during the configuration of the FQDN zone.
 
    :::image type="content" source="media/networking/dns/nsxt-manager-dns-services-statistics.png" alt-text="Screenshot showing the DNS Forwarder statistics.":::
-
 
 ### PowerCLI
 
@@ -141,4 +134,4 @@ The NSX-T Policy API lets you run nslookup commands from the NSX-T Data Center D
    $response.dns_answer_per_enforcement_point.raw_answer; (()) DiG 9.10.3-P4-Ubuntu (()) @10.103.64.192 -b 10.103.64.192 vc01.contoso.corp +timeout=5 +tries=3 +nosearch ; (1 server found) ;; global options: +cmd ;; Got answer: ;; -))HEADER((- opcode: QUERY, status: NOERROR, id: 10684 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1  ;; OPT PSEUDOSECTION: ; EDNS: version: 0, flags:; udp: 4096 ;; QUESTION SECTION: ;vc01.contoso.corp.  IN A  ;; ANSWER SECTION: vc01.contoso.corp. 3046 IN A 172.21.90.2  ;; Query time: 0 msec ;; SERVER: 10.103.64.192:53(10.103.64.192) ;; WHEN: Thu Jul 01 23:44:36 UTC 2021 ;; MSG SIZE  rcvd: 62
    ```
 
-   In this example, you can see an answer for the query of vc01.contoso.corp showing an A record with the address 172.21.90.2. Also, this example shows a cached response from the DNS Forwarder Service, so your output may vary slightly.
+   In this example, you can see an answer for the query of vc01.contoso.corp showing an A record with the address 172.21.90.2. Also, this example shows a cached response from the DNS Forwarder Service, so your output might vary slightly.

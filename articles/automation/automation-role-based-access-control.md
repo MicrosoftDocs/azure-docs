@@ -307,7 +307,7 @@ You can create [Azure custom roles](../role-based-access-control/custom-roles.md
 
 ## Update Management permissions
 
-Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Azure Active Directory (Azure AD) tenant, or across tenants using Azure Lighthouse. The following table lists the permissions needed to manage update deployments.
+Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Microsoft Entra tenant, or across tenants using Azure Lighthouse. The following table lists the permissions needed to manage update deployments.
 
 |**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
@@ -331,7 +331,7 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 ### Configure Azure RBAC using the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the **Automation Accounts** page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your Automation account from the **Automation Accounts** page.
 
 1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
@@ -358,7 +358,7 @@ You can remove the access permission for a user who isn't managing the Automatio
 
 You can also configure role-based access to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Azure Active Directory. You can use this cmdlet with the `Name` parameter to list all the actions that a specific role can perform.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Microsoft Entra ID. You can use this cmdlet with the `Name` parameter to list all the actions that a specific role can perform.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -460,7 +460,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Opera
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Once the script has run, have the user log in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
+Once the script has run, have the user sign in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
 
 ![Runbook Azure RBAC in the portal](./media/automation-role-based-access-control/runbook-rbac.png)
 

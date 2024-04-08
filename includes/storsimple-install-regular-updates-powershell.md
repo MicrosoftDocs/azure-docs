@@ -1,7 +1,7 @@
 ---
 author: alkohli
 ms.service: storsimple
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli

@@ -2,11 +2,10 @@
 title: Overview of Cost Management + Billing
 titleSuffix: Microsoft Cost Management
 description: You use Cost Management + Billing features to conduct billing administrative tasks and manage billing access to costs. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 10/20/2022
+ms.date: 02/28/2024
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -49,7 +48,9 @@ After discounts are applied, cost details then flow into Cost Management, where:
 
 - The [anomaly detection](./understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
 - The cost allocation engine applies tag inheritance and [splits shared costs](./costs/allocate-costs.md).
-- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.
+- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.  
+    > [!NOTE]
+    > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](./costs/retire-aws-connector.md).
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
@@ -117,7 +118,7 @@ Organizing and allocating costs are critical to ensuring invoices are routed to 
 - **Subscriptions** and **resource groups** are the lowest level at which you can organize your cloud solutions. At Microsoft, every product – sometimes even limited to a single region – is managed within its own subscription. It simplifies cost governance but requires more overhead for subscription management. Most organizations use subscriptions for business units and separating dev/test from production or other environments, then use resource groups for the products. It complicates cost management because resource group owners don't have a way to manage cost across resource groups. On the other hand, it's a straightforward way to understand who's responsible for most resource-based charges. Keep in mind that not all charges come from resources and some don't have resource groups or subscriptions associated with them. It also changes as you move to MCA billing accounts.
 - **Resource tags** are the only way to add your own business context to cost details and are perhaps the most flexible way to map resources to applications, business units, environments, owners, etc. For more information, see [How tags are used in cost and usage data](./costs/understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data) for limitations and important considerations.
 
-In addition to organizing resources and subscriptions using the subscription hierarchy and metadata (tags), Cost Management also offers the ability to *move* or split shared costs via cost allocation rules. Cost allocation doesn't change the invoice. Cost allocation simply moves charges from one subscription, resource group, or tag to another subscription, resource group, or tag. The goal of cost allocation is to split and move shared costs to reduce overhead. And, to more accurately report on where charges are ultimately coming from (albeit indirectly), which should drive more complete accountability. For more information, see [Allocate Azure costs](./costs/allocate-costs.md).
+Cost allocation is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency. For more information, see [Cost allocation](./costs/cost-allocation-introduction.md).
 
 How you organize and allocate costs plays a huge role in how people within your organization can manage and optimize costs. Be sure to plan ahead and revisit your allocation strategy yearly.
 
@@ -126,7 +127,7 @@ How you organize and allocate costs plays a huge role in how people within your 
 Cost Management and Billing offer many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
 
 - [**Budget alerts**](./costs/tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
-- [**Anomaly alerts**](./understand/analyze-unexpected-charges.md)notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within the cost analysis preview. Anomaly alerts can be configured from the cost alerts page.
+- [**Anomaly alerts**](./understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within the cost analysis smart view. Anomaly alerts can be configured from the cost alerts page.
 - [**Scheduled alerts**](./costs/save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](./understand/download-azure-invoice.md).

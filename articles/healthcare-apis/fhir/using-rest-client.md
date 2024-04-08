@@ -42,7 +42,9 @@ In your `test.http` file, include the following information obtained from regist
 @tenantid =xxx....
 ```
 
-## Get Azure AD Access Token
+<a name='get-azure-ad-access-token'></a>
+
+## Get Microsoft Entra access token
 
 After including the information below in your `test.http` file, hit `Send Request`. You'll see an HTTP response that contains your access token.
 

@@ -8,7 +8,7 @@ ms.date: 07/10/2023
 
 ---
 
-# What is Cloud NGFW by Palo Alto Networks Preview?
+# What is Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service?
 
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Palo Alto Networks.

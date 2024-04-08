@@ -24,6 +24,13 @@ When loading a model (for example, via a Unity sample) fails although the blob c
 Sometimes during [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) the Remote Rendering account isn't listed. To fix this issue, go to the ARR account in the Azure portal and select **Identity** under the **Settings** group on the left. Make sure **Status** is set to **On**.
 ![Unity frame debugger](./media/troubleshoot-portal-identity.png)
 
+## Cannot load model through a SAS token
+
+If the client application fails to load a model from storage through a valid SAS-token, it might be caused by the [public network access level](../../storage/common/storage-network-security.md#change-the-default-network-access-rule) configured on the blob storage. Loading an ARR model from SAS token only works if it has been configured with the "Enabled from all networks" option:
+![Screenshot of Azure portal settings for public network access level on blob storage.](./media/portal-blob-access-restrictions.png)
+
+If limiting to private endpoints is a requirement, the [storage account must be linked](../how-tos/create-an-account.md#link-storage-accounts) and the model must be loaded through the non-SAS code path as [described here](../tutorials/unity/security/security.md#securing-your-content-in-azure-blob-storage).
+
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
@@ -327,7 +334,7 @@ models
 
 ## HoloLens2 'Take a Picture' (MRC) doesn't show any local or remote content
 
-This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621) settings. This API isn't supported in OpenXR and must not be accessed.
+This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621&preserve-view=true) settings. This API isn't supported in OpenXR and must not be accessed.
 
 ## Next steps
 

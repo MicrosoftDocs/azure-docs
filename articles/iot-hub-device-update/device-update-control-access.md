@@ -41,11 +41,13 @@ The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure
 
 ## Authenticate to Device Update REST APIs
 
-Device Update uses Azure Active Directory (AD) for authentication to its REST APIs. To get started, you need to create and configure a client application.
+Device Update uses Microsoft Entra ID for authentication to its REST APIs. To get started, you need to create and configure a client application.
 
-### Create client Azure AD app
+<a name='create-client-azure-ad-app'></a>
 
-To integrate an application or service with Azure AD, first [register a client application with Azure AD](../active-directory/develop/quickstart-register-app.md). Client application setup will vary depending on the authorization flow you'll need (users, applications or managed identities). For example, to call Device Update from:
+### Create client Microsoft Entra app
+
+To integrate an application or service with Microsoft Entra ID, first [register a client application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Client application setup will vary depending on the authorization flow you'll need (users, applications or managed identities). For example, to call Device Update from:
 
 * Mobile or desktop application, add **Mobile and desktop applications** platform with `https://login.microsoftonline.com/common/oauth2/nativeclient` for the Redirect URI.
 * Website with implicit sign-on, add **Web** platform and select **Access tokens (used for implicit flows)**.
@@ -109,7 +111,7 @@ Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Sco
 
 ## Support for managed identities
 
-Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. Device Update for IoT Hub supports system-assigned managed identities.
+Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. Device Update for IoT Hub supports system-assigned managed identities.
 
 ### System-assigned managed identity
 

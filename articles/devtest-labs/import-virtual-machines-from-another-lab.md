@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 11/08/2021
+ms.custom: UpdateFrequency2
 ---
 
 # Import virtual machines from one lab to another
@@ -31,7 +32,7 @@ When the import finishes, the process shuts down the source VM and starts the ne
 
 There are several requirements and constraints for importing VMs from one lab to another:
 
-- You can import VMs across subscriptions and across regions, but both subscriptions must be associated with the same Azure Active Directory tenant.
+- You can import VMs across subscriptions and across regions, but both subscriptions must be associated with the same Microsoft Entra tenant.
 - VMs can't be in a claimable state in the source lab.
 - You must be the owner of the VM in the source lab, and the owner of the destination lab.
 - Currently, this feature is supported only through PowerShell and REST API.

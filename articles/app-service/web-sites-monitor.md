@@ -6,8 +6,7 @@ ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
 ms.date: 06/29/2023
 ms.author: msangapu
-ms.custom: seodec18
-
+author: msangapu-msft
 ---
 # Monitor apps in Azure App Service
 [Azure App Service](./overview.md) provides
@@ -109,7 +108,7 @@ For an app, the available metrics are:
 For an App Service plan, the available metrics are:
 
 > [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
+> App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.
 > 
 
 | Metric | Description |

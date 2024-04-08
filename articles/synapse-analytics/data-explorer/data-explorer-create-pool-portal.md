@@ -8,7 +8,7 @@ ms.author: shsagir
 ms.reviewer: shsagir
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a Data Explorer pool using the Azure portal (Preview)

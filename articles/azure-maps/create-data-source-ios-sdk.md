@@ -1,8 +1,8 @@
 ---
 title: Create a data source for iOS maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps iOS SDK uses: GeoJSON sources and vector tiles."
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 10/22/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -10,6 +10,12 @@ services: azure-maps
 ---
 
 # Create a data source in the iOS SDK (Preview)
+
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 The Azure Maps iOS SDK stores data in data sources. Using data sources optimizes the data operations for querying and rendering. Currently there are two types of data sources:
 
@@ -312,10 +318,10 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 - [Road tiles]
 - [Traffic incidents]
 - [Traffic flow]
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
-> When using vector or raster image tiles from the Azure Maps render service with the iOS SDK, you can replace `atlas.microsoft.com` with the `AzureMap`'s property' `domainPlaceholder`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
+> When using vector or raster image tiles from the Azure Maps render service with the iOS SDK, you can replace `atlas.microsoft.com` with the `AzureMap`'s property' `domainPlaceholder`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Microsoft Entra authentication.
 
 To display data from a vector tile source on the map, connect the source to one of the data rendering layers. All layers that use a vector source must specify a `sourceLayer` value in the options. The following code loads the Azure Maps traffic flow vector tile service as a vector tile source, then displays it on a map using a line layer. This vector tile source has a single set of data in the source layer called "Traffic flow". The line data in this data set has a property called `traffic_level` that is used in this code to select the color and scale the size of lines.
 
@@ -495,9 +501,9 @@ See the following articles for more code samples to add to your maps:
 [Polygon layer]: Add-polygon-layer-map-ios.md
 [Tile layer]: how-to-add-tile-layer-android-map.md
 <!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

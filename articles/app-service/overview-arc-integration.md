@@ -2,7 +2,10 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 03/15/2023
+ms.custom: devx-track-azurecli
+ms.date: 12/05/2023
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -224,6 +227,20 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.1
+```
+
+### Application services extension v 0.13.5 (December 2023)
+
+- Update to support Kubernetes version 1.26 and above
+- Update Envoy to 1.2.1
+- Update Keda to v2.10.0
+- Update EasyAuth to v1.6.20
+- Update base images for supported languages
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.5
 ```
 
 ## Next steps

@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 03/31/2024
 ms.author: duau
 ---
 
@@ -90,8 +90,8 @@ Reports support any selected date range from the previous 90 days. With data poi
     
     - **Domains** - Select one or more endpoints or custom domains. By default, all endpoints and custom domains are selected.
     
-        * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile, the report counts the new endpoint as a second endpoint.
-        * If you delete a custom domain and bind it to a different endpoint, the behavior depends on how you view the report. If you view the report by custom domain then they'll be treated as one custom domain. If you view the report by endpoint, they'll be treated as separate items.
+        * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile, the report counts the new endpoint as a different endpoint.
+        * If you delete a custom domain and bind it to a different endpoint, the behavior depends on how you view the report. If you view the report by custom domains, then they're treated as one custom domain. If you view the report by endpoint, they're treated as separate items.
     
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension.":::
 
@@ -130,7 +130,7 @@ The *Traffic by domain* report includes these fields:
 
 # [Traffic by location](#tab/traffic-by-location)
 
-The *Traffic by location* report includes these fields:
+The *Traffic by location* report includes the below fields. The location split is done based on client location.
 
 * Location
 * TotalRequests
@@ -236,11 +236,11 @@ The **traffic by domain** report provides a grid view of all the domains under t
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of the landing page for reports.":::
 
-In this report you can view:
+In this report, you can view:
 
 * Request counts
 * Data transferred out from Azure Front Door to client
-* Requests with status code (3XX, 4XX and 5XX) of each domain
+* Requests with status code (3XX, 4XX, and 5XX) of each domain
 
 Domains include endpoint domains and custom domains.
 
@@ -277,7 +277,7 @@ The following items are included in the reports:
 
 * A world map view of the top 50 countries/regions by data transferred out or requests of your choice.
 * Two line charts showing a trend view of the top five countries/regions by data transferred out and requests of your choice. 
-* A grid of the top countries/regions with corresponding data transferred out from Azure Front Door to clients, the percentage of data transferred out, the number of requests, the percentage of requests by the country/region, cache hit ratio, 4XX response code counts, and 5XX response code counts.
+* A grid of the top countries or regions with corresponding data transferred out from Azure Front Door to clients, the percentage of data transferred out, the number of requests, the percentage of requests by the country or region, cache hit ratio, 4XX response code counts, and 5XX response code counts.
 
 ## Caching report
 
@@ -292,8 +292,8 @@ The caching report includes:
 
 Cache hits/misses describe the request number cache hits and cache misses for client requests.
 
-* Hits: the client requests that are served directly from Azure Front Door edge PoPs. Refers to those requests whose values for CacheStatus in the raw access logs are *HIT*, *PARTIAL_HIT*, or *REMOTE_HIT*. 
-* Miss: the client requests that are served by Azure Front Door edge POPs fetching contents from origin. Refers to those requests whose values for the field CacheStatus in the raw access raw logs are *MISS*.
+* Hits: client requests that get served directly from Azure Front Door edge PoPs. Refers to those requests whose values for CacheStatus in the raw access logs are *HIT*, *PARTIAL_HIT*, or *REMOTE_HIT*. 
+* Miss: client requests that get served by Azure Front Door edge POPs fetching contents from origin. Refers to those requests whose values for the field CacheStatus in the raw access raw logs are *MISS*.
 
 **Cache hit ratio** describes the percentage of cached requests that are served from edge directly. The formula of the cache hit ratio is: `(PARTIAL_HIT +REMOTE_HIT+HIT/ (HIT + MISS + PARTIAL_HIT + REMOTE_HIT)*100%`. 
 
@@ -305,17 +305,17 @@ Requests that meet the following requirements are included in the calculation:
 It excludes all of the following cases: 
 
 * Requests that are denied because of a Rule Set.
-* Requests that contain matching Rules Set, which has been set to disable the cache.
-* Requests that are blocked by the Azure Front Door WAF. 
+* Requests that contain matching Rules Set, which is set to disable the cache.
+* Requests that get blocked by the Azure Front Door WAF. 
 * Requests when the origin response headers indicate that they shouldn't be cached. For example, requests with `Cache-Control: private`, `Cache-Control: no-cache`, or `Pragma: no-cache` headers prevent the response from being cached. 
 
 ## Top URL report
 
-The **top URL report** allow you to view the amount of traffic incurred through a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days.
+The **top URL report** allow you to view the amount of traffic incurred through a particular endpoint or custom domain. You see data for the most requested 50 assets during any period in the past 90 days.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Screenshot of the 'top URL' report.":::
 
-Popular URLs will be displayed with the following values:
+Popular URLs are displayed with the following values:
 
 * URL, which refers to the full path of the requested asset in the format of `http(s)://contoso.com/index.html/images/example.jpg`. URL refers to the value of the RequestUri field in the raw access log. 
 * Request counts.
@@ -326,7 +326,7 @@ Popular URLs will be displayed with the following values:
 * Requests with response codes of 4XX.
 * Requests with response codes of 5XX.
 
-User can sort URLs by request count, request count percentage, data transferred, and data transferred percentage. All the metrics are aggregated by hour and might vary based on the timeframe selected.
+User can sort URLs by request count, request count percentage, data transferred, and data transferred percentage. The system aggregates all metrics by hour, and they might vary based on the selected time frame.
 
 > [!NOTE]
 > Top URLs might change over time. To get an accurate list of the top 50 URLs, Azure Front Door counts all your URL requests by hour and keep the running total over the course of a day. The URLs at the bottom of the 50 URLs may rise onto or drop off the list over the day, so the total number of these URLs are approximations.  
@@ -335,7 +335,7 @@ User can sort URLs by request count, request count percentage, data transferred,
 
 ## Top referrer report
 
-The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*.
+The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer might come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of the 'top referrer' report.":::
 
@@ -350,7 +350,7 @@ The top referrer report includes the following values.
 * Requests with response code as 4XX.
 * Requests with response code as 5XX.
 
-You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
+You can sort by request count, request %, data transferred and data transferred %. The system aggregates all metrics by hour, and they might vary based on the selected time frame.
 
 ## Top user agent report
 
@@ -374,7 +374,7 @@ The **security report** provides graphical and statistics views of WAF activity.
 | Dimensions | Description |
 |---------|---------|
 | Overview metrics - Matched WAF rules | Requests that match custom WAF rules, managed WAF rules and bot protection rules. |
-| Overview metrics - Blocked Requests | The percentage of requests that are blocked by WAF rules among all the requests that matched WAF rules. |
+| Overview metrics - Blocked Requests | The percentage of requests that gets blocked by WAF rules among all the requests that matched WAF rules. |
 | Overview metrics - Matched Managed Rules | Requests that match managed WAF rules. |
 | Overview metrics - Matched Custom Rule | Requests that match custom WAF rules. |
 | Overview metrics - Matched Bot Rule | Requests that match bot protection rules. |

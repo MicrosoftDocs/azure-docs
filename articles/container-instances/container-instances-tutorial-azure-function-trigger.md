@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that can run scripts or code in response to a variety of events, such as an HTTP request, a timer, or a message in an Azure Storage queue.
 
-In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a [container group](container-instances-container-groups.md). This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
+In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a [container group](container-instances-container-groups.md). This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers.
 
 You learn how to:
 
@@ -38,7 +38,7 @@ This article assumes you publish the project using the name *myfunctionapp*, in 
 
 ## Enable an Azure-managed identity in the function app
 
-The following commands enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate to Azure using this identity, enabling functions to take actions on Azure services to which the identity is granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group. 
+The following commands enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate to Azure using this identity, enabling functions to take actions on Azure services to which the identity is granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group.
 
 [Add an identity](../app-service/overview-managed-identity.md?tabs=ps%2Cdotnet) to the function app:
 
@@ -87,7 +87,7 @@ if ($name) {
 ```
 
 This example creates a container group consisting of a single container instance running the `alpine` image. The container runs a single `echo` command and then terminates. In a real-world example, you might trigger creation of one or more container groups for running a batch job.
- 
+
 ## Test function app locally
 
 Ensure that the function runs locally before republishing the function app project to Azure. When run locally, the function doesn't create Azure resources. However, you can test the function flow with and without passing a name value in a query string. To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
@@ -114,7 +114,7 @@ https://myfunctionapp.azurewebsites.net/api/HttpTrigger
 
 ### Run function without passing a name
 
-As a first test, run the `curl` command and pass the function URL without appending a `name` query string. 
+As a first test, run the `curl` command and pass the function URL without appending a `name` query string.
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger"
@@ -128,14 +128,14 @@ The function returns status code 200 and the text `This HTTP triggered function 
 > Host: myfunctionapp.azurewebsites.net
 > User-Agent: curl/7.64.1
 > Accept: */*
-> 
+>
 * Connection state changed (MAX_CONCURRENT_STREAMS updated)!
 < HTTP/1.1 200 OK
 < Content-Length: 135
 < Content-Type: text/plain; charset=utf-8
 < Request-Context: appId=cid-v1:d0bd0123-f713-4579-8990-bb368a229c38
 < Date: Wed, 10 Jun 2020 17:50:27 GMT
-< 
+<
 * Connection #0 to host myfunctionapp.azurewebsites.net left intact
 This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.* Closing connection 0
 ```
@@ -156,13 +156,13 @@ The function returns status code 200 and triggers the creation of the container 
 > Host: myfunctionapp.azurewebsites.net
 > User-Agent: curl/7.64.1
 > Accept: */*
-> 
+>
 < HTTP/1.1 200 OK
 < Content-Length: 92
 < Content-Type: text/plain; charset=utf-8
 < Request-Context: appId=cid-v1:d0bd0123-f713-4579-8990-bb368a229c38
 < Date: Wed, 10 Jun 2020 17:54:31 GMT
-< 
+<
 * Connection #0 to host myfunctionapp.azurewebsites.net left intact
 This HTTP triggered function executed successfully. Started container group mycontainergroup* Closing connection 0
 ```
@@ -171,7 +171,7 @@ Verify that the container ran with the [Get-AzContainerInstanceLog][get-azcontai
 
 ```azurecli-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myfunctionapp `
-  -ContainerGroupName mycontainergroup 
+  -ContainerGroupName mycontainergroup
 ```
 
 Sample output:
@@ -200,7 +200,7 @@ In this tutorial, you created an Azure function that takes an HTTP request and t
 
 For a detailed example to launch and monitor a containerized job, see the blog post [Event-Driven Serverless Containers with PowerShell Azure Functions and Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) and accompanying [code sample](https://github.com/anthonychu/functions-powershell-run-aci).
 
-See the [Azure Functions documentation](../azure-functions/index.yml) for detailed guidance on creating Azure functions and publishing a functions project. 
+See the [Azure Functions documentation](../azure-functions/index.yml) for detailed guidance on creating Azure functions and publishing a functions project.
 
 <!-- IMAGES -->
 

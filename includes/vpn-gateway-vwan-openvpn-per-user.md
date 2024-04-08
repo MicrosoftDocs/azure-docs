@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 01/16/2020
+ ms.date: 08/23/2023
  ms.author: cherylmc
  ms.custom: include file
 
@@ -15,7 +15,7 @@
 ### <a name="mfa"></a>Open the MFA page
 
 1. Sign in to the Azure portal.
-2. Navigate to **Azure Active Directory -> All users**.
+2. Navigate to **Microsoft Entra ID -> All users**.
 3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
 
    ![Sign in](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa1.jpg)

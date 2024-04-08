@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom:
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -16,9 +17,6 @@ For containerized applications that serve traffic, you might want to verify that
 This article explains how to deploy a container group that includes a readiness probe, so that a container only receives traffic when the probe succeeds.
 
 Azure Container Instances also supports [liveness probes](container-instances-liveness-probe.md), which you can configure to cause an unhealthy container to automatically restart.
-
-> [!NOTE]
-> Currently you cannot use a readiness probe in a container group deployed to a virtual network.
 
 ## YAML configuration
 
@@ -62,7 +60,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Start command
 
-The deployment includes a `command` property defining a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. 
+The deployment includes a `command` property defining a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready.
 
 First, it starts a shell session and runs a `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
 
@@ -74,7 +72,7 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 This YAML file defines a `readinessProbe` which supports an `exec` readiness command that acts as the readiness check. This example readiness command tests for the existence of the `ready` file in the `/tmp` directory.
 
-When the `ready` file doesn't exist, the readiness command exits with a non-zero value; the container continues running but can't be accessed. When the command exits successfully with exit code 0, the container is ready to be accessed. 
+When the `ready` file doesn't exist, the readiness command exits with a non-zero value; the container continues running but can't be accessed. When the command exits successfully with exit code 0, the container is ready to be accessed.
 
 The `periodSeconds` property designates the readiness command should execute every 5 seconds. The readiness probe runs for the lifetime of the container group.
 
@@ -90,7 +88,7 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 In this example, during the first 240 seconds, the readiness command fails when it checks for the `ready` file's existence. The status code returned signals that the container isn't ready.
 
-These events can be viewed from the Azure portal or Azure CLI. For example, the portal shows events of type `Unhealthy` are triggered upon the readiness command failing. 
+These events can be viewed from the Azure portal or Azure CLI. For example, the portal shows events of type `Unhealthy` are triggered upon the readiness command failing.
 
 ![Portal unhealthy event][portal-unhealthy]
 
@@ -115,7 +113,7 @@ wget 192.0.2.1
 ```output
 --2019-10-15 16:46:02--  http://192.0.2.1/
 Connecting to 192.0.2.1... connected.
-HTTP request sent, awaiting response... 
+HTTP request sent, awaiting response...
 ```
 
 After 240 seconds, the readiness command succeeds, signaling the container is ready. Now, when you run the `wget` command, it succeeds:
@@ -130,16 +128,16 @@ HTTP request sent, awaiting response...200 OK
 Length: 1663 (1.6K) [text/html]
 Saving to: ‘index.html.1’
 
-index.html.1                       100%[===============================================================>]   1.62K  --.-KB/s    in 0s      
+index.html.1                       100%[===============================================================>]   1.62K  --.-KB/s    in 0s
 
-2019-10-15 16:49:38 (113 MB/s) - ‘index.html.1’ saved [1663/1663] 
+2019-10-15 16:49:38 (113 MB/s) - ‘index.html.1’ saved [1663/1663]
 ```
 
 When the container is ready, you can also access the web app by browsing to the IP address using a web browser.
 
 > [!NOTE]
-> The readiness probe continues to run for the lifetime of the container group. If the readiness command fails at a later time, the container again becomes inaccessible. 
-> 
+> The readiness probe continues to run for the lifetime of the container group. If the readiness command fails at a later time, the container again becomes inaccessible.
+>
 
 ## Next steps
 

@@ -356,14 +356,14 @@ items:
   items:
   - name: Identities
     href: /azure/data-explorer/kusto/management/access-control/principals-and-identity-providers?context=/azure/synapse-analytics/context/context
-  - name: Azure Active Directory
+  - name: Microsoft Entra ID
     displayName: AAD, Azure AD
     href: /azure/data-explorer/kusto/management/access-control/aad?context=/azure/synapse-analytics/context/context
   - name: Principal roles
     href: /azure/data-explorer/kusto/management/access-control/role-based-authorization?context=/azure/synapse-analytics/context/context
   - name: Allow cross-tenant queries and commands
     href: /azure/data-explorer/kusto/../cross-tenant-query-and-commands?context=/azure/synapse-analytics/context/context
-  - name: How-To Azure Active Directory authentication
+  - name: How-To Microsoft Entra authentication
     displayName: AAD, Azure AD
     href: /azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad?context=/azure/synapse-analytics/context/context
 - name: Advanced data management

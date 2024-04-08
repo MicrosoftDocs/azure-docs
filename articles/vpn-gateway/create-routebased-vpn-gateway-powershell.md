@@ -5,7 +5,7 @@ description: Learn how to create a route-based virtual network gateway for a VPN
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 03/12/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,6 +13,13 @@ ms.custom: devx-track-azurepowershell
 # Create a route-based VPN gateway using PowerShell
 
 This article helps you quickly create a route-based Azure VPN gateway using PowerShell. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
+
+A VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
+
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
+* The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
+* You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
 ## Before you begin
 
@@ -24,7 +31,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you are running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
@@ -52,7 +59,6 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 ```
 
 Set the subnet configuration for the virtual network using the [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
-
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -85,7 +91,7 @@ $vnet | Set-AzVirtualNetwork
 A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address:
 
 ```azurepowershell-interactive
-$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static -Sku Standard
+$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static
 ```
 
 ## <a name="GatewayIPConfig"></a>Create the gateway IP address configuration
@@ -104,7 +110,7 @@ Creating a gateway can often take 45 minutes or more, depending on the selected 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" `
--VpnType "RouteBased" GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+-VpnType "RouteBased" -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
 ```
 
 ## <a name="viewgw"></a>View the VPN gateway
@@ -124,7 +130,7 @@ Get-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 
 ## Clean up resources
 
-When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This deletes the resource group and all of the resources it contains.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1

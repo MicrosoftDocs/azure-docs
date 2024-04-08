@@ -1,27 +1,26 @@
 ---
 title: Assign an Azure role for access to queue data
 titleSuffix: Azure Storage
-description: Learn how to assign permissions for queue data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
+description: Learn how to assign permissions for queue data to a Microsoft Entra security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Microsoft Entra ID.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-queue-storage
 ms.topic: how-to
 ms.date: 07/13/2021
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Assign an Azure role for access to queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queue data.
+Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queue data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. A Microsoft Entra security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To learn more about using Azure AD to authorize access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
+To learn more about using Microsoft Entra ID to authorize access to queue data, see [Authorize access to queues using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 > [!NOTE]
 > This article shows how to assign an Azure role for access to queue data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
@@ -32,7 +31,7 @@ You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manage
 
 # [Azure portal](#tab/portal)
 
-To access queue data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
+To access queue data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
 
 - A data access role, such as **Storage Queue Data Contributor**
 - The Azure Resource Manager **Reader** role
@@ -43,7 +42,7 @@ The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is a
 
 For example, if you assign the **Storage Queue Data Contributor** role to user Mary at the level of a queue named **sample-queue**, then Mary is granted read, write, and delete access to that queue. However, if Mary wants to view a queue in the Azure portal, then the **Storage Queue Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the queue in order to view it. The additional permissions are required to navigate through the portal and view the other resources that are visible there.
 
-A user must be assigned the **Reader** role to use the Azure portal with Azure AD credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
+A user must be assigned the **Reader** role to use the Azure portal with Microsoft Entra credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
 
 You can also assign an Azure Resource Manager role that provides additional permissions beyond than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice. For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
@@ -99,7 +98,7 @@ To learn how to use an Azure Resource Manager template to assign an Azure role, 
 
 Keep in mind the following points about Azure role assignments in Azure Storage:
 
-- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
+- When you create an Azure Storage account, you are not automatically assigned permissions to access data via Microsoft Entra ID. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a queue.
 
 ## Next steps

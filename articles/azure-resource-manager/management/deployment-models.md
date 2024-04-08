@@ -3,8 +3,9 @@ title: Resource Manager and classic deployment
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 04/12/2021 
+ms.date: 03/19/2024
 ---
+
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 
 > [!NOTE]
@@ -71,9 +72,11 @@ Only resources created through Resource Manager support tags. You can't apply ta
 
 The following diagram displays compute, network, and storage resources deployed through Resource Manager.
 
-![Resource Manager architecture](./media/deployment-models/arm_arch3.png)
+:::image type="content" source="./media/deployment-models/arm_arch3.png" alt-text="Diagram that shows Resource Manager architecture with SRP, CRP, and NRP.":::
 
 SRP: Storage Resource Provider, CRP: Compute Resource Provider, NRP: Network Resource Provider
+
+For an updated diagram of a virtual machine solution that uses managed disks, see [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
 
 Note the following relationships between the resources:
 
@@ -86,7 +89,7 @@ Note the following relationships between the resources:
 
 Here are the components and their relationships for classic deployment:
 
-![classic architecture](./media/deployment-models/arm_arch1.png)
+:::image type="content" source="./media/deployment-models/arm_arch1.png" alt-text="Diagram that shows classic architecture for hosting a virtual machine.":::
 
 The classic solution for hosting a virtual machine includes:
 

@@ -1,20 +1,18 @@
 ---
 title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure AI services
-description: Using Kubernetes and Helm to define the speech to text and text to speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
-services: cognitive-services
+description: Using Kubernetes and Helm to define the speech to text and text to speech container images, we create a Kubernetes package. This package is deployed to a Kubernetes cluster on-premises.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 3/21/2024
 ms.author: eur
 ---
 
 # Use Speech service containers with Kubernetes and Helm
 
-One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech to text and text to speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech service containers](speech-container-howto.md).
+One option to manage your Speech containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the speech to text and text to speech container images, we create a Kubernetes package. This package is deployed to a Kubernetes cluster on-premises. Finally, we explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech service containers](speech-container-howto.md).
 
 ## Prerequisites
 
@@ -23,14 +21,14 @@ The following prerequisites before using Speech containers on-premises:
 | Required | Purpose |
 |----------|---------|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
-| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. |
+| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it needs access to the container registry. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
 | Helm CLI | Install the [Helm CLI][helm-install], which is used to install a helm chart (container package definition). |
 |Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://eastus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## The recommended host computer configuration
 
-Refer to the [Speech service container host computer][speech-container-host-computer] details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
+Refer to the [Speech service container host computer][speech-container-host-computer] details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it adjusts based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
 
 | Service | CPU / Container | Memory / Container |
 |--|--|--|
@@ -43,13 +41,13 @@ The host computer is expected to have an available Kubernetes cluster. See this 
 
 ## Configure Helm chart values for deployment
 
-Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **Azure AI Speech On-Premises Chart**. The **Azure AI Speech On-Premises** is the chart we'll install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
+Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you find the **Azure AI Speech On-Premises Chart**. The **Azure AI Speech On-Premises** is the chart we install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Azure AI Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
+Next, we configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Azure AI Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -76,7 +74,7 @@ textToSpeech:
   optimizeForTurboMode: true
   image:
     registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speechservices/text-to-speech
+    repository: azure-cognitive-services/speechservices/neural-text-to-speech
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -99,7 +97,7 @@ The provided *Helm charts* pull the docker images of the Speech service, both te
 
 ## Install the Helm chart on the Kubernetes cluster
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart referenced below is available on the [Microsoft Helm Hub here][ms-helm-hub-speech-chart].
+Run the [`helm install`][helm-install-cmd] command to install the helm chart, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart is available on the [Microsoft Helm Hub][ms-helm-hub-speech-chart].
 
 ```console
 helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
@@ -107,7 +105,7 @@ helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
     --values <config-values.yaml> 
 ```
 
-Here is an example output you might expect to see from a successful install execution:
+Here's an example output you might expect to see from a successful install execution:
 
 ```console
 NAME:   onprem-speech
@@ -120,28 +118,28 @@ RESOURCES:
 NAME                             READY  STATUS             RESTARTS  AGE
 speech-to-text-7664f5f465-87w2d  0/1    Pending            0         0s
 speech-to-text-7664f5f465-klbr8  0/1    ContainerCreating  0         0s
-text-to-speech-56f8fb685b-4jtzh  0/1    ContainerCreating  0         0s
-text-to-speech-56f8fb685b-frwxf  0/1    Pending            0         0s
+neural-text-to-speech-56f8fb685b-4jtzh  0/1    ContainerCreating  0         0s
+neural-text-to-speech-56f8fb685b-frwxf  0/1    Pending            0         0s
 
 ==> v1/Service
 NAME            TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)       AGE
 speech-to-text  LoadBalancer  10.0.252.106  <pending>    80:31811/TCP  1s
-text-to-speech  LoadBalancer  10.0.125.187  <pending>    80:31247/TCP  0s
+neural-text-to-speech  LoadBalancer  10.0.125.187  <pending>    80:31247/TCP  0s
 
 ==> v1beta1/PodDisruptionBudget
 NAME                                MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
 speech-to-text-poddisruptionbudget  N/A            20%              0                    1s
-text-to-speech-poddisruptionbudget  N/A            20%              0                    1s
+neural-text-to-speech-poddisruptionbudget  N/A            20%              0                    1s
 
 ==> v1beta2/Deployment
 NAME            READY  UP-TO-DATE  AVAILABLE  AGE
 speech-to-text  0/2    2           0          0s
-text-to-speech  0/2    2           0          0s
+neural-text-to-speech  0/2    2           0          0s
 
 ==> v2beta2/HorizontalPodAutoscaler
 NAME                       REFERENCE                  TARGETS        MINPODS  MAXPODS  REPLICAS  AGE
 speech-to-text-autoscaler  Deployment/speech-to-text  <unknown>/50%  2        10       0         0s
-text-to-speech-autoscaler  Deployment/text-to-speech  <unknown>/50%  2        10       0         0s
+neural-text-to-speech-autoscaler  Deployment/neural-text-to-speech  <unknown>/50%  2        10       0         0s
 
 
 NOTES:
@@ -161,30 +159,30 @@ You should expect to see something similar to the following output:
 NAME                                  READY     STATUS    RESTARTS   AGE
 pod/speech-to-text-7664f5f465-87w2d   1/1       Running   0          34m
 pod/speech-to-text-7664f5f465-klbr8   1/1       Running   0          34m
-pod/text-to-speech-56f8fb685b-4jtzh   1/1       Running   0          34m
-pod/text-to-speech-56f8fb685b-frwxf   1/1       Running   0          34m
+pod/neural-text-to-speech-56f8fb685b-4jtzh   1/1       Running   0          34m
+pod/neural-text-to-speech-56f8fb685b-frwxf   1/1       Running   0          34m
 
 NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE
 service/kubernetes       ClusterIP      10.0.0.1       <none>           443/TCP        3h
 service/speech-to-text   LoadBalancer   10.0.252.106   52.162.123.151   80:31811/TCP   34m
-service/text-to-speech   LoadBalancer   10.0.125.187   65.52.233.162    80:31247/TCP   34m
+service/neural-text-to-speech   LoadBalancer   10.0.125.187   65.52.233.162    80:31247/TCP   34m
 
 NAME                             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/speech-to-text   2         2         2            2           34m
-deployment.apps/text-to-speech   2         2         2            2           34m
+deployment.apps/neural-text-to-speech   2         2         2            2           34m
 
 NAME                                        DESIRED   CURRENT   READY     AGE
 replicaset.apps/speech-to-text-7664f5f465   2         2         2         34m
-replicaset.apps/text-to-speech-56f8fb685b   2         2         2         34m
+replicaset.apps/neural-text-to-speech-56f8fb685b   2         2         2         34m
 
 NAME                                                            REFERENCE                   TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
 horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speech-to-text   1%/50%    2         10        2          34m
-horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
+horizontalpodautoscaler.autoscaling/neural-text-to-speech-autoscaler   Deployment/neural-text-to-speech   0%/50%    2         10        2          34m
 ```
 
 ### Verify Helm deployment with Helm tests
 
-The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **speech to text** and **text to speech** services, we'll execute the [Helm test][helm-test] command.
+The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both speech to text and text to speech features, we execute the [Helm test][helm-test] command.
 
 ```console
 helm test onprem-speech
@@ -193,7 +191,7 @@ helm test onprem-speech
 > [!IMPORTANT]
 > These tests will fail if the POD status is not `Running` or if the deployment is not listed under the `AVAILABLE` column. Be patient as this can take over ten minutes to complete.
 
-These tests will output various status results:
+These tests output various status results:
 
 ```console
 RUNNING: speech to text-readiness-test

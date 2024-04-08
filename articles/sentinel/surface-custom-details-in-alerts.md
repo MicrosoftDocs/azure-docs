@@ -5,12 +5,13 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Surface custom event details in alerts in Microsoft Sentinel 
-
-## Introduction
 
 [Scheduled query analytics rules](detect-threats-custom.md) analyze **events** from data sources connected to Microsoft Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Microsoft Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.
 
@@ -18,9 +19,21 @@ Using the **custom details** feature in the **analytics rule wizard**, you can s
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing custom details in an existing analytics rule.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## How to surface custom event details
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+    # [Defender portal](#tab/defender)
+
+    From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    ---
 
 1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
@@ -49,11 +62,14 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     > **Service limits**
     > - You can define **up to 20 custom details** in a single analytics rule.
     >
-    > - The size limit for all custom details, collectively, is **2 KB**.
+    > - The combined size limit for all custom details and [alert details](customize-alert-details.md), collectively, is **64 KB**.
 
 ## Next steps
 
 In this document, you learned how to surface custom details in alerts using Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
+    - [Customize alert details in Microsoft Sentinel](customize-alert-details.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).

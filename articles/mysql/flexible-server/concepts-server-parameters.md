@@ -1,29 +1,32 @@
 ---
-title: Server parameters - Azure Database for MySQL - Flexible Server
+title: Server parameters
 description: This article provides guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.custom: event-tier1-build-2022
 ms.date: 04/26/2023
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
+This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL flexible server.
+
+> [!NOTE]  
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 
 ## What are server variables?
 
 The MySQL engine provides many different [server variables/parameters](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
 
-Azure Database for MySQL - Flexible Server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
+Azure Database for MySQL flexible server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
 
 ## Configurable server parameters
 
-You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade on Azure portal shows both the modifiable and nonmodifiable server parameters. The nonmodifiable server parameters are greyed out.
+You can manage Azure Database for MySQL flexible server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade in the Azure portal shows both the modifiable and nonmodifiable server parameters. The nonmodifiable server parameters are greyed out.
 
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
@@ -34,13 +37,28 @@ Refer to the following sections to learn more about the limits of the several co
 >* If you modify a static server parameter using the portal, you need to restart the server for the changes to take effect. In case you are using automation scripts (using tools like ARM templates , Terraform, Azure CLI etc) then your script should have a provision to restart the service for the settings to take effect even if you are changing the configurations as a part of create experience.
 >* If you want to modify a non-modifiable server parameter for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) item or vote if the feedback already exist which can help us prioritize.
 
+
+### lower_case_table_names
+
+For MySQL version 5.7, default value is 1 in Azure Database for MySQL flexible server. It's important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 isn't allowed.  Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
+For [MySQL version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL flexible server. Supported value for MySQL version 8.0 are 1 and 2 in Azure Database for MySQL flexible server. Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
+
+
+### innodb_tmpdir
+
+The [innodb_tmpdir](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_tmpdir) parameter in Azure Database for MySQL Flexible Server is used to define directory for temporary sort files created during online ALTER TABLE operations that rebuild. The default value of innodb_tmpdir is `/mnt/temp`. This location corresponds to the [temporary storage SSD](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types), available in GiB with each server compute size. This location is ideal for operations that don’t require a large amount of space. 
+If more space is needed, you can set innodb_tmpdir to `/app/work/tmpdir`. This utilizes your storage, capacity available on your Azure Database for MySQL Flexible Server. This can be useful for larger operations that require more temporary storage.
+It's important to note that utilizing  `/app/work/tmpdir`  results in slower performance compared to the [default temp storage (SSD)](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types) `/mnt/temp`. The choice should be made based on the specific requirements of the operations.
+
+The information provided for the `innodb_tmpdir` is applicable to the parameters [innodb_temp_tablespaces_dir](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_tablespaces_dir), [tmpdir](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmpdir), and [slave_load_tmpdir](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_load_tmpdir) where the default value `/mnt/temp` is common, and the alternative directory `/app/work/tmpdir` is available for configuring increased temporary storage, with a trade-off in performance based on specific operational requirements.
+
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL - Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers.
+In Azure Database for MySQL flexible server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers.
 
 The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues don't exist and binary logging can't break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
 
-If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
+If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you don't have the SUPER privilege, and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
 
 ### innodb_buffer_pool_size
 
@@ -70,11 +88,11 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 
 MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
 
-Azure Database for MySQL - Flexible Server supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
+Azure Database for MySQL flexible server supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
 
 ### innodb_log_file_size
 
-[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) can't exceed a maximum value that is slightly less than 512 GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash is high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256 MB, 512 MB, 1 GB or 2 GB for Azure Database for MySQL - Flexible Server. The parameter is static and requires a restart.
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) can't exceed a maximum value that is slightly less than 512 GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash is high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256 MB, 512 MB, 1 GB or 2 GB for Azure Database for MySQL flexible server. The parameter is static and requires a restart.
 
 > [!NOTE]
 > If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay.
@@ -125,17 +143,17 @@ This parameter can be set at a session level using `init_connect`. To set **inno
 
 ### time_zone
 
-Upon initial deployment, an Azure for MySQL Flexible Server includes system tables for time zone information, but these tables aren't populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+Upon initial deployment, an Azure Database for MySQL flexible server instance includes system tables for time zone information, but these tables aren't populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ### binlog_expire_logs_seconds
 
-In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
+In Azure Database for MySQL flexible server this parameter specifies the number of seconds the service waits before purging the binary log file.
 
-The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't be purged soon enough and can lead to increase in the storage billing.
+The binary log contains "events" that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure Database for MySQL flexible server, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from Azure Database for MySQL flexible server, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't be purged soon enough and can lead to increase in the storage billing.
 
 ### event_scheduler
 
-In Azure Database for MySQL, the `event_schedule` server parameter manages creating, scheduling, and running events, i.e., tasks that run according to a schedule, and they're run by a special event scheduler thread. When the `event_scheduler` parameter is set to ON, the event scheduler thread is listed as a daemon process in the output of SHOW PROCESSLIST. You can create and schedule events using the following SQL syntax:
+In Azure Database for MySQL flexible server, the `event_schedule` server parameter manages creating, scheduling, and running events, that is, tasks that run according to a schedule, and they're run by a special event scheduler thread. When the `event_scheduler` parameter is set to ON, the event scheduler thread is listed as a daemon process in the output of SHOW PROCESSLIST. You can create and schedule events using the following SQL syntax:
 
 ```sql
 CREATE EVENT <event name>
@@ -156,7 +174,7 @@ DO
 
 #### Configuring the event_scheduler server parameter
 
-The following scenario illustrates one way to use the `event_scheduler` parameter in Azure Database for MySQL. To demonstrate the scenario, consider the following example, a simple table:  
+The following scenario illustrates one way to use the `event_scheduler` parameter in Azure Database for MySQL flexible server. To demonstrate the scenario, consider the following example, a simple table:  
 
 ```azurecli
 mysql> describe tab1;
@@ -170,15 +188,15 @@ mysql> describe tab1;
 3 rows in set (0.23 sec)
 ```
 
-To configure the `event_scheduler` server parameter in Azure Database for MySQL, perform the following steps:
+To configure the `event_scheduler` server parameter in Azure Database for MySQL flexible server, perform the following steps:
 
-1. In the Azure portal, navigate to your server, and then, under **Settings**, select **Server parameters**.
+1. In the Azure portal, navigate to your Azure Database for MySQL flexible server instance, and then, under **Settings**, select **Server parameters**.
 2. On the **Server parameters** blade, search for `event_scheduler`, in the **VALUE** drop-down list, select **ON**, and then select **Save**.
 
     > [!NOTE]
     > The dynamic server parameter configuration change will be deployed without a restart.
 
-3. Then to create an event, connect to the MySQL server, and run the following SQL command:
+3. Then to create an event, connect to the Azure Database for MySQL flexible server instance, and run the following SQL command:
 
     ```sql
     CREATE EVENT test_event_01
@@ -289,7 +307,7 @@ DO
 
 #### Limitations
 
-For servers with High Availability configured, when failover occurs, it's possible that the `event_scheduler` server parameter will be set to ‘OFF’. If this occurs, when the failover is complete, configure the parameter to set the value to ‘ON’.  
+For servers with High Availability configured, when failover occurs, it's possible that the `event_scheduler` server parameter will be set to 'OFF'. If this occurs, when the failover is complete, configure the parameter to set the value to 'ON'.  
 
 ## Nonmodifiable server parameters
 

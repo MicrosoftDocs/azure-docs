@@ -5,8 +5,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 11/01/2021
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -117,7 +116,7 @@ After the blob index updates, you can use the native query and discovery capabil
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 
 > [!IMPORTANT]
-> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
+> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to find blobs by tags (the `f` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permission can perform this operation.
 
@@ -243,7 +242,7 @@ The following sample lifecycle management rule applies to block blobs in a conta
 
 You can authorize access to blob index tags using one of the following approaches:
 
-- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+- Using Azure role-based access control (Azure RBAC) to grant permissions to a Microsoft Entra security principal. Use Microsoft Entra ID for superior security and ease of use. For more information about using Microsoft Entra ID with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 - Using a shared access signature (SAS) to delegate access to blob index. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
@@ -253,7 +252,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Azure AD identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
+Callers using an [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -316,7 +315,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blob Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 <a id="regional-availability-and-storage-account-support"></a>
 
@@ -340,19 +339,9 @@ This section describes known issues and conditions.
 
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Can blob index help me filter and query content inside my blobs?**
-
-No, if you need to search within your blob data, use query acceleration or Azure search.
-
-**Are there any requirements on index tag values?**
-
-Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
-
-**Are blob index tags and Azure Resource Manager tags related?**
-
-No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+See [Blob index tags FAQ](storage-blob-faq.yml#blob-index-tags).
 
 ## Next steps
 

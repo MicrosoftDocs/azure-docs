@@ -1,16 +1,14 @@
 ---
 title: What's new - Speech service
 titleSuffix: Azure AI services
-description: Find out about new releases and features for the Azure AI service for Speech.
-services: cognitive-services
+description: Find out about new releases and features for Azure AI Speech.
 manager: nitinme
 author: eric-urban
 ms.author: eur
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 03/16/2023
-ms.custom: ignite-fall-2021, references_regions
+ms.date: 1/21/2024
+ms.custom: references_regions
 ---
 
 # What's new in Azure AI Speech?
@@ -19,12 +17,9 @@ Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## Recent highlights
 
-* Speech SDK 1.30.0 was released in July 2023.
-* Speech to text and text to speech container versions were updated in March 2023.
-* Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
-* Custom Speech to text container disconnected mode was released in January 2023.
-* Text to speech Batch synthesis API is available in public preview.
-* Speech to text REST API version 3.1 is generally available.
+* The Azure AI Speech service supports OpenAI text to speech voices. For more information, see [What are OpenAI text to speech voices?](./openai-voices.md). 
+* The custom voice API is available for creating and managing [professional](./professional-voice-create-project.md) and [personal](./personal-voice-create-project.md) custom neural voice models. 
+* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 
 
 ## Release notes
 

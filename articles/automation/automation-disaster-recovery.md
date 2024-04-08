@@ -23,10 +23,10 @@ In addition to high availability offered by Availability zones, some regions are
 
 ## Enable disaster recovery
 
-Every Automation account that you [create](https://learn.microsoft.com/azure/automation/quickstarts/create-azure-automation-account-portal)
+Every Automation account that you [create](/azure/automation/quickstarts/create-azure-automation-account-portal)
 requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
 
-- Begin by [creating a replica Automation account](https://learn.microsoft.com/azure/automation/quickstarts/create-azure-automation-account-portal#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+- Begin by [creating a replica Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
 - Apart from creating a replica of the Automation account, replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account in primary region to the Automation account in secondary region. You can use the [PowerShell script](#script-to-migrate-automation-account-assets-from-one-region-to-another) to migrate assets of the Automation account from one region to another.
 - If you are using [ARM templates](../azure-resource-manager/management/overview.md) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary region has a disruption or failure. 
@@ -89,7 +89,7 @@ You can use these scripts for migration of Automation account assets from the ac
       - Az.Resources version 6.0.0 
       - Az.Automation version 1.7.3 
       - Az.Storage version 4.6.0 
-1. Ensure that both the source and destination Automation accounts should belong to the same Azure Active Directory tenant.
+1. Ensure that both the source and destination Automation accounts should belong to the same Microsoft Entra tenant.
 
 ### Create and execute the runbook
 You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 

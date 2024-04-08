@@ -1,14 +1,11 @@
 ---
 title: "Tutorial: Grant a user access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a user access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
-services: active-directory
 author: rolyon
 manager: amycolannino
-
 ms.service: role-based-access-control
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref,  azure-ad-ref-level-one-done
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for users to resources so that they can perform their job.
@@ -33,8 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create users in Azure Active Directory (or have an existing user)
+- Permissions to create users in Microsoft Entra ID (or have an existing user)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## Role assignments
 
@@ -54,21 +52,20 @@ To assign a role, you need a user, group, or service principal. If you don't alr
 1. In Azure Cloud Shell, create a password that complies with your password complexity requirements.
 
     ```azurepowershell
-    $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-    $PasswordProfile.Password = "Password"
+    $PasswordProfile = @{ Password = "<Password>" }
     ```
 
-1. Create a new user for your domain using the [New-AzureADUser](/powershell/module/azuread/new-azureaduser) command.
+1. Create a new user for your domain using the [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser) command.
 
     ```azurepowershell
-    New-AzureADUser -DisplayName "RBAC Tutorial User" -PasswordProfile $PasswordProfile `
-      -UserPrincipalName "rbacuser@example.com" -AccountEnabled $true -MailNickName "rbacuser"
+    New-MgUser -DisplayName "RBAC Tutorial User" -PasswordProfile $PasswordProfile `
+       -UserPrincipalName "rbacuser@example.com" -AccountEnabled:$true -MailNickName "rbacuser"
     ```
-    
-    ```Example
-    ObjectId                             DisplayName        UserPrincipalName    UserType
-    --------                             -----------        -----------------    --------
-    11111111-1111-1111-1111-111111111111 RBAC Tutorial User rbacuser@example.com Member
+
+    ```output
+    DisplayName        Id                                   Mail UserPrincipalName
+    -----------        --                                   ---- -----------------
+    RBAC Tutorial User 11111111-1111-1111-1111-111111111111      rbacuser@example.com
     ```
 
 ## Create a resource group
@@ -264,10 +261,11 @@ To clean up the resources created by this tutorial, delete the resource group an
     
 1. When asked to confirm, type **Y**. It will take a few seconds to delete.
 
-1. Delete the user using the [Remove-AzureADUser](/powershell/module/azuread/remove-azureaduser) command.
+1. Delete the user using the [Remove-MgUser](/powershell/module/microsoft.graph.users/remove-mguser) command.
 
     ```azurepowershell
-    Remove-AzureADUser -ObjectId "rbacuser@example.com"
+    $User = Get-MgUser -Filter "DisplayName eq 'RBAC Tutorial User'"
+    Remove-MgUser -UserId $User.Id
     ```
 
 ## Next steps

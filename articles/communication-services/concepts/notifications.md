@@ -27,6 +27,9 @@ Learn more about [event handling in Azure Communication Services](../../event-gr
 
 ## Deliver push notifications via Azure Notification Hubs
 
+> [!IMPORTANT]
+> Azure Notification Hubs has announced that Firebase Cloud Messaging (FCM) legacy API will be deprecated in July 2024. This will affect all Azure Communiation Services Calling and Chat applications who send Android push notifications. Customers impacted will need to migrate their registrations from FCM legacy to FCM v1, and can start doing so in March 2024. For more information including migration steps, please see [Notifcation Hub documentation](../../notification-hubs/notification-hubs-gcm-to-fcm.md).
+
 You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or to notify them about missed chat activity. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call or read the newly received chat message. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notification Hubs.":::
@@ -34,7 +37,7 @@ You can connect an Azure Notification Hub to your Communication Services resourc
 Communication Services uses Azure Notification Hub as a pass-through service to communicate with the various platform-specific push notification services using the [Direct Send](/rest/api/notificationhubs/direct-send) API. This allows you to reuse your existing Azure Notification Hub resources and configurations to deliver low latency, reliable notifications to your applications.
 
 > [!NOTE]
-> Currently calling push notifications are supported for both Android and iOS. Chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
+> Currently calling and chat push notifications are supported for both Android and iOS.
 
 ### Notification Hub provisioning
 

@@ -4,7 +4,6 @@ description: Learn how to create a copy of an Azure VM to use as a backup or for
 author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/22/2022
 ---
@@ -36,7 +35,7 @@ To create a snapshot using the Azure portal, complete these steps.
 
 # [PowerShell](#tab/powershell)
 
-This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure CLI](/cli/azure/) installed.
+This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or install the [Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Follow these steps to take a snapshot with the `New-AzSnapshotConfig` and `New-AzSnapshot` cmdlets. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group. The code sample provided creates a snapshot in the same resource group and within the same region as your source VM.
 
@@ -68,7 +67,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
        -CreateOption copy
    ```
 
-   If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](../availability-zones/az-overview.md and include the `-SkuName Standard_ZRS` parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+   If you want to store your snapshot in zone-resilient storage, you must create the snapshot in a region that supports [availability zones](../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter. For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Take the snapshot.
 

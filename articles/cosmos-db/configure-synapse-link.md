@@ -1,12 +1,12 @@
 ---
 title: Configure and use Azure Synapse Link for Azure Cosmos DB
-description: Learn how to enable Synapse Link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos DB database to Synapse workspace, and run queries. 
+description: Learn how to enable Synapse Link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos DB database to Synapse workspace, and run queries.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db, ignite-2022
+ms.custom: references_regions, synapse-cosmos-db
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
@@ -40,11 +40,11 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 ### Azure portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
-1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Intergrations in the left pane.
+1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Integrations in the left pane.
 
 1. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
@@ -101,13 +101,13 @@ Please note the following details when enabling Azure Synapse Link on your exist
 * You won't be able to query analytical store of an existing container while Synapse Link is being enabled on that container. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
 
 > [!NOTE]
-> Currently you can't enable Synapse Link on your existing MongoDB API containers. Synapse Link can be enabled on newly created Mongo DB containers.
+> Now you can enable Synapse Link on your existing MongoDB API collections, using Azure CLI or PowerShell.
 
 
 ### Azure portal
 
 #### New container 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
@@ -123,7 +123,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 #### Existing container
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** tab.
 
@@ -142,7 +142,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 The following options enable Synapse Link in a container by using Azure CLI by setting the `--analytical-storage-ttl` property. 
 
-* [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
+* [Create or update an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
 * [Create or update an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create)
 
 ##### Use Azure CLI to enable Synapse Link for Azure Synapse Link for Gremlin API Graphs
@@ -159,7 +159,7 @@ For existing graphs, replace `create` with `update`.
 
 The following options enable Synapse Link in a container by using Azure CLI by setting the `-AnalyticalStorageTtl` property. 
 
-* [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [Create or update an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
 * [Create or update an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
 
 
@@ -222,16 +222,6 @@ try:
 except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
-
-## Optional - Disable analytical store
-
-Analytical store can be disabled in SQL API containers or in MongoDB API collections, using Azure CLI or PowerShell. It is done by setting `analytical TTL` to `0`.
-
-> [!NOTE]
-> Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
-
-> [!NOTE]
-> Please note that currently it is not possible to disable Synapse Link from a database account.
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 

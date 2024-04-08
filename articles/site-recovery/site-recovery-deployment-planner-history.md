@@ -3,10 +3,10 @@ title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
 author: ankitaduttaMSFT
-manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 6/4/2020
+ms.custom:
+ms.date: 12/15/2023
 ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History
@@ -56,7 +56,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Added support for Windows Server 2019 and Red Hat Enterprise Linux (`RHEL`) workstation.
 
 > [!Note]
->- It is not recommended to run the deployment planner on the ESXi version 6.7.0 Update 2 Build 13006603, as it does not work as expected. 
+>- It is not recommended to run the deployment planner on the ESXi version 6.7.0 Update 2 Build 13006603, as it does not work as expected.
 
 ## Version 2.3
 
@@ -66,7 +66,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 - Fixed an issue that prevented the Deployment Planner from generating a report with the provided target location and subscription.
 
-## Version 2.2 
+## Version 2.2
 
 **Release Date: April 25, 2018**
 
@@ -92,9 +92,9 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Fixed bugs in the GetThroughput operation.
 - Added option to limit the number of VMs to profile or generate the report. The default limit is 1,000 VMs.
 - VMware to Azure disaster recovery:
-  - Fixed an issue of Windows Server 2016 VM going into the incompatible table. 
+  - Fixed an issue of Windows Server 2016 VM going into the incompatible table.
   - Updated compatibility messages for Extensible Firmware Interface (EFI) Windows VMs.
-- Updated the VMware to Azure and Hyper-V to Azure, VM data churn limit per VM. 
+- Updated the VMware to Azure and Hyper-V to Azure, VM data churn limit per VM.
 - Improved reliability of VM list file parsing.
 
 ## Version 2.0.1
@@ -122,7 +122,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 ## Version 1.3.1
 
-**Release Date: July 19, 2017** 
+**Release Date: July 19, 2017**
 
 **Fixes:**
 

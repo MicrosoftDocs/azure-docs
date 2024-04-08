@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 08/17/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -64,10 +64,26 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 
 ## Upgrade using Azure CLI
 
-To upgrade a cache from 4 to 6 using the Azure CLI, use the following command:
+To upgrade a cache from 4 to 6 using the Azure CLI that is not using Private Endpoint, use the following command. 
 
 ```azurecli-interactive
 az redis update --name cacheName --resource-group resourceGroupName --set redisVersion=6
+```
+
+### Private Endpoint
+
+If Private Endpoint is enabled on the cache, use the command that is appropriate based on whether `PublicNetworkAccess` is enabled or disabled:
+
+If `PublicNetworkAccess` is enabled:
+
+```azurecli
+ az redis update --name <cacheName> --resource-group <resourceGroupName> --set publicNetworkAccess=Enabled redisVersion=6
+```
+
+If `PublicNetworkAccess` is disabled:
+
+```azurecli
+az redis update --name <cacheName> --resource-group <resourceGroupName> --set publicNetworkAccess=Disabled redisVersion=6
 ```
 
 ## Upgrade using PowerShell
@@ -80,6 +96,5 @@ Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -Redis
 
 ## Next steps
 
-- To learn more about Azure Cache for Redis versions, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)

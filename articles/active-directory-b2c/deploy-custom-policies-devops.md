@@ -2,16 +2,20 @@
 title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer managing Azure AD B2C custom policies, I want to automate the deployment process using Azure Pipelines, so that I can consistently test, build, and ship my code to any target.
+
 ---
 
 # Deploy custom policies with Azure Pipelines
@@ -19,7 +23,7 @@ ms.subservice: B2C
 [Azure Pipelines](/azure/devops/pipelines) supports continuous integration (CI) and continuous delivery (CD) to constantly and consistently test, build, and ship a code to any target. This article describes how to automate the deployment process of the Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using Azure Pipelines.
 
 > [!IMPORTANT]
-> Managing Azure AD B2C custom policies with Azure Pipelines currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
+> Managing Azure AD B2C custom policies with Azure Pipelines currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta&preserve-view=true).
 
 ## Prerequisites
 
@@ -44,7 +48,7 @@ With a Microsoft Graph application registered, you're ready to configure a repos
 1. In the root directory of your repository, create a folder named `Scripts`. Create a PowerShell file *DeployToB2C.ps1*. Paste the following PowerShell script into *DeployToB2C.ps1*. 
 1. **Commit** and **Push** the changes.
 
-The following script acquires an access token from Azure AD. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder. You can also change the content of the policy before uploading it. For example, replace the `tenant-name.onmicrosoft.com` with your tenant name.
+The following script acquires an access token from Microsoft Entra ID. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder. You can also change the content of the policy before uploading it. For example, replace the `tenant-name.onmicrosoft.com` with your tenant name.
 
 ```PowerShell
 [Cmdletbinding()]
@@ -199,9 +203,9 @@ You should see a notification banner that says that a release has been queued. T
 Learn more about:
 
 * [Service-to-service calls using client credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)
-* [Azure DevOps Services](/azure/devops/user-guide/)
+* [Azure DevOps Services](/azure/devops/get-started/)
 
 <!-- LINKS - External -->
 [devops]: /azure/devops/
 [devops-create-project]:  /azure/devops/organizations/projects/create-project
-[devops-pipelines]: /azure/devops/pipelines
+[devops-pipelines]: /azure/devops/pipelines/

@@ -87,8 +87,7 @@ When you upload the file to the Azure Blob storage, Event Grid sends a message t
 
 ## Clean up resources
 
-When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-).
+When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ## Next steps
 

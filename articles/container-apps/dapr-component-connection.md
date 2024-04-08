@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 07/06/2023
+ms.date: 12/20/2023
 ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
@@ -30,7 +30,7 @@ Start by navigating to the Dapr component creation feature.
 
 1. In the Azure portal, navigate to your Container Apps environment.
 1. In the left-side menu, under **Settings**, select **Dapr components**. 
-1. From the top menu, select **Add** > **Azure component (preview)** to open the **Add Dapr Component** configuration pane.
+1. From the top menu, select **Add** > **Azure component** to open the **Add Dapr Component** configuration pane.
 
    :::image type="content" source="media/dapr-component-connection/select-azure-component.png" alt-text="Screenshot of selecting Azure Component from the drop down menu.":::
 
@@ -99,9 +99,11 @@ You can then check the YAML/Bicep artifact into a repo and recreate it outside o
 
    :::image type="content" source="media/dapr-component-connection/manage-dapr-component.png" alt-text="Screenshot of the Azure platform showing existing Dapr Components.":::
 
-
-
 ## Next steps
+
+[Enable Dapr on your container apps.](./enable-dapr.md)
+
+## Related links
 
 Learn more about:
 - [Using Dapr with Azure Container Apps](./dapr-overview.md)

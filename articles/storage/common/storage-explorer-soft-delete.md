@@ -4,6 +4,7 @@ description: Soft delete in Azure Storage Explorer
 services: storage
 author: JasonYeMSFT
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: chuye

@@ -7,8 +7,8 @@ keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
-ms.custom: seodec18
-
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service
 "502 bad gateway" and "503 service unavailable" are common errors in your app hosted in [Azure App Service](./overview.md). This article helps you troubleshoot these errors.

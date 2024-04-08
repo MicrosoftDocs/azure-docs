@@ -7,15 +7,12 @@ ms.author: williamzhao
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 06/08/2023
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to target a specific worker
 ---
 
 # How to get estimated wait time and job position
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 In the context of a call center, customers might want to know how long they need to wait before they're connected to an agent. As such, Job Router can calculate the estimated wait time or position of a job in a queue.
 
@@ -42,8 +39,8 @@ Console.WriteLine($"Queue statistics: {JsonSerializer.Serialize(queueStatistics.
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-var queueStatistics = await client.getQueueStatistics("queue1");
-console.log(`Queue statistics: ${JSON.stringify(queueStatistics)}`);
+var queueStatistics = await client.path("/routing/queues/{queueId}/statistics", "queue-1").get();
+console.log(`Queue statistics: ${JSON.stringify(queueStatistics.body)}`);
 ```
 
 ::: zone-end
@@ -88,8 +85,8 @@ Console.WriteLine($"Queue position details: {JsonSerializer.Serialize(queuePosit
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-var queuePositionDetails = await client.getQueuePosition("job1");
-console.log(`Queue position details: ${JSON.stringify(queuePositionDetails)}`);
+var queuePositionDetails = await client.path("/routing/jobs/{jobId}/position", "job1").get();
+console.log(`Queue position details: ${JSON.stringify(queuePositionDetails.body)}`);
 ```
 
 ::: zone-end

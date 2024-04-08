@@ -4,10 +4,10 @@ description: Create your first WordPress site on Azure App Service in minutes.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ms.topic: quickstart
-ms.date: 05/15/2023
-ms.devlang: wordpress
+ms.date: 03/28/2024
+# ms.devlang: wordpress
 ms.author: msangapu
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ---
 # Create a WordPress site
 
@@ -16,14 +16,6 @@ ms.custom: mvc
 In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) with [Azure Database for MySQL - Flexible Server](../mysql/flexible-server/index.yml) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Standard** tier for your app and a **Burstable, B2s** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/), [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 To complete this quickstart, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
-
-> [!IMPORTANT]
-> After November 28, 2022, [PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
->
-> For migrating WordPress to App Service, visit [Migrating to App Service](migrate-wordpress.md). Additional documentation can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice).
->
-> To submit feedback on improving the WordPress experience on App Service, visit [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
->
 
 ## Create WordPress site using Azure portal
 
@@ -46,6 +38,9 @@ To complete this quickstart, you need an Azure account with an active subscripti
 1. Select the **Advanced** tab. If you're unfamiliar with an [Azure CDN](../cdn/cdn-overview.md), [Azure Front Door](../frontdoor/front-door-overview.md), or [Blob Storage](../storage/blobs/storage-blobs-overview.md), then clear the checkboxes. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
+    
+   > [!NOTE]
+   > The WordPress app requires a virtual network with an address space of /23 at minimum. 
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  

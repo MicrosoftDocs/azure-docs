@@ -4,15 +4,18 @@ description: Name Resolution scenarios for Linux virtual machines in Azure IaaS,
 author: RicksterCDN
 ms.service: virtual-machines
 ms.subservice: networking
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 04/11/2023
 ms.author: rclaus
 ms.collection: linux
-
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Azure provides DNS name resolution by default for all virtual machines that are in a single virtual network. You can implement your own DNS name resolution solution by configuring your own DNS services on your virtual machines that Azure hosts. The following scenarios should help you choose the one that works for your situation.
 
@@ -153,7 +156,7 @@ sudo systemctl restart NetworkManager
 DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee message delivery, the DNS protocol itself handles retry logic. Each DNS client (operating system) can exhibit different retry logic depending on the creator's preference:
 
 * Windows operating systems retry after one second and then again after another two, four, and another four seconds.
-* The default Linux setup retries after five seconds.  You should change this to retry five times at one-second intervals.  
+* The default Linux setup retries after five seconds.  You should change this to retry five times at one-second intervals.
 
 To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf', and look at the 'options' line, for example:
 
@@ -184,7 +187,7 @@ The `/etc/resolv.conf` file is auto-generated and should not be edited. The spec
 
 ## Name resolution using your own DNS server
 
-Your name resolution needs may go beyond the features that Azure provides. For example, you might require DNS resolution between virtual networks. To cover this scenario, you can use your own DNS servers.  
+Your name resolution needs may go beyond the features that Azure provides. For example, you might require DNS resolution between virtual networks. To cover this scenario, you can use your own DNS servers.
 
 DNS servers within a virtual network can forward DNS queries to recursive resolvers of Azure to resolve hostnames that are in the same virtual network. For example, a DNS server that runs in Azure can respond to DNS queries for its own DNS zone files and forward all other queries to Azure. This functionality enables virtual machines to see both your entries in your zone files and hostnames that Azure provides (via the forwarder). Access to the recursive resolvers of Azure is provided via the virtual IP 168.63.129.16.
 
@@ -204,6 +207,6 @@ If forwarding queries to Azure doesn't suit your needs, you need to provide your
 * Be secured against access from the Internet to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) to each DNS server virtual machine.  
+> For best performance, when you use virtual machines in Azure DNS servers, disable IPv6 and assign an [Instance-Level Public IP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) to each DNS server virtual machine.
 >
 >

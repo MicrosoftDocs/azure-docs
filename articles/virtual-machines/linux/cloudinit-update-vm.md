@@ -1,18 +1,21 @@
 ---
-title: Use cloud-init in a Linux VM on Azure 
+title: Use cloud-init in a Linux VM on Azure
 description: How to use cloud-init to update and install packages in a Linux VM during creation with the Azure CLI
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 03/29/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Use cloud-init to update and install packages in a Linux VM in Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to update packages on a Linux virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
@@ -20,9 +23,9 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 
 For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there is no need to specify `apt`, `zypper` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use.
 
-For this example, we will be using the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+For this example, we will be using the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
-Copy the text below and paste it into the `cloud_init_upgrade.txt` file. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+Copy the text below and paste it into the `cloud_init_upgrade.txt` file. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
 ```yaml
 #cloud-config
@@ -46,7 +49,7 @@ az vm create \
   --image imageCIURN \
   --custom-data cloud_init_upgrade.txt \
   --admin-username azureuser \
-  --generate-ssh-keys 
+  --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -68,7 +71,7 @@ Run the package management tool and check for updates:
 sudo yum check-update
 ```
 
-As cloud-init checked for and installed updates on boot, there should be no additional updates to apply.  
+As cloud-init checked for and installed updates on boot, there should be no additional updates to apply.
 
 - You can see the update process, number of altered packages as well as the installation of `httpd` by running the following command and review the output.
 
@@ -125,5 +128,5 @@ For additional cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
-- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Change VM local hostname](cloudinit-update-vm-hostname.md)
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

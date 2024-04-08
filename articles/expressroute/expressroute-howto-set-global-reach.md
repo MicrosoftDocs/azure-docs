@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure ExpressRoute Global Reach
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
 
  ## Before you begin
 
@@ -38,6 +38,9 @@ Before you start configuration, confirm the following information:
 
    * If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections.
    * If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
+
+> [!NOTE]
+> ExpressRoute Global Reach configurations can only be seen from the configured circuit.
 
 ## Enable connectivity
 

@@ -4,8 +4,7 @@ description: Learn how to use the CLI to deploy Azure Spot Virtual Machines to s
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: jushiman
@@ -44,7 +43,7 @@ az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \

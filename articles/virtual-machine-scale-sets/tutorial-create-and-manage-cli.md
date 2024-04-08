@@ -8,7 +8,6 @@ ms.service: virtual-machine-scale-sets
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
@@ -21,12 +20,12 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -35,6 +34,11 @@ az group create --name myResourceGroup --location eastus
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
 
 ## Create a scale set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
 
 ```azurecli-interactive
@@ -155,8 +159,8 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image <SKU image> \
   --orchestration-mode flexible \
+  --image <SKU image> \
   --vm-sku Standard_F1 \
   --admin-user azureuser \
   --generate-ssh-keys
@@ -189,23 +193,23 @@ myScaleSet_instance3  myResourceGroup  eastus
 ```
 
 ## Stop and deallocate VM instances in a scale set
-To stop all the VM instances in a scale set, use [az vmss stop](/cli/azure/vmss). 
+To stop all the VM instances in a scale set, use [az vmss stop](/cli/azure/vmss).
 
 ```azurecli-interactive
 az vmss stop \
   --resource-group myResourceGroup \
-  --name myScaleSet 
+  --name myScaleSet
 ```
 
-To stop individual VM instances in a scale set, use [az vm stop](/cli/azure/vm) and specify the instance name. 
+To stop individual VM instances in a scale set, use [az vm stop](/cli/azure/vm) and specify the instance name.
 
 ```azurecli-interactive
-az vm stop \ 
+az vm stop \
   --resource-group myResourceGroup \
   --name myScaleSet_instance1
 ```
 
-Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vm deallocate](/cli/azure/vm) and specify the instance names you want deallocated. 
+Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vm deallocate](/cli/azure/vm) and specify the instance names you want deallocated.
 
 ```azurecli-interactive
 az vm deallocate \
@@ -214,15 +218,15 @@ az vm deallocate \
 ```
 
 ## Start VM instances in a scale set
-To start all the VM instances in a scale set, use [az vmss start](/cli/azure/vmss). 
+To start all the VM instances in a scale set, use [az vmss start](/cli/azure/vmss).
 
 ```azurecli-interactive
 az vmss start \
   --resource-group myResourceGroup \
-  --name myScaleSet 
+  --name myScaleSet
 ```
 
-To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm) and specify the instance name. 
+To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm) and specify the instance name.
 
 ```azurecli-interactive
 az vm start \
@@ -231,15 +235,15 @@ az vm start \
 ```
 
 ## Restart VM instances in a scale set
-To restart all the VM instances in a scale set, use [az vmss restart](/cli/azure/vmss). 
+To restart all the VM instances in a scale set, use [az vmss restart](/cli/azure/vmss).
 
 ```azurecli-interactive
 az vmss restart \
   --resource-group myResourceGroup \
-  --name myScaleSet 
+  --name myScaleSet
 ```
 
-To restart individual VM instances in a scale set, use [az vm restart](/cli/azure/vm) and specify the instance name. 
+To restart individual VM instances in a scale set, use [az vm restart](/cli/azure/vm) and specify the instance name.
 
 ```azurecli-interactive
 az vm restart \

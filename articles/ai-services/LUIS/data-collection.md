@@ -1,13 +1,13 @@
 ---
 title: Data collection
 description: Learn what example data to collect while developing your app
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 01/19/2024
 ---
 
 # Data collection for your app

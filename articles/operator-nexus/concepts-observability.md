@@ -14,9 +14,7 @@ ms.custom: template-concept
 The Operator Nexus observability framework provides operational insights into your on-premises instances.
 The framework supports logging, monitoring, and alerting (LMA), analytics, and visualization of operational (platform and workloads) data and metrics.
 
-<!--- IMG ![ Operator Nexus Logging, Monitoring and Alerting (LMA) Framework](Docs/media/log-monitoring-analytics-framework.png) IMG --->
 :::image type="content" source="media/log-monitoring-analytics-framework.png" alt-text="Screenshot of Operator Nexus Logging, Monitoring and Alerting (LMA) Framework.":::
-
 
 Figure:  Operator Nexus Logging, Monitoring and Alerting (LMA) Framework
 
@@ -99,12 +97,11 @@ The logs from Operator Nexus platform are stored in the following tables:
 
 The 'InsightMetrics' table in the Logs section contains the metrics collected from Bare Metal Machines and the undercloud Kubernetes cluster. In addition, a few selected metrics collected from the undercloud can be observed by opening the Metrics tab from the Azure Monitor menu.
 
-<!--- IMG ![Azure Monitor Metrics Selection](Docs/media/azure-monitor-metrics-selection.png) IMG --->
 :::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Screenshot of Azure Monitor Metrics Selection.":::
 
 Figure: Azure Monitor Metrics Selection
 
-See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)** for details on using this tool.
+See **[Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md)** for details on using this tool.
 
 #### Workbooks
 
@@ -117,7 +114,7 @@ You can use the sample Azure Resource Manager alarm templates for [Operator Nexu
 
 ## Log Analytic Workspace
 
-A [LAW](../azure-monitor/logs/log-analytics-workspace-overview.md)
+A [Log Analytics Workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview.md)
 is a unique environment to log data from Azure Monitor and
 other Azure services. Each workspace has its own data repository and configuration but may
 combine data from multiple services. Each workspace consists of multiple data tables.

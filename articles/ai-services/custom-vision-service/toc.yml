@@ -68,14 +68,16 @@ items:
     href: copy-move-projects.md
   - name: View or delete account data
     href: ./export-delete-data.md
-  - name: Update your app to the 3.0 API
-    href: ./update-application-to-3.0-sdk.md
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/custom-vision-service/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
+- name: Concepts
+  items:
+  - name: Compare alternatives
+    href: ./concepts/compare-alternatives.md
 - name: Tutorials
   items:
   - name: Report visual states on IoT device
@@ -118,5 +120,4 @@ items:
     href: /samples/browse/?products=azure&term=vision
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Release Notes
-    href: release-notes.md
+

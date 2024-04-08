@@ -24,7 +24,7 @@ Resetting your ExpressRoute peerings might be helpful in the following scenarios
 
 ## Sign in to the Azure portal
 
-From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
 
 ## Reset a peering
 

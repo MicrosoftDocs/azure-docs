@@ -2,10 +2,9 @@
 title: Azure Communication Services chat logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services chat.
-author: ddematheu2
+author: tophpalmer
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -17,7 +16,7 @@ ms.subservice: data
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
 > [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 ## Resource log categories
 

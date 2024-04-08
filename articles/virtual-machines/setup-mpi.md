@@ -1,16 +1,19 @@
 ---
 title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
-description: Learn how to set up MPI for HPC on Azure. 
+description: Learn how to set up MPI for HPC on Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 03/10/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # Set up Message Passing Interface for HPC
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -18,9 +21,9 @@ The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Pass
 - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED.
 - On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Microsoft MPI (MS-MPI) 2012 R2 or later and Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers.
 
-For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [CentOS-HPC VM images](configure.md#centos-hpc-vm-images) version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](configure.md#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](configure.md#almalinux-hpc-vm-images) are suitable. These VM images come optimized and pre-loaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
 
-Though the examples here are for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
+Though the examples here are for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 20.04, 22.04) and SLES (12 SP4 and 15 SP4). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
 
 > [!NOTE]
 > Running MPI jobs on SR-IOV enabled VMs with certain MPI libraries (such as Platform MPI) may require setting up of partition keys (p-keys) across a tenant for isolation and security. Follow the steps in the [Discover partition keys](#discover-partition-keys) section for details on determining the p-key values and setting them correctly for an MPI job with that MPI library.
@@ -34,21 +37,6 @@ If an HPC application recommends a particular MPI library, try that version firs
 The following figure illustrates the architecture for the popular MPI libraries.
 
 ![Architecture for popular MPI libraries](./media/hpc/mpi-architecture.png)
-
-## UCX
-
-[Unified Communication X (UCX)](https://github.com/openucx/ucx) is a framework of communication APIs for HPC. It is optimized for MPI communication over InfiniBand and works with many MPI implementations such as OpenMPI and MPICH.
-
-```bash
-wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
-tar -xvf ucx-1.4.0.tar.gz
-cd ucx-1.4.0
-./configure --prefix=<ucx-install-path>
-make -j 8 && make install
-```
-
-> [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
 
 ## HPC-X
 
@@ -72,8 +60,8 @@ where:
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
 |`NPROCS`	|Specifies the number of MPI processes. For example: `-n 16`.|
-|`$HOSTFILE`|Specifies a file containing the hostname or IP address, to indicate the location of where the MPI processes will run. For example: `--hostfile hosts`.|
-|`$NUMBER_PROCESSES_PER_NUMA`	|Specifies the number of MPI processes that will run in each NUMA domain. For example, to specify four MPI processes per NUMA, you use `--map-by ppr:4:numa:pe=1`.|
+|`$HOSTFILE`|Specifies a file containing the hostname or IP address, to indicate the location of where the MPI processes run. For example: `--hostfile hosts`.|
+|`$NUMBER_PROCESSES_PER_NUMA`	|Specifies the number of MPI processes that run in each NUMA domain. For example, to specify four MPI processes per NUMA, you use `--map-by ppr:4:numa:pe=1`.|
 |`$NUMBER_THREADS_PER_PROCESS`	|Specifies the number of threads per MPI process. For example, to specify one MPI process and four threads per NUMA, you use `--map-by ppr:1:numa:pe=4`.|
 |`-report-bindings`	|Prints MPI processes mapping to cores, which is useful to verify that your MPI process pinning is correct.|
 |`$MPI_EXECUTABLE`	|Specifies the MPI executable built linking in MPI libraries. MPI compiler wrappers do this automatically. For example: `mpicc` or `mpif90`.|
@@ -203,7 +191,7 @@ where:
 
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
-|`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify scatter, so processes will be evenly scattered among the NUMA domains.|
+|`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify `scatter`, so processes are evenly scattered among the NUMA domains.|
 |`MV2_CPU_BINDING_LEVEL`|Specifies where to pin processes. In this case, you set it to numanode, which means processes are pinned to units of NUMA domains.|
 |`MV2_SHOW_CPU_BINDING`	|Specifies if you want to get debug information about where the processes are pinned.|
 |`MV2_SHOW_HCA_BINDING`	|Specifies if you want to get debug information about which host channel adapter each process is using.|
@@ -287,7 +275,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Use the partition other than default (0x7fff) partition key. UCX requires the MSB of p-key to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
+Note interfaces are named as `mlx5_ib*` inside HPC VM images.
 
 Also note that as long as the tenant (Availability Set or Virtual Machine Scale Set) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
 
@@ -320,11 +308,11 @@ chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 
-The above syntax assumes a shared home directory, else .ssh directory must be copied to each node.
+The above syntax assumes a shared home directory, else `.ssh` directory must be copied to each node.
 
 ## Next steps
 
-- Learn about the [InfiniBand enabled](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs
+- Learn about the [InfiniBand enabled](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs.
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read [Optimal MPI process placement for HB-series VMs](https://techcommunity.microsoft.com/t5/azure-global/optimal-mpi-process-placement-for-azure-hb-series-vms/ba-p/2450663).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).

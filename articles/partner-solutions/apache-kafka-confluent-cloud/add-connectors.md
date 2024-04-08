@@ -1,16 +1,15 @@
 ---
 title: Azure services and Confluent Cloud integration
 description: This article describes how to use Azure services and install connectors for Confluent Cloud integration.
+# customerIntent: As a developer I want set up connectors between Confluent Cloud and Azure services.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 06/24/2022
-author: flang-msft
-ms.author: franlanglois
+ms.date: 1/31/2024
+
 ---
 
 # Azure services and Confluent Cloud integrations
 
-This article describes how to use Azure services like Azure Functions, and install connectors to Azure resources for Confluent Cloud.
+This article describes how to use Azure services like Azure Functions, and how to install connectors to Azure resources for Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 ## Azure Cosmos DB connector
 
@@ -26,8 +25,8 @@ To set up your connector, see [Azure Cosmos DB Sink Connector for Confluent Clou
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
-- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+- For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

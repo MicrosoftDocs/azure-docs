@@ -4,8 +4,7 @@ description: Learn about the schemas used in each built-in watchlist template in
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 12/15/2023
 ---
 
 # Microsoft Sentinel built-in watchlist template schemas (preview)
@@ -25,7 +24,7 @@ The High Value Assets watchlist lists devices, resources, and other assets that 
 | **Asset Name** | String                              | `Microsoft.Storage/storageAccounts/purviewadls`                                                                                          | Optional           |
 | **Asset FQDN** | FQDN                                | `Finance-SRv.local.microsoft.com`                                                                                                        | Mandatory          |
 | **IP Address** | IP                                  | `1.1.1.1`                                                                                                                                | Optional           |
-| **Tags**       | List                                | `["SAW user","Blue Ocean team"] `                                                                                                        | Optional           |
+| **Tags**       | List                                | `["SAW user","Blue Ocean team"] ` for CSV files created in Microsoft Excel or  `[""SAW user"",""Blue Ocean team""] ` for CSV files created in a text editor                                                                                                     | Optional           |
 
 
 ## VIP Users
@@ -38,18 +37,18 @@ The VIP Users watchlist lists user accounts of employees that have high impact v
 | **User AAD Object Id**  | SID    | `03fa4b4e-dc26-426f-87b7-98e0c9e2955e`                | Optional           |
 | **User On-Prem Sid**    | SID    | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **User Principal Name** | UPN    | `JeffL@seccxp.ninja`                                  | Mandatory          |
-| **Tags**                | List   | `["SAW user","Blue Ocean team"]`                      | Optional           |
+| **Tags**                | List   | `["SAW user","Blue Ocean team"]` for CSV files created in Microsoft Excel or `[""SAW user"",""Blue Ocean team""]` for CSV files created in a text editor     | Optional           |
 
 
-## Network Mapping
+## Network Addresses
 
-The Network Mapping watchlist lists IP subnets and their respective organizational contexts, and includes the following fields:
+The Network Addresses watchlist lists IP subnets and their respective organizational contexts, and includes the following fields:
 
 | Field name | Format       | Example                      | Mandatory/Optional |
 | ---------- | ------------ | ---------------------------- | ------------------ |
 | **IP Subnet**  | Subnet range | `198.51.100.0/24` | Mandatory          |
 | **Range Name** | String       | `DMZ`                          | Optional           |
-| **Tags**       | List         | `["Example","Example"]`        | Optional           |
+| **Tags**       | List         | `["Example","Example"]` for CSV files created in Microsoft Excel or `[""Example"",""Example""]` for CSV files created in a text editor      | Optional           |
 
 
 ## Terminated Employees
@@ -65,7 +64,7 @@ The Terminated Employees watchlist lists user accounts of employees that have be
 | **UserState**           | String <br><br>We recommend using either `Notified` or `Terminated` | `Terminated`                           | Mandatory          |
 | **Notification date**  | Timestamp - day <br><br>We recommend using the UTC format                        | `2020-12-1`                             | Optional           |
 | **Termination date**    | Timestamp - day <br><br>We recommend using the UTC format                       | `2021-01-01`                            | Mandatory          |
-| **Tags**                | List                                                                            | `["SAW user","Amba Wolfs team"]`       | Optional           |
+| **Tags**                | List                                                                            | `["SAW user","Amba Wolfs team"]` for CSV files created in Microsoft Excel  or `[""SAW user"",""Amba Wolfs team""]` for CSV files created in a text editor        | Optional           |
 
 
 
@@ -83,7 +82,7 @@ The Identity Correlation watchlist lists related user accounts that belong to th
 | **Email**                            | Email   | `JeffL@seccxp.ninja`                                  | Optional           |
 | **Associated Privileged Account ID** | UID/SID | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **Associated Privileged Account**    | UPN     | `Admin@seccxp.ninja`                                  | Optional           |
-| **Tags**                             | List    | `["SAW user","Amba Wolfs team"]`                      | Optional           |
+| **Tags**                             | List    | `["SAW user","Amba Wolfs team"]` for CSV files created in Microsoft Excel or  `[""SAW user"",""Amba Wolfs team""]`for CSV files created in a text editor                | Optional           |
 
 
 ## Service Accounts
@@ -100,7 +99,7 @@ The Service Accounts watchlist lists service accounts and their owners, and incl
 | **Owner User AAD Object Id**  | SID    | `03fa4b4e-dc26-426f-87b7-98e0c9e2955e`                | Optional           |
 | **Owner User On-Prem Sid**    | SID    | `S-1-12-1-4141952679-1282074057-627758481-2916039507` | Optional           |
 | **Owner User Principal Name** | UPN    | `JeffL@seccxp.ninja`                                  | Mandatory          |
-| **Tags**                      | List   | `["Automation Account","GitHub Account"]`             | Optional           |
+| **Tags**                      | List   | `["Automation Account","GitHub Account"]` for CSV files created in Microsoft Excel or `[""Automation Account"",""GitHub Account""]`for CSV files created in a text editor  | Optional           |
 
 
 ## Next steps

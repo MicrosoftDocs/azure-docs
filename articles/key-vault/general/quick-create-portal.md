@@ -3,12 +3,11 @@ title: Quickstart - Create an Azure Key Vault with the Azure portal
 description: Quickstart showing how to create an Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -22,7 +21,7 @@ In this quickstart, you create a key vault with the [Azure portal](https://porta
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a vault
 

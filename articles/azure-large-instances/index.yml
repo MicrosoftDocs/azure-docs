@@ -7,7 +7,6 @@ metadata:
   title: Azure Large Instances
   titleSuffix: Azure Large Instances
   description: Learn how to use ALI.
-  services: baremetal-infrastructure 
   ms.service: azure-large-instances
   ms.topic: landing-page
   author: jjaygbay1
@@ -22,7 +21,7 @@ landingContent:
         links:
           - text: What is Azure Large Instances?
             url: what-is-azure-large-instances.md
-          - text: Working with Azure Large Instances in the Azure portal
+          - text: Work with Azure Large Instances in the Azure portal
             url: work-with-azure-large-instances-in-azure-portal.md
 
 # card 2

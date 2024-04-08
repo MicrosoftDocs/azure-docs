@@ -1,38 +1,34 @@
 ---
-title: Azure Cognitive Search monitoring data reference
-description: Log and metrics reference for monitoring data from Azure Cognitive Search.
-
-manager: nitinme
+title: Monitoring data reference for Azure AI Search
+description: This article contains important reference material you need when you monitor Azure AI Search.
+ms.date: 02/15/2024
+ms.custom: horz-monitor
+ms.topic: reference
 author: HeidiSteen
 ms.author: heidist
-
 ms.service: cognitive-search
-ms.topic: reference
-ms.date: 02/08/2023
-ms.custom: subject-monitoring
 ---
 
-# Azure Cognitive Search monitoring data reference
+# Azure AI Search monitoring data reference
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cognitive Search. See [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) for an overview.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for details on the data you can collect for Azure AI Search and how to use it.
 
-This section lists the platform metrics collected for Azure Cognitive Search ([Microsoft.Search/searchServices](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices)).  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-| Metric ID | Unit | Description |
-|:-------|:-----|:------------|
-| DocumentsProcessedCount | Count | Total of the number of documents successfully processed in an indexing operation (either by an indexer or by pushing documents directly). |
-| SearchLatency | Seconds | Average search latency for queries that execute on the search service. |
-| SearchQueriesPerSecond | CountPerSecond | Average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in a metric like QPS. </br>The minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.|
-| SkillExecutionCount | Count | Total number of skill executions processed during an indexer operation. |
-| ThrottledSearchQueriesPercentage | Percent | Average percentage of the search queries that were throttled from the total number of search queries that executed during a one-minute interval.|
+### Supported metrics for Microsoft.Search/searchServices
+The following table lists the metrics available for the Microsoft.Search/searchServices resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-search-searchservices-metrics-include.md)]
 
-For reference, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+SearchQueriesPerSecond shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
 
-## Metric dimensions
+For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-Dimensions of a metric are name/value pairs that carry additional data to describe the metric value. Azure Cognitive Search has the following dimensions associated with its metrics that capture a count of documents or skills that were executed ("Document processed count" and "Skill execution invocation count").
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
+Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
 
 | Dimension Name | Description |
 | -------------- | ----------- |
@@ -44,67 +40,63 @@ Dimensions of a metric are name/value pairs that carry additional data to descri
 | **SkillName** | Name of a skill within a skillset. |
 | **SkillType** | The @odata.type of the skill. |
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Resource logs
+### Supported resource logs for Microsoft.Search/searchServices
+[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-search-searchservices-logs-include.md)]
 
-[Resource logs](../azure-monitor/essentials/resource-logs.md) are platform logs that provide insight into operations that were performed within an Azure resource. Resource logs are generated by the search service automatically, but are not collected by default. You must create a diagnostic setting to send resource logs to a Log Analytics workspace to use with Azure Monitor Logs, Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-This section identifies the type (or category) of resource logs you can collect for Azure Cognitive Search:
-
-+ Resource logs are grouped by type (or category). Azure Cognitive Search generates resource logs under the [**Operations category**](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices).
-
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-## Azure Monitor Logs tables
-
-[Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. If you configured a diagnostic setting for Log Analytics, you can query the Azure Monitor Logs tables for the resource logs generated by Azure Cognitive Search.
-
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Cognitive Search and available for query by Log Analytics and Metrics Explorer in the Azure portal.
+### Search Services
+Microsoft.Search/searchServices
 
 | Table | Description |
 |-------|-------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure Activity log that provide insight into control plane operations. Tasks invoked on the control plane, such as adding or removing replicas and partitions, will be represented through a "Get Admin Key" activity. |
-| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) | Logged query and indexing operations.|
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure Cognitive Search that measures health and performance. |
+| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure activity log provide insight into control plane operations. Tasks invoked on the control plane, such as adding or removing replicas and partitions, are represented through a "Get Admin Key" activity. |
+| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) | Logged query and indexing operations. Queries against the AzureDiagnostics table in Log Analytics can include the common properties, the [search-specific properties](#resource-log-search-props), and the [search-specific operations](#resource-log-search-ops) listed in the schema reference section. |
+| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure AI Search that measures health and performance. |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype#search-services).
+### Resource log tables
 
-### Diagnostics tables
+The following table lists the properties of resource logs in Azure AI Search. The resource logs are collected into Azure Monitor Logs or Azure Storage. In Azure Monitor, logs are collected in the AzureDiagnostics table under the resource provider name of `Microsoft.Search`.
 
-Azure Cognitive Search uses the [**Azure Diagnostics**](/azure/azure-monitor/reference/tables/azurediagnostics) table to collect resource logs related to queries and indexing on your search service.
+| Azure Storage field or property | Azure Monitor Logs property | Description |
+|-|-|-|
+| time | TIMESTAMP | The date and time (UTC) when the operation occurred. |
+| resourceId | Concat("/", "/subscriptions", SubscriptionId, "resourceGroups", ResourceGroupName, "providers/Microsoft.Search/searchServices", ServiceName) | The Azure AI Search resource for which logs are enabled. |
+| category | "OperationLogs" | Log categories include `Audit`, `Operational`, `Execution`, and `Request`. |
+| operationName | Name | Name of the operation. The operation name can be `Indexes.ListIndexStatsSummaries`, `Indexes.Get`, `Indexes.Stats`, `Indexers.List`, `Query.Search`, `Query.Suggest`, `Query.Lookup`, `Query.Autocomplete`, `CORS.Preflight`, `Indexes.Update`, `Indexes.Prototype`, `ServiceStats`, `DataSources.List`, `Indexers.Warmup`. |
+| durationMS | DurationMilliseconds | The duration of the operation, in milliseconds. |
+| operationVersion | ApiVersion | The API version used on the request. | 
+| resultType | (Failed) ? "Failed" : "Success" | The type of response. |
+| resultSignature | Status | The HTTP response status of the operation. |
+| properties | Properties | Any extended properties related to this category of events.  |
 
-Queries against this table in Log Analytics can include the common properties, the [search-specific properties](#resource-log-search-props), and the [search-specific operations](#resource-log-search-ops) listed in the schema reference section.
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-For examples of Kusto queries useful for Azure Cognitive Search, see [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) and [Analyze performance in Azure Cognitive Search](search-performance-analysis.md).
-
-## Activity logs
-
-The following table lists common operations related to Azure Cognitive Search that may be created in the Azure Activity log.
+The following table lists common operations related to Azure AI Search that may be recorded in the activity log. For a complete listing of all Microsoft.Search operations, see [Microsoft.Search resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftsearch).
 
 | Operation | Description |
 |:----------|:------------|
-| Get Admin Key | Any operation that requires administrative rights will be logged as a "Get Admin Key" operation.  |
+| Get Admin Key | Any operation that requires administrative rights is logged as a "Get Admin Key" operation.  |
 | Get Query Key | Any read-only operation against the documents collection of an index.  |
 | Regenerate Admin Key | A request to regenerate either the primary or secondary admin API key. |
 
-Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure resource logging. 
+Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but don't show the request itself. For information of this grain, you must configure resource logging. 
 
-Alternatively, you might gain some insight through change history. In Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
+Alternatively, you might gain some insight through change history. In the Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md).
+<a name="schemas"></a>
+[!INCLUDE [horz-monitor-ref-other-schemas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 
-## Schemas
-
-The following schemas are in use by Azure Cognitive Search. If you are building queries or custom reports, the data structures that contain Azure Cognitive Search resource logs conform to the schema below.
+If you're building queries or custom reports, the data structures that contain Azure AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
 <a name="resource-log-schema"></a>
-
 ### Resource log schema
 
-All resource logs available through Azure Monitor share a [common top-level schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Azure Cognitive Search supplements with [additional properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
+All resource logs available through Azure Monitor share a [common top-level schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). Azure AI Search supplements with [more properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
 
 The following example illustrates a resource log that includes common properties (TimeGenerated, Resource, Category, and so forth) and search-specific properties (OperationName and OperationVersion).
 
@@ -113,7 +105,7 @@ The following example illustrates a resource log that includes common properties
 | TimeGenerated | Datetime | Timestamp of the operation. For example: `2021-12-07T00:00:43.6872559Z` |
 | Resource | String | Resource ID. For example: `/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Search/searchServices/<your-search-service-name>` |
 | Category | String | "OperationLogs". This value is a constant. OperationLogs is the only category used for resource logs. |
-| OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops) below). An example is `Query.Search` |
+| OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops)). An example is `Query.Search` |
 | OperationVersion | String | The api-version used on the request. For example: `2020-06-30` |
 | ResultType | String |"Success". Other possible values: Success or Failure |
 | ResultSignature | Int | An HTTP result code. For example: `200` |
@@ -124,7 +116,7 @@ The following example illustrates a resource log that includes common properties
 
 #### Properties schema
 
-The properties below are specific to Azure Cognitive Search.
+The following properties are specific to Azure AI Search.
 
 | Name | Type | Description and example |
 | ---- | ---- | ----------------------- |
@@ -137,7 +129,7 @@ The properties below are specific to Azure Cognitive Search.
 
 #### OperationName values (logged operations)
 
-The operations below can appear in a resource log.
+The following operations can appear in a resource log.
 
 | OperationName | Description |
 |:------------- |:------------|
@@ -148,18 +140,17 @@ The operations below can appear in a resource log.
 | DebugSessions.RetrieveProjectedIndexerExecutionHistoricalData  | Execution history for enrichments projected to a knowledge store. |
 | Indexers.* | Applies to an indexer. Can be Create, Delete, Get, List, and Status. |
 | Indexes.* | Applies to a search index. Can be Create, Delete, Get, List.  |
-| indexes.Prototype | This is an index created by the Import Data wizard. |
+| indexes.Prototype | This index is created by the Import Data wizard. |
 | Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
 | Metadata.GetMetadata | A request for search service system data.  |
 | Query.Autocomplete | An autocomplete query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Lookup |  A lookup query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Search |  A full text search request against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Suggest |  Type ahead query against an index. See [Query types and composition](search-query-overview.md). |
-| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it's loaded or refreshed. |
 | Skillsets.* | Applies to a skillset. Can be Create, Delete, Get, List. |
 
-## See also
+## Related content
 
-+ See [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) for concepts and instructions.
-
-+ See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for a description of monitoring Azure AI Search.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

@@ -2,12 +2,14 @@
 title: Troubleshoot why data is no longer being collected in Azure Monitor
 description: Steps to take if data is no longer being collected in Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 07/25/2023
 ---
  
 # Troubleshoot why data is no longer being collected in Azure Monitor
 This article provides guidance to detect when data collection in Azure Monitor stops and steps you can take to determine and correct the causes.
 
+> [!IMPORTANT]
+> If you're troubleshooting data collection for a scenario that uses a data collection rule (DCR) such as Azure Monitor agent or Logs ingestion API, see [Monitor and troubleshoot DCR data collection in Azure Monitor](../essentials/data-collection-monitor.md) for additional troubleshooting information.
 
 ## Data collection status
 When data collection in a Log Analytics workspace stops, an event with a type of **Operation** is created in the workspace. Run the following query to check whether you're reaching the daily limit and missing data: 

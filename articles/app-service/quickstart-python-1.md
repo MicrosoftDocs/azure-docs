@@ -1,10 +1,12 @@
 ---
 title: 'Quickstart: Create a Python app on Linux'
 description: Get started with Azure App Service by deploying a Python app to a Linux container in App Service.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.devlang: python
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, mode-other
+ms.custom: cli-validate, devx-track-python, mode-other, linux-related-content
 zone_pivot_groups: python-frameworks-01
 ROBOTS: noindex
 ---

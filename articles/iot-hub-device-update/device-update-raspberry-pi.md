@@ -225,6 +225,11 @@ Read the license terms prior to using the agent. Your installation and use const
                 }
     ```
 
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+
+   _This screenshot shows the section where the tag needs to be added in the twin._
+   
+
 ## Import the update
 
 1. Download the sample tutorial manifest and sample update (.swu file) and the sample A/B script from [Tutorial_RaspberryPi.zip](https://github.com/Azure/iot-hub-device-update/releases/download/1.0.2/Tutorial_RaspberryPi.zip) under **Release Assets** for the latest agent.

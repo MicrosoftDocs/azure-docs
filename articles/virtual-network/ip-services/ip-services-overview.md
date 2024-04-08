@@ -1,12 +1,12 @@
 ---
 title: What is Azure Virtual Network IP Services?
 description: Overview of Azure Virtual Network IP Services. Learn how IP services work and how to use IP resources in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subService: ip-services
 ms.topic: overview
-ms.date: 04/19/2023
 ms.custom: template-overview
 ---
 
@@ -88,7 +88,7 @@ For more information about private IP addresses, see [Private IP addresses](./pr
 
 ## Routing preference
 
-Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). You can choose the routing option while creating a public IP address. By default, traffic is routed via the Microsoft global network for all Azure services. 
+Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). You can choose the routing option while creating a public IP address. By default, traffic is routed via the Microsoft global network for all Azure services.
 
 Routing preference choices include:
 

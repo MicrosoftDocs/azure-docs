@@ -2,7 +2,7 @@
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 01/04/2024
 ms.author: clemensv
 ---
 ### Create a Node.js application
@@ -51,7 +51,7 @@ Run `npm install hyco-ws` from a Node command prompt in your project folder.
         console.log('error' + err);
     });
     ```
-    Here is what your listener.js file should look like:
+    Here's what your listener.js file should look like:
    
     ```js
     const WebSocket = require('hyco-ws');

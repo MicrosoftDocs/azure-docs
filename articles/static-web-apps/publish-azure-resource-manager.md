@@ -44,7 +44,9 @@ One of the parameters in the ARM template is `repositoryToken`, which allows the
 
 1. Select **Generate New Token**.
 
-1. Provide a name for this token in the _Note_ field, for example *myfirstswadeployment*.
+1. Provide a name for this token in the _Name_ field, for example *myfirstswadeployment*.
+
+1. Select an _Expiration_ for the token, the default is 30 days.
 
 1. Specify the following *scopes*: **repo, workflow, write:packages**
 
@@ -67,9 +69,9 @@ This article uses a GitHub template repository to make it easy for you to get st
     > [!NOTE]
     > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
-1. Select **Create repository from template**.
+1. Select **Create repository**.
 
-    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository from template":::
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="screenshot of the Create repository button.":::
 
 ## Create the ARM Template
 

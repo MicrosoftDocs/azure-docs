@@ -3,15 +3,13 @@ title: SAP HANA Azure virtual machine ANF configuration | Microsoft Docs
 description: Azure NetApp Files Storage recommendations for SAP HANA.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.date: 12/28/2022
+ms.date: 04/01/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # NFS v4.1 volumes on Azure NetApp Files for SAP HANA
@@ -28,8 +26,8 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 
 - The minimum capacity pool is 4 TiB  
 - The minimum volume size is 100 GiB
-- ANF-based NFS shares and the virtual machines that mount those share must be in the same Azure Virtual Network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region
-- The selected virtual network must have a subnet, delegated to Azure NetApp Files. The subnet requires a minimum of a /28 IP address range. Ideally a /26 would be better if many ANF volumes should be mounted to VMs in the specific VNET
+- ANF-based NFS shares and the virtual machines that mount those shares must be in the same Azure Virtual Network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files. **For SAP workload, it is highly recommended to configure a /25 range for the subnet delegated to ANF.** 
 - It's important to have the virtual machines deployed sufficient proximity to the Azure NetApp storage for lower latency as, for example, demanded by SAP HANA for redo log writes.
     - Azure NetApp Files meanwhile has functionality to deploy NFS volumes into specific Azure Availability Zones. Such a zonal proximity is going to be sufficient in the majority of cases to achieve a latency of less than 1 millisecond. The functionality is in public preview and described in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). This functionality isn't requiring any interactive process with Microsoft to achieve proximity between your VM and the NFS volumes you allocate.
     - To achieve most optimal proximity, the functionality of [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md) is available. This functionality isn't only looking for most optimal proximity, but for most optimal placement of the NFS volumes, so, that HANA data and redo log volumes are handled by different controllers. The disadvantage is that this method needs some interactive process with Microsoft to pin your VMs. 
@@ -60,7 +58,7 @@ For Linux OS releases that support nconnect as a mount option and some important
 
 The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service levels for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
-Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint will be dynamically injected into the [Azure NetApp Files delegated subnet](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
+Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint is going to be dynamically injected into the [Azure NetApp Files delegated subnet](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
 
 The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it doesn't make sense to create a “Ultra” volume larger than 12 TB because the maximal physical bandwidth capacity of a single volume would be exceeded. 
 
@@ -113,7 +111,8 @@ To meet the SAP minimum throughput requirements for data and log, and according 
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 or v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 or v4.1 |
 
-For all volumes, NFS v4.1 is highly recommended
+For all volumes, NFS v4.1 is highly recommended.  
+Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system), as appropriately sized **/hana/shared** volume contributes to system's stability.   
 
 The sizes for the backup volumes are estimations. Exact requirements need to be defined based on workload and operation processes. For backups, you could consolidate many volumes for different SAP HANA instances to one (or two) larger volumes, which could have a lower service level of ANF.
 
@@ -163,7 +162,7 @@ net.ipv4.tcp_sack = 1
 ```
 
 ## Deployment with zonal proximity
-To get a zonal proximity of your NFS volumes and VMs, you can follow the instructions as described in [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). With this method, the VMs and the NFS volumes will be in the same Azure Availability Zone. In most of the Azure regions, this type of proximity should be sufficient to achieve less than 1 millisecond latency for the smaller redo log writes for SAP HANA. This method doesn't require any interactive work with Microsoft to place and pin VMs into specific datacenter. As a result, you're flexible with change VM sizes and families within all the VM types and families offered in the Availability Zone you deployed. So, that you can react flexible on chanign conditions or move faster to more cost efficient VM sizes or families. We recommend this method for non-production systems and production systems that can work with redo log latencies that are closer to 1 millisecond. **The functionality is currently in public preview**.
+To get a zonal proximity of your NFS volumes and VMs, you can follow the instructions as described in [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). With this method, the VMs and the NFS volumes are going to be in the same Azure Availability Zone. In most of the Azure regions, this type of proximity should be sufficient to achieve less than 1 millisecond latency for the smaller redo log writes for SAP HANA. This method doesn't require any interactive work with Microsoft to place and pin VMs into specific datacenter. As a result, you're flexible with change VM sizes and families within all the VM types and families offered in the Availability Zone you deployed. So, that you can react flexible on chanign conditions or move faster to more cost efficient VM sizes or families. We recommend this method for non-production systems and production systems that can work with redo log latencies that are closer to 1 millisecond. **The functionality is currently in public preview**.
 
 ## Deployment through Azure NetApp Files application volume group for SAP HANA (AVG)
 To deploy ANF volumes with proximity to your VM, a new functionality called Azure NetApp Files application volume group for SAP HANA (AVG) got developed. There's a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs involves the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VMs aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
@@ -240,7 +239,7 @@ This is sample code, provided “as-is” without any maintenance or support.
 Available solutions for storage snapshot based application consistent backup:
 
 - Microsoft [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases. It handles all the orchestration required to put the databases into an application consistent state before taking a storage snapshot. After the storage snapshot has been taken, the tool returns the databases to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. for more details, read the article [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) 
-- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/v11/essential/getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
 
 
 

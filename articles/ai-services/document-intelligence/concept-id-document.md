@@ -1,53 +1,65 @@
 ---
-title: Identity document (ID) processing – Document Intelligence
+title: Identity document (ID) processing – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Automate identity document (ID) processing of driver licenses, passports, and more with Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 03/06/2024
 ms.author: lajanuar
-ms.custom: references.regions
-monikerRange: '<=doc-intel-3.0.0'
+ms.custom:
+  - references.regions
+  - ignite-2023
 ---
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence identity document model
+# Document Intelligence ID document model
+
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 Document Intelligence Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents. The API analyzes identity documents (including the following) and returns a structured JSON data representation:
 
-* US Drivers Licenses (all 50 states and District of Columbia)
-* International passport biographical pages
-* US state IDs
-* Social Security cards
-* Permanent resident cards
+* Passport book, passport card worldwide
+* Driver's license from United States, Europe, India, Canada, and Australia
+* United States identification cards, residency permit (green card), social security card, military ID
+* European identification cards, residency permits
+* India PAN card, Aadhaar card
+* Canada identification cards, residency permit (maple card)
+* Australia photo card, key-pass ID (including digital version)
 
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Document Intelligence v2.1 as a cloud service. 
+Document Intelligence can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, surname, date of birth, document number, and more. This API is available in the Document Intelligence v2.1 as a cloud service. 
 
 ::: moniker-end
 
 ## Identity document processing
 
-Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document is processing an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+Identity document processing involves extracting data from identity documents either manually or by using OCR-based technology. ID document processing is an important step in any business operation that requires proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ***Sample U.S. Driver's License processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
@@ -73,26 +85,45 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ## Development options
 
-::: moniker range="doc-intel-3.0.0"
-Document Intelligence v3.0 supports the following tools:
+::: moniker range="doc-intel-4.0.0"
+
+Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-idDocument**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-idDocument**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-idDocument**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**ID document model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-identity-id-documents)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**ID document model**|&bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</br>&bullet;  [**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</br>&bullet;  [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet;  [**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)|
 ::: moniker-end
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
@@ -100,41 +131,40 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
+* Supported file formats: JPEG, PNG, PDF, and TIFF.
 
-* Document Intelligence processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+* Supported number of pages for PDF and TIFF files: up to 2,000 pages or only the first two pages for free-tier subscribers.
 
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* Supported file size: less than 50 MB TOTAL; minimum pixels: 50 x 50 px; maximum pixels 10,000 x 10,000 px.
 
 ::: moniker-end
 
-### Try Document Intelligence
+### ID document model data extraction
 
 Extract data, including name, birth date, and expiration date, from ID documents. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-::: moniker range="doc-intel-3.0.0"
-
-## Document Intelligence Studio
+::: moniker range=">=doc-intel-3.0.0"
 
 > [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
+> Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
-1. On the Document Intelligence Studio home page, select **Identity documents**
+1. On the Document Intelligence Studio home page, select **Identity documents**.
 
-1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample invoice or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options**:
 
-    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
-    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument).
+
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -164,11 +194,11 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select document type dropdown menu.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of select document type dropdown menu.":::
 
 1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
 
-1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted, and tables detected.
 
     :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Screenshot of the identity model analyze results operation.":::
 
@@ -184,36 +214,24 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Supported document types
 
-| Region | Document Types |
+| Region | Document types |
 |--------|----------------|
 |Worldwide|Passport Book, Passport Card|
-|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
-|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
-|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
-|`United Kingdom (GB)`|Driver License, National Identity Card|
-|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
+|United States|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|Europe|Driver License, Identification Card, Residency Permit|
+|India|Driver License, PAN Card, Aadhaar Card|
+|Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
+|Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ## Field extractions
 
 The following are the fields extracted per document type. The Document Intelligence ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
 
->[!NOTE]
->
-> In addition to specifying the IdDocument model, you can designate the ID type for (driver license, passport, national/regional identity card, residence permit, or US social security card ).
-
-### Data extraction (all types)
-
-|**Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** |**Key-Value pairs** | **Fields** |
-|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|[prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
-
-### Document types
-
-#### `idDocument.driverLicense` fields extracted
+### `idDocument.driverLicense`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -227,8 +245,8 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfBirth`|`date`|Date of birth|01/06/1958|
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
-|`EyeColor`|`string`|Eye color|BLU|
-|`HairColor`|`string`|Hair color|BRO|
+|`EyeColor`|`string`|Eye color|Blue|
+|`HairColor`|`string`|Hair color|Brown|
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
@@ -236,7 +254,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-#### `idDocument.passport` fields extracted
+### `idDocument.passport`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -245,7 +263,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`MiddleName`|`string`|Name between given name and surname|REYES|
 |`LastName`|`string`|Surname|BROOKS|
 |`Aliases`|`array`|||
-|`Aliases.*`|`string`|Also known as|MAY LIN|
+|`Aliases.*`|`string`|Also known as|MAT LIN|
 |`DateOfBirth`|`date`|Date of birth|1980-01-01|
 |`DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`DateOfIssue`|`date`|Date of issue|2014-05-06|
@@ -254,7 +272,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`DocumentType`|`string`|Document type|P|
 |`Nationality`|`countryRegion`|Nationality|USA|
 |`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
-|`PlaceOfIssue`|`string`|Place of issue|LA PAZ|
+|`PlaceOfIssue`|`string`|Place of issue|LISBON|
 |`IssuingAuthority`|`string`|Issuing authority|United States Department of State|
 |`PersonalNumber`|`string`|Personal ID. No.|A234567893|
 |`MachineReadableZone`|`object`|Machine readable zone (MRZ)|P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816|
@@ -267,27 +285,27 @@ The following are the fields extracted per document type. The Document Intellige
 |`MachineReadableZone.DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`MachineReadableZone.Sex`|`string`|Sex|F|
 
-#### `idDocument.nationalIdentityCard` fields extracted
+### `idDocument.nationalIdentityCard`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`CountryRegion`|`countryRegion`|Country or region code|USA|
 |`Region`|`string`|State or province|Washington|
-|`DocumentNumber`|`string`|National/regional identity card number|WDLABCD456DG|
-|`DocumentDiscriminator`|`string`|National/regional identity card document discriminator|12645646464554646456464544|
+|`DocumentNumber`|`string`|National identity card number|WDLABCD456DG|
+|`DocumentDiscriminator`|`string`|National identity card document discriminator|12645646464554646456464544|
 |`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
 |`LastName`|`string`|Surname|TALBOT|
 |`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
 |`DateOfBirth`|`date`|Date of birth|01/06/1958|
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
-|`EyeColor`|`string`|Eye color|BLU|
-|`HairColor`|`string`|Hair color|BRO|
+|`EyeColor`|`string`|Eye color|BLUE|
+|`HairColor`|`string`|Hair color|BROWN|
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 
-#### `idDocument.residencePermit` fields extracted
+### `idDocument.residencePermit`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -301,8 +319,9 @@ The following are the fields extracted per document type. The Document Intellige
 |`Sex`|`string`|Sex|M|
 |`PlaceOfBirth`|`string`|Place of birth|Germany|
 |`Category`|`string`|Permit category|DV2|
+|`Address`|`string`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
 
-#### `idDocument.usSocialSecurityCard` fields extracted
+### `idDocument.usSocialSecurityCard`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -311,7 +330,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument` fields extracted
+### `idDocument`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -326,9 +345,9 @@ The following are the fields extracted per document type. The Document Intellige
 
 ::: moniker range="doc-intel-2.1.0"
 
-## Supported document types and locales
+## Supported document types
 
- **Prebuilt ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
+ The ID document model currently supports US driver licenses and the biographical page from international passports (excluding visa and other travel documents) extraction.
 
 ## Fields extracted
 
@@ -349,15 +368,15 @@ The following are the fields extracted per document type. The Document Intellige
 
 ### Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -365,7 +384,7 @@ The following are the fields extracted per document type. The Document Intellige
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

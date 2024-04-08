@@ -2,8 +2,8 @@
 title: Create an Azure App Configuration store using Bicep
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 05/06/2022
 ms.service: azure-app-configuration
 ms.topic: quickstart
@@ -23,6 +23,10 @@ This quickstart describes how you can use Bicep to:
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Authorization
+
+Managing an Azure App Configuration resource with Bicep file requires an Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires an Azure Resource Manager role and an additional Azure App Configuration [data plane role](concept-enable-rbac.md) when the configuration store's ARM authentication mode is set to [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
 
 ## Review the Bicep file
 

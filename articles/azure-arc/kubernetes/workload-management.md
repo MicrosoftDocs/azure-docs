@@ -34,7 +34,7 @@ To deploy the sample, run the following script:
 mkdir kalypso && cd kalypso
 curl -fsSL -o deploy.sh https://raw.githubusercontent.com/microsoft/kalypso/main/deploy/deploy.sh
 chmod 700 deploy.sh
-./deploy.sh -c -p <prefix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+./deploy.sh -c -p <prefix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 ```
 
 This script may take 10-15 minutes to complete. After it's done, it reports the execution result in the output like this:
@@ -59,7 +59,7 @@ Created AKS clusters in kalypso-rg resource group:
 > If something goes wrong with the deployment, you can delete the created resources with the following command:
 > 
 > ```bash
-> ./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+> ./deploy.sh -d -p <preix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 > ```
 
 ### Sample overview
@@ -163,7 +163,7 @@ With this file, Application Team requests Kubernetes compute resources from the 
 To register the application, open a terminal and use the following script: 
 
 ```bash
-export org=<github org>
+export org=<GitHub org>
 export prefix=<prefix>
 
 # clone the control-plane repo
@@ -317,7 +317,7 @@ spec:
     branch: dev
   secretRef:
     name: repo-secret
-  url: https://github.com/<github org>/<prefix>-app-gitops
+  url: https://github.com/<GitHub org>/<prefix>-app-gitops
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -454,7 +454,7 @@ kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-worl
 
 Run the following command for the `large` cluster and open `localhost:8002` in your browser:
 
- ```bash
+```bash
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
@@ -550,7 +550,7 @@ When no longer needed, delete the resources that you created. To do so, run the 
 
 ```bash
 # In kalypso folder
-./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+./deploy.sh -d -p <preix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 ```
 
 ## Next steps

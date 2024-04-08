@@ -1,19 +1,23 @@
 ---
-title: Use private IP address for internal routing for an ingress endpoint 
-description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet. 
+title: Use private IP address for internal routing for an ingress endpoint
+description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom:
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/23/2023
 ms.author: greglin
 ---
 
-# Use private IP for internal routing for an Ingress endpoint 
+# Use private IP for internal routing for an Ingress endpoint
 
 This feature exposes the ingress endpoint within the `Virtual Network` using a private IP.
 
-## Prerequisites  
+> [!TIP]
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+
+## Prerequisites
 Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)
 
 There are two ways to configure the controller to use Private IP for ingress,
@@ -34,7 +38,7 @@ For Application Gateways without a Private IP, Ingresses annotated with `appgw.i
     Events:
     Type     Reason       Age               From                                                                     Message
     ----     ------       ----              ----                                                                     -------
-    Warning  NoPrivateIP  2m (x17 over 2m)  azure/application-gateway, prod-ingress-azure-5c9b6fcd4-bctcb  Ingress default/hello-world-ingress requires Application Gateway 
+    Warning  NoPrivateIP  2m (x17 over 2m)  azure/application-gateway, prod-ingress-azure-5c9b6fcd4-bctcb  Ingress default/hello-world-ingress requires Application Gateway
     applicationgateway3026 has a private IP address
     ```
 

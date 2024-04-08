@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network
 description: Learn how to create an encrypted virtual network using Azure PowerShell. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
 ms.service: virtual-network
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/07/2023
 ms.author: allensu
-
 ---
 
 # Create a virtual network with encryption using Azure PowerShell
@@ -66,6 +66,26 @@ $net = @{
 }
 New-AzVirtualNetwork @net
 
+```
+
+## Enable on existing virtual network
+
+You can also enable encryption on an existing virtual network using [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Enable encryption on the virtual network ##
+$vnet.Encryption = @{
+    Enabled = 'true'
+    Enforcement = 'allowUnencrypted'
+}
+$vnet | Set-AzVirtualNetwork
 ```
 
 > [!IMPORTANT]

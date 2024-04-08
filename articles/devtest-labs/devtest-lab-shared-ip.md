@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 11/08/2021
+ms.custom: UpdateFrequency2
 ---
 
 # Understand shared IP addresses in Azure DevTest Labs

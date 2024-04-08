@@ -1,6 +1,6 @@
 ---
-title: 'Monitoring - List and Download Server logs using Azure CLI'
-description: This article describes how to download and list server logs using Azure CLI.
+title: List and download server logs with Azure CLI
+description: This article describes how to list and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -9,11 +9,11 @@ author: code-sidd
 ms.author: sisawant
 ms.date: 08/05/2022
 ---
-# List and Download Server logs using Azure CLI
+# List and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article shows you how to list and download server flexible server using Azure CLI.
+This article shows you how to list and download Azure Database for MySQL flexible server logs using Azure CLI.
 
 ## Prerequisites
 
@@ -31,10 +31,10 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-## List Server logs using Azure CLI
+## List server logs using Azure CLI
 
 Once you're configured the prerequisites and connected to your required subscription.
-You can list the server logs from your flexible server by below command.
+You can list the server logs from your Azure Database for MySQL flexible server instance by using the following command.
 
 
 ```azurecli
@@ -58,9 +58,9 @@ Default LastModifiedTime is set to 72 hours, for listing files older than 72 hou
 az mysql flexible-server server-logs list --resource-group <myresourcegroup>  --server-name <serverlogdemo> --out table --file-last-written <144>
 ```
 
-## Downloading Server logs using Azure CLI
+## Download server logs using Azure CLI
 
-Below command will download the mentioned server logs to your current directory.
+The following command downloads the preceding server logs to your current directory.
 
 ```azurecli
 az mysql flexible-server server-logs download --resource-group <myresourcegroup> --server-name <serverlogdemo>  --name <mysql-slow-serverlogdemo-2022073111.log>

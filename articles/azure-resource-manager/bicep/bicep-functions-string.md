@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/07/2023
+ms.date: 01/31/2024
 ---
 
 # String functions for Bicep
@@ -167,7 +167,7 @@ The following example shows a comparison between using interpolation and using t
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output concatOutput string = concat(prefix, 'And', uniqueString(resourceGroup().id))
 output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 ```
 
@@ -414,7 +414,7 @@ The output from the preceding example with the default values is:
 
 `first(arg1)`
 
-Returns the first character of the string, or first element of the array.
+Returns the first character of the string, or first element of the array. If an empty string is given, the function results in an empty string. In the case of an empty array, the function returns `null`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -478,15 +478,19 @@ The following example shows how to use the format function.
 param greeting string = 'Hello'
 param name string = 'User'
 param numberToFormat int = 8175133
+param objectToFormat object = { prop: 'value' }
 
 output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+output formatObject string = format('objectToFormat: {0}', objectToFormat)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+| formatTest | String | `Hello, User. Formatted number: 8,175,133` |
+| formatObject | String | `objectToFormat: {'prop':'value'}` |
 
 ## guid
 
@@ -634,7 +638,7 @@ The output from the preceding example with the default values is:
 | firstOutput | String | "one,two,three" |
 | secondOutput | String | "one;two;three" |
 
-This function requires **Bicep version 0.8.2 or later**.
+This function requires [Bicep CLI version 0.8.X or higher](./install.md).
 
 <a id="json"></a>
 
@@ -1060,6 +1064,8 @@ The output from the preceding example with the default values is:
 `string(valueToConvert)`
 
 Converts the specified value to a string.
+Strings are returned as-is. Other types are converted to their equivalent JSON representation.
+If you need to convert a string to JSON, i.e. quote/escape it, you can use `substring(string([value]), 1, length(string([value]) - 2)`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -1083,24 +1089,30 @@ param testObject object = {
   valueB: 'Example Text'
 }
 param testArray array = [
-  'a'
-  'b'
-  'c'
+  '\'a\''
+  '"b"'
+  '\\c\\'
 ]
 param testInt int = 5
+param testString string = 'foo " \' \\'
 
 output objectOutput string = string(testObject)
 output arrayOutput string = string(testArray)
 output intOutput string = string(testInt)
+output stringOutput string = string(testString)
+output stringEscapedOutput string = substring(string([testString]), 1, length(string([testString])) - 2)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | String | `{"valueA":10,"valueB":"Example Text"}` |
+| arrayOutput | String | `["'a'","\"b\"","\\c\\"]` |
+| intOutput | String | `5` |
+| stringOutput | String | `foo " ' \` |
+| stringEscapedOutput | String | `"foo \" ' \\"` |
 
 ## substring
 

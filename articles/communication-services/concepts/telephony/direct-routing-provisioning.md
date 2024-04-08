@@ -35,21 +35,24 @@ The health of an SBC connection now exposed in Azure portal. It takes in account
 ### Possible values of each health indicator
 
 TLS Status - Status of the TLS connections of a Trunk: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't attempted a TLS handshake in the last 15 minutes. 
 - Active - Indicates that TLS connection is established. 
 - CertExpiring - Indicates that SBC certificate is expiring. 
 - CertExpired - Indicates that SBC certificate is expired. 
 
 SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't sent any SIP options. 
 - Active - Indicates that OPTIONS are being sent and received. 
-- Expired - Indicates that status is expired. 
+- Expired - Indicates that SBC was sending SIP OPTIONS, but we haven't received any OPTIONS messages in the last 15 minutes. 
 - Error - Indicates an error in OPTIONS exchange.  
 
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
-- Inactive - Indicates inactive connection. 
+- Warning - Indicates TLS or Ping is expired. 
+
+> [!NOTE]
+>If you've just configured a new trunk, it can take up to 15 minutes to update the status.
 
 > [!IMPORTANT]
 > Before placing or receiving calls, make sure that SBC status is *Online*
@@ -92,7 +95,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 > In all the examples, if the dialed number does not match the pattern, the call will be dropped unless there is a purchased number exist for the communication resource, and this number was used as `alternateCallerId` in the application. 
 
 ## Managing inbound calls
-For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via ACS direct routing. 
+For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via Azure Communication Services direct routing. 
 Omnichannel for Customer Service customers, refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
 ## Next steps
@@ -102,6 +105,7 @@ Omnichannel for Customer Service customers, refer to [these instructions](/dynam
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
+- [Try Phone Calling](./try-phone-calling.md)
 
 ### Quickstarts
 

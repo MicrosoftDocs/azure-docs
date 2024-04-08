@@ -2,12 +2,12 @@
 title: Private IP addresses in Azure
 titlesuffix: Azure Virtual Network
 description: Learn about private IP addresses in Azure.
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 12/01/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 05/03/2023
-ms.author: allensu
 ---
 
 # Private IP addresses
@@ -38,25 +38,32 @@ Azure reserves the first four addresses in each subnet address range. The addres
 
 There are two methods in which a private IP address is given:
 
-- **Dynamic**: Azure assigns the next available unassigned or unreserved IP address in the subnet's address range. For example, Azure assigns 10.0.0.10 to a new resource, if addresses 10.0.0.4-10.0.0.9 are already assigned to other resources. 
+### Dynamic allocation
 
-    Dynamic is the default allocation method. Once assigned, dynamic IP addresses are released if a network interface is:
-    
-    * Deleted
+Azure assigns the next available unassigned or unreserved IP address in the subnet's address range. While this is normally the next sequentially available address, there's no guarantee that the address will be the next one in the range. For example, if addresses 10.0.0.4-10.0.0.9 are already assigned to other resources, the next IP address assigned is most likely 10.0.0.10. However, it could be any address between 10.0.0.10 and 10.0.0.254. If a specific Private IP address is required for a resource, you should use a static private IP address.
 
-    * Reassigned to a different subnet within the same virtual network.
+Dynamic is the default allocation method. Once assigned, dynamic IP addresses are released if a network interface is:
 
-    * The allocation method is changed to static, and a different IP address is specified. 
-    
-    By default, Azure assigns the previous dynamically assigned address as the static address when you change the allocation method from dynamic to static.
+* Deleted
 
-- **Static**: You select and assign any unassigned or unreserved IP address in the subnet's address range. 
+* Reassigned to a different subnet within the same virtual network.
 
-    For example, a subnet's address range is 10.0.0.0/16 and addresses 10.0.0.4-10.0.0.9 are assigned to other resources. You can assign any address between 10.0.0.10 - 10.0.255.254. Static addresses are only released if a network interface is deleted. 
-    
-    Azure assigns the static IP as the dynamic IP when the allocation method is changed. The reassignment occurs even if the address isn't the next available in the subnet. The address changes when the network interface is assigned to a different subnet.
-    
-    To assign the network interface to a different subnet, you change the allocation method from static to dynamic. Assign the network interface to a different subnet, then change the allocation method back to static. Assign an IP address from the new subnet's address range.
+* The allocation method is changed to static, and a different IP address is specified. 
+
+By default, Azure assigns the previous dynamically assigned address as the static address when you change the allocation method from dynamic to static.
+
+### Static allocation
+
+With static allocation, you select and assign any unassigned or unreserved IP address in the subnet's address range. 
+
+For example, a subnet's address range is 10.0.0.0/16 and addresses 10.0.0.4-10.0.0.9 are assigned to other resources. You can assign any address between 10.0.0.10 - 10.0.255.254. Static addresses are only released if a network interface is deleted. 
+
+Azure assigns the static IP as the dynamic IP when the allocation method is changed. The reassignment occurs even if the address isn't the next available in the subnet. The address changes when the network interface is assigned to a different subnet.
+
+To assign the network interface to a different subnet, you change the allocation method from static to dynamic. Assign the network interface to a different subnet, then change the allocation method back to static. Assign an IP address from the new subnet's address range.
+
+> [!NOTE]
+> When requesting a private IP address, the allocation is not deterministic or sequential. There are no guarantees the next allocated IP address will utilize the next sequential IP address or use previously deallocated addresses. If a specific Private IP address is required for a resource, you should consider using a static private IP address.
     
 ## Virtual machines
 

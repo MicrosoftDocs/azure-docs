@@ -3,7 +3,10 @@ title: Best practices for network resources in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 
 ---
 
@@ -70,7 +73,7 @@ For the specific details around limits and sizing for these address ranges, see 
 
 ### Kubenet networking
 
-Although kubenet doesn't require you to set up the virtual networks before deploying the cluster, there are disadvantages to waiting, such as:
+Although kubenet doesn't require you to configure the virtual networks before deploying the cluster, there are disadvantages to waiting, such as:
 
 * Since nodes and pods are placed on different IP subnets, User Defined Routing (UDR) and IP forwarding routes traffic between pods and nodes. This extra routing may reduce network performance.
 * Connections to existing on-premises networks or peering to other Azure virtual networks can be complex.
@@ -81,7 +84,7 @@ Since you don't create the virtual network and subnets separately from the AKS c
 * Simple websites with low traffic.
 * Lifting and shifting workloads into containers.
 
-For most production deployments, you should plan for and use Azure CNI networking.
+For production deployments, both kubenet and Azure CNI are valid options. Environments which require separation of control and management, Azure CNI may the preferred option.  Additionally, kubenet is suited for Linux only environments where IP address range conservation is a priority.
 
 You can also [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking]. Like Azure CNI networking, these address ranges shouldn't overlap each other or any networks associated with the cluster (virtual networks, subnets, on-premises and peered networks).
 
@@ -129,12 +132,12 @@ spec:
       paths:
       - path: /blog
         backend:
-         service
+         service:
            name: blogservice
            port: 80
       - path: /store
         backend:
-         service
+         service:
            name: storeservice
            port: 80
 ```
@@ -145,15 +148,17 @@ An *ingress controller* is a daemon that runs on an AKS node and watches for inc
 
 Ingress controllers must be scheduled on a Linux node. Indicate that the resource should run on a Linux-based node using a node selector in your YAML manifest or Helm chart deployment. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
 
-> [!NOTE]
-> Windows Server nodes shouldn't run the ingress controller.
+## Ingress with the application routing addon
 
-There are many scenarios for ingress, including the following how-to guides:
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed, ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
-* Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
+
+* Integration with Azure DNS for public and private zone management.
+
+* SSL termination with certificates stored in Azure Key Vault.
+
+For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Secure traffic with a web application firewall (WAF)
 
@@ -215,7 +220,7 @@ To get started with policies, see [Secure traffic between pods using network pol
 >
 > Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 
-You can complete most operations in AKS using the Azure management tools or through the Kubernetes API server. AKS nodes are only available on a private network and aren't connected to the public internet. To connect to nodes and provide maintenance and support, route your connections through a bastion host, or jump box. Verify this host lives in a separate, securely-peered management virtual network to the AKS cluster virtual network.
+You can complete most operations in AKS using the Azure management tools or through the Kubernetes API server. AKS nodes are only available on a private network and aren't connected to the public internet. To connect to nodes and provide maintenance and support, route your connections through a bastion host, or jump box. Verify this host lives in a separate, securely peered management virtual network to the AKS cluster virtual network.
 
 ![Connect to AKS nodes using a bastion host, or jump box](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
@@ -240,14 +245,10 @@ This article focused on network connectivity and security. For more information 
 [sp-delegation]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [expressroute]: ../expressroute/expressroute-introduction.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-[aks-ingress-internal]: ingress-internal-ip.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+

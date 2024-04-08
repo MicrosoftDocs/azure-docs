@@ -33,19 +33,21 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Fix:** If user needs both a RemoteApp and desktop, create different host pools or only grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
+<a name='error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant'></a>
+
+### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Microsoft Entra ID associated with the Remote Desktop tenant
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
-**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Azure Virtual Desktop tenant.
+**Cause:** The user specified by the -UserPrincipalName cannot be found in the Microsoft Entra tied to the Azure Virtual Desktop tenant.
 
 **Fix:** Confirm the items in the following list.
 
-- The user is synched to Azure Active Directory.
+- The user is synched to Microsoft Entra ID.
 - The user isn't tied to business to consumer (B2C) or business-to-business (B2B) commerce.
-- The Azure Virtual Desktop tenant is tied to correct Azure Active Directory.
+- The Azure Virtual Desktop tenant is tied to correct Microsoft Entra ID.
 
 ### Error: Get-RdsDiagnosticActivities -- User isn't authorized to query the management service
 
@@ -73,12 +75,12 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 1:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
 
-**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant's Microsoft Entra ID or doesn't have permissions to query the Microsoft Entra ID where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
 > [!NOTE]
-> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (Azure AD).
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Microsoft Entra ID.
 
 ## Error: SessionHostPool could not be deleted
 

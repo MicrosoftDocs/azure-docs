@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Azure Linux Agent Extension 
+title: Stackify Retrace Azure Linux Agent Extension
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 ms.topic: article
 ms.service: virtual-machines
@@ -7,11 +7,14 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 04/12/2018 
-ms.custom: devx-track-azurecli
+ms.date: 04/12/2018
+ms.custom: devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 # Stackify Retrace Linux Agent Extension
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Overview
 
@@ -26,11 +29,11 @@ Retrace is the ONLY tool that delivers all of the following capabilities across 
 
 **About Stackify Linux Agent Extension**
 
-This extension provides an install path for the Linux Agent for Retrace. 
+This extension provides an install path for the Linux Agent for Retrace.
 
 ## Prerequisites
 
-### Operating system 
+### Operating system
 
 The Retrace agent can be run against these Linux distributions
 
@@ -43,13 +46,13 @@ The Retrace agent can be run against these Linux distributions
 
 > [!IMPORTANT]
 
-> Keep in consideration Red Hat Enterprise Linux 6.X is already EOL. 
+> Keep in consideration Red Hat Enterprise Linux 6.X is already EOL.
 > RHEL 6.10 has available [ELS support](https://www.redhat.com/en/resources/els-datasheet), which [will end on 06/2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 ### Internet connectivity
 
-The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet. 
+The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet.
 
-You may need to adjust your network configuration to allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+You may need to adjust your network configuration to allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall.
 
 
 ## Extension schema
@@ -79,12 +82,12 @@ The following JSON shows the schema for the Stackify Retrace Agent extension. Th
           "activationKey": "myActivationKey"
         }
       }
-    }      
+    }
 ```
 
-## Template deployment 
+## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Stackify Retrace Linux Agent extension during an Azure Resource Manager template deployment.  
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Stackify Retrace Linux Agent extension during an Azure Resource Manager template deployment.
 
 The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see Set name and type for child resources.
 
@@ -113,7 +116,7 @@ The extension requires the `environment` and `activationKey`.
           "activationKey": "myActivationKey"
         }
       }
-    }      
+    }
 ```
 
 When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration.
@@ -164,9 +167,9 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -Location WestUS `
 ```
 
-## Azure CLI deployment 
+## Azure CLI deployment
 
-The Azure CLI tool can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine.  
+The Azure CLI tool can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine.
 
 The extension requires the `environment` and `activationKey`.
 

@@ -6,10 +6,9 @@ summary: Learn how to use Azure Video Analyzer # < 160 chars
 metadata:
   title: Azure Video Analyzer documentation
   description: Learn how to use Azure Video Analyzer
-  services: azure-video-analyzer
   ms.service: azure-video-analyzer
   ms.topic: landing-page
-  ms.collection: collection
+
   author: Juliako
   ms.author:  juliako
   ms.date: 01/03/2022
@@ -24,8 +23,6 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Video Analyzer (preview)
-            url: overview.md
           - text: Terminology
             url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/terminology
       - linkListType: quickstart

@@ -4,8 +4,8 @@ description: This quickstart provides several PHP code samples you can use to co
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, mode-other
 ms.date: 06/20/2022
 ---

@@ -3,7 +3,10 @@ title: Back up an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 04/25/2023
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # Back up and restore your app in Azure App Service
@@ -13,10 +16,10 @@ In [Azure App Service](overview.md), you can easily restore app backups. You can
 Back up and restore are supported in **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
 > [!NOTE]
-> For App Service environments:
+> For App Service Environments:
 > 
-> - Automatic backups can be restored to a target app within the ASE itself, not in another ASE.
-> - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
+> - Automatic backups can be restored to a target app within the App Service environment itself, not in another App Service environment.
+> - Custom backups can be restored to a target app in another App Service environment, such as from App Service Environment v2 to App Service Environment v3.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
 [!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
@@ -33,9 +36,10 @@ There are two types of backups in App Service. Automatic backups made for your a
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
-| Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every 3 hourly backup retained.<br>- Days 15-30: every 6 hourly backup retained. | 0-30 days or indefinite. |
+| Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
 | Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |
+| Backups over VNet | Not supported. | Supported. |
 
 <!-- - No file copy errors due to file locks. -->
 
@@ -50,7 +54,7 @@ There are two types of backups in App Service. Automatic backups made for your a
    
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
-1. Select the automatic backup or custom backup to restore by clicking its **Restore** link.
+1. Select the automatic backup or custom backup to restore by selecting its **Restore** link.
    
     :::image type="content" source="./media/manage-backup/click-restore-link.png" alt-text="Screenshot that shows how to select the restore link.":::
    
@@ -62,7 +66,7 @@ There are two types of backups in App Service. Automatic backups made for your a
    
 1. You can choose to restore your site configuration under **Advanced options**.
    
-1. Click **Restore**.
+1. Select **Restore**.
 
 # [Azure CLI](#tab/cli)
 
@@ -133,7 +137,7 @@ There are two types of backups in App Service. Automatic backups made for your a
     >
     >
 
-1. Click **Configure**.
+1. Select **Configure**.
 
     Once the storage account and container is configured, you can initiate an on-demand backup at any time. On-demand backups are retained indefinitely.
 
@@ -153,7 +157,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 #### Back up and restore a linked database
 
-Custom backups can include linked databases. To make sure your backup includes a linked database, do the following:
+Custom backups can include linked databases (except when the backup is configured over an Azure Virtual Network). To make sure your backup includes a linked database, do the following:
 
 1. Make sure the linked database is [supported](#automatic-vs-custom-backups).
 1. Create a connection string that points to your database. A database is considered "linked" to your app when there's a valid connection string for it in your app's configuration.
@@ -165,6 +169,22 @@ To restore a database that's included in a custom backup:
 1. In **Advanced options**, select **Include database**.
 
 For troubleshooting information, see [Why is my linked database not backed up](#why-is-my-linked-database-not-backed-up).
+
+## Back up and restore over Azure Virtual Network
+
+With [custom backups](#create-a-custom-backup), you can back up your app's files and configuration data to a firewall-protected storage account if the following requirements are fulfilled:
+
+- The app is [integrated with a virtual network](overview-vnet-integration.md), or the app is in a v3 [App Service environment](environment/app-service-app-service-environment-intro.md).
+- The storage account [allows access from the virtual network](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) that the app is integrated with, or that the v3 App Service environment is created with.
+
+To back up and restore over Azure Virtual Network:
+
+1. When configuring [custom backups](#create-a-custom-backup), select **Backup/restore over virtual network integration**. 
+1. Save your settings by selecting **Configure**.
+
+If you don't see the checkbox, or if the checkbox is disabled, verify that your resources fulfill the requirements. 
+
+Once the configuration is saved, any manual, scheduled backup, or restore is made through the virtual network. If you make changes to the app, the virtual network, or the storage account that prevent the app from accessing the storage account through the virtual network, the backup or restore operations fail.
 
 <a name="partialbackups"></a>
 
@@ -205,7 +225,7 @@ Run backups the same way you would normally do it, [custom on-demand](#create-a-
 
 ## How backups are stored
 
-After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
+After you make one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
 The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](/azure/azure-sql/database/database-import).
 
@@ -228,7 +248,7 @@ The **Backups** page shows you the status of each backup. To get log details reg
 | A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Check that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
 | Cannot open server "\<name>" requested by the login. The login failed. | Check that the connection string is valid. |
 | Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
-| SSL connection is required. Please specify SSL options and retry when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
+| SSL connection is required. Specify SSL options and retry when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
 
 ## Automate with scripts
 
@@ -298,13 +318,15 @@ The following table shows which app configuration is restored when you choose to
 
 A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
+When [backing up over an Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
+
 #### Why is my linked database not backed up?
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
 
-* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you'll encounter backup failures.
-* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you'll encounter backup failures.
-* In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
+* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you get backup failures.
+* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) isn't supported. If a backup is configured, you get backup failures.
+* In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
 
 #### What happens if the backup size exceeds the allowable maximum?
 
@@ -312,10 +334,7 @@ Automatic backups can't be restored if the backup size exceeds the maximum size.
 
 #### Can I use a storage account that has security features enabled?
 
-The following security features in Azure storage aren't supported for custom backups:
-
-* Using a [firewall enabled storage account](../storage/common/storage-network-security.md) as the destination for your backups isn't supported. If a backup is configured, you will encounter backup failures.
-* Using a [private endpoint enabled storage account](../storage/common/storage-private-endpoints.md) for backup and restore isn't supported.
+You can back up to a firewall-protected storage account if it's part of the same virtual network topology as your app. See [Back up and restore over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network).
 
 #### How do I restore to an app in a different subscription?
 
@@ -334,11 +353,11 @@ The steps are the same as in [How do I restore to an app in a different subscrip
 
 #### Where are the automatic backups stored?
 
-Automatic backups are simple and stored in the same datacenter as the App Service and should not be relied upon as your disaster recovery plan.
+Automatic backups are simple and stored in the same datacenter as the App Service and shouldn't be relied upon as your disaster recovery plan.
 
 #### How do I stop the automatic backup?
 
-You cannot stop automatic backup. The automatic backup is stored on the platform and has no effect on the underlying app instance or its storage.
+You can't stop automatic backups. The automatic backup is stored on the platform and has no effect on the underlying app instance or its storage.
 
 
 <a name="nextsteps"></a>

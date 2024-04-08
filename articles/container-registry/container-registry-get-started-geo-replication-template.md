@@ -4,9 +4,10 @@ description: Learn how to create a geo-replicated Azure container registry by us
 services: azure-resource-manager
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.topic: quickstart
 ms.service: container-registry
+tags: azure-resource-manager
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -20,7 +21,7 @@ The registry with replications does not support the ARM/Bicep template Complete 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -43,7 +44,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
 
  1. Select the following image to sign in to Azure and open a template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json":::
 
  1. Select or enter the following values.
 
@@ -52,7 +53,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Region**: select a location for the resource group. Example: **Central US**.
     * **Acr Name**: accept the generated name for the registry, or enter a name. It must be globally unique.
     * **Acr Admin User Enabled**: accept the default value.
-    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**. 
+    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**.
     * **Acr Sku**: accept the default value.
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
 

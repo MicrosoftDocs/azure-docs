@@ -1,19 +1,17 @@
 ---
 title: Update Network Watcher extension to the latest version 
-description: Learn how to update the Azure Network Watcher extension to the latest version.
-services: virtual-machines
+description: Learn how to update the Azure Network Watcher Agent virtual machine (VM) extension to the latest version.
 author: halkazwini
-tags: azure-resource-manager
-ms.service: virtual-machines
-ms.topic: conceptual
-ms.date: 07/12/2023
 ms.author: halkazwini
-ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
+ms.service: virtual-machines
+ms.topic: concept-article
+ms.date: 03/17/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Update Azure Network Watcher extension to the latest version
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
@@ -22,7 +20,7 @@ ms.custom: template-concept, devx-track-azurepowershell, engagement-fy23
 
 ## Latest version
 
-The latest version of the Network Watcher extension is `1.4.2573.1`.
+[!INCLUDE [Network Watcher agent version](../../../includes/virtual-machines-extensions-network-watcher-agent-version.md)].
 
 ### Identify latest version
 

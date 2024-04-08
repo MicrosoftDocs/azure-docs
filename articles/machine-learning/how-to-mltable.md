@@ -10,14 +10,13 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: contperf-fy21q1, data4ml
+ms.custom: data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
 
 # Working with tables in Azure Machine Learning
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports a Table type (`mltable`). This allows for the creation of a *blueprint* that defines how to load data files into memory as a Pandas or Spark data frame. In this article you learn:
 
@@ -204,19 +203,27 @@ You can optionally choose to load the MLTable object into Pandas, using:
 ```
 
 #### Save the data loading steps
-Next, save all your data loading steps into an MLTable file. If you save your data loading steps, you can reproduce your Pandas data frame at a later point in time, and you don't need to redefine the data loading steps in your code.
+Next, save all your data loading steps into an MLTable file. Saving your data loading steps in an MLTable file allows you to reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
 
+You can choose to save the MLTable yaml file to a cloud storage, or you can also save it to local paths.
 ```python
-# serialize the data loading steps into an MLTable file
-tbl.save("./nyc_taxi")
+# save the data loading steps in an MLTable file to a cloud storage
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save(path="azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", colocated=True, show_progress=True, overwrite=True)
 ```
 
-You can optionally view the contents of the MLTable file, to understand how the data loading steps are serialized into a file:
-
 ```python
-with open("./nyc_taxi/MLTable", "r") as f:
-    print(f.read())
+# save the data loading steps in an MLTable file to local
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save("./titanic")
 ```
+
+> [!IMPORTANT]
+> - If colocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
+> - If colocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
+> - We don’t support this parameter combination: data is in local, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
+>
+
 
 ### Reproduce data loading steps
 Now that the data loading steps have been serialized into a file, you can reproduce them at any point in time, with the load() method. This way, you don't need to redefine your data loading steps in code, and you can more easily share the file.
@@ -479,7 +486,7 @@ MLTable supports the following path types:
 > `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
 
 #### A note on defining paths for Delta Lake Tables
-Defining paths to read Delta Lake tables is different compared to the other file types. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the Delta table. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
+Defining paths to read Delta Lake tables is different compared to the other file types. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the "_delta_log" folder and data files. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
 
 ```python
 import mltable
@@ -509,6 +516,13 @@ tbl = mltable.from_delta_lake(delta_table_path, timestamp_as_of=current_timestam
 df = tbl.to_pandas_dataframe()
 ```
 
+> [!IMPORTANT]
+> **Limitation**: `mltable` doesn't support extracting partition keys when reading data from Delta Lake.
+> The `mltable` transformation `extract_columns_from_partition_format` won't work when you are reading Delta Lake data via `mltable`.
+
+> [!IMPORTANT]
+> `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
+
 ### Files, folders and globs
 
 Azure Machine Learning Tables support reading from:
@@ -518,10 +532,6 @@ Azure Machine Learning Tables support reading from:
 - [glob](https://wikipedia.org/wiki/Glob_(programming)) pattern(s), for example `abfss://<file_system>@<account_name>.dfs.core.windows.net/my-folder/*.csv`
 - Or, a combination of files, folders and globbing patterns
 
-> [!IMPORTANT]
-> In your list of paths you **must**:
-> - Use the **same** schemed URI paths. For example, they must all be `abfss://` **or** `wasbs://` **or** `https://` **or** `./local_path`.
-> - Use Azure Machine Learning Datastores URI paths **or** Storage URI paths. For example, you cannot mix `azureml://` with `abfss://` URI paths in the list of paths.
 
 ### Supported data loading transformations
 
@@ -773,7 +783,7 @@ ml_client = MLClient(
 )
 
 # get the latest version of the data asset
-# Note: the variable VERSION is set in the previous code code
+# Note: the variable VERSION is set in the previous code
 data_asset = ml_client.data.get(name="pets-mltable-example", version=VERSION)
 
 # the table from the data asset id

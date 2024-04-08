@@ -4,14 +4,14 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 04/25/2023
+ms.date: 02/28/2024
 ms.author: greglin
 ms.topic: conceptual
 ---
 
-# Application Gateway multiple site hosting
+# Application Gateway multi-site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
+Multi-site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
 You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener).
 
@@ -50,9 +50,9 @@ Using a wildcard character in the host name, you can match multiple host names i
 >[!NOTE]
 > This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.
 
-In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
+In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`.
 
-In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
+In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`.
 
 In the Azure portal, under the multi-site listener, you must choose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
 
@@ -89,11 +89,13 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
+## Multi-site listener for TLS and TCP protocol listeners
 
+The multi-site feature is also available for Layer4 proxy, but only for its TLS listeners. You can direct the traffic for each application to its backend pool by providing domain names in the TLS listener. For the functioning of the multisite feature on TLS listeners, Application Gateway uses the Server Name Indication (SNI) value (the clients primarily present SNI extension to fetch the correct TLS certificate). A multisite TLS listener would pick this SNI value from the TLS handshake data of an incoming connection and route that connection to the appropriate backend pool. The TCP connection inherently has no concept of hostname or domain name; hence, this isn't available for TCP listeners.
 
 ## Host headers and Server Name Indication (SNI)
 
-There are three common mechanisms for enabling multiple site hosting on the same infrastructure.
+There are three common mechanisms for enabling multi-site hosting on the same infrastructure.
 
 1. Host multiple web applications each on a unique IP address.
 2. Use host name to host multiple web applications on the same IP address.
@@ -107,9 +109,9 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 
 ## Next steps
 
-Learn how to configure multiple site hosting in Application Gateway
-* [Using Azure portal](create-multiple-sites-portal.md)
+Learn how to configure multi-site hosting in Application Gateway
+* [Using the Azure portal](create-multiple-sites-portal.md)
 * [Using Azure PowerShell](tutorial-multiple-sites-powershell.md)
 * [Using Azure CLI](tutorial-multiple-sites-cli.md)
 
-You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-multihosting) for an end to end template-based deployment.
+See [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-multihosting) for an end to end template-based deployment.

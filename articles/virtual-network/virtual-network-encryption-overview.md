@@ -1,16 +1,18 @@
 ---
-title: What is Azure Virtual Network encryption? (Preview)
-description: Overview of Azure Virtual Network encryption
+title: What is Azure Virtual Network encryption?
+titleSuffix: Azure Virtual Network
+description: Learn about Azure Virtual network encryption. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines.
 ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/07/2023
+ms.date: 02/27/2024
 ms.custom: template-overview, references_regions
+# Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
 
-#  What is Azure Virtual Network encryption? (Preview)
+#  What is Azure Virtual Network encryption?
 
 Azure Virtual Network encryption is a feature of Azure Virtual Networks. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines. 
 
@@ -18,22 +20,18 @@ Whenever Azure customer traffic moves between datacenters, Microsoft applies a d
 
 For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
-> [!IMPORTANT]
-> Azure Virtual Network encryption is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Requirements
 
 Virtual network encryption has the following requirements:
 
 - Virtual Network encryption is supported on general-purpose and memory optimized VM instance sizes including:
 
-    | VM Series | VM SKU |
-    | --- | --- |
-    | D-series | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)**, **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)**, **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** |
-    | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
-    | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
+    | Type | VM Series | VM SKU |
+    | --- | --- | --- |
+    | General purpose workloads | D-series V4 </br> D-series V5 | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)** </br> **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)** </br> **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** </br> **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)** </br> **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** </br> **[Dlsv5 and Dldsv5-series](/azure/virtual-machines/dlsv5-dldsv5-series)** </br> **[Dasv5 and Dadsv5-series](/azure/virtual-machines/dasv5-dadsv5-series)** |
+    | General purpose and memory intensive workloads | E-series V4 </br> E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)** </br> **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)** </br> **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** </br> **[Ev5 and Esv5-series](/azure/virtual-machines/ev5-esv5-series)** </br> **[Edv5 and Edsv5-series](/azure/virtual-machines/edv5-edsv5-series)** </br> **[Easv5 and Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series)** |
+    | Storage intensive workloads | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
+    | Memory intensive workloads | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** </br> **[Msv2 and Mdsv2-series Medium Memory](/azure/virtual-machines/msv2-mdsv2-series)** </br> **[Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
@@ -41,32 +39,47 @@ Virtual network encryption has the following requirements:
 
 - Global Peering is supported in regions where virtual network encryption is supported.
 
-- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information about Virtual Network Flow Logs, see [Virtual Network Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
+- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
-- The start/stop of existing virtual machines may be required after enabling encryption in a virtual network.
+- The start/stop of existing virtual machines is required after enabling encryption in a virtual network.
+
 ## Availability
 
-Azure Virtual Network encryption is available in the following regions during the preview:
+General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
 
-- East US 2 EUAP
-
-- Central US EUAP
-
-- West Central US
+- East Asia
 
 - East US
 
 - East US 2
 
+- Europe North
+
+- Europe West
+
+- France Central
+
+- India Central
+
+- Japan East
+
+- Japan West
+
+- UAE North
+
+- UK South
+
+- Swiss North
+
+- West Central US
+
 - West US
 
 - West US 2
 
-To sign up to obtain access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-sign-up).
-
 ## Limitations
 
-Azure Virtual Network encryption has the following limitations during the public preview:
+Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 

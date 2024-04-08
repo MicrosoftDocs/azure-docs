@@ -1,7 +1,7 @@
 ---
 title: Validate an OT sensor software installation - Microsoft Defender for IoT
 description: Learn how to test your system post installation of OT network monitoring software for Microsoft Defender for IoT. Use this article after you've reinstalled software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 12/13/2022
+ms.date: 12/19/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 After you've installed OT software on your [OT sensors](install-software-ot-sensor.md), test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
+System health validations are supported via UI or CLI and are available for the default, privileged *admin* user.
 
 If you're using pre-configured appliances, continue directly with [activating and setting up your OT network sensor](activate-deploy-sensor.md) instead.
 
@@ -107,10 +107,10 @@ For more information, see [Check system health](../how-to-troubleshoot-sensor.md
 
 ## Next steps
 
-For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](../legacy-central-management/how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
 > [« Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
 
 > [!div class="step-by-step"]
-> [Activate and set up your OT network sensor »](activate-deploy-sensor.md)
+> [Configure and activate your sensor »](activate-deploy-sensor.md)

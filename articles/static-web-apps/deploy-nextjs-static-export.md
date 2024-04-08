@@ -148,13 +148,13 @@ By default, the application is treated as a hybrid rendered Next.js application,
               api_location: "" # Api source code path - optional
               output_location: "" # Built app content directory - optional
             env: # Add environment variables here
-              is_static_export: true
+              IS_STATIC_EXPORT: true
     ```
 
     ### [Azure Pipelines](#tab/azure-pipelines)
 
     ```yaml
-        - task: AzureStaticWebAppLatest@0
+        - task: AzureStaticWebApp@0
           inputs:
             azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_TOKEN)
             ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######

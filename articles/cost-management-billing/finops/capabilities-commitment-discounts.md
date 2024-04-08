@@ -1,13 +1,11 @@
 ---
 title: Managing commitment-based discounts
 description: This article helps you understand the managing commitment-based discounts capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
-ms.service: cost-management-billing
-ms.subservice: common
+ms.service: finops
 ms.reviewer: micflan
 ---
 

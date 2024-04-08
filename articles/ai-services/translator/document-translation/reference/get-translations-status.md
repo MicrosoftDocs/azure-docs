@@ -2,14 +2,13 @@
 title: Get translations status
 titleSuffix: Azure AI services
 description: The get translations status method returns a list of batch requests submitted and the status for each request.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 02/09/2024
 ---
 
 # Get translations status
@@ -22,7 +21,7 @@ The Get translations status method returns  a list of batch requests submitted a
 
 If the number of requests exceeds our paging limit, server-side paging is used. Paginated responses indicate a partial result and include a continuation token in the response. The absence of a continuation token means that no other pages are available.
 
-`$top`, `$skip` and `$maxpagesize` query parameters can be used to specify the number of results to return and an offset for the collection.
+`$top`, `$skip`, and `$maxpagesize` query parameters can be used to specify the number of results to return and an offset for the collection.
 
 `$top` indicates the total number of records the user wants to be returned across all pages. `$skip` indicates the number of records to skip from the list of batches based on the sorting method specified. By default, we sort by descending start time. `$maxpagesize` is the maximum items returned in a page. If more items are requested via `$top` (or `$top` isn't specified and there are more items to be returned), @nextLink will contain the link to the next page.
 
@@ -42,7 +41,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -82,7 +81,7 @@ The following are the possible HTTP status codes that a request returns.
 |400|Bad Request. Invalid request. Check input parameters.|
 |401|Unauthorized. Check your credentials.|
 |500|Internal Server Error.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Get translations status response
 
@@ -96,8 +95,8 @@ The following information is returned in a successful response.
 |value|TranslationStatus[]|TranslationStatus[] Array|
 |value.id|string|ID of the operation.|
 |value.createdDateTimeUtc|string|Operation created date time.|
-|value.lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|value.status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|value.lastActionDateTimeUtc|string|Date time in which the operation's status was updated.|
+|value.status|String|List of possible statuses for job or document:<br> &bullet; Canceled<br>&bullet; Cancelling<br>&bullet; Failed<br>&bullet; NotStarted<br>&bullet; Running<br>&bullet; Succeeded<br>&bullet; ValidationFailed|
 |value.summary|StatusSummary[]|Summary containing the listed details.|
 |value.summary.total|integer|Count of total documents.|
 |value.summary.failed|integer|Count of documents failed.|
@@ -111,7 +110,7 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|string|Enums containing high-level error codes. Possible values:<br/>&bullet; InternalServerError<br>&bullet; InvalidArgument<br>&bullet; InvalidRequest<br>&bullet; RequestRateTooHigh<br>&bullet; ResourceNotFound<br>&bullet; ServiceUnavailable<br>&bullet; Unauthorized|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be `documents` or `document id` if there was an invalid document.|
 |innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (it can be nested).|
@@ -204,4 +203,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
