@@ -4,7 +4,7 @@ description: Create AI applications with sentiment analysis, summarization, or k
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
-ms.date: 04/05/2024
+ms.date: 04/08/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -56,7 +56,7 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 `text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 10` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -72,11 +72,11 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for sentiment analysis if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for sentiment analysis, when it fails with any retryable error.
 
@@ -103,7 +103,7 @@ azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, di
 
 `text` or `text[]` single text or array of texts, depending on the overload of the function used, with the input to be processed.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 1000` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -119,11 +119,11 @@ azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, di
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for language detection if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for language detection, when it fails with any retryable error.
 
@@ -155,7 +155,7 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 `text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 10` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -171,11 +171,11 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for key phrase extraction if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for key phrase extraction, when it fails with any retryable error.
 
@@ -207,7 +207,7 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 `text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 5` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -227,11 +227,11 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 `boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
@@ -264,7 +264,7 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 `text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 5` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -280,11 +280,11 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
@@ -320,7 +320,7 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 `text DEFAULT 'none'::text`, the personal data domain used for personal data Entity Recognition. Valid values are `none` for no domain specified and `phi` for Personal Health Information.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 5` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -336,11 +336,11 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
@@ -378,7 +378,7 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 `integer DEFAULT 3`, maximum number of sentences that the summarization should contain.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 25` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -394,11 +394,11 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
@@ -436,7 +436,7 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 `text DEFAULT ``offset``::text`, order of extracted sentences. Valid values are `rank` and `offset`.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 25` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
@@ -452,11 +452,11 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
@@ -522,7 +522,7 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 ##### `target_script`
 `text DEFAULT NULL` Specific script of the input text.
 
-#### `batch_size`
+##### `batch_size`
 
 `integer DEFAULT 1000` number of records to process at a time (only available for the overload of the function for which parameter `text` is of type `text[]`).
 
@@ -534,11 +534,11 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `max_attempts`
+##### `max_attempts`
 
 `integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
-#### `retry_delay_ms`
+##### `retry_delay_ms`
 
 `integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
