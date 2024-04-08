@@ -139,7 +139,7 @@ To get event grid subscriptions for a particular resource, provide the resource 
 For Azure CLI, use:
 
 ```azurecli-interactive
-resourceid=$(az resource show -n mystorage -g myResourceGroup --resource-type "Microsoft.Storage/storageaccounts" --query id --output tsv)
+resourceid=$(az storage account show -g myResourceGroup -n myStorageAccount --query id --output tsv)
 az eventgrid event-subscription list --resource-id $resourceid
 ```
 
