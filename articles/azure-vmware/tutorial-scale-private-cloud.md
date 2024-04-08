@@ -39,6 +39,9 @@ If you are planning on using the AV64 SKU, define a network for the management a
 
 ## Scale a cluster
 
+> [!NOTE]
+> Scaling down a cluster successfully requires all objects (VM/vmdks/isos/etc) on a vSAN datastore to be configured with a storage policy below [RAID level requirements](configure-storage-policy.md). 
+
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
 
 2. Select the cluster you want to scale, select **More** (...), then select **Edit**.
