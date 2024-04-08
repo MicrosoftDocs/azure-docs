@@ -31,14 +31,14 @@ You can scale the IoT Hub service vertically and horizontally. For an automated 
 
 For a guide to scalability in an IoT Central solution, see [What does it mean for IoT Central to have elastic scale](../iot-central/core/concepts-faq-scalability-availability.md#scalability). If you're using private endpoints with your IoT Central solution, you need to [plan the size of the subnet in your virtual network](../iot-central/core/concepts-private-endpoints.md#plan-the-size-of-the-subnet-in-your-virtual-network).
 
-For devices that connect to an IoT hub directly or to an IoT hub in an IoT Central application, make sure that the devices continue to connect as your solution scales. To learn more, see [Manage device reconnections after autoscale](../iot-develop/concepts-manage-device-reconnections.md) and [Handle connection failures](../iot-central/core/concepts-device-implementation.md#best-practices).
+For devices that connect to an IoT hub directly or to an IoT hub in an IoT Central application, make sure that the devices continue to connect as your solution scales. To learn more, see [Manage device reconnections after autoscale](./concepts-manage-device-reconnections.md) and [Handle connection failures](../iot-central/core/concepts-device-implementation.md#best-practices).
 
 IoT Edge can help to help scale your solution. IoT Edge lets you move cloud analytics and custom business logic from the cloud to your devices. This approach lets your cloud solution focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud. For more information, see [Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 Service tiers and pricing plans:
 
 - [Choose the right IoT Hub tier and size for your solution](../iot-hub/iot-hub-scaling.md)
-- [Choose the right pricing plan for your IoT Central solution](../iot-central/core/howto-create-iot-central-application.md#pricing-plans)
+- [Choose the right pricing plan for your IoT Central solution](https://azure.microsoft.com/pricing/details/iot-central/)
 
 Service limits and quotas:
 
@@ -63,7 +63,7 @@ The following tutorials and guides provide more detail and guidance:
 
 - [Tutorial: Perform manual failover for an IoT hub](../iot-hub/tutorial-manual-failover.md)
 - [How to manually migrate an Azure IoT hub to a new Azure region](../iot-hub/migrate-hub-arm.md)
-- [Manage device reconnections to create resilient applications (IoT Hub and IoT Central)](../iot-develop/concepts-manage-device-reconnections.md)
+- [Manage device reconnections to create resilient applications (IoT Hub and IoT Central)](./concepts-manage-device-reconnections.md)
 - [IoT Central device best practices](../iot-central/core/concepts-device-implementation.md#best-practices)
 
 ## Next steps

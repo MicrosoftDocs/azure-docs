@@ -3,9 +3,9 @@ title: Configure gRPC on App Service
 description: Learn how to configure a gRPC application with Azure App Service on Linux.
 author: jefmarti
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 11/10/2023
 ms.author: jefmarti
-
 ---
 
 # Configure gRPC on App Service

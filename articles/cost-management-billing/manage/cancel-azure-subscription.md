@@ -6,7 +6,7 @@ ms.reviewer: tomasa
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 03/12/2024
 ms.author: banders
 ---
 
@@ -21,7 +21,7 @@ Although not required, Microsoft *recommends* that you take the following action
 * Consider migrating your data. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Delete all resources and all resource groups.
     * To later manually delete a subscription, you must first delete all resources associated with the subscription.
-    * You might be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope).
+    * You might be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-version-level-worm-policies.md#scenarios).
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 Instead of canceling a subscription, you can remove all of its resources to [prevent unwanted charges](../understand/plan-manage-costs.md#prevent-unwanted-charges).
@@ -63,7 +63,7 @@ An account administrator without the service administrator or subscription owner
 
 ## Cancel a subscription in the Azure portal
 
-Depending on your environment, the cancel subscription experience allows you to:
+Depending on your environment, the subscription cancellation experience allows you to:
 
 - Cancel a subscription
 - Turn off autorenewal for an associated support plan
@@ -114,7 +114,7 @@ After you cancel, your services are disabled. That means your virtual machines a
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-window.png" alt-text="Screenshot showing the cancellation window." lightbox="./media/cancel-azure-subscription/cancel-window.png" :::
 
-After you cancel a subscription, your billing stops immediately. You can delete your subscription directly using the Azure portal seven days after you cancel it, when the **Delete subscription** option becomes available. When your subscription is deleted, Microsoft waits 30 to 90 days before permanently deleting your data in case you need to access it or recover your data. We don't charge you for retaining the data. For more information, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930).
+After you cancel a subscription, your billing stops immediately. You can delete your subscription directly using the Azure portal seven days after you cancel it, when the **Delete subscription** option becomes available. When your subscription is canceled, Microsoft waits 30 to 90 days before permanently deleting your data in case you need to access it or recover your data. We don't charge you for retaining the data. For more information, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930).
 
 >[!NOTE]
 > You must manually cancel your SaaS subscriptions before you cancel your Azure subscription. Only pay-as-you-go SaaS subscriptions are cancelled automatically by the Azure subscription cancellation process.
@@ -163,6 +163,30 @@ You don't have the permissions required to cancel a subscription. See [Who can c
 ## How do I cancel a Visual Studio Professional account?
 
 See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
+
+## What data transfer fees are applied when moving all data off Azure?
+
+Azure now offers free egress for customers leaving Azure when taking out their data via the internet to another cloud provider or an on-premises data center. Use the following these steps to submit your request for free egress.
+
+### Create a support request
+
+1. To signal your intent to exit Azure and allow us to accommodate your request, create an [Azure Support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and provide:
+    - Your _Subscription ID_ or _Enrollment ID_
+    - The date you plan to start your transfer
+    - An estimate of the amount of data you plan to egress
+1. Once your request is logged with Azure Support, you have 60 days from the date you indicate as your start data transfer date to egress your data out of Azure. If you need more than 60 days to egress your data, include an overview of your migration timeline in your initial Azure support request.
+1. After egressing your data, cancel all subscriptions associated with your account.
+1. Contact Azure Support and create a request to claim invoice-level credit for your egress charges incurred during your exit. You can either reopen your initial support request (step 1) or create a new Azure Support request. An invoice-level credit adjustment is applied to the existing balance.
+
+### Qualifications
+
+- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](#create-a-support-request).
+- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.
+- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date.
+- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving Azure Storage data out of Azure are eligible for credits.
+- Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
+- Azure might make changes regarding the egress credit policy in the future.
+- If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.author: femila
 
 Follow these steps to prepare your environment before using Azure CLI to create or manage an Azure HPC Cache.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - Azure HPC Cache requires version 2.7 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

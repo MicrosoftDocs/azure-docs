@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 03/25/2024
 #Customer intent: As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio.
 ---
 

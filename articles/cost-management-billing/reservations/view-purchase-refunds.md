@@ -42,7 +42,7 @@ To view the corresponding refunds for reservation transactions, select a **Times
 1. To filter the results, select **Timespan**, **Type**, or **Description**.
 1. Select **Apply**.
 
-[![Screenshot showing reservation transactions in the Azure portal.](./media/view-purchase-refunds/azure-portal-reservation-transactions.png)](./media/view-purchase-refunds/azure-portal-reservation-transactions.png#lightbox)
+:::image type="content" border="true" source="./media/view-purchase-refunds/azure-portal-reservation-transactions.png" lightbox="./media/view-purchase-refunds/azure-portal-reservation-transactions.png" alt-text="Screenshot showing reservation transactions in the Azure portal.":::
 
 ## View reservation transactions in Power BI
 
@@ -51,7 +51,7 @@ An Enterprise enrollment administrator can view reservation transactions with th
 1. Get the [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 1. Navigate to the RI Purchases report.
 
-[![Example showing reservation transactions.](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
+:::image type="content" border="true" source="./media/view-purchase-refunds/power-bi-reservation-transactions.png" lightbox="./media/view-purchase-refunds/power-bi-reservation-transactions.png" alt-text="Screenshot showing reservation transactions.":::
 
 To learn more, see [Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 

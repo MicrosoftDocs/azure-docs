@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: ananyagarg
-ms.custom: devx-track-azurecli, mode-api, linux-related-content
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI

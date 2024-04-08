@@ -12,7 +12,7 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want to understand the jq expressions used by Data Processor so that I can configure my pipeline stages.
 ---
 
-# What are jq expressions?
+# What are jq expressions in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -2094,7 +2094,7 @@ The `util` module currently includes the `uuid` function that returns a new, ran
 
 ## Binary manipulation
 
-jq is designed to work with data that can be represented as JSON. However, Azure IoT Data Processor (preview) pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
+jq is designed to work with data that can be represented as JSON. However, Azure IoT Data Processor Preview pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
 
 - Convert back and forth between binary and other formats such as base64 and integer arrays.
 - Use built-in functions to read numeric and string values from a binary message.
