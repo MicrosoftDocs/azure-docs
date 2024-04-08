@@ -75,9 +75,9 @@ items:
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
-    - name: Assess ASP.NET web apps for migration to Azure Kubernetes Service (AKS)
+    - name: Assess web apps for migration to Azure Kubernetes Service (AKS)
       href: tutorial-assess-aspnet-aks.md
-    - name: Assess ASP.NET web apps for migration to Azure App Service
+    - name: Assess web apps for migration to Azure App Service
       href: tutorial-assess-webapps.md
     - name: Assess Spring Boot web apps for migration
       href: tutorial-assess-spring-boot.md

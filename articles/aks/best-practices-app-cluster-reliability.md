@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads.
 ms.topic: conceptual
 ms.date: 03/11/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)
@@ -568,3 +571,4 @@ This article focused on best practices for deployment and cluster reliability fo
 * [High availability and disaster recovery overview for AKS](./ha-dr-overview.md)
 * [Run AKS clusters at scale](./best-practices-performance-scale-large.md)
 * [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+
