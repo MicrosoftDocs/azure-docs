@@ -60,7 +60,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM Liberty on AKS*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 
 1. Select **Create**.
-
+E
 1. In the **Basics** pane:
 
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
