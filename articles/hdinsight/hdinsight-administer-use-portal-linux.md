@@ -4,7 +4,7 @@ description: Learn how to create and manage Azure HDInsight clusters using the A
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 12/06/2023
+ms.date: 03/27/2024
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
@@ -214,7 +214,7 @@ The password is changed on all nodes in the cluster.
 > [!NOTE]
 > SSH passwords cannot contain the following characters:
 >
-> ``` " ' ` / \ < % ~ | $ & ! ```
+> ``` " ' ` / \ < % ~ | $ & ! # ```
 
    | Field | Value |
    | --- | --- |

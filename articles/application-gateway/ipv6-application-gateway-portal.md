@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend public I
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 03/17/2024
+ms.date: 04/04/2024
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -45,12 +45,10 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses isn't supported
 * Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
 * Existing IPv4 application gateways can't be upgraded to dual stack application gateways
+* WAF custom rules with an IPv6 match condition are not currently supported
 
-> [!NOTE]
-> If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
 
 ## Prerequisites
 

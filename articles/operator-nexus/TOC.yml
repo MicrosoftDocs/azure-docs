@@ -22,6 +22,8 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
+        - name: Network Fabric resource update and commit
+          href: concepts-network-fabric-resource-update-commit.md
     - name: Isolation Domains
       expanded: false
       items:
@@ -137,6 +139,8 @@
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
+        - name: Create dual-stack cluster
+          href: howto-kubernetes-cluster-dual-stack.md
         - name: Understand agent pools
           href: howto-kubernetes-cluster-agent-pools.md
         - name: Connect to the cluster
