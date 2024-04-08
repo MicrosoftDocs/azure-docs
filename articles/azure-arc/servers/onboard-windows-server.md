@@ -92,7 +92,7 @@ To uninstall Azure Arc Setup from a Windows Server 2025 machine:
 
 1. Select **AzureArcSetup**, and then select **Remove**.
 
-:::image type="content" source="media/onboard-windows-server/arcsetup-remove.png" alt-text="Screenshot of Optional feature menu showing Azure Arc Setup feature with Remove button.":::
+:::image type="content" source="media/onboard-windows-server/arc-setup-remove.png" alt-text="Screenshot of Optional feature menu showing Azure Arc Setup feature with Remove button.":::
 
 To uninstall Azure Arc Setup from a Windows Server 2025 machine from the command line, run the following line of code:
 
