@@ -4,7 +4,7 @@ description: Learn how to use Spark MLlib to create a machine learning app that 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
-ms.date: 06/23/2023
+ms.date: 04/08/2024
 ---
 
 # Use Apache Spark MLlib to build a machine learning application and analyze a dataset
@@ -60,9 +60,9 @@ Use the Spark context to pull the raw CSV data into memory as unstructured text.
     ```PySpark
     def csvParse(s):
         import csv
-        from StringIO import StringIO
+        from io import StringIO
         sio = StringIO(s)
-        value = csv.reader(sio).next()
+        value = next(csv.reader(sio))
         sio.close()
         return value
 
@@ -288,8 +288,8 @@ You can use the model you created earlier to *predict* what the results of new i
                                                                 results = 'Pass w/ Conditions'))""").count()
     numInspections = predictionsDf.count()
 
-    print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-    print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    print ("There were", numInspections, "inspections and there were", numSuccesses, "successful predictions")
+    print ("This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate")
     ```
 
     The output looks like the following text:
