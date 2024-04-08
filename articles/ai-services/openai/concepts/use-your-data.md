@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 02/26/2024
+ms.date: 04/08/2024
 recommendations: false
 ms.custom: references_regions 
 ---
@@ -72,7 +72,7 @@ When you choose the following data sources, your data is ingested into an Azure 
 |Data source  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
-| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB APIs other than the vCore-based API for MongoDB do not currently offer native vector indexing capability.      |
+| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB have natively integrated vector indexing and do not require Azure AI Search; however, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB will offer a natively integrated vector database by mid-2024.     |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
