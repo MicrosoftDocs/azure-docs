@@ -5,15 +5,13 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 04/04/2024
+ms.date: 04/08/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 # Validate Cables for Nexus Network Fabric 
 
-In a rapidly evolving telecommunications environment, the cable validation of the Nexus Network Fabric is crucial for effective infrastructure management. As consumer demand grows, so does the need to expand the infrastructure. When customers begin to establish and oversee multiple Network Fabrics instances, these validations become vital. They enable early detection of issues related to cabling. 
-
-This feature pertains to cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. 
+This article explains the post validation Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It is vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 ## Prerequisites
 
@@ -23,13 +21,7 @@ This feature pertains to cable validation, where the primary function of the dia
 ## Validate cabling
 
 1. Open a Microsoft support ticket. The Support engineer makes the necessary update.
-1. Execute the following Azure CLI commands:
-
-    ```azurecli
-    az networkfabric fabric validate-configuration –resource-group "<NFResourceGroupName>" --resource-name "<NFResourceName>" --validate-action "Cabling"  
-    ```
-     The following output should appear:
-    {}
+1. Execute the following Azure CLI command:
 
     ```azurecli
     az networkfabric fabric validate-configuration –resource-group "<NFResourceGroupName>" --resource-name "<NFResourceName>" --validate-action "Cabling" --no-wait --debug  
@@ -200,4 +192,4 @@ Refer to [Create a container](../storage/blobs/blob-containers-portal.md#create-
 Refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature) to create the SAS URL of the container. Provide Write permission for SAS.
 
 > [!NOTE]
-> ESAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
+> ESAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then you must open a Microsoft support ticket to add a new URL. 
