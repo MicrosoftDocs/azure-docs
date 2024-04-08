@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Container: Transliterate Text
 
-**Convert characters or letters of a source language to the corresponding characters or letters of a target language.**
+Convert characters or letters of a source language to the corresponding characters or letters of a target language.
 
 ## Request URL
 
