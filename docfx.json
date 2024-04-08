@@ -344,7 +344,7 @@
       },
       "author": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/aks/**/*.md": "MGoedtel",
+        "articles/aks/**/*.md": "schaffererin",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "madsd",
@@ -553,6 +553,7 @@
         "articles/containers/**/*.md": "https://feedback.azure.com/d365community/forum/1e5d6956-0c25-ec11-b6e6-000d3a4f0858",
         "articles/container-service/**/*.md": "https://feedback.azure.com/d365community/forum/aabe212a-f724-ec11-b6e6-000d3a4f0da0",
         "articles/cosmos-db/**/*.md": "https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858",
+        "articles/managed-grafana/**/*.md": "https://feedback.azure.com/d365community/forum/407d7fd4-f8db-ec11-a7b5-000d3a8d7a54",
         "articles/managed-instance-apache-cassandra/**/*.md": "https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858",
         "articles/cost-management-billing/**/*.md": "https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8",
         "articles/cost-management-billing/costs/**/*.md": "https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8",
