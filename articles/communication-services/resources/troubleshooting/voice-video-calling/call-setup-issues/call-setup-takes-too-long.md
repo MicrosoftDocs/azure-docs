@@ -20,7 +20,7 @@ Additionally, device performance can also affect call setup time. For example, a
 
 ## How to detect
 ### SDK
-The application can calculate the timestamp between when the call is initiated and when it's connected.
+The application can calculate the delay between when the call is initiated and when it's connected.
 
 ## How to mitigate or resolve
 If a user consistently experiences long call setup times, they should check their network for issues such as slow network speed, long round trip time, or high packet loss.
