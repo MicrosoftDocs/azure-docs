@@ -4,8 +4,9 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang
 ms.author: nickoman
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 12/19/2023
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
@@ -340,3 +341,4 @@ In this article, you learned how to create and provide an identity to access you
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
+

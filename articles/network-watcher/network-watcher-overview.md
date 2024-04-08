@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 09/15/2023
+ms.date: 04/03/2023
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -70,7 +70,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](connection-troubleshoot-portal.md). 
 
 ### Packet capture
 
@@ -90,8 +90,8 @@ Network Watcher offers two traffic tools that help you log and visualize network
 ### Flow logs
 
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
-- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
-- [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-powershell.md).
+- [NSG flow logs](nsg-flow-logs-overview.md) and [Manage NSG flow logs](nsg-flow-logs-portal.md).
+- [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-portal.md).
 
 ### Traffic analytics
 

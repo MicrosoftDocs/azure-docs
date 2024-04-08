@@ -628,7 +628,7 @@ New-AzResourceGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -660,7 +660,7 @@ New-AzSubscriptionDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -696,7 +696,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

@@ -73,4 +73,5 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony/plan-solution.md)
 
-For more information, see [Quickstart: Look up operator information for a phone number](../telephony/number-lookup.md).
+> [!div class="nextstepaction"]
+> [Look up operator information for a phone number](../telephony/number-lookup.md)

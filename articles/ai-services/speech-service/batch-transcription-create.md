@@ -255,23 +255,23 @@ Azure AI Speech supports OpenAI's Whisper model by using the batch transcription
 To use a Whisper model for batch transcription, you need to set the `model` property. Whisper is a display-only model, so the lexical field isn't populated in the response.
 
 > [!IMPORTANT]
-> Whisper models are currently in preview. You should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API, which is available in a separate preview, for Whisper models.
+> For Whisper models, you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API.
 
-Whisper models by batch transcription are supported in the East US, Southeast Asia, and West Europe regions.
+Whisper models by batch transcription are supported in the Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe regions.
 
 ::: zone pivot="rest-api"
-You can make a [Models_ListBaseModels](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Models_ListBaseModels) request to get available base models for all locales.
+You can make a [Models_ListBaseModels](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview2/operations/Models_ListBaseModels) request to get available base models for all locales.
 
 Make an HTTP GET request as shown in the following example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
 
 ```azurecli-interactive
-curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 By default, only the 100 oldest base models are returned. Use the `skip` and `top` query parameters to page through the results. For example, the following request returns the next 100 base models after the first 100.
 
 ```azurecli-interactive
-curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 ::: zone-end
@@ -280,41 +280,43 @@ curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-pre
 Make sure that you set the [configuration variables](spx-basics.md#create-a-resource-configuration) for a Speech resource in one of the supported regions. You can run the `spx csr list --base` command to get available base models for all locales.
 
 ```azurecli
-spx csr list --base --api-version v3.2-preview.1
+spx csr list --base --api-version v3.2-preview.2
 ```
 
 ::: zone-end
 
-The `displayName` property of a Whisper model contains "Whisper Preview" as shown in this example. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
+The `displayName` property of a Whisper model contains "Whisper" as shown in this example. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950",
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6/manifest"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950/manifest"
   },
   "properties": {
     "deprecationDates": {
-      "adaptationDateTime": "2024-10-15T00:00:00Z",
-      "transcriptionDateTime": "2025-10-15T00:00:00Z"
+      "adaptationDateTime": "2025-04-15T00:00:00Z",
+      "transcriptionDateTime": "2026-04-15T00:00:00Z"
     },
     "features": {
       "supportsTranscriptions": true,
       "supportsEndpoints": false,
       "supportsTranscriptionsOnSpeechContainers": false,
-      "supportsAdaptationsWith": [],
+      "supportsAdaptationsWith": [
+        "Acoustic"
+      ],
       "supportedOutputFormats": [
         "Display"
       ]
     },
-    "chargeForAdaptation": false
+    "chargeForAdaptation": true
   },
-  "lastActionDateTime": "2023-07-19T12:46:27Z",
+  "lastActionDateTime": "2024-02-29T15:53:28Z",
   "status": "Succeeded",
-  "createdDateTime": "2023-07-19T12:39:52Z",
+  "createdDateTime": "2024-02-29T15:46:07Z",
   "locale": "en-US",
-  "displayName": "20230707 Whisper Preview",
-  "description": "en-US base model"
+  "displayName": "20240228 Whisper Large V2",
+  "description": "OpenAI Whisper Model in Azure AI Speech (Whisper v2-large)"
 },
 ```
 
@@ -331,12 +333,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/transcriptions"
+}'  "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/transcriptions"
 ```
 
 ::: zone-end
@@ -344,7 +346,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6" --api-version v3.2-preview.1
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6" --api-version v3.2-preview.2
 ```
 
 ::: zone-end

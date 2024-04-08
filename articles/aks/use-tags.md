@@ -4,6 +4,9 @@ description: Learn how to use Azure provider tags to track resources in Azure Ku
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 06/16/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Use Azure tags in Azure Kubernetes Service (AKS)
@@ -250,3 +253,4 @@ Learn more about [using labels in an AKS cluster][use-labels-aks].
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [az-aks-update]: /cli/azure/aks#az-aks-update
+
