@@ -19,7 +19,7 @@ The Short Code service requires provisioning a short code through the Azure port
 
 ## Short Codes Pricing
 
-###Setup Fee
+### Setup Fee
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
