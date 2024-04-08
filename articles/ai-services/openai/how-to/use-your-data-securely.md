@@ -103,7 +103,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
 
-## Resources configuration
+## Resource configuration
 
 Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
 
