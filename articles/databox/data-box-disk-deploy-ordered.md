@@ -224,17 +224,18 @@ Use these Azure CLI commands to create a Data Box Disk job.
 1. Next, use the [az databox job create](/cli/azure/databox/job#az-databox-job-create) command to create a Data Box job with using the SKU parameter value `DataBoxDisk`. The following example uses the names of the resource group and storage account created in the previous steps:
 
    ```azurecli
-   az databox job create --resource-group databox-rg --name databoxdisk-job \
-       --location westus --sku DataBoxDisk --contact-name "Mark P. Daniels" --phone=4085555555 \
-       –-city Sunnyvale --email-list markpdaniels@contoso.com --street-address1 "1020 Enterprise Way" \
-       --postal-code 94089 --country US --state-or-province CA \
+   az databox job create --resource-group databox-rg --name databoxdisk-job --sku DataBoxDisk \
+       --contact-name "Mark P. Daniels" --email-list markpdaniels@contoso.com \
+       --phone=4085555555–-city Sunnyvale --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --location westus \
        --storage-account databoxtestsa --expected-data-size 1
    ```
 
 1. If needed, you can update the job using the [az databox job update](/cli/azure/databox/job#az-databox-job-update). The following example updates the contact information for a job named `databox-job`.
 
    ```azurecli
-   az databox job update -g databox-rg --name databox-job --contact-name "Larry Gene Holmes" --email-list larrygholmes@contoso.com
+   az databox job update -g databox-rg --name databox-job \
+      --contact-name "Larry Gene Holmes" --email-list larrygholmes@contoso.com
    ```
 
    The [az databox job show](/cli/azure/databox/job#az-databox-job-show) command allows you to display a job's information as shown in the following example:
@@ -252,7 +253,7 @@ Use these Azure CLI commands to create a Data Box Disk job.
    A job can be canceled and deleted by using the [az databox job cancel](/cli/azure/databox/job#az-databox-job-cancel) and [az databox job delete](/cli/azure/databox/job#az-databox-job-delete) commands, respectively. The following examples illustrate the use of these commands:
 
    ```azurecli
-   az databox job cancel –resource-group databox-rg --name databox-job --reason "Billing to new cost center."
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "New cost center."
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
