@@ -56,7 +56,8 @@ The following use case is supported by [Azure Web Application Firewall on Azure 
 
    To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
-For related information, see:
+   For related information, see:
+
    - [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
    - [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
