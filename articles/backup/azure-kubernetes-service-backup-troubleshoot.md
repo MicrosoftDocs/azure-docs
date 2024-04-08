@@ -121,7 +121,7 @@ This error appears due to absence of these FQDN rules because of which configura
    ```Error
 Backup extension is not installed is not in a healthy state. This will impact your backup and restore operations. Click to fix the issue.
 ```
-**Cause**: Azure policy preventing to pull no allowed images. [Learn more](https://learn.microsoft.com/en-us/azure/aks/policy-reference).
+**Cause**: Azure policy preventing to pull no allowed images. [Learn more](../aks/policy-reference.md).
 
 This error appears due to policy blocking no allowed images to pull in AKS.
 
