@@ -27,6 +27,12 @@ zone_pivot_groups: openai-quickstart-gpt-v
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python quickstart](includes/gpt-v-python.md)]
+
+::: zone-end
+
 ## Next steps
 
 * Learn more about these APIs in the [GPT-4 Turbo with Vision how-to guide](./gpt-v-quickstart.md)

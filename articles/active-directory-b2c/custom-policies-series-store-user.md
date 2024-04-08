@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWT tokens.
+
 ---
 
 # Create and read a user account by using Azure Active Directory B2C custom policy
@@ -410,7 +414,7 @@ To configure a display control, use the following steps:
 You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
 
 ```xml
-    <!--<Item Key="Operation">Write</Item>-->
+    <Item Key="Operation">Write</Item>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
 ``` 
 

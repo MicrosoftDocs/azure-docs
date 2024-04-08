@@ -49,19 +49,32 @@ The following steps help you create a route table and a route.
 
 ## Edit a route table
 
-1. Go to the virtual hub and select the **Route Tables** from the left pane. On the **Route Tables** page, click the name of the route table you want to edit.
-1. On the **Edit route table** page, edit the values that you want to change. For example, you can add or remove routes, or edit a route that's contained in the route table. If you want to edit a specific route contained in the route table, click the name of the route to open the **Edit route table** page for that route.
-1. After making your changes, click **Review + create** or **Create** (depending on the page that you are on) to save your settings.
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table you want to edit.
+1. On the **Edit route table** page, on each tab, edit the values that you want to change.
+1. On the **Propagations** page, click **Create** to update the route table with new route information.
 
-## Remove a route from a route table
+## Edit a route
 
-1. Go to the virtual hub and select the **Route Tables** from the left pane. On the **Route Tables** page, click the name of the route table you want to edit.
-1. On the **Edit route table** page, use the scroll bar to navigate to the right. You'll see 3 dots. Click the 3 dots to reveal the **Remove** button.
-1. Click **Remove**, then select **Review + Create** at the bottom of the page. As long as no errors occur, the route is removed.
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table that contains the route you want to edit.
+1. On the **Edit route table** page, locate the route from the list and make the applicable changes. Then, click **Review + create**.
+1. On the **Propagations** page, make any additional changes (if necessary), then click **Create** to update the route table with new route information.
+1. As long as no errors occur, the route is updated.
+
+## Delete a route
+
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table that contains the route you want to edit.
+1. On the **Edit route table** page, locate the route from the list. Use the scroll bar to navigate to the right. You'll see an ellipsis (three dots) at the end of the line for the route. Click the ellipsis to reveal the **Remove** button. Click **Remove**.
+1. At the bottom of the page, click **Review + Create**, and then **Create**.
+1. As long as no errors occur, the route is removed.
 
 ## Delete a route table
 
-In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the checkbox for route table that you want to delete. Click **"…"**, and then select **Delete**. You can't delete a Default or None route table. However, you can delete all custom route tables.
+You can't delete a **Default** or **None** route table. However, you can delete all custom route tables.
+
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, select the checkbox for the route table that you want to delete (don't click the name).
+1. On the right side of the line that the route table is on, you'll see an ellipsis (three dots). Click the ellipsis, then select **Delete** from the dropdown list.
+1. On the **Delete** page, confirm that you want to delete the route table, then click **Delete**.
+1. As long as no errors occur, the route table is deleted.
 
 ## View effective routes
 

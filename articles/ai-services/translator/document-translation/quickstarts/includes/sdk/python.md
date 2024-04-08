@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 02/09/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -14,7 +14,7 @@ recommendations: false
 
 ### Set up your project
 
-If you haven't done so, install the latest version of [Python](https://www.python.org/downloads/).
+Make sure that the latest version of [Python](https://www.python.org/downloads/) is installed.
 
 ### Install the client library
 
@@ -28,7 +28,7 @@ pip install azure-ai-translation-document==1.0.0
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
-1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```python
   key = "<your-key>"
@@ -46,12 +46,12 @@ pip install azure-ai-translation-document==1.0.0
       * **targetUri** The URL for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
+        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers**, and follow these steps to retrieve your source documents and target container `URLS`.
 
           |Source|Target|
           |------|-------|
           |1. Select the checkbox next to the source container|1. Select the checkbox next to the target container.|
-          | 2. From the main window area, select a file or document(s) for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
+          | 2. From the main window area, select a file or documents for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
           | 3. The source URL is located at the top of the Properties list.|3. The target URL is located at the top of the Properties list.|
 
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
@@ -120,14 +120,14 @@ for document in result:
 
 ## Run your application
 
-Once you've added the code sample to your application type the following command in your terminal:
+Once you add the code sample to your application type the following command in your terminal:
 
   ```python
-  python document-translation-sdk.py
+  python asynchronous-sdk.py
   ```
 
 Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/python-output-document.png" alt-text="Screenshot of the Python output in the terminal window. ":::
 
-That's it! You've created a program to translate documents in a storage container using the Python client library.
+That's it! You just created a program to translate documents in a storage container using the Python client library.

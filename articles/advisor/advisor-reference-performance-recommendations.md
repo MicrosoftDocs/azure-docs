@@ -2,10 +2,9 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
-ms.custom: ignite-2022
 author: mabrahms
 ms.author: v-mabrahms
-ms.date: 10/15/2023
+ms.date: 3/22/2024
 ---
 
 # Performance recommendations
@@ -168,9 +167,9 @@ Learn more about [Synapse workspace - UpgradeSynapseManagementClientSDK (Update 
 
 ### vSAN capacity utilization has crossed critical threshold
 
-Your vSAN capacity utilization has reached 75%. The cluster utilization is required to remain below the 75% critical threshold for SLA compliance. Add new nodes to VSphere cluster to increase capacity or delete VMs to reduce consumption or adjust VM workloads
+Your vSAN capacity utilization has reached 75%. The cluster utilization is required to remain below the 75% critical threshold for SLA compliance. Add new nodes to the vSphere cluster to increase capacity or delete VMs to reduce consumption or adjust VM workloads
 
-Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization has crossed critical threshold)](../azure-vmware/concepts-private-clouds-clusters.md).
+Learn more about [Azure VMware Solution private cloud - vSANCapacity (vSAN capacity utilization has crossed critical threshold)](../azure-vmware/architecture-private-clouds.md).
 
 ### Update Automanage to the latest API Version
 

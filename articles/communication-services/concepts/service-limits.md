@@ -80,16 +80,27 @@ If you have requirements that exceed the rate-limits, submit [a request to Azure
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-Sending a high volume of messages has a set of limitations on the number of email messages you can send. If you hit these limits, your messages won't be queued to be sent. You can submit these requests again, once the Retry-After time expires.
+There is a limit on the number of email messages you can send. If you exceed the below limits on your subscription, your requests will be rejected. You can attempt these requests again, after the Retry-After time has passed. Please take necessary action and request to raise the sending volume limits if needed.
 
 ### Rate Limits 
 
-|Operation|Scope|Timeframe (minutes)| Limit (number of emails) |
+[Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
+
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|30|
 |Send Email|Per Subscription|60|100|
 |Get Email Status|Per Subscription|1|60|
 |Get Email Status|Per Subscription|60|200|
+
+[Azure Managed Domains](../quickstarts/email/add-azure-managed-domains.md)
+
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
+|---------|-----|-------------|-------------------|
+|Send Email|Per Subscription|1|5|
+|Send Email|Per Subscription|60|10|
+|Get Email Status|Per Subscription|1|10|
+|Get Email Status|Per Subscription|60|20|
 
 ### Size Limits
 
@@ -102,7 +113,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 This sandbox setup is to help developers start building the application. Once you have established a sender reputation by sending mails, you can request to increase the sending volume limits. Submit a [support request](https://azure.microsoft.com/support/create-ticket/) to raise your desired email sending limit if you require sending a volume of messages exceeding the rate limits. Email quota increase requests are not automatically approved. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse when determining approval status.
 
 > [!NOTE]
-> Email quota increase requests may take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afernoon.
+> Email quota increase requests may take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afternoon.
 
 ## Chat
 
@@ -192,6 +203,18 @@ The following timeouts apply to the Communication Services Calling SDKs:
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
+
+## Job Router
+When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests will be dropped until the token of bucket to handle requests is replenished after a certain time.
+
+Rate Limits for Job Router:
+
+|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Timeout in seconds|
+|---------|-----|-------------|-------------------|-------------------------|
+|General Requests|Per Resource|10|1000|10|
+
+### Action to take
+If you need to send a volume of messages that exceeds the rate limits, email us at acs-ccap@microsoft.com.
 
 ## Teams Interoperability and Microsoft Graph
 Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  

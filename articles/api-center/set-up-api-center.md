@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: quickstart
 ms.date: 11/07/2023
 ms.author: danlep 
-ms.custom: 
 ---
 
 # Quickstart: Create your API center
@@ -43,7 +42,7 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
     1. Select an existing resource group, or select **New** to create a new one. 
 
-    1. Enter a **Name** for your API center. It must be unique in your subscription. 
+    1. Enter a **Name** for your API center. It must be unique in the region where you're creating your API center. 
 
     1. In **Region**, select one of the [available regions](overview.md#available-regions) for API Center preview. 
 

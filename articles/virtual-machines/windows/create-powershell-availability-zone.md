@@ -4,7 +4,6 @@ description: Create a virtual machine in an availability zone with Azure PowerSh
 author: ju-shim
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell

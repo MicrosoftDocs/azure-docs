@@ -4,11 +4,15 @@ description: Learn about the user resource type attributes that Azure AD B2C dir
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.topic: conceptual
-ms.date: 01/08/2024
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
+
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the supported user profile attributes and their availability in the Azure portal, user flows, and custom policies, so that I can effectively manage and extend user profile data for my application.
+
 ---
 
 # User profile attributes

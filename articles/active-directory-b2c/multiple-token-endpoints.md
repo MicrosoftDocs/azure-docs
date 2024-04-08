@@ -10,9 +10,13 @@ ms.service: active-directory
 
 ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer migrating an OWIN-based web API to a new domain, I want to enable support for multiple token issuers, so that I can migrate my web applications in a staged manner and remove support for the old token issuer from the API.
+
 ---
 
 # Migrate an OWIN-based web API to b2clogin.com or a custom domain

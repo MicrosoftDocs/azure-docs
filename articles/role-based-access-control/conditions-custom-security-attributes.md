@@ -1,13 +1,11 @@
 ---
 title: "Allow read access to blobs based on tags and custom security attributes - Azure ABAC"
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/01/2023
 ms.author: rolyon

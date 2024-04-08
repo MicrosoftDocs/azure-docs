@@ -16,6 +16,8 @@ When you raise a request, we'll investigate. If we think the problem is caused b
 
 This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+[!INCLUDE [communications-gateway-lab-ticket-sla](includes/communications-gateway-lab-ticket-sla.md)]
+
 ## Prerequisites
 
 We strongly recommend a Microsoft support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview).

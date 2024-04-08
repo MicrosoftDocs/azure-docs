@@ -7,7 +7,7 @@ ms.author: chschrae
 manager: travisw
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 1/21/2024
 keywords: intent recognition pattern matching
 ---
 

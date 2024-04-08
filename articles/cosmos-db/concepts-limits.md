@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/15/2023
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Azure Cosmos DB service quotas

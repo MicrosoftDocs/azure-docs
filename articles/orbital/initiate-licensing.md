@@ -18,7 +18,7 @@ Both satellites and ground stations require authorizations from federal regulato
 
 Azure Orbital Ground Station consists of five first-party, Microsoft-owned ground stations and networks of third-party Partner ground stations. Except in South Africa, adding a new satellite point of communication to licensed Microsoft ground stations requires an authorization from the respective federal regulator. While the specifics of obtaining authorization vary by geography, coordination with incumbent users is always required.
 
-- If you're interested in contacting [select **public** satellites supported by Azure Orbital Ground Station](https://learn.microsoft.com/azure/orbital/modem-chain#named-modem-configuration), Microsoft has already completed all regulatory requirements to add these satellite points of communication to all Microsoft ground stations.
+- If you're interested in contacting [select **public** satellites supported by Azure Orbital Ground Station](/azure/orbital/modem-chain#named-modem-configuration), Microsoft has already completed all regulatory requirements to add these satellite points of communication to all Microsoft ground stations.
 
 - If you're interested in having your **existing** satellite space station or constellation communicate with one or more Microsoft ground stations, you must modify your authorization for the US market to add each ground station.
 

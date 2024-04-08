@@ -7,11 +7,15 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 04/24/2023
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
+
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the different types of tokens used in Azure AD B2C, so that I can properly authenticate users and secure access to resources in my application.
+
 ---
 
 # Overview of tokens in Azure Active Directory B2C

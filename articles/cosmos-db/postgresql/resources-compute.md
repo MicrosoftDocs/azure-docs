@@ -5,20 +5,13 @@ ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 01/22/2024
 ---
 
 # Azure Cosmos DB for PostgreSQL compute and storage
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> 32 TiB storage in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
 
 Compute resources are provided as vCores, which represent the logical CPU of
 the underlying hardware. The storage size for provisioning refers to the
@@ -31,12 +24,12 @@ Postgres server logs.
 You can select the compute and storage settings independently for worker nodes
 and the coordinator node in a multi-node cluster.
  
-| Resource              | Worker node                        | Coordinator node                               |
-|-----------------------|------------------------------------|------------------------------------------------|
-| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104          | 4, 8, 16, 32, 64, 96                           |
-| Memory per vCore, GiB | 8                                  | 4                                              |
-| Storage size, TiB     | 0.5, 1, 2, 4, 8, 16, 32 (preview)  | 0.128, 0.25, 0.5, 1, 2, 4, 8, 16, 32 (preview) |
-| Storage type          | General purpose (SSD)              | General purpose (SSD)                          |
+| Resource              | Worker node                | Coordinator node                     |
+|-----------------------|----------------------------|--------------------------------------|
+| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104  | 4, 8, 16, 32, 64, 96                 |
+| Memory per vCore, GiB | 8                          | 4                                    |
+| Storage size, TiB     | 0.5, 1, 2, 4, 8, 16, 32    | 0.128, 0.25, 0.5, 1, 2, 4, 8, 16, 32 |
+| Storage type          | General purpose (SSD)      | General purpose (SSD)                |
 
 The total amount of RAM in a single node is based on the
 selected number of vCores.
@@ -62,7 +55,7 @@ available to each worker and coordinator node.
 | 4                 | 7,500        |
 | 8                 | 16,000       |
 | 16                | 18,000       |
-| 32 (preview)      | 20,000       |
+| 32                | 20,000       |
 
 For the entire cluster, the aggregated IOPS work out to the
 following values:

@@ -4,7 +4,6 @@ description: Learn how to troubleshoot and improve your Gremlin queries using th
 services: cosmos-db
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 03/27/2019
 author: manishmsfte

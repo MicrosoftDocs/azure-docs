@@ -5,7 +5,7 @@ description: Learn about services  offered by partners on Azure.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/04/2023
+ms.date: 02/14/2024
 ---
 
 # Extend Azure with Azure Native ISV Services

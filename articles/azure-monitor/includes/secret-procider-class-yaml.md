@@ -17,7 +17,7 @@ spec:
   parameters:
     usePodIdentity: "false"
     useVMManagedIdentity: "true"          # Set to true for using managed identity
-    userAssignedIdentityID: <client-id>   # Set the clientID of the user-assigned managed identity to use
+    userAssignedIdentityID: <client-id>   # Set the client ID of the user-assigned managed identity to use
     keyvaultName: <key-vault-name>        # Set to the name of your key vault
     cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
     objects:  |

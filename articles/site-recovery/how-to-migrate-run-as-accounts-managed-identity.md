@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.author: ankitadutta
 ms.topic: how-to 
-ms.date: 09/14/2023
+ms.date: 01/31/2024
 ---
 
 # Migrate from a Run As account to Managed Identities 
@@ -20,7 +20,7 @@ On Azure, managed identities eliminate the need for developers having to manage 
 
 ## Prerequisites
 
-Before you migrate from a Run As account to a managed identity, ensure that you have the appropriate roles to create a system-assigned identity for your automation account and to assign it the Contributor role in the corresponding recovery services vault.
+Before you migrate from a Run As account to a managed identity, ensure that you have the appropriate roles to create a system-assigned identity for your automation account and to assign it the *Owner* role in the corresponding recovery services vault.
 
 ## Benefits of managed identities
 

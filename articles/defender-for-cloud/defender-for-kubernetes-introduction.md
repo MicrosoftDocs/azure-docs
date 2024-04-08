@@ -45,7 +45,7 @@ Examples of security events that Microsoft Defenders for Kubernetes monitors inc
 - Creation of high privileged roles
 - Creation of sensitive mounts.
 
-For a full list of the cluster level alerts, see alerts with "K8S_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+For a full list of the cluster level alerts, see alerts with "K8S_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 ## FAQ - Microsoft Defender for Kubernetes
 

@@ -1,23 +1,27 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
 ## Platform requirements
 
-The Speech SDK for Go only supports the following distributions on the x64 architecture:
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-- Ubuntu 18.04/20.04/22.04
+The Speech SDK for Go supports the following distributions on the x64 architecture:
+
+- Ubuntu 18.04/20.04
 - Debian 9/10/11
 - Red Hat Enterprise Linux (RHEL) 8
-- CentOS 8
+- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 
-You must install the [Go binary version 1.13 or later](https://go.dev/dl/).
+Install the [Go binary version 1.13 or later](https://go.dev/dl/).
 
 ## Install the Speech SDK for Go
 

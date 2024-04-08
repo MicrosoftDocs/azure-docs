@@ -25,7 +25,7 @@ Azure Automation supports various input parameter values across the different ru
 | PowerShell          | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
 | PowerShell Workflow | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
 | Graphical PowerShell| - String <br>- INT32 <br>- INT64 <br>- Boolean <br>- Decimal <br>- DateTime <br>- Object                                                                       |
-| Python              | - String                                                                                                                                                                                        |                                                               |
+| Python              | - String                                                                                                                              |  
 
 ## Configure input parameters in PowerShell runbooks
 

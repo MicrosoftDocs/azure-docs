@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 11/07/2023
 author: PatrickFarley
 ms.author: pafarley
-keywords: 
 ---
 
 # Use a blocklist in Azure OpenAI
@@ -20,7 +19,7 @@ The configurable content filters are sufficient for most content moderation need
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Once you have your Azure subscription, create an Azure OpenAI resource in the Azure portal to get your token, key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
-    - The resource takes a few minutes to deploy. After it finishes, sSelect **go to resource**. In the left pane, under **Resource Management**,  select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+    - The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 - [Azure CLI](/cli/azure/install-azure-cli) installed
 - [cURL](https://curl.haxx.se/) installed
 
@@ -48,7 +47,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Optionally replace the value of the "description" field with a custom description.
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{ 
@@ -74,7 +73,7 @@ To apply a **completion** blocklist to a content filter, use the following cURL 
 1. Replace "raiBlocklistName" in the body with a custom name for your list. Allowed characters: `0-9, A-Z, a-z, - . _ ~`. 
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{ 
@@ -104,7 +103,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace the value of the `"blocking pattern"` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 1000 characters. Also specify whether the pattern is regex or exact match. 
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{  

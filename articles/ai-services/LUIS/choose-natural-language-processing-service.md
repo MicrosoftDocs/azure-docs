@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 01/19/2024
 ---
 
 # Use Azure AI services with natural language processing (NLP) to enrich chat bot conversations

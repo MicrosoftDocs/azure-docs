@@ -18,6 +18,7 @@
 | P2S route limit - OpenVPN               | 1000                         |
 | Max. flows                              | 100K for VpnGw1/AZ  **/**  512K for VpnGw2-4/AZ|
 | Traffic Selector Policies               | 100  |
+| Custom APIPA BGP addresses              | 32   |
 | Supported number of VMs in the virtual network | Limit depends on the gateway SKU. See the [Limits by gateway SKU](#limits-by-gateway-sku) table.|
 
 #### Limits by gateway SKU

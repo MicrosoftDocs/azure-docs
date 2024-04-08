@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications systemconfig.json container configuration file reference
 description: Description of settings available in systemconfig.json file
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.custom: devx-track-extended-java
 ms.date: 06/03/2023

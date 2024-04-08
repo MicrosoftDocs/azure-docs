@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 02/15/2023
+ms.date: 02/02/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
 zone_pivot_groups: azure-red-hat-openshift
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
@@ -453,6 +453,27 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
+@description('Specify if FIPS validated crypto modules are used')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param fips string = 'Disabled'
+
+@description('Specify if master VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param masterEncryptionAtHost string = 'Disabled'
+
+@description('Specify if worker VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param workerEncryptionAtHost string = 'Disabled'
+
 var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
 var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
 var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
@@ -525,6 +546,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
       domain: domain
       resourceGroupId: resourceGroupId
       pullSecret: pullSecret
+      fipsValidatedModules: fips
     }
     networkProfile: {
       podCidr: podCidr
@@ -537,6 +559,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
     masterProfile: {
       vmSize: masterVmSize
       subnetId: masterSubnetId
+      encryptionAtHost: masterEncryptionAtHost
     }
     workerProfiles: [
       {
@@ -545,6 +568,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
         diskSizeGB: workerVmDiskSize
         subnetId: workerSubnetId
         count: workerCount
+        encryptionAtHost: workerEncryptionAtHost
       }
     ]
     apiserverProfile: {
@@ -771,13 +795,13 @@ SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
 az role assignment create \
     --role 'User Access Administrator' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 
 az role assignment create \
     --role 'Contributor' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 ```
 
@@ -797,7 +821,7 @@ az deployment group create \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$CLUSTER \
+    --parameters clusterName=$ARO_CLUSTER_NAME \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \

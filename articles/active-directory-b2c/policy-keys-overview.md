@@ -7,11 +7,15 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 09/20/2021
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to understand how to manage policy keys, so that I can establish trust with external identity providers, REST API services, and configure encryption and signing for token validation.
+
 ---
 
 # Overview of policy keys in Azure Active Directory B2C

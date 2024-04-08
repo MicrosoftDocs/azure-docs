@@ -37,7 +37,7 @@ To help you select the right tools for migrating to Azure Database for MySQL, co
 | Migration Scenario | Tool(s) | Details | More information |
 |--------------------|---------|---------|------------------|
 | Single to Flexible Server (Azure portal) | Database Migration Service (classic) and the Azure portal | [Tutorial: DMS (classic) with the Azure portal   (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) | Suitable for < 1TB workloads; cross-region, cross-storage type and cross-version migrations.  |
-| Single to Flexible Server (Azure CLI) | Azure MySQL Import CLI | [Tutorial: Azure MySQL Import](../migrate/migrate-single-flexible-mysql-import-cli.md) | **Recommended** - Suitable for all sizes of workloads, extremely performant for > 500 GB workloads.|
+| Single to Flexible Server (Azure CLI) | Azure Database for MySQL Import CLI | [Tutorial: Azure Database for MySQL Import](../migrate/migrate-single-flexible-mysql-import-cli.md) | **Recommended** - Suitable for all sizes of workloads, extremely performant for > 500 GB workloads.|
 | MySQL databases (>= 1 TB) to Azure Database for MySQL | Dump and Restore using **MyDumper/MyLoader** + High Compute VM | [Migrate large databases to Azure Database for MySQL using   mydumper/myloader](concepts-migrate-mydumper-myloader.md) | [Best Practices for migrating large databases to Azure   Database for   MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699) |
 
 ### Online

@@ -2,6 +2,7 @@
 title: Create interactive reports with Azure Monitor Workbooks 
 description: This article explains how to create interactive reports in Azure Workbooks.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 01/08/2024
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr

@@ -26,7 +26,7 @@ The following table provides information on the Peering Service connectivity par
 | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) | Europe |
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
-| [CCL](https://concepts.co.nz/news/general-news/) | Oceania |
+| [CCL](https://concepts.co.nz/news) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
 | [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) | Asia |
@@ -37,7 +37,7 @@ The following table provides information on the Peering Service connectivity par
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)| Europe |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
-| [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe |
+| [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe, North America |
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
 | [MainOne](https://www.mainone.net/connectivity-services/cloud-connect/) | Africa |
@@ -99,7 +99,7 @@ The following table provides information on the Peering Service connectivity par
 | Metro | Partners (IXPs) |
 |-------|-----------------|
 | Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |
-| Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) , [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
 | Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Barcelona | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Chicago | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
@@ -112,6 +112,7 @@ The following table provides information on the Peering Service connectivity par
 | Kuala Lumpur | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | London | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
 | Madrid | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| Manchester | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
 | Marseilles | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |

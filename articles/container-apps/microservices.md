@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 02/22/2024
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Microservices with Azure Container Apps

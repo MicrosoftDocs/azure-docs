@@ -2,7 +2,6 @@
 title: Azure API Management - stv1 platform retirement (August 2024) | Microsoft Docs
 description: Azure API Management will retire the stv1 compute platform effective 31 August 2024. Instances hosted on the stv1 platform must be migrated to the stv2 platform.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
@@ -11,6 +10,8 @@ ms.author: danlep
 ---
 
 # stv1 platform retirement (August 2024)
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. **The infrastructure associated with the API Management `stv1` compute platform version will be retired effective 31 August 2024.** A more current compute platform version (`stv2`) is already available, and provides enhanced service capabilities. 
 
