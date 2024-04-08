@@ -59,7 +59,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
    
-   1. Create environment variables in your shell for the resource group name for the cluster.
+   1. Create an environment variable in your shell for the resource group name for the cluster.
 
       ### [Bash](#tab/in-bash)
 
@@ -116,7 +116,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
     ---
 
-   These values are used later in this article. Note that several other useful commands are listed in the outputs.
+   These values are used later in this article. Several other useful commands are listed in the outputs.
 
    > [!NOTE]
    > You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
@@ -127,18 +127,18 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-Create environment variables in your shell for the resource group name for the database.
+1. Create an environment variable in your shell for the resource group name for the database.
  
 ### [Bash](#tab/in-bash)
  
 ```bash
-export DB_RESOURCE_GROUP_NAME=<your-database-resource-group-name>
+export DB_RESOURCE_GROUP_NAME=<db-resource-group>
 ```
  
 ### [PowerShell](#tab/in-powershell)
  
 ```powershell
-$Env:DB_RESOURCE_GROUP_NAME="<your-database-resource-group-name>"
+$Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 ```
 
 ---
@@ -463,7 +463,7 @@ Use the following steps to deploy and test the application:
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, database, and all related resources.
 
 ### [Bash](#tab/in-bash)
 
