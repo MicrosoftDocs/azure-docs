@@ -174,11 +174,11 @@ sections:
       - question: |
           I have a SCSI Ebsv5 VM. How do I switch to NVMe of the same VM size?   
         answer: |         
-          The steps to switch from SCSI to NVMe are the same as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--)
+          The steps to switch from SCSI to NVMe are the same as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
       - question: |
           How can I switch back to SCSI interface from NVMe VM?   
         answer: |
-          To switch back to SCSI from NVMe, follow the same steps as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--) 
+          To switch back to SCSI from NVMe, follow the same steps as explained in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
       - question: |
           Does Azure support live resizing on disks with NVMe VM sizes?  
         answer: |
@@ -226,7 +226,7 @@ sections:
       - question: |
           What happens if I create an E112i VM using an OS image that isn't tagged as NVMe? 
         answer: |
-         An NVMe E112i VM can only be created using an image (PIR & [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that is tagged as NVMe. If an untagged image is used, a SCSI VM is created, and the VM may not perform as intended. There's a solution in development to prevent the creation of an NVMe VM from a nontagged NVMe image. Make sure to follow all instructions listed in [FAQ]((#how-do-i-enable-nvme-on-a-vm-family--). 
+         An NVMe E112i VM can only be created using an image (PIR & [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that is tagged as NVMe. If an untagged image is used, a SCSI VM is created, and the VM may not perform as intended. There's a solution in development to prevent the creation of an NVMe VM from a nontagged NVMe image. Make sure to follow all instructions listed in [FAQ](#how-do-i-enable-nvme-on-a-vm-family--).
       - question: |
           How can I resize a SCSI Ebsv5 or Ebdsv5 VM (for example, 48 vCPU) to an NVMe-enabled VM of the different size (E112i) without re-creating the VM configurations? 
         answer: |
