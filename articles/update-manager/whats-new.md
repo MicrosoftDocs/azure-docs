@@ -12,11 +12,18 @@ ms.date: 04/03/2024
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## April 2024
+
+### New region support
+
+Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+
+
 ## February 2024
 
 ### Migration scripts to move machines and schedules from Automation Update Management to Azure Update Manager (preview)
 
-Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
+Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to Azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
 
 
 ### Updates blade in Azure Update Manager (preview)
@@ -75,7 +82,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 
