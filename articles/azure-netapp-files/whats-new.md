@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA).
+
+* The [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) feature is now generally available (GA).
+
 ## March 2024
 
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
@@ -111,10 +115,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Snapshot manageability enhancement: Identify parent snapshot](snapshots-restore-new-volume.md)
 
     You can now see the name of the snapshot used to create a new volume. In the Volume overview page, the **Originated from** field identifies the source snapshot used in volume creation. If the field is empty, no snapshot was used.
-
-* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA).
-
-* The [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) feature is now generally available (GA).
 
 ## September 2023
 
