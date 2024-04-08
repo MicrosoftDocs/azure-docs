@@ -36,8 +36,8 @@ Complete the following steps to assign roles in Trusted Signing.
 4. For more granular access control on the certificate profile level, you can use the Azure CLI to assign roles. The following commands can be used to assign the _Code Signing Certificate Profile Signer_ role to users/service principles to sign files. 
 ```
 az role assignment create --assignee <objectId of user/service principle> 
---role "Code Signing Certificate Profile Signer" 
---scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/codeSigningAccounts/<codesigning-account-name>/certificateProfiles/<profileName>" 
+--role "Trusted Signing Certificate Profile Signer" 
+--scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/trustedSigningAccounts/<trustedsigning-account-name>/certificateProfiles/<profileName>" 
 ```
 
 ## Related content 
