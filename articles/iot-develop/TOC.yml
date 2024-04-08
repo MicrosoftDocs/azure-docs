@@ -11,48 +11,26 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: General device development
-      items: 
-      - name: Send telemetry to IoT Hub
-        href: quickstart-send-telemetry-iot-hub.md
-    - name: Azure RTOS development
-      items:
-      - name: Microchip ATSAME54-XPro
-        href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-      - name: Renesas RX65N Cloud Kit
-        href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
-      - name: STMicroelectronics L475E-IOT01A
-        href: quickstart-devkit-stm-b-l475e-iot-hub.md
-      - name: STMicroelectronics L4S5I-IOT01A
-        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
-      - name: STMicroelectronics U585I-IOT02A
-        href: quickstart-devkit-stm-b-u585i-iot-hub.md
-      - name: NXP MIMXRT1060-EVK
-        href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
-      - name: MXCHIP AZ3166
-        href: quickstart-devkit-mxchip-az3166-iot-hub.md
-    - name: FreeRTOS development
-      items:
-      - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
-- name: Tutorials
-  items:
-    - name: Use MQTT to connect a device
-      href: tutorial-use-mqtt.md
+  - name: Azure RTOS development
+    items:
+    - name: Microchip ATSAME54-XPro
+      href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+    - name: Renesas RX65N Cloud Kit
+      href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
+    - name: STMicroelectronics L475E-IOT01A
+      href: quickstart-devkit-stm-b-l475e-iot-hub.md
+    - name: STMicroelectronics L4S5I-IOT01A
+      href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+    - name: STMicroelectronics U585I-IOT02A
+      href: quickstart-devkit-stm-b-u585i-iot-hub.md
+    - name: NXP MIMXRT1060-EVK
+      href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
+    - name: MXCHIP AZ3166
+      href: quickstart-devkit-mxchip-az3166-iot-hub.md
 - name: Concepts
   items:
-  - name: C SDK and Embedded C SDK usage scenarios
-    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
-  - name: Overview of device types
-    href: concepts-iot-device-types.md
-  - name: Manage device reconnections in IoT Hub and DPS
-    href: concepts-manage-device-reconnections.md
-  - name: IoT device selection list
-    href: iot-device-selection.md
-  - name: Security
-    items:
-    - name: Guidelines for secured embedded development
-      href: concepts-azure-rtos-security-practices.md 
+  - name: Guidelines for secured embedded development
+    href: concepts-azure-rtos-security-practices.md 
 - name: How to
   items:
   - name: Install and use IoT explorer

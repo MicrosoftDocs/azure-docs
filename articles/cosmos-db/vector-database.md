@@ -1,7 +1,7 @@
 ---
 title: Vector database
 titleSuffix: Azure Cosmos DB
-description: Vector database
+description: Vector database functionalities, implementation, and comparison.
 author: wmwxwa
 ms.author: wangwilliam
 ms.reviewer: sidandrews
@@ -16,10 +16,10 @@ ms.date: 03/30/2024
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
-In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are, as well as presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scale, and performance.
+In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are, as well as presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scalability, and performance.
 
 > [!TIP]
-> Data consistency, scale, and performance guarantees are why OpenAI built its ChatGPT service on top of Azure Cosmos DB. You, too, can take advantage of its integrated vector database, as well as its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Please consult the [implementation samples](#how-to-implement-integrated-vector-database-functionalities) section of this article and [try](#next-step) the lifetime free tier or one of the free trial options.
+> Data consistency, scalability, and performance are critical for data-intensive applications, which is why OpenAI chose to build the ChatGPT service on top of Azure Cosmos DB. You, too, can take advantage of its integrated vector database, as well as its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. See [implementation samples](#how-to-implement-integrated-vector-database-functionalities) and [try](#next-step) it for free.
 
 ## What is a vector database?
 
@@ -27,7 +27,13 @@ A vector database is a database designed to store and manage [vector embeddings]
 
 In a vector database, embeddings are indexed and queried through [vector search](#vector-search) algorithms based on their vector distance or similarity. A robust mechanism is necessary to identify the most relevant data. Some well-known vector search algorithms include Hierarchical Navigable Small World (HNSW), Inverted File (IVF), DiskANN, etc.
 
-Besides the typical vector database functionalities above, an integrated vector database in a highly performant NoSQL or relational database converts the existing raw data in your account into embeddings and stores them alongside your original data. This way, you can avoid the extra cost of replicating your data in a separate vector database. Moreover, this architecture keeps your vector embeddings and original data together, which better facilitates multi-modal data operations, and you can achieve greater data consistency, scale, and performance.
+### Integrated vector database vs pure vector database
+
+There are two common types of vector database implementations - pure vector database and integrated vector database in a NoSQL or relational database.
+
+A pure vector database is designed to efficiently store and manage vector embeddings, along with a small amount of metadata; it is separate from the data source from which the embeddings are derived.
+
+A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database converts the existing data in a NoSQL or relational database into embeddings and stores them alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## What are some vector database use cases?
 
@@ -138,10 +144,13 @@ The natively integrated vector database in our NoSQL API will become available i
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](ai-advantage.md)
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
+
+> [!div class="nextstepaction"]
+> [Use the Azure Cosmos DB for MongoDB lifetime free vCore cluster](mongodb/vcore/free-tier.md)
 
 ## More Vector Databases
 
