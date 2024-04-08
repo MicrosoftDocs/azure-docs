@@ -26,7 +26,7 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 > [!NOTE]  
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
 
-## Deploy Azure SQL Edge Module using IOT Hub
+## Deploy Azure SQL Edge Module using IoT Hub
 
 Azure SQL Edge can be deployed using instructions from [Deploy modules from Azure portal](https://learn.microsoft.com/en-us/azure/iot-edge/how-to-deploy-modules-potal?view=iotedge-1.4). The image URI for Azure SQL Edge is `mcr.microsoft.com/azure-sql-edge:latest`.
 

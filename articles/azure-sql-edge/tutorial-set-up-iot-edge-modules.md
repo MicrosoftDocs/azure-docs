@@ -75,7 +75,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 ## Deploy the Azure SQL Edge module
 
-1. Deploy the Azure SQL Edge module by selecting on **+ Add** and then **IOT Edge Module**.
+1. Deploy the Azure SQL Edge module by selecting on **+ Add** and then **IoT Edge Module**.
 
 1. Set the configuration options in **Add IoT Edge Modules** page to deploy Azure SQL Edge module. For more information on the configuration options, see [Deploy Azure SQL Edge](./deploy-portal.md).
 
