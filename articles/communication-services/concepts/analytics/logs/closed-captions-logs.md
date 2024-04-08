@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Closed captions logs
+title: Azure Communication Services Closed Captions logs
 titleSuffix: An Azure Communication Services concept article
 description: Learn about logging for Azure Communication Services Closed captions.
 author: Kunaal
