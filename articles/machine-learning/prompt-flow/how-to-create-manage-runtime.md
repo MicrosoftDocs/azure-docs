@@ -84,7 +84,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
         identity:
            type: system_assigned, user_assigned
            user_assigned_identities:
-            '<UAI resource ID 1>': {}
+            '/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uai_name>': {}
             '<UAI resource ID 2>': {}
         primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
         ```
