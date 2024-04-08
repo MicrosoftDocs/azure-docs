@@ -1,30 +1,30 @@
 ---
-title: Troubleshooting the Azure RTOS embedded device quickstarts
-description: Steps to help you troubleshoot common issues when using the Azure RTOS embedded device quickstarts
+title: Troubleshooting the embedded device tutorials
+description: Steps to help you troubleshoot common issues when using the Eclipse ThreadX embedded device tutorials
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: troubleshooting
-ms.date: 1/23/2024
+ms.date: 04/08/2024
 ---
 
-# Troubleshooting the Azure RTOS embedded device quickstarts
+# Troubleshooting the Eclipse ThreadX embedded device tutorials
 
-As you follow the [Embedded device development quickstarts](quickstart-devkit-mxchip-az3166.md), you might experience some common issues. In general, issues can occur in any of the following sources:
+As you follow the [Eclipse ThreadX embedded device tutorials](tutorial-devkit-mxchip-az3166-iot-hub.md), you might experience some common issues. In general, issues can occur in any of the following sources:
 
 * **Your environment**. Your machine, software, or network setup and connection.
 * **Your Azure IoT resources**. The IoT hub and device that you created to connect to Azure IoT.
 * **Your device**. The physical board and its configuration.
 
-This article provides suggested resolutions for the most common issues that can occur as you complete the quickstarts.
+This article provides suggested resolutions for the most common issues that can occur as you complete the tutorials.
 
 ## Prerequisites
 
-All the troubleshooting steps require that you've completed the following prerequisites for the quickstart you're working in:
+All the troubleshooting steps require that you've completed the following prerequisites for the tutorial you're working in:
 
-* You installed or acquired all prerequisites and software tools for the quickstart.
-* You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the quickstart.
-* You built an image for the device, as directed in the quickstart.
+* You installed or acquired all prerequisites and software tools for the tutorial.
+* You created an Azure IoT hub or Azure IoT Central application, and registered a device, as directed in the tutorial.
+* You built an image for the device, as directed in the tutorial.
 
 ## Issue: The source directory doesn't contain CMakeLists.txt file
 ### Description
@@ -41,10 +41,10 @@ The issue can occur because the path to an object file exceeds the default maxim
 
 ```output
 -- Configuring done
-CMake Warning in C:/embedded quickstarts/areallyreallyreallylongpath/getting-started/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeLists.txt:
+CMake Warning in C:/embedded tutorials/areallyreallyreallylongpath/getting-started/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeLists.txt:
   The object file directory
 
-    C:/embedded quickstarts/areallyreallyreallylongpath/getting-started/NXP/MIMXRT1060-EVK/build/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeFiles/asc_security_core.dir/./
+    C:/embedded tutorials/areallyreallyreallylongpath/getting-started/NXP/MIMXRT1060-EVK/build/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeFiles/asc_security_core.dir/./
 
   has 208 characters.  The maximum full path to an object file is 250
   characters (see CMAKE_OBJECT_PATH_MAX).  Object file
@@ -86,7 +86,7 @@ After you flash a device that uses a Wi-Fi connection, you get an error message 
 
 ### Resolution
 
-* Check your Wi-Fi network frequency and settings. The devices used in the embedded device quickstarts all use 2.4 GHz. Confirm that your Wi-Fi router is configured to support a 2.4-GHz network.
+* Check your Wi-Fi network frequency and settings. The devices used in the embedded device tutorials all use 2.4 GHz. Confirm that your Wi-Fi router is configured to support a 2.4-GHz network.
 * Check the Wi-Fi mode. Confirm what setting you used for the WIFI_MODE constant in the *azure_config.h* file. Check your Wi-Fi network security or authentication settings to confirm that the Wi-Fi security mode matches what you have in the configuration file.
 
 ## Issue: Flashing the board fails
@@ -139,7 +139,7 @@ After you flash your device successfully and connect it to your computer, you se
 
 ### Resolution
 
-* Confirm that the settings in your terminal software match the settings in the quickstart.
+* Confirm that the settings in your terminal software match the settings in the tutorial.
 * Restart your terminal software.
 * Press the **Reset** button on your device.
 * Confirm that your USB cable is properly connected.
@@ -173,5 +173,3 @@ Because [Defender for IoT module](../defender-for-iot/device-builders/iot-securi
 If after reviewing the issues in this article, you still can't monitor your device in a terminal or connect to Azure IoT, there might be an issue with your device's hardware or physical configuration. See the manufacturer's page for your device to find documentation and support options.
 
 * [STMicroelectronics B-L475E-IOT01](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l475e-iot01a.html)
-* [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)
-* [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)

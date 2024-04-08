@@ -62,6 +62,8 @@ items:
           href: tutorial-devkit-stm-b-l475e-iot-hub.md
         - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
           href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+        - name: Troubleshoot embedded tutorials
+          href: troubleshoot-embedded-device-tutorials.md
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Connect a device module
@@ -83,6 +85,8 @@ items:
           href: concepts-manage-device-reconnections.md 
         - name: IoT device selection
           href: concepts-iot-device-selection.md
+        - name: Guide for Eclipse ThreadX security practices
+          href: concepts-eclipse-threadx-security-practices.md
       - name: IoT Plug and Play
         items:
         - name: What is IoT Plug and Play?

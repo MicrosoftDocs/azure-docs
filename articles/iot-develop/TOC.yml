@@ -23,10 +23,6 @@
       href: quickstart-devkit-stm-b-u585i-iot-hub.md
     - name: NXP MIMXRT1060-EVK
       href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
-- name: Concepts
-  items:
-  - name: Guidelines for secured embedded development
-    href: concepts-azure-rtos-security-practices.md 
 - name: How to
   items:
   - name: Install and use IoT explorer
@@ -55,10 +51,6 @@
         href: quickstart-devkit-espressif-esp32-freertos.md
       - name: STMicroelectronics L475E
         href: quickstart-devkit-stm-b-l475e-freertos.md
-  - name: Troubleshoot
-    items:
-      - name: Troubleshoot embedded quickstarts
-        href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
     - name: Azure CLI
