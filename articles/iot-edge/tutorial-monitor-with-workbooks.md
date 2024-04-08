@@ -83,6 +83,7 @@ Follow these steps to deploy and configure the collector module:
 
     1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
     1. Update the following module settings:
+
         | Setting            | Value                                                                |
         |--------------------|----------------------------------------------------------------------|
         | IoT Module name    | `SimulatedTemperatureSensor`                                         |
@@ -93,6 +94,7 @@ Follow these steps to deploy and configure the collector module:
     1. Select **Next: Routes** to continue to configure routes.
     
     1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
+
        | Setting                          | Value                                      |
        |----------------------------------|--------------------------------------------|
        | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
@@ -103,6 +105,7 @@ Follow these steps to deploy and configure the collector module:
    1. Select **Add** then choose **IoT Edge Module**.
    1. Search for and select **IoT Edge Metrics Collector**.
    1. Update the following module settings:
+
         | Setting            | Value                                                                |
         |--------------------|----------------------------------------------------------------------|
         | IoT Module name    | `IoTEdgeMetricsCollector`                                         |

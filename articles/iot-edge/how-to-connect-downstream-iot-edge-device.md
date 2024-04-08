@@ -601,6 +601,7 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
 1. Update the following module settings:
+
     | Setting            | Value                                             |
     |--------------------|---------------------------------------------------|
     | IoT Module name    | `IoTEdgeAPIProxy`                                 |
@@ -654,6 +655,7 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Provide the following values to add the Docker registry module to your deployment. 
 
     In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+
     | Setting            | Value                                             |
     |--------------------|---------------------------------------------------|
     | IoT Module name    | `registry`                                        |
@@ -662,6 +664,7 @@ The API proxy module was designed to be customized to handle most common gateway
     | Desired status     | `running`                                         |
 
     1. In the **Environment variables** tab, add the following variables:
+
         | Name                   | Type  | Value                                                   |
         |------------------------|-------|---------------------------------------------------------|
         | `REGISTRY_PROXY_REMOTEURL` | Text  | The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr`. The registry module can only map to one container registry, so we recommend having all container images in a single private container registry.|
@@ -844,6 +847,7 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Set modules**.
 1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
 1. Update the following module settings:
+
     | Setting            | Value                                             |
     |--------------------|---------------------------------------------------|
     | IoT Module name    | `IoTEdgeAPIProxy`                                 |
