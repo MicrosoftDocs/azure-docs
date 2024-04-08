@@ -99,11 +99,12 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 | Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 |      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-| Notifications    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ❌  | ✔️       | ✔️              | ✔️                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 <sup>2</sup> The Share Screen capability can be achieved using Raw Media APIs. To learn more visit [the raw media access quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 <sup>3</sup> The Calling SDK doesn't have an explicit API for these functions, you should use the Android & iOS OS APIs to achieve instead.
+<sup>4</sup> The maximum value for TTL in native platforms, is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint)/M365 indetity the max TTL value is **24 hrs (86,400 seconds)**.
 
 ## JavaScript Calling SDK support by OS and browser
 
