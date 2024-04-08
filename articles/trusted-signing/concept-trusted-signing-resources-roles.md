@@ -65,7 +65,7 @@ Identity Validations are all about establishing the identity on the certificates
 
 **Public Trust** means that all identity values must be validated in accordance to our [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This aligns with the expectations for publicly trusted code signing certificates. 
 
-For more details on Private and Public Trust, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md). 
+For more details on Private and Public Trust, review [Trusted Signing trust models](./concept-trusted-signing-trust-models.md). 
 
 ### Certificate Profiles
 
