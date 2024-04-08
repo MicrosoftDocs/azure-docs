@@ -15,6 +15,8 @@ This plan brings threat protections for the following open-source relational dat
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
+- [Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html)
+- [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.html)
 
 Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. The plan makes it simple to address potential threats to databases without the need to be a security expert or manage advanced security monitoring systems.
 
@@ -37,13 +39,6 @@ Defender for open-source relational database is supported on PaaS environments f
 **Protected versions of MariaDB include**:
 
 - General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).
-
-**Supported Azure and AWS RDS instance types include**:
-- Aurora PostgreSQL
-- Aurora MySQL
-- PostgreSQL
-- MySQL
-- MariaDB
 
 View [cloud availability](support-matrix-cloud-environment.md#cloud-support) for Defender for open-source relational databases
 

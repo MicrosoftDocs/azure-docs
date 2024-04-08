@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 04/07/2024
+ms.date: 04/08/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -94,6 +94,18 @@ Make sure the selected Log Analytics workspace has a security solution installed
 
 [Learn more about monitoring components](monitoring-components.md) for Defender for Cloud.
 
+### Defender for open-source databases
+
+If you choose the Defender for open-source relational databases plan, you need:
+
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md)
+
+- **All public AWS clouds**: All regions
+
 ### Defender for Servers
 
 If you choose the Microsoft Defender for Servers plan, you need:
@@ -132,18 +144,6 @@ Make sure the selected Log Analytics workspace has a security solution installed
 > As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features and security capabilities that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 Defender for Servers assigns tags to your Azure ARC resources on top of your EC2 instances to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
-
-### Defender for Databases
-
-If you choose the Defender for open-source relational databases plan, you need:
-
-- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
-
-- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
-
-- Connect your [non-Azure machines](quickstart-onboard-machines.md), [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md)
-
-- **Region availability**: All regions
 
 ### Defender CSPM
 
