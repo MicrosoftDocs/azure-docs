@@ -58,7 +58,7 @@ To ensure security and compliance, RO commands must adhere to the following spec
 
 - Only absolute commands should be provided as input. Short forms and prompts aren't supported. For example:
     - Enter `show interfaces Ethernet 1/1 status`
-    - Don't enter `sh int stat or sh int e1/1 status`
+    - Don't enter `sh int stat` or `sh int e1/1 status`
 - Commands must not be null, empty, or consist only of a single word.
 - Commands must not include the pipe (|) character.
 - Show commands are unrestricted, except for the high CPU intensive commands specifically referred to in this list of restrictions.
@@ -66,7 +66,6 @@ To ensure security and compliance, RO commands must adhere to the following spec
 - Only one `show` command at a time can be used on a specific device.
 -  You can run the `show` command on another CLI window in parallel.
 - You can run a `show` command on different devices at the same time.
--->
 
 ## Troubleshoot using read-only commands
 
@@ -103,26 +102,25 @@ To ensure security and compliance, RO commands must adhere to the following spec
 
 4. View and download the generated output file. Sample output is shown here.
 
-
-```azurecli
-{
-"architecture": "x86_64",
-"bootupTimestamp": 1709086001.499244,
-"configMacAddress": "00:00:00:00:00:00",
-"hardwareRevision": "12.05",
-"hwMacAddress": "d4:af:f7:81:a7:01",
-"imageFormatVersion": "3.0",
-"imageOptimization": "Default",
-"internalBuildID": "d009619b-2677-41db-86d6-fcccff30ae3b",
-"internalVersion": "4.30.3M-33434233.4303M:,
-"isIntlVersion": false,
-"memFree": 4009876,
-"memTotal": 8107980,
-"mfgName": "Arista",
-"modelName": "DCS-7280DR3-24-F"
-"serialNumber": "JPE21115459",
-"systemMacAddress": "d4:af:f7:81:a7:01",
-"uptime": 627826.81,
-"version": "4.30.3M"
- }
-```
+    ```azurecli
+    {
+    "architecture": "x86_64",
+    "bootupTimestamp": 1709086001.499244,
+    "configMacAddress": "00:00:00:00:00:00",
+    "hardwareRevision": "12.05",
+    "hwMacAddress": "d4:af:f7:81:a7:01",
+    "imageFormatVersion": "3.0",
+    "imageOptimization": "Default",
+    "internalBuildID": "d009619b-2677-41db-86d6-fcccff30ae3b",
+    "internalVersion": "4.30.3M-33434233.4303M:,
+    "isIntlVersion": false,
+    "memFree": 4009876,
+    "memTotal": 8107980,
+    "mfgName": "Arista",
+    "modelName": "DCS-7280DR3-24-F"
+    "serialNumber": "JPE21115459",
+    "systemMacAddress": "d4:af:f7:81:a7:01",
+    "uptime": 627826.81,
+    "version": "4.30.3M"
+     }
+    ```
