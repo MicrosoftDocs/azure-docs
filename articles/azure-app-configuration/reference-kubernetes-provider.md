@@ -78,7 +78,7 @@ If the `spec.configuration.selectors` property isn't set, all key-values with no
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying key-values.|true|string|
+|keyFilter|The key filter for querying key-values.|false|string|
 |labelFilter|The label filter for querying key-values.|false|string|
 |snapshotName|The snapshot for querying its contained key-values.|false|string|
 
@@ -147,7 +147,7 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying feature flags.|true|string|
+|keyFilter|The key filter for querying feature flags.|false|string|
 |labelFilter|The label filter for querying feature flags.|false|string|
 |snapshotName|The snapshot for querying its contained feature flags.|false|string|
 
@@ -422,15 +422,15 @@ By default, all key vault reference items will be projected as key-value pairs i
 If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
  
 ``` yaml
-  {
-		"key": "mycertificate",
-		"label": null,
-		"value": "{\"uri\":\"https://<your-key-valut-endpoint>/secrets/mycertificate\"}",
-		"content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
-		"tags": {
-			".kubernetes.secret.type": "kubernetes.io/tls"
-		}
-  }
+{
+	"key": "mycertificate",
+	"label": null,
+	"value": "{\"uri\":\"https://<your-key-valut-endpoint>/secrets/mycertificate\"}",
+	"content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
+	"tags": {
+		".kubernetes.secret.type": "kubernetes.io/tls"
+	}
+}
 ```
  
 Then this key vault reference item will be generated as a `kubernetes.io/tls` type Secret naming with the key of it.
