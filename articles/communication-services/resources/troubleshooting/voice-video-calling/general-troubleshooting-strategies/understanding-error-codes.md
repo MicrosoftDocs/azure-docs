@@ -19,9 +19,9 @@ Through error codes, subcodes, and result categories, you can more easily handle
 
 ## resultCategories
 
-The `resultCategories` indicates the type of the error. Depending on the context, the value can be `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`.
+The `resultCategories` property indicates the type of the error. Depending on the context, the value can be `ExpectedError`, `UnexpectedClientError`, or `UnexpectedServerError`.
 
-For client errors, if the `resultCategories` is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
+For client errors, if the `resultCategories` property is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
 Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app,
 or when the current system state doesn't allow the API call.
 The application should check the error reason and the logic for invoking API.
