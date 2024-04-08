@@ -105,12 +105,28 @@ To verify your current agent version, run the following query from the Microsoft
       Connected_SAP_Systems_Ids = set_system_id_s,
       Current_Agent_Version = agent_ver_s
   ```
-
-### Assign required Azure roles manually
+### Check for required Azure roles
 
 Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-If these roles aren't yet assigned, make sure to assign them manually. Use the procedure for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the roles.
+First check to see if your roles are already assigned:
+
+1. Find your VM identity object ID in Azure:
+
+    1. Go to **Enterprise application** > **All applications**, and select your VM or registered application name, depending on the type of identity you're using to access your key vault.
+    1. Copy the value of the **Object ID** field to use with your copied command.
+
+1. Run the following command to verify whether these roles are already assigned, replacing the placeholder values as needed. <!--how to replace scope?-->
+
+    ```bash
+    az role assignment list --assignee <Object_ID> --query "[].roleDefinitionName" --scope <scope>
+    ```
+
+    The output shows a list of the roles assigned to the object ID.
+
+### Assign required Azure roles manually
+
+If the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles aren't yet assigned to your agent's VM identity, use the following steps to assign them manually. Select the tab for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the roles.
 
 To perform this procedure, you must be a resource group owner on your Microsoft Sentinel workspace.
 
@@ -122,9 +138,6 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 
 1. Copy the **Role assignment command** and **TBD command** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
     
-
-    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or registered application name, depending on the type of identity you're using to access your key vault. Copy the value of the **Object ID** field to use with your copied command.
-
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
 > [!IMPORTANT]
@@ -154,7 +167,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 
     |Placeholder  |Value  |
     |---------|---------|
-    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or registered application name, depending on the type of identity you're using to access your key vault. <br><br>Copy the value of the **Object ID** field to use with your copied command.      |
+    |`<OBJ_ID>`     | Your VM identity object ID.     |
     |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
     |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
     |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
