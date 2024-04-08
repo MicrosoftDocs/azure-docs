@@ -27,9 +27,9 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Prerequisites
 
-- A working [Communication Services calling web app](../../getting-started-with-calling.md).
+- A working [Communication Services calling web app](./getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- An [access token](../../../identity/access-tokens.md).
+- An [access token](../identity/access-tokens.md).
 
 ## Add the Call UI controls
 
@@ -127,7 +127,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
 
 ## Get the Teams users ids
 
-The Teams user ids can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http).
+The Teams user ids can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
 
 ```console
 https://graph.microsoft.com/v1.0/me
@@ -150,7 +150,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../../media/javascript/acs-group-teams-calls-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="./media/javascript/acs-group-teams-calls-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 Insert the Teams ids into the text box split by comma and press *Place Group Call* to start the group call from within your Communication Services application.
 
@@ -162,8 +162,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For advanced flows using Call Automation, see the following articles:
 
-- [Outbound calls with Call Automation](../../call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-javascript)
-- [Add Microsoft Teams user](../../call-automation/teams-interop-call-automation?pivots=programming-language-javascript)
+- [Outbound calls with Call Automation](../call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-javascript)
+- [Add Microsoft Teams user](../call-automation/teams-interop-call-automation?pivots=programming-language-javascript)
 
 For more information, see the following articles:
 
