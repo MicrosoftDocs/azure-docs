@@ -39,7 +39,7 @@ Audit logs and sign in logs in Microsoft Entra ID are similar to the activity lo
 
 ## App and workload data
 
-## Virtual machine data
+### Virtual machine data
 Azure virtual machines create the same activity logs and platform metrics as other Azure resources. In addition to this host data though, you need to monitor the guest operating system and the workloads running on it, which requires the [Azure Monitor agent](./agents/agents-overview.md) or [SCOM Managed Instance](./vm/scom-managed-instance-overview.md). The following table includes the most common data to collect from VMs. See [Monitor virtual machines with Azure Monitor: Collect data](./vm/monitor-virtual-machine-data-collection.md) for a more complete description of the different kinds of data you can collect from virtual machines.
 
 | Data type | Description | Data collection method |
