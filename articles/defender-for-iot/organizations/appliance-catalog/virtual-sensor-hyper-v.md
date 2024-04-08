@@ -16,9 +16,6 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
-> [!IMPORTANT]
-> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using versions 22.3.x and above.
-
 ## Prerequisites
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
