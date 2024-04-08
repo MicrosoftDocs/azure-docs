@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
+          - text: HPE ProLiant DL20 Gen11 (4SFF)
+            url: hpe-proliant-dl20-gen11.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
           - text: Dell PowerEdge R350 
