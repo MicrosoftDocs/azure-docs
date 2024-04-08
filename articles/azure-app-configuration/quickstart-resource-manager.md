@@ -12,7 +12,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart describes how to :
+This quickstart describes how to:
 
 - Deploy an App Configuration store using an Azure Resource Manager template (ARM template).
 - Create key-values in an App Configuration store using ARM template.
@@ -33,10 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Accessing key-value data inside an ARM template requires an Azure Resource Manager role, such as contributor or owner. Access via one of the Azure App Configuration [data plane roles](concept-enable-rbac.md) currently is not supported.
-
-> [!NOTE]
-> Key-value data access inside an ARM template is disabled if access key authentication is disabled. For more information, see [disable access key authentication](./howto-disable-access-key-authentication.md#limitations).
+Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires Azure Resource Manager role and Azure App Configuration [data plane role](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
 
 ## Review the template
 
