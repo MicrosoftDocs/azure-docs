@@ -68,15 +68,24 @@ Microsoft Sentinel supports ingesting data from some sources without a dedicated
 
 Microsoft Sentinel uses both query time and ingestion time normalization to translate various sources into a uniform, normalized view. For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
-## Detect
+## Detect threats
 
-Analytics 
+Add intro
+### Analytics 
 
-MITRE 
+Detect patterns of activity and identify security threats across your organization by using analytic rules. Use out of the box analytic rule templates packaged with security content in the content hub or create your own. 
 
-Watchlist 
+### MITRE ATT&CK coverage
 
-TI 
+Microsoft Sentinel analyzes ingested data, not only to detect threats and help you investigate, but also to visualize the nature and coverage of your organization's security status based on the tactics and techniques from the MITRE ATT&CK® framework. MITRE ATT&CK is a publicly accessible knowledge base of tactics and techniques that are commonly used by attackers, and is created and maintained by observing real-world observations. Many organizations use the MITRE ATT&CK knowledge base to develop specific threat models and methodologies that are used to verify security status in their environments.
+
+### Threat intelligence 
+
+Integrate numerous sources of threat intelligence into Microsoft Sentinel to detect malicious activity in your environment and provide context to security investigators for informed response decisions.
+
+### Watchlist 
+
+Correlate data from a data source you provide, a watchlist, with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment. Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
 ## Investigate
 
