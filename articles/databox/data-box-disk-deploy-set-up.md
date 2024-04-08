@@ -77,15 +77,15 @@ Before you begin, make sure that:
 
 ### [Standard disk](#tab/standard)
 
-Use the included USB cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+Use the included USB cable to connect the disk to a Windows or Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
 ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
 
 ### [Self-encrypting disk](#tab/sed)
 
-Use the included USB cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+Use the included SATA 3 cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
-![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
+Insert image of disk and cable here.
 
 ---
 
@@ -111,62 +111,38 @@ Perform the following steps to connect and unlock your disks.
 
 ### [Windows](#tab/windows)
 
-1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
-2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
+Perform the following steps to connect to and unlock your self-encrypted Data Box Disks on a Windows client.
 
-    In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
+1.	Using the [Azure portal](https://portal.azure.com), navigate to your Data Box Disk order. You might find it helpful to search for your order by navigating to *General* > *All resources*, and then selecting your Data Box Disk order.
+1.	Download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) for the Windows client. This toolset contains four tools: the **Data Box Disk Unlock tool**, the **Data Box SED Unlock tool**, the **Data Box Disk Validation tool**, and the **Data Box Disk Split Copy tool**.
 
-    > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)
+    > [!IMPORTANT]
+    > Only the **Data Box SED Unlock tool** is used with self-encrypted disks. Neither the **Data Box Disk Validation tool** nor **Data Box Disk Split Copy tool** are supported for hardware encryption-enabled disks.
 
-3. Extract the toolset on the same computer that you will use to copy the data.
-4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
-5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below.
-
-    ```powershell
-    Windows PowerShell
-    Copyright (C) Microsoft Corporation. All rights reserved.
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /SystemCheck
-    Successfully verified that the system can run the tool.
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
-    ```
-
-6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+    In this procedure, you use the **Data Box SED Unlock tool** only.
+1.	Extract the toolset to a location on the same computer you use to copy your data.
+1.	Open a **Command Prompt** window or run **Windows PowerShell** with elevated privileges on the same computer.
+1.	Verify that your client computer meets the operating system requirements for the **Data Box SED Unlock tool**. Run a system check in the folder containing the extracted **Data Box Disk toolset** as shown in the following example.
 
     ```powershell
-    PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkey :
-    testpasskey1
-
-    Following volumes are unlocked and verified.
-    Volume drive letters: D:
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    .\DataBoxDiskUnlock.exe /SystemCheck /SED
     ```
 
-7. Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
+    The following sample output confirms that your client computer meets the operating system requirements.
+
+    :::image type="content" source="media/data-box-disk-deploy-set-up/system-check.png" alt-text="Screen capture showing the results of a successful system check using the Data Box Disk Unlock tool." lightbox="media/data-box-disk-deploy-set-up/system-check-lrg.png":::
+
+1.	Run	`DataBoxDiskUnlock.exe`. Use the passkey obtained in the **Connect to disks and get the passkey** section as the `Passkey` parameter value as shown in the following example. 
 
     ```powershell
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
-    USAGE:
-    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
-
-    Example: DataBoxUnlock /PassKey:<your passkey>
-    Example: DataBoxUnlock /SystemCheck
-    Example: DataBoxUnlock /Help
-
-    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
-    /SystemCheck:    This option checks if your system meets the requirements to run the tool.
-    /Help:           This option provides help on cmdlet usage and examples.
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    .\DataBoxDiskUnlock.exe /Passkey:<testPasskey> /SED
     ```
 
-8. Once the disk is unlocked, you can view the contents of the disk.
+    A successful response includes the drive letter assigned to the disk as shown in the following example.
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlocked-win.png" alt-text="Screen capture showing a successful response from the Data Box Disk Unlock tool containing the drive letter assigned." lightbox="media/data-box-disk-deploy-set-up/disk-unlocked-win-lrg.png":::
+
+1.	Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
 
     > [!NOTE]
     > Don't format or modify the contents or existing file structure of the disk.
