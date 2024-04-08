@@ -45,7 +45,7 @@ The same public service instance can be referenced by multiple private endpoints
 
 - **Global reach: Connect privately to services running in other regions.** The consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.
 
-## Use Cases for Private Link with Azure Database for PostgreSQL flexible server in  Preview
+## Use Cases for Private Link with Azure Database for PostgreSQL flexible server
 
 Clients can connect to the private endpoint from the same VNet, peered VNet in same region or across regions, or via [VNet-to-VNet connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 

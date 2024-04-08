@@ -48,7 +48,7 @@ The **Cloud connectivity troubleshooting** pane covers the following types of is
 |**Proxy authentication issues**     |  Occurs when a proxy demands authentication, but no credentials, or incorrect credentials, are provided. <br><br>In such cases, make sure that you've configured the proxy credentials correctly. For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
 |**Name resolution failures**     | Occurs when the sensor can't perform name resolution for a specific endpoint. <br><br>In such cases, if your DNS server is reachable, make sure that the DNS server is configured on your sensor correctly. If the configuration is correct, we recommend reaching out to your DNS administrator.   <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
 |**Unreachable proxy server errors**     | Occurs when the sensor can't establish a connection with the proxy server. In such cases, confirm the reachability of your proxy server with your network team.    <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
-
+|**Time drift detected** |Occurs when the UTC time of the sensor isn't synchronized with Defender for IoT on the Azure portal.<br><br>In this case, configure a Network Time Protocol (NTP) server to synchronize the sensor in UTC time.<br><br>For more information, see [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#ntp). |
 
 ## Check system health
 

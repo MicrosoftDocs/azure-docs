@@ -18,6 +18,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
  - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
  - A single storage account is supported with Data Box Disk.
+ - Data Box Disk can store a maximum of 100,000 files 
  - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance

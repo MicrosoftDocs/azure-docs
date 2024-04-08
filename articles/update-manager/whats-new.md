@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/06/2024
+ms.date: 04/03/2024
 ---
 
 # What's new in Azure Update Manager
@@ -60,9 +60,9 @@ Update management center is now rebranded as Azure Update Manager.
 
 Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
-### SQL Server patching (preview)
+### SQL Server patching
 
-SQL Server patching (preview) allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
+SQL Server patching allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
 
 ## July 2023
 

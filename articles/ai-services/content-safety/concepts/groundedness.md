@@ -57,7 +57,7 @@ The maximum character limit for the grounding sources is 55,000 characters per A
 
 To use this API, you must create your Azure AI Content Safety resource in the supported regions. Currently, it's available in the following Azure regions:
 - East US 2
-- East US (only for non-reasoning)
+- East US 
 - West US
 - Sweden Central
 
