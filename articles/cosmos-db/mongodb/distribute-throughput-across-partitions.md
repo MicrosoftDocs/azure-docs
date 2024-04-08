@@ -21,14 +21,15 @@ The throughput redistributing feature applies to databases and containers using 
 
 In general, usage of this feature is recommended for scenarios when both the following are true:
 
-- You're consistently seeing greater than 1-5% overall rate of 16500 responses
-- You've a consistent, predictable hot partition
+- You're consistently seeing 100% normalized utilization on few partitions of a collection.
+- You're consistently seeing latency higher than acceptance.
 
-If you aren't seeing 16500 (**mongo requests**) responses and your end to end latency is acceptable, then no action to reconfigure RU/s per partition is required. If you have a workload that has consistent traffic with occasional unpredictable spikes across *all your partitions*, it's recommended to use [autoscale](../provision-throughput-autoscale.md) and [burst capacity](../burst-capacity.md). Autoscale and burst capacity will ensure you can meet your throughput requirements. If you have a small amount of RU/s per partition, you can also use the [partition merge](../merge.md) to reduce the number of partitions and ensure more RU/s per partition for the same total provisioned throughput.
+If you aren't seeing 100% RU consumption and your end to end latency is acceptable, then no action to reconfigure RU/s per partition is required.</br>
+If you have a workload that has consistent traffic with occasional unpredictable spikes across *all your partitions*, it's recommended to use [autoscale](../provision-throughput-autoscale.md) and [burst capacity](../burst-capacity.md). Autoscale and burst capacity will ensure you can meet your throughput requirements. If you have a small amount of RU/s per partition, you can also use the [partition merge](../merge.md) to reduce the number of partitions and ensure more RU/s per partition for the same total provisioned throughput.
 
 ## Example scenario
 
-Suppose we have a workload that keeps track of transactions that take place in retail stores. Because most of our queries are by `StoreId`, we partition by `StoreId`. However, over time, we see that some stores have more activity than others and require more throughput to serve their workloads. We're seeing rate limiting (16500) for requests against those StoreIds, and our [overall rate of 16500 responses is greater than 1-5%](troubleshoot-query-performance.md). Meanwhile, other stores are less active and require less throughput. Let's see how we can redistribute our throughput for better performance.
+Suppose we have a workload that keeps track of transactions that take place in retail stores. Because most of our queries are by `StoreId`, we partition by `StoreId`. However, over time, we see that some stores have more activity than others and require more throughput to serve their workloads. We're seeing 100% normalized ru consumption for requests against those StoreIds. Meanwhile, other stores are less active and require less throughput. Let's see how we can redistribute our throughput for better performance.
 
 ## Step 1: Identify which physical partitions need more throughput
 
@@ -53,7 +54,7 @@ CDBPartitionKeyRUConsumption
 | where TimeGenerated >= ago(24hr)
 | where DatabaseName == "MyDB" and CollectionName == "MyCollection" // Replace with database and collection name
 | where isnotempty(PartitionKey) and isnotempty(PartitionKeyRangeId)
-| summarize sum(RequestCharge) by bin(TimeGenerated, 1s), PartitionKeyRangeId
+| summarize sum(RequestCharge) by bin(TimeGenerated, 1m), PartitionKeyRangeId
 | render timechart
 ```
 
@@ -167,14 +168,12 @@ az cosmosdb mongodb collection retrieve-partition-throughput \
 
 ### Determine RU/s for target partition
 
-Next, let's decide how many RU/s we want to give to our hottest physical partition(s). Let's call this set our target partition(s). The most RU/s any physical partition can contain is 10,000 RU/s.
+Next, let's decide how many RU/s we want to give to hottest physical partition(s). Let's call this set our target partition(s). The most RU/s any physical partition can contain is 10,000 RU/s.
 
 The right approach depends on your workload requirements. General approaches include:
-- Increasing the RU/s by a percentage, measure the rate of 429 responses, and repeat until desired throughput is achieved. 
+- Increasing the RU/s by 10 percent, and repeat until desired throughput is achieved. 
     - If you aren't sure the right percentage, you can start with 10% to be conservative.
     - If you already know this physical partition requires most of the throughput of the workload, you can start by doubling the RU/s or increasing it to the maximum of 10,000 RU/s, whichever is lower.
-- Increasing the RU/s to `Total consumed RU/s of the physical partition + (Number of 429 responses per second * Average RU charge per request to the partition)` 
-    - This approach tries to estimate what the "real" RU/s consumption would have been if the requests hadn't been rate limited. 
 
 ### Determine RU/s for source partition
 
@@ -286,13 +285,14 @@ az cosmosdb mongodb collection redistribute-partition-throughput \
     --name '<cosmos-collection-name>' \
     --evenly-distribute 
 ```
+
 ---
 
 ## Step 4: Verify and monitor your RU/s consumption
 
 After you've completed the redistribution, you can verify the change by viewing the  **PhysicalPartitionThroughput** metric in Azure Monitor. Split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
 
-It's recommended to monitor your overall rate of 429 responses and RU/s consumption. For more information, review [Step 1](#step-1-identify-which-physical-partitions-need-more-throughput) to validate you've achieved the performance you expect. 
+It's recommended to monitor your normalized ru consumption per partition. For more information, review [Step 1](#step-1-identify-which-physical-partitions-need-more-throughput) to validate you've achieved the performance you expect.
 
 After the changes, assuming your overall workload hasn't changed, you'll likely see that both the target and source physical partitions have higher [Normalized RU consumption](../monitor-normalized-request-units.md) than previously. Higher normalized RU consumption is expected behavior. Essentially, you have allocated RU/s closer to what each partition actually needs to consume, so higher normalized RU consumption means that each partition is fully utilizing its allocated RU/s. You should also expect to see a lower overall rate of 429 exceptions, as the hot partitions now have more RU/s to serve requests.
 
