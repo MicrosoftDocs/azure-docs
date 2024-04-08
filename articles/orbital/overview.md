@@ -12,6 +12,8 @@ ms.author: apoorvanori
 
 # Azure Orbital Ground Station overview
 
+> [!VIDEO https://www.youtube.com/embed/hQbGZi9iwE4]
+
 With Azure Orbital Ground Station, your space data is delivered with near-zero latency to your Azure region over the secure and highly available Microsoft network. Azure Orbital Ground Station supports both Microsoft and industry leading Partner ground station networks, ensuring access to the best sites and networks to support your space missions. Deploying and operating a large, globally distributed ground station solution for your space mission can now be done with the reliability and flexibility of the cloud&mdash;at any classification level.
 
 :::image type="content" source="./media/overview-image.png" alt-text="Diagram showing data flowing from a satellite, to Microsoft or Partner ground stations, and landing in the Azure cloud.":::

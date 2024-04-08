@@ -1,20 +1,20 @@
 ---
-title: Confidence score - question answering
+title: Confidence score - custom question answering
 titleSuffix: Azure AI services
-description: When a user query is matched against a knowledge base, question answering returns relevant answers, along with a confidence score.
+description: When a user query is matched against a knowledge base, custom question answering returns relevant answers, along with a confidence score.
 #services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Confidence score
 
-When a user query is matched against a project (also known as a knowledge base), question answering returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query.
+When a user query is matched against a project (also known as a knowledge base), custom question answering returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query.
 
 The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.
 
@@ -31,7 +31,7 @@ The following table indicates typical confidence associated for a given score.
 
 ## Choose a score threshold
 
-The table above shows the range of scores that can occur when querying with question answering. However, since every project is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to `0`, so that all possible answers are returned. The recommended threshold that should work for most projects, is **50**.
+The table above shows the range of scores that can occur when querying with custom question answering. However, since every project is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to `0`, so that all possible answers are returned. The recommended threshold that should work for most projects, is **50**.
 
 When choosing your threshold, keep in mind the balance between **Accuracy** and **Coverage**, and adjust your threshold based on your requirements.
 
@@ -70,4 +70,3 @@ If you have a project in different regions, each region uses its own Azure AI Se
 When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is returned. You can change the [default response](../how-to/change-default-answer.md).
 
 ## Next steps
-

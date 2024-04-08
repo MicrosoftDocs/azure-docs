@@ -1,10 +1,8 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-author: davidsmatlak
-ms.date: 06/15/2023
+ms.date: 12/19/2023
 ms.topic: conceptual
-ms.author: davidsmatlak
 ---
 
 # Understand Azure Policy effects
@@ -99,43 +97,49 @@ condition as non-compliant.
 
 An append effect only has a **details** array, which is required. As **details** is an array, it can
 take either a single **field/value** pair or multiples. Refer to
-[definition structure](definition-structure.md#fields) for the list of acceptable fields.
+[definition structure](./definition-structure-policy-rule.md#fields) for the list of acceptable fields.
 
 ### Append examples
 
 Example 1: Single **field/value** pair using a non-`[*]`
-[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+[alias](./definition-structure-alias.md) with an array **value** to set IP rules on a storage
 account. When the non-`[*]` alias is an array, the effect appends the **value** as the entire
 array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-        "value": [{
-            "action": "Allow",
-            "value": "134.5.0.0/21"
-        }]
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+      "value": [
+        {
+          "action": "Allow",
+          "value": "134.5.0.0/21"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-Example 2: Single **field/value** pair using an `[*]` [alias](definition-structure.md#aliases)
+Example 2: Single **field/value** pair using an `[*]` [alias](./definition-structure-alias.md)
 with an array **value** to set IP rules on a storage account. When you use the `[*]` alias, the
 effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
 it's created.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
-        "value": {
-            "value": "40.40.40.40",
-            "action": "Allow"
-        }
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+      "value": {
+        "value": "40.40.40.40",
+        "action": "Allow"
+      }
+    }
+  ]
 }
 ```
 
@@ -237,7 +241,7 @@ Example 1: Using the audit effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "audit"
+  "effect": "audit"
 }
 ```
 
@@ -247,18 +251,22 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "audit",
-    "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
-    }
+  "effect": "audit",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
 }
 ```
 
@@ -343,27 +351,28 @@ audits when missing.
 
 ```json
 {
-    "if": {
-        "field": "type",
-        "equals": "Microsoft.Compute/virtualMachines"
-    },
-    "then": {
-        "effect": "auditIfNotExists",
-        "details": {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "existenceCondition": {
-                "allOf": [{
-                        "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-                        "equals": "Microsoft.Azure.Security"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/extensions/type",
-                        "equals": "IaaSAntimalware"
-                    }
-                ]
-            }
-        }
+  "if": {
+    "field": "type",
+    "equals": "Microsoft.Compute/virtualMachines"
+  },
+  "then": {
+    "effect": "auditIfNotExists",
+    "details": {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "existenceCondition": {
+        "allOf": [
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+            "equals": "Microsoft.Azure.Security"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/type",
+            "equals": "IaaSAntimalware"
+          }
+        ]
+      }
     }
+  }
 }
 ```
 
@@ -466,7 +475,7 @@ Example 1: Using the deny effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "deny"
+  "effect": "deny"
 }
 ```
 
@@ -476,18 +485,22 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "deny",
-    "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
-    }
+  "effect": "deny",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
 }
 ```
 
@@ -535,25 +548,29 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
 
 ```json
 {
-   "if": {
-      "allOf": [
-         {
-            "field": "type",
-            "equals": "Microsoft.DocumentDb/accounts"
-         },
-         {
-            "field": "tags.environment",
-            "equals": "prod"
-         }
-      ]
-   },
-   "then": {
-      "effect": "denyAction",
-      "details": {
-         "actionNames": [ "delete" ],
-         "cascadeBehaviors": { "resourceGroup": "deny" }
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.DocumentDb/accounts"
+      },
+      {
+        "field": "tags.environment",
+        "equals": "prod"
       }
-   }
+    ]
+  },
+  "then": {
+    "effect": "denyAction",
+    "details": {
+      "actionNames": [
+        "delete"
+      ],
+      "cascadeBehaviors": {
+        "resourceGroup": "deny"
+      }
+    }
+  }
 }
 ```
 
@@ -673,51 +690,53 @@ If not, then a deployment to enable is executed.
 
 ```json
 "if": {
-    "field": "type",
-    "equals": "Microsoft.Sql/servers/databases"
+  "field": "type",
+  "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "deployIfNotExists",
-    "details": {
-        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-        "name": "current",
-        "evaluationDelay": "AfterProvisioning",
-        "roleDefinitionIds": [
-            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-            "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-        ],
-        "existenceCondition": {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "Enabled"
-        },
-        "deployment": {
-            "properties": {
-                "mode": "incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "fullDbName": {
-                            "type": "string"
-                        }
-                    },
-                    "resources": [{
-                        "name": "[concat(parameters('fullDbName'), '/current')]",
-                        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-                        "apiVersion": "2014-04-01",
-                        "properties": {
-                            "status": "Enabled"
-                        }
-                    }]
-                },
-                "parameters": {
-                    "fullDbName": {
-                        "value": "[field('fullName')]"
-                    }
-                }
+  "effect": "deployIfNotExists",
+  "details": {
+    "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+    "name": "current",
+    "evaluationDelay": "AfterProvisioning",
+    "roleDefinitionIds": [
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+      "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ],
+    "existenceCondition": {
+      "field": "Microsoft.Sql/transparentDataEncryption.status",
+      "equals": "Enabled"
+    },
+    "deployment": {
+      "properties": {
+        "mode": "incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "fullDbName": {
+              "type": "string"
             }
+          },
+          "resources": [
+            {
+              "name": "[concat(parameters('fullDbName'), '/current')]",
+              "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+              "apiVersion": "2014-04-01",
+              "properties": {
+                "status": "Enabled"
+              }
+            }
+          ]
+        },
+        "parameters": {
+          "fullDbName": {
+            "value": "[field('fullName')]"
+          }
         }
+      }
     }
+  }
 }
 ```
 
@@ -765,7 +784,7 @@ The following example targets Azure subscriptions and sets the initial complianc
 ```json
 {
   "if": {
-    "field":  "type",
+    "field": "type",
     "equals": "Microsoft.Resources/subscriptions"
   },
   "then": {
@@ -791,7 +810,7 @@ to `Unknown`. The `Unknown` compliance state indicates that you must attest the 
 The following screenshot shows how a manual policy assignment with the `Unknown`
 state appears in the Azure portal:
 
-![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+:::image type="content" source="../media/effects/manual-policy-portal.png" alt-text="Screenshot of Resource compliance table in the Azure portal that shows an assigned manual policy with a compliance reason of unknown.":::
 
 When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
@@ -807,7 +826,7 @@ The following operations are supported by Modify:
 
 - Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
-  Virtual Machine Scale Sets.
+  Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
@@ -878,7 +897,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
         _Remove_. _Add_ behaves similar to the [Append](#append) effect.
     - **field** (required)
       - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for
-        other [fields](./definition-structure.md#fields).
+        other [fields](./definition-structure-policy-rule.md#fields).
     - **value** (optional)
       - The value to set the tag to.
       - This property is required if **operation** is _addOrReplace_ or _Add_.
@@ -903,23 +922,23 @@ following tag changes:
 
 ```json
 "details": {
-    ...
-    "operations": [
-        {
-            "operation": "addOrReplace",
-            "field": "tags['environment']",
-            "value": "Test"
-        },
-        {
-            "operation": "Remove",
-            "field": "tags['TempResource']",
-        },
-        {
-            "operation": "addOrReplace",
-            "field": "tags['Dept']",
-            "value": "[parameters('DeptName')]"
-        }
-    ]
+  ...
+  "operations": [
+    {
+      "operation": "addOrReplace",
+      "field": "tags['environment']",
+      "value": "Test"
+    },
+    {
+      "operation": "Remove",
+      "field": "tags['TempResource']",
+    },
+    {
+      "operation": "addOrReplace",
+      "field": "tags['Dept']",
+      "value": "[parameters('DeptName')]"
+    }
+  ]
 }
 ```
 
@@ -937,19 +956,19 @@ Example 1: Add the `environment` tag and replace existing `environment` tags wit
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "operations": [
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "Test"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "operations": [
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "Test"
+      }
+    ]
+  }
 }
 ```
 
@@ -958,24 +977,24 @@ with a parameterized value:
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "conflictEffect": "deny",
-        "operations": [
-            {
-                "operation": "Remove",
-                "field": "tags['env']"
-            },
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "[parameters('tagValue')]"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "conflictEffect": "deny",
+    "operations": [
+      {
+        "operation": "Remove",
+        "field": "tags['env']"
+      },
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "[parameters('tagValue')]"
+      }
+    ]
+  }
 }
 ```
 
@@ -984,21 +1003,21 @@ is applied only when evaluating requests with API version greater or equals to `
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
-        ],
-        "conflictEffect": "audit",
-        "operations": [
-            {
-                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
-                "operation": "addOrReplace",
-                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
-                "value": false
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+    ],
+    "conflictEffect": "audit",
+    "operations": [
+      {
+        "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+        "operation": "addOrReplace",
+        "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+        "value": false
+      }
+    ]
+  }
 }
 ```
 ## Mutate (preview)

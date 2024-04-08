@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use the information gathered in the 
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
-ms.date: 7/13/2023
+ms.date: 12/08/2023
 ---
 
 # Deploy and configure Azure VMware Solution
@@ -18,7 +18,7 @@ In this tutorial, you'll:
 > * Connect to a new or existing ExpressRoute virtual network gateway
 > * Validate the network connection
 
-Once you've completed this section, follow the next steps provided at the end of this tutorial.
+Once you completed this section, follow the next steps provided at the end of this tutorial.
 
 ## Register the Microsoft.AVS resource provider
 
@@ -57,7 +57,7 @@ Ensure connectivity between the Azure Virtual Network where the ExpressRoute ter
 
 1. Use a [virtual machine](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates. For more information, see [Connect to Azure Virtual Network with ExpressRoute](#connect-to-azure-virtual-network-with-expressroute).  
 
-   1. Log into the Azure [portal](https://portal.azure.com).
+   1. Sign in to the Azure [portal](https://portal.azure.com).
 
    1. Navigate to a running VM, and under **Settings**, select **Networking** and the network interface resource.
 
@@ -65,7 +65,7 @@ Ensure connectivity between the Azure Virtual Network where the ExpressRoute ter
 
    1. On the left, select **Effective routes**. A list of address prefixes that are contained within the `/22` CIDR block you entered during the deployment phase displays.
 
-1. To log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
+1. To sign in to both vCenter Server and NSX-T Manager, open a web browser and sign in to the same virtual machine used for network route validation.  
 
    Find the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 

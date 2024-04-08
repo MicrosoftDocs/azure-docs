@@ -2,14 +2,15 @@
 title: Moderate text and images with content safety in Azure AI Studio
 titleSuffix: Azure OpenAI
 description: Use this article to moderate text and images with content safety in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: eur
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # QuickStart: Moderate text and images with content safety in Azure AI Studio
@@ -23,8 +24,10 @@ In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-ser
 
 ## Prerequisites
 
+[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
+
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* An [Azure AI resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio. 
+* An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio. 
 
 ## Moderate text or images
 

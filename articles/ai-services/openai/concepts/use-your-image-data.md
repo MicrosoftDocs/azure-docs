@@ -190,4 +190,9 @@ When you remove a data source, you'll see a warning message. Removing a data sou
 
 ## Next steps
 
-You can also chat on Azure OpenAI text models. See [Use your text data](./use-your-data.md) for more information. 
+- You can also chat on Azure OpenAI text models. See [Use your text data](./use-your-data.md) for more information.
+- Or, use GPT-4 Turbo with Vision in a chat scenario by following the [quickstart](../gpt-v-quickstart.md).
+- [GPT-4 Turbo with Vision frequently asked questions](../faq.yml#gpt-4-turbo-with-vision)
+- [GPT-4 Turbo with Vision API reference](https://aka.ms/gpt-v-api-ref)
+
+

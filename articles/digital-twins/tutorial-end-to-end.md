@@ -28,7 +28,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -40,7 +40,7 @@ The sample project used in this tutorial represents a real-world building scenar
 
 Below is a diagram representing the full scenario. 
 
-You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
+You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the device telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 
@@ -51,7 +51,7 @@ Here are the components implemented by the building scenario AdtSampleApp sample
 * [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
-* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
+* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on device telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 

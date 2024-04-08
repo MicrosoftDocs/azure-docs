@@ -11,21 +11,21 @@ ms.date: 11/15/2023
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
 
-# Quickstart: Get insights from Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
+# Quickstart: Get insights from Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 In this quickstart, you populate a Power BI report to capture insights from your OPC UA data that you sent to a Microsoft Fabric lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
 
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data. 
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data. 
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
-- [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
-- [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
+- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
+- [Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
 
 You'll also need either a **Power BI Pro** or **Power BI Premium Per User** license. If you don't have one of these licenses, you can try Power BI Pro for free at [Power BI Pro](https://powerbi.microsoft.com/power-bi-pro/).
 
@@ -43,7 +43,7 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
 
     :::image type="content" source="media/quickstart-get-insights/new-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the New Semantic Model button.":::
 
-1. Select *OPCUA*, the contextualized telemetry table from the previous quickstart, and confirm. This action creates a new dataset and opens a new page.
+1. Enter a memorable name for your dataset, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
 
 1. In this new page, create four measures. **Measures** in Power BI are custom calculators that perform math or summarize data from your table, to help you find answers from your data. To learn more, see [Create measures for data analysis in Power BI Desktop](/power-bi/transform-model/desktop-measures).
 
@@ -59,10 +59,6 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
-
-1. Select the name of the dataset in the top left, and rename it to something memorable. You will use this dataset in the next section:
-
-    :::image type="content" source="media/quickstart-get-insights/power-bi-name-dataset.png" alt-text="Screenshot of Power BI showing a dataset being renamed.":::
 
 ## Configure Power BI report
 

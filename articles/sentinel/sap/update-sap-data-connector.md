@@ -1,10 +1,11 @@
 ---
 title: Update Microsoft Sentinel's SAP data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 12/31/2022
+ms.date: 03/27/2024
+
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent
@@ -13,7 +14,14 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 
 To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
-Note that the automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+
+
+## Prerequisites
+
+Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
+
+For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Automatically update the SAP data connector agent (Preview)
 
@@ -24,7 +32,7 @@ You can choose to enable automatic updates for the connector agent on [all exist
 
 ### Enable automatic updates on all existing containers
 
-To enable automatic updates on all existing containers (all containers with a connected SAP agent), run the following command on the collector VM:
+To enable automatic updates on all existing containers (all containers with a connected SAP agent), run the following command on the collector machine:
 
 ```
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
@@ -32,7 +40,7 @@ wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/A
     
 The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. If a container is running a Preview version that is newer than the latest version (the version that the job installs), the job doesn't update that container. 
 
-If you add containers after you run the cron job, the new containers are not automatically updated. To update these containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
+If you add containers after you run the cron job, the new containers aren't updated automatically. To update these containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
 
 The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.log/*.
 

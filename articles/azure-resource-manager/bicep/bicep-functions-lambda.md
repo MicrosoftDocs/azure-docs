@@ -3,7 +3,7 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 01/25/2024
 ---
 # Lambda functions for Bicep
 
@@ -176,7 +176,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
-| initialValue |No |any |Initial value.|
+| initialValue |Yes |any |Initial value.|
 | lambda expression |Yes |expression |The lambda expression used to aggregate the current value and the next value.|
 
 ### Return value

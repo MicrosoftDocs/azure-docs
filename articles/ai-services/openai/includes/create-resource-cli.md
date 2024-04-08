@@ -8,7 +8,6 @@ ms.service: azure-ai-openai
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 08/25/2023
-keywords:
 ---
 
 ## Prerequisites
@@ -94,6 +93,9 @@ az cognitiveservices account deployment create \
 --sku-capacity "1" \
 --sku-name "Standard"
 ```
+
+> [!IMPORTANT]
+> When you access the model via the API you will need to refer to the deployment name rather than the underlying model name in API calls. This is one of the [key differences](../how-to/switching-endpoints.md) between OpenAI and Azure OpenAI. OpenAI only requires the model name, Azure OpenAI always requires deployment name, even when using the model parameter. In our docs we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
 ## Delete a model from your resource
 

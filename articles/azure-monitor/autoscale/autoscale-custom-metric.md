@@ -144,7 +144,9 @@ If you're not going to continue to use this application, delete resources.
 
     :::image type="content" source="media/autoscale-custom-metric/delete-web-app.png" alt-text="Screenshot that shows the App Service page where you can delete the web app.":::
 
-1. On the **App Service plans** page, select **Delete**. The autoscale settings are deleted along with the App Service plan.
+1. On the **Autoscale setting** page, in the **JSON** tab, select the trash bin icon next to the **Autoscale setting name**. Note that the autoscale settings are not deleted along with the App Service plan unless you delete the resource group. If you dont delete the Autoscale settings and you recreate an app service plan with the same name, it will inherit the original autoscale settings.
+
+1. On the **App Service plans** page, select **Delete**. 
 
     :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="Screenshot that shows the App Service plans page where you can delete the App Service plan.":::
 

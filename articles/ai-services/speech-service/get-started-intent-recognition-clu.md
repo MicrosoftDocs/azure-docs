@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
-ms.date: 02/22/2023
+ms.date: 2/16/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 keywords: intent recognition

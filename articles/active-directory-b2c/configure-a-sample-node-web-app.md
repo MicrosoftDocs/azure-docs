@@ -1,29 +1,29 @@
 ---
 title: Configure authentication in a sample Node.js web application by using Azure Active Directory B2C (Azure AD B2C)
-description: This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Node.js web application. 
+description: This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Node.js web application.
 titleSuffix: Azure AD B2C
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-
-ms.custom: devx-track-js, devx-track-linux
+ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+#Customer intent: As a developer, I want to configure authentication in a Node.js web application using Azure Active Directory B2C, so that I can enable users to sign in, sign out, update profile, and reset password using Azure AD B2C user flows.
 ---
 
 # Configure authentication in a sample Node.js web application by using Azure Active Directory B2C
 
-This sample article uses a sample Node.js application to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to a Node.js web application. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web application uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization. 
+This sample article uses a sample Node.js application to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to a Node.js web application. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web application uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization.
 
 In this article, you’ll do the following tasks:
 
 - Register a web application in the Azure portal.
 - Create combined **Sign in and sign up**, **Profile editing**, and **Password reset** user flows for the app in the Azure portal.
 - Update a sample Node application to use your own Azure AD B2C application and user flows.
-- Test the sample application. 
+- Test the sample application.
 
 ## Prerequisites
 
@@ -33,15 +33,15 @@ In this article, you’ll do the following tasks:
 
 ## Step 1: Configure your user flows
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)] 
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)]
 
 ## Step 2: Register a web application
 
-To enable your application sign in with Azure AD B2C, register your app in the Azure AD B2C directory. The app registration establishes a trust relationship between the app and Azure AD B2C.  
+To enable your application sign in with Azure AD B2C, register your app in the Azure AD B2C directory. The app registration establishes a trust relationship between the app and Azure AD B2C.
 
-During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which the user is redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID, and the redirect URI to create authentication requests. 
+During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which the user is redirected by Azure AD B2C after they authenticate with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Azure AD B2C uses both the application ID, and the redirect URI to create authentication requests.
 
-### Step 2.1: Register the app 
+### Step 2.1: Register the app
 
 To register the web app, follow these steps:
 
@@ -50,7 +50,7 @@ To register the web app, follow these steps:
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
-1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
+1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `http://localhost:3000/redirect`.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline_access permissions** checkbox.
 1. Select **Register**.
@@ -102,7 +102,7 @@ The `views` folder contains Handlebars files for the application's user interfac
 
 ## Step 5: Configure the sample web app
 
-Open your web app in a code editor such as Visual Studio Code. Under the project root folder, open the *.env* file. This file contains information about your Azure AD B2C identity provider. Update the following app settings properties:  
+Open your web app in a code editor such as Visual Studio Code. Under the project root folder, open the *.env* file. This file contains information about your Azure AD B2C identity provider. Update the following app settings properties:
 
 |Key  |Value  |
 |---------|---------|
@@ -125,7 +125,7 @@ Your final configuration file should look like the following sample:
 You can now test the sample app. You need to start the Node server and access it through your browser on `http://localhost:3000`.
 
 1. In your terminal, run the following code to start the Node.js web server:
- 
+
    ```bash
    node index.js
    ```
@@ -143,19 +143,19 @@ You can now test the sample app. You need to start the Node server and access it
 
 ### Test profile editing
 
-1. After you sign in, select **Edit profile**. 
-1. Enter new changes as required, and then select **Continue**. You should see the page with sign-in status with the new changes, such as **Given Name**. 
+1. After you sign in, select **Edit profile**.
+1. Enter new changes as required, and then select **Continue**. You should see the page with sign-in status with the new changes, such as **Given Name**.
 
 ### Test password reset
 
-1. After you sign in, select **Reset password**. 
+1. After you sign in, select **Reset password**.
 1. In the next dialog that appears, you can cancel the operation by selecting **Cancel**. Alternatively, enter your email address, and then select **Send verification code**. You'll receive a verification code to your email account. Copy the verification code in your email, enter it into the password reset dialog, and then select **Verify code**.
 1. Select **Continue**.
 1. Enter your new password, confirm it, and then select **Continue**. You should see the page that shows sign-in status.
 
 ### Test sign-out
 
-After you sign in, select **Sign out**. You should see the page that has a **Sign in** button. 
+After you sign in, select **Sign out**. You should see the page that has a **Sign in** button.
 
 ## Next steps
 

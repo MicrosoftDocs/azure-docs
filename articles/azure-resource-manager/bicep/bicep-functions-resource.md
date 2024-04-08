@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 03/20/2024
 ---
 
 # Resource functions for Bicep
@@ -297,8 +295,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
-| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
+| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/aiservices/accountmanagement/accounts/list-keys) |
+| Microsoft.ContainerRegistry/registries | listBuildSourceUploadUrl |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -498,11 +496,11 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+Returns an object representing a resource's runtime state. The output and behavior of the `reference` function highly relies on how each resource provider (RP) implements its PUT and GET responses. 
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The Bicep files provide access to the reference function, although it is typically unnecessary. Instead, it is recommended to use the symbolic name of the resource. The reference function can only be used within the `properties` object of a resource and cannot be employed for top-level properties like `name` or `location`. The same generally applies to references using the symbolic name. However, for properties such as `name`, it is possible to generate a template without utilizing the reference function. Sufficient information about the resource name is known to directly emit the name. It is referred to as compile-time properties. Bicep validation can identify any incorrect usage of the symbolic name.
+The Bicep files provide access to the reference function, although it's typically unnecessary. Instead, it's recommended to use the symbolic name of the resource. The reference function can only be used within the `properties` object of a resource and can't be employed for top-level properties like `name` or `location`. The same generally applies to references using the symbolic name. However, for properties such as `name`, it's possible to generate a template without utilizing the reference function. Sufficient information about the resource name is known to directly emit the name. It's referred to as compile-time properties. Bicep validation can identify any incorrect usage of the symbolic name.
 
 The following example deploys a storage account. The first two outputs give you the same results.
 
@@ -588,7 +586,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing 
 output storageID string = storageAccount.id
 ```
 
-For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid)
+For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid).
 
 ## subscriptionResourceId
 

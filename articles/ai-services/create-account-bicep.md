@@ -6,7 +6,7 @@ keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognit
 author: aahill
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 01/19/2023
+ms.date: 01/20/2024
 ms.author: aahi
 ms.custom:
   - subject-armqs
@@ -15,7 +15,7 @@ ms.custom:
   - ignite-2023
 ---
 
-# Quickstart: Create an Azure AI services resource using Bicep
+# Create an Azure AI services resource using Bicep
 
 Follow this quickstart to create Azure AI services resource using Bicep.
 

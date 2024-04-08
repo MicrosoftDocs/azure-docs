@@ -9,10 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to send customized email to users that sign up for my applications using a third-party email provider like Mailjet, so that I can use my own email template and customize the email address, subject, and support localization and custom one-time password settings.
+
 ---
 
 # Custom email verification with Mailjet

@@ -3,7 +3,7 @@ title: Monitor applications on AKS with Application Insights - Azure Monitor | M
 description: Azure Monitor integrates seamlessly with your application running on Azure Kubernetes Service and allows you to spot the problems with your apps quickly.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
-ms.date: 11/15/2022
+ms.date: 02/29/2024
 ms.reviewer: abinetabate
 ---
 
@@ -41,4 +41,4 @@ Troubleshoot the following issue.
 ## Next steps
 
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).
-* Get an overview of [distributed tracing](distributed-tracing-telemetry-correlation.md) and see what [Application Map](./app-map.md?tabs=net) can do for your business.
+* Get an overview of [distributed tracing](distributed-trace-data.md) and see what [Application Map](./app-map.md?tabs=net) can do for your business.

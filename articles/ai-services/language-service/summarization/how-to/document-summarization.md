@@ -7,12 +7,10 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom:
   - language-service-summarization
-  - ignite-fall-2021
-  - ignite-2022
   - ignite-2023
 ---
 
@@ -24,9 +22,20 @@ Document summarization is designed to shorten content that users consider too lo
 
 **Abstractive summarization**: Produces a summary by generating summarized sentences from the document that capture the main idea.
 
-Both of these capabilities are able to summarize around specific items of interest when specified.
+**Query-focused summarization**: Allows you to use a query when summarizing.
+
+Each of these capabilities are able to summarize around specific items of interest when specified.
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
+
+For easier navigation, here are links to the corresponding sections for each service:
+
+|Aspect       |Section                                                            |
+|-------------|-------------------------------------------------------------------|
+|Extractive   |[Extractive Summarization](#try-document-extractive-summarization) |
+|Abstractive  |[Abstrctive Summarization](#try-document-abstractive-summarization)|
+|Query-focused|[Query-focused Summarization](#query-based-summarization)          |
+
 
 ## Features
 

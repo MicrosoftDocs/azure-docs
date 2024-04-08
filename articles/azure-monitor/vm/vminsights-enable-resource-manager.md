@@ -22,6 +22,7 @@ If you aren't familiar with how to deploy a Resource Manager template, see [Depl
 - [Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or Virtual Machine Scale Set you're enabling is supported. 
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
+- To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 ## Resource Manager templates
 Use the Azure Resource Manager templates provided in this article to onboard virtual machines and Virtual Machine Scale Sets using Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
@@ -37,7 +38,7 @@ First deploy the data collection rule, and then install agents to use that data 
 This step installs a data collection rule, named `MSVMI-{WorkspaceName}`, in the same resource group as your Log Analytics workspace:
 
 1. Download the [VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).
-1. Install one of these sets of template and parameter files based on your requirements:
+1. [Deploy a template](#deploy-templates) from the downloaded zip file. The following table describes the templates available:
 
    | Folder | File | Description |
    |:---|:---|

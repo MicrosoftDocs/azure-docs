@@ -3,7 +3,6 @@ title: Secure API Management backend using client certificate authentication
 titleSuffix: Azure API Management
 description: Learn how to manage client certificates and secure backend services using client certificate authentication in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -14,6 +13,9 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Secure backend services using client certificate authentication in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 
 API Management allows you to secure access to the backend service of an API using client certificates and mutual TLS authentication. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
@@ -103,9 +105,8 @@ To delete a certificate, select it and then select **Delete** from the context m
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md

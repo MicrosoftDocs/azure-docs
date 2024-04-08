@@ -1,29 +1,29 @@
 ---
 title: "Quickstart: process data from your OPC UA assets"
-description: "Quickstart: Use a Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
+description: "Quickstart: Use an Azure IoT Data Processor pipeline to process data from your OPC UA assets before sending the data to a Microsoft Fabric OneLake lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
 ms.subservice: data-processor
 ms.custom:
   - ignite-2023
-ms.date: 10/11/2023
+ms.date: 03/21/2024
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
 ---
 
-# Quickstart: Use Data Processor pipelines to process data from your OPC UA assets
+# Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you use Azure IoT Data Processor (preview) pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
+In this quickstart, you use Azure IoT Data Processor Preview pipelines to process and enrich messages from your OPC UA assets before you send the data to a Microsoft Fabric OneLake lakehouse for storage and analysis.
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
-- [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
+- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 
 You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
@@ -38,119 +38,21 @@ Before you send data to the cloud for storage and analysis, you might want to pr
 
 ## Create a service principal
 
-To create a service principal that gives your pipeline access to your Microsoft Fabric workspace:
-
-1. Use the following Azure CLI command to create a service principal.
-
-    ```azurecli
-    az ad sp create-for-rbac --name <YOUR_SP_NAME> 
-    ```
-
-1. The output of this command includes an `appId`, `displayName`, `password`, and `tenant`. Make a note of these values to use when you configure access to your Fabric workspace, create a secret, and configure a pipeline destination:
-
-    ```json
-    {
-        "appId": "<app-id>",
-        "displayName": "<name>",
-        "password": "<client-secret>",
-        "tenant": "<tenant-id>"
-    }
-    ```
+[!INCLUDE [create-service-principal-fabric](../includes/create-service-principal-fabric.md)]
 
 ## Grant access to your Microsoft Fabric workspace
 
-Navigate to [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-bi).
-
-To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
-
-1. Select **Workspaces** in the left navigation bar, then select **New Workspace**:
-
-    :::image type="content" source="media/quickstart-process-telemetry/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace.":::
-
-1. Enter a name for your workspace such as _Your name AIO workspace_ and select **Apply**.
-
-To grant the service principal access to your Microsoft Fabric workspace:
-
-1. Navigate to your Microsoft Fabric workspace and select **Manage access**:
-
-    :::image type="content" source="media/quickstart-process-telemetry/workspace-manage-access.png" alt-text="Screenshot that shows how to access the Manage access option in a workspace.":::
-
-1. Select **Add people or groups**, then paste the display name of the service principal from the previous step and grant at least **Contributor** access to it.
-
-    :::image type="content" source="media/quickstart-process-telemetry/workspace-add-service-principal.png" alt-text="Screenshot that shows how to add a service principal to a workspace and add it to the contributor role.":::
-
-1. Select **Add** to grant the service principal contributor permissions in the workspace.
+[!INCLUDE [grant-service-principal-fabric-access](../includes/grant-service-principal-fabric-access.md)]
 
 ## Create a lakehouse
 
-Create a lakehouse in your Microsoft Fabric workspace:
-
-1. Navigate to **Data Engineering** and then select **Lakehouse (Preview)**:
-
-    :::image type="content" source="media/quickstart-process-telemetry/create-lakehouse.png" alt-text="Screenshot that shows how to create a lakehouse.":::
-
-1. Enter a name for your lakehouse such as _yourname_pipeline_destination_ and select **Create**.
+[!INCLUDE [create-lakehouse](../includes/create-lakehouse.md)]
 
 ## Add a secret to your cluster
 
 To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
 
-Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) quickstart:
-
-```azurecli
-az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret --value <client-secret>
-```
-
-To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
-
-1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
-
-    ```console
-    kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
-    ```
-
-1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
-
-    ```yaml
-    # Edit the object below. Lines beginning with a '#' will be ignored,
-    # and an empty file will abort the edit. If an error occurs while saving this file will be
-    # reopened with the relevant failures.
-    #
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      creationTimestamp: "2023-11-16T11:43:31Z"
-      generation: 2
-      name: aio-default-spc
-      namespace: azure-iot-operations
-      resourceVersion: "89083"
-      uid: cda6add7-3931-47bd-b924-719cc862ca29
-    spec:                                      
-      parameters:                              
-        keyvaultName: <this is the name of your key vault>         
-        objects: |                             
-          array:                               
-            - |                                
-              objectName: azure-iot-operations
-              objectType: secret           
-              objectVersion: ""            
-            - |                            
-              objectName: AIOFabricSecret  
-              objectType: secret           
-              objectVersion: ""            
-        tenantId: <this is your tenant id>
-        usePodIdentity: "false"                       
-      provider: azure
-    ```
-
-1. Save the changes and exit from the editor.
-
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
-
-```console
-kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
-kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
-```
+[!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Create a basic pipeline
 
@@ -158,7 +60,7 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
@@ -169,7 +71,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Name          | `input data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `Service account token (SAT)`                  |
-    | Topic         | `azure-iot-operations/data/opc.tcp/opc.tcp-1/#`                    |
+    | Topic         | `azure-iot-operations/data/opc-ua-connector-0/#`                    |
     | Data format   | `JSON`                              |
 
 1. Select **Transform** from **Pipeline Stages** as the second stage in this pipeline. Enter the following values and then select **Apply**:
@@ -216,7 +118,7 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -276,7 +178,7 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -287,7 +189,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Display name  | `OPC UA data` |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
     | Authentication| `Service account token (SAT)` |
-    | Topic         | `azure-iot-operations/data/opc.tcp/opc.tcp-1/thermostat` |
+    | Topic         | `azure-iot-operations/data/opc-ua-connector-0/thermostat` |
     | Data Format   | `JSON` |
 
 1. To track the last known value (LKV) of the temperature, select **Stages**, and select **Last known values**. Use the information the following tables to configure the stage to track the LKVs of temperature for the messages that only have boiler status messages, then select **Apply**:
@@ -300,8 +202,8 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Input path        | Output path       | Expiration time    |
     | ----------------- | ----------------- | ------------------ |
-    | `.payload.payload["temperature"]` | `.payload.payload.temperature_lkv` | `01h` |
-    | `.payload.payload["Tag 10"]` | `.payload.payload.tag1_lkv` | `01h` |
+    | `.payload.Payload["temperature"]` | `.payload.Payload.temperature_lkv` | `01h` |
+    | `.payload.Payload["Tag 10"]` | `.payload.Payload.tag1_lkv` | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
 
@@ -327,16 +229,16 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     ```jq
     .payload = {
-        assetName: .payload.dataSetWriterName,
-        Timestamp: .payload.timestamp,
+        assetName: .payload.DataSetWriterName,
+        Timestamp: .payload.Timestamp,
         Customer: .payload.enrich?.customer,
         Batch: .payload.enrich?.batch,
         Equipment: .payload.enrich?.equipment,
         IsSpare: .payload.enrich?.isSpare,
         Location: .payload.enrich?.location,
-        CurrentTemperature : .payload.payload."temperature"?.Value,
-        LastKnownTemperature: .payload.payload."temperature_lkv"?.Value,
-        Pressure: (if .payload.payload | has("Tag 10") then .payload.payload."Tag 10"?.Value else .payload.payload."tag1_lkv"?.Value end)
+        CurrentTemperature : .payload.Payload."temperature"?.Value,
+        LastKnownTemperature: .payload.Payload."temperature_lkv"?.Value,
+        Pressure: (if .payload.Payload | has("Tag 10") then .payload.Payload."Tag 10"?.Value else .payload.Payload."tag1_lkv"?.Value end)
     }
     ```
 
@@ -347,7 +249,6 @@ Create a Data Processor pipeline to process and enrich your data before it sends
     | Parameter      | Value                             |
     | -------------- | --------------------------------- |
     | Name           | `processed OPC UA data`                          |
-    | URL            | `https://msit-onelake.pbidedicated.windows.net`  |
     | Authentication | `Service principal`     |
     | Tenant ID      | The tenant ID you made a note of previously when you created the service principal.     |
     | Client ID      | The client ID is the app ID you made a note of previously when you created the service principal.     |
@@ -397,4 +298,4 @@ You can also delete your Microsoft Fabric workspace.
 
 ## Next step
 
-[Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)
+[Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-get-insights.md)

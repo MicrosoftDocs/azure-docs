@@ -16,6 +16,8 @@ When you raise a request, we'll investigate. If we think the problem is caused b
 
 This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+[!INCLUDE [communications-gateway-lab-ticket-sla](includes/communications-gateway-lab-ticket-sla.md)]
+
 ## Prerequisites
 
 We strongly recommend a Microsoft support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview).
@@ -38,7 +40,7 @@ If you're providing Zoom service, you'll need to raise a separate support reques
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Select the question mark icon in the top menu bar.
 1. Select the **Help + support** button. 
-1. Select **Create a support request**.
+1. Select **Create a support request**. You might need to describe your issue first.
 
 ## Enter a description of the problem or the change
 

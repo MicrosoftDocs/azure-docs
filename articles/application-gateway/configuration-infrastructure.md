@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 03/15/2024
 ms.author: greglin
 ---
 
@@ -79,7 +79,7 @@ You can use the built-in roles, such as [Network contributor](../role-based-acce
 
 #### Identify affected users or service principals for your subscription
 
-By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are:
+By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are as follows:
 
 **Title**: Update VNet permission of Application Gateway users </br>
 **Category**: Reliability </br>
@@ -104,7 +104,7 @@ Azure Virtual Network Manager is a management service that allows you to group, 
 Security admin rule configuration in Azure Virtual Network Manager allows you to define security policies at scale and apply them to multiple virtual networks at once.
 
 > [!NOTE]
-> Security admin rules of Azure Virtual Network Manager apply to Application Gateway subnets that only contain application gateways that have [Network Isolation](Application-gateway-private-deployment.md) enabled. Subnets that have any application gateway that doesn't have [Network Isolation](Application-gateway-private-deployment.md) enabled won't have security admin rules.
+> Security admin rules of Azure Virtual Network Manager only apply to Application Gateway subnets that contain application gateways with [Network Isolation](Application-gateway-private-deployment.md) enabled. Subnets with application gateways that have [Network Isolation](Application-gateway-private-deployment.md) disabled don't have security admin rules.
 
 ## Network security groups
 
@@ -155,6 +155,9 @@ You can block all other incoming traffic by using a **Deny All** rule.
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
 |Any|Any|Internet|Any|Any|Allow|
+
+> [!NOTE]
+> Application Gateways that don't have [Network Isolation](application-gateway-private-deployment.md#route-table-control) enabled don't allow traffic to be sent between peered VNets when **Allow traffic to remote virtual network** is disabled.
 
 ## Supported user-defined routes
 

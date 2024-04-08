@@ -54,10 +54,11 @@ The following list presents the set of features that are currently available in 
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Blind Transfer* a participant from group call to another endpoint |  ✔️    | ✔️    |     ✔️         |   ✔️ |
+|                       | Blind Transfer* a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -183,6 +184,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | SendDtmfFailed | An error occurred while sending the DTMF tones |
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples and sequence diagrams for various call control flows. 
+
+When acknowledging callback events, it's best practice to respond with standard HTTP status codes like 200 OK. Detailed information is unnecessary and is more suitable for your debugging processes.
 
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
 

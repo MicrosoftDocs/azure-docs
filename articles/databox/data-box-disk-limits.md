@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 12/29/2022
+ms.date: 03/10/2024
 ms.author: shaas
 ---
 # Azure Data Box Disk limits
@@ -18,6 +18,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
  - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
  - A single storage account is supported with Data Box Disk.
+ - Data Box Disk can store a maximum of 100,000 files 
  - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance
@@ -39,6 +40,7 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Data copy and upload caveats
 
+- Importing data into NFS Azure file shares isn't supported by Azure Data Box. Copying data from Data Box into an existing NFS Azure file share with an identical name as your source folder creates a conflict. To resolve this conflict, Data Box renames the source share to `databox-<GUID>` and uploads it to the target storage account as an SMB Azure file share.
 - Don't copy data directly into the disks. Copy data to pre-created *BlockBlob*, *PageBlob*, and *AzureFile* folders.
 - A folder under the *BlockBlob* and *PageBlob* is a container. For instance, containers are created as *BlockBlob/container* and *PageBlob/container*.
 - If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.
@@ -72,7 +74,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 |-------------------|-----------------------------------------------------------|
 | Block blob        | 7 TiB                                                  |
 | Page blob         | 4 TiB <br> Every file uploaded in page blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> VHD and VHDX are 512 bytes aligned. |
-| Azure Files        | 1 TiB                                                      |
+| Azure Files        | 4 TiB                                                      |
 | Managed disks     | 4 TiB <br> For more information on size and limits, see: <li>[Scalability targets of Standard SSDs](../virtual-machines/disks-types.md#standard-ssds)</li><li>[Scalability targets of Premium SSDs](../virtual-machines/disks-types.md#standard-hdds)</li><li>[Scalability targets of Standard HDDs](../virtual-machines/disks-types.md#premium-ssds)</li><li>[Pricing and billing of managed disks](../virtual-machines/disks-types.md#billing)</li>
 
 ## Azure block blob, page blob, and file naming conventions

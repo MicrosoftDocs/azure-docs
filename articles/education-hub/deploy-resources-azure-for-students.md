@@ -28,11 +28,11 @@ You must have an Azure for Students account.
 
 ## Follow the tutorials to deploy resources
 
-[Deploy an App on Azure](https://learn.microsoft.com/azure/app-service/)
-[Deploy a Virtual Machine](https://learn.microsoft.com/azure/virtual-machines/)
-[Deploy a SQL Database](https://learn.microsoft.com/azure/azure-sql/?view=azuresql)
-[Deploy Azure AI Speech-to-Test](https://learn.microsoft.com/azure/ai-services/speech-service/index-speech-to-text)
-[Deploy Azure AI Custom Vision Service](https://learn.microsoft.com/azure/ai-services/custom-vision-service/)
+[Deploy an App on Azure](/azure/app-service/)
+[Deploy a Virtual Machine](/azure/virtual-machines/)
+[Deploy a SQL Database](/azure/azure-sql/)
+[Deploy Azure AI Speech-to-Test](/azure/ai-services/speech-service/index-speech-to-text)
+[Deploy Azure AI Custom Vision Service](/azure/ai-services/custom-vision-service/)
 
 ## Next steps
 

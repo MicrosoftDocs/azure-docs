@@ -2,12 +2,11 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 02/15/2023
 ms.reviewer: yutlin
-ms.custom: seodec18
 ms.author: msangapu
 author: msangapu-msft
-
 ---
 
 # Use a TLS/SSL certificate in your code in Azure App Service
@@ -132,7 +131,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## Load certificate in Linux/Windows containers
 
@@ -178,7 +177,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## When updating (renewing) a certificate
 

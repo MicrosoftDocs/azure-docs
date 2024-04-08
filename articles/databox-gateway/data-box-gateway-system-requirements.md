@@ -12,7 +12,7 @@ ms.author: shaas
 ---
 # Azure Data Box Gateway system requirements
 
-This article describes the important system requirements for your Microsoft Azure Data Box Gateway solution and for the clients connecting to Azure Data Box Gateway. We recommend that you review the information carefully before you deploy your Data Box Gateway, and then refer back to it as necessary during the deployment and subsequent operation. 
+This article describes the important system requirements for your Microsoft Azure Data Box Gateway solution and for the clients connecting to Azure Data Box Gateway. We recommend that you review the information carefully before you deploy your Data Box Gateway, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements for the Data Box Gateway virtual device include:
 
@@ -46,13 +46,11 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 | **Operating system/platform**  |**Versions**   |**Notes**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
-|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware tools are not supported.         |
-
+|VMware ESXi     | 6.7 <br> 7.0 <br> 8.0       |VMware tools are not supported.         |
 
 ## Supported storage accounts
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
-
 
 ## Supported storage types
 

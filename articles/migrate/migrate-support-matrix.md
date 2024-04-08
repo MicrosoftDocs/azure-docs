@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 03/06/2024
 ms.custom: engagement-fy24
 ---
 
@@ -43,7 +43,7 @@ Migration and modernization | N/A | Migrate [VMware VMs](tutorial-migrate-vmware
 [DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
 [DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
-[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
+[Movere](/movere/overview) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/A | Migrate VMware VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical servers, and other cloud workloads
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers and other cloud workloads, and SQL Server databases. | N/A
@@ -73,6 +73,8 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 
 ## Supported geographies 
 
+#### [Azure Public cloud](#tab/public)
+
 ### Public cloud
 
 You can create a project in many geographies in the public cloud.
@@ -92,6 +94,7 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
@@ -105,6 +108,8 @@ United States | Central US or West US 2
 > [!NOTE]
 > For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
+#### [Azure for US Government](#tab/gov)
+
 ### Azure Government
 
 **Task** | **Geography** | **Details**
@@ -113,11 +118,13 @@ Create project | United States | Metadata is stored in US Gov Arizona, US Gov Vi
 Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
-### Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet)
+#### [Azure operated by 21Vianet](#tab/21via)
 
 **Geography** | **Metadata storage location**
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
+
+---
 
 ## VMware assessment and migration
 
@@ -132,7 +139,7 @@ Microsoft Azure operated by 21Vianet | China North 2
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Using this version you can create new projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+- **Previous version**: For customer using, the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
 
 ## Next steps
 

@@ -7,8 +7,8 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 03/02/2023
+ms.custom: synapse
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -497,6 +497,9 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 **Throughput:** Set an optional value for the number of RUs you'd like to apply to your Azure Cosmos DB collection for each execution of this data flow. Minimum is 400.
 
 **Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
+
+> [!Note]
+> To limit the RU usage, please set the Cosmos DB **Throughput(autoscale)** to **Manual**.
 
 ## Lookup activity properties
 

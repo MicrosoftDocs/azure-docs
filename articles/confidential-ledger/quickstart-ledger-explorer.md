@@ -5,7 +5,6 @@ author: taicchoumsft
 ms.author: tachou
 ms.date: 11/08/2023
 ms.service: confidential-ledger
-ms.custom: 
 ms.topic: how-to
 ---
 

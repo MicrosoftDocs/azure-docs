@@ -2,7 +2,6 @@
 title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
-ms.custom: ignite-2022
 author: mabrahms
 ms.author: v-mabrahms
 ms.date: 10/15/2023
@@ -23,39 +22,39 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 ## AI Services
 
-### Potential Cost Savings on this Form Recognizer Resource
+### Potential Cost Savings on this Document Intelligence Resource
 
-We observed that your Form Recognizer resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your Document Intelligence (formerly Form Recognizer) resource had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-Learn more about [Cognitive Service - AzureAdvisorFRCommitment (Potential Cost Savings on this Form Recognzier Resource)](https://azure.microsoft.com/pricing/details/form-recognizer/).
+Learn more about [Cognitive Service - AzureAdvisorFRCommitment (Potential Cost Savings on this Computer Vision Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).
 
 ### Potential Cost Savings on this Computer Vision Resource
 
-We observed that your Computer Vision resource has had enough READ usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your Computer Vision resource had enough READ usage in the past 30 days for you to consider using a Commitment tier.
 
 Learn more about [Cognitive Service - AzureAdvisorCVReadCommitment (Potential Cost Savings on this Computer Vision Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).
 
 ### Potential Cost Savings on this Speech Service Resource
 
-We observed that your Speech Service resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your Speech Service resource had enough usage in the past 30 days for you to consider using a Commitment tier.
 
-Learn more about [Cognitive Service - AzureAdvisorSpeechCommitment (Potential Cost Savings on this Speech Service Resource)](https://azure.microsoft.com/pricing/details/form-recognizer/).
+Learn more about [Cognitive Service - AzureAdvisorSpeechCommitment (Azure AI Document Intelligence pricing)](https://azure.microsoft.com/pricing/details/ai-document-intelligence/).
 
 ### Potential Cost Savings on this Translator Resource
 
-We observed that your Translator resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your Translator resource had enough usage in the past 30 days for you to consider using a Commitment tier.
 
 Learn more about [Cognitive Service - AzureAdvisorTranslatorCommitment (Potential Cost Savings on this Translator Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 
 ### Potential Cost Savings on this LUIS Resource
 
-We observed that your LUIS resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your LUIS resource had enough usage in the past 30 days for you to consider using a Commitment tier.
 
 Learn more about [Cognitive Service - AzureAdvisorLUISCommitment (Potential Cost Savings on this LUIS Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
 
 ### Potential Cost Savings on this Language Service Resource
 
-We observed that your Language Service resource has had enough usage in the past 30 days for you to consider using a Commitment tier.
+We observed that your Language Service resource had enough usage in the past 30 days for you to consider using a Commitment tier.
 
 Learn more about [Cognitive Service - AzureAdvisorTextAnalyticsCommitment (Potential Cost Savings on this Language Service Resource)](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
@@ -137,7 +136,7 @@ Learn more about [Log Analytics workspace - DeleteRestoredTables (Consider remov
 
 ### Consider enabling autopause on Spark compute
 
-Auto-pause releases and shuts down unused Compute resources after a set idle period of inactivity.
+Autopause releases and shuts down unused Compute resources after a set idle period of inactivity.
 
 Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance).
 
@@ -155,15 +154,15 @@ Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance
 
 Customers running high IO workloads in Standard HDDs can upgrade to Standard SSDs and benefit from better performance and SLA and now experience a limit on the maximum number of billed transactions.
 
-Learn more about [Disk - UpgradeHDDtoSDD (Standard SSD disks billing caps.)]().
+Learn more about [Understand Azure Disk Storage billing](/azure/virtual-machines/disks-understand-billing).
 
 ### Underutilized Disks Identified
 
 You have disks that are utilized less than 10%, right-size to save cost.
 
-Learn more about [Disk - wiprounderutilizeddisks (Underutilized Disks Identified)]().
+Learn more about [Managed disks: Find and delete unattached disks](/azure/virtual-machines/disks-find-unattached-portal).
 
-### You have disks that have not been attached to a VM for more than 30 days. Evaluate if you still need the disk.
+### You have disks that haven't been attached to a VM for more than 30 days. Evaluate if you still need the disk.
 
 We've observed that you have disks that haven't been attached to a VM for more than 30 days. Evaluate if you still need the disk. If you decide to delete the disk, recovery isn't possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
 
@@ -177,7 +176,7 @@ Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdo
 
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
-With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
+With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
 
 Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
 
@@ -206,7 +205,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size un
 
 ### Review the configuration of your Azure Cosmos DB free tier account
 
-Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you're charged for the throughput currently provisioned on your Azure Cosmos DB account.
+Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1,000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you're charged for the throughput currently provisioned on your Azure Cosmos DB account.
 
 Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
 
@@ -235,7 +234,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFro
 
 ### Azure Monitor
 
-For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
+For Azure Monitor cost optimization suggestions, see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
 
 ### Purchasing a savings plan for compute could unlock lower prices
 
@@ -257,12 +256,21 @@ Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRout
 
 ### Repurpose or delete idle virtual network gateways
 
-We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you do not intend to use it anymore.
+We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you don't intend to use it anymore.
 
 Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
 
+### Consider migrating to Front Door Standard/Premium
 
+Your Front Door Classic tier contains a large number of domains or routing rules, which adds extra charges. Front Door Standard or Premium tiers don't charge per additional domain or routing rule. Consider migrating to save costs.
 
+Learn more about [Front Door pricing](https://aka.ms/afd-pricing).
+
+### Consider using multiple endpoints under one single Front Door Standard/Premium profile
+
+We detected your subscription contains multiple Front Door Standard/Premium profiles with a small number of endpoints on them. You can save costs in base fees by using multiple endpoints within one profile. You can use a maximum of 10 endpoints with Standard tier and 25 endpoints with Premium tier.
+
+Learn more about [Front Door endpoints](https://aka.ms/afd-endpoints).
 
 ## Reserved instances
 
@@ -304,7 +312,7 @@ Learn more about [Subscription - SQLReservedCapacity (Consider SQL PaaS DB reser
 
 ### Consider App Service stamp fee reserved instances to save over your on-demand costs
 
-We analyzed your App Service isolated environment stamp fees usage pattern over last 30 days and recommend a Reserved Instance purchase to maximize your savings. With reserved instances, you can prepurchase hourly usage for the isolated environment stamp fee and save over your pay-as-you-go costs. Reserved instances only applies to the stamp fee and not to the App Service instances. Reserved Instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over last 30 days.
+We analyzed your App Service isolated environment stamp fees usage pattern over last 30 days and recommend a Reserved Instance purchase to maximize your savings. With reserved instances, you can prepurchase hourly usage for the isolated environment stamp fee and save over your pay-as-you-go costs. Reserved instances only apply to the stamp fee and not to the App Service instances. Reserved Instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions based on usage pattern over last 30 days.
 
 Learn more about [Subscription - AppServiceReservedCapacity (Consider App Service stamp fee reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
 
@@ -378,7 +386,7 @@ Learn more about [Subscription - AzureVMwareSolutionReservedCapacity (Consider A
 
 We analyzed your NetApp Storage usage over last 30 days and calculated a Reserved Instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Reserved Instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - NetAppStorageReservedCapacity (Consider NetApp Storage reserved instances to save over your on-demand costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - NetAppStorageReservedCapacity (Optimize costs for Azure Files with Reservations)](/azure/storage/files/files-reserve-capacity).
 
 ### Consider Azure Managed Disk reserved instances to save over your on-demand costs
 
@@ -424,7 +432,7 @@ Learn more about [Reservation - ReservedInstancePurchaseNew (Configure automatic
 
 ### Purchasing a savings plan for compute could unlock lower prices
 
-We analyzed your compute usage over the last 30 days and recommend adding a savings plan to increase your savings. The savings plan unlocks lower prices on select compute services when you commit to spend a fixed hourly amount for 1 or 3 years. As you use select compute services globally, your usage is covered by the plan at reduced prices. During the times when your usage is above your hourly commitment, you’ll simply be billed at your regular pay-as-you-go prices. With savings automatically applying across compute usage globally, you’ll continue saving even as your usage needs change over time. Savings plan are more suited for dynamic workloads while accommodating for planned or unplanned changes while reservations are more suited for stable, predictable workloads with no planned changes. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope savings plans are available in purchase experience and can further increase savings.
+We analyzed your compute usage over the last 30 days and recommend adding a savings plan to increase your savings. The savings plan unlocks lower prices on select compute services when you commit to spend a fixed hourly amount for one or three years. As you use select compute services globally, your usage is covered by the plan at reduced prices. During the times when your usage is above your hourly commitment, you’ll be billed at your regular pay-as-you-go prices. With savings automatically applying across compute usage globally, you’ll continue saving even as your usage needs change over time. Savings plan are more suited for dynamic workloads while accommodating for planned or unplanned changes while reservations are more suited for stable, predictable workloads with no planned changes. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope savings plans are available in purchase experience and can further increase savings.
 
 Learn more about [Subscription - SavingsPlan (Purchasing a savings plan for compute could unlock lower prices)](https://aka.ms/savingsplan-compute).
 
@@ -480,10 +488,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
 ### Unused/Empty App Service plans
 
-Your App Service plan has no apps running for at least 3 days. Consider deleting the resource to save costs or add new apps under it.
-
-> [!NOTE]
-> It might take up to 48 hours for this recommendation to refresh after you take an action.
+Your App Service plan does not have any running applications associated with it. Consider deleting the resource to reduce expenses, or add new applications under it to utilize its capabilities.
  
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 

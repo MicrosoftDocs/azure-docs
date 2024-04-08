@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 04/21/2023
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
@@ -33,7 +33,6 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-app-settings-as-environment-variables)
 - [Java](configure-language-java.md#configure-data-sources)
-- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
@@ -217,6 +216,10 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
+>[!Note]
+> .NET apps targeting PostgreSQL should set the connection string to **Custom** as workaround for a [knows issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123) 
+>
+
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
@@ -224,7 +227,6 @@ For example, a MySQL connection string named *connectionstring1* can be accessed
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
 - [Java](configure-language-java.md#configure-data-sources)
-- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
@@ -409,7 +411,6 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 - [PHP](configure-language-php.md)
 - [Python](configure-language-python.md)
 - [Java](configure-language-java.md)
-- [Ruby](configure-language-ruby.md)
 
 <a name="alwayson"></a>
 

@@ -2,10 +2,9 @@
 title: What is Azure Resource Mover?
 description: Learn about Azure Resource Mover
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 
@@ -66,6 +65,11 @@ Using Resource Mover, you can currently move the following resources across regi
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
+
+To move over services and resource not supported by Resource Mover or to move any service and resource by manual methods, see:
+
+- [Availability zone migration guidance overview for Microsoft Azure products and services](../reliability/availability-zones-migration-overview.md).
+- [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation)
 
 
 ## Next steps

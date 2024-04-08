@@ -2,9 +2,12 @@
 title: Enable your VMware vCenter resources in Azure
 description: Learn how to browse your vCenter inventory and represent a subset of your VMware vCenter resources in Azure to enable self-service.
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 12/15/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
 
 # Customer intent: As a VI admin, I want to represent a subset of my vCenter resources in Azure to enable self-service.
 ---
@@ -23,6 +26,9 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 
 >[!NOTE]
 >Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. That is, it doesn't make changes to your resource in vCenter.
+
+>[!NOTE]
+> To enable VM templates, VMware tools must be installed on them. If not installed, the **Enable in Azure** option will be grayed out.
 
 1. From your browser, go to the vCenters blade on [Azure Arc Center](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview) and navigate to your inventory resources blade.
 

@@ -1,33 +1,32 @@
 ---
-title: Access private virtual network | Microsoft Docs
-description: Access private virtual network from Bicep deployment script.
+title: Access a private virtual network from a Bicep deployment script
+description: Learn how to run and test Bicep deployment scripts in private networks.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
 ms.date: 12/13/2023
 ---
 
-# Access private virtual network
+# Access a private virtual network from a Bicep deployment script
 
-With Microsoft.Resources/deploymentScripts version `2023-08-01`, you can run deployment scripts in private networks with some additional configurations.
+With `Microsoft.Resources/deploymentScripts` version `2023-08-01`, you can run deployment scripts in private networks with some additional configurations:
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](./deployment-script-develop.md#identity).
-- Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). Some additional configuration is required for the storage account.
+- Create a storage account in the private network, and specify the deployment script to use the existing storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). Some additional configuration is required for the storage account:
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
-    1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
-    1. Add the `Storage File Data Privileged Contributor` role to the user-assignment managed identity.
-    1. From the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
+    1. On the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
+    1. Add the **Storage File Data Privileged Contributor** role to the user-assigned managed identity.
+    1. On the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
     1. Select **Enabled from selected virtual networks and IP addresses**.
-
-        :::image type="content" source="./media/deployment-script-vnet/bicep-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
-
-    1. Under **Virtual networks**, add a subnet. On the screenshot, the subnet is called *dspvnVnet*.
+    1. Under **Virtual networks**, add a subnet. In the following screenshot, the subnet is called *dspvnVnet*.
     1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
+
+    :::image type="content" source="./media/deployment-script-vnet/bicep-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of selections for configuring a storage account for accessing a private network.":::
 
 The following Bicep file shows how to configure the environment for running a deployment script:
 
 ```bicep
-@maxLength(10) // required max length since the storage account has a max of 26 chars
+@maxLength(10) // Required maximum length, because the storage account has a maximum of 26 characters
 param prefix string
 param location string = resourceGroup().location
 param userAssignedIdentityName string = '${prefix}Identity'
@@ -101,7 +100,7 @@ resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@
 }
 
 resource storageFileDataPrivilegedContributor 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
-  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd' // Storage File Data Priveleged Contributor
+  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd' // Storage File Data Privileged Contributor
   scope: tenant()
 }
 
@@ -174,7 +173,7 @@ resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ## Next steps
 
-In this article, you learned how to access private virtual network. To learn more:
+In this article, you learned how to access a private virtual network. To learn more:
 
 > [!div class="nextstepaction"]
 > [Use deployment scripts in Bicep](./deployment-script-bicep.md)

@@ -205,7 +205,4 @@ Enable replication for VMs as follows:
 
 ## Next step
 
-After you enable replication, run a drill to make sure that everything works as expected.
-
-> [!div class="nextstepaction"]
-> [Run a disaster recovery drill](avs-tutorial-dr-drill-azure.md)
+After you enable replication, [run a disaster recovery drill](avs-tutorial-dr-drill-azure.md) to make sure that everything works as expected.

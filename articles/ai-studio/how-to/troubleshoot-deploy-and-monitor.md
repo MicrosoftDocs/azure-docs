@@ -2,14 +2,15 @@
 title: How to troubleshoot your deployments and monitors in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: eur
+ms.date: 2/22/2024
+ms.reviewer: fasantia
+ms.author: mopeakande
+author: msakande
 ---
 
 # How to troubleshoot your deployments and monitors in Azure AI Studio
@@ -23,22 +24,22 @@ This article provides instructions on how to troubleshoot your deployments and m
 For the general deployment error code reference, you can go to the [Azure Machine Learning documentation](/azure/machine-learning/how-to-troubleshoot-online-endpoints). Much of the information there also applies to Azure AI Studio deployments.
 
 **Question:** I got the following error message. What should I do?
-"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI services resources. This subscription or region doesn't have access to this model."
+"Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI Services resources. This subscription or region doesn't have access to this model."
 
 **Answer:** You might not have access to this particular Azure OpenAI model. For example, your subscription might not have access to the latest GPT model yet or this model isn't offered in the region you want to deploy to. You can learn more about it on [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 
 **Question:** I got an "out of quota" error message. What should I do?
 
 **Answer:**  For more information about managing quota, see:
--  [Quota for deploying and inferencing a model](../how-to/deploy-models-openai.md#quota-for-deploying-and-inferencing-a-model)
--  [Manage Azure OpenAI Service quota documentation](/azure/ai-services/openai/how-to/quota?tabs=rest)
+- [Quota for deploying and inferencing a model](../how-to/deploy-models-openai.md#quota-for-deploying-and-inferencing-a-model)
+- [Manage Azure OpenAI Service quota documentation](/azure/ai-services/openai/how-to/quota?tabs=rest)
 - [Manage and increase quotas for resources with Azure AI Studio](quota.md)
 
 **Question:** After I deployed a prompt flow, I got an error message "Tool load failed in 'search_question_from_indexed_docs': (ToolLoadError) Failed to load package tool 'Vector Index Lookup': (HttpResponseError) (AuthorizationFailed)". How can I resolve this?
 
 **Answer:** You can follow this instruction to manually assign ML Data scientist role to your endpoint to resolve this issue. It might take several minutes for the new role to take effect.
 
-1. Go to your project and select **Settings** from the left menu.
+1. Go to your project and select **AI project settings** from the left menu.
 2. Select the link to your resource group.
 3. Once you're redirected to the resource group in Azure portal, Select **Access control (IAM)** on the left navigation menu.
 4. Select **Add role assignment**.
@@ -54,7 +55,7 @@ For the general deployment error code reference, you can go to the [Azure Machin
 
 **Question:** I got the following error message about the deployment failure. What should I do to troubleshoot?
 ```
-ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: ‘Ver’, you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'.
+ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: 'Ver', you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'.
 ```
 
 You might have come across an ImageBuildFailure error: This happens when the environment (docker image) is being built. For more information about the error, you can check the build log for your `<CONTAINER NAME>` environment. 
@@ -63,11 +64,11 @@ You might have come across an ImageBuildFailure error: This happens when the env
 
 Option 1: Find the build log for the Azure default blob storage.
 
-1. Go to your project and select the settings icon on the lower left corner.
-2. Select YourAIResourceName under AI Resource on the Settings page.
-3. On the AI resource page, select YourStorageName under Storage Account. This should be the name of storage account listed in the error message you received.
-4. On the storage account page, select Container under Data Storage on the left navigation UI
-5. Select the ContainerName listed in the error message you received.
+1. Go to your project in [Azure AI Studio](https://ai.azure.com) and select the settings icon on the lower left corner.
+2. Select your Azure AI hub resource name under **Resource configurations** on the **AI project settings** page.
+3. On the Azure AI hub overview page, select your storage account name. This should be the name of storage account listed in the error message you received. You'll be taken to the storage account page in the [Azure portal](https://portal.azure.com).
+4. On the storage account page, select **Containers** under **Data Storage** on the left menu.
+5. Select the container name listed in the error message you received.
 6. Select through folders to find the build logs.
 
 Option 2: Find the build log within Azure Machine Learning studio, which is a separate portal from Azure AI Studio.

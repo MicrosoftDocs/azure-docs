@@ -1,9 +1,8 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 06/20/2023
+ms.date: 12/21/2023
 ms.topic: how-to
-ms.custom: ignite-2022
 ---
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
@@ -24,7 +23,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, Infrastructure as Code (IaC) | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
 > [!NOTE]
-> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security). 
+> Effective September 20, 2023, the secrets scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secrets scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
 
 ## Prerequisites
 
@@ -44,7 +43,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Shared**.
 
-    > [!Note]
+    > [!NOTE]
     > If you've already [installed the Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops), it will be listed in the Installed tab.
 
 1. Select **Microsoft Security DevOps**.
@@ -103,7 +102,7 @@ If you don't have access to install the extension, you must request access from 
       # command: 'run' | 'pre-job' | 'post-job'. Optional. The command to run. Default: run
       # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
       # policy: 'azuredevops' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: azuredevops.
-      # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
+      # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'code', 'artifacts', 'IaC', 'containers'. Example: 'IaC, containers'. Defaults to all.
       # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
       # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
       # break: boolean. Optional. If true, will fail this build step if any error level results are found. Default: false.
@@ -113,7 +112,7 @@ If you don't have access to install the extension, you must request access from 
     ```
 
     > [!NOTE]
-    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud. For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
+    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud. For additional tool configuration options and environment variables, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. To commit the pipeline, select **Save and run**.
 
@@ -121,6 +120,22 @@ The pipeline will run for a few minutes and save the results.
 
 > [!NOTE]
 > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
+
+## Uploading findings from third-party security tooling into Defender for Cloud
+
+While Defender for Cloud provides the MSDO CLI for standardized functionality and poliy controls across a set of open source security analyzers, you have the flexibility to upload results from other third-party security tooling that you may have configured in CI/CD pipelines to Defender for Cloud for comprehensive code-to-cloud contextualization. All results uploaded to Defender for Cloud must be in standard SARIF format.
+
+First, ensure your Azure DevOps repositories are [onboarded to Defender for Cloud](quickstart-onboard-devops.md). After successfully onboarding, Defender for Cloud continuously monitors the 'CodeAnalysisLogs' artifact for SARIF output. 
+
+You can use the 'PublishBuildArtifacts@1' task to ensure SARIF output is published to the correct artifact. For example, if a security analyzer outputs 'results.sarif', you can configure the following task in your job to ensure results are uploaded to Defender for Cloud: 
+
+   ```yml
+   - task: PublishBuildArtifacts@1
+     inputs:
+       PathtoPublish: 'results.sarif'
+       ArtifactName: 'CodeAnalysisLogs'
+   ```
+Findings from third-party security tools will appear as 'Azure DevOps repositories should have code scanning findings resolved' assessments associated with the repository the secuirty finding was identified in.
 
 ## Learn more
 

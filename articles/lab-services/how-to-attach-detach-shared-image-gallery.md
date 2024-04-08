@@ -85,7 +85,7 @@ The Azure Lab Services service principal needs to have the [Owner](/azure/role-b
 
 To attach a compute gallery to a lab plan, assign the [Owner](/azure/role-based-access-control/built-in-roles#owner) role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
 
-If your Azure account is a guest user, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to perform the role assignment. Learn about [role assignments for guest users](/azure/role-based-access-control/role-assignments-external-users#guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles).
+If your Azure account is a guest user, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to perform the role assignment. Learn about [role assignments for external users](/azure/role-based-access-control/role-assignments-external-users#external-user-cannot-browse-users-groups-or-service-principals-to-assign-roles).
 
 # [Azure CLI](#tab/azure-cli)
 

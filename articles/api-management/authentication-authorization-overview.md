@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Authentication and authorization to APIs in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article is an introduction to a rich, flexible set of features in API Management that help you secure users' access to managed APIs.
 
 API authentication and authorization in API Management involve securing the end-to-end communication of client apps to the API Management gateway and through to backend APIs. In many customer environments, OAuth 2.0 is the preferred API authorization protocol. API Management supports OAuth 2.0 authorization between the client and the API Management gateway, between the gateway and the backend API, or both independently.
@@ -123,7 +125,7 @@ Examples:
 
 * [Configure credential manager - Microsoft Graph API](credentials-how-to-azure-ad.md)
 * [Configure credential manager - GitHub API](credentials-how-to-github.md)
-* [Configure credential manager - user delegated access to backend APIs](credentials-how-to-github.md)
+* [Configure credential manager - user delegated access to backend APIs](credentials-how-to-user-delegated.md)
 
 ## Other options to secure APIs
 

@@ -4,7 +4,7 @@ description: This article describes how to move Azure VMware Solution subscripti
 ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/22/2022
+ms.date: 12/19/2023
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution subscription to another subscription.
 ---
@@ -26,27 +26,27 @@ You should have at least contributor rights on both **source** and **target** su
 
    :::image type="content" source="media/move-subscriptions/source-subscription-id.png" alt-text="Screenshot that shows the overview details of the selected private cloud."lightbox="media/move-subscriptions/source-subscription-id.png":::
 
-1. From a command prompt, ping the components and workloads to verify that they are pinging from the same subscription.  
+1. From a command prompt, ping the components and workloads to verify that they're pinging from the same subscription.  
 
-   :::image type="content" source="media/move-subscriptions/verify-components-workloads.png" alt-text="Screenshot that shows the ping command and the results of the ping.":::
+   :::image type="content" source="media/move-subscriptions/verify-components-workloads.png" alt-text="Screenshot shows the ping command and the results of the ping.":::
 
 1. Select the **Subscription (change)** link.
 
-   :::image type="content" source="media/move-subscriptions/private-cloud-overview-subscription-id.png" alt-text="Screenshot showing the private cloud details."lightbox="media/move-subscriptions/private-cloud-overview-subscription-id.png":::
+   :::image type="content" source="media/move-subscriptions/private-cloud-overview-subscription-id.png" alt-text="Screenshot shows the private cloud details."lightbox="media/move-subscriptions/private-cloud-overview-subscription-id.png":::
 
 1. Provide the subscription details for **Target** and select **Next**.
 
    :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="Screenshot of the target resource."lightbox="media/move-subscriptions/move-resources-subscription-target.png":::
 
-1. Confirm the validation of the resources you selected to move. During the validation, you’ll see *Pending validation* under **Validation status**.
+1. Confirm the validation of the resources you selected to move. During the validation, you see *Pending validation* under **Validation status**.
 
-   :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Screenshot showing the resource being moved."lightbox="media/move-subscriptions/pending-move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Screenshot shows the resource being moved."lightbox="media/move-subscriptions/pending-move-resources-subscription-target.png":::
 
 1. Once the validation is successful, select **Next** to start the migration of your private cloud.
 
-   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Screenshot showing the validation status of Succeeded."lightbox="media/move-subscriptions/move-resources-succeeded.png":::
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Screenshot shows the validation status of Succeeded."lightbox="media/move-subscriptions/move-resources-succeeded.png":::
 
-1. Select the check box indicating you understand that the tools and scripts associated won't work until you update them to use the new resource IDs. Then select **Move**.
+1. Select the check box indicating you understand that the tools and scripts associated don't work until you update them to use the new resource IDs. Then select **Move**.
 
    :::image type="content" source="media/move-subscriptions/review-move-resources-subscription-target.png" alt-text="Screenshot showing the summary of the selected resource being moved."lightbox="media/move-subscriptions/review-move-resources-subscription-target.png":::
 

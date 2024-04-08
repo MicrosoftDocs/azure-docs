@@ -38,7 +38,7 @@ Azure Router Server needs to ensure connectivity to the backend service that man
 
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. 
+No. We'll add IPv6 support in the future. If you have deployed an ExpressRoute virtual network gateway in a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break ExpressRoute connectivity for IPv6 traffic.
 
 ## Routing
 
@@ -65,6 +65,10 @@ Azure Route Server Keepalive timer is 60 seconds and the Hold timer is 180 secon
 ### Can Azure Route Server filter out routes from NVAs?
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP community. If a network virtual appliance (NVA) advertises routes with this community string to the route server, the route server doesn't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes sent from Azure Route Server to ExpressRoute.
+
+### When a VNet peering is created between my hub VNet and spoke VNet, does this cause a BGP soft reset between Azure Route Server and its peered NVAs?
+
+Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Route Server will perform a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs do not support BGP route refresh, then Azure Route Server will perform a BGP hard reset with the peered NVAs, which may cause connectivity disruption for traffic traversing the NVAs. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 

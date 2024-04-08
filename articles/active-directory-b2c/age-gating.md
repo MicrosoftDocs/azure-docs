@@ -8,10 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an application developer or administrator using Azure Active Directory B2C, I want to enable age gating in my user flow, so that I can identify and manage minors accessing my application based on their age and consent status.
+
 ---
 
 # Enable age gating in Azure Active Directory B2C

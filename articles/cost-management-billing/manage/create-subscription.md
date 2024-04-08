@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -48,7 +48,7 @@ Use the following procedure to create a subscription for yourself or for someone
 1. Select your **Subscription directory**. It's the Microsoft Entra ID where the new subscription gets created.
 1. Select a **Management group**. It's the Microsoft Entra management group that the new subscription is associated with. You can only select management groups in the current directory.
 1. Select one or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
-    :::image type="content" source="./media/create-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you can specify the directory, management group, and owner. " lightbox="./media/create-subscription/create-subscription-advanced-tab.png" :::
+    :::image type="content" source="./media/create-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you can specify the directory, management group, and owner." lightbox="./media/create-subscription/create-subscription-advanced-tab.png" :::
 1. Select the **Tags** tab.
 1. Enter tag pairs for **Name** and **Value**.  
     :::image type="content" source="./media/create-subscription/create-subscription-tags-tab.png" alt-text="Screenshot showing the tags tab where you enter tag and value pairs." lightbox="./media/create-subscription/create-subscription-tags-tab.png" :::
@@ -63,7 +63,7 @@ When you created the subscription, Azure created a notification stating **Succes
 
 Here's an example of the notification:
 
-:::image type="content" source="./media/create-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Successfully created the subscription notification. " lightbox="./media/create-subscription/subscription-create-notification.png" :::
+:::image type="content" source="./media/create-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Successfully created the subscription notification." lightbox="./media/create-subscription/subscription-create-notification.png" :::
 
 Or, if you're already on the Subscriptions page, you can refresh your browser's view to see the new subscription.
 

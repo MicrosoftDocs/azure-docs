@@ -1,12 +1,15 @@
 ---
-title: Azure Kubernetes Service (AKS) Free Standard and Premium pricing tiers for cluster management
+title: Azure Kubernetes Service (AKS) Free, Standard and Premium pricing tiers for cluster management
 description: Learn about the Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing plans and what features, deployment patterns, and recommendations to consider between each plan.
 ms.topic: conceptual
 ms.date: 04/07/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Free Standard and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management
+# Free, Standard and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management
 
 Azure Kubernetes Service (AKS) is now offering three pricing tiers for cluster management: the **Free tier**, the **Standard tier** and the **Premium tier**. All tiers are in the **Base** sku. 
 
@@ -141,3 +144,4 @@ This process takes several minutes to complete. You shouldn't experience any dow
 [long-term-support]: long-term-support.md
 [long-term-support-update]: long-term-support.md#enable-lts-on-an-existing-cluster
 [install-azure-cli]: /cli/azure/install-azure-cli
+

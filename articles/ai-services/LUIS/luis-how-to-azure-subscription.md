@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 07/19/2022
-ms.custom: contperf-fy21q4, devx-track-azurecli 
+ms.date: 01/19/2024
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -312,5 +312,3 @@ You can move your LUIS app. Use the following resources to help you do so by usi
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-
-

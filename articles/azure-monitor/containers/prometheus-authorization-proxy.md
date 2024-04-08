@@ -309,7 +309,7 @@ A successful query returns a response similar to the following:
 
 | Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
 | --------- | --------- | --------------- | --------- | --------- |
-|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
+|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Query endpoint` from the workspaces Overview page| | Yes |
 |  `IDENTITY_TYPE` | `identityType` | Identity type that is used to authenticate requests. This proxy supports three types of identities. | `systemassigned`, `userassigned`, `aadapplication` | Yes |
 | `AAD_CLIENT_ID` | `aadClientId` | Client ID of the identity used. This is used for `userassigned` and `aadapplication` identity types. Use `az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"` to retrieve the Client ID | | Yes for `userassigned` and `aadapplication` |
 | `AAD_TENANT_ID` | `aadTenantId` | Tenant ID  of the identity used. Tenant ID is used for `aadapplication` identity types. | | Yes for `aadapplication` |

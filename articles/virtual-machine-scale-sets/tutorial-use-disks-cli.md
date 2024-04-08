@@ -23,7 +23,7 @@ Virtual Machine Scale Sets use disks to store the VM instance's operating system
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -69,6 +69,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image Ubuntu2204 \
+  --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 64 128

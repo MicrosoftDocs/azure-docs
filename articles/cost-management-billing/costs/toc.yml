@@ -25,6 +25,8 @@
       href: understand-work-scopes.md
     - name: Cost Management for partners
       href: get-started-partners.md
+    - name: Retire AWS connector
+      href: retire-aws-connector.md
     - name: Security
       items:
       - name: Security baseline
@@ -167,10 +169,16 @@
       href: ../reservations/reservation-renew.md
 - name: Cost allocation
   items:
+  - name: Overview
+    items:
+    - name: Cost allocation overview
+      href: cost-allocation-introduction.md
   - name: Tutorials
     items:
     - name: Group and allocate costs using tag inheritance
       href: enable-tag-inheritance.md
+    - name: Apply billing tags
+      href: billing-tags.md
     - name: Split shared costs
       href: allocate-costs.md
   - name: Reference
@@ -189,6 +197,8 @@
     items:
     - name: Export data
       href: tutorial-export-acm-data.md
+    - name: Tutorial - Improved exports (Preview)
+      href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
     - name: Export cost data with a Storage SAS key
@@ -235,6 +245,10 @@
       items:
       - name: Migrate from EA Reporting APIs to ARM
         href: ../automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Marketplace Store Charge API
+        href: ../automate/migrate-ea-marketplace-store-charge-api.md
+      - name: EA Billing Periods API
+        href: ../automate/migrate-enterprise-agreement-billing-periods-api.md
       - name: EA Usage Details APIs
         href: ../automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API

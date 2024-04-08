@@ -53,7 +53,7 @@ Any properties not explicitly set are cleared. To preserve any existing properti
 
 The following code example sets the `content_type` and `content_language` system properties on a blob, while preserving the existing properties:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_set_blob_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_set_blob_properties":::
 
 To retrieve properties on a blob, use the following method:
 
@@ -61,7 +61,7 @@ To retrieve properties on a blob, use the following method:
 
 The following code example gets a blob's system properties and displays some of the values:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_get_blob_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_get_blob_properties":::
 
 ## Set and retrieve metadata
 
@@ -71,13 +71,13 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 The following code example sets metadata on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_set_blob_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_set_blob_metadata":::
 
 To retrieve metadata, call the [get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `get_blob_properties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_get_blob_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_get_blob_metadata":::
 
 ## Set blob metadata asynchronously
 
@@ -113,7 +113,7 @@ Follow these steps to set blob metadata using asynchronous APIs:
 
 1. Add code to set the blob metadata. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `get_blob_properties` and `set_blob_metadata` methods.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py" id="Snippet_set_blob_metadata":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags_async.py" id="Snippet_set_blob_metadata":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -132,6 +132,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

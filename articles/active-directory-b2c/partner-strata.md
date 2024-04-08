@@ -2,19 +2,23 @@
 title: Tutorial to configure Azure Active Directory B2C with Strata
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C with StrataMaverics Identity Orchestrator. I need to protect on-premises applications and enable customer single sign-on (SSO) to hybrid apps.
+
 ---
 
 # Tutorial to configure Azure Active Directory B2C with Strata
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 
@@ -55,7 +59,7 @@ The following architecture diagram shows the implementation.
 1. The user requests access the on-premises hosted application. Maverics Identity Orchestrator proxies the request to the application.
 2. Orchestrator checks the user authentication state. If there's no session token, or the token is invalid, the user goes to Azure AD B2C for authentication
 3. Azure AD B2C sends the authentication request to the configured social IdP.
-4. The IdP challenges the user for credential. Multi-factor authentication (MFA) might be required.
+4. The IdP challenges the user for credential. Multifactor authentication (MFA) might be required.
 5. The IdP sends the authentication response to Azure AD B2C. The user can create a local account in the Azure AD B2C directory.
 6. Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app registration in the Azure AD B2C tenant.
 7. The Orchestrator evaluates access policies and attribute values for HTTP headers forwarded to the app. Orchestrator might call to other attribute providers to retrieve information to set the header values. The Orchestrator sends the request to the app.

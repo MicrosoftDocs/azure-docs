@@ -3,8 +3,12 @@ title: Create a persistent volume with Azure Disks in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 11/28/2023
+ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
+ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -35,7 +39,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of Azure Disk storage for use by a workload. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Disk storage container.
 
-### Dynamic provisioning parameters
+### Storage class parameters for dynamic PersistentVolumes
+
+The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
@@ -43,8 +49,8 @@ This section provides guidance for cluster administrators who want to provision 
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |resourceGroup | Specify the resource group for the Azure Disks | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster|
-|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
-|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
+|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
+|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
 |LogicalSectorSize | Logical sector size in bytes for ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
 |tags | Azure Disk [tags][azure-tags] | Tag format: `key1=val1,key2=val2` | No | ""|
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest][disk-encryption] | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
@@ -225,7 +231,9 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Azure Disks storage for use by a workload.
 
-### Static provisioning parameters
+### Static provisioning parameters for PersistentVolume
+
+The following table includes parameters you can use to define a PersistentVolume.
 
 |Name | Meaning | Available Value | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
@@ -242,7 +250,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
     ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-    
+
     # Output
     MC_myResourceGroup_myAKSCluster_eastus
     ```
@@ -268,7 +276,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
 ### Mount disk as a volume
 
-1. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step.
+1. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step. For Windows Server containers, specify *ntfs* for the parameter *fsType*.
 
     ```yaml
     apiVersion: v1
@@ -328,7 +336,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*.
+5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
     ```yaml
     apiVersion: v1
@@ -351,7 +359,6 @@ When you create an Azure disk for use with AKS, you can create the disk resource
         volumeMounts:
           - name: azure
             mountPath: /mnt/azure
-            volumeMounts
       volumes:
         - name: azure
           persistentVolumeClaim:
@@ -403,8 +410,10 @@ kubectl delete -f azure-pvc.yaml
 [disk-host-cache-setting]: ../virtual-machines/windows/premium-storage-performance.md#disk-caching
 [use-ultra-disks]: use-ultra-disks.md
 [ultra-ssd-disks]: ../virtual-machines/linux/disks-ultra-ssd.md
+[premiumv2_lrs_disks]: ../virtual-machines/disks-types.md#premium-ssd-v2
 [azure-tags]: ../azure-resource-manager/management/tag-resources.md
 [disk-encryption]: ../virtual-machines/windows/disk-encryption.md
 [azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
 [on-demand-bursting]: ../virtual-machines/disk-bursting.md
 [customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md
+

@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: active-directory
+ms.service: entra-id
 ms.topic: include
 ms.date: 11/09/2018	
 ms.author: jroth

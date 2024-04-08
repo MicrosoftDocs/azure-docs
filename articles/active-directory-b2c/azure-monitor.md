@@ -11,8 +11,12 @@ ms.service: active-directory
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/12/2023
+ms.date: 01/11/2024
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.
+
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -349,7 +353,7 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
-1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
+1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md).
 1. Select the **Delete** button to delete the resource group.
 ## Next steps
 

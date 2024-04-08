@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Set up scaling tool using Azure Automation and Azure Logic Apps for Azure Virtual Desktop
 
@@ -96,11 +95,6 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
 Now that you have an Azure Automation account, you'll also need to set up a [managed identity](../automation/automation-security-overview.md#managed-identities) if you haven't already. Managed identities will help your runbook access other Microsoft Entra related resources as well as authenticate important automation processes.
 
 To set up a managed identity, follow the directions in [Using a system-assigned managed identity for an Azure Automation account](../automation/enable-managed-identity-for-automation.md). Once you've created a managed identity, assign it with appropriate contributor permissions to Azure Virtual Desktop resources such as host pools, VMs, etc. Once you're done, return to this article and [Create the Azure Logic App and execution schedule](#create-the-azure-logic-app-and-execution-schedule) to finish the initial setup process.
-
-> [!IMPORTANT]
-> As of April 1, 2023, Run As accounts no longer work. We recommend you use [managed identities](../automation/automation-security-overview.md#managed-identities) instead. If you need help switching from your Run As account to a managed identity, see [Migrate from an existing Run As account to a managed identity](../automation/migrate-run-as-accounts-managed-identity.md). 
->
-> Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
 
 ## Create the Azure Logic App and execution schedule
 

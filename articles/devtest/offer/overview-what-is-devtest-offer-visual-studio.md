@@ -2,10 +2,10 @@
 title: What is Azure Dev/Test offer?
 description: Use the Azure Dev/Test offer to get Azure credits for Visual Studio subscribers.
 ms.topic: overview
-ms.prod: visual-studio-family
-ms.technology: vs-subscriptions
-author: ntrogh
-ms.author: nicktrog
+ms.service: visual-studio-family
+ms.subservice: subscriptions
+ms.author: amast
+author: rigel512
 ms.date: 10/18/2023
 ms.custom: devtestoffer
 adobe-target: true

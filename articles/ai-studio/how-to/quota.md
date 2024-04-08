@@ -2,14 +2,15 @@
 title: Manage and increase quotas for resources with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to manage and increase quotas for resources with Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: eur
+ms.date: 2/6/2024
+ms.reviewer: siarora
+ms.author: larryfr
+author: Blackmist 
 ---
 
 # Manage and increase quotas for resources with Azure AI Studio
@@ -23,7 +24,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 In this article, you learn about: 
 
 - Default limits on Azure resources  
-- Creating Azure AI resource-level quotas. 
+- Creating Azure AI hub resource-level quotas. 
 - Viewing your quotas and limits 
 - Requesting quota and limit increases 
 
@@ -38,14 +39,13 @@ A quota is a credit limit on Azure resources, not a capacity guarantee. If
 
 Default limits vary by offer category type, such as free trial, pay-as-you-go, and virtual machine (VM) series (such as Dv2, F, and G). 
 
- 
 ## Azure AI Studio quota 
 
 The following actions in Azure AI Studio consume quota: 
 
-- Creating a compute instance 
-- Building a vector index 
-- Deploying open models from model catalog 
+- Creating a compute instance.
+- Building a vector index.
+- Deploying open models from model catalog.
 
 ## Azure AI Studio compute 
 
@@ -54,8 +54,7 @@ The following actions in Azure AI Studio consume quota:
 - The quota on the number of cores is split by each VM Family and cumulative total cores.
 - The quota on the number of unique compute resources per region is separate from the VM core quota, as it applies only to the managed compute resources  
 
-To raise the limits for compute, you can [request a quota increase](#view-and-request-quotas-in-the-studio) in the Azure AI Studio portal.
-
+To raise the limits for compute, you can [request a quota increase](#view-and-request-quotas-in-azure-ai-studio) in the [Azure AI Studio](https://ai.azure.com).
 
 Available resources include:
 - Dedicated cores per region have a default limit of 24 to 300, depending on your subscription offer type. You can increase the number of dedicated cores per subscription for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores. GPUs also default to zero cores. 
@@ -79,7 +78,7 @@ When opening the support request to increase the total compute limit, provide th
 
 Azure AI Studio provides a pool of shared quota that is available for different users across various regions to use concurrently. Depending upon availability, users can temporarily access quota from the shared pool, and use the quota to perform testing for a limited amount of time. The specific time duration depends on the use case. By temporarily using quota from the quota pool, you no longer need to file a support ticket for a short-term quota increase or wait for your quota request to be approved before you can proceed with your workload. 
 
-Use of the shared quota pool is available for testing inferencing for Llama models from the Model Catalog. You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should [request dedicated quota](#view-and-request-quotas-in-the-studio). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. 
+Use of the shared quota pool is available for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the Model Catalog. You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should [request dedicated quota](#view-and-request-quotas-in-azure-ai-studio). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. 
 
 ## Container Instances 
 
@@ -89,13 +88,13 @@ For more information, see [Container Instances limits](../../azure-resource-ma
 
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts  
 
-## View and request quotas in the studio 
+## View and request quotas in Azure AI Studio
 
-Use quotas to manage compute target allocation between multiple Azure AI resources in the same subscription. 
+Use quotas to manage compute target allocation between multiple Azure AI hub resources in the same subscription. 
 
-By default, all Azure AI resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
+By default, all Azure AI hub resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI hub resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
-In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure Open AI resources. 
+In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure OpenAI resources. 
 
 :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for virtual machines and Azure OpenAI models." lightbox="../media/cost-management/quota-manage.png":::
 

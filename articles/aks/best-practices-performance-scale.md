@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 11/03/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS)
@@ -57,7 +60,7 @@ Implementing [vertical pod autoscaling](./vertical-pod-autoscaler.md) is useful 
 
 Implementing cluster autoscaling is useful if your existing nodes lack sufficient capacity, as it helps with scaling up and provisioning new nodes.
 
-When considering cluster autoscaling, the decision of when to remove a node involves a tradeoff between optimizing resource utilization and ensuring resource availability. Eliminating underutilized nodes enhances cluster utilization but might result in new workloads having to wait for resources to be provisioned before they can be deployed. It's important to find a balance between these two factors that aligns with your cluster and workload requirements and [configure the cluster autoscaler profile settings accordingly](./cluster-autoscaler.md#change-the-cluster-autoscaler-settings).
+When considering cluster autoscaling, the decision of when to remove a node involves a tradeoff between optimizing resource utilization and ensuring resource availability. Eliminating underutilized nodes enhances cluster utilization but might result in new workloads having to wait for resources to be provisioned before they can be deployed. It's important to find a balance between these two factors that aligns with your cluster and workload requirements and [configure the cluster autoscaler profile settings accordingly](./cluster-autoscaler.md#update-the-cluster-autoscaler-settings).
 
 The Cluster Autoscaler profile settings apply universally to all autoscaler-enabled node pools in your cluster. This means that any scaling actions occurring in one autoscaler-enabled node pool might impact the autoscaling behavior in another node pool. It's important to apply consistent and synchronized profile settings across all relevant node pools to ensure that the autoscaler behaves as expected.
 
@@ -234,7 +237,7 @@ The following table provides a breakdown of suggested use cases for OS disks sup
 
 #### IOPS and throughput
 
-Input/output operations per second (IOPS) refers to the number of read and write operations that a disk can perform in a second. Throughout refers to the amount of data that can be transferred in a given time period.
+Input/output operations per second (IOPS) refers to the number of read and write operations that a disk can perform in a second. Throughput refers to the amount of data that can be transferred in a given time period.
 
 OS disks are responsible for storing the operating system and its associated files, and the VMs are responsible for running the applications. When selecting a VM, ensure the size and performance of the OS disk and VM SKU don't have a large discrepancy. A discrepancy in size or performance can cause performance issues and resource contention. For example, if the OS disk is significantly smaller than the VMs, it can limit the amount of space available for application data and cause the system to run out of disk space. If the OS disk has lower performance than the VMs, it can become a bottleneck and limit the overall performance of the system. Make sure the size and performance are balanced to ensure optimal performance in Kubernetes.
 
@@ -251,3 +254,4 @@ Ephemeral OS disks can provide dynamic IOPS and throughput for your application,
 ### Pod scheduling
 
 The memory and CPU resources allocated to a VM have a direct impact on the performance of the pods running on the VM. When a pod is created, it's assigned a certain amount of memory and CPU resources, which are used to run the application. If the VM doesn't have enough memory or CPU resources available, it can cause the pods to slow down or even crash. If the VM has too much memory or CPU resources available, it can cause the pods to run inefficiently, wasting resources and increasing costs. We recommend monitoring the total pod requests across your workloads against the total allocatable resources for best scheduling predictability and performance. You can also set the maximum pods per node based on your capacity planning using `--max-pods`.
+

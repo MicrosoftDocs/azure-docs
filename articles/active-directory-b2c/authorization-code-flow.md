@@ -4,13 +4,14 @@ description: Learn how to build web apps by using Azure AD B2C and OpenID Connec
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.topic: conceptual
-ms.date: 11/06/2023
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 
 # Customer intent: As a developer who is building a web app, I want to learn more about the OAuth 2.0 authorization code flow in Azure AD B2C, so that I can add sign-up, sign-in, and other identity management tasks to my app.
+
 
 ---
 
@@ -105,7 +106,7 @@ error=access_denied
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## 2. Get an access token
-Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
@@ -134,7 +135,7 @@ grant_type=authorization_code
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same `code_verifier` used to obtain the authorization code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview).
 
 A successful token response looks like this:
 

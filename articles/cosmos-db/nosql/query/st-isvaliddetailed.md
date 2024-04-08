@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a JSON value containing a Boolean value if the specified GeoJSON **Point
 
 ## Syntax
 
-```sql
+```nosql
 ST_ISVALIDDETAILED(<spatial_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a JSON object containing a boolean value indicating if the specified Geo
 
 The following example how to check validity of multiple objects.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-isvaliddetailed/query.sql" highlight="2-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-isvaliddetailed/query.sql" highlight="2-9":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-isvaliddetailed/result.json":::
 

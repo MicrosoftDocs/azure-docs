@@ -2,11 +2,11 @@
 title: Azure Event Grid - Subscribe to partner events 
 description: This article explains how to subscribe to events from a partner using Azure Event Grid.
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 01/18/2024
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
-This article describes steps to subscribe to events that originate in a system owned or managed by a partner (SaaS, ERP, etc.). 
+This article describes steps to subscribe to events that originate in a system owned or managed by a partner (SaaS, Enterprise Resource Planning (ERP), etc.). 
 
 > [!IMPORTANT]
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md) to understand the rationale of the steps in this article.
@@ -44,7 +44,7 @@ Here's the list of partners and a link to submit a request to enable events flow
 
 ## Next steps 
 
-See the following articles for more details about the Partner Events feature:
+For more information, see the following articles about the Partner Events feature:
 
 - [Partner Events overview for customers](partner-events-overview.md)
 - [Partner Events overview for partners](partner-events-overview-for-partners.md)

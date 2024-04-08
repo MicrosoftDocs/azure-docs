@@ -2,11 +2,12 @@
 metadata:
   title: Azure AI frequently asked questions
   titleSuffix: Azure AI Studio
-  description: Get answers to the most popular questions about Azure AI services
+  description: Get answers to the most popular questions about Azure AI services.
   manager: nitinme
   ms.service: azure-ai-studio
   ms.topic: faq
-  ms.date: 11/15/2023
+  ms.date: 3/14/2024
+  ms.reviewer: eur
   ms.author: eur
   author: eric-urban
 title: Azure AI frequently asked questions
@@ -26,7 +27,7 @@ sections:
       - question: |
           What regions is Azure AI Studio available in?
         answer: | 
-          Azure AI Studio is available in these regions: Australia East, Brazil South, Canada Central, East US, East US 2, France Central, Germany West Central, India South, Japan East, North Central US, Norway East, Poland Central, South Africa North, South Central US, Sweden Central, Switzerland North, UK South, West Europe, and West US.
+          Azure AI Studio is available in most regions where Azure AI services are available. For more information, see [region support for Azure AI Studio](reference/region-support.md).
       - question: |
           Can I integrate Microsoft Fabric data into Azure AI Studio? 
         answer: |
@@ -39,10 +40,6 @@ sections:
           How is the playground in Azure AI Studio different from the Azure OpenAI Studio playground? 
         answer: |
           The playground experiences in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
-      - question: |
-          What is the plan for plugin support? 
-        answer: |
-          Plugins are available today in preview. For more information, see [Plugins for Azure OpenAI Service - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-azure-netherlands/how-to-leverage-plugins-for-azure-openai-service/m-p/3863986).
       - question: |
           Will there be multiple varying model benchmarks in Azure AI Studio based on individual projects and data sources? 
         answer: |
@@ -58,7 +55,7 @@ sections:
       - question: |
           What is the billing model for Model-as-a-Service (MaaS)? 
         answer: |
-          Azure AI Studio offers paygo inference APIs and hosted fine-tuning for Llama2. During preview, there's no extra charge for Azure AI Studio outside of typical AI services and other Azure resource charges.
+          Azure AI Studio offers paygo inference APIs and hosted fine-tuning for [Llama 2 family models](how-to/deploy-models-llama.md). During preview, there's no extra charge for Azure AI Studio outside of typical AI services and other Azure resource charges.
       - question: |
           Can all models be secured with content filtering? 
         answer: |

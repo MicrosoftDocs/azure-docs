@@ -4,7 +4,7 @@ schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/21/2021
+ms.date: 12/21/2023
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -36,15 +36,41 @@ advanced_state_management.sh [--parameterfile] <String>
 ## Description
 You can use this script to:
 
+- list the resources in the Terraform state file.
 - add missing or modified resources to the Terraform state file. 
 - remove resources from the Terraform state file.
-- list the resources in the Terraform state file.
 
-This script is useful if resources have been modified or created without using Terraform.
+
+This script is useful if resources are modified or created without using Terraform.
 
 ## Examples
 
 ### Example 1
+
+List the contents of the Terraform state file.
+
+```bash
+
+parameter_file_name="DEV-WEEU-SAP01-X00.tfvars"
+deployment_type="sap_system"
+subscriptionID="<subscriptionId>"
+
+filepart=$(echo "${parameter_file_name}" | cut -d. -f1)
+key_file=${filepart}.terraform.tfstate
+
+#This is the name of the storage account containing the terraform state files
+storage_accountname="<storageaccountname>"
+
+$DEPLOYMENT_REPO_PATH/deploy/scripts/advanced_state_management.sh                      \
+  --parameterfile "${parameter_file_name}"        \
+  --type "${deployment_type}"                     \
+  --operation list                                \
+  --subscription "${subscriptionID}"              \
+  --storage_account_name "${storage_accountname}" \
+  --terraform_keyfile "${key_file}"
+```
+
+### Example 2
 
 Importing a Virtual Machine
 
@@ -77,7 +103,7 @@ $DEPLOYMENT_REPO_PATH/deploy/scripts/advanced_state_management.sh               
   --azure_resource_id "${azure_resource_id}"
  ```
 
-### Example 2
+### Example 3
 
 Removing a storage account from the state file
 

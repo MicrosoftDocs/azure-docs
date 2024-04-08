@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define an OAuth1 technical profile, so that I can federate with an OAuth1 based identity provider like Twitter and allow users to sign in with their existing social or enterprise identities.
+
 ---
 
 # Define an OAuth1 technical profile in an Azure Active Directory B2C custom policy
