@@ -47,7 +47,7 @@ productDirectory:
           text: Overview
         - url: ./policy/policy-glossary.md
           text: Azure Policy glossary
-        - url: ./policy/concepts/definition-structure.md
+        - url: ./policy/concepts/definition-structure-basics.md
           text: Policy definition structure
         - url: ./policy/concepts/effects.md
           text: Azure Policy effects

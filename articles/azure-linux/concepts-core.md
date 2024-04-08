@@ -6,7 +6,7 @@ ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: conceptual 
 ms.date: 09/29/2023
-ms.custom: template-concept
+ms.custom: template-concept, linux-related-content
 ---
 
 # Core concepts for the Azure Linux Container Host for AKS

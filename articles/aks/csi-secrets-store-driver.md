@@ -4,6 +4,7 @@ description: Learn how to use the Azure Key Vault provider for Secrets Store CSI
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
+ms.subservice: aks-security
 ms.date: 12/06/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
@@ -149,3 +150,4 @@ In this article, you learned how to use the Azure Key Vault provider for Secrets
 <!-- LINKS EXTERNAL -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
 [kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
+

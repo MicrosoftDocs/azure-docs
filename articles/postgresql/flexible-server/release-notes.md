@@ -3,14 +3,10 @@ title: Release notes
 description: Release notes for Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.custom:
-  - references_regions
-  - build-2023
-  - ignite-2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 3/21/2024
+ms.date: 4/4/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -19,8 +15,15 @@ ms.date: 3/21/2024
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
+## Release: March 2024
+* Public preview of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of [real-time language translations](generative-ai-azure-cognitive.md#language-translation) with azure_ai extension on Azure Database for PostgreSQL flexible server.
+* Public preview of [real-time machine learning predictions](generative-ai-azure-machine-learning.md) with azure_ai extension on Azure Database for PostgreSQL flexible server.
+* General availability of version 0.6.0 of [vector](how-to-use-pgvector.md) extension on Azure Database for PostgreSQL flexible server.
+* General availability of [Migration service](../../postgresql/migrate/migration-service/concepts-migration-service-postgresql.md) in Azure Database for PostgreSQL flexible server.
+
 ## Release: February 2024
-* Support for [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
+* Support for new [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
 * General availability of [Major Version Upgrade logs](./concepts-major-version-upgrade.md#major-version-upgrade-logs)
 * General availability of [private endpoints](concepts-networking-private-link.md).
 
@@ -49,7 +52,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [long-term backup retention](concepts-backup-restore.md).
 
 ## Release: October 2023
-* Support for [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
+* Support for new [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
 * General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL flexible server.
 
 ## Release: September 2023
