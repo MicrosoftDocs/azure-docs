@@ -771,6 +771,8 @@ items:
         href: concepts/analytics/logs/call-automation-metrics.md
       - name: Rooms metrics overview
         href: concepts/analytics/rooms-metrics.md
+      - name: Closed captions logs
+        href: concepts/analytics/logs/closed-captions-logs.md
     - name: UI Library
       items:
       - name: UI Library overview
