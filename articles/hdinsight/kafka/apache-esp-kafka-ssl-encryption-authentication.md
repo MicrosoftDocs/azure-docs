@@ -1,10 +1,10 @@
 ---
 title: Apache Kafka TLS encryption & authentication for ESP Kafka Clusters - Azure HDInsight
-description: Set up TLS encryption for communication between Kafka clients and Kafka brokers, Set up SSL authentication of clients for ESP Kafka clusters
+description: Set up TLS encryption for communication between Kafka clients and Kafka brokers, Set up SSL authentication of clients for ESP Kafka clusters.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/03/2023
+ms.date: 04/08/2023
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight
@@ -145,24 +145,22 @@ To complete the configuration modification, do the following steps:
    > 1. ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example,`  MyServerPassword123`
    > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
 
-1. To Use TLS 1.3 in Kafka 
+1. To Use TLS 1.3 in Kafka, add following configs to the Kafka configs in Ambari. 
+   1. ssl.enabled.protocols=TLSv1.3 
+   1. ssl.protocol=TLSv1.3
 
-   Add follwoing configs to the kafka configs in Ambari  
-    > 1. ssl.enabled.protocols=TLSv1.3 
-    > 1. ssl.protocol=TLSv1.3
 > [!Important]
 > 1. TLS 1.3 works with HDI 5.1 kafka version only.
 > 1. If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
 
-   For HDI version 4.0 or 5.0
-   
-	a. If you're setting up authentication and encryption, then the screenshot looks like
+1. For HDI version 4.0 or 5.0
+   1. If you're setting up authentication and encryption, then the screenshot looks like
 
-     :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as required." border="true":::
-     
-	b. If you are setting up encryption only, then the screenshot looks like  
+   :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as required." border="true":::
+
+   1. If you are setting up encryption only, then the screenshot looks like  
    
-     :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as none." border="true":::
+   :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as none." border="true":::
 
 1. Restart all Kafka brokers.
 
@@ -219,7 +217,7 @@ These steps are detailed in the following code snippets.
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
-     1.  To Use TLS 1.3 add folloing configs to file `client-ssl-auth.properties`
+     1.  To Use TLS 1.3 add following configs to file `client-ssl-auth.properties`
    ```config
    ssl.enabled.protocols=TLSv1.3
    ssl.protocol=TLSv1.3
@@ -296,7 +294,7 @@ The details of each step are given.
     cd ssl
     ```
 
-1. Create client store with signed cert, and import CA  certificate into the keystore and truststore on client machine (hn1):
+1. Create client store with signed certificate, and import CA  certificate into the keystore, and truststore on client machine (hn1):
 
     ```bash
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
@@ -320,7 +318,7 @@ The details of each step are given.
     ssl.key.password=MyClientPassword123
 
     ```
-      1.  To Use TLS 1.3 add folloing configs to file `client-ssl-auth.properties`
+      1.  To Use TLS 1.3 add following configs to file `client-ssl-auth.properties`
    ```config
    ssl.enabled.protocols=TLSv1.3
    ssl.protocol=TLSv1.3
@@ -336,7 +334,7 @@ Run these steps on the client machine.
 ### Kafka 2.1 or above
 
 > [!Note]
-> Below commands will work if you are either using `kafka` user or a custom user which have access to do CRUD operation.
+> Below commands will work if you're either using `kafka` user or a custom user which have access to do CRUD operation.
 
 :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/access-to-crud-operation.png" alt-text="Screenshot showing how to provide access CRUD operations." border="true":::
 
@@ -346,7 +344,7 @@ Using Command Line Tool
 
 1. `klist` 
 
-   If ticket is present, then you are good to proceed. Otherwise generate a Kerberos principle and keytab using below command. 
+   If ticket is present, then you're good to proceed. Otherwise generate a Kerberos principle and keytab using below command. 
 
 1. `ktutil`
   
