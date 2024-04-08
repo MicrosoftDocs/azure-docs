@@ -17,6 +17,11 @@ ms.subservice: calling
 The ACS Calling SDK uses a unified framework to represent errors.
 Through error codes, subcodes, and result categories, you can more easily handle errors and find corresponding explanations.
 
+If the `resultCategories` is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
+Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app,
+or when the current system state does not allow the API call.
+The application should check the error reason and the logic for invoking API.
+
 ## Azure Communication Services Calling SDK client error codes
 This document provides a list of codes, subcodes that the Calling SDK API throws. This article also guides you on how to best mitigate these errors.
 
