@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/08/2023
+ms.date: 04/08/2024
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight
@@ -37,10 +37,10 @@ The summary of the broker setup process is as follows:
 1. Once you have all of the certificates, put the certs into the cert store.
 1. Go to Ambari and change the configurations.
 
-Use the following detailed instructions to complete the broker setup:
+    Use the following detailed instructions to complete the broker setup:
 
-> [!Important]
-> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
+    > [!Important]
+    > In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
 
 1. Perform initial setup on head node 0, which for HDInsight fills the role of the Certificate Authority (CA).
 
@@ -146,21 +146,21 @@ To complete the configuration modification, do the following steps:
    > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
 
 1. To Use TLS 1.3 in Kafka, add following configs to the Kafka configs in Ambari. 
-   1. ssl.enabled.protocols=TLSv1.3 
-   1. ssl.protocol=TLSv1.3
+   1. `ssl.enabled.protocols=TLSv1.3` 
+   1. `ssl.protocol=TLSv1.3`
 
-> [!Important]
-> 1. TLS 1.3 works with HDI 5.1 kafka version only.
-> 1. If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
-
+   > [!Important]
+   > 1. TLS 1.3 works with HDI 5.1 kafka version only.
+   > 1. If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
+    
 1. For HDI version 4.0 or 5.0
    1. If you're setting up authentication and encryption, then the screenshot looks like
 
-   :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as required." border="true":::
+       :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as required." border="true":::
 
    1. If you are setting up encryption only, then the screenshot looks like  
    
-   :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as none." border="true":::
+       :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as none." border="true":::
 
 1. Restart all Kafka brokers.
 

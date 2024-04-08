@@ -37,11 +37,11 @@ The summary of the broker setup process is as follows:
 1. Once you have all of the certificates, put the certs into the cert store.
 1. Go to Ambari and change the configurations.
 
-Use the following detailed instructions to complete the broker setup:
+    Use the following detailed instructions to complete the broker setup:
 
-> [!Important]
-> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
-
+    > [!Important]
+    > In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
+    
 1. Perform initial setup on head node 0, which for HDInsight fills the role of the Certificate Authority (CA).
 
     ```bash
