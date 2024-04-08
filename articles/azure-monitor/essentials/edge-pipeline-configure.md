@@ -7,19 +7,30 @@ ms.author: bwren
 author: bwren
 ---
 
-# Configuration of Azure Monitor pipeline for edge and multicloud
+# Configuration of Azure Monitor edge pipeline
 
-[Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The edge pipeline enables at-scale collection, transformation, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and can also act as a proxy connection to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the Azure Monitor edge pipeline in your environment. 
+[Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, transformation, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and can also act as a proxy connection to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
-## Basic operation
-The Azure Monitor edge pipeline is a containerized solution that is deployed on an Arc-enabled Kubernetes cluster. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
+## Overview
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
 
-The following diagram shows the basic components of the Azure Monitor edge pipeline, including the two configuration files that define the operation of the pipeline. The pipeline configuration file defines the data sources and cache configuration for the edge pipeline, while the data collection rule (DCR) provides the definition of the incoming data for the cloud pipeline and potentially transforms the data before sending it to its destination.
+The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
-:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
+The pipeline configuration file the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline. The [DCR](./pipeline-overview.md#data-collection-rule) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
 
-Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data. Once the pipeline extension and instance is installed on your cluster, you configure one or more data flows that define the type of data being collected and where it should be sent. 
+:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
+
+The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
+
+
+| Component | Description |
+|:---|:---|
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality. |
+| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of listeners to accept client data and exporters to deliver that data to Azure Monitor. |
+| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
+| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
+| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 
 
 ## Prerequisites
@@ -30,25 +41,6 @@ Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is
   - Syslog
   - OLTP
 
-
-## Overview
-Azure Monitor Pipeline is deployed on an Arc-enabled Kubernetes cluster in your environment. You install Azure Monitor Pipeline Controller Arc Extension this cluster and then add one or more data flows that accept data from clients and forward it to the Azure Monitor cloud pipeline for processing. You control the details of this process through configuration for both the edge pipeline and the cloud pipeline.
-
-:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Configuration details of the dataflow for Azure Monitor edge pipeline."::: 
-
-The following components are required to enable and configure the Azure Monitor edge pipeline. Depending on the method you use to perform the configuration, you may need explicitly create each component, or they may be created for you based on your selections.
-
-> [!NOTE]
-> This list might be too detailed for the portal user. Could combine controller instance with data flows. Or keep this detail and make note in portal section that you don't need to worry about this level of detail.
-
-| Component | Description |
-|:---|:---|
-| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality. |
-| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of listeners to accept client data and exporters to deliver that data to Azure Monitor. |
-| Data flows | Pairing of receivers and exporters from the controller instance to receive and deliver specific sets of data. |
-| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
-| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
-| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver, processor, and exporter. The receiver listens for incoming data, the processor transforms the data, and the exporter sends the data to the destination. |
 
 ## Enable and configure pipeline
 The current options for enabling and configuration are detailed in the tabs below.
@@ -89,7 +81,7 @@ The settings in this tab are described in the following table.
 | Table Name | The name of the table in the Log Analytics workspace to send the data to. If the table doesn't exist then it will be created  |
 
 
-### [ARM Separate](#tab/ARMSep)
+### [ARM](#tab/ARM)
 
 ### Configure pipeline using ARM templates
 
@@ -109,11 +101,17 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 
 ### Edge pipeline extension
 
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the pipeline extension. Must be unique for the subscription. |
+| `scope` | Resource ID of the Arc-enabled Kubernetes cluster. |
+| `releaseNamespace` | Namespace in the cluster where the extension will be deployed. |
+
 ```json
 {
     "type": "Microsoft.KubernetesConfiguration/extensions",
     "apiVersion": "2022-11-01",
-    "name": "[parameters('pipelineExtensionName')]",
+    "name": "my-pipeline-extension",
     "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
     "tags": "",
     "identity": {
@@ -139,6 +137,11 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 
 ### DCE
 
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the DCE. Must be unique for the subscription. |
+| `location` | Location of the DCE. Must match the location of the DCR. |
+
 ```json
 {
     "type": "Microsoft.Insights/dataCollectionEndpoints",            
@@ -160,7 +163,22 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 ### DCR
 The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. 
 
-- The schema of the data in the DCR must match the schema of the incoming data.
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the DCR. Must be unique for the subscription. |
+| `location` | Location of the DCR. Must match the location of the DCE. |
+| `dataCollectionEndpointId` | Resource ID of the DCE. |
+| `streamDeclarations` | Schema of the data being received. One stream is required for each dataflow in the pipeline configuration. The name must be unique in the DCR and must begin with *Custom-*. The `column` sections in the samples below should be used for the OLTP and Syslog data flows. If the schema for your destination table is different, then you can modify it using a transformation. |
+| `destinations` | Add additional section to send data to multiple workspaces. |
+| - `name` | Name for the destination to reference in the `dataFlows` section. Must be unique for the DCR. |
+| - `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
+| - `workspaceId` | Immutable ID of the Log Analytics workspace. |
+| `dataFlows` | Matches streams and destinations. One entry for each stream/destination combination. |
+| - `streams` | One or more streams (defined in `streamDeclarations`). You can include multiple stream if they're being sent to the same destination. |
+| - `destinations` | One or more destinations (defined in `destinations`). You can include multiple destinations if they're being sent to the same destination. |
+| - `transformKql` | Transformation to apply to the data before sending it to the destination. Use `source` to send the data without any changes. The output of the transformation must match the schema of the destination table. See [Data collection transformations in Azure Monitor](./data-collection-transformations.md) for details on transformations. |
+| - `outputStream` | Specifies the destination table in the Log Analytics workspace. The table must already exist in the workspace. For custom tables, prefix the table name with *Custom-*. For built-in tables, prefix the table name with *Microsoft-*. |
+
 
 ```json
 {
@@ -248,21 +266,21 @@ The DCR is stored in Azure Monitor and defines how the data will be processed wh
 #### Edge pipeline configuration
 The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
 
-##### `receivers` 
-One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration.
-
-##### `processors`
-Reserved for future use.
-
-##### `exporters`
-One entry for each destination that uses the following properties:
-
-| Parameter | Description |
+| Property | Description |
 |:---|:--|
-| `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
-| `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.
-| `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
-| `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
+| `name` | Name of the pipeline instance. Must be unique in the subscription. |
+| `location` | Location of the pipeline instance. |
+| `extendedLocation` |  |
+| `receivers` | One entry for each receiver. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
+| - `type` | Type of data received. Current options are `OTLP` and `Syslog`. |
+| - `name` | Name for the receiver referenced in the `service` section. Must be unique for the pipeline instance. |
+| - `endpoint` | Address and port the receiver listens on. Use `0.0.0.0` for al addresses. |
+| `processors` | Reserved for future use.|
+| `exporters`  | One entry for each destination. |
+| - `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
+| - `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration. |
+| - `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
+| - `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
 | `stream` | Name of the stream in your DCR that will accept the data. |
 | `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
 
@@ -358,9 +376,9 @@ One entry for each destination that uses the following properties:
 ```
 
 
-### [ARM All](#tab/ARMAll)
+### [ARM sample](#tab/ARMAll)
 
-### Configure pipeline using one big ARM template
+### ARM template sample to configure all components
 
 You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
 
@@ -371,23 +389,8 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 | Data collection endpoint (DCE) | `Microsoft.Insights/dataCollectionEndpoints` | Remove this section if you're using an existing DCE. The only parameter required is the DCE name. The logs ingestion URL for the DCE, which is needed for other components, will be automatically created. |
 | Edge pipeline extension | `Microsoft.KubernetesConfiguration/extensions` | The only parameter required is the pipeline extension name. |
 | Custom location | `Microsoft.ExtendedLocation/customLocations` | Custom location of the the Arc-enabled Kubernetes cluster to create the custom |
-| Edge pipeline instance | `Microsoft.monitor/pipelineGroups` | Edgepipeline instasnce that includes configuration of the listener, exporters, and data flows. You must modify the properties of the pipeline instance before deploying the template. |
+| Edge pipeline instance | `Microsoft.monitor/pipelineGroups` | Edge pipeline instance that includes configuration of the listener, exporters, and data flows. You must modify the properties of the pipeline instance before deploying the template. |
 | Data collection rule (DCR) | `Microsoft.Insights/dataCollectionRules` | The only parameter required is the DCR name, but you must modify the properties of the DCR before deploying the template. |
-
-
-### Edge pipeline configuration
-The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
-
-| Parameter | Description |
-|:---|:--|
-| `receivers` | One entry for each receiver in the pipeline. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
-| `processors` | Reserved for future use. |
-| `exporters` | One entry for each destination that uses the following properties:<br>- `type` - Only currently supported type is `AzureMonitorWorkspaceLogs`.<br>- `name` - Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration.<br>- `dataCollectionEndpointUrl`  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>- `dataCollectionRule` - Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>- `stream` - Name of the stream in your DCR that will accept the data.<br>- `schema` - Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
-| `service` | Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. |
-
-
-### Create data collection rule (DCR)
-The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. 
 
 
 ### Template file
