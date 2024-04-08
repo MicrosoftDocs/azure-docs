@@ -17,7 +17,8 @@ Microsoft Sentinel is available as part of the public preview for the unified se
 - [Unified security operations platform with Microsoft Sentinel and Defender XDR](https://aka.ms/unified-soc-announcement)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 
- This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
+This article describes the Microsoft Sentinel experience in the Microsoft Defender portal.
+
 > [!IMPORTANT]
 > Information in this article relates to a prerelease product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
@@ -25,13 +26,12 @@ Microsoft Sentinel is available as part of the public preview for the unified se
 
 The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel and Defender XDR.
 
-|Capabilities |Description |
-|---------|---------|
-|Advanced hunting | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410).|
-|Attack disrupt      |  Deploy automatic attack disruption for SAP with both the unified security operations platform and the Microsoft Sentinel solution for SAP applications. For example, contain compromised assets by locking suspicious SAP users in case of a financial process manipulation attack.  <br><br>Attack disruption capabilities for SAP are available in the Defender portal only. To use attack disruption for SAP, update your data connector agent version and ensure that the relevant Azure role is assigned to your agent's identity. <br><br>  For more information, see [Automatic attack disruption for SAP (Preview)](sap/deployment-attack-disrupt.md).  |
-|Unified entities| Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages).|
-|Unified incidents| Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview).|
-
+| Capabilities      | Description              |
+| ----------------- | ------------------------ |
+| Advanced hunting  | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410). |
+| Attack disrupt    |  Deploy automatic attack disruption for SAP with both the unified security operations platform and the Microsoft Sentinel solution for SAP applications. For example, contain compromised assets by locking suspicious SAP users in case of a financial process manipulation attack.  <br><br>Attack disruption capabilities for SAP are available in the Defender portal only. To use attack disruption for SAP, update your data connector agent version and ensure that the relevant Azure role is assigned to your agent's identity. <br><br>  For more information, see [Automatic attack disruption for SAP (Preview)](sap/deployment-attack-disrupt.md).  |
+| Unified entities  | Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages). |
+| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview). |
 
 ## Capability differences between portals
 

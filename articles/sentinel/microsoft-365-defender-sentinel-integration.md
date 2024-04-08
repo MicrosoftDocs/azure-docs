@@ -44,7 +44,7 @@ Install the Microsoft Defender XDR solution for Microsoft Sentinel and enable th
 
 - Alerts and incidents from Microsoft Defender XDR (those items which populate the *SecurityAlert* and *SecurityIncident* tables) are ingested into and synchronized with Microsoft Sentinel at no charge. For all other data types from individual Defender components (such as DeviceInfo, DeviceFileEvents, EmailEvents, and so on), ingestion will be charged.
 
-Once the Microsoft Defender XDR integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft Defender XDR was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
+Once the Microsoft Defender XDR integration is connected, any previously connected connectors for its individual component services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be automatically **disconnected** in the background. Alerts and incidents for all component services will flow to Microsoft Sentinel through the Microsoft Defender XDR connector, with no additional configuration or charge.
 
 ## Microsoft Defender XDR incidents and Microsoft incident creation rules
 
