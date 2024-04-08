@@ -399,16 +399,16 @@ Terminal Server has been deployed and configured as follows:
 
 ## iDRAC IP Assignment
 
-Before deploying AODS software, it’s best for the Operator to set the iDRAC IPs while organizing the hardware racks. Here’s how to map servers to IPs:
+Before deploying the Nexus Cluster, it’s best for the operator to set the iDRAC IPs while organizing the hardware racks. Here’s how to map servers to IPs:
 
    - Assign IPs based on each server’s position within the rack.
-   - Use the fourth /24 block from the /19 subnet allocated for fabric.
+   - Use the fourth /24 block from the /19 subnet allocated for Fabric.
    - Start assigning IPs from the bottom server upwards in each rack, beginning with 0.11.
-   - Continue to assign IPs in sequence to the first server at the bottom of the subsequent next rack.
+   - Continue to assign IPs in sequence to the first server at the bottom of the next rack.
 
 ### Example
 
-Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24
+Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24.
 
    | Rack   | Server        | iDRAC IP      |
    |--------|---------------|---------------|
@@ -453,7 +453,7 @@ Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24
    | Rack 4 | Controller 1  | 10.1.3.49/24  |
    | Rack 4 | Controller 2  | 10.1.3.50/24  |
 
-An example design of three instances using sequential /19 networks in a /16:
+An example design of three on-premises instances from the same NFC/CM pair, using sequential /19 networks in a /16:
 
    | Instance   | Fabric Range            | iDRAC subnet |
    |------------|-------------------------|--------------|
@@ -466,24 +466,24 @@ An example design of three instances using sequential /19 networks in a /16:
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
 - Servers have default factory settings
 
-## Firewall rules between Azure to undercloud.
+## Firewall rules between Azure to Nexus Cluster.
 
-To establish firewall rules between Azure and the undercloud, the Operator must open the specified ports. This ensures proper communication and connectivity for required services.
+To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services.
 
 
 | S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
 |------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
-| 1    | Azure virtual network  | Undercloud            | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
-| 2    | Azure virtual network  | Undercloud            | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
-| 3    | Azure virtual network  | Undercloud            | 5900 TCP        | No             | Gnmi                                                     |
-| 4    | Azure virtual network  | Undercloud            | 6030 TCP        | No             | Gnmi Certs                                               |
-| 5    | Azure virtual network  | Undercloud            | 6443 TCP        | No             | To access undercloud K8S cluster                         |
-| 6    | Undercloud             | Azure virtual network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC, NNF runtime upgrade   |
-| 7    | Undercloud             | Azure virtual network | 3128 TCP        | No             | Proxy to connect to global Azure endpoints               |
-| 8    | Undercloud             | Azure virtual network | 53 TCP and UDP  | No             | DNS                                                      |
-| 9    | Undercloud             | Azure virtual network | 123 UDP         | No             | NTP                                                      |
-| 10   | Undercloud             | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
-| 11   | Undercloud             | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
+| 1    | Azure virtual network  | Cluster               | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
+| 2    | Azure virtual network  | Cluster               | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
+| 3    | Azure virtual network  | Cluster               | 5900 TCP        | No             | Gnmi                                                     |
+| 4    | Azure virtual network  | Cluster               | 6030 TCP        | No             | Gnmi Certs                                               |
+| 5    | Azure virtual network  | Cluster               | 6443 TCP        | No             | To access undercloud K8S cluster                         |
+| 6    | Cluster                | Azure virtual network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC, NNF runtime upgrade   |
+| 7    | Cluster                | Azure virtual network | 3128 TCP        | No             | Proxy to connect to global Azure endpoints               |
+| 8    | Cluster                | Azure virtual network | 53 TCP and UDP  | No             | DNS                                                      |
+| 9    | Cluster                | Azure virtual network | 123 UDP         | No             | NTP                                                      |
+| 10   | Cluster                | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
+| 11   | Cluster                | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
 
 
 ## Install CLI extensions and sign-in to your Azure subscription
