@@ -89,9 +89,10 @@ Azure SQL Edge can be deployed using instructions from [Deploy modules from Azur
 
    > [!IMPORTANT]  
    > Set the `PlanId` environment variable based on the edition installed.
-   > * *Developer edition* - `asde-developer-on-iot-edge`
-   > * *Premium edition* - `asde-premium-on-iot-edge`
-   > If this value is set incorrectly, the Azure SQL Edge container will fail to start.
+   > - *Developer edition* - `asde-developer-on-iot-edge`
+   > - *Premium edition* - `asde-premium-on-iot-edge`
+   >
+   > If this value is set incorrectly, the Azure SQL Edge container fails to start.
 
    > [!WARNING]  
    > If you reinstall the module, remember to remove any existing bindings first, otherwise your environment variables will not be updated.
