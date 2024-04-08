@@ -85,27 +85,26 @@ import { DefaultAzureCredential } from "@azure/identity";
 import "dotenv/config";
 
 // Recommended for secure credential management
-const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
-
-if (!azureOpenAIEndpoint) {
-  throw new Error(
-    "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
-  );
-}
-const getClient = (): AssistantsClient => {
-  const credential = new DefaultAzureCredential();
-  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-  return assistantsClient;  
-}
+// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+// if (!azureOpenAIEndpoint) {
+//   throw new Error(
+//     "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
+//   );
+// }
+// const getClient = (): AssistantsClient => {
+//   const credential = new DefaultAzureCredential();
+//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+//   return assistantsClient;  
+// }
 
 // Not recommended - for local demo purposes only
-// const azureOpenAIKey = process.env.AZURE_OPENAI_KEY as string;
-// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
-// const credential = new AzureKeyCredential(azureOpenAIKey);
-// const getClient = (): AssistantsClient => {
-//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-//   return assistantsClient;
-// }
+const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY as string;
+const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+const credential = new AzureKeyCredential(azureOpenAIKey);
+const getClient = (): AssistantsClient => {
+  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+  return assistantsClient;
+}
 
 const assistantsClient: AssistantsClient = getClient();
 
@@ -176,27 +175,26 @@ import { DefaultAzureCredential } from "@azure/identity";
 import "dotenv/config";
 
 // Recommended for secure credential management
-const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
-
-if (!azureOpenAIEndpoint) {
-  throw new Error(
-    "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
-  );
-}
-const getClient = () => {
-  const credential = new DefaultAzureCredential();
-  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-  return assistantsClient;  
-}
+// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
+// if (!azureOpenAIEndpoint) {
+//   throw new Error(
+//     "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
+//   );
+// }
+// const getClient = () => {
+//   const credential = new DefaultAzureCredential();
+//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+//   return assistantsClient;  
+// }
 
 // Not recommended - for local demo purposes only
-// const azureOpenAIKey = process.env.AZURE_OPENAI_KEY as string;
-// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
-// const credential = new AzureKeyCredential(azureOpenAIKey);
-// const getClient = (): AssistantsClient => {
-//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-//   return assistantsClient;
-// }
+const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY as string;
+const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+const credential = new AzureKeyCredential(azureOpenAIKey);
+const getClient = (): AssistantsClient => {
+  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
+  return assistantsClient;
+}
 
 const assistantsClient = getClient();
 
@@ -253,7 +251,8 @@ for (const runMessageDatum of runMessages.data) {
       console.log(`Message content: ${JSON.stringify(item.text?.value)}`);
     }
   }
-}```
+}
+```
 
 --- 
 
