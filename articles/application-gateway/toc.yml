@@ -179,6 +179,12 @@
         href: self-signed-certificates.md
       - name: Trusted client certificates
         href: mutual-authentication-certificate-management.md
+    - name: Relocate
+      items:
+      - name: Relocate to another region
+        href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+      - name: Migrate to availiabilty zone support
+        href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
     - name: SSL policy
       items:
       - name: Configure SSL policy

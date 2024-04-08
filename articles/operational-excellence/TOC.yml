@@ -22,6 +22,8 @@
         href: relocation-virtual-network-nsg.md
     - name: Mainstream services
       items:
+      - name: Azure Application Gateway and Web Application Firewall
+        href: relocation-app-gateway.md
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
       - name: Azure Monitor - Log Analytics Workspace
