@@ -36,7 +36,7 @@ To use SOC optimization in the Microsoft Defender portal, you must have Microsof
 
 For more information, see:
 
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard?view=o365-worldwide)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 - [Roles and permissions in Microsoft Sentinel](../roles.md).
 
 ## Access the SOC optimization page
