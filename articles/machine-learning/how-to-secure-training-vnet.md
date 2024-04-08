@@ -529,7 +529,7 @@ Allow Azure Machine Learning to communicate with the SSH port on the VM or clust
 
 1. In the __Source service tag__ drop-down list, select __AzureMachineLearning__.
 
-    :::image type="content" source="./media/how-to-secure-training-vnet/experimentation-virtual-network-inbound.png" alt-text="A screenshot of inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network." lightbox="./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png":::
+    :::image type="content" source="./media/how-to-secure-training-vnet/experimentation-virtual-network-inbound.png" alt-text="A screenshot of inbound rules for doing experimentation on a VM or HDInsight cluster within a virtual network." lightbox="./media/how-to-secure-training-vnet/experimentation-virtual-network-inbound.png":::
 
 1. In the __Source port ranges__ drop-down list, select __*__.
 
