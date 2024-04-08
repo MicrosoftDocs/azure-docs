@@ -77,7 +77,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device.
 
-The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
+The IoT Edge extension tries to pull your container registry credentials from Azure and populates them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. In the Visual Studio Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
@@ -207,7 +207,7 @@ You need to select which architecture you're targeting with each solution, becau
 
 ## Add the SQL Server container
 
-A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Microsof Artifact Registry. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
+A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Microsoft Artifact Registry. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
 
 1. In Visual Studio Code, open the command palette by selecting **View** > **Command palette**.
 
@@ -220,7 +220,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 3. In the *Provide a Module Name*, enter **sql**. This name matches the container name declared in the connection string in the sqlFunction.cs file.
 
-4. In the *Provide Docker Image for the Module*, enter the following URL to pull the SQL Server container image from the Microsoft Artifact Registry. For Ubuntu based images, use `mcr.microsoft.com/mssql/server:latest`. For Red Hat Enterprise Linux (RHEL) based images, use `mcr.microsoft.com/mssql/rhel/server:latest`.
+4. In the *Provide Docker Image for the Module*, enter the following URI to pull the SQL Server container image from the Microsoft Artifact Registry. For Ubuntu based images, use `mcr.microsoft.com/mssql/server:latest`. For Red Hat Enterprise Linux (RHEL) based images, use `mcr.microsoft.com/mssql/rhel/server:latest`.
 
    The Azure SQL Edge container image is a lightweight, containerized version of SQL Server that can run on IoT Edge devices. It's optimized for edge scenarios and can run on ARM and AMD64 devices.
 
