@@ -15,7 +15,7 @@ Microsoft Defender for Cloud detects anomalous activities indicating unusual and
 - [Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html)
 - [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.html)
 
-To get alerts from the Microsoft Defender plan you'll first need to follow the instructions on this page to enable Defender for open-source relational databases AWS.
+To get alerts from the Microsoft Defender plan, you need to follow the instructions on this page to enable Defender for open-source relational databases AWS.
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -29,24 +29,24 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 - **Region availability**: All regions
 
-When you enable Defender for open-source relational databases on your RDS instances, Defender for Cloud automatically enables auditing through the use of audit logs in order to be able to consume and analyze access patterns to your database.
+When you enable Defender for open-source relational databases on your RDS instances, Defender for Cloud automatically enables auditing by using audit logs in order to be able to consume and analyze access patterns to your database.
 
 Each relational database management system or service type has its own requirements. The following table describes the requirements for each type.
 
 | PostgreSQL and Aurora PostgreSQL | Option | Aurora MySQL instance and cluster parameter group | Option |
 |--|--|
 | log_connections | should be 1 | server_audit_logging | should be 1 | 
-| log_disconnections | should be 1 |  server_audit_events | If it exists, expand the value to include CONNECT, QUERY, <br> - If it doens't exist add it with the value CONNECT, QUERY |
-| - | - | server_audit_excl_users | If it exists, expand it to include rdsadmin |
-| - | server_audit_incl_users | - If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl will be empty |
+| log_disconnections | should be 1 |  server_audit_events | If it exists, expand the value to include CONNECT, QUERY, <br> - If it doesn't exist, add it with the value CONNECT, QUERY. |
+| - | - | server_audit_excl_users | If it exists, expand it to include rdsadmin. |
+| - | - | server_audit_incl_users | - If it exists with a value and rdsadmin as part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
 
-An option group is required for MySQL and MariaDB with the following options (if the option doesn’t exist add the option, if exists expand the values in the option):
+An option group is required for MySQL and MariaDB with the following options ( If the option doesn’t exist, add the option. If the option exists expand the values in the option):
 
 | MARIADB_AUDIT_PLUGIN | Option |
 |--|--|
-| SERVER_AUDIT_EVENTS | - If it exists expand the value to include CONNECT <br> - If it doesn't exist add it with value CONNECT |
-| SERVER_AUDIT_EXCL_USER | If it exists expand it to include rdsadmin |
-| SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl will be empty |
+| SERVER_AUDIT_EVENTS | - If it exists, expand the value to include CONNECT <br> - If it doesn't exist, add it with value CONNECT. |
+| SERVER_AUDIT_EXCL_USER | If it exists, expand it to include rdsadmin. |
+| SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
 
 > [!NOTE]
 >

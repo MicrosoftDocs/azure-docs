@@ -16,7 +16,7 @@ Microsoft Defender for Cloud detects anomalous activities indicating unusual and
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
 
-To get alerts from the Microsoft Defender plan you'll first need to follow the instructions on this page to enable Defender for open-source relational databases Azure.
+To get alerts from the Microsoft Defender plan, you need to follow the instructions on this page to enable Defender for open-source relational databases Azure.
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -40,7 +40,7 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
  
 1. Select **Microsoft Defender for Cloud**.
 
-1. If Defender for open-source relational databases isn't enabled, you'll see the **Enable Microsoft Defender for [Database type]** (for example, "Microsoft Defender for MySQL") button, select the button.
+1. If Defender for open-source relational databases isn't enabled, the **Enable Microsoft Defender for [Database type]** (for example, "Microsoft Defender for MySQL") button will be present, select the button.
 
     :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Screenshot that shows you where and what the Enable Microsoft Defender for MySQL button looks like and is located." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
 
