@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
 ms.date: 02/09/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
 
@@ -453,7 +454,7 @@ Use the following steps to build the image:
    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
    ```
 
-1. If you have successfully created the image, then it should now be in your local machine’s Docker repository. You can verify the image creation by using the following command:
+1. If you have successfully created the image, then it should now be in your local machine's Docker repository. You can verify the image creation by using the following command:
 
    ```text
    docker images model-in-image:WLS-v1
@@ -728,3 +729,4 @@ Learn more about running WLS on AKS or virtual machines by following these links
 
 > [!div class="nextstepaction"]
 > [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+

@@ -257,7 +257,7 @@ As a next step, explore the following articles to learn more about using the IoT
 > [!div class="nextstepaction"]
 > [Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

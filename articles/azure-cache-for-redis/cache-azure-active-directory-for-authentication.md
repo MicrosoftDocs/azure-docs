@@ -58,6 +58,8 @@ To use the ACL integration, your client application must assume the identity of 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
+For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
+
 ## Using data access configuration with your cache
 
 If you would like to use a custom access policy instead of Redis Data Owner, go to the **Data Access Configuration** on the Resource menu. For more information, see [Configure a custom data access policy for your application](cache-configure-role-based-access-control.md#configure-a-custom-data-access-policy-for-your-application).
@@ -128,6 +130,8 @@ The following table includes links to code samples, which demonstrate how to con
 
 - When calling the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered, and your Redis server doesn't receive lot of `AUTH` commands at the same time.
 
-## Next steps
+## Related content
 
 - [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)
+- [Reference pages for identity](/cli/azure/redis/identity)
+

@@ -93,7 +93,7 @@ Usage of the `lexicon` element's attributes are described in the following table
 
 The supported values for attributes of the `lexicon` element were [described previously](#custom-lexicon).
 
-After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. 
+After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. We support lexicon URLs from Azure Blob Storage, Advanced Media Services (AMS) Storage, and GitHub. However, note that other public URLs may not be compatible.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -116,7 +116,7 @@ To define how multiple entities are read, you can define them in a custom lexico
 
 Here are some limitations of the custom lexicon file:
 
-- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails.
+- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails. You can split your lexicon into multiple lexicons and include them in SSML if the file size exceeds 100 KB.
 - **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text to speech when it's first loaded. The lexicon with the same URI isn't reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
@@ -147,8 +147,8 @@ The following XML example (not SSML) would be contained in a custom lexicon `.xm
         <alias>By the way</alias>
     </lexeme>
     <lexeme>
-        <grapheme> Benigni </grapheme>
-        <phoneme> bɛˈniːnji</phoneme>
+        <grapheme>Benigni</grapheme>
+        <phoneme>bɛˈniːnji</phoneme>
     </lexeme>
     <lexeme>
         <grapheme>😀</grapheme>
@@ -226,6 +226,10 @@ Usage of the `say-as` element's attributes are described in the following table.
 
 The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in this table.
 
+> [!NOTE]
+> The `characters` and `spell-out` values for the `interpret-as` attribute are supported for all [text to speech locales](language-support.md?tabs=tts).
+> Other `interpret-as` attribute values are supported for all locales of the following languages: Arabic, Catalan, Chinese, Danish, Dutch, English, French, Finnish, German, Hindi, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish.
+
 | interpret-as   | format   | Interpretation |
 | ---------- | ---------- | ---------- |
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
@@ -249,7 +253,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -276,7 +280,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AvaNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <sub alias="World Wide Web Consortium">W3C</sub>
     </voice>
 </speak>
@@ -287,7 +291,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 The Mathematical Markup Language (MathML) is an XML-compliant markup language that describes mathematical content and structure. The Speech service can use the MathML as input text to properly pronounce mathematical notations in the output audio.
 
 > [!NOTE]
-> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
+> The MathML elements (tags) are currently supported in the following locales: `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`.
 
 All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. 
 
@@ -303,7 +307,26 @@ The XML syntax doesn't support the MathML entities, so you must use the correspo
 The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-AvaNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice name='en-US-JennyNeural'>
+        <math xmlns='http://www.w3.org/1998/Math/MathML'>
+            <msup>
+                <mi>a</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <msup>
+                <mi>b</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>=</mo>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+        </math>
+    </voice>
+</speak>
 ```
 
 ## Next steps

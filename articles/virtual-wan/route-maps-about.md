@@ -64,6 +64,8 @@ Before using Route-maps, take into consideration the following limitations:
 * Modifying the *Default* route is only supported when the default route is learned from on-premises or an NVA.
 * A prefix can be modified either by Route-maps, or by NAT, but not both.
 * Route-maps won't be applied to the [hub address space](virtual-wan-site-to-site-portal.md#hub).
+* Modifying the Default route is only supported when the default route is learned from on-Prem or an NVA.
+* Applying Route-Maps on NVAs in a spoke VNet is not supported. 
 
 ## Configuration workflow
 
