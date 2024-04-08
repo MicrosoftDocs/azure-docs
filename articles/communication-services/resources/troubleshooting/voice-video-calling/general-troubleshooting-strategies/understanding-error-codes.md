@@ -1,7 +1,7 @@
 ---
 title: General troubleshooting strategies - Understanding error messages and codes
 titleSuffix: Azure Communication Services - Troubleshooting Guide
-description: Learn to understand error messages and codes
+description: Learn to understand error messages and codes.
 author: sloanster
 ms.author: micahvivion
 
@@ -19,7 +19,7 @@ Through error codes, subcodes, and result categories, you can more easily handle
 
 If the `resultCategories` is `ExpectedError`, it typically means that the error is expected from the SDK's perspective.
 Such errors are commonly encountered in precondition failures, such as incorrect arguments passed by the app,
-or when the current system state does not allow the API call.
+or when the current system state doesn't allow the API call.
 The application should check the error reason and the logic for invoking API.
 
 ## Azure Communication Services Calling SDK client error codes
