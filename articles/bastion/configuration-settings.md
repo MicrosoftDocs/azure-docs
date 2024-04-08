@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 04/05/2024
 ms.custom: references_regions
 ---
 
@@ -36,9 +36,9 @@ The Developer SKU has different requirements and limitations than the other SKU 
 | --- | --- | --- |
 | Azure portal | Tier - Developer | [Quickstart](quickstart-developer-sku.md)|
 | Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
-| Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
-| Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |
-| Azure CLI | Tier - Basic or Standard | [How-to](create-host-cli.md) |
+| Azure portal | Tier - Basic or higher | [Tutorial](tutorial-create-host-portal.md) |
+| Azure PowerShell | Tier - Basic or higher |[How-to](bastion-create-host-powershell.md) |
+| Azure CLI | Tier - Basic or higher | [How-to](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
@@ -95,7 +95,7 @@ You can configure this setting using the following methods:
 
 ## <a name="instance"></a>Instances and host scaling
 
-An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.
+An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU or higher, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.
 
 Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
 
@@ -103,7 +103,7 @@ Instances are created in the AzureBastionSubnet. To allow for host scaling, the 
 
 You can configure this setting using the following methods:
 
-| Method | Value | Links | Requires Standard SKU |
+| Method | Value | Links | Requires Standard SKU or higher|
 | --- | --- | --- | ---|
 | Azure portal |Instance count  | [How-to](configure-host-scaling.md)| Yes
 | Azure PowerShell | ScaleUnit | [How-to](configure-host-scaling-powershell.md) | Yes |
@@ -112,7 +112,7 @@ You can configure this setting using the following methods:
 
 You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, specify that value when you connect to the VM.
 
-Custom port values are supported for the Standard SKU only.
+Custom port values are supported for the Standard SKU or higher only.
 
 ## Shareable link
 
@@ -120,7 +120,7 @@ The Bastion **Shareable Link** feature lets users connect to a target resource u
 
 When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
 
-| Method | Value | Links | Requires Standard SKU |
+| Method | Value | Links | Requires Standard SKU or higher |
 | --- | --- | --- | --- |
 | Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
