@@ -6,7 +6,7 @@ ms.custom:
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 01/18/2024
+ms.date: 04/08/2024
 ms.reviewer: cynthn
 ms.author: jushiman
 author: ju-shim
