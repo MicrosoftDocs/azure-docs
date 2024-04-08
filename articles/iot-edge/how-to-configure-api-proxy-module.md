@@ -29,9 +29,7 @@ Without the API proxy, each service module would have to bind to a separate port
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.1`.
-
-You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
+The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest`. For a list of available versions, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags).
 
 ## Understand the proxy module
 

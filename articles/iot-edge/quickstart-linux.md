@@ -216,11 +216,11 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 
 1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
 
-   | Setting                          | Value                                      |
-   |----------------------------------|--------------------------------------------|
-   | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
-   | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
-
+    | Setting                          | Value                                      |
+    |----------------------------------|--------------------------------------------|
+    | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
+    | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
+    
 1. Select **Next: Review + create**.
 
 1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploy to your IoT Edge device. 

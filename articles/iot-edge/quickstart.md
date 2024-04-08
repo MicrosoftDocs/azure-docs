@@ -205,10 +205,10 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
 
-   | Setting                          | Value                                      |
-   |----------------------------------|--------------------------------------------|
-   | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
-   | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
+    | Setting                          | Value                                      |
+    |----------------------------------|--------------------------------------------|
+    | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
+    | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
 
 1. Select **Next: Review + create**.
 

@@ -654,14 +654,14 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Apply** to save your changes to the runtime settings.
 1. Provide the following values to add the Docker registry module to your deployment. 
 
-    In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+    1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
 
-    | Setting            | Value                                             |
-    |--------------------|---------------------------------------------------|
-    | IoT Module name    | `registry`                                        |
-    | Image URI          | `registry:latest`                                 |
-    | Restart policy     | `always`                                          |
-    | Desired status     | `running`                                         |
+        | Setting            | Value                                             |
+        |--------------------|---------------------------------------------------|
+        | IoT Module name    | `registry`                                        |
+        | Image URI          | `registry:latest`                                 |
+        | Restart policy     | `always`                                          |
+        | Desired status     | `running`                                         |
 
     1. In the **Environment variables** tab, add the following variables:
 

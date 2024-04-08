@@ -207,7 +207,7 @@ You need to select which architecture you're targeting with each solution, becau
 
 ## Add the SQL Server container
 
-A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Marketplace. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
+A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Microsof Artifact Registry. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
 
 1. In Visual Studio Code, open the command palette by selecting **View** > **Command palette**.
 
@@ -216,13 +216,13 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    | Field | Value |
    | ----- | ----- |
    | Select deployment template file | The command palette highlights the **deployment.template.json** file in your current solution folder. Select that file.  |
-   | Select module template | Select **Module from Azure Marketplace**. |
+   | Select module template | Select **Existing Module (Enter Full Image URL)**. |
 
-3. In the Azure IoT Edge module marketplace, search for and select **SQL Server Module**.
+3. In the *Provide a Module Name*, enter **sql**. This name matches the container name declared in the connection string in the sqlFunction.cs file.
 
-4. Change the module name to **sql**, all lowercase. This name matches the container name declared in the connection string in the sqlFunction.cs file.
+4. In the *Provide Docker Image for the Module*, enter the following URL to pull the SQL Server container image from the Microsoft Artifact Registry. For Ubuntu based images, use `mcr.microsoft.com/mssql/server:latest`. For Red Hat Enterprise Linux (RHEL) based images, use `mcr.microsoft.com/mssql/rhel/server:latest`.
 
-5. Select **Import** to add the module to your solution.
+   The Azure SQL Edge container image is a lightweight, containerized version of SQL Server that can run on IoT Edge devices. It's optimized for edge scenarios and can run on ARM and AMD64 devices.
 
 6. In your solution folder, open the **deployment.template.json** file.
 
