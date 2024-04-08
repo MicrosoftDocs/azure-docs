@@ -397,10 +397,93 @@ Terminal Server has been deployed and configured as follows:
      - puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";
      - puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";
 
+## iDRAC IP Assignment
+
+Before deploying AODS software, it’s best for the Operator to set the iDRAC IPs while organizing the hardware racks. Here’s how to map servers to IPs:
+
+   - Assign IPs based on each server’s position within the rack.
+   - Use the fourth /24 block from the /19 subnet allocated for fabric.
+   - Start assigning IPs from the bottom server upwards in each rack, beginning with .11.
+   - Continue to assign IPs in sequence to the first server at the bottom of the subsequent rack.
+
+### Example
+
+Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24
+
+   | Rack   | Server        | iDRAC IP      |
+   |--------|---------------|---------------|
+   | Rack 1 | Worker 1      | 10.1.3.11/24  |
+   | Rack 1 | Worker 2      | 10.1.3.12/24  |
+   | Rack 1 | Worker 3      | 10.1.3.13/24  |
+   | Rack 1 | Worker 4      | 10.1.3.14/24  |
+   | Rack 1 | Worker 5      | 10.1.3.15/24  |
+   | Rack 1 | Worker 6      | 10.1.3.16/24  |
+   | Rack 1 | Worker 7      | 10.1.3.17/24  |
+   | Rack 1 | Worker 8      | 10.1.3.18/24  |
+   | Rack 1 | Controller 1  | 10.1.3.19/24  |
+   | Rack 1 | Controller 2  | 10.1.3.20/24  |
+   | Rack 2 | Worker 1      | 10.1.3.21/24  |
+   | Rack 2 | Worker 2      | 10.1.3.22/24  |
+   | Rack 2 | Worker 3      | 10.1.3.23/24  |
+   | Rack 2 | Worker 4      | 10.1.3.24/24  |
+   | Rack 2 | Worker 5      | 10.1.3.25/24  |
+   | Rack 2 | Worker 6      | 10.1.3.26/24  |
+   | Rack 2 | Worker 7      | 10.1.3.27/24  |
+   | Rack 2 | Worker 8      | 10.1.3.28/24  |
+   | Rack 2 | Controller 1  | 10.1.3.29/24  |
+   | Rack 2 | Controller 2  | 10.1.3.30/24  |
+   | Rack 3 | Worker 1      | 10.1.3.31/24  |
+   | Rack 3 | Worker 2      | 10.1.3.32/24  |
+   | Rack 3 | Worker 3      | 10.1.3.33/24  |
+   | Rack 3 | Worker 4      | 10.1.3.34/24  |
+   | Rack 3 | Worker 5      | 10.1.3.35/24  |
+   | Rack 3 | Worker 6      | 10.1.3.36/24  |
+   | Rack 3 | Worker 7      | 10.1.3.37/24  |
+   | Rack 3 | Worker 8      | 10.1.3.38/24  |
+   | Rack 3 | Controller 1  | 10.1.3.39/24  |
+   | Rack 3 | Controller 2  | 10.1.3.40/24  |
+   | Rack 4 | Worker 1      | 10.1.3.41/24  |
+   | Rack 4 | Worker 2      | 10.1.3.42/24  |
+   | Rack 4 | Worker 3      | 10.1.3.43/24  |
+   | Rack 4 | Worker 4      | 10.1.3.44/24  |
+   | Rack 4 | Worker 5      | 10.1.3.45/24  |
+   | Rack 4 | Worker 6      | 10.1.3.46/24  |
+   | Rack 4 | Worker 7      | 10.1.3.47/24  |
+   | Rack 4 | Worker 8      | 10.1.3.48/24  |
+   | Rack 4 | Controller 1  | 10.1.3.49/24  |
+   | Rack 4 | Controller 2  | 10.1.3.50/24  |
+
+An example design of three instances using sequential /19 networks in a /16:
+
+   | Instance   | Fabric Range            | iDRAC subnet |
+   |------------|-------------------------|--------------|
+   | Instance 1 | 10.1.0.0-10.1.31.255    | 10.1.3.0/24  |
+   | Instance 2 | 10.1.32.0-10.1.63.255   | 10.1.35.0/24 |
+   | Instance 3 | 10.1.64.0-10.1.95.255   | 10.1.67.0/24 | 
+
 ### Default setup for other devices installed
 
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
 - Servers have default factory settings
+
+## Firewall rules between Azure to undercloud.
+
+To establish firewall rules between Azure and the undercloud, the Operator must open the specified ports. This ensures proper communication and connectivity for required services.
+
+
+| S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
+|------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
+| 1    | Azure virtual Network  | Undercloud            | 22 TCP          | No             | For SSH to undercloud servers from CM subnet             |
+| 2    | Azure virtual Network  | Undercloud            | 443 TCP         | No             | For accessing undercloud nodes iDRAC                     |
+| 3    | Azure virtual Network  | Undercloud            | 5900 TCP        | No             | Gnmi                                                     |
+| 4    | Azure virtual Network  | Undercloud            | 6030 TCP        | No             | Gnmi Certs                                               |
+| 5    | Azure virtual Network  | Undercloud            | 6443 TCP        | No             | For accessing undercloud K8S cluster                     |
+| 6    | Undercloud             | Azure virtual Network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC and NNF runtime upgrade|
+| 7    | Undercloud             | Azure virtual Network | 3128 TCP        | No             | Proxy to connect to public Azure endpoints               |
+| 8    | Undercloud             | Azure virtual Network | 53 TCP and UDP  | No             | DNS                                                      |
+| 9    | Undercloud             | Azure virtual Network | 123 UDP         | No             | NTP                                                      |
+| 10   | Undercloud             | Azure virtual Network | 8888 TCP        | No             | For connecting to Cluster Manager webservice             |
+| 11   | Undercloud             | Azure virtual Network | 514 TCP and UDP | No             | For accessing undercloud logs from Cluster Manager       |
 
 ## Install CLI extensions and sign-in to your Azure subscription
 
