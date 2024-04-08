@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 04/05/2024
 ms.author: kendownie
 ---
 
@@ -16,7 +16,7 @@ This article provides guidance on selecting and adjusting cloud tiering policies
 
 - Cloud tiering isn't supported on the Windows system volume.
 
-- You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting.
+- If you're using File Server Resource Manager (FSRM) for quota management on server endpoints, we recommend applying the quotas at the folder level and not at the volume level. You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting. However, because the free space reported by the quota setting is based on logical size, the actual amount of volume free space might be different. This could cause endless tiering if Azure File Sync thinks there isn't enough volume free space.
 
 ### Minimum file size for a file to tier
 
@@ -47,7 +47,7 @@ Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and new
 |16 TiB – 32 TiB   | 8 KiB                |
 |32 TiB – 64 TiB   | 16 KiB               |
 
-It's possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes might also be different. [This article provides more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KiB, an 8 KiB limit as the smallest file size that can be tiered still applies. (Even if technically 2x cluster size would equate to less than 8 KiB.)
+It's possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes might also be different. [This article provides more details on default cluster sizes.](https://www.disktuna.com/default-cluster-sizes-for-fat-exfat-and-ntfs/) Even if you choose a cluster size smaller than 4 KiB, an 8 KiB limit as the smallest file size that can be tiered still applies. (Even if technically 2x cluster size would equate to less than 8 KiB.)
 
 The reason for the absolute minimum is due to the way NTFS stores extremely small files - 1 KiB to 4 KiB sized files. Depending on other parameters of the volume, it's possible that small files aren't stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier is 8 KiB on a 4 KiB or smaller cluster size.
 

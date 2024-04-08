@@ -136,3 +136,4 @@ az aks trustedaccess rolebinding delete --name <role binding name> --resource-gr
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-azure-backup]: ../backup/azure-kubernetes-service-backup-overview.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+
