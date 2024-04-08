@@ -421,7 +421,7 @@ spec:
 By default, all key vault reference items will be projected as key-value pairs into the specified target Secret, and the type of that target secret is `opaque`, which cannot be customized. Given that Kubernetes has [various types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) of Secret besides `opaque`, Azure App Configuration Kubernetes Provider currently give compatibility for `kubernetes.io/tls` type.
 If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
  
-``` yaml
+```
 {
 	"key": "mycertificate",
 	"label": null,
