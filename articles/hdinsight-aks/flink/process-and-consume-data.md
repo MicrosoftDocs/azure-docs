@@ -3,7 +3,7 @@ title: Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 description: Learn how to use Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/28/2024
+ms.date: 04/03/2024
 ---
  
 # Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
@@ -141,9 +141,14 @@ public class Event {
 ```
 ## Package the jar and submit the job to Flink
 
-:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink.":::
+On Webssh, upload the jar and submit the jar
 
-:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink.":::
+:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink." border="true" lightbox="./media/process-consume-data/running-job-flink.png":::
+
+On Flink Dashboard UI
+
+:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink." border="true" lightbox="./media/process-consume-data/submit-jar-flink.png":::
+
 
 ## Produce the topic - clicks on Kafka
 
