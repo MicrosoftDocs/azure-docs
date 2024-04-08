@@ -30,7 +30,7 @@ What is Azure SQL Edge video on Channel 9:
 
 Azure SQL Edge supports two deployment modes.
 
-- Connected deployment through Azure IoT Edge: Azure SQL Edge is available to be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
+- Connected deployment through Azure IoT Edge: Azure SQL Edge is available as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).
 
 :::image type="content" source="media/overview/overview.png" alt-text="Diagram of SQL Edge overview.":::
 
