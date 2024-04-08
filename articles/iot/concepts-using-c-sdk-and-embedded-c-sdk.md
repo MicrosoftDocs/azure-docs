@@ -72,7 +72,7 @@ Because it's based on the Azure Embedded C SDK, the Azure IoT middleware for Fre
 
 The following diagram summarizes technical options for each SDK usage scenario described in this article.
 
-:::image type="content" source="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.svg" alt-text="Diagram with developer details for the four C SDK usage scenarios." border="false"  lightbox="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.svg":::
+:::image type="content" source="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.svg" alt-text="Diagram with developer details for the four C SDK usage scenarios." border="false"  lightbox="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.png":::
 
 ## C-based SDK comparison by memory and protocols
 

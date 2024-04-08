@@ -75,7 +75,7 @@ items:
     items:
       - name: Security architecture
         href: iot-security-architecture.md    
-      - name: IoT Devices
+      - name: IoT devices
         items:
         - name: IoT device types
           href: concepts-iot-device-types.md

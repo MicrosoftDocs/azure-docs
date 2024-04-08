@@ -302,7 +302,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](./troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
