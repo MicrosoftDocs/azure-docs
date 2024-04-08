@@ -70,20 +70,40 @@ Before you begin, make sure that:
 
 4. Save the box and packaging foam for return shipment of the disks.
 
-## Connect disks and get the passkey
+## Connect disks
 
 > [!IMPORTANT]
 > Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk Unlock tool**.
 
-1. Use the included cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+### [Standard disk](#tab/standard)
 
-    ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
+Use the included USB cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
-2. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
+![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
 
-    ![Data Box Disk unlock passkey](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
+### [Self-encrypting disk](#tab/standard)
+
+Use the included USB cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+
+![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
+
+---
+
+## Retrieve your passkey
+
+### [Azure Portal](#tab/portal)
+
+In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
+
+[Data Box Disk unlock passkey](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
 
 Depending on whether you are connected to a Windows or Linux client, the steps to unlock the disks are different.
+
+### [Azure CLI](#tab/cli)
+
+Azure CLI instructions
+
+---
 
 ## Unlock disks
 
