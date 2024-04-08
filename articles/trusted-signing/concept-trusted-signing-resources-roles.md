@@ -29,10 +29,10 @@ In the below example structure, notice that an Azure Subscription has a Resource
 ![Diagram of Trusted Signing resource group and cert profiles](./media/trusted-signing-resource-structure.png)
 
 •	This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing types. 
-•	For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trustedsigning-cert-management.md). 
+•	For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md). 
 
 
-**Note**: Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trustedsigning-trust-models.md).
+**Note**: Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
 
 ### Trusted Signing account
 
@@ -104,6 +104,6 @@ Azure Role Based Access Controls (RBAC) is a cornerstone concept for all Azure r
 ## Next steps
 
 * Get started with [Trusted Signing's Quickstart Guide](./quickstart.md).
-* Review the [Trusted Signing Trust Models](./concept-trustedsigning-trust-models.md) concept.
-* Review the [Trusting Signing certificates and management](./concept-trustedsigning-cert-management.md) concept.
+* Review the [Trusted Signing Trust Models](./concept-trusted-signing-trust-models.md) concept.
+* Review the [Trusting Signing certificates and management](./concept-trusted-signing-cert-management.md) concept.
 

@@ -37,6 +37,6 @@ Here’s a high-level overview of the service’s resource structure:
     * Premium
 
 ## Next steps
-* [Learn more about the Trusted Signing resource structure.](./concept-trustedsigning-resources-roles.md)
+* [Learn more about the Trusted Signing resource structure.](./concept-trusted-signing-resources-roles.md)
 * [Learn more about the signing integrations.](how-to-signing-integrations.md)
 * [Get started with Trusted Signing.](quickstart.md) 
