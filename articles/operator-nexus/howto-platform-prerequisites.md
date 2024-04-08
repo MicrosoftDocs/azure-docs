@@ -354,9 +354,9 @@ Terminal Server has been deployed and configured as follows:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
    - Purity Code Level: 6.5.1
    - Array Time zone: UTC
-   - DNS Server IP Address: 172.27.255.201
+   - DNS (Domain Name System) Server IP Address: 172.27.255.201
    - DNS Domain Suffix: not set by operator during setup
-   - NTP Server IP Address or FQDN: 172.27.255.212
+   - NTP (Network Time Protocol) Server IP Address or FQDN: 172.27.255.212
    - Syslog Primary: 172.27.255.210
    - Syslog Secondary: 172.27.255.211
    - SMTP Gateway IP address or FQDN: not set by operator during setup
@@ -487,6 +487,11 @@ To establish firewall rules between Azure and the Nexus Cluster, the operator mu
 **Acronyms:**
 - TCP: Transmission Control Protocol.
 - UDP: User Datagram Protocol.
+- SSH: Secure Shell.
+- iDRAC: Integrated Dell Remote Access Controller.
+- gNMI: gRPC Network Management Interface.
+- NTP: Network Time Protocol.
+- DNS: Domain Name System.
 
 
 ## Install CLI extensions and sign-in to your Azure subscription
