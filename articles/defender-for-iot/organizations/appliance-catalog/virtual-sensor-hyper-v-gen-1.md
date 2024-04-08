@@ -17,7 +17,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Status** | Supported |
 
 > [!NOTE]
-> We recommend using the 2nd Generation configuration, which offers better performance and increased security, for configuration, see [Microsoft Hyper-V Gen 2](virtual-sensor-hyper-v.md).
+> We recommend using the 2nd Generation configuration, which offers better performance and increased security, for configuration see [Microsoft Hyper-V Gen 2](virtual-sensor-hyper-v.md).
 > [!IMPORTANT]
 > Versions 22.2.x of the sensor are incompatible with Hyper-V, and are no longer supported. We recommend using the latest version.
 
