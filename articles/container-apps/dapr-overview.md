@@ -62,19 +62,18 @@ In Azure Container Apps, a subset of Dapr components is supported. Within that s
 
 | API | Component | Type |
 | --- | --------- | ------ |
-| State management | Azure Blob Storage<br>Azure CosmosDB  | `state.azure.blobstorage`<br>`state.azure.cosmosdb` | 
-| Publish & subscribe | Azure Service Bus | `pubsub.azure.servicebus` |
-| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Cron | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.cron` |
-| Secret management | Azure Key Vault | `secretstores.azure.keyvault` |
-| Configuration | Azure App Config | `configuration.azure.appconfig` |
+| State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
+| Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
+| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br> | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
 
 #### Standard components
 
 | API | Component | Type |
 | --- | --------- | ------ |
-| State management | Azure Table Storage | `state.azure.tablestorage` | 
-| Publish & subscribe | Azure Event Hubs | `pubsub.azure.eventhubs` |
-| Binding | Azure Event Hubs<br>Azure SignalR<br>Azure Event Grid<br>Azure CosmosDB | `bindings.azure.eventhubs`<br>`bindings.azure.signalr`<br>`bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb` |
+| State management | Azure CosmosDB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
+| Publish & subscribe | Apache Kafka<br>Redis Streams | `pubsub.kafka`<br>`pubsub.redis` |
+| Binding | Azure Event Grid<br>Azure CosmosDB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
+| Configuration | PostgreSQL<br>Redis | `bindings.postgresql`<br>`bindings.redis` |
 
 ## Limitations
 
