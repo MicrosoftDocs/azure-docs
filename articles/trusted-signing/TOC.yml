@@ -10,6 +10,10 @@
     items:
     - name: Signing Integrations with Trusted Signing
       href: how-to-signing-integrations.md
+  - name: How-To
+    items:
+    - name: Sign CI Policies with Trusted Signing
+      href: how-to-sign-ci-policy.md
   - name: Quickstart
     items:
     - name: Quickstart onboarding
