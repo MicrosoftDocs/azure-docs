@@ -468,7 +468,7 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 
 ## Firewall rules between Azure to Nexus Cluster.
 
-To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services.
+To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services using TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
 
 | S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
 |------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
