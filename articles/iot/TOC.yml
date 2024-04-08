@@ -54,8 +54,14 @@ items:
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
-      href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+    - name: Embedded device development
+      items:
+        - name: Connect an MXCHIP AZ3166 to Azure IoT Hub
+          href: tutorial-devkit-mxchip-az3166-iot-hub.md
+        - name: Connect an STMicroelectronics B-L475E to IoT Hub
+          href: tutorial-devkit-stm-b-l475e-iot-hub.md
+        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
+          href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Connect a device module

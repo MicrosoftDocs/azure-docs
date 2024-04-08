@@ -252,10 +252,8 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following article to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
-> [!div class="nextstepaction"]
-> [Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 

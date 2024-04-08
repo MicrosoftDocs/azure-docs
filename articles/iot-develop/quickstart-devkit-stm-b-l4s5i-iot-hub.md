@@ -358,8 +358,6 @@ As a next step, explore the following articles to learn more about using the IoT
 > [!div class="nextstepaction"]
 > [Connect a general device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l475e-iot-hub.md)
-> [!div class="nextstepaction"]
 > [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]

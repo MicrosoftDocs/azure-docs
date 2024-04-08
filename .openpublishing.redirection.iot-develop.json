@@ -441,6 +441,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub.md",
+      "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-l475e-iot-hub.md",
+      "redirect_url": "/azure/iot/tutorial--devkit-stm-b-l475e-iot-hub",
+      "redirect_document_id": true
+    }, 
+    {
       "source_path_from_root": "/articles/iot-develop/how-to-use-reliability-features-in-sdks.md",
       "redirect_url": "/azure/iot-develop/concepts-manage-device-reconnections",
       "redirect_document_id": false
