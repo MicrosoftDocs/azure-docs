@@ -15,6 +15,7 @@ ms.service: azure-communication-services
 This article provides the Email delivery best practices and how to use the Azure Communication Services Email Logs that help with your email reputation. This comprehensive guide also offers invaluable insights into optimizing email complaint management, fostering healthier email practices, and enhancing your email delivery success, maximizing the chances of reaching recipients' inboxes effectively.
 
 ## Managing sender reputation and email complaints to enhance email delivery in your B2C communication
+
 Azure Communication Service Email offers a powerful platform to enrich your customer communications. However, the platform doesn't guarantee that the emails that are sent through the platform lands in the customer's inbox. To proactively identify and avoid significant delivery problems, several reputation checks should be in place, including but not limited to:
 
 * Ensuring a consistent and healthy percentage of successfully delivered emails over time.
@@ -27,17 +28,19 @@ Azure Communication Service Email offers a powerful platform to enrich your cust
 To enable email logs and monitor your email delivery, follow the steps outlined in [Azure Communication Services email logs Communication Service in Azure Communication Service](../../concepts/analytics/logs/email-logs.md).
 
 ## Email bounces: Understanding delivery status and types
+
 Email bounces indicate issues with the successful delivery of an email. During the email delivery process, the SMTP responses provide the following outcomes:
 
-*  Success (2xx): This indicates that the email has been accepted by the email service provider. However, it doesn't guarantee that the email lands in the customer's inbox. In our email delivery status, this is represented as "Delivered."
+* Success (2xx): This indicates that the email has been accepted by the email service provider. However, it doesn't guarantee that the email lands in the customer's inbox. In our email delivery status, this is represented as "Delivered."
 
-*  Temporary failure (4xx): In this case, the email can't be accepted at the moment, often referred to as a "soft bounce." It may be caused by various factors such as rate limiting or infrastructure problems.
+* Temporary failure (4xx): In this case, the email can't be accepted at the moment, often referred to as a "soft bounce." It may be caused by various factors such as rate limiting or infrastructure problems.
 
-*  Permanent failure (5xx): Here, the email isn't accepted, which is commonly known as a "hard bounce." This type of bounce occurs when the email address doesn't exist. In our email delivery status, this is explicitly represented as "Bounced". 
+* Permanent failure (5xx): Here, the email isn't accepted, which is commonly known as a "hard bounce." This type of bounce occurs when the email address doesn't exist. In our email delivery status, this is explicitly represented as "Bounced".
 
 According to the RFCs, a hard bounce (permanent failure) specifically refers to cases where the email address is nonexistent. On the other hand, a soft bounce encompasses various types of failures, while a spam bounce typically occurs due to specific policy decisions. Please note that these practices are not always uniform and standardized across different email service providers.
 
 ### Hard bounces
+
 A hard bounce occurs when an email can't be delivered because the recipient's address doesn't exist. The list of SMTP codes that can be used to describe hard bounces is as follows:
 
 | Error code | Description | Possible cause | Additional information |
@@ -115,16 +118,15 @@ Here's a list of SMTP codes that can be used to describe soft bounces:
 Azure Communication Services offers a valuable feature known as *Managed Suppression List*, which plays a vital role in protecting and preserving your sender reputation. This suppression list cache diligently keeps track of email addresses that have experienced a "Hard Bounced" status for all emails sent through the Azure Communication Service Platform. Whenever an email fails to deliver with one of the specified error codes, the email address is added to our internally managed suppression List, which spans across our platform and is maintained globally.
 Here's the lifecycle of email addresses that are suppressed:
 
-*  Initial Suppression: When a hard bounce is encountered with an email address for the first time, it is added to the *Managed Suppression List* for 24 hours.
+* Initial Suppression: When a hard bounce is encountered with an email address for the first time, it is added to the *Managed Suppression List* for 24 hours.
 
-*  Progressive Suppression: If the same invalid recipient email address reappears in any subsequent emails sent to our platform within the initial 24-hour period, it will automatically be suppressed from delivery, and the caching time will be extended to 48 hours. For subsequent occurrences, the cache time will progressively increase to 96 hours, then 7 days, and ultimately reach a maximum duration of 14 days.
+* Progressive Suppression: If the same invalid recipient email address reappears in any subsequent emails sent to our platform within the initial 24-hour period, it will automatically be suppressed from delivery, and the caching time will be extended to 48 hours. For subsequent occurrences, the cache time will progressively increase to 96 hours, then 7 days, and ultimately reach a maximum duration of 14 days.
 
-*  Auto-Removal Process: Email addresses are automatically removed from our *Managed Suppression List* when no email send requests have been made to the same recipient within the designated lease timeframe. Once the lease period expires, the email address is removed from the list, and if any new emails are sent to the same invalid recipient, another delivery attempt will be initiated, thereby initiating a new cycle.
+* Auto-Removal Process: Email addresses are automatically removed from our *Managed Suppression List* when no email send requests have been made to the same recipient within the designated lease timeframe. Once the lease period expires, the email address is removed from the list, and if any new emails are sent to the same invalid recipient, another delivery attempt will be initiated, thereby initiating a new cycle.
 
-*  Drop in Delivery: If an email address is under a lease time, any further mails sent to that recipient address will be dropped until the address lease either expires or is removed from the Managed Suppression List. The delivery status for this email request is represented as "Suppressed" in our email logs.
+* Drop in Delivery: If an email address is under a lease time, any further mails sent to that recipient address will be dropped until the address lease either expires or is removed from the Managed Suppression List. The delivery status for this email request is represented as "Suppressed" in our email logs.
 
 Please note that email addresses can only remain on the *Managed Suppression List* for a maximum of 14 days. This proactive measure ensures that your sender reputation remains intact and shields you from adverse effects caused by repeatedly sending emails to invalid addresses. Nevertheless, you take action on bounced status and regularly clean your contact list to maintain optimal email delivery performance.
-
 
 ## Understanding reputation-related and asynchronous email delivery failures
 
@@ -140,18 +142,14 @@ The functionality of the links and instructions in the email is vital; they must
 
 ## Next steps
 
-* [Best practices for implementing DMARC](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
-  
-* [Troubleshoot your DMARC implementation](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
-
+* [Best practices for implementing DMARC](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365) 
+* [Troubleshoot your DMARC implementation](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#troubleshooting-your-dmarc-implementation)
 * [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-
 * [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
-
 * [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
-The following documents may be interesting to you:
+The following topics might be interesting to you:
 
-- Familiarize yourself with the [Email client library](../email/sdk-features.md)
-- How to send emails with custom verified domains? [Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Managed Domains? [Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+* Familiarize yourself with the [email client library](../email/sdk-features.md).
+* Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).
+* Learn how to send emails with [Azure-managed domains](../../quickstarts/email/add-azure-managed-domains.md).
