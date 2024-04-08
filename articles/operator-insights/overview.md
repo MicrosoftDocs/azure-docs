@@ -28,7 +28,7 @@ The result is that the operator has a lower total cost of ownership but higher i
 
 Azure Operator Insights requires two separate types of resources.
 
-- _Ingestion agents_ in your network collect data from your network and upload them to Data Products in Azure.
+- _Ingestion agents_ in your network or in Azure collect data from your network and upload them to Data Products in Azure.
 - _Data Product_ resources in Azure process the data provided by ingestion agents, enrich it, and make it available to you.
     - You can use prebuilt dashboards provided by the Data Product or build your own in Azure Data Explorer. Azure Data Explorer also allows you to query your data directly, analyze it in Power BI or use it with Logic Apps. For more information, see [Data visualization in Data Products](concept-data-visualization.md).
     - Data Products provide [metrics for monitoring the quality of your data](concept-data-quality-monitoring.md).
