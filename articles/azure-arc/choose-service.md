@@ -121,7 +121,7 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 - Deploy and manage static and DHCP-based logical networks on-premises to host your workloads.
 
-- VM image management with Azure marketplace integration and ability to bring your own images from Azure storage account and cluster shared volumes.
+- VM image management with Azure Marketplace integration and ability to bring your own images from Azure storage account and cluster shared volumes.
 
 - Create and manage storage paths to store your VM disks and config files.
 
