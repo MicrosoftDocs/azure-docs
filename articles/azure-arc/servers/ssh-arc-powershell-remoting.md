@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 ---
 
-# PowerShell remoting access to Azure Arc-enabled servers
+# PowerShell remoting to Azure Arc-enabled servers
 SSH for Arc-enabled servers enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports.
 [PowerShell remoting over SSH](https://learn.microsoft.com/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
 
