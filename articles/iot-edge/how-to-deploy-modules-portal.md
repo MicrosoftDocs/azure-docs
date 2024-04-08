@@ -42,12 +42,11 @@ The Azure portal has a wizard that walks you through creating the deployment man
 1. On the left pane, select **Devices** under the **Device management** menu.
 1. Select the target IoT Edge device from the list.
 1. On the upper bar, select **Set Modules**.
-1. In the **Container Registry Credentials** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. In the **Container Registry Credentials** section of the page, provide credentials to access container registries that contain module images. For example, your modules are in your private container registry or you are using a partner container registry that requires authentication.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
-1. Choose one of the three types of modules from the drop-down menu:
+1. Choose one of the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
-   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). For a list of partner modules, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary.
@@ -78,41 +77,6 @@ Review your deployment information, then select **Create**.
 ## View modules on your device
 
 Once you've deployed modules to your device, you can view all of them in the device details page of your IoT Hub. This page displays the name of each deployed module, as well as useful information like the deployment status and exit code.
-
-## Deploy modules from Azure Marketplace
-
-[Azure Marketplace](https://azuremarketplace.microsoft.com/) is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
-
-You can deploy an IoT Edge module from the Azure Marketplace and from your IoT Hub.
-
-### Deploy from Azure Marketplace
-
-Peruse the IoT Edge modules in the marketplace and when you find the one you want you can deploy it by selecting **Create** or **Get it now**. Proceed with the deployment wizard steps which may vary depending on the IoT Edge module you selected:
-
-1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**. You may first have to provide contact information.
-1. Choose your subscription and the IoT Hub to which the target device is attached.
-1. Choose **Deploy to a device**.
-1. Enter the name of the device or select **Find Device** to browse among the devices registered with the hub.
-1. Select **Create** to continue the standard process of configuring a deployment manifest, including adding other modules if desired. Details for the new module such as image URI, create options, and desired properties are predefined but can be changed.
-
-Verify that the module is deployed in your IoT Hub in the Azure portal. Select your device, select **Set Modules** and the module should be listed in the **IoT Edge Modules** section.
-
-### Deploy from Azure IoT Hub
-
-You can quickly deploy a module from the Azure Marketplace onto your device in your IoT Hub in the Azure portal.
-
-1. In the Azure portal, navigate to your IoT Hub.
-1. On the left pane, select **Devices** under the **Device management** menu.
-1. Select the IoT Edge device that is to receive the deployment.
-1. On the upper bar, select **Set Modules**.
-1. In the **IoT Edge Modules** section, click **Add**, and select **Marketplace Module** from the drop-down menu.
-
-:::image type="content" source="./media/how-to-deploy-modules-portal/iothub-add-module.png" alt-text="Screenshot showing how to add a module in I o T Hub.":::
-
-Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration.
-
-> [!TIP]
-> The information about IoT Edge modules from the Azure IoT Hub is limited. You can first learn more about the [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) in the Azure Marketplace.
 
 Select **Next: Routes** and continue with deployment as described by [Specify routes](#specify-routes) and [Review Deployment](#review-deployment) earlier in this article.
 

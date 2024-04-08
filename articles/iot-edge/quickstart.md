@@ -191,13 +191,22 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
 
-1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
-
-1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
+1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+1. Update the following module settings:
+    | Setting            | Value                                                                |
+    |--------------------|----------------------------------------------------------------------|
+    | IoT Module name    | `SimulatedTemperatureSensor`                                         |
+    | Image URI          | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:latest` |
+    | Restart policy     | always                                                               |
+    | Desired status     | running                                                              |
 
 1. Select **Next: Routes** to continue to configure routes.
 
-    A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
+1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
+   | Setting                          | Value                                      |
+   |----------------------------------|--------------------------------------------|
+   | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
+   | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
 
 1. Select **Next: Review + create**.
 
