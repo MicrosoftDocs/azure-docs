@@ -29,36 +29,37 @@ Import-Module .\Az.CodeSigning.psd1
 ``` 
 4. Optionally you can create a `metadata.json` file:
 ```
-Endpoint "https://scus.codesigning.azure.net/" 
-CodeSigningAccountName "youracsaccount" 
-CertificateProfileName "youracscertprofile" 
+"Endpoint": "https://xxx.codesigning.azure.net/" 
+"TrustedSigningAccountName": "<Trusted Signing Account Name>", 
+"CertificateProfileName": "<Certificate Profile Name>",
 ```
+
 5. [Get the root certificate](https://learn.microsoft.com/powershell/module/az.codesigning/get-azcodesigningrootcert) to be added to the trust store
 ```
 Get-AzCodeSigningRootCert -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer
 ```
 Or using a metadata.json
 ```
-Get-AzCodeSigningRootCert -MetadataFilePath C:\temp\metadata.sample.scus.privateci.json https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer 
+Get-AzCodeSigningRootCert -MetadataFilePath C:\temp\metadata.json https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer 
 ```
 6. To get the EKU (Extended Key Usage) to insert into your policy:
 ```
-Get-AzCodeSigningCustomerEku -AccountName acstestcanary -ProfileName acstestcanaryCert1 -EndpointUrl https://xxx.codesigning.azure.net/ 
+Get-AzCodeSigningCustomerEku -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ 
 ```
 Or
 
 ```
-Get-AzCodeSigningCustomerEku -MetadataFilePath C:\temp\metadata.sample.scus.privateci.json 
+Get-AzCodeSigningCustomerEku -MetadataFilePath C:\temp\metadata.json 
 ```
 7. To sign your policy, you run the invoke command:
 ``` 
-Invoke-AzCodeSigningCIPolicySigning -accountName acstestcanary -profileName acstestcanaryCert1 -endpointurl "https://xxx.codesigning.azure.net/" -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
+Invoke-AzCodeSigningCIPolicySigning -accountName TestAccount -profileName TestCertProfile -endpointurl "https://xxx.codesigning.azure.net/" -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
 ```
  
 Or use a `metadata.json` file and the following command: 
 
 ```
-Invoke-AzCodeSigningCIPolicySigning -MetadataFilePath C:\temp\metadata.sample.scus.privateci.json -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
+Invoke-AzCodeSigningCIPolicySigning -MetadataFilePath C:\temp\metadata.json -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
 ```
 
 ## Creating and Deploying a CI Policy
