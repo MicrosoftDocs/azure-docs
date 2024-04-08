@@ -11,76 +11,36 @@ ms.subservice: calling
 ---
 
 # Failed to create CallAgent
-For a user to make or receive a call, they need a call agent.
-To create a call agent, the application needs a valid ACS communication token credential and invokes `CallClient.createCallAgent` API.
+
+In order to make or receive a call, a user needs a call agent (`CallAgent`).
+To create a call agent, the application needs a valid ACS communication token credential. With the token,the application invokes `CallClient.createCallAgent` API to create an instance of `CallAgent`.
 It's important to note that multiple call agents aren't currently supported in one `CallClient` object.
 
-## How to detect
-### SDK
+## How to detect errors
+
 The `CallClient.createCallAgent` API throws an error if SDK detects an error when creating a call agent.
 
 The possible error code/subcode are
 
-| error            |                                                       |
-|------------------|-------------------------------------------------------|
-| code             | 409 (Conflict)                                        |
-| subcode          | 40228                                                 |
-| message          | Failed to create CallAgent, an instance of CallAgent associated with this identity already exists.|
-| resultCategories | ExpectedError                                         |
-| error            |                                                       |
-| code             | 408 (Request Timeout)                                 |
-| subcode          | 40104                                                 |
-| message          | Failed to create CallAgent, timeout during initialization of the calling user stack.|
-| resultCategories | UnexpectedClientError                                 |
-| error            |                                                       |
-| code             | 500 (Internal Server Error)                           |
-| subcode          | 40216                                                 |
-| message          | Failed to create CallAgent.                           |
-| resultCategories | UnexpectedClientError                                 |
-| error            |                                                       |
-| code             | 401 (Unauthorized)                                    |
-| subcode          | 44110                                                 |
-| message          | Failed to get AccessToken                             |
-| resultCategories | UnexpectedClientError                                 |
-| error            |                                                       |
-| code             | 408 (Request Timeout)                                 |
-| subcode          | 40114                                                 |
-| message          | Failed to connect to Azure Communication Services infrastructure, timeout during initialization.|
-| resultCategories | UnexpectedClientError                                 |
-| error            |                                                       |
-| code             | 403 (Forbidden)                                       |
-| subcode          | 40229                                                 |
-| message          | CallAgent must be created only with ACS token         |
-| resultCategories | ExpectedError                                         |
-| error            |                                                       |
-| code             | 412 (Precondition Failed)                             |
-| subcode          | 40115                                                 |
-| message          | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure.|
-| resultCategories | UnexpectedClientError                                 |
-| error            |                                                       |
-| code             | 403 (Forbidden)                                       |
-| subcode          | 40231                                                 |
-| message          | TeamsCallAgent must be created only with Teams token  |
-| resultCategories | ExpectedError                                         |
-| error            |                                                       |
-| code             | 401 (Unauthorized)                                    |
-| subcode          | 44114                                                 |
-| message          | Wrong AccessToken scope format. Scope is expected to be a string that contains `voip` |
-| resultCategories | ExpectedError                                         |
-| error            |                                                       |
-| code             | 400 (Bad Request)                                     |
-| subcode          | 44214                                                 |
-| message          | Display name is not allowed to be set for Teams users.|
-| resultCategories | ExpectedError                                         |
-| error            |                                                       |
-| code             | 500 (Internal Server Error)                           |
-| subcode          | 40102                                                 |
-| message          | Failed to create CallAgent, failure during initialization of the calling base stack.|
-| resultCategories | UnexpectedClientError                                 |
+|Code                         | Subcode| Message      | Error category|
+|-----------------------------|------- |--------------|---------------|
+| 409 (Conflict)              |  40228 | Failed to create CallAgent, an instance of CallAgent associated with this identity already exists. | ExpectedError|
+| 408 (Request Timeout)       | 40104 | Failed to create CallAgent, timeout during initialization of the calling user stack.| UnexpectedClientError|
+| 500 (Internal Server Error) | 40216 | Failed to create CallAgent.| UnexpectedClientError |
+| 401 (Unauthorized)          | 44110 | Failed to get AccessToken | UnexpectedClientError |
+| 408 (Request Timeout)       | 40114 | Failed to connect to Azure Communication Services infrastructure, timeout during initialization. | UnexpectedClientError |
+| 403 (Forbidden)             | 40229 | CallAgent must be created only with ACS token | ExpectedError |
+| 408 (Request Timeout)       | 40114 | Failed to connect to Azure Communication Services infrastructure, timeout during initialization. | UnexpectedClientError |
+| 403 (Forbidden)             | 40229 | CallAgent must be created only with ACS token | ExpectedError | 
+| 412 (Precondition Failed)   | 40115 | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure.| UnexpectedClientError |
+| 403 (Forbidden)             | 40231 | TeamsCallAgent must be created only with Teams token | ExpectedError |
+| 401 (Unauthorized)          | 44114 | Wrong AccessToken scope format. Scope is expected to be a string that contains `voip` | ExpectedError | 
+| 400 (Bad Request)           | 44214 | Teams users can not set display name. | ExpectedError | 
+| 500 (Internal Server Error) | 40102 | Failed to create CallAgent, failure during initialization of the calling base stack.| UnexpectedClientError |
 
 ## How to mitigate or resolve
-The application should catch an error thrown by createCallAgent API and display a warning message.
-Depending on the reason for the error, the application may need to retry the operation or fix the error before proceeding.
-In general, if the result category is `UnexpectedClientError`, it's still possible to create a call agent successfully after a retry.
-However, if the result category is `ExpectedError`, there may be errors in the precondition or the data passed in the parameter that need to be fixed on application's side before a call agent can be created.
 
+The application should catch errors thrown by `createCallAgent` API and display a warning message.
+Depending on the reason for the error, the application may need to retry the operation or fix the error before proceeding.
+In general, if the error category is `UnexpectedClientError`, it's still possible to create a call agent successfully after a retry.
+However, if the error category is `ExpectedError`, there may be errors in the precondition or the data passed in the parameter that need to be fixed on application's side before a call agent can be created.
