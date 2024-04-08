@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 06/07/2023
+  ms.date: 02/22/2024
   ms.author: banders
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -79,7 +79,9 @@ sections:
           In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
       - question: How can I view my Amazon Web Services (AWS) cost in Cost Management?
         answer: |
-          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).
+          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).  
+          >[!NOTE]
+          > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](costs/retire-aws-connector.md).
       - question: How do I create a budget?
         answer: |
           See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.
@@ -133,7 +135,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          The Cost Management + Billing team formally announced the retirement of the APIs with a timeline of Oct 2023. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
+          On May 1, 2024, Azure Enterprise Reporting APIs will be retired. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
@@ -160,7 +162,7 @@ sections:
           Usage details data is all pretax. Tax related charges are only available on your invoice.
       - question: Why is PAYGPrice zero for some of the records in my usage details file?
         answer: |
-          If you’re an EA customer, `PAYGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. `PAYGprice` isn't populated when `PricingModel = Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
+          If you’re an EA or MCA customer, `PAYGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. `PAYGprice` isn't populated when `PricingModel = Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
       - question: Does Usage Details have Reservation charges?
         answer: |
           Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).

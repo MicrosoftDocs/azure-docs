@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/10/2024
 ms.author: joarteir
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps

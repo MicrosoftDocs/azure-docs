@@ -4,7 +4,7 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 02/19/2024
+ms.date: 03/06/2024
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -14,7 +14,8 @@ The following list contains Ultra Disks's limitations:
 - Doesn't support disk export.
 - Doesn't support VM images.
 - Doesn't support availability sets.
-- Doesn't support Azure disk encryption.
+- Doesn't support Azure Disk Encryption.
+    - Can't be attached to existing VMs previously encrypted with Azure Disk Encryption.
 - Doesn't support Azure Site Recovery.
 - Doesn't support disk caching.
 - Must deallocate your VM or detach your ultra disk in order to expand your Ultra Disk

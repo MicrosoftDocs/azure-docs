@@ -32,7 +32,7 @@ The following table shows the installation methods available for enabling VM Ins
 | [Azure portal](vminsights-enable-portal.md) | Enable individual machines with the Azure portal. |
 | [Azure Policy](vminsights-enable-policy.md) | Create policy to automatically enable when a supported machine is created. |
 | [Azure Resource Manager templates](../vm/vminsights-enable-resource-manager.md) | Enable multiple machines by using any of the supported methods to deploy a Resource Manager template, such as the Azure CLI and PowerShell. |
-| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Currently only supported for Log Analytics agent. |
+| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. |
 | [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments.|
 
 ### Supported Azure Arc machines

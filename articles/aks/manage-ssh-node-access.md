@@ -3,8 +3,12 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH and manage SSH keys on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 02/12/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -41,6 +45,8 @@ AKS supports the following configuration options to manage SSH keys on cluster n
     ```
 
 ### Register the `DisableSSHPreview` feature flag
+
+To use the **Disable** SSH feature, perform the following steps to register and enable it in your subscription.
 
 1. Register the `DisableSSHPreview` feature flag using the [`az feature register`][az-feature-register] command.
 

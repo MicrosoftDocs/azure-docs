@@ -37,8 +37,6 @@ Use the following commands to update your settings:
 Enable-MSDSMAutomaticClaim -BusType iSCSI
 
 # Set the default load balancing policy based on your requirements. In this example, we set it to round robin which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
-# You can also use mpclaim.exe to set the policy to round robin
 mpclaim -L -M 2
 
 # Set disk time out to 30 seconds
@@ -76,7 +74,7 @@ Update the below registry settings for iSCSI initiator on Windows.
 1.	Open Registry Editor:
 1. Select Start, type regedit in the search box and press enter.
 1.	Navigate to the following location:
-    [\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0004 (Microsoft iSCSI Initiator)\Parameters]
+    [\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\\{4d36e97b-e325-11ce-bfc1-08002be10318}\0004 (Microsoft iSCSI Initiator)\Parameters]
 1.	Update the following settings. Right-click on each setting and select **Modify**. Change **Base** to **Decimal**, update the value and select **OK**.
 
 |Description  |Parameter and value  |

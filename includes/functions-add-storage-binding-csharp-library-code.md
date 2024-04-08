@@ -15,6 +15,8 @@ Replace the existing `HttpExample` class with the following code:
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 Add code that uses the `msg` output binding object to create a queue message. Add this code before the method returns.
 
 :::code language="csharp" range="28-32" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" :::

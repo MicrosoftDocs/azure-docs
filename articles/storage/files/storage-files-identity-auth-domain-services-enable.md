@@ -4,13 +4,14 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 03/01/2024
 ms.author: kendownie
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 recommendations: false
 ---
 
 # Enable Microsoft Entra Domain Services authentication on Azure Files
+
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 This article focuses on enabling and configuring Microsoft Entra Domain Services (formerly Azure Active Directory Domain Services) for identity-based authentication with Azure file shares. In this authentication scenario, Microsoft Entra credentials and Microsoft Entra Domain Services credentials are the same and can be used interchangeably.
@@ -25,6 +26,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 > Azure Files supports authentication for Microsoft Entra Domain Services with full or partial (scoped) synchronization with Microsoft Entra ID. For environments with scoped synchronization present, administrators should be aware that Azure Files only honors Azure RBAC role assignments granted to principals that are synchronized. Role assignments granted to identities not synchronized from Microsoft Entra ID to Microsoft Entra Domain Services will be ignored by the Azure Files service.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -80,7 +82,7 @@ Follow these steps to grant access to Azure Files resources with Microsoft Entra
 
 The following diagram illustrates the end-to-end workflow for enabling Microsoft Entra Domain Services authentication over SMB for Azure Files.
 
-![Diagram showing Microsoft Entra ID over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
+:::image type="content" source="media/storage-files-identity-auth-domain-services-enable/files-entra-domain-services-workflow.png" alt-text="Diagram showing Microsoft Entra ID over SMB for Azure Files workflow." lightbox="media/storage-files-identity-auth-domain-services-enable/files-entra-domain-services-workflow.png" border="false":::
 
 <a name='enable-azure-ad-ds-authentication-for-your-account'></a>
 
@@ -95,14 +97,15 @@ Keep in mind that you can enable Microsoft Entra Domain Services authentication 
 To enable Microsoft Entra Domain Services authentication over SMB with the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-account-create.md).
-1. In the **File shares** section, select **Active directory: Not Configured**.
+1. Select **Data storage** > **File shares**.
+1. In the **File share settings** section, select **Identity-based access: Not configured**.
 
-    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Screenshot of the File shares pane in your storage account, Active directory is highlighted." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
+    :::image type="content" source="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png" alt-text="Screenshot of the file shares pane in your storage account, identity-based access is highlighted." lightbox="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png":::
 
-1. Select **Microsoft Entra Domain Services** then enable the feature by ticking the checkbox.
+1. Under **Microsoft Entra Domain Services** select **Set up**, then enable the feature by ticking the checkbox.
 1. Select **Save**.
 
-    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png" alt-text="Screenshot of the Active Directory pane, Microsoft Entra Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png":::
+    :::image type="content" source="media/storage-files-identity-auth-domain-services-enable/entra-domain-services-highlight.png" alt-text="Screenshot of the identity-based access configuration pane, Microsoft Entra Domain Services is enabled as the source." lightbox="media/storage-files-identity-auth-domain-services-enable/entra-domain-services-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

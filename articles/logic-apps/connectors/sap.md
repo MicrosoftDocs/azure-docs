@@ -1096,6 +1096,7 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
 
@@ -1104,6 +1105,8 @@ You can control this tracing capability at the application level by adding the f
 <a name="trace-levels"></a>
 
 ### Trace levels available
+
+#### NCo Trace Levels
 
 | Value | Description |
 |-------|-------------|
@@ -1123,6 +1126,15 @@ You can control this tracing capability at the application level by adding the f
 | SessionProvider | Traces all methods of the currently used implementation of **ISessionProvider**. |
 | SetValue | Writes information to the trace files regarding values set for parameters of functions, or fields of structures or tables. |
 
+#### CPIC Trace Levels
+
+|Value|Description|
+|---|---|
+|Off|No logging|
+|Basic|Basic logging|
+|Verbose|Verbose logging|
+|VerboseWithData|Verbose logging with all server response dump|
+
 ### View the trace
 
 1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
@@ -1133,7 +1145,10 @@ You can control this tracing capability at the application level by adding the f
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find a file named **dev_nco_rfc.log**, one or multiple files named **dev_nco_rfcNNNN.log**, and one or multiple files named **dev_nco_rfcNNNN.trc** where **NNNN** is a thread identifier.
+   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find:
+
+   1. _NCo Trace Logs_: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
+   1. _CPIC Trace Logs_: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
 
 1. To view the content in a log or trace file, select the **Edit** button next to a file.
 

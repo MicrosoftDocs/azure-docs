@@ -105,7 +105,7 @@ In Azure, virtual network peering and connected groups are two methods of establ
 
 ### Can I create exceptions to security admin rules?
 
-Normally, security admin rules will be defined to block traffic across virtual networks. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. For these scenarios,you can [create exceptions](./concept-enforcement.md#network-traffic-enforcement-and-exceptions-with-security-admin-rules) where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
+Normally, security admin rules will be defined to block traffic across virtual networks. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. For these scenarios, you can [create exceptions](./concept-enforcement.md#network-traffic-enforcement-and-exceptions-with-security-admin-rules) where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
 
 ### How can I deploy multiple security admin configurations to a region?
 
@@ -154,35 +154,8 @@ Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure 
 
 ### What are the service limitations of Azure Virtual Network Manager?
 
-* A connected group can have up to 250 virtual networks. Virtual networks in a mesh topology are in a connected group, therefore a mesh configuration has a limit of 250 virtual networks.
+For the most current limitations, see [Limitations with Azure Virtual Network Manager](concept-limitations.md).
 
-* You can have network groups with or without direct connectivity enabled in the same hub-and-spoke configuration, as long as the total number of virtual networks peered to the hub **doesn't exceed 500** virtual networks.
-    * If the network group peered with the hub **has direct connectivity enabled**, these virtual networks are in a *connected group*, therefore the network group has a limit of 250 virtual networks.
-    * If the network group peered with the hub **doesn't have direct connectivity enabled**, the network group can have up to the total limit for a hub-and-spoke topology.
-
-* A virtual network can be part of up to two connected groups. 
-
-    **Example:**
-    * A virtual network can be part of two mesh configurations.
-    * A virtual network can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
-    * A virtual network can be part of two network groups with direct connectivity enabled in the same or different hub-and-spoke configuration.
-
-* You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
-
-* The maximum number of IP prefixes in all admin rules combined is 1000. 
-
-* The maximum number of admin rules in one level of Azure Virtual Network Manager is 100. 
-
-* Azure Virtual Network Manager doesn't have cross-tenant support in the public preview.
-
-* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes. Management groups can't be applied over the 15 k subscription limit.
-   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15,000 subscriptions.
-
-* Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
-
-* Azure Virtual Network Manager policies don't support the standard policy compliance evaluation cycle. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
-
-* The current preview of connected group has a limitation where traffic from a connected group can't communicate with a private endpoint in this connected group if it has NSG enabled on it. However, this limitation will be removed once the feature is generally available.
 ## Next steps
 
 Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.

@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 04/04/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -21,17 +21,18 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-4](#gpt-4-and-gpt-4-turbo-preview) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
-| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
-| [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
+| [Whisper](#whisper-models) | A series of models in preview that can transcribe and translate speech to text. |
 | [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
 
 ## GPT-4 and GPT-4 Turbo Preview
 
- GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+ GPT-4 is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+
+ GPT-4 Turbo with Vision is the version of GPT-4 that accepts image inputs.  It is available as the `vision-preview` model of `gpt-4`.
 
 - `gpt-4`
 - `gpt-4-32k`
-- `gpt-4-vision`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -66,15 +67,15 @@ The third generation embeddings models support reducing the size of the embeddin
 
 OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
 
-## DALL-E (Preview)
+## DALL-E
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in preview.
 
-## Whisper (Preview)
+## Whisper
 
-The Whisper models, currently in preview, can be used for speech to text.
+The Whisper models can be used for speech to text.
 
-You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
 ## Text to speech (Preview)
 
@@ -83,6 +84,17 @@ The OpenAI text to speech models, currently in preview, can be used to synthesiz
 You can also use the OpenAI text to speech voices via Azure AI Speech. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide. 
 
 ## Model summary table and region availability
+
+> [!NOTE]
+> This article only covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. These tables also do not apply to customers using only **Provisioned** deployment types which have their own unique model/region availability matrix. For more information on **Provisioned** deployments refer to our [Provisioned guidance](./provisioned-throughput.md).
+
+### Standard deployment model availability
+
+[!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
+
+### Standard deployment model quota
+
+[!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
 ### GPT-4 and GPT-4 Turbo Preview models
 
@@ -97,12 +109,11 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
-
 GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview.  Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
 
 > [!IMPORTANT]
 >
-> - `gpt-4` version 0125-preview replaces version 1106-preview. Deployments of `gpt-4` version 1106-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded on March 8th, 2024 and will complete upgrades within 2 weeks. Deployments of `gpt-4` version 1106-preview set to "No autoupgrade" will stop working starting March 8th, 2024. If you have a deployment of `gpt-4` version 1106-preview, you can test version `0125-preview` in the available regions below.
+> - `gpt-4` versions 1106-Preview and 0125-Preview will be upgraded with a stable version of `gpt-4` in the future. The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place.  Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after the stable version is released.  For each deployment, a model version upgrade takes place with no interruption in service for API calls.  Upgrades are staged by region and the full upgrade process is expected to take 2 weeks. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "No autoupgrade" will not be upgraded and will stop operating when the preview version is upgraded in the region.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -110,11 +121,11 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 | `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
-| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
-| `gpt-4` (0125-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
+| `gpt-4` (1106-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Apr 2023         |
+| `gpt-4` (0125-Preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
 
-**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **0125-preview**. 
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (0125-Preview) or `gpt-4` (1106-Preview). To deploy this model, under **Deployments** select model **gpt-4**. Under version select (0125-Preview) or (1106-Preview).
 
 **<sup>2</sup>** GPT-4 Turbo with Vision Preview = `gpt-4` (vision-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **vision-preview**.
 
@@ -128,13 +139,16 @@ GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview prev
 
 #### Public cloud regions
 
-| Model | Regions where model is available to all subscriptions with Azure OpenAI access | Regions where model is available only to subscriptions with previous access to that model/region |  
-|---|:---|:---|  
-| gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
-| gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
-| gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
-| gpt-4 (0125-preview) | East US <br> North Central US <br> South Central US <br> |
-| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+#### Select customer access
+
+In addition to the regions above which are available to all Azure OpenAI customers, some select pre-existing customers have been granted access to versions of GPT-4 in additional regions:
+
+| Model | Region |  
+|---|:---|  
+| `gpt-4` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
+| `gpt-4` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
 
 #### Azure Government regions
 
@@ -142,8 +156,7 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 
 |Model ID | Model Availability |
 |--|--|
-| `gpt-4` (1106-preview) | US Gov Virginia<br>US Gov Arizona |
-
+| `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
 
 ### GPT-3.5 models
 
@@ -159,21 +172,30 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
-### GPT-3.5-Turbo model availability
+|  Model ID   | Max Request (tokens) | Training Data (up to) |
+|  --------- |:------:|:----:|
+| `gpt-35-turbo`**<sup>1</sup>** (0301) | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (0613) | 4,096 | Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | 16,384 | Sep 2021 |
+| `gpt-35-turbo-instruct` (0914) | 4,097 |Sep 2021 |
+| `gpt-35-turbo` (1106) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125) **NEW** | 16,385 | Sep 2021 |
 
+### GPT-3.5-Turbo model availability
 
 #### Public cloud regions
 
-|  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
-|  --------- |  -------------------- |:------:|:----:|
-| `gpt-35-turbo`**<sup>1</sup>** (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
-| `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4,097 |Sep 2021 |
-| `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-|`gpt-35-turbo` (0125) **NEW** | Canada East <br> North Central US <br> South Central US | 16,385 | Sep 2021 |
+[!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
+
+#### Azure Government regions
+
+The following GPT-3.5 turbo models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+| `gpt-35-turbo` (1106-Preview) | US Gov Virginia |
 
 ### Embeddings models
 
@@ -182,15 +204,19 @@ These models can only be used with Embedding API requests.
 > [!NOTE]
 > `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID  |  Model Availability  | Max Request (tokens) | Output Dimensions |Training Data (up-to)
+|  Model ID | Max Request (tokens) | Output Dimensions |Training Data (up-to)
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | 1,536 | Sep 2021 |
-| `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | 1,536 | Sep 2021 |
-| `text-embedding-3-large` | Canada East, East US, East US 2 | 8,191 | 3,072 |Sep 2021 |
-| `text-embedding-3-small` | Canada East, East US, East US 2 | 8,191|  1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 2) |8,191 | 1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 1) |2,046 | 1,536 | Sep 2021 |
+| `text-embedding-3-large` | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
+
+#### Public cloud regions
+
+[!INCLUDE [Embeddings](../includes/model-matrix/standard-embeddings.md)]
 
 #### Azure Government regions
 
@@ -200,12 +226,12 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |--|--|
 |`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
-### DALL-E models (Preview)
+### DALL-E models
 
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
-| dalle2 | East US | 1,000 |
-| dalle3 | Sweden Central | 4,000 |
+| dalle2 (preview) | East US | 1,000 |
+| dall-e-3 | East US, Australia East, Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
@@ -217,15 +243,15 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  --- | --- | :---: | :---: |
 | `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
-
-### Whisper models (Preview)
+### Whisper models
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
 |  --- |  --- | :---: |
-| `whisper` | North Central US <br> West Europe | 25 MB |
+| `whisper` | East US 2 <br> North Central US <br> Norway East <br> South India <br> Sweden Central <br> West Europe | 25 MB |
 
 ### Text to speech models (Preview)
 
@@ -236,14 +262,19 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
+|-----|---|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US  | ✅ | | | | ✅ |
+| East US 2 | ✅ |  | ✅ |✅ | |
+| France Central  | ✅ | ✅ |✅ |✅ |  |
+| Norway East | |  | | ✅ |  |
+| Sweden Central  | ✅ |✅ |✅ |✅| |
+| UK South  | ✅ |  ✅ | ✅ |✅ | |
 
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | 
-|-----|---|---|---|---|
-| Australia East | ✅ | ✅ | ✅ |✅ |
-| East US 2 | ✅ | ⬜| ✅ |✅ |
-| Sweden Central | ✅ |✅ |✅ |✅|
 
 
 ## Next steps

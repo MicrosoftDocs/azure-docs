@@ -111,7 +111,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 Verification would involve comparing the fingerprint from the client output with the one stored in the table below. If they match, then type `yes` to continue and the client will then automatically store the new key in the `known_hosts` for the future.
 
 ### How long does the rotation take?
-Rotations are gradual and may take multiple days. Either the old or new host key may be presented by the Azure service during this time.
+Rotations are gradual and may take multiple weeks. Either the old or new host key may be presented by the Azure service during this time.
 
 ### Why do the host keys expire?
 Periodically rotating secrets is a standard security practice and can help reduce attack vectors.

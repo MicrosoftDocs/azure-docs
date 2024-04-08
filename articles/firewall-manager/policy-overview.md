@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall Manager policy overview
-description: Learn about Azure Firewall Manager policies
+description: Learn about Azure Firewall Manager policies.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 02/10/2023
+ms.date: 03/06/2024
 ms.author: victorh
 ---
 
@@ -53,7 +53,7 @@ Azure Firewall supports Basic, Standard, and Premium policies. The following tab
 
 New policies can be created from scratch or inherited from existing policies. Inheritance allows DevOps to create local firewall policies on top of organization mandated base policy.
 
-Policies created with non-empty parent policies inherit all rule collections from the parent policy. The parent policy and the child policy must be in the same region. A firewall policy can be associated with firewalls across regions regardless where they are stored.
+Policies created with non-empty parent policies inherit all rule collections from the parent policy. The parent policy and the child policy must be in the same region. A firewall policy can be associated with firewalls across regions regardless where they're stored.
 
 Network rule collections inherited from a parent policy are always prioritized over network rule collections defined as part of a new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
@@ -68,7 +68,7 @@ With inheritance, any changes to the parent policy are automatically applied dow
 ## Built-in high availability
 
 High availability is built in, so there's nothing you need to configure.
-You can create an Azure Firewall Policy object in any region and link it globally to multiple Azure Firewall instances under the same Azure AD tenant. If the region where you create the Policy goes down and has a paired region, the ARM object metadata automatically fails over to the secondary region. During the failover, or if the single-region with no pair remains in a failed state, you cannot modify the Azure Firewall Policy object. However, the Azure Firewall instances linked to the Firewall Policy continue to operate. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+You can create an Azure Firewall Policy object in any region and link it globally to multiple Azure Firewall instances under the same Azure AD tenant. If the region where you create the Policy goes down and has a paired region, the ARM(Azure Resource Manager) object metadata automatically fails over to the secondary region. During the failover, or if the single-region with no pair remains in a failed state, you can't modify the Azure Firewall Policy object. However, the Azure Firewall instances linked to the Firewall Policy continue to operate. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Pricing
 

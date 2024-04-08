@@ -1,9 +1,7 @@
 ---
 title: Create Azure Advisor alerts for new recommendations using Bicep
 description: Learn how to set up an alert for new recommendations from Azure Advisor using Bicep.
-author: orspod
 ms.topic: quickstart
-ms.author: orspodek
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 04/26/2022
 ---

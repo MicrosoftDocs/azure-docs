@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Assign a policy - Portal
+  - name: Assign a policy - Azure portal
     displayName: assign, compliance
     href: ./assign-policy-portal.md
   - name: Assign a policy - Azure CLI
@@ -183,8 +183,19 @@
 - name: Concepts
   items:
   - name: Definition structure
-    displayName: parameters, location, rule, alias, initiatives
-    href: ./concepts/definition-structure.md
+    items:
+    - name: Basics
+      href: ./concepts/definition-structure-basics.md
+      displayName: basics, location, initiatives, policy type, mode, metadata, display name, description, resource manager modes, resource provider modes, definition structure
+    - name: Parameters
+      href: ./concepts/definition-structure-parameters.md
+      displayName: basics, parameters, parameter values, definition structure
+    - name: Policy rule
+      href: ./concepts/definition-structure-policy-rule.md
+      displayName: policy rule, conditions, fields, tags, value, count, function, limit, definition structure
+    - name: Aliases
+      href: ./concepts/definition-structure-alias.md
+      displayName: alias, array alias, definition structure
   - name: Understand effects
     displayName: order, evaluation
     href: ./concepts/effects.md
