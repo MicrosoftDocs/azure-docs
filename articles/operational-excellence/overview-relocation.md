@@ -40,7 +40,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 ### ![An icon that signifies this service is foundational.](./media/relocation/icon-foundational.svg) Foundational services 
 
-| Product  | Relocation | Relocation with data | Resource Mover | 
+| Product  | Relocation | Relocation with data migration | Resource Mover | 
 | --- | --- | --- | ---|
 [Azure Event Hubs](relocation-event-hub.md)| ✅   | ❌| ❌ |
 [Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ✅ | ❌  | ❌ |
@@ -52,7 +52,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services
 
-| Product  | Relocation |Relocation with data |  Resource Mover | 
+| Product  | Relocation |Relocation with data migration |  Resource Mover | 
 | --- | --- | --- | ---|
 [Azure API Management](../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Azure Application Gateway and Web Application Firewall](relocation-app-gateway.md)| ✅ | ❌| ❌ |
@@ -77,7 +77,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 ### ![An icon that signifies this service is strategic.](./media/relocation/icon-strategic.svg) Strategic services
 
-| Product  | Relocation | Relocation with data | Resource Mover | 
+| Product  | Relocation | Relocation with data migration | Resource Mover | 
 | --- | --- | --- | ---|
 [Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
 [Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
