@@ -2,7 +2,8 @@
 title: Network Fabric read-only commands
 description: Learn about troubleshooting network devices using read-only commands.
 author: HollyCl
-ms.service: HollyCl
+ms.author: HollyCl
+ms.service: azure-operator-nexus
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/08/2024
 
@@ -97,7 +98,10 @@ To ensure security and compliance, RO commands must adhere to the following spec
 
     The operation status indicates if the API succeeded or failed, and appears similar to the following output: 
     
-     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx 
+    ```azurecli
+    https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx
+    ```
+
     
 
 4. View and download the generated output file. Sample output is shown here.
