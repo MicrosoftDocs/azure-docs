@@ -108,7 +108,7 @@ While the function app is running, Netherite will publish load information about
 > For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
 > [!NOTE]
-> If you are using local storage emulation and your application appears to be "stuck" at startup, please ensure you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy "Azure Storage Emulator" component. Local storage emulation with Netherite is only supported via Azurite.
+> If you are using local storage emulation on a Windows OS, please ensure you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy "Azure Storage Emulator" component. Local storage emulation with Netherite is only supported via Azurite.
 
 ## Run your app on Azure
 
