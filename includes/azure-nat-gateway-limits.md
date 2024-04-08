@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: networking
- author: johndowns
+ author: aimee-littleton
  ms.service: NAT Gateway
  ms.topic: include
  ms.date: 09/24/2020
- ms.author: jodowns
+ ms.author: alittleton
  ms.custom: include file
 
 ---
