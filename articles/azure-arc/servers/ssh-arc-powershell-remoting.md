@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # PowerShell remoting to Azure Arc-enabled servers
 SSH for Arc-enabled servers enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports.
-[PowerShell remoting over SSH](https://learn.microsoft.com/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
+[PowerShell remoting over SSH](/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
 
 ## Prerequisites
 To leverage PowerShell remoting over SSH access to Azure Arc-enabled servers, ensure the following:
@@ -39,7 +39,7 @@ Host <myRG>-<myMachine>-<localUser>
 	ProxyCommand "<path to proxy>\.clientsshproxy\sshProxy_windows_amd64_1_3_022941.exe" -r "<path to relay info>\az_ssh_config\<myRG>-<myMachine>\<myRG>-<myMachine>-relay_info"
 ```
 #### Leveraging the -Options parameter
-Levering the [options](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/new-pssession#-options) parameter allows you to specify a hashtable of SSH options used when connecting to a remote SSH-based session.
+Levering the [options](/powershell/module/microsoft.powershell.core/new-pssession#-options) parameter allows you to specify a hashtable of SSH options used when connecting to a remote SSH-based session.
 Create the hashtable by following the below format. Be mindful of the locations of quotation marks.
 ```powershell
 $options = @{ProxyCommand = '"<path to proxy>\.clientsshproxy\sshProxy_windows_amd64_1_3_022941.exe -r <path to relay info>\az_ssh_config\<myRG>-<myMachine>\<myRG>-<myMachine>-relay_info"'}
