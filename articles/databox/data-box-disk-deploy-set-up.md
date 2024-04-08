@@ -81,7 +81,7 @@ Use the included USB cable to connect the disk to a Windows/Linux machine runnin
 
 ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
 
-### [Self-encrypting disk](#tab/standard)
+### [Self-encrypting disk](#tab/sed)
 
 Use the included USB cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
