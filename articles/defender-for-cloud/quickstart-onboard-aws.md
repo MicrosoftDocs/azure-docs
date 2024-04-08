@@ -104,7 +104,7 @@ If you choose the Defender for open-source relational databases plan, you need:
 
 - Connect your [non-Azure machines](quickstart-onboard-machines.md), [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md)
 
-- **All public AWS clouds**: All regions
+- Region availability: All public AWS regions
 
 ### Defender for Servers
 

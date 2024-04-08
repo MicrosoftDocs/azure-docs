@@ -10,13 +10,19 @@ author: dcurwin
 
 # What is Microsoft Defender for open-source relational databases
 
-This plan brings threat protections for the following open-source relational databases:
+This plan brings threat protections for the following open-source relational databases on Azure:
 
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
-- [Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html)
-- [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.html)
+
+and for AWS:
+
+- Aurora PostgreSQL
+- Aurora MySQL
+- PostgreSQL
+- MySQL
+- MariaDB
 
 Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. The plan makes it simple to address potential threats to databases without the need to be a security expert or manage advanced security monitoring systems.
 

@@ -1,7 +1,7 @@
 ---
 title: Enable Defender for open-source relational databases on AWS
 description: Learn how to enable Microsoft Defender for open-source relational databases to detect potential security threats on AWS environments.
-ms.date: 04/07/2024
+ms.date: 04/08/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -12,8 +12,11 @@ author: dcurwin
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
-- [Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html)
-- [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.html)
+- Aurora PostgreSQL
+- Aurora MySQL
+- PostgreSQL
+- MySQL
+- MariaDB
 
 To get alerts from the Microsoft Defender plan, you need to follow the instructions on this page to enable Defender for open-source relational databases AWS.
 
@@ -27,38 +30,40 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 - At least one connected [AWS account](quickstart-onboard-aws.md) with the required access and permissions.
 
-- **Region availability**: All regions
+- Region availability: All public AWS regions
 
 When you enable Defender for open-source relational databases on your RDS instances, Defender for Cloud automatically enables auditing by using audit logs in order to be able to consume and analyze access patterns to your database.
 
 Each relational database management system or service type has its own requirements. The following table describes the requirements for each type.
 
-| PostgreSQL and Aurora PostgreSQL | Option | Aurora MySQL instance and cluster parameter group | Option |
-|--|--|
-| log_connections | should be 1 | server_audit_logging | should be 1 | 
-| log_disconnections | should be 1 |  server_audit_events | If it exists, expand the value to include CONNECT, QUERY, <br> - If it doesn't exist, add it with the value CONNECT, QUERY. |
-| - | - | server_audit_excl_users | If it exists, expand it to include rdsadmin. |
-| - | - | server_audit_incl_users | - If it exists with a value and rdsadmin as part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
+| Type | Parameter | Value |
+|--|--|--|
+| PostgreSQL and Aurora PostgreSQL | log_connections | 1| 
+| PostgreSQL and Aurora PostgreSQL | log_disconnections | 1 |
+| Aurora MySQL instance and cluster parameter group | server_audit_logging | 1 | 
+| Aurora MySQL instance and cluster parameter group | server_audit_events | - If it exists, expand the value to include CONNECT, QUERY, <br> - If it doesn't exist, add it with the value CONNECT, QUERY. |
+| Aurora MySQL instance and cluster parameter group | server_audit_excl_users | If it exists, expand it to include rdsadmin. |
+| Aurora MySQL instance and cluster parameter group | server_audit_incl_users | - If it exists with a value and rdsadmin as part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
 
 An option group is required for MySQL and MariaDB with the following options ( If the option doesn’t exist, add the option. If the option exists expand the values in the option):
 
-| MARIADB_AUDIT_PLUGIN | Option |
+| Option name | Value |
 |--|--|
-| SERVER_AUDIT_EVENTS | - If it exists, expand the value to include CONNECT <br> - If it doesn't exist, add it with value CONNECT. |
+| SERVER_AUDIT_EVENTS | If it exists, expand the value to include CONNECT <br> If it doesn't exist, add it with value CONNECT. |
 | SERVER_AUDIT_EXCL_USER | If it exists, expand it to include rdsadmin. |
 | SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the include, then it won't be present in SERVER_AUDIT_EXCL_USER, and the value of incl is empty. |
 
 > [!NOTE]
 >
-> If a parameter group already exists it will be updated accordingly.
+> - If a parameter group already exists it will be updated accordingly.
 >
-> If you are using the default parameter group, a new parameter group will be created that includes the required parameter changes with the prefix `defenderfordatabases*`.
+> - If you are using the default parameter group, a new parameter group will be created that includes the required parameter changes with the prefix `defenderfordatabases*`.
 >
-> If a new parameter group was created or if static parameters were updated they won't take effect until the instance is restarted.
+> - If a new parameter group was created or if static parameters were updated they won't take effect until the instance is restarted.
 >
-> MARIADB_AUDIT_PLUGIN is supported in MariaDB 10.2 and higher, MySQL 8.0.25 and higher 8.0 versions and All MySQL 5.7 versions.
+> - MARIADB_AUDIT_PLUGIN is supported in MariaDB 10.2 and higher, MySQL 8.0.25 and higher 8.0 versions and All MySQL 5.7 versions.
 >
-> Changes to [MARIADB_AUDIT_PLUGIN are added to the next maintenance window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.AuditPlugin.html#Appendix.MySQL.Options.AuditPlugin.Add).
+> - Changes to [MARIADB_AUDIT_PLUGIN are added to the next maintenance window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.AuditPlugin.html#Appendix.MySQL.Options.AuditPlugin.Add).
 
 **Required permissions for DefenderForCloud-DataThreatProtectionDB Role**:
 
@@ -108,12 +113,6 @@ An option group is required for MySQL and MariaDB with the following options ( I
 1. Select **Review and generate**.
 
 1. Review the presented information and select **Update**.
-
-
-
-However, this is achiever differently on each relational database management system or service type.
-
-For PostgreSQL, Aurora PostgreSQL and Aurora MySQL the following Cluster Parameter/Parameter Group settings are required:
 
 ## Next step
 
