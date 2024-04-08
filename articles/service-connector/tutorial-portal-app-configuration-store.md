@@ -45,7 +45,7 @@ To store your connection configuration into an App Configuration, start by conne
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection.":::
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection." lightbox="./media/app-configuration-store-tutorial/appconfig_create.png":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **System assigned managed identity** to connect your App Configuration.
 
@@ -59,8 +59,6 @@ To store your connection configuration into an App Configuration, start by conne
     :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_network.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection network.":::
 
 1. Then select **Next: Review + Create**  to review the provided information. Select **Create** to create the service connection. It can take one minute to complete the operation.
-
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_review.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration connection.":::
 
 ## Create a Blob Storage connection in App Service and store configuration into App Configuration
 
@@ -78,7 +76,7 @@ Now you can create a service connection to another target service and store conf
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection.":::
+    :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection."  lightbox="./media/app-configuration-store-tutorial/storage_create.png":::
 
 1. Select **Next: Authentication** to select the authentication type and select **System assigned managed identity** to connect your storage account.
 1. Check **Store Configuration in App Configuration** to let Service Connector store the configuration info into your App Configuration store. Then select one of your App Configuration connections under **App Configuration connection**.
@@ -90,8 +88,6 @@ Now you can create a service connection to another target service and store conf
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_network.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection network.":::
 
 1. Then select **Next: Review + Create**  to review the provided information.
-
-    :::image type="content" source="./media/app-configuration-store-tutorial/storage_review.png" alt-text="Screenshot of the Azure portal, reviewing Blob Storage connection.":::
 
 1. Select **Create** to create the service connection. It might take up to one minute to complete the operation.
 
@@ -105,7 +101,7 @@ Now you can create a service connection to another target service and store conf
 
 1. Click **Edit** to show the value of this blob storage connection.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content.":::
+    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content."  lightbox="./media/app-configuration-store-tutorial/appconfig_detail.png":::
 
 ## Use your connection with App Configuration providers
 
