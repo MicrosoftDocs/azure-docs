@@ -17,7 +17,7 @@ Azure Database for PostgreSQL flexible server offers [PgBouncer](https://github.
 
 PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only uses actual Postgres connections when needed, that is, when inside an open transaction, or when a query is active. This model can support thousands of connections more easily with low overhead and allows scaling to up to 10,000 connections with low overhead. When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling. 
 
-PgBouncer in Azure database for PostgreSQL flexible server supports [Microsoft Entra authentication (AAD)](./concepts-azure-ad-authentication.md) authentication.
+PgBouncer in Azure database for PostgreSQL flexible server supports [Microsoft Entra authentication](./concepts-azure-ad-authentication.md).
 
 > [!NOTE]
 > PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking. 
