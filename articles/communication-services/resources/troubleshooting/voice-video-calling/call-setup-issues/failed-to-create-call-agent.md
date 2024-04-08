@@ -13,7 +13,7 @@ ms.subservice: calling
 # Failed to create CallAgent
 
 In order to make or receive a call, a user needs a call agent (`CallAgent`).
-To create a call agent, the application needs a valid ACS communication token credential. With the token,the application invokes `CallClient.createCallAgent` API to create an instance of `CallAgent`.
+To create a call agent, the application needs a valid ACS communication token credential. With the token, the application invokes `CallClient.createCallAgent` API to create an instance of `CallAgent`.
 It's important to note that multiple call agents aren't currently supported in one `CallClient` object.
 
 ## How to detect errors
@@ -35,7 +35,7 @@ The possible error code/subcode are
 | 412 (Precondition Failed)   | 40115 | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure.| UnexpectedClientError |
 | 403 (Forbidden)             | 40231 | TeamsCallAgent must be created only with Teams token | ExpectedError |
 | 401 (Unauthorized)          | 44114 | Wrong AccessToken scope format. Scope is expected to be a string that contains `voip` | ExpectedError | 
-| 400 (Bad Request)           | 44214 | Teams users can not set display name. | ExpectedError | 
+| 400 (Bad Request)           | 44214 | Teams users can't set display name. | ExpectedError | 
 | 500 (Internal Server Error) | 40102 | Failed to create CallAgent, failure during initialization of the calling base stack.| UnexpectedClientError |
 
 ## How to mitigate or resolve
