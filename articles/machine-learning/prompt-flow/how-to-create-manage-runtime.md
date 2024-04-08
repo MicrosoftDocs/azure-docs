@@ -67,9 +67,27 @@ Automatic is the default option for a runtime. You can start an automatic runtim
     - If you choose serverless compute, you can set following settings:
         - Customize the VM size that the runtime uses.
         - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
-        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
+        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. 
 
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+
+        - You can use following CLI command to assign UAI to workspace. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
+
+
+        ```azurecli
+        az ml workspace update -f workspace_update_with_multiple_UAIs.yml --subscription <subscription ID> --resource-group <resource group name> --name <workspace name>
+        ```
+        
+        Where the contents of *workspace_update_with_multiple_UAIs.yml* are as follows:
+        
+        ```yaml
+        identity:
+           type: system_assigned, user_assigned
+           user_assigned_identities:
+            '/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uai_name>': {}
+            '<UAI resource ID 2>': {}
+        primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
+        ```
 
         > [!TIP]
         > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
