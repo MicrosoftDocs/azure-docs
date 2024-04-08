@@ -297,7 +297,7 @@ The details of each step are given.
     cd ssl
     ```
 
-1. Create client store with signed cert, and import ca cert into the keystore, and truststore on client machine (hn1):
+1. Create client store with signed cert, import CA cert into the keystore, and truststore on client machine (hn1):
 
     ```bash
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
