@@ -28,10 +28,18 @@ From the documentation for your Data Product, obtain the:
 
 ## VM security recommendations
 
-The VM used for the ingestion agent should be set up following best practice for security. For example:
+The VM used for the ingestion agent should be set up following best practice for security. We recommend the following actions:
 
-- Networking - Only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
+- Microsoft Defender for Cloud
+  - Follow all recommendations from Microsoft Defender for Cloud. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
+- Networking
+  - Give the VM a private IP address.
+  - Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur additional cost.
+  - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
+- Disk encryption - ensure Azure disk encryption is enabled (this is the default when you create the VM).
+- OS version
+  - Keep the OS version up-to-date to avoid known vulnerabilities.
+  - Configure the VM to periodically check for missing system updates.
 - Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. We recommend that you restrict the following.
   - Admin access to the VM (for example, to stop/start/install the ingestion agent).
   - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
@@ -71,7 +79,7 @@ The output of the final command should be `<path-to-rpm>: digests signatures OK`
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
 
 - Service principal with certificate credential. This must be used if the ingestion agent is running outside of Azure, such as an on-premises network. 
-- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It does not require handling any credentials (unlike a service principal).
+- Managed identity. If the ingestion agent is running on an Azure VM, we recommend this method. It doesn't require handling any credentials (unlike a service principal).
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
@@ -83,7 +91,7 @@ If the ingestion agent is running in Azure, we recommend managed identities. For
 > [!NOTE]
 > Ingestion agents on Azure VMs support both system-assigned and user-assigned managed identities. For multiple agents, a user-assigned managed identity is simpler because you can authorise the identity to the Data Product Key Vault for all VMs running the agent.
 
-1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, do not create a user-assigned managed identity.
+1. Create or obtain a user-assigned managed identity, follow the instructions in [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). If you plan to use a system-assigned managed identity, don't create a user-assigned managed identity.
 1. Follow the instructions in [Configure managed identities for Azure resources on a VM using the Azure portal](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm) according to the type of managed identity being used.
 1. Note the Object ID of the managed identity. This is a UUID of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit.
 
@@ -160,7 +168,7 @@ Repeat these steps for each VM onto which you want to install the agent.
     sudo dnf install systemd logrotate zip
     ```
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. If you are using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
+1. If you're using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
     # [SFTP sources](#tab/sftp)
