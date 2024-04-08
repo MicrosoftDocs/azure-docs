@@ -32,9 +32,9 @@ Azure SQL Edge can be deployed using instructions from [Deploy modules from Azur
 
 1. On the **Add IoT Edge Module** page, specify the desired values for the *IoT Edge Module Name*, *Image URI*, *Restart Policy* and *Desired Status*.
 
-   > Use the following **Image URI** depending on the edition you want to deploy:
-   > * *Developer Edition* - `mcr.microsoft.com/azure-sql-edge/developer`
-   > * *Premium Edition* - `mcr.microsoft.com/azure-sql-edge/premium`
+   Use the following image URI depending on the edition you want to deploy:
+   - *Developer edition* - `mcr.microsoft.com/azure-sql-edge/developer`
+   - *Premium edition* - `mcr.microsoft.com/azure-sql-edge/premium`
 
 1. On the *Environment Variables* section of the **Add IoT Edge Module** page, specify the desired values for the environment variables. For a complete list of Azure SQL Edge environment variables, see [Configure using environment variables](configure.md#configure-by-using-environment-variables).
 
