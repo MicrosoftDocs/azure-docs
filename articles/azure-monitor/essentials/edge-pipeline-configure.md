@@ -9,7 +9,17 @@ author: bwren
 
 # Configuration of Azure Monitor pipeline for edge and multicloud
 
-[Azure Monitor edge pipeline](./edge-pipeline-overview.md) is an Azure Monitor component that enables at-scale collection, transformation, and routing of telemetry data at the edge and to the cloud. This article describes how to enable and configure the Azure Monitor edge pipeline in your environment. 
+[Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The edge pipeline enables at-scale collection, transformation, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and can also act as a proxy connection to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the Azure Monitor edge pipeline in your environment. 
+
+## Basic operation
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an Arc-enabled Kubernetes cluster. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
+
+The following diagram shows the basic components of the Azure Monitor edge pipeline, including the two configuration files that define the operation of the pipeline. The pipeline configuration file defines the data sources and cache configuration for the edge pipeline, while the data collection rule (DCR) provides the definition of the incoming data for the cloud pipeline and potentially transforms the data before sending it to its destination.
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline."::: 
+
+Azure Monitor edge pipeline is built on top of OpenTelemetry Collector, which is a vendor-agnostic, open-source project that provides a single agent for all telemetry data. Once the pipeline extension and instance is installed on your cluster, you configure one or more data flows that define the type of data being collected and where it should be sent. 
+
 
 
 ## Prerequisites
@@ -96,7 +106,55 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 | Data collection rule (DCR) | `Microsoft.Insights/dataCollectionRules` | The only parameter required is the DCR name, but you must modify the properties of the DCR before deploying the template. |
 
 
+
+### Edge pipeline extension
+
+```json
+{
+    "type": "Microsoft.KubernetesConfiguration/extensions",
+    "apiVersion": "2022-11-01",
+    "name": "[parameters('pipelineExtensionName')]",
+    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
+    "tags": "",
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "properties": {
+        "aksAssignedIdentity": {
+            "type": "SystemAssigned"
+        },
+        "autoUpgradeMinorVersion": false,
+        "extensionType": "microsoft.monitor.pipelinecontroller",
+        "releaseTrain": "preview",
+        "scope": {
+            "cluster": {
+                "releaseNamespace": "my-strato-ns"
+            }
+        },
+        "version": "0.37.3-privatepreview"
+    }
+}
+```
+
+
 ### DCE
+
+```json
+{
+    "type": "Microsoft.Insights/dataCollectionEndpoints",            
+    "name": "my-dce",
+    "location": "eastus",
+    "apiVersion": "2021-04-01",
+    "tags": "",
+    "properties": {
+        "configurationAccess": {},
+        "logsIngestion": {},
+        "networkAcls": {
+            "publicNetworkAccess": "Enabled"
+        }
+    }
+}
+```
 
 
 ### DCR
@@ -718,3 +776,7 @@ During disconnected periods, the edge pipeline will write collected data as file
 | Aggregation and sampling | Aggregate and sample data depending on its category to reduce the amount of data to be synced and optimize the bandwidth. |
 | Data sync duration | Specify a time slot for data sync to ensure the optimum bandwidth consumption. For example, a retail customer may require to pick an after-store-hour time slot for data synchronization so that the data sync does not interfere with the regular store activities. |
 | Bandwidth allocation | Allocate a percentage of bandwidth to sync the cached data to prioritize the real-time data to be ingested to cloud. |
+
+## Next steps
+
+- [Read more about Azure Monitor pipeline](./pipeline-overview.md).

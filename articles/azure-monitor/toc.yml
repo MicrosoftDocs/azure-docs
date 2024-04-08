@@ -631,9 +631,12 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Azure Monitor pipeline
       items:
       - name: Overview
+        displayName: Pipeline
+        href: essentials/pipeline-overview.md
+      - name: Data collection rules
         displayName: data collection, data collection rules
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
@@ -680,13 +683,7 @@ items:
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
       - name: Edge pipeline
-        items:
-        - name: Overview
-          displayName: Edge pipeline
-          href: essentials/edge-pipeline-overview.md
-        - name: Configure
-          displayName: Edge pipeline
-          href: essentials/edge-pipeline-configure.md
+        href: essentials/edge-pipeline-configure.md
     - name: Diagnostic Settings
       items:
       - name: Overview
