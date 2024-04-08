@@ -2,7 +2,7 @@
 title: Concepts - Services in Azure Kubernetes Services (AKS)
 description: Learn about networking Services in Azure Kubernetes Service (AKS), including what services are in Kubernetes and what types of Services are available in AKS.
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 04/08/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -54,4 +54,4 @@ Learn more about Services in the [Kubernetes docs][k8s-service].
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 <!-- LINKS - Internal -->
-[ingress-controllers]:concepts-network#ingress-controllers
+[ingress-controllers]:concepts-network.md#ingress-controllers
