@@ -75,7 +75,7 @@ sections:
           
           If you adapted and deployed a model, the existing deployment remains as is. You can decommission the deployed model, readapt it by using the newer version of the base model, and redeploy it for better accuracy.
           
-          Both base models and custom models will be retired after some time (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
+          Both base models and custom models are retired after some time (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
           
       - question: |
           Can I download my model and run it locally?

@@ -6,7 +6,7 @@ ms.author: randolphwest
 ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
-ms.custom: linux-related-content
+ms.custom:
 ---
 # Configure Azure SQL Edge
 

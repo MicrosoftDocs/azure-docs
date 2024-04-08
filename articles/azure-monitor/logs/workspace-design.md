@@ -97,9 +97,9 @@ You can configure default [data retention and archive settings](data-retention-a
 ### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a specific amount of daily data. You might choose to consolidate data in a single workspace to reach the level of a particular tier. This same volume of data spread across multiple workspaces wouldn't be eligible for the same tier, unless you have a dedicated cluster.
 
-If you can commit to daily ingestion of at least 500 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
+If you can commit to daily ingestion of at least 100 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
 
-- **If you'll ingest at least 500 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
+- **If you'll ingest at least 100 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
 - **If you'll ingest at least 100 GB per day across resources:** Consider combining them into a single workspace to take advantage of a commitment tier.
 
 ### Legacy agent limitations

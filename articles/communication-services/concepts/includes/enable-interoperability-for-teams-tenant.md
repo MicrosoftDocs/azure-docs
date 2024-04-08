@@ -13,7 +13,7 @@ ms.author: ruslanzdor
 ---
 
 ## Enable interoperability in your Teams tenant
-Microsoft Entra user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
+Microsoft Entra user with [Teams administrator role](/entra/identity/role-based-access-control/permissions-reference#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
 
 ### 1. Prepare the Microsoft Teams module
 
@@ -45,26 +45,7 @@ Connect-MicrosoftTeams
 
 ### 3. Enable tenant configuration
 
-Interoperability with Communication Services resources is controlled via tenant configuration and assigned policy. Teams tenant has a single tenant configuration, and Teams users have assigned global policy or custom policy. The following table shows possible scenarios and impacts on interoperability.
-
-| Tenant configuration | Global policy | Custom policy | Assigned policy | Interoperability |
-| --- | --- | --- | --- | --- |
-| True | True | True | Global | **Enabled** |
-| True | True | True | Custom | **Enabled** |
-| True | True | False | Global | **Enabled** |
-| True | True | False | Custom | Disabled |
-| True | False | True | Global | Disabled |
-| True | False | True | Custom | **Enabled** |
-| True | False | False | Global | Disabled |
-| True | False | False | Custom | Disabled |
-| False | True | True | Global | Disabled |
-| False | True | True | Custom | Disabled |
-| False | True | False | Global | Disabled |
-| False | True | False | Custom | Disabled |
-| False | False | True | Global | Disabled |
-| False | False | True | Custom | Disabled |
-| False | False | False | Global | Disabled |
-| False | False | False | Custom | Disabled |
+Interoperability with Communication Services resources is controlled via tenant configuration and assigned policy. Teams tenant has a single tenant configuration, and Teams users have assigned global policy or custom policy. For more information, see [Assign Policies in Teams](/microsoftteams/policy-assignment-overview).
 
 After successful login, you can run the cmdlet [Set-CsTeamsAcsFederationConfiguration](/powershell/module/teams/set-csteamsacsfederationconfiguration) to enable Communication Services resource in your tenant. Replace the text `IMMUTABLE_RESOURCE_ID` with an immutable resource ID in your communication resource. You can find more details on how to get this information [here](../troubleshooting-info.md#getting-immutable-resource-id).
 

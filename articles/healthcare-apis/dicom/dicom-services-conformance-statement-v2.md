@@ -96,7 +96,7 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 Only transfer syntaxes with explicit Value Representations are accepted.
 
 > [!NOTE]
-> Requests are limited to 2GB. No single DICOM file or combination of files might exceed this limit.
+> Requests are limited to 4GB. No single DICOM file or combination of files might exceed this limit.
 
 #### Store changes from v1
 In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
@@ -312,7 +312,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 * `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve an Instance
 
@@ -326,7 +326,7 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve Frames
 
@@ -337,7 +337,7 @@ The following `Accept` headers are supported for retrieving frames:
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 * `application/octet-stream; transfer-syntax=*` for single frame retrieval
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/octet-stream`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/octet-stream`)
 
 #### Retrieve transfer syntax
 

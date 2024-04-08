@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune
 ms.author: davinune
-ms.date: 07/20/2023
+ms.date: 02/20/2024
 ---
 
 # Key sovereignty, availability, performance, and scalability in Managed HSM

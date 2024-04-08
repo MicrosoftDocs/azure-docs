@@ -6,19 +6,19 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 02/28/2024
 ms.author: danlep
 ---
 
 # Self-hosted gateway overview
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The self-hosted gateway is an optional, containerized version of the default managed gateway included in every API Management service. It's useful for scenarios such as placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multicloud API management, presents its high-level architecture, and highlights its capabilities.
 
 For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Hybrid and multicloud API management
 
@@ -106,7 +106,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 | Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
 | Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
 | Endpoints for Microsoft Entra integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/ip-addresses.md#outgoing-ports) |
 | Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 
@@ -222,6 +222,7 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+-   [Deploy self-hosted gateway to Azure Container Apps](how-to-deploy-self-hosted-gateway-container-apps.md)
 -   [Self-hosted gateway configuration settings](self-hosted-gateway-settings-reference.md)
 -   Learn about [observability capabilities](observability.md) in API Management
 -   Learn about [Dapr integration with the self-hosted gateway](https://github.com/dapr/samples/tree/master/dapr-apim-integration)

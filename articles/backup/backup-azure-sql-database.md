@@ -166,14 +166,13 @@ To configure simultaneous backups, follow these steps:
 
      The final JSON should appear as:
  
-     ```JSON
+     ```json
      {
-             "EnableLocalDiskBackupForBackupTypes": ["Log"],
-             "LocalDiskBackupFolderPath": "E:\\LocalBackup",
+        "EnableLocalDiskBackupForBackupTypes": ["Log"],
+        "LocalDiskBackupFolderPath": "E:\\LocalBackup",
      }
-	 
-     ```	 
- 
+     ```
+
      If there are other pre-populated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
 
 3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
@@ -197,7 +196,6 @@ To configure simultaneous backups, follow these steps:
    ```azurepowershell
    $cred = Get-Credential
    New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @("<Comma Separated list of accounts>") -Persistent $true
-   
    ```
 
    **Example**:
@@ -205,7 +203,7 @@ To configure simultaneous backups, follow these steps:
    ```azurepowershell
    $cred = Get-Credential
    New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
-    ```
+   ```
 
 ## Next steps
 

@@ -1,14 +1,12 @@
 ---
 title: Add or edit Azure role assignment conditions using the Azure portal - Azure ABAC
 description: Learn how to add, edit, view, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -107,7 +105,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Attribute source** list, select where the attribute can be found.
 
-    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
+    - **Environment** indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
     - **Principal** indicates that the attribute is a Microsoft Entra custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.

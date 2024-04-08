@@ -2,7 +2,7 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 04/04/2024
 ms.custom: subject-rbac-steps, linux-related-content
 ---
 
@@ -159,6 +159,8 @@ Select **Add**, then ensure that the **Azure Virtual Machines for deployment** a
 :::image type="content" source="media/batch-account-create-portal/key-vault-access-policy.png" alt-text="Screenshot of the Access policy screen.":::
 
 -->
+> [!NOTE]
+> Currently, the Batch account name supports only access policies. When creating a Batch account, ensure that the key vault uses the associated access policy instead of the EntraID RBAC permissions. For more information on how to add an access policy to your Azure key vault instance, see [Configure your Azure Key Vault instance](batch-customer-managed-key.md).
 
 ### Configure subscription quotas
 

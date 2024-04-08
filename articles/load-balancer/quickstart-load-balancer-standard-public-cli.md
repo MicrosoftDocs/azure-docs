@@ -19,7 +19,7 @@ Get started with Azure Load Balancer by using the Azure CLI to create a public l
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -98,6 +98,19 @@ Create a public load balancer with [az network lb create](/cli/azure/network/lb#
     --sku Standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool
+```
+
+If the public IP created is zonal, the specified zone needs to be defined when creating the public load balancer.
+
+```azurecli
+  az network lb create \
+    --resource-group CreatePubLBQS-rg \
+    --name myLoadBalancer \
+    --sku Standard \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --public-ip-zone 1 \
     --backend-pool-name myBackEndPool
 ```
 

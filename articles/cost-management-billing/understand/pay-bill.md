@@ -4,7 +4,6 @@ description: Learn how to pay your bill in the Azure portal. You must be a billi
 keywords: billing, past due, balance, pay now,
 author: banders
 ms.reviewer: lishepar
-tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

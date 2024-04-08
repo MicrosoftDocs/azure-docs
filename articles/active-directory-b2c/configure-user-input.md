@@ -11,7 +11,7 @@ ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer or IT administrator, I want to add a new attribute to the sign-up journey, customize it's input type, and define whether it's mandatory or optional.
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to add a new attribute to the sign-up journey, customize the input type, and define whether it's required, so that I can collect specific user information during the sign-up process.
 
 ---
 #  Add user attributes and customize user input in Azure Active Directory B2C

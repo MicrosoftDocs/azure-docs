@@ -5,7 +5,6 @@ description: In this quickstart, get started with the Image Analysis 4.0 client 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
 ms.author: pafarley
@@ -36,31 +35,37 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 Open a console window and create a new folder for your quickstart application.
 
 1. Open a text editor and copy the following content to a new file. Save the file as `pom.xml` in your project directory
-    <!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)] -->
+    <!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-quickstart-code/master/java/ComputerVision/4-0/pom.xml)] -->
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <modelVersion>4.0.0</modelVersion>
-      <groupId>azure.ai.vision.imageanalysis.samples</groupId>
-      <artifactId>image-analysis-quickstart</artifactId>
-      <version>0.0</version>
+      <groupId>com.example</groupId>
+      <artifactId>my-application-name</artifactId>
+      <version>1.0.0</version>
       <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
         <dependency>
           <groupId>com.azure</groupId>
           <artifactId>azure-ai-vision-imageanalysis</artifactId>
-          <version>1.0.0-beta.1</version>
+          <version>1.0.0-beta.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+        <!-- Optional: provide a slf4j implementation. Here we use a no-op implementation
+        just to make the slf4j console spew warning go away. We can still use the internal
+        logger in azure.core library. See
+        https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis#enable-http-requestresponse-logging -->
         <dependency>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-nop</artifactId>
-          <version>1.7.36</version> 
+          <version>1.7.36</version>
         </dependency>
       </dependencies>
     </project>
     ```
 
-1. Update the version value (`1.0.0-beta.1`) based on the latest available version of the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package in the Maven repository. 
+1. Update the version value (`1.0.0-beta.2`) based on the latest available version of the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package in the Maven repository.
 1. Install the SDK and dependencies by running the following in the project directory:
     ```console
     mvn clean dependency:copy-dependencies

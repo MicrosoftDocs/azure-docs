@@ -43,7 +43,7 @@ Non-string fields and non-searchable string fields don't undergo lexical analysi
 
 ## Add text translation
 
-This article assumes translated strings alreach exist. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during indexing. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure AI Search. 
+This article assumes translated strings already exist. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during indexing. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure AI Search. 
 
 To add text translation, follow these steps:
 

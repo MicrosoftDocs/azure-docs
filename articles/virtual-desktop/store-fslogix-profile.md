@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: helohr
-manager: femila
 ---
 # Storage options for FSLogix profile containers in Azure Virtual Desktop
 

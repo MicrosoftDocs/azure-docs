@@ -11,7 +11,7 @@ ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable my users to reset their passwords without the need for admin intervention, so that they can recover their accounts if they forget their passwords.
+#Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---
 
 # Set up a password reset flow in Azure Active Directory B2C
@@ -38,6 +38,10 @@ The default name of the **Change email** button in *selfAsserted.html* is **chan
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+
+- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**,  select **Authentication methods**, ensure **Authentication contact info** is set. B2C users created via a SignUp flow will have this set by default. For users created via Azure Portal or by Graph API need to have this set for SSPR to work. 
+
 
 ## Self-service password reset (recommended)
 

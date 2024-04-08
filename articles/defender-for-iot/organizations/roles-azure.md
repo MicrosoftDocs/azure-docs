@@ -36,7 +36,7 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 |  **[Download OT threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#manually-update-locally-managed-sensors)** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 |  **[Push OT threat intelligence updates](how-to-work-with-threat-intelligence-packages.md#manually-push-updates-to-cloud-connected-sensors)** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **[View Azure alerts](how-to-manage-cloud-alerts.md)** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
-| **[Modify Azure alerts](how-to-manage-cloud-alerts.md) (write access - change status, learn, download PCAP)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
+| **[Modify Azure alerts](how-to-manage-cloud-alerts.md) (write access - change status, learn, download PCAP, suppression rules)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
 | **[View Azure device inventory](how-to-manage-device-inventory-for-organizations.md)**  <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
 | **[Manage Azure device inventory](how-to-manage-device-inventory-for-organizations.md) (write access)**   <br>Apply per subscription or site | - | ✔ |✔ | ✔ |
 | **[View Azure workbooks](workbooks.md)**<br>Apply per subscription or site   | ✔ | ✔ |✔ | ✔ |

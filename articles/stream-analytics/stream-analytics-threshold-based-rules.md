@@ -1,8 +1,8 @@
 ---
 title: Configurable threshold-based rules in Azure Stream Analytics
 description: This article describes how to use reference data to achieve an alerting solution that has configurable threshold based rules in Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018

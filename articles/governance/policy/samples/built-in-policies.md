@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 01/22/2024
+ms.date: 03/28/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -49,6 +49,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Azure Active Directory
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
+
+## Azure AI Services
+
+[!INCLUDE [azure-policy-reference-policies-azure-ai-services](../../../../includes/policy/reference/bycat/policies-azure-ai-services.md)]
 
 ## Azure Arc
 
@@ -154,6 +158,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
 
+## DevCenter
+
+[!INCLUDE [azure-policy-reference-policies-devcenter](../../../../includes/policy/reference/bycat/policies-devcenter.md)]
+
 ## ElasticSan
 
 [!INCLUDE [azure-policy-reference-policies-elasticsan](../../../../includes/policy/reference/bycat/policies-elasticsan.md)]
@@ -246,6 +254,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
+## Mobile Network
+
+[!INCLUDE [azure-policy-reference-policies-mobile-network](../../../../includes/policy/reference/bycat/policies-mobile-network.md)]
+
 ## Monitoring
 
 [!INCLUDE [azure-policy-reference-policies-monitoring](../../../../includes/policy/reference/bycat/policies-monitoring.md)]
@@ -269,6 +281,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Security Center
 
 [!INCLUDE [azure-policy-reference-policies-security-center](../../../../includes/policy/reference/bycat/policies-security-center.md)]
+
+## Security Center - Granular Pricing
+
+[!INCLUDE [azure-policy-reference-policies-security-center---granular-pricing](../../../../includes/policy/reference/bycat/policies-security-center---granular-pricing.md)]
 
 ## Service Bus
 
@@ -298,6 +314,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-sql-server](../../../../includes/policy/reference/bycat/policies-sql-server.md)]
 
+## Stack HCI
+
+[!INCLUDE [azure-policy-reference-policies-stack-hci](../../../../includes/policy/reference/bycat/policies-stack-hci.md)]
+
 ## Storage
 
 [!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
@@ -310,9 +330,17 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
+## System Policy
+
+[!INCLUDE [azure-policy-reference-policies-system-policy](../../../../includes/policy/reference/bycat/policies-system-policy.md)]
+
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## Trusted Launch
+
+[!INCLUDE [azure-policy-reference-policies-trusted-launch](../../../../includes/policy/reference/bycat/policies-trusted-launch.md)]
 
 ## VirtualEnclaves
 

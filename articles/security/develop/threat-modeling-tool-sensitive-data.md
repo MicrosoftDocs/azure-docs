@@ -8,7 +8,7 @@ ms.subservice: aiplabels
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Security Frame: Sensitive Data | Mitigations 

@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18
 ---
 
 # Domain-specific content detection

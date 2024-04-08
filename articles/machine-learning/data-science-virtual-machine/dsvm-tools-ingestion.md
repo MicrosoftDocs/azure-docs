@@ -1,11 +1,11 @@
 ---
 title: Data ingestion tools
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the data ingestion tools and utilities that are preinstalled on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 
 author: timoklimmer
 ms.author: tklimmer

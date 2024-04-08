@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: troubleshooting
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -26,6 +26,8 @@ zone_pivot_groups: b2c-policy-type
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
 This article provides steps for collecting logs from Active Directory B2C (Azure AD B2C) so that you can diagnose problems with your custom policies. Application Insights provides a way to diagnose exceptions and visualize application performance issues. Azure AD B2C includes a feature for sending data to Application Insights.
 
@@ -176,7 +178,7 @@ After you save the settings, the Application insights logs appear on the **Azure
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments and no logs are sent to your application insights.
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. You also need to make sure that you don't log Personally Identifiable Information (PII). Use the following configuration in production environments and no logs are sent to your application insights.
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 

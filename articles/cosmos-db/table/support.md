@@ -10,7 +10,6 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: cpp
 # ms.devlang: cpp, csharp, java, javascript, php, python, ruby
-ms.custom: ignite-2022
 ---
 
 # Develop with Azure Cosmos DB for Table and Azure Table Storage

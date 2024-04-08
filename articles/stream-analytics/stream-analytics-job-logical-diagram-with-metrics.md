@@ -5,7 +5,6 @@ titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022
 ---
@@ -78,7 +77,7 @@ The input data related metrics can be viewed under **Input** category in the cha
 
 
 ## Get help
-For more assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For more assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/tags/179/azure-stream-analytics). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

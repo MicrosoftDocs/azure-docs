@@ -660,7 +660,7 @@ The identity that your deployment script uses needs to be authorized to work wit
 With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deployment scripts in private networks with some additional configurations.
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
-- Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
+- Create a storage account, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
     1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.

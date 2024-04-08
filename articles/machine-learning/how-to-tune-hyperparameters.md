@@ -10,7 +10,6 @@ ms.service: machine-learning
 ms.subservice: training
 ms.date: 06/7/2023
 ms.topic: how-to
-ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model (v2)

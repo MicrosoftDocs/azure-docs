@@ -5,7 +5,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
-ms.workload: infrastructure-services
 ms.date: 07/10/2023
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23

@@ -3,7 +3,7 @@ title: Client-side schema enforcement - Schema Registry
 description: This article provides information on using schemas in a schema registry when publishing or consuming events from Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
-author: kasun04
+author: spelluru
 ms.author: spelluru
 ---
 

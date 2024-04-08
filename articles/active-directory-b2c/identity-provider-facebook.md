@@ -10,6 +10,9 @@ ms.date: 03/10/2022
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-in with a Facebook account, so that users can authenticate with their Facebook credentials and access my application.
+
 ---
 
 # Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C

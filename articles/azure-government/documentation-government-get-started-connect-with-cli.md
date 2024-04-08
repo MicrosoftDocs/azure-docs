@@ -5,7 +5,6 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: quickstart
-ms.workload: azure-government
 ms.date: 03/09/2021
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using CLI so I can start developing against Azure Government's secure isolated datacenters.
