@@ -56,6 +56,9 @@ The following use case is supported by [Azure Web Application Firewall on Azure 
 
    To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
+For related information, see:
+   - [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+   - [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 > [!TIP]
 > TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
