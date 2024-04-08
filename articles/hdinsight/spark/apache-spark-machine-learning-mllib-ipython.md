@@ -349,7 +349,7 @@ You can now construct a final visualization to help you reason about the results
 
 ## Shut down the notebook
 
-After you running the application, you should shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
+After running the application, you should shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
 
 ## Next steps
 
