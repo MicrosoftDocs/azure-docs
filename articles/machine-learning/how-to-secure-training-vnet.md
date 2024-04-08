@@ -257,7 +257,7 @@ ml_client.begin_create_or_update(entity=compute)
 1. Select the **Compute** page from the left navigation bar.
 1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
 1. Configure the VM size and configuration you need, then select **Next**.
-1. From the **Advanced Settings**, Select **Enable virtual network**, your virtual network and subnet, and finally select the **No Public IP** option under the VNet/subnet section.
+1. From **Security**, select **Enable virtual network**, your virtual network and subnet, and finally select the **No Public IP** option under the VNet/subnet section.
 
     :::image type="content" source="./media/how-to-secure-training-vnet/no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance and compute cluster." lightbox="./media/how-to-secure-training-vnet/no-public-ip.png":::
 
@@ -428,7 +428,7 @@ ml_client.begin_create_or_update(entity=compute)
 1. Select the **Compute** page from the left navigation bar.
 1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
 1. Configure the VM size and configuration you need, then select **Next**.
-1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
+1. From **Security**, select **Enable virtual network** and then select your virtual network and subnet.
 
     :::image type="content" source="./media/how-to-secure-training-vnet/with-public-ip.png" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="./media/how-to-secure-training-vnet/with-public-ip.png":::
 
