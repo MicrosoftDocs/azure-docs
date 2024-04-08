@@ -17,7 +17,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: April 2024
 * Support for new [minor versions](./concepts-supported-versions.md) 16.2, 15.6, 14.11, 13.14, 12.18 <sup>$</sup>
-* Support for new [PgBouncer versions](./concepts-pgbouncer.md/#enabling-and-configuring-pgbouncer) 1.22.1 <sup>$</sup>
+* Support for new [PgBouncer versions](./concepts-pgbouncer.md) 1.22.1 <sup>$</sup>
 
 ## Release: March 2024
 * Public preview of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
