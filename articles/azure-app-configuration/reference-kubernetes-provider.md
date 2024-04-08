@@ -97,11 +97,11 @@ The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, wh
 |key|The key of a key-value.|true|string|
 |label|The label of a key-value.|false|string|
 
-The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded.
+The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. `Opaque`, `kubernetes.io/tls` [Secret types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) are supported.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|target|The destination of the retrieved secrets in Kubernetes. `Opaque`, `kubernetes.io/tls` type are supported.|true|object|
+|target|The destination of the retrieved secrets in Kubernetes.|true|object|
 |auth|The authentication method to access Key Vaults.|false|object|
 |refresh|The settings for refreshing data from Key Vaults. If the property is absent, data from Key Vaults is not refreshed unless the corresponding Key Vault references are reloaded.|false|object|
 
@@ -417,6 +417,23 @@ spec:
         - uri: <your-key-vault-uri>
           servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
+
+By default, all key vault reference items will be projected as key-value pairs into the specified target Secret, and the type of that target secret is `opaque`, which cannot be customized. Given that Kubernetes has [various types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) of Secret besides `opaque`, Azure App Configuration Kubernetes Provider currently give compatibility for `kubernetes.io/tls` type.
+If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
+ 
+``` yaml
+  {
+		"key": "mycertificate",
+		"label": null,
+		"value": "{\"uri\":\"https://<your-key-valut-endpoint>/secrets/mycertificate\"}",
+		"content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
+		"tags": {
+			".kubernetes.secret.type": "kubernetes.io/tls"
+		}
+  }
+```
+ 
+Then this key vault reference item will be generated as a `kubernetes.io/tls` type Secret naming with the key of it.
 
 ### Refresh of secrets from Key Vault
 
