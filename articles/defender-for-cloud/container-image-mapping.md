@@ -18,8 +18,6 @@ When a vulnerability is identified in a container image stored in a container re
     
 - For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.yml) installed on the Azure DevOps organization. 
 
-- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
-
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories. Additionally, the GitHub Workflow must have "**id-token: write"** permissions for federation with Defender for Cloud. For an example, see [this YAML](https://github.com/microsoft/security-devops-action/blob/7e3060ae1e6a9347dd7de6b28195099f39852fe2/.github/workflows/on-push-verification.yml).
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
 - The container images must be built using [Docker](https://www.docker.com/) and the Docker client must be able to access the Docker server during the build.

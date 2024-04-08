@@ -39,7 +39,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure [Git](https://git-scm.com) is installed.
-* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.yml).
 
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
