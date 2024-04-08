@@ -150,7 +150,7 @@ Because Redis will optmize for the best performance, the instance will first fil
 
 ### Workloads well-suited for the Enterprise Flash tier
 Workloads that are likely to run well on the Enterprise Flash tier often have the following characteristics:
-- Read heavy, which a high ratio of read commands to write commands.
+- Read heavy, with a high ratio of read commands to write commands.
 - Access is focused on a subset of keys which are used much more frequently than the rest of the dataset.
 - Relatively large values in comparison to key names. (Since key names are always stored in RAM, this can become a bottleneck for memory growth.)
 
