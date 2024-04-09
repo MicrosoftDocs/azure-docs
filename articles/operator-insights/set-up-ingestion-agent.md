@@ -30,21 +30,34 @@ From the documentation for your Data Product, obtain the:
 
 The VM used for the ingestion agent should be set up following best practice for security. We recommend the following actions:
 
-- **Networking**
-  - Give the VM a private IP address.
-  - Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur extra cost.
-  - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- **Disk encryption** - ensure Azure disk encryption is enabled (this is the default when you create the VM).
-- **OS version**
-  - Keep the OS version up-to-date to avoid known vulnerabilities.
-  - Configure the VM to periodically check for missing system updates.
-- **Access** Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record log in attempts and actions taken by logged-in users. We recommend that you restrict the following:
-  - Admin access to the VM (for example, to stop/start/install the ingestion agent).
-  - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
-  - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
-  - Access to the directory for secrets that you create on the VM during this procedure.
+### Networking
 
-When using an Azure VM, also follow all recommendations from **Microsoft Defender for Cloud**. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
+- Give the VM a private IP address.
+- Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur extra cost.
+- Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
+
+### Disk encryption
+
+Ensure Azure disk encryption is enabled (this is the default when you create the VM).
+
+### OS version
+
+- Keep the OS version up-to-date to avoid known vulnerabilities.
+- Configure the VM to periodically check for missing system updates.
+
+### Access
+
+Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record log in attempts and actions taken by logged-in users.
+
+We recommend that you restrict the following:
+- Admin access to the VM (for example, to stop/start/install the ingestion agent).
+- Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
+- Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
+- Access to the directory for secrets that you create on the VM during this procedure.
+
+### Microsoft Defender for Cloud
+
+When using an Azure VM, also follow all recommendations from Microsoft Defender for Cloud. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
 
 ## Download the RPM for the agent
 
