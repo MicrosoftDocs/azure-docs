@@ -35,3 +35,5 @@ items:
   items:
   - name: Release notes
     href: release-notes.md
+  - name: Support and feedback
+    href: support-feedback.md
