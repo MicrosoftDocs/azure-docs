@@ -18,7 +18,7 @@ The SDK detects this change and throws an error.
 
 This error is expected from SDK's perspective as the remote endpoint stops sending the video.
 ## How to detect using the SDK
-If the video becomes unavailable before the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API finishes, thie [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest#@azure-communication-react-statefulcallclient-createview) API throws an error.
+If the video becomes unavailable before the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API finishes, thie [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API throws an error.
 
 | error            | Details                                               |
 |------------------|-------------------------------------------------------|
