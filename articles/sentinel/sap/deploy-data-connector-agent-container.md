@@ -450,7 +450,7 @@ This procedure describes how to create a new agent through the Azure portal, aut
 
     To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Copy the **Role assignment command** <!--and TBD--> from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example: <!--need new screenshot-->
+    Copy the **Role assignment command** from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 

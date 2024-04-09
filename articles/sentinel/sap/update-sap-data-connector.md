@@ -116,7 +116,7 @@ First check to see if your roles are already assigned:
     1. Go to **Enterprise application** > **All applications**, and select your VM or registered application name, depending on the type of identity you're using to access your key vault.
     1. Copy the value of the **Object ID** field to use with your copied command.
 
-1. Run the following command to verify whether these roles are already assigned, replacing the placeholder values as needed. <!--how to replace scope?-->
+1. Run the following command to verify whether these roles are already assigned, replacing the placeholder values as needed.
 
     ```bash
     az role assignment list --assignee <Object_ID> --query "[].roleDefinitionName" --scope <scope>
