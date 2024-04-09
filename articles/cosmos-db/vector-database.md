@@ -149,9 +149,6 @@ The natively integrated vector database in our NoSQL API will become available i
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-> [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB for MongoDB lifetime free vCore cluster](mongodb/vcore/free-tier.md)
-
 ## More Vector Databases
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
