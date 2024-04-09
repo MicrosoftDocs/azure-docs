@@ -32,9 +32,15 @@ The VM used for the ingestion agent should be set up following best practice for
 
 ### Networking
 
+When using an Azure VM:
+
 - Give the VM a private IP address.
-- Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur extra cost.
 - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
+- Beyond this, network configuration depends on whether restricted access is set up on the data product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
+ 
+When using an on-premises VM:
+
+- Configure a firewall to only allow network traffic on the ports that are required to run the agent and maintain the VM.
 
 ### Disk encryption
 
@@ -47,7 +53,7 @@ Ensure Azure disk encryption is enabled (this is the default when you create the
 
 ### Access
 
-Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record log in attempts and actions taken by logged-in users.
+Limit access to the VM to a minimal set of users. Configure audit logging on the VM - for example, using the Linux audit package - to record sign-in attempts and actions taken by logged-in users.
 
 We recommend that you restrict the following:
 - Admin access to the VM (for example, to stop/start/install the ingestion agent).
