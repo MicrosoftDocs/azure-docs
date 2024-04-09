@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/04/2024
+ms.date: 01/23/2024
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
@@ -145,4 +145,4 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+>[Deploy a Django app with App Service and PostgreSQL](tutorial-python-postgresql-app.md)
