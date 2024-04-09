@@ -126,7 +126,7 @@ Expanding on image import, set up an [Azure Container Registry task](container-r
 For a detailed example, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
 
 > [!NOTE]
-> A single preconfigured task can automatically rebuild every application image that references a dependent base image. 
+> A single pre configured task can automatically rebuild every application image that references a dependent base image. 
  
 ## Next steps
 * Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
