@@ -45,5 +45,5 @@ The following section describes common issues associated with restarting an NVA 
 
 * **NVA provisioning state needs to be successful**: If the NVA is in an "Updating" or "Failed" state, you can't execute restart operations on the NVA. Wait for any existing operation on the NVA to finish before trying to restart again.
 * **Restart already in progress**: Multiple concurrent restart operations aren't supported. If there's a restart operation running on the NVA resource already, wait for the operation to finish before attempting to restart a different instance.
-* **Operations on the NVA are not allowed at this time. Please try again later**: Try the restart-operation again is 15-30 minutes.
+* **Operations on the NVA are not allowed at this time. Please try again later**: Try the restart-operation again in 15-30 minutes.
 * **The NVA operation failed due to an intermittent error**: Try the restart operation again.
