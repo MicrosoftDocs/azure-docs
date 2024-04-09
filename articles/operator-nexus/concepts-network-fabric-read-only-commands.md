@@ -45,7 +45,7 @@ By using the read-only diagnostic API, network administrators can efficiently tr
     Refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature) to create the SAS URL of the container. Provide Write permission for SAS.
 
     > [!NOTE]
-    > ESAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
+    > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
 
 
 - Provide the storage URL with WRITE access via a support ticket. 
@@ -76,15 +76,7 @@ To ensure security and compliance, RO commands must adhere to the following spec
     ```azurecli
     az networkfabric device run-ro --resource-name "<NFResourceName>" --resource-group "<NFResourceGroupName>" --ro-command "show version"
     ```
-    Expected output: 
     
-    ```azurecli
-    {}
-    ```
-
-    ```azurecli
-    az networkfabric device run-ro --resource-name "<NFResourceName>" --resource-group "<NFResourceGroupName>" --ro-command "show version"  -- no-wait --debug
-    ```
      Expected output: 
     
     ```azurecli
