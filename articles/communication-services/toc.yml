@@ -1072,7 +1072,7 @@ items:
           - name: The user can not see video from the remote participant
             items:
             - name: Subscribing to a video that is unavailable
-              href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-a-video-not-available.md
+              href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md
             - name: The remote video becomes unavailable while subscribing the video
               href: resources/troubleshooting/voice-video-calling/video-issues/remote-video-becomes-unavailable.md
             - name: The application disposes the video renderer while subscribing the video
