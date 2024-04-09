@@ -86,6 +86,13 @@ Take the following steps to order Data Box Disk.
 
 1. In **Order**, specify the **Order details** in the **Basics** tab. Enter or select the following information.
 
+    > [!IMPORTANT]
+    > Hardware encryption support for Data Box Disk is currently available for regions within the US, Europe, and Japan.
+    >
+    > Hardware encryption using self-encrypting disks sopport SATA 3 connections on, and are used with Linu-based systems. Software encryption uses BitLocker to connect Data Box Disk to either Windows- or Linux-based systems using USB or SATA connections.
+    >
+    > Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems.
+
     |Setting|Value|
     |---|---|
     |Subscription| The subscription is automatically populated based on your earlier selection. |
@@ -93,7 +100,7 @@ Take the following steps to order Data Box Disk.
     |Import order name|Provide a friendly name to track the order.<br /> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br /> The name must start and end with a letter or a number. |
     |Number of disks per order| Enter the number of disks you would like to order. <br /> There can be a maximum of five disks per order  (1 disk = 7TB). |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br /> Provide a 12-character to 32-character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br /> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
-    |Disk encryption type| Select between **BitLocker encryption** or **Self-encrypted** options. Self-encrypted drives require a SATA 3 connection and are recommended for use on Linux-based systems. |
+    |Disk encryption type| Select between **Software (BitLocker) encryption** or **Hardware(Self-encrypted)** options. Self-encrypted drives require a SATA 3 connection and are recommended for use on Linux-based systems. |
 
     :::image type="content" alt-text="Screenshot of order details" source="media/data-box-disk-deploy-ordered/data-box-disk-order-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-disk-order.png":::
 
