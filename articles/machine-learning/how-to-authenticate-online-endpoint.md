@@ -505,9 +505,9 @@ The user identity doesn't need any extra roles to get the _Microsoft Entra token
 
 #### Key or Azure Machine Learning token
 
-If you plan to use the CLI to invoke the endpoint, and if the endpoint is set up to use an auth mode of key or Azure Machine Learning token (`aml_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels, such as REST API.
+If you plan to use the CLI to invoke the endpoint, and if the endpoint is set up to use an auth mode of key, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels, such as REST API.
 
-To get the key or Azure Machine Learning token (`aml_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the key or Azure Machine Learning token.
+To get the key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the key or token.
 
 __Keys__ are returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
 
@@ -515,7 +515,7 @@ __Keys__ are returned in the `primaryKey` and `secondaryKey` fields. The followi
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
 ```
 
-__Azure Machine Learning Tokens__ are returned in the `accessToken` field:
+__Azure Machine Learning tokens__  or __Microsoft Entra tokens__ are returned in the `accessToken` field:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
@@ -523,19 +523,9 @@ export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAM
 
 Also, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times.
 
-#### Microsoft Entra token
-
-To get the Microsoft Entra token (`aad_token`) using CLI, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. This command returns a JSON document that contains the Microsoft Entra token.
-
-__Microsoft Entra token__ is returned in the `accessToken` field:
-
-```bash
-export DATA_PLANE_TOKEN=`(az account get-access-token --resource https://ml.azure.com --query accessToken | tr -d '"')`
-```
 
 > [!NOTE]
-> - The CLI `ml` extension doesn't support getting the Microsoft Entra token. Use `az account get-access-token` instead, as described in the previous code.
-> - The token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
+> The token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
 
 ### [REST](#tab/rest)
 
@@ -581,9 +571,9 @@ You can get the token if you're using the Azure Machine Learning workspace's com
 
 #### Key or Azure Machine Learning token
 
-If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use an auth mode of key or Azure Machine Learning token (`aml_token`), you're not required to get the data plane token explicitly, as the SDK handles it for you. However, you can still use the SDK to get the data plane token so that you can use it with other channels, such as REST API.
+If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use an auth mode of key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the SDK handles it for you. However, you can still use the SDK to get the data plane token so that you can use it with other channels, such as REST API.
 
-To get the key or Azure Machine Learning token (`aml_token`), use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class.
+To get the key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class.
 
 __Keys__ are returned in the `primary_key` and `secondary_key` fields:
 
@@ -591,7 +581,7 @@ __Keys__ are returned in the `primary_key` and `secondary_key` fields:
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).primary_key
 ```
 
-__Azure Machine Learning Tokens__ are returned in the `accessToken` field:
+__Azure Machine Learning tokens__ or __Microsoft Entra tokens__ are returned in the `accessToken` field:
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
@@ -605,27 +595,10 @@ For example, to get the `expiry_time_utc`:
 print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
 ```
 
-#### Microsoft Entra token
-
-To get the Microsoft Entra token (`aad_token`) using SDK, use the Azure identity client library:
-
-```python
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-
-try:
-    credential = DefaultAzureCredential()
-    # Check if given credential can get token successfully.
-    access_token = credential.get_token("https://ml.azure.com/.default")
-    print(access_token)
-except Exception as ex:
-    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
-    # This will open a browser page for
-    credential = InteractiveBrowserCredential()
-```
-
 See [Get a token using the Azure identity client library](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library) for more information.
 
 ### [Studio](#tab/studio)
+
 #### Key or Azure Machine Learning token
 
 You can find the key or token on the __Consume__ tab of the endpoint's page.
@@ -653,15 +626,12 @@ After getting the Entra token, you can verify that the token is for the right Az
 ### [Azure CLI](#tab/azure-cli)
 #### Key or Azure Machine Learning token
 
-You can use `az ml online-endpoint invoke` for endpoints with a key or Azure Machine Learning token. The CLI handles the key or Azure Machine Learning token automatically so you don't need to pass it explicitly.
+You can use `az ml online-endpoint invoke` for endpoints with a key, an Azure Machine Learning token, or a Microsoft Entra token. The CLI handles the key or token automatically so you don't need to pass it explicitly.
 
 ```CLI
 az ml online-endpoint invoke -n my-endpoint -r request.json
 ```
 
-#### Microsoft Entra token
-
-Using `az ml online-endpoint invoke` for endpoints with a Microsoft Entra token isn't supported. Use REST API instead, and use the endpoint's scoring URI to invoke the endpoint.
 
 ### [REST](#tab/rest)
 When invoking the online endpoint for scoring, pass the key, Azure Machine Learning token, or Microsoft Entra token in the authorization header. The following code shows how to use the curl utility to call the online endpoint using a key or token:
@@ -674,12 +644,8 @@ curl --request POST "$scoringUri" --header "Authorization: Bearer $DATA_PLANE_TO
 
 #### Key or Azure Machine Learning token
 
-Azure Machine Learning SDK using `ml_client.online_endpoints.invoke()` is supported for key or Azure Machine Learning token.
+Azure Machine Learning SDK using `ml_client.online_endpoints.invoke()` is supported for key, Azure Machine Learning token, and Microsoft Entra token.
 In addition to using Azure Machine Learning SDK, you can also use a generic Python SDK to send the POST request to the scoring URI.
-
-#### Microsoft Entra token
-
-Azure Machine Learning SDK using `ml_client.online_endpoints.invoke()` isn't supported for Microsoft Entra token. Instead, use a generic Python SDK, or use REST API to send the POST request to the scoring URI.
 
 When calling the online endpoint for scoring, pass the key or token in the authorization header. The following code shows how to call the online endpoint using a key or token with a generic Python SDK. In the code, replace the `api_key` variable with your key or token.
 
@@ -715,6 +681,7 @@ except urllib.error.HTTPError as error:
 ```
 
 ### [Studio](#tab/studio)
+
 #### Key or Azure Machine Learning token
 
 The __Test__ tab of the deployment's detail page supports scoring for endpoints with key or Azure Machine Learning token auth.
