@@ -16,6 +16,7 @@ Resources change through the course of daily use, reconfiguration, and even rede
 - Query changes at scale across your subscriptions, management group, or tenant.
 
 In this article, you learn:
+- What the payload JSON looks like.
 - How to query resource changes through Resource Graph using either the CLI, PowerShell, or the Azure portal.
 - Query examples and best practices for querying resource changes.
 
@@ -23,6 +24,46 @@ In this article, you learn:
 
 - To enable Azure PowerShell to query Azure Resource Graph, [add the module](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, [add the extension](../first-query-azurecli.md#add-the-resource-graph-extension).
+
+## Understand change event properties
+
+When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes. The following example JSON payload demonstrates the change resource properties:
+
+```json
+{
+  "targetResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/microsoft.compute/virtualmachines/myVM",
+  "targetResourceType": "microsoft.compute/virtualmachines",
+  "changeType": "Update",
+  "changeAttributes": {
+    "previousResourceSnapshotId": "08584889383111245807_37592049-3996-ece7-c583-3008aef9e0e1_4043682982_1712668574",
+    "newResourceSnapshotId": "08584889377081305807_38788020-eeee-ffff-028f-6121bdac9cfe_4213468768_1712669177",
+    "correlationId": "04ff69b3-e162-4583-9cd7-1a14a1ec2c61",
+    "changedByType": "User",
+    "changesCount": 2,
+    "clientType": "ARM Template",
+    "changedBy": "john@contoso.com",
+    "operation": "microsoft.compute/virtualmachines/write",
+    "timestamp": "2024-04-09T13:26:17.347+00:00"
+  },
+  "changes": {
+    "properties.provisioningState": {
+      "newValue": "Succeeded",
+      "previousValue": "Updating",
+      "changeCategory": "System",
+      "propertyChangeType": "Update",
+      "isTruncated": "true"
+    },
+    "tags.key1": {
+      "newValue": "NewTagValue",
+      "previousValue": "null",
+      "changeCategory": "User",
+      "propertyChangeType": "Insert"
+    }
+  }
+}
+```
+
+[See the full reference guide for change resource properties.](/rest/api/resources/changes)
 
 ## Run a query
 
@@ -133,7 +174,10 @@ Resource Graph Explorer also provides a clean interface for converting the resul
 
 ## Query resource changes  
 
-With Resource Graph, you can query either the `resourcechanges` or `resourcecontainerchanges` tables to filter or sort by any of the change resource properties. The following examples query the `resourcechanges` table, but can also be applied to the `resourcecontainerchanges` table.
+With Resource Graph, you can query either the `resourcechanges`, `resourcecontainerchanges`, or `healthresourcechanges` tables to filter or sort by any of the change resource properties. The following examples query the `resourcechanges` table, but can also be applied to the `resourcecontainerchanges` or `healthresourcechanges` table.
+
+> [!NOTE]
+> Learn more about the `healthresourcechanges` data in [the Project Flash documentation.](../../../virtual-machines/flash-azure-resource-graph.md#azure-resource-graph---healthresources)
 
 ### Examples
 

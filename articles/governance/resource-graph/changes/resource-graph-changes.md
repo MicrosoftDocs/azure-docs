@@ -52,9 +52,12 @@ The Change Analysis experience is in the process of moving from [Azure Monitor](
 
 ### 1. Azure Resource Graph Change Analysis
 
-Azure Resource Graph Change Analysis ingests `Microsoft.ResourceGraph/resources` data into Resource Graph for queryability and powering the portal experience. Change Analysis also provides some data using:
-- `GET/LIST Microsoft.Resources/Changes` 
-- `GET/LIST Microsoft.Resources/Snapshots` 
+Azure Resource Graph Change Analysis ingests data into Resource Graph for queryability and powering the portal experience. Change Analysis data can be accessed using:
+
+- The `POST Microsoft.ResourceGraph/resources` API _(preferred)_ for querying across tenants and subscriptions
+- The following APIs _(under a specific scope, such as `LIST` changes and snapshots for a specific virtual machine):_
+   - `GET/LIST Microsoft.Resources/Changes`
+   - `GET/LIST Microsoft.Resources/Snapshots` 
 
 When a resource is created, updated, or deleted via the Azure Resource Manager control plane, Resource Graph uses its [Change Actor functionality](https://techcommunity.microsoft.com/t5/azure-governance-and-management/announcing-the-public-preview-of-change-actor/ba-p/4076626) to identify:
 - Who initiated a change in your resource
@@ -62,11 +65,14 @@ When a resource is created, updated, or deleted via the Azure Resource Manager c
 - What [operation](../../../role-based-access-control/resource-provider-operations.md) was called
 
 > [!NOTE]
-> Currently, Azure Resource Graph doesn't observe changes made to a resource's data plane API, such as writing data to a table in a storage account. 
+> Currently, Azure Resource Graph doesn't:
+>
+> - Observe changes made to a resource's data plane API, such as writing data to a table in a storage account. 
+> - Support file and configuration changes over App Service.
 
 ### 2. Azure Monitor Change Analysis
 
-In Azure Monitor, Change Analysis requires you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provides a simple API that abstracts resource change data from the Azure Resource Graph. 
+In Azure Monitor, Change Analysis required you to query a resource provider, called `Microsoft.ChangeAnalysis`, which provided a simple API that abstracted resource change data from the Azure Resource Graph. 
 
 While this service successfully helped thousands of Azure customers, the `Microsoft.ChangeAnalysis` resource provider has insurmountable limitations that prevent it from servicing the needs and scale of all Azure customers across all public and sovereign clouds.
 
