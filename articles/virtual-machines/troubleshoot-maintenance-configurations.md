@@ -20,7 +20,7 @@ Scheduled patching doesn't install the patches on the VMs and gives an error `Sh
 
 #### Resolution
 It takes 12 hours to complete the cleanup process for the maintenance configuration assignment so make sure to keep the buffer of 12 hours before recreating the VM with the same name. 
-If a new VM is recreated with the same name before the cleanup, Maintenance Configuration service will be unable to trigger the schedule.
+If a new VM is recreated with the same name before the cleanup, Maintenance Configuration service is unable to trigger the schedule.
 
 ### Shutdown and Unresponsive VM when using `static` scope in Guest Maintenance 
 
@@ -61,7 +61,7 @@ In order to create a dynamic scope, user must have the permission at the subscri
 User initiated update stuck for long time and update is not progressing
 
 #### Resolution
-If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request becomes stuck indefinitely. If the status of the apply update operation is closed/not found, then retry after 120 hours. If the issue persist, contact the support team for further mitigation.
+If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request becomes stuck indefinitely. If the status of the apply update operation is closed/not found, then retry after 120 hours. If the issue persists, contact the support team for further mitigation.
 
 ### Dedicated host updates even after Maintenance Configuration is attached
 
@@ -77,7 +77,7 @@ If a Dedicated Host is recreated with the same name, Maintenance Configuration s
 Install patch operation failed due to invalid classification type in Maintenance Configuration
 
 #### Resolution
-Due to a previous bug, the system patch operation couldn't perform validation, and an invalid classification type was found in the Maintenance Configuration. The bug has been fixed and deployed. To address this issue, customers can update the Maintenance Configuration and set the correct classification type.
+Due to a previous bug, the system patch operation couldn't perform validation, and an invalid classification type was found in the Maintenance Configuration. The bug is fixed and deployed. To address this issue, customers can update the Maintenance Configuration and set the correct classification type.
 
 ### Schedule didn't trigger
 
@@ -85,7 +85,7 @@ Due to a previous bug, the system patch operation couldn't perform validation, a
 If a resource has two maintenance configurations with the same trigger time and an install patch configuration, and both are assigned to the same VM/resource, only one maintenance configuration triggers.
 
 #### Resolution
-Please modify the start time of one of the maintenance configurations to mitigate the issue. It's a known system limitation due to which Maintenance Configuration is unable to identify which maintenance configuration triggers. The team is working on solving this limitation. 
+Modify the start time of one of the maintenance configurations to mitigate the issue. It's a known system limitation due to which Maintenance Configuration is unable to identify which maintenance configuration triggers. The team is working on solving this limitation. 
 
 ### Unable to create dynamic scope (at Resource Group Level)
 
@@ -125,7 +125,7 @@ This is a currently known limitation on the portal. The team is working on makin
 Maintenance Configuration executed again with the older trigger time, after the update
 
 #### Resolution 
-There's a known issue in Maintenance Schedule related to the caching of old maintenance policies. If an old policy is cached and the new policy processing is moved to a new instance, the old machine may trigger the schedule with the outdated start time. It's recommended to update the Maintenance Configuration at least 1 hour before. If the issue persists, reach out to support team for further assistance.
+There's a known issue in Maintenance Schedule related to the caching of old maintenance policies. If an old policy is cached, and a new instance moves the new policy processing, the old machine may trigger the schedule with the outdated start time. We recommend to update the Maintenance Configuration at least 1 hour before. If the issue persists, reach out to support team for further assistance.
 
 ### Schedule timeout, waiting for an ongoing update to complete the resource
 
@@ -133,7 +133,7 @@ There's a known issue in Maintenance Schedule related to the caching of old main
 Maintenance configuration timeout due to the host update window coinciding with the guest (VM) patching window
 
 #### Resolution
-In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window doesn't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
 ### Unimplemented APIs
 

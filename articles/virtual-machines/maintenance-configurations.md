@@ -20,7 +20,7 @@ Maintenance Configurations gives you the ability to control and manage updates f
 
 ## Scopes
 
-Maintenance Configurations currently supports three (3) scopes: Host, OS image, and Guest. While each scope allows scheduling and managing updates, the major difference lies in the resource they each support. This section outlines the details on the various scopes and their supported types:
+Maintenance Configurations currently support three (3) scopes: Host, OS image, and Guest. While each scope allows scheduling and managing updates, the major difference lies in the resource they each support. This section outlines the details on the various scopes and their supported types:
 
 | Scope    | Support Resources          |
 |----------|----------------------------|
@@ -30,11 +30,11 @@ Maintenance Configurations currently supports three (3) scopes: Host, OS image, 
 
 ### Host
 
-With this scope, you can manage platform updates that do not require a reboot on your *isolated VMs*, *isolated Virtual Machine Scale Set instances* and *dedicated hosts*. Some features and limitations unique to the host scope are:
+With this scope, you can manage platform updates that don't require a reboot on your *isolated VMs*, *isolated Virtual Machine Scale Set instances* and *dedicated hosts*. Some features and limitations unique to the host scope are:
 
 - Schedules can be set anytime within 35 days. After 35 days, updates are automatically applied.
 - A minimum of a 2 hour maintenance window is required for this scope.
-- Rack level maintenance is not currently supported.
+- Rack level maintenance isn't currently supported.
 
 [Learn more about Azure Dedicated Hosts](dedicated-hosts.md)
 
@@ -47,8 +47,7 @@ Using this scope with maintenance configurations lets you decide when to apply u
 - A minimum of 5 hours is required for the maintenance window.
 
 ### Guest
-
-This scope is integrated with [Update Manager](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope integrates with [Update Manager](../update-center/overview.md). It allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 
@@ -63,7 +62,7 @@ This scope is integrated with [Update Manager](../update-center/overview.md), wh
 > 1. The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
 > 2. The count of characters of Resource Group name along with Maintenance Configuration name should be less than 128 characters
 
-Maintenance Configuration provides two scheduled patching modes for In-guest VMs: Static Mode and [Dynamic Scope](../update-manager/dynamic-scope-overview.md) Mode. By default, the system operates in Static Mode if no Dynamic Scope Mode is configured. To schedule or modify the maintenance configuration in either mode, a buffer of 15 minutes prior to the scheduled patch time is required. For instance, if the patch is scheduled for 3PM, all modifications, including adding or removing VMs, altering the dynamic scope etc., should be finalized by 2:45PM.
+Maintenance Configuration provides two scheduled patching modes for In-guest VMs: Static Mode and [Dynamic Scope](../update-manager/dynamic-scope-overview.md) Mode. By default, the system operates in Static Mode if no Dynamic Scope Mode is configured. To schedule or modify the maintenance configuration in either mode, a buffer of 15 minutes before the scheduled patch time is required. For instance, if we schedule the patch for 3 PM, all modifications, including adding or removing VMs, altering the dynamic scope, etc., should finalize before 2:45 PM.
 
 To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
 
@@ -77,9 +76,9 @@ To learn more about this topic, checkout [Update Manager and scheduled patching]
 > In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
 > If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
 
-## Shut Down Machines
+## Shutdown Machines
 
-We are unable to apply maintenance updates to any shut down machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal, and this is only a display issue that the team is currently working to fix it. The maintenance configuration has not been completely disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#check-configuration).
+We're unable to apply maintenance updates to any shutdown machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal. This is only a display issue that the team is currently working to fix it. The maintenance configuration hasn't been disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#check-configuration).
 
 ## Management options
 
