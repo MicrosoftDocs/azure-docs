@@ -30,11 +30,9 @@ From the documentation for your Data Product, obtain the:
 
 The VM used for the ingestion agent should be set up following best practice for security. We recommend the following actions:
 
-- **Microsoft Defender for Cloud**
-  - Follow all recommendations from Microsoft Defender for Cloud. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
 - **Networking**
   - Give the VM a private IP address.
-  - Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur additional cost.
+  - Configure an Azure virtual network between the VM and the Data Product's input storage account. This might incur extra cost.
   - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
 - **Disk encryption** - ensure Azure disk encryption is enabled (this is the default when you create the VM).
 - **OS version**
@@ -45,17 +43,18 @@ The VM used for the ingestion agent should be set up following best practice for
   - Access to the directory where the logs are stored: */var/log/az-aoi-ingestion/*.
   - Access to the managed identity or certificate and private key for the service principal that you create during this procedure.
   - Access to the directory for secrets that you create on the VM during this procedure.
-  
+
+When using an Azure VM, also follow all recommendations from **Microsoft Defender for Cloud**. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
 
 ## Download the RPM for the agent
 
 Download the RPM for the ingestion agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
 
-Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than six months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
 ### Verify the authenticity of the ingestion agent RPM (optional)
 
-Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
+Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it hasn't been corrupted or tampered with.
 
 To do this, perform the following steps:
 
