@@ -22,7 +22,7 @@ highlightedContent:
     # Card
     - title: Get started with device development on Azure IoT
       itemType: get-started
-      url: ../iot-develop/index.yml
+      url: ../iot/concepts-iot-device-development.md
     # Card
     - title: Browse Azure IoT code samples
       itemType: sample

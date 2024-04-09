@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure IoT device development
-description: Learn how to use Azure IoT to do embedded device development and build device-enabled cloud applications.
+description: Learn how to use Azure IoT services, SDKs, and tools to do device development with general devices and embedded devices.  
 author: timlt
 ms.author: timlt
 ms.service: iot
@@ -10,7 +10,7 @@ ms.date: 04/09/2024
 #Customer intent: As a device builder, I want to understand the options for device development using Azure IoT. 
 ---
 
-# What is Azure IoT device development?
+# Azure IoT device development
 
 Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, MQTT support, and tools for building device-enabled cloud applications.
 

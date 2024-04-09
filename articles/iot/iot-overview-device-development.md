@@ -138,5 +138,6 @@ The following table lists some of the available IoT development tools:
 
 Now that you've seen an overview of device development in Azure IoT solutions, some suggested next steps include:
 
+- [Azure IoT device development](concepts-iot-device-development.md)
 - [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
 - [Device management and control](iot-overview-device-management.md)
