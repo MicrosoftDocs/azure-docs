@@ -3,7 +3,6 @@ title: 'Azure Premium Files NFS and SMB for SAP'
 description: Using Azure Premium Files NFS and SMB for SAP workload
 author: msftrobiro
 manager: msjuergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

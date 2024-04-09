@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/28/2022
 ms.author: godonnell
 ms.subservice: B2C

@@ -13,7 +13,7 @@ ms.reviewer: mimckitt
 # Azure Virtual Machine Scale Set automatic OS image upgrades
 
 > [!NOTE]
-> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -201,14 +201,26 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### Azure PowerShell
-Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to configure automatic OS image upgrades for your scale set. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use the [New-AzVmss](/powershell/module/az.compute//new-azvmss) cmdlet to configure automatic OS image upgrades for your scale set during provisioning. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+
+```azurepowershell-interactive
+New-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
+```
+
+Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to configure automatic OS image upgrades for your existing scale set. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### Azure CLI 2.0
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) to configure automatic OS image upgrades for your scale set. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to configure automatic OS image upgrades for your scale set during provisioning. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+
+```azurecli-interactive
+az vmss create --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```
+
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) to configure automatic OS image upgrades for your existing scale set. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -455,6 +467,10 @@ The platform can return errors on VMs while performing Automatic Image Upgrade w
 **InternalExecutionError**
 - Error is triggered when an unhandled, unformatted or unexpected occurs during execution.
 - The detailed error message displays the cause of the error.
+
+**RollingUpgradeTimeoutError**
+- Error is triggered when the rolling upgrade process has timed out.
+- The detailed error message displays the length of time the system timed out after attempting to update.
 
 ## Next steps
 > [!div class="nextstepaction"]

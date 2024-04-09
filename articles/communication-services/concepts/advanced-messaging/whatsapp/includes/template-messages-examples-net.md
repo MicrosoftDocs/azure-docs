@@ -1,11 +1,11 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 07/12/2023
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -15,7 +15,7 @@ ms.author: memontic
 
 The sample template named `sample_template` takes no parameters.
 
-:::image type="content" source="./../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
+:::image type="content" source="./../media/template-messages/sample-template-details-azure-portal.png" lightbox="./../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
 
 Assemble the `MessageTemplate` by referencing the target template's name and language.
 
@@ -30,7 +30,7 @@ var sampleTemplate = new MessageTemplate(templateName, templateLanguage);
 
 Some templates take parameters. Only include the parameters that the template requires. Including parameters not in the template is invalid.
 
-:::image type="content" source="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
 
 In this sample, the body of the template has one parameter:
 ```
@@ -47,18 +47,20 @@ string templateName = "sample_shipping_confirmation";
 string templateLanguage = "en_us"; 
 
 var threeDays = new MessageTemplateText("threeDays", "3");
-IEnumerable<MessageTemplateValue> values = 
-    new List<MessageTemplateValue> { threeDays };
-MessageTemplateWhatsAppBindings bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { threeDays.Name });
-var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(threeDays.Name));
+
+MessageTemplate shippingConfirmationTemplate  = new(templateName, templateLanguage);
+shippingConfirmationTemplate.Bindings = bindings;
+shippingConfirmationTemplate.Values.Add(threeDays);
 ``````
 
 ### Use sample template sample_movie_ticket_confirmation
 
 Templates can require various types of parameters such as text and images.
 
-:::image type="content" source="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
 
 In this sample, the header of the template requires an image:
 ```
@@ -88,25 +90,28 @@ var title = new MessageTemplateText("title", "Contoso");
 var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
 var venue = new MessageTemplateText("venue", "Southridge Video");
 var seats = new MessageTemplateText("seats", "Seat 1A");
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    image,
-    title,
-    time,
-    venue,
-    seats
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { image.Name },
-    body: new[] { title.Name, time.Name, venue.Name, seats.Name });
-MessageTemplate movieTicketConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(title.Name));
+bindings.Body.Add(new(time.Name));
+bindings.Body.Add(new(venue.Name));
+bindings.Body.Add(new(seats.Name));
+
+MessageTemplate movieTicketConfirmationTemplate = new(templateName, templateLanguage);
+movieTicketConfirmationTemplate.Values.Add(image);
+movieTicketConfirmationTemplate.Values.Add(title);
+movieTicketConfirmationTemplate.Values.Add(time);
+movieTicketConfirmationTemplate.Values.Add(venue);
+movieTicketConfirmationTemplate.Values.Add(seats);
+movieTicketConfirmationTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_happy_hour_announcement
 
 This sample template uses a video in the header and two text parameters in the body.
 
-:::image type="content" source="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
+:::image type="content" source="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" lightbox="./../media/template-messages/sample-happy-hour-announcement-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_happy_hour_announcement.":::
 
 Here, the header of the template requires a video:
 ```
@@ -135,25 +140,23 @@ var videoUrl = new Uri("< Your .mp4 Video URL >");
 var video = new MessageTemplateVideo("video", videoUrl);
 var venue = new MessageTemplateText("venue", "Fourth Coffee");
 var time = new MessageTemplateText("time", "Today 2-4PM");
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(video.Name));
+bindings.Body.Add(new(venue.Name));
+bindings.Body.Add(new(time.Name));
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    video,
-    venue,
-    time
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { video.Name },
-    body: new[] { venue.Name, time.Name });
-
-var happyHourAnnouncementTemplate = MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate happyHourAnnouncementTemplate = new(templateName, templateLanguage);
+happyHourAnnouncementTemplate.Values.Add(venue);
+happyHourAnnouncementTemplate.Values.Add(time);
+happyHourAnnouncementTemplate.Values.Add(video);
+happyHourAnnouncementTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_flight_confirmation
 
 This sample template uses a document in the header and three text parameters in the body.
 
-:::image type="content" source="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_flight_confirmation.":::
+:::image type="content" source="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" lightbox="./../media/template-messages/sample-flight-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_flight_confirmation.":::
 
 Here, the header of the template requires a document:
 ```
@@ -184,25 +187,25 @@ var firstName = new MessageTemplateText("firstName", "Kat");
 var lastName = new MessageTemplateText("lastName", "Larssen");
 var date = new MessageTemplateText("date", "July 1st, 2023");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    document,
-    firstName,
-    lastName,
-    date
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { document.Name },
-    body: new[] { firstName.Name, lastName.Name, date.Name });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(document.Name));
+bindings.Body.Add(new(firstName.Name));
+bindings.Body.Add(new(lastName.Name));
+bindings.Body.Add(new(date.Name));
 
-var flightConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate flightConfirmationTemplate = new(templateName, templateLanguage);
+flightConfirmationTemplate.Values.Add(document);
+flightConfirmationTemplate.Values.Add(firstName);
+flightConfirmationTemplate.Values.Add(lastName);
+flightConfirmationTemplate.Values.Add(date);
+flightConfirmationTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_issue_resolution
 
 This sample template adds two prefilled reply buttons to the message. It also includes one text parameter in the body.
 
-:::image type="content" source="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
+:::image type="content" source="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" lightbox="./../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
 
 Here, the body of the template requires one text parameter:
 ```
@@ -245,25 +248,19 @@ string templateName = "sample_issue_resolution";
 string templateLanguage = "en_us";
 
 var name = new MessageTemplateText(name: "name", text: "Kat");
-var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
-var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
+var yes = new MessageTemplateQuickAction(name: "Yes"){ Payload =  "Kat said yes" };
+var no = new MessageTemplateQuickAction(name: "No") { Payload = "Kat said no" };
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    name,
-    yes,
-    no
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { name.Name },
-    button: new[] {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply),
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply)
-    });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(name.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name));
 
-var issueResolutionTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate issueResolutionTemplate = new(templateName, templateLanguage);
+issueResolutionTemplate.Values.Add(name);
+issueResolutionTemplate.Values.Add(yes);
+issueResolutionTemplate.Values.Add(no);
+issueResolutionTemplate.Bindings = bindings;
 ``````
 
 ### Use sample template sample_purchase_feedback
@@ -273,10 +270,10 @@ This sample template adds a button with a dynamic URL link to the message. It al
 If using the precreated sample template `sample_purchase_feedback`, you need to modify the URL Type of its button from `Static` to `Dynamic`.   
 Go to your [Message templates in the WhatsApp manager](https://business.facebook.com/wa/manage/message-templates/) and edit the template for `sample_purchase_feedback`. In the dropdown for URL Type, change it from `Static` to `Dynamic`. Include a sample URL if necessary.
 
-:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+:::image type="content" source="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="./../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 Now, if you view the template details in the Azure portal, you see:
-:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
+:::image type="content" source="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" lightbox="./../media/template-messages/sample-purchase-feedback-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_purchase_feedback.":::
 
 In this sample, the header of the template requires an image:
 ```
@@ -327,22 +324,16 @@ var imageUrl = new Uri("https://aka.ms/acsicon1");
 
 var image = new MessageTemplateImage(name: "image", uri: imageUrl);
 var product = new MessageTemplateText(name: "product", text: "coffee");
-var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
+var urlSuffix = new MessageTemplateQuickAction(name: "text") { Text = "survey-code" };
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    image,
-    product,
-    urlSuffix
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { image.Name },
-    body: new[] { product.Name },
-    button: new[]
-    {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
-            MessageTemplateValueWhatsAppSubType.Url)
-    });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(product.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name));
 
-var purchaseFeedbackTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+MessageTemplate purchaseFeedbackTemplate = new("sample_purchase_feedback", "en_us");
+purchaseFeedbackTemplate.Values.Add(image);
+purchaseFeedbackTemplate.Values.Add(product);
+purchaseFeedbackTemplate.Values.Add(urlSuffix);
+purchaseFeedbackTemplate.Bindings = bindings;
 ``````

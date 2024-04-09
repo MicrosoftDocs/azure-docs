@@ -6,6 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nigreenf
 ms.topic: article
 ms.date: 02/14/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
 

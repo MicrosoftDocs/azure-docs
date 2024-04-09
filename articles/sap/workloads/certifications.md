@@ -4,7 +4,6 @@ description: Updated list of current configurations and certifications of SAP on
 services: virtual-machines-linux
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

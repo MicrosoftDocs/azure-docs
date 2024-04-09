@@ -7,14 +7,23 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### March 2024 release
+
+#### Text to speech avatar
+
+- Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+
 ### February 2024 release
 
 #### OpenAI voices
 
-The Azure AI Speech service supports OpenAI text to speech voices in the following regions: North Central US and Sweden Central. Like Azure AI Speech voices, OpenAI text to speech voices deliver high-quality speech synthesis to convert written text into natural sounding spoken audio. This unlocks a wide range of possibilities for immersive and interactive user experiences. For more information, see [What are OpenAI text to speech voices?](../../openai-voices.md). 
+- The Azure AI Speech service supports OpenAI text to speech voices in the following regions: North Central US and Sweden Central. Like Azure AI Speech voices, OpenAI text to speech voices deliver high-quality speech synthesis to convert written text into natural sounding spoken audio. This unlocks a wide range of possibilities for immersive and interactive user experiences. For more information, see [What are OpenAI text to speech voices?](../../openai-voices.md).
 
-> [!NOTE]
-> OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
+  > [!NOTE]
+  > OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
+  
+- With this update, we have adjusted the pricing of prebuilt neural voices with Azure AI Speech. Check the updated pricing [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 
 #### Personal voice
 

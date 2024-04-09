@@ -3,7 +3,6 @@ title: SAP HANA Azure virtual machine Premium SSD v2 configurations | Microsoft 
 description: Storage recommendations HANA using Premium SSD v2.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

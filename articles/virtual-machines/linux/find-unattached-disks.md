@@ -15,6 +15,9 @@ ms.custom: devx-track-azurecli
 
 When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
 
+> [!NOTE]
+> You can use the [az disk show](/cli/azure/disk?view=azure-cli-latest) command to get the LastOwnershipUpdateTime for any disk. This property represents when the disk’s state was last updated. For an unattached disk, this will show the time when the disk was unattached. Note that this property will be blank for a new disk until its disk state is changed.  
+
 
 ## Managed disks: Find and delete unattached disks 
 

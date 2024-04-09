@@ -27,7 +27,7 @@ Sign up at [SERP API homepage](https://serpapi.com/)
 
 Create a Serp connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **Settings** > **Connections**.
+1. Go to **AI project settings** > **Connections**.
 1. Select **+ New connection**.
 1. Add the following custom keys to the connection:
     - `azureml.flow.connection_type`: `Custom`
@@ -44,7 +44,7 @@ The connection is the model used to establish connections with Serp API. Get you
 
 ## Build with the Serp API tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Serp API** to add the Serp API tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/serp-api-tool.png" alt-text="Screenshot of the Serp API tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/serp-api-tool.png":::

@@ -21,15 +21,13 @@ The following are known limitations in Chaos Studio.
 - **VMs require network access to Chaos studio** - For agent-based faults, the virtual machine must have outbound network access to the Chaos Studio agent service:
     - Regional endpoints to allowlist are listed in [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md#network-security).
     - If you're sending telemetry data to Application Insights, the IPs in [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) are also required.
-
+- **Network Disconnect Fault** - The agent-based "Network Disconnect" fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
 - **Version support** - Review the [Azure Chaos Studio version compatibility](chaos-studio-versions.md) page for more information on operating system, browser, and integration version compatibility.
-- **Terraform** - Chaos Studio doesn't support Terraform at this time.
 - **PowerShell modules** - Chaos Studio doesn't have dedicated PowerShell modules at this time. For PowerShell, use our REST API
 - **Azure CLI** - Chaos Studio doesn't have dedicated AzCLI modules at this time. Use our REST API from AzCLI
 - **Azure Policy** - Chaos Studio doesn't support the applicable built-in policies for our service (audit policy for customer-managed keys and Private Link) at this time. 
-- **Private Link** To use Private Link for Agent Service, you need to have your subscription allowlisted and use our preview API version. We don't support Azure portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
+- **Private Link** - We don't support Azure portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
 - **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time.
-- **Lockbox** At present, we don't have integration with Customer Lockbox.
 - **Java SDK** At present, we don't have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
 - **Built-in roles** - Chaos Studio doesn't currently have its own built-in roles. Permissions can be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
 - **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults.

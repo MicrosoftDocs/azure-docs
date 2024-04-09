@@ -207,7 +207,7 @@ The following table shows the supported log types and descriptions:
 | App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs <sup>3</sup> |
 | IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
+| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>4</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 

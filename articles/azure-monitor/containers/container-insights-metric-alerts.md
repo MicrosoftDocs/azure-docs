@@ -224,9 +224,9 @@ Source code for the recommended alerts can be found in [GitHub](https://aka.ms/a
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
 
 > [!NOTE]
-> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule isn't included with the Prometheus alert rules.
+> The recommended alert rules in the Azure portal also include a log search alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule isn't included with the Prometheus alert rules.
 >
-> You can create this rule on your own by creating a [log alert rule](../alerts/alerts-types.md#log-alerts) that uses the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
+> You can create this rule on your own by creating a [log search alert rule](../alerts/alerts-types.md#log-alerts) that uses the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
 
 Common properties across all these alert rules include:
 

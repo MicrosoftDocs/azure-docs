@@ -63,7 +63,7 @@ A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP
 
 A NAT gateway can be created in a specific availability zone or placed in **no zone**. When a NAT gateway is placed in no zone, Azure selects a zone for the NAT gateway to reside in.
 
-Zone redundant public IP addresses can be used with no zone NAT gateway resources.
+Zone redundant public IP addresses can be used with zonal or no zone NAT gateway resources.
 
 The recommendation is to configure a NAT gateway to individual availability zones. Additionally, it should be attached to subnets with private instances from the same zone. For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations](/azure/nat-gateway/nat-availability-zones#design-considerations).
 

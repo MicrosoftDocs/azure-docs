@@ -14,7 +14,7 @@ ms.custom: [amqp, 'Role: Cloud Development']
 
 By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](../event-hubs/index.yml). IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
-If you're using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, a message that doesn't match a query on any route goes to the built-in endpoint. If you disable this fallback route, a message that doesn't match any query is dropped.
+If you're using message routing and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, a message that doesn't match a query on any route goes to the built-in endpoint. If you disable this fallback route, a message that doesn't match any query is dropped.
 
 This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
 

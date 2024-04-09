@@ -37,6 +37,9 @@ In this quick start, you'll learn about how to enable user engagement tracking f
 **Your email domain is now ready to send emails with user engagement tracking. Please be aware that user engagement tracking is applicable to HTML content and will not function if you submit the payload in plaintext.**
 
 You can now subscribe to Email User Engagement operational logs - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
+> [!NOTE]
+> User Engagement Tracking cannot be enabled for Azure Managed Domains or Custom Domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../concepts/service-limits.md#rate-limits).
+
 > [!IMPORTANT]
 > If you plan to enable open/click tracking for your email links, ensure that you are formatting the email content in HTML correctly. Specifically, make sure your tracking content is properly encapsulated within the payload, as demonstrated below:
 ```html

@@ -2,11 +2,11 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 05/15/2023
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.custom: references_regions
 ---
 

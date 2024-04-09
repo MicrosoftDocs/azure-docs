@@ -3,11 +3,11 @@ title: Creating and configuring a key vault for Azure Disk Encryption with Micro
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 01/04/2023
+ms.date: 02/20/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release) for Linux VMs

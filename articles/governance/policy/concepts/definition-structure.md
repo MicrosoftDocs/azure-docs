@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/15/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ---
 
@@ -76,19 +76,19 @@ Azure Policy built-ins and patterns are at [Azure Policy samples](../samples/ind
 
 ## Display name and description
 
-You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+You use `displayName` and `description` to identify the policy definition and provide context
+for when it's used. `displayName` has a maximum length of _128_ characters and `description`
 a maximum length of _512_ characters.
 
 > [!NOTE]
-> During the creation or updating of a policy definition, **id**, **type**, and **name** are defined
+> During the creation or updating of a policy definition, `id`, `type`, and `name` are defined
 > by properties external to the JSON and aren't necessary in the JSON file. Fetching the policy
-> definition via SDK returns the **id**, **type**, and **name** properties as part of the JSON, but
+> definition via SDK returns the `id`, `type`, and `name` properties as part of the JSON, but
 > each are read-only information related to the policy definition.
 
-## Type
+## Policy type
 
-While the **type** property can't be set, there are three values that are returned by SDK and
+While the `policyType` property can't be set, there are three values that are returned by SDK and
 visible in the portal:
 
 - `Builtin`: These policy definitions are provided and maintained by Microsoft.
@@ -143,7 +143,7 @@ The following Resource Provider modes are fully supported:
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
-The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
+The following Resource Provider modes are currently supported as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/):
 
 - `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list. This RP mode is enforcement only and does not report compliance in public preview.
@@ -186,11 +186,13 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
+### Adding or removing parameters
+
 Parameters may be added to an existing and assigned definition. The new parameter must include the
 **defaultValue** property. This prevents existing assignments of the policy or initiative from
 indirectly being made invalid.
 
-Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Some built-in policy definitions have deprecated parameters using metadata `"deprecated": true`, which hides the parameter when assigning the definition in Azure Portal. While this is not supported for custom policy definitions, another option is to duplicate and create a new custom policy definition without the parameter.
 
 ### Parameter properties
 
@@ -212,6 +214,7 @@ A parameter has the following properties that are used in the policy definition:
     the assignment scope. There's one role assignment per role definition in the policy (or per role
     definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
+  - `deprecated`: A boolean flag to indicate whether a parameter is deprecated in a built-in definition.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
   assignment.

@@ -160,5 +160,5 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- [PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/postgres-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+- [PostgreSQL CDC Connector](https://github.com/apache/flink-cdc) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 - Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

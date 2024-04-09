@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 01/03/2024
+ms.date: 02/23/2024
 ---
 
 # Deployment stacks (Preview)
@@ -29,15 +29,17 @@ Deployment stacks provide the following benefits:
 - Efficient environment cleanup by employing delete flags during deployment stack updates.
 - Utilizing standard templates such as Bicep, ARM templates, or Template specs for your deployment stacks.
 
+### Known limitations
+
+- Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
+- Deny assignments don't support tags.
+- Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
+
 ### Known issues
 
 - Deleting resource groups currently bypasses deny assignments. When creating a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny assignment setting, it's possible to delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation will fail.
-- Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - [What-if](./deploy-what-if.md) isn't available in the preview.
-- Management group scoped deployment stacks can only deploy the template to subscription.
-- When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
-- If you create or modify a deployment stack in the Azure portal, deny settings will be overwritten (support for deny settings in the Azure portal is currently in progress).
-- Management group deployment stacks are not yet available in the Azure portal.
+- A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 
 ## Create deployment stacks
 

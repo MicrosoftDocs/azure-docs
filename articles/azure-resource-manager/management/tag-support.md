@@ -772,16 +772,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | storageAccounts / vmImages | No | No |
 > | vmImages | No | No |
 
-## Microsoft.CloudTest
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | hostedpools | Yes | Yes |
-> | images | Yes | Yes |
-> | pools | Yes | Yes |
-
 ## Microsoft.CodeSigning
 
 > [!div class="mx-tableFixed"]

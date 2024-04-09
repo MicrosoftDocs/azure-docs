@@ -108,7 +108,7 @@ dependencies {
     public class GetChatCompletionsSample {
     
         public static void main(String[] args) {
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
             String deploymentOrModelId = "gpt-35-turbo";
     

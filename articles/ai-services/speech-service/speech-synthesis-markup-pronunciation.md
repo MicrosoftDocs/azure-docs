@@ -1,7 +1,7 @@
 ---
 title: Pronunciation with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure AI services
-description: Learn about Speech Synthesis Markup Language (SSML) elements to improve pronunciation.
+description: Learn about Speech Synthesis Markup Language (SSML) elements and improve pronunciation.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -14,13 +14,13 @@ ms.author: eur
 
 You can use Speech Synthesis Markup Language (SSML) with text to speech to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
-Refer to the sections below for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
+Refer to the following sections for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
 ## phoneme element
 
 The `phoneme` element is used for phonetic pronunciation in SSML documents. Always provide human-readable speech as a fallback.
 
-Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
+Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. The phonetic alphabet is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
 > For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=tts) table.
@@ -38,21 +38,21 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="ipa" ph="tə.ˈmeɪ.toʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -68,7 +68,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
         <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
@@ -99,7 +99,7 @@ After you publish your custom lexicon, you can reference it from your SSML. The 
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -122,7 +122,7 @@ Here are some limitations of the custom lexicon file:
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
 
 - The `lexicon` element contains at least one `lexeme` element. Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it doesn't work. The `lexicon` element also has an `alphabet` attribute to indicate the alphabet used in the lexicon. The possible values are `ipa` and `x-microsoft-sapi`.
-- Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello", it won't work for the `lexeme` "hello".
+- Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello", it doesn't work for the `lexeme` "hello".
 - The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). 
 - The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. 
 - The `phoneme` element provides text that describes how the `lexeme` is pronounced. The syllable boundary is '.' in the IPA alphabet. The `phoneme` element can't contain white space when you use the IPA alphabet.
@@ -147,8 +147,8 @@ The following XML example (not SSML) would be contained in a custom lexicon `.xm
         <alias>By the way</alias>
     </lexeme>
     <lexeme>
-        <grapheme> Benigni </grapheme>
-        <phoneme> bɛˈniːnji</phoneme>
+        <grapheme>Benigni</grapheme>
+        <phoneme>bɛˈniːnji</phoneme>
     </lexeme>
     <lexeme>
         <grapheme>😀</grapheme>
@@ -226,6 +226,10 @@ Usage of the `say-as` element's attributes are described in the following table.
 
 The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in this table.
 
+> [!NOTE]
+> The `characters` and `spell-out` values for the `interpret-as` attribute are supported for all [text to speech locales](language-support.md?tabs=tts).
+> Other `interpret-as` attribute values are supported for all locales of the following languages: Arabic, Catalan, Chinese, Danish, Dutch, English, French, Finnish, German, Hindi, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish.
+
 | interpret-as   | format   | Interpretation |
 | ---------- | ---------- | ---------- |
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
@@ -249,7 +253,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -276,7 +280,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <sub alias="World Wide Web Consortium">W3C</sub>
     </voice>
 </speak>
@@ -303,7 +307,26 @@ The XML syntax doesn't support the MathML entities, so you must use the correspo
 The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-JennyNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice name='en-US-JennyNeural'>
+        <math xmlns='http://www.w3.org/1998/Math/MathML'>
+            <msup>
+                <mi>a</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <msup>
+                <mi>b</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>=</mo>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+        </math>
+    </voice>
+</speak>
 ```
 
 ## Next steps

@@ -41,7 +41,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - Latest version of [Git](https://git-scm.com/download/) installed.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create the provisioning service and two divisional IoT hubs
 

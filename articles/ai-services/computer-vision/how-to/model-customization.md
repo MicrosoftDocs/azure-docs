@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: devx-track-python
 ---

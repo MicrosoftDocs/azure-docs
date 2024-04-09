@@ -109,18 +109,22 @@ You can see that the status of the Communication Services Teams.ManageCalls and 
 
 If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Microsoft Entra tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your Microsoft Entra tenancy. 
 
-```script
-Connect-AzureAD -TenantId "Tenant_ID"
-```
-If the command is not found, start PowerShell as an administrator and install the Microsoft Entra ID package.
+You will require **Application.ReadWrite.All** as shown bellow
+![image](https://github.com/brpiment/azure-docs-pr/assets/67699415/c53459fa-d64a-4ef2-8737-b75130fbc398)
+
 
 ```script
-Install-Module AzureAD
+Connect-MgGraph -TenantId "Tenant_ID" -Scopes Application.ReadWrite.All
+```
+If the command is not found, start PowerShell as an administrator and install the Microsoft Graph package.
+
+```script
+Install-Module Microsoft.Graph
 ```
 Then execute the following command to add a service principal to your tenant. Do not modify the GUID of the App ID.
 
 ```script
-New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
+New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
 

@@ -4,7 +4,7 @@ description: The article describes how to manage the update settings for your Wi
 ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 03/07/2024
 ms.topic: conceptual
 ---
 

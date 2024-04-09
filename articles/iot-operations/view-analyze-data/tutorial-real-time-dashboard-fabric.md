@@ -1,7 +1,6 @@
 ---
 title: Build a real-time dashboard in Microsoft Fabric with MQTT data
-titleSuffix: Azure IoT MQ
-description: Learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from IoT MQ
+description: Learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from Azure IoT MQ
 author: PatAltimore
 ms.subservice: mq
 ms.author: patricka
@@ -11,13 +10,13 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from IoT MQ.
 ---
 
-# Build a real-time dashboard in Microsoft Fabric with MQTT data
+# Build a real-time dashboard in Microsoft Fabric using MQTT data from Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that's published to IoT MQ. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
+In this walkthrough, you build a real-time Power BI dashboard in Microsoft Fabric using simulated MQTT data that's published to Azure IoT MQ Preview. The architecture uses the IoT MQ's Kafka connector to deliver messages to an Event Hubs namespace. Messages are then streamed to a Kusto database in Microsoft Fabric using an eventstream and visualized in a Power BI dashboard. 
 
-Azure IoT Operations can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
+Azure IoT Operation Preview - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
 ## Prepare your Kubernetes cluster
 

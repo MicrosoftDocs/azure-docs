@@ -63,12 +63,15 @@ Before you delete an Azure AI hub resource in the Azure portal or with Azure CLI
 - Azure AI Search (for the data)
 - Virtual machines
 - Load Balancer
-- Virtual Network
+- Azure Virtual Network
 - Bandwidth
 
 Each VM is billed per hour it's running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer is billed per day. Every 50 nodes of a compute cluster have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
 
-Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there's persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in virtual network setups might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you're charged.
+Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there's persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For Azure Virtual Networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in virtual network setups might also incur charges. If your virtual network uses an Azure Firewall, this might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you're charged. 
+
+> [!TIP]
+> Using an managed virtual network is free. However some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules) and will incur charges. For more information, see [Managed virtual network isolation](configure-managed-network.md#pricing).
 
 ### Costs might accrue after resource deletion
 
@@ -97,7 +100,7 @@ For the examples in this section, assume that all Azure AI Studio resources are 
 Here's an example of how to monitor costs for an Azure AI Studio project. The costs are used as an example only. Your costs will vary depending on the services that you use and the amount of usage.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select your project and then select **Settings** from the left navigation menu.
+1. Select your project and then select **AI project settings** from the left navigation menu.
 
     :::image type="content" source="../media/cost-management/project-costs/project-settings-go-view-costs.png" alt-text="Screenshot of the Azure AI Studio portal showing how to see project settings." lightbox="../media/cost-management/project-costs/project-settings-go-view-costs.png":::
 

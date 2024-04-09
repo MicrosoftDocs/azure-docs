@@ -18,7 +18,7 @@ For an introduction to the Azure Data Factory service, see [Introduction to Azur
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!NOTE]
 > To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription. For more information, see [Azure roles](quickstart-create-data-factory-powershell.md#azure-roles).

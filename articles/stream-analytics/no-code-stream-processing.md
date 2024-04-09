@@ -165,7 +165,7 @@ The no-code editor now supports two reference data sources:
 
 Reference data is modeled as a sequence of blobs in ascending order of the date/time combination specified in the blob name. You can add blobs to the end of the sequence only by using a date/time greater than the one that the last blob specified in the sequence. Blobs are defined in the input configuration.
 
-First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2**. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-blob-storage).
+First, under the **Inputs** section on the ribbon, select **Reference ADLS Gen2**. To see details about each field, see the section about Azure Blob Storage in [Use reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md#azure-blob-storage-or-azure-data-lake-storage-gen-2).
 
 ![Screenshot that shows fields for configuring Azure Data Lake Storage Gen2 as input in the no-code editor.](./media/no-code-stream-processing/blob-referencedata-nocode.png)
 

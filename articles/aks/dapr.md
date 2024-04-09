@@ -6,6 +6,7 @@ ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 02/14/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, references_regions
 ---
 

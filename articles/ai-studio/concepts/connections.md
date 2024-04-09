@@ -1,13 +1,13 @@
 ---
 title: Connections in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: This article introduces connections in Azure AI Studio
+description: This article introduces connections in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI hub resource. 
+Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and non-Microsoft resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI hub resource. 
 
 ## Connections to Azure AI services
 
@@ -29,11 +29,11 @@ As another example, you can create a connection to an Azure AI Search resource. 
 
 :::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
 
-## Connections to third-party services
+## Connections to non-Microsoft services
 
-Azure AI Studio supports connections to third-party services, including the following:
-- The [API key connection](../how-to/connections-add.md?tabs=api-key#connection-details) handles authentication to your specified target on an individual basis. This is the most common third-party connection type.
-- The [custom connection](../how-to/connections-add.md?tabs=custom#connection-details) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
+Azure AI Studio supports connections to non-Microsoft services, including the following:
+- The [API key connection](../how-to/connections-add.md?tabs=api-key#connection-details) handles authentication to your specified target on an individual basis. This is the most common non-Microsoft connection type.
+- The [custom connection](../how-to/connections-add.md?tabs=custom#connection-details) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you'll have to manage authentication on your own.
 
 ## Connections to datastores
 
@@ -59,23 +59,23 @@ Azure Blob Container| ✓ | ✓|
 Microsoft OneLake| ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
 
-A Uniform Resource Identifier (URI) represents a storage location on your local computer, Azure storage, or a publicly available http(s) location. These examples show URIs for different storage options:
+A Uniform Resource Identifier (URI) represents a storage location on your local computer, Azure storage, or a publicly available http or https location. These examples show URIs for different storage options:
 
-|Storage location  | URI examples  |
-|---------|---------|
-|Azure AI Studio connection  |   `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet`      |
-|Local files     | `./home/username/data/my_data`         |
-|Public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|Blob storage    | `wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/`|
-|Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
-|Microsoft OneLake | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv` `https://<accountname>.dfs.fabric.microsoft.com/<artifactname>` |
 
+| Storage location | URI examples |
+|------------------|--------------|
+| Azure AI Studio connection | `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet` |
+| Local files | `./home/username/data/my_data` |
+| Public http or https server | `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv` |
+| Blob storage | `wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/` |
+| Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv` |
+| Microsoft OneLake | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv` `https://<accountname>.dfs.fabric.microsoft.com/<artifactname>` |
 
 ## Key vaults and secrets
 
 Connections allow you to securely store credentials, authenticate access, and consume data and information.  Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards. As an administrator, you can audit both shared and project-scoped connections on an Azure AI hub resource level (link to connection rbac). 
 
-Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the Azure AI hub resource's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
+Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they're stored in the Azure AI hub resource's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
 
 
 ## Next steps

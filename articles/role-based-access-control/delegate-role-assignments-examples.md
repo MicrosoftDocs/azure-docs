@@ -1,7 +1,6 @@
 ---
 title: Examples to delegate Azure role assignment management with conditions - Azure ABAC
 description: Examples to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
