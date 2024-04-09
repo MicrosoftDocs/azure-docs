@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/08/2022
 ---
 
-# Azure Cosmos DB free tier
+# Azure Cosmos DB lifetime free tier
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
