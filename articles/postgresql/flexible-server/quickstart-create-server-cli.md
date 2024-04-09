@@ -145,4 +145,4 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](/app-service/tutorial-python-postgresql-app.md)
+>[Deploy a Django app with App Service and PostgreSQL](/azure/app-service/tutorial-python-postgresql-app.md)
