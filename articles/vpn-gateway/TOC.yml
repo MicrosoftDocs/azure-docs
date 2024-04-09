@@ -231,9 +231,11 @@
           href: point-to-site-vpn-client-configuration-radius-other.md
       - name: Microsoft Entra ID authentication
         items:
-        - name: Windows
+        - name: Linux - first-party App ID
+          href: point-to-site-entra-vpn-client-linux.md
+        - name: Windows - third-party App ID
           href: openvpn-azure-ad-client.md
-        - name: macOS
+        - name: macOS - third-party App ID
           href: openvpn-azure-ad-client-mac.md
         - name: Generate profile files
           href: about-vpn-profile-download.md 
