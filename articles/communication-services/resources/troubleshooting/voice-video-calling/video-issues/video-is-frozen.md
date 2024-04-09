@@ -21,7 +21,7 @@ Finally the video sender dropping the call unexpectedly also causes the issue.
 
 ## How to detect using the Calling SDK
 
-You can use the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), your application can register a listener callback to detect the network condition changes and listen for other end user impacting events.
+You can use the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md). Your application can register a listener callback to detect the network condition changes and listen for other end user impacting events.
 
 At the video sending end, you can check events with the values of `networkReconnect`, `networkSendQuality`, `cameraFreeze`, `cameraStoppedUnexpectedly`.
 
