@@ -15,9 +15,9 @@ ms.subservice: calling
 # The sender's video is frozen
 When the receiver sees that the sender's video is frozen, it means that the incoming video frame rate is 0.
 
-The problem may occur due to poor network connection on either the receiving or sending end,
-or due to issues with the camera on the sending end, or if the video input track is muted, which usually happens when a mobile phone browser goes to background,
-or if the video sender drops the call unexpectedly.
+The problem may occur due to poor network connection on either the receiving or sending end.
+This issue can also occurs when a mobile phone browser goes to background which would lead to the camera stopping to send frames.
+Finally the video sender dropping the call unexpectedly also causes the issue.
 
 
 ## How to detect using SDK
