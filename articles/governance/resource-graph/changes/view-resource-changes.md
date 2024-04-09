@@ -47,11 +47,11 @@ You may need to reset filters set on the **All resources** blade in order to use
 | ------ | ----------- |
 | Subscription | This filter is in-sync with the Azure portal subscription selector. It supports multiple-subscription selection. |
 | Resource group | Select the resource group to scope to all resources within that group. By default, all resource groups are selected. |
-| Time span | Limit results to resources changed within a certian time range.  |
+| Time span | Limit results to resources changed within a certain time range.  |
 | Change types | Types of changes made to resources. |
 | Resource types | Select **Add filter** to add this filter.</br> Search for resources by their resource type, like virtual machine. |
 | Resources | Select **Add filter** to add this filter.</br> Filter results based on their resource name. |
-| Correlation ids | Select **Add filter** to add this filter.</br> Filter resource results by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
+| Correlation IDs | Select **Add filter** to add this filter.</br> Filter resource results by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
 | Changed by types | Select **Add filter** to add a tag filter.</br> Filter resource changes based on the descriptor of who made the change. |
 | Client types | Select **Add filter** to add this filter.</br> Filter results based on how the change is initiated and performed. |
 | Operations | Select **Add filter** to add this filter.</br> Filter resources based on [their resource provider operations](../../../role-based-access-control/resource-provider-operations.md). |
@@ -75,7 +75,7 @@ In the **Change Analysis** blade, you can organize the results into groups using
 | Changed By | Groups resource changes by who made the change. Values include user email ID or subscription ID. |
 | Changed By Type | Groups resource changes based on the descriptor of who made the change. Values include "User", "Application".  |
 | Operation | Groups resources based on [their resource provider operations](../../../role-based-access-control/resource-provider-operations.md). |
-| Correlation Id | Organizes the resource changes by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
+| Correlation ID | Organizes the resource changes by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
 
 ### Edit columns
 
