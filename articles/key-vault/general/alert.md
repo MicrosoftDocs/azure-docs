@@ -197,7 +197,7 @@ AzureDiagnostics
     > ![Screenshot that shows how to configure notification](../media/alert-25.png)
     1. Configure **Details** to trigger **Warning** alert
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows how to configure notification](../media/alert-26.png)
+    > ![Screenshot that shows how to configure notification details](../media/alert-26.png)
     1. Select **Review + create**
     
 ## Next steps
