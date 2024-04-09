@@ -43,7 +43,7 @@ sections:
           - System updates - data is updated within 24 hours
           - Endpoint Protection issues - data is updated within 8 hours
           
-          Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly. 
+          Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly.
           
           Defender for Cloud uses monitoring components to collect and store data. To learn more about [monitoring components](./monitoring-components.md).
                     

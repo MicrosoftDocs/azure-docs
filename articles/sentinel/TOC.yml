@@ -149,6 +149,8 @@
           href: sap/cross-workspace.md
         - name: Respond to SAP incidents with playbooks
           href: sap/sap-incident-response-playbooks.md
+        - name: Automatic attack disruption for SAP
+          href: sap/deployment-attack-disrupt.md
         - name: Deployment guide
           items: 
           - name: Overview
@@ -159,12 +161,8 @@
             href: sap/preparing-sap.md
           - name: Configure auditing
             href: sap/configure-audit.md
-          - name: Deploy data connector agent
-            items:
-            - name: Deploy data connector agent (portal/script)
-              href: sap/deploy-data-connector-agent-container.md        
-            - name: Deploy data connector agent (manually)
-              href: sap/deploy-data-connector-agent-container-other-methods.md
+          - name: Deploy the data connector agent
+            href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
@@ -372,7 +370,7 @@
       href: data-connectors/alicloud-using-azure-functions.md
     - name: Amazon Web Services
       href: data-connectors/amazon-web-services.md
-    - name: Amazon Web Services S3 (preview)
+    - name: Amazon Web Services S3
       href: data-connectors/amazon-web-services-s3.md
     - name: Apache HTTP Server
       href: data-connectors/apache-http-server.md
@@ -786,7 +784,7 @@
       href: data-connectors/vmware-vcenter.md
     - name: WatchGuard Firebox
       href: data-connectors/watchguard-firebox.md
-    - name: Windows DNS Events via AMA (Preview)
+    - name: Windows DNS Events via AMA
       href: data-connectors/windows-dns-events-via-ama.md
     - name: Windows Firewall
       href: data-connectors/windows-firewall.md
@@ -1122,6 +1120,8 @@
       href: configure-data-retention.md
     - name: Basic logs best practices
       href: basic-logs-use-cases.md
+  - name: Connect Microsoft Sentinel to Microsoft Defender XDR
+    href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager

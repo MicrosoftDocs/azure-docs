@@ -5,6 +5,9 @@ description: Learn how to secure traffic that flows in and out of pods by using 
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/28/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Secure traffic between pods by using network policies in AKS
@@ -426,3 +429,4 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+
