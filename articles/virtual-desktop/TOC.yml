@@ -414,7 +414,7 @@
           items:
           - name: Create and assign a scaling plan
             displayName: autoscale, scale, virtual machines, vms
-            href: autoscale-scaling-plan.md
+            href: autoscale-create-assign-scaling-plan.md
           - name: Monitor Autoscale operations
             displayName: monitoring, scale, scaling, avd insights, avdi
             href: autoscale-monitor-operations-insights.md
