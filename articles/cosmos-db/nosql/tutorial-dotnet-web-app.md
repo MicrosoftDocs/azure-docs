@@ -272,9 +272,9 @@ Now, you'll create a new ASP.NET web application using a sample project template
 
         return new List<Product>()
         {
-            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", categoryId: "3E4CEACD-D007-46EB-82D7-31F6141752B2", categoryName: "Components, Road Frames", sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
-           ...
-            new Product(id: "d5928182-0307-4bf9-8624-316b9720c58c", categoryId: "AA5A82D4-914C-4132-8C08-E7B75DCE3428", categoryName: "Components, Cranksets", sku: "CS-6583", name: """ML Crankset""", description: """The product called "ML Crankset".""", price: 256.49000000000001m)
+            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", category: new Category(name: "Components, Road Frames"), sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
+            new Product(id: "bd43543e-024c-4cda-a852-e29202310214", category: new Category(name: "Components, Forks"), sku: "FK-5136", name: """ML Fork""", description: """The product called "ML Fork".""", price: 175.49000000000001m),
+            ...
         };
     }
     ```
@@ -286,17 +286,22 @@ Now, you'll create a new ASP.NET web application using a sample project template
     { }
     ```
 
-1. Finally, navigate to and open the **Models/Product.cs** file. Observe the record type defined in this file. This type will be used in queries throughout this tutorial.
+1. Finally, navigate to and open the **Models/Product.cs** and **Models/Category.cs** files. Observe the record types defined in each file. These types will be used in queries throughout this tutorial.
 
     ```csharp
     public record Product(
         string id,
-        string categoryId,
-        string categoryName,
+        Category category,
         string sku,
         string name,
         string description,
         decimal price
+    );
+    ```
+
+    ```csharp
+    public record Category(
+        string name
     );
     ```
 
@@ -438,26 +443,24 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
         string sql = """
         SELECT
             p.id,
-            p.categoryId,
-            p.categoryName,
-            p.sku,
             p.name,
+            p.category,
+            p.sku,
             p.description,
-            p.price,
-            p.tags
+            p.price
         FROM products p
-        JOIN t IN p.tags
-        WHERE t.name = @tagFilter
+        JOIN tag IN p.tags
+        WHERE STRINGEQUALS(tag, @tagFilter, true)
         """;
         ```
 
-    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value `Tag-75` to the `@tagFilter` parameter.
+    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value `red` to the `@tagFilter` parameter.
 
         ```csharp
         var query = new QueryDefinition(
             query: sql
         )
-            .WithParameter("@tagFilter", "Tag-75");
+            .WithParameter("@tagFilter", "red");
         ```
 
     1. Use the `GetItemQueryIterator<>` generic method and the `query` variable to create an iterator that gets data from Azure Cosmos DB. Store the iterator in a variable named `feed`. Wrap this entire expression in a using statement to dispose the iterator later.
