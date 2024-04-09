@@ -146,7 +146,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
