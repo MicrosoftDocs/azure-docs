@@ -185,7 +185,7 @@ Consider setting `max_tokens` to a slightly higher value than normal, such as 30
 > [!NOTE]  
 > The version `gpt-35-turbo` is equivalent to the `gpt-3.5-turbo` model from OpenAI.
 
-Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model and the `gpt-4` and `gpt-4-32k` models continue to be updated. When you create a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you also need to specify a model version.
+Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model and the `gpt-4` and `gpt-4-32k` models will continue to be updated. When you create a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you also need to specify a model version.
 
 You can find the model retirement dates for these models on the [models](../concepts/models.md) page.
 
@@ -307,7 +307,7 @@ The examples so far show the basic mechanics of interacting with the Chat Comple
 - Continuously takes console input and properly formats it as part of the messages list as user role content.
 - Outputs responses that are printed to the console and formatted and added to the messages list as assistant role content.
 
-Every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Because the model has no memory, you need to send an updated transcript with each new question or the model loses the context of the previous questions and answers.
+Every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Because the model has no memory, you need to send an updated transcript with each new question or the model will lose the context of the previous questions and answers.
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -537,9 +537,9 @@ while True:
 
 ---
 
-In this example, after the token count is reached, the oldest messages in the conversation transcript are removed. For efficiency, `del` is used instead of `pop()`. We start at index 1 to always preserve the system message and only remove user or assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade. The model gradually loses the context of the earlier portions of the conversation.
+In this example, after the token count is reached, the oldest messages in the conversation transcript are removed. For efficiency, `del` is used instead of `pop()`. We start at index 1 to always preserve the system message and only remove user or assistant messages. Over time, this method of managing the conversation can cause the conversation quality to degrade as the model gradually loses the context of the earlier portions of the conversation.
 
-An alternative approach is to limit the conversation duration to the maximum token length or a specific number of turns. When the maximum token limit is reached, the model could lose context if you allow the conversation to continue. Prompt the user to begin a new conversation and clear the messages list to start with the full token limit available.
+An alternative approach is to limit the conversation duration to the maximum token length or a specific number of turns. After the maximum token limit is reached, the model would lose context if you were to allow the conversation to continue. You can prompt the user to begin a new conversation and clear the messages list to start a new conversation with the full token limit available.
 
 The token counting portion of the code demonstrated previously is a simplified version of one of [OpenAI's cookbook examples](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_format_inputs_to_ChatGPT_models.ipynb).
 
@@ -549,7 +549,7 @@ Here's a troubleshooting tip.
 
 ### Don't use ChatML syntax with the chat completion endpoint
 
-Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models, the chat completion endpoint can result in errors and unexpected model response behavior. We don't recommend this use.
+Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models and the chat completion endpoint, it can result in errors and unexpected model response behavior. We don't recommend this use.
 
 | Error |Cause | Solution |
 |---|---|---|
