@@ -1,11 +1,13 @@
 ---
 title: Create Azure Monitor metric alert rules
-description: This article shows you how to create a new metric alert rule.
+description: This article shows you how to create or edit an Azure Monitor metric alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.date: 03/07/2024
 ms.reviewer: harelbr
+
+# Customer intent: As an cloud Azure administrator, I want to create a new metric alert rule so that I can monitor the performance and availability of my resources.
 ---
 
 # Create or edit a metric alert rule
@@ -70,7 +72,7 @@ To create a metric alert rule, you must have the following permissions:
     |Field |Description |
     |---------|---------|
     |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#apply-advanced-machine-learning-with-dynamic-thresholds). |
-    |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
+    |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using static thresholds, select one of these operators: <br> - Greater than <br> - Greater than or equal to <br> - Less than <br> - Less than or equal to<br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Less than the lower threshold|
     |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.|
     |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic.|
     |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
@@ -87,7 +89,7 @@ To create a metric alert rule, you must have the following permissions:
     |Field  |Description  |
     |---------|---------|
     |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.|
-    |Operator|The operator used on the dimension name and value.|
+    |Operator|The operator used on the dimension name and value. Select from these values:<br> - Equals <br> - Is not equal to <br> - Starts with|
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
     |Include all future values| Select this field to include any future values added to the selected dimension.|
 

@@ -6,6 +6,14 @@ ms.date: 3/13/2024
 ms.author: eur
 ---
 
+### April 2024 release
+
+#### Real-time speech to text with diariazation (GA)
+
+Real-time speech to text with diariazation is now generally available.
+
+Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+
 ### March 2024 release
 
 #### Whisper general availability (GA)
@@ -93,7 +101,7 @@ We encourage you to explore these improvements and consider potential issues for
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with six more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
-- We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
+- We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Upgrade to SDK version 1.35.0 or later to explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
 
 ### September 2023 release
 

@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/18/2024
+ms.date: 03/27/2024
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure AI Search
@@ -27,6 +27,27 @@ If you want indexers to ignore these errors (and skip over "failed documents"), 
 The error information in this article can help you resolve errors, allowing indexing to continue.
 
 Warnings don't stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
+
+## Where can you find specific indexer errors?
+
+To verify an indexer status and identify errors in the Azure portal, follow the steps below:
+
+1. Navigate to the Azure portal and locate your AI Search service.
+1. Once you're in the AI Search service, click on the 'Indexers' tab.
+1. From the list of indexers, identify the specific indexer you wish to verify.
+1. Under the 'Execution History' column, click on the 'Status' hyperlink associated with the selected indexer.
+1. If there's an error, hover over the error message. A pane will appear on the right side of your screen displaying detailed information about the error.
+
+## Transient errors 
+
+For various reasons, such as transient network communication interruptions, timeouts from long-running processes, or specific document nuances, it's common to encounter transient errors or warnings during indexer runs. However, these errors are temporary and should be resolved in subsequent indexer runs. 
+
+To manage these errors effectively, it is recommended [putting your indexer on a schedule](search-howto-schedule-indexers.md), for instance, to run every five minutes. This means the next run will commence five minutes after the completion of the first run, adhering to the [maximum runtime limit](search-limits-quotas-capacity.md#indexer-limits). Regularly scheduled runs help to rectify any transient errors or warnings swiftly. 
+
+If you notice an error persisting over multiple indexer runs, it's likely not a transient issue. In such cases, refer to the list below for potential solutions. Please note, always ensure your indexing schedule aligns with the limitations outlined in our indexer limits guide.
+
+
+## Error properties
 
 Beginning with API version `2019-05-06`, item-level Indexer errors and warnings are structured to provide increased clarity around causes and next steps. They contain the following properties:
 

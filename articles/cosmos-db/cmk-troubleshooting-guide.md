@@ -60,6 +60,16 @@ You see this error when the Azure Key Vault or specified Key are not found.
 
 Check if the Azure Key Vault or the specified key exist and restore them if accidentally got deleted, then wait for one hour. If the issue isn't resolved after more than 2 hours, contact customer service. 
 
+## Azure key Disabled or expired 
+
+### Reason for error 
+
+You see this error when the Azure Key Vault key has been expired or deleted.
+
+### Troubleshooting 
+
+If your key has been disabled please enable it. If it has been expired please un-expire it, and once the account is not revoked anymore feel free to rotate the key as Azure Cosmos DB will update the key version once the account is online.
+
 ## Invalid Azure Cosmos DB default identity 
 
 ### Reason for error 

@@ -35,7 +35,7 @@ sections:
 
           **AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
-          Users that have one Defender bundle enabled can enable other standards. 
+          Users that have one Defender bundle enabled can enable other standards.
 
           To add regulatory compliance standards on AWS accounts:
 
@@ -61,7 +61,7 @@ sections:
         answer: |
           For each compliance standard in the dashboard, there's a list of the standard's controls. For the applicable controls, you can view the details of passing and failing assessments.
 
-          Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Some might be procedure or process-related, and so can't be verified by Defender for Cloud. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls might be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+          Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Some might be procedure or process-related, and so can't be verified by Defender for Cloud. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls might be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md).
 
 
       - question: |

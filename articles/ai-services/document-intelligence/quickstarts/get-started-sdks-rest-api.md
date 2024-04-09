@@ -106,8 +106,9 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 
 ## Next steps
 
->[!div class="nextstepaction"]
-> [**For an enhanced experience and advanced model quality, try Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio) [**For v3.0 to v4.0 migration, see the Changelog Migration guides**](../changelog-release-history.md#march-2024-preview-release).
+* For an enhanced experience and advanced model quality, try [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
+
+* For v3.1 to v4.0 migration, see [**Changelog Migration guides**](../changelog-release-history.md#march-2024-preview-release).
 
 ::: moniker-end
 
