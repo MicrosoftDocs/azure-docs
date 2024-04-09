@@ -2,7 +2,7 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 04/09/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -42,41 +42,6 @@ In the context of the Azure platform:
 - Creating a Kubernetes load balancer on Azure simultaneously sets up the corresponding Azure load balancer resource.
 - As you open network ports to pods, Azure automatically configures the necessary network security group rules.
 - Azure can also manage external DNS configurations for HTTP application routing as new Ingress routes are established.
-
-
-To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. You can specify a Kubernetes *ServiceType* to define the type of Service you want. For example, if you want to expose a Service on an external IP address outside of your cluster. For more information, see the Kubernetes documentation on [Publishing Services (ServiceTypes)][service-types].
-
-The following ServiceTypes are available:
-
-- **ClusterIP**
-  
-  ClusterIP creates an internal IP address for use within the AKS cluster. The ClusterIP Service is good for *internal-only applications* that support other workloads within the cluster. ClusterIP is the default used if you don't explicitly specify a type for a Service.
-
-    ![Diagram showing ClusterIP traffic flow in an AKS cluster][aks-clusterip]
-
-- **NodePort**
-
-  NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
-
-    ![Diagram showing NodePort traffic flow in an AKS cluster][aks-nodeport]
-
-- **LoadBalancer**
-
-  LoadBalancer creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports.
-
-    ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
-
-    For HTTP load balancing of inbound traffic, another option is to use an [Ingress controller](#ingress-controllers).
-
-- **ExternalName**
-
-  Creates a specific DNS entry for easier application access.
-
-Either the load balancers and services IP address can be dynamically assigned, or you can specify an existing static IP address. You can assign both internal and external static IP addresses. Existing static IP addresses are often tied to a DNS entry.
-
-You can create both *internal* and *external* load balancers. Internal load balancers are only assigned a private IP address, so they can't be accessed from the Internet.
-
-Learn more about Services in the [Kubernetes docs][k8s-service].
 
 ## Azure virtual networks
 
@@ -286,8 +251,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- IMAGES -->
-[aks-clusterip]: ./media/concepts-network/aks-clusterip.png
-[aks-nodeport]: ./media/concepts-network/aks-nodeport.png
 [aks-loadbalancer]: ./media/concepts-network/aks-loadbalancer.png
 [advanced-networking-diagram]: ./media/concepts-network/advanced-networking-diagram.png
 [aks-ingress]: ./media/concepts-network/aks-ingress.png
