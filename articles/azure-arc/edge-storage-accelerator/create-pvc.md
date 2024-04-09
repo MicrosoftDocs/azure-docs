@@ -10,7 +10,7 @@ ms.date: 04/08/2024
 
 # Create a Persistent Volume Claim (PVC) (preview)
 
-The PVC is a persistent volume claim against the persistent volume that you can use to mount a Kubernetes pod. In this case, the `storageClassName` is `blob-edgecache` and the storage amount requested for local storage.  
+The PVC is a persistent volume claim against the persistent volume that you can use to mount a Kubernetes pod.
 
 This size does not affect the ceiling of blob storage used in the cloud to support this local cache. Note the name of this PVC, as you need it when you create your application pod.  
 
