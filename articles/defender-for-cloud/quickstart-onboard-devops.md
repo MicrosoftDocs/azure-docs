@@ -87,7 +87,7 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 > [!NOTE]
 > To ensure proper functionality of advanced DevOps posture capabilities in Defender for Cloud, only one instance of an Azure DevOps organization can be onboarded to the Azure Tenant you're creating a connector in.
 
-The **DevOps security** blade shows your onboarded repositories grouped by Organization. The **Recommendations** blade shows all security assessments related to Azure DevOps repositories.
+The **DevOps security** blade shows your onboarded repositories grouped by Organization. The **Recommendations** blade shows all security assessments related to Azure DevOps repositories.  The onboarding may take up to 8 hours to show the initial DevOps security results.
 
 ## Next steps
 
