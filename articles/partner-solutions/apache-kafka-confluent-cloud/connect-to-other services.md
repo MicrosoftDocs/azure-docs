@@ -5,12 +5,8 @@ description: Follow step-by-step instructions to connect an app deployed to Azur
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
-ms.date: 03/27/2024
-ms.custom:
-  - service-connector
-  - ai-gen-docs-bap
-  - ai-gen-desc
-  - ai-seo-date:04/05/2024
+ms.date: 04/09/2024
+ms.custom: service-connector, ai-gen-docs-bap, ai-gen-desc, ai-seo-date:04/05/2024
 ---
 
 # How to connect a Confluent organization to other Azure resources using Service Connector
@@ -43,17 +39,17 @@ Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent
     |---------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Service type**    | *Apache Kafka on Confluent Cloud*                | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent. organization.                                                                                                                                                                                                        |
     | **Connection name** | *Confluent_d0fcp*                                | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
-    | **Source**          | *Azure Marketplace Confluent resource (preview)* | Select **Azure Marketplace Confluent resource**.                                                                                                                                                                                                                                                         |
+    | **Source**          | *Azure marketplace Confluent resource (preview)* | Select **Azure marketplace Confluent resource**.                                                                                                                                                                                                                                                         |
 
      :::image type="content" source="./media/connect/confluent-source.png" alt-text="Screenshot from the Azure portal showing the Create button.":::
 
-1. Refer to the two tabs below for instructions to connect to an Azure Marketplace or an Azure non-marketplace Confluent resource.
+1. Refer to the two tabs below for instructions to connect to a Confluent resource deployed via Azure Marketplace or deployed directy on the Confluent user interface.
 
     > [!IMPORTANT]
     > Service Connector for Azure Marketplace Confluent resources is currently in PREVIEW.
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-    ### [Azure Marketplace Confluent resource](#tab/marketplace-confluent)
+    ### [Azure marketplace Confluent resource](#tab/marketplace-confluent)
 
     If your Confluent resource is deployed through Azure Marketplace, enter or select the following information.
 
