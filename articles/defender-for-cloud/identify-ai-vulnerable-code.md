@@ -51,4 +51,4 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify Gen-AI vulnerable container images](identify-ai-container-image.md)
+> [Identify Gen-AI vulnerable container images](identify-ai-conatiner-image.md)
