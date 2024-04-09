@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI'
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
-ms.date: 04/08/2024
+ms.date: 04/09/2024
 author: tamram
 ms.author: tamram
 ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api, innovation-engine, linux-related-content
@@ -11,7 +11,7 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api, innov
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://ms.portal.azure.com/#view/Microsoft_Azure_CloudNative/SubscriptionSelectionPage.ReactView/tutorialKey/CreateAKSDeployment/isLearnMode~/true)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262758)
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn how to:
 
@@ -37,9 +37,8 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 Define the following environment variables for use throughout this quickstart:
 
-```bash
+```azurecli-interactive
 export RANDOM_ID="$(openssl rand -hex 3)"
-export SSL_EMAIL_ADDRESS="$(az account show --query user.name --output tsv)"
 export MY_RESOURCE_GROUP_NAME="myAKSResourceGroup$RANDOM_ID"
 export REGION="westeurope"
 export MY_AKS_CLUSTER_NAME="myAKSCluster$RANDOM_ID"
@@ -52,12 +51,12 @@ An [Azure resource group][azure-resource-group] is a logical group in which Azur
 
 Create a resource group using the [`az group create`][az-group-create] command.
 
-  ```azurecli-interactive
-  az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
-  ```
+```azurecli-interactive
+az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
+```
 
 Results:
-
+<!-- expected_similarity=0.3 -->
 ```JSON
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myAKSResourceGroupxxxxxx",
@@ -74,7 +73,7 @@ Results:
 
 ## Create an AKS cluster
 
-Create an AKS cluster using the [`az aks create`][az-aks-create] command.
+Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a cluster with one node and enables a system-assigned managed identity.
 
 ```azurecli-interactive
 az aks create --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --enable-managed-identity --node-count 1 --generate-ssh-keys
@@ -95,7 +94,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```bash
+    ```azurecli-interactive
     kubectl get nodes
     ```
 
@@ -350,7 +349,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ```bash
+    ```azurecli-interactive
     kubectl apply -f aks-store-quickstart.yaml
     ```
 
@@ -360,7 +359,7 @@ You can validate that the application is running by visiting the public IP addre
 
 Get the application URL using the following commands:
 
-```bash
+```azurecli-interactive
 runtime="5 minute"
 endtime=$(date -ud "$runtime" +%s)
 while [[ $(date -u +%s) -le $endtime ]]
@@ -378,12 +377,12 @@ do
 done
 ```
 
-```bash
+```azurecli-interactive
 curl $IP_ADDRESS
 ```
 
 Results:
-
+<!-- expected_similarity=0.3 -->
 ```JSON
 <!doctype html>
 <html lang="">
@@ -411,16 +410,10 @@ echo "You can now visit your web server at $IP_ADDRESS"
 
 ## Delete the cluster
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. You can remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
 
-Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
-
-  ```azurecli-interactive
-  az group delete --name $MY_RESOURCE_GROUP_NAME --yes --no-wait
-  ```
-
-  > [!NOTE]
-  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+> [!NOTE]
+> The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
 
 ## Next steps
 
