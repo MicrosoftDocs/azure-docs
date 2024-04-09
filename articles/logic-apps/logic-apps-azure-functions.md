@@ -296,7 +296,7 @@ Before you can set up your function app to use Microsoft Entra authentication, y
 
    * **User assigned**
 
-     1. For the user-assigned identity, select the identity to find the Client ID, for example:
+     1. For the user-assigned identity, select the identity to find the client ID, for example:
 
         ![Screenshot showing the Consumption logic app "Identity" pane with the "User assigned" tab selected.](./media/logic-apps-azure-functions/user-identity-consumption.png)
 
