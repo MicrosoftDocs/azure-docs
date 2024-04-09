@@ -79,10 +79,10 @@ of the `azure-relay` mvn package. This package provides functions to construct R
     }
     ```
     Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
-    1. `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
-    2. `path` - The name of the hybrid connection.
-    3. `keyrule` - The name of the SAS key.
-    4. `key` - The SAS key value.
+    - `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
+    - `path` - The name of the hybrid connection.
+    - `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
+    - `nst key` -   The primary key of the namespace you saved earlier.
 
 5. Add the following code to the `Sender.java` file, below is the expected main function for your java class: 
 

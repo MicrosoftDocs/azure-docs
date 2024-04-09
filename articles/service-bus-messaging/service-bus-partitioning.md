@@ -112,8 +112,9 @@ Service Bus supports automatic message forwarding from, to, or between partition
 ## Partitioned entities limitations
 Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
-* Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
-* Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
+- For partitioned premium namespaces, the message size is limited to 1 MB when the messages are sent individually, and the batch size is limited to 1 MB when the messages are sent in a batch.
+- Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
+- Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
 
 ## Next steps
 You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md).
