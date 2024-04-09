@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 This article describes best practices for email delivery in business-to-consumer (B2C) communication and how to use Azure Communication Services email logs to help with your email reputation. This comprehensive guide offers insights into optimizing email complaint management, fostering healthier email practices, and maximizing the success of your email delivery.
 
-## Managing sender reputation and email complaints to enhance email delivery in your B2C communication
+## Managing sender reputation and email complaints to enhance email delivery
 
 Azure Communication Services offers email capabilities that can enrich your customer communications. However, there's no guarantee that the emails you send through the platform land in the customer's inbox. To proactively identify and avoid delivery problems, you should perform reputation checks such as:
 
