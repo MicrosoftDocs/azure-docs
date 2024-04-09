@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/09/2024
 ms.custom: devx-track-python, devguide-python
 ---
 
@@ -17,6 +17,7 @@ Any application that runs in the cloud or communicates with remote services and 
 This article shows you how to use the Azure Storage client library for Python to set up a retry policy for an application that connects to Azure Blob Storage. Retry policies define how the application handles failed requests, and should always be tuned to match the business requirements of the application and the nature of the failure.
 
 ## Configure retry options
+
 Retry policies for Blob Storage are configured programmatically, offering control over how retry options are applied to various service requests and scenarios. For example, a web app issuing requests based on user interaction might implement a policy with fewer retries and shorter delays to increase responsiveness and notify the user when an error occurs. Alternatively, an app or component running batch requests in the background might increase the number of retries and use an exponential backoff strategy to allow the request time to complete successfully.
 
 The following sections show the properties of the [ExponentialRetry](/dotnet/api/azure.core.retryoptions) and [LinearRetry](/dotnet/api/azure.core.retryoptions) classes, along with the type, a brief description, default values, and a code example. You should be proactive in tuning the values of these properties to meet the needs of your app.
