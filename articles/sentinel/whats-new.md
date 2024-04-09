@@ -34,7 +34,7 @@ The unified security operations platform in the Microsoft Defender portal is now
 
 ### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
 
-Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. <!--what does this actually mean?--> Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
 
 For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
