@@ -128,6 +128,7 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
       }
   ]
 }
+```
 
 >[!NOTE]
 > AOSM supports CNFs which are composed of multiple independent helm charts. AOSM installs and upgrades helm charts in the order they are specified in the list of helm packages if no dependencies are specified in the `depends_on` parameter. If dependencies are specified, AOSM calculates the ordering and installs and upgrades the helm charts in that order. AOSM deletes the helm charts in the reverse order in both cases.  This example shows a fictional Contoso CNF made of three helm charts, `contoso-a`, `contoso-b`, and `contoso-c`.
