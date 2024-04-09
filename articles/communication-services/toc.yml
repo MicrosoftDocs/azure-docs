@@ -733,7 +733,7 @@ items:
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
       - name: Closed captions
-        href: concepts/interop/enable-closed-captions.md      
+        href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
     - name: Advanced audio and video
