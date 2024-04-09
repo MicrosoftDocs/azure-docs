@@ -444,7 +444,7 @@ This command produces JSON output similar to the following example:
 ```
 
 > [!NOTE]
-> The "metadata" and "gitRevisions" are not available for Application Configuration Service Gen1 version.
+> The `metadata` and `gitRevisions` properties are not available for the Gen1 version of Application Configuration Service.
 
 You can also use this command with the `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
 
