@@ -68,7 +68,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    > 
 
    > [!IMPORTANT]
-   > You can't change modules after you create the cache instance. The setting is create-only.
+   > You can't change modules after you create the cache instance. The setting is create-only i.e modules must be enabled at the time you create an Azure Cache for Redis instance and there is no option to enable the modules configuration post cache creation.
    >
 
 1. Select **Next: Tags** and skip.
