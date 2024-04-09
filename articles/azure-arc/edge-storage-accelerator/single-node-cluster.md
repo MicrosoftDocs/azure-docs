@@ -28,7 +28,7 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 
    ```json
    {
-     "highAvailability.disk.storageClass": "default",
+     "feature.storageClass": "default",
      "acstorController.enabled": false
    }
    ```
@@ -134,7 +134,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
    ```json
    {
      "acstorController.enabled": false,
-     "highAvailability.disk.storageClass": "local-path"
+     "feature.storageClass": "local-path"
    }
    ```
 
@@ -169,7 +169,7 @@ This section describes how to prepare Linux with Ubuntu if you run a single-node
    ```json
    {
      "acstorController.enabled": false,
-     "highAvailability.disk.storageClass": "local-path"
+     "feature.storageClass": "local-path"
    }
    ```
 

@@ -38,6 +38,24 @@ A multi-node Kubernetes configuration is typically used for production, staging,
 
 In summary, a [single-node Kubernetes cluster](single-node-cluster.md) might be suitable for development, testing, and resource-constrained environments, while a [multi-node cluster](multi-node-cluster.md) is more appropriate for production deployments, high availability, scalability, and scenarios where distributed applications are a requirement. This choice ultimately depends on your specific needs and goals for your deployment.
 
+## Minimum hardware requirements
+
+### Single-node or 2-node cluster
+
+- Standard_D8ds_v4 VM recommended
+- Equivalent specifications per node:
+  - 4 CPUs
+  - 16GB RAM
+
+### Multi-node cluster
+
+- Standard_D8as_v4 VM recommended
+- Equivalent specifications per node:
+  - 8 CPUs
+  - 32GB RAM
+
+32GB RAM serves as a buffer; however, 16GB RAM should suffice. Edge Essentials configurations require 8 CPUs with 10GB RAM per node, making 16GB RAM the minimum requirement.
+
 ## Next steps
 
 To continue preparing Linux, see the following instructions for single-node or multi-node clusters:
