@@ -15,7 +15,7 @@ ms.subservice: calling
 # The video sender has high CPU load
 When the web browser detects high CPU load or poor network conditions, it can apply extra restraints on the output video resolution. If the user's machine has high CPU load, the final resolution sent out can be lower than the intended resolution.
 It's an expected behavior, as lowering the encoding resolution can reduce the CPU load.
-It's important to note that this behavior is controlled by the browser, and we're unable to control it at the JavaScript layer.
+It's important to note that the browser controls this behavior, and we're unable to control it at the JavaScript layer.
 
 ## How to detect in the SDK
 There is [`qualityLimitationReason`](https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason) in WebRTC Stats API, which can provide a detailed reason why the media quality in the stream is reduced. However, the Azure Communication Services WebJS SDK doesn't expose this information.
