@@ -32,7 +32,7 @@ This document provides a list of codes, subcodes that the Calling SDK API throws
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 
-| Subcode | Code | Message | Result Categories <br> Public Preview *| Advice |
+| Subcode | Code | Message | Result categories (public preview *)| Advice |
 |---------|------|---------|--------------------------|------------------|
 | 40101 | 408| Failed to create CallAgent. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support. | UnexpectedClientError | |
 | 40104 | 408| Failed to create CallAgent. Please try again, if issue persists, gather browser console logs, .HAR file, and contact Azure Communication Services support. | UnexpectedClientError | |
