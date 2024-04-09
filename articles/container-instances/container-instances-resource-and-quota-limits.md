@@ -1,5 +1,5 @@
 ---
-title: Resource availability & quota limits for ACI
+title: Resource availability & quota limits for Azure Container Instances (ACI)
 description: Availability and quota limits of compute and memory resources for the Azure Container Instances service in different Azure regions.
 ms.author: tomcassidy
 author: tomvcassidy
@@ -25,7 +25,7 @@ All Azure services include certain default limits and quotas for resources and f
 
 Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription. 
 
-Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
+Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
 > [!IMPORTANT]  
 > Not all limit increase requests are guaranteed to be approved.
@@ -34,7 +34,7 @@ Certain default limits and quotas can be increased. To request an increase of on
 
 ### Unchangeable (Hard) Limits 
 
-The following limits are default limits that can’t be increased through a quota request. Any quota increase requests for these limits will not be approved.  
+The following limits are default limits that can’t be increased through a quota request. Any quota increase requests for these limits won't be approved.  
 
 | Resource | Actual Limit | 
 | --- | :--- | 
@@ -61,7 +61,7 @@ The following limits are default limits that can’t be increased through a quot
 
 ### Linux Container Groups 
 
-By default, the following resources are available general purpose (standard core SKU) containers in general deployments and [Azure virtual network](container-instances-vnet.md) deployments) for Linux & Windows containers. 
+By default, the following resources are available general purpose (standard core SKU) containers in general deployments and [Azure virtual network](container-instances-vnet.md) deployments) for Linux & Windows containers. These maximums are hard limits and can't be increased.
 
 | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | 
 | :---: | :---: | :----: | :-----: | :-------: |
@@ -71,7 +71,7 @@ For a general list of available regions for Azure Container Instances, see [avai
 
 ### Windows Containers 
 
-The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. 
+The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers. These maximums are hard limits and can't be increased.
 
 #### Windows Server 2022 LTSC 
 
@@ -92,7 +92,7 @@ The following resources are available in all Azure Regions supported by Azure Co
 
 ## Spot Container Resources (Preview)
 
-The following maximum resources are available to a container group deployed using [Spot Containers](container-instances-spot-containers-overview.md) (preview). 
+The following maximum resources are available to a container group deployed using [Spot Containers](container-instances-spot-containers-overview.md) (preview). These maximums are hard limits and can't be increased.
 
 > [!NOTE]
 > Spot Containers are only available in the following regions at this time: East US 2, West Europe, and West US.
@@ -103,7 +103,7 @@ The following maximum resources are available to a container group deployed usin
 
 ## Confidential Container Resources (Preview)
 
-The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview).
+The following maximum resources are available to a container group deployed using [Confidential Containers](container-instances-confidential-overview.md) (preview). These maximums are hard limits and can't be increased.
 
 > [!NOTE]
 > Confidential Containers are only available in the following regions at this time: East US, North Europe, West Europe, and West US.
@@ -122,7 +122,7 @@ The following maximum resources are available to a container group deployed usin
 > Deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
 > Using GPU resources (preview) is not fully supported yet and any support is provided on a best-effort basis.
 
-The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview). 
+The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview). These maximums are hard limits and can't be increased.
 
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) | 
 | --- | --- | --- | --- | --- | 
@@ -132,11 +132,11 @@ The following maximum resources are available to a container group deployed with
 
 ## Next steps 
 
-Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
+Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
-Let the team know if you'd like to see additional regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback). 
+Let the team know if you'd like to see other regions or increased resource availability at [aka.ms/aci/feedback](https://aka.ms/aci/feedback). 
 
-For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md) 
+For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 
 <!-- LINKS - External --> 
 
