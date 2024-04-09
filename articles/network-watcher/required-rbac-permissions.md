@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/27/2023
+ms.date: 04/09/2024
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -114,7 +114,8 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 > [!div class="mx-tableFixed"]
 > | Action                                                              | Description                                                    |
 > | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/nextHop/action                    | Get the next hop from a VM                                     |
+> | Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/readNetworkWatchers/nextHop/read                    | Get the next hop from a VM                                     |
+> | Microsoft.Network/networkInterfaces/read | Get a network interface definition                             |
 
 ## Network security group view
 
