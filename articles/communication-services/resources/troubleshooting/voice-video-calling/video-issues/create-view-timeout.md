@@ -16,7 +16,7 @@ ms.subservice: calling
 When the calling SDK expects to receive video frames but there are no incoming video frames,
 the SDK detects this issue and throws an createView timeout error.
 
-This is an unexpected error from SDK's perspective. This error indicates a discrepancy between signaling and media transport.
+This error is unexpected from SDK's perspective. This error indicates a discrepancy between signaling and media transport.
 ## How to detect using SDK
 When there's a `create view timeout` issue, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API throws an error.
 
@@ -38,15 +38,15 @@ A feasible but less elegant approach for handling this createView timeout error 
 
 ### The video sender has dropped from the call unexpectedly
 Some users might end the call by terminating the browser process instead of by hanging up.
-The server is unaware that the user dropped the call until the timeout of 40 seconds has been reached.
+The server is unaware that the user dropped the call until the timeout of 40 seconds ended.
 The participant remains on roster list until the server removes it at the end of the timeout (40 seconds).
 If other participants try to subscribe to a video from the user who droped from the call unexpectedly, they get an error as no incoming video frames are received.
-No further detailed information is available because the server maintains the participant in the roster list even if it hasn't received an answer from them, until the timeout period is reached.
+No further detailed information is available. The server maintains the participants in the roster list even if no answer is received from them, until the timeout period ends.
 
 
 ### The video sender has network issues
 If the video sender has network issues during the time other participants are subscribing to their video the video subscription may fail.
-This is an unexpected error on the video receiver's side.
+This error is unexpected on the video receiver's side.
 For example, if the sender experiences a temporary network disconnection, other participants are unable to receive video frames from the sender. 
 
 A workaround approach for handling this createView timeout error is to continuously retry invoking [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API until it succeeds when this network event is happening.
