@@ -1069,6 +1069,30 @@ items:
             href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
           - name: The askDevicePermission API takes too long
             href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
+        - name: Video issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
+          - name: The user can not see video from the remote participant
+            items:
+            - name: Subscribing to a video that is unavailable
+              href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md
+            - name: The remote video becomes unavailable while subscribing the video
+              href: resources/troubleshooting/voice-video-calling/video-issues/remote-video-becomes-unavailable.md
+            - name: The application disposes the video renderer while subscribing the video
+              href: resources/troubleshooting/voice-video-calling/video-issues/application-disposes-video-renderer.md
+            - name: The maximum number of active video subscriptions has been reached
+              href: resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md
+            - name: CreateView timeout
+              href: resources/troubleshooting/voice-video-calling/video-issues/create-view-timeout.md
+          - name: The user experiences poor video quality
+            items:
+            - name: The network is poor during the call
+              href: resources/troubleshooting/voice-video-calling/video-issues/network-poor.md
+            - name: The video sender has high CPU load
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-sender-has-high-cpu-load.md
+            - name: The sender's video is frozen
+              href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
         - name: References
           items:
           - name: How to collect client logs
