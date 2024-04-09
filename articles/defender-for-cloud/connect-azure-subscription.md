@@ -66,7 +66,7 @@ To enable all of Defender for Cloud's protections, you need to enable the plans 
 
 > [!NOTE]
 >
-> - The Microsoft Defender plans that can be enabled at either the subscription level or resource level are: **Microsoft Defender for Storage accounts**, **Microsoft Defender for SQL**, **Microsoft Defender for open-source relational databases**. 
+> - You can enable **Microsoft Defender for Storage accounts**, **Microsoft Defender for SQL**, **Microsoft Defender for open-source relational databases** at either the subscription level or resource level.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
 
 When you enable Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
