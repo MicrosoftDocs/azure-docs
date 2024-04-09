@@ -21,6 +21,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3.md)
 > * [.NET SDK v2](performance-tips.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 
 > [!IMPORTANT]  
