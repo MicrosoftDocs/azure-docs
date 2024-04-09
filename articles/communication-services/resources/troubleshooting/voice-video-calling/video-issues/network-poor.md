@@ -39,7 +39,7 @@ For the quality of the receiving end, you can check the metrics `packetsLost`, `
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
 To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
 
-The ACS Calling SDK and browser adaptively will adjust the video quality according to the networks condition.
+The ACS Calling SDK and browser adaptively adjust the video quality according to the networks condition.
 It's important for the application to handle events from the User Facing Diagnostics Feature and notify the users accordingly.
 In this way, users can be aware of any network quality issues and aren't surprised if they experience low-quality video during a call.
 
