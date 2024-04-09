@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 01/16/2024
+ms.date: 02/03/2024
 ---
 
 # Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
