@@ -16,7 +16,7 @@ ms.date: 04/09/2024
 
 Vector search is an approach in information retrieval that supports indexing and query execution over numeric representations of content. Because the content is numeric rather than plain text, matching is based on vectors that are most similar to the query vector, which enables matching across:
 
-+ semantically similar content ("dog" and "canine", conceptually similar yet linguistically distinct)
++ semantic or conceptual likeness ("dog" and "canine", conceptually similar yet linguistically distinct)
 + multilingual content ("dog" in English and "hund" in German)
 + multiple content types ("dog" in plain text and a photograph of a dog in an image file)
 
@@ -67,7 +67,7 @@ Azure AI Search supports [hybrid scenarios](hybrid-search-overview.md) that run 
 
 Vector search is available as part of all Azure AI Search tiers in all regions at no extra charge.
 
-Newer services created after July 1, 2023 support [higher quotas for vector indexes](vector-search-index-size.md).
+Newer services created after April 3, 2024 support [higher quotas for vector indexes](vector-search-index-size.md).
 
 Vector search is available in:
 
@@ -156,6 +156,6 @@ Azure AI Search uses HNSW for its ANN algorithm.
 ## Next steps
 
 + [Try the quickstart](search-get-started-vector.md)
-+ [Learn more about vector stores](vector-search-how-to-create-index.md)
++ [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
 + [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)
