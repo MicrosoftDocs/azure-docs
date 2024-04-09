@@ -10,19 +10,31 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 03/12/2024
+ms.date: 04/02/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
+## April 2024
+
+### Fine-tuning is now supported in East US 2
+
+Fine-tuning is now available in East US 2 with support for:
+
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
+Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
+
 ## March 2024
 
-### Risks & Safety monitor in OpenAI Studio
+### Risks & Safety monitoring in Azure OpenAI Studio
 
 Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
 
-[Use the Risks & Safety monitor](./how-to/risks-safety-monitor.md)
+[Use Risks & Safety monitoring](./how-to/risks-safety-monitor.md)
 
 ### Azure OpenAI On Your Data updates
 
@@ -418,7 +430,7 @@ New training course:
 }
 ```
 
-**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than Azure OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 

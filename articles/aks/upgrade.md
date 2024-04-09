@@ -70,3 +70,4 @@ For more information what cluster operations may trigger specific upgrade events
 [ts-subnet-full]: /troubleshoot/azure/azure-kubernetes/error-code-subnetisfull-upgrade
 [node-security-patches]: ./concepts-vulnerability-management.md#worker-nodes
 [node-updates-kured]: ./node-updates-kured.md
+

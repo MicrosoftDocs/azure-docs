@@ -1801,7 +1801,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 #### Set the user IP
 
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You can populate the _client_IP_ field for requests by setting an attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1810,7 +1810,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```C#
 // Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
+activity.SetTag("client.address", "<IP Address>");
 ```
 
 #### [.NET](#tab/net)
@@ -2087,7 +2087,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 ### [Java](#tab/java)
 
-See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [telemetry processors](java-standalone-telemetry-processors.md).
+See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
 
 ### [Node.js](#tab/nodejs)
 

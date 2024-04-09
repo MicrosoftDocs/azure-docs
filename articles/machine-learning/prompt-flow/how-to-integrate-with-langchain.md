@@ -25,7 +25,6 @@ We introduce the following sections:
   - [Benefits of LangChain integration](#benefits-of-langchain-integration)
   - [How to convert LangChain code into flow](#how-to-convert-langchain-code-into-flow)
     - [Prerequisites for environment and runtime](#prerequisites-for-environment-and-runtime)
-      - [Create a customized environment](#create-a-customized-environment)
     - [Convert credentials to prompt flow connection](#convert-credentials-to-prompt-flow-connection)
       - [Create a connection](#create-a-connection)
     - [LangChain code conversion to a runnable flow](#langchain-code-conversion-to-a-runnable-flow)

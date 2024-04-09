@@ -5,6 +5,9 @@ description: Learn the cluster operator best practices for storage, data encrypt
 ms.topic: conceptual
 ms.subservice: aks-storage
 ms.date: 04/28/2023
+author: tamram
+ms.author: tamram
+
 
 ---
 
@@ -143,3 +146,4 @@ This article focused on storage best practices in AKS. For more information abou
 [managed-disks]: ../virtual-machines/managed-disks-overview.md
 [best-practices-multi-region]: operator-best-practices-multi-region.md
 [remove-state]: operator-best-practices-multi-region.md#remove-service-state-from-inside-containers
+

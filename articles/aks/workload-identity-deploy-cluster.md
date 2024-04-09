@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 02/22/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -274,3 +277,4 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity-migration]: workload-identity-migrate-from-pod-identity.md
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
+

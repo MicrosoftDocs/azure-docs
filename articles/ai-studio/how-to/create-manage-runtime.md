@@ -2,15 +2,15 @@
 title: Create and manage prompt flow runtimes
 titleSuffix: Azure AI Studio
 description: Learn how to create and manage prompt flow runtimes in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: sgilley
+author: sdgilley
 ---
 
 # Create and manage prompt flow runtimes in Azure AI Studio

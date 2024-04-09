@@ -260,6 +260,8 @@
                   href: cluster-extensions.md
                 - name: Use the Azure CLI
                   href: deploy-extensions-az-cli.md
+            - name: Use the AKS Visual Studio Code extension
+              href: aks-extension-vs-code.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -651,6 +653,8 @@
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
               href: istio-upgrade.md
+            - name: Istio service mesh add-on performance
+              href: istio-scale.md
         - name: Open Service Mesh AKS add-on
           items:
             - name: About Open Service Mesh
@@ -847,7 +851,7 @@
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
-      href: /training/browse/?products=azure-container-instances&azure-container-registry
+      href: /training/browse/?products=azure-kubernetes-service
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing
