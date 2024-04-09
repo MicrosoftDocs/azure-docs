@@ -21,9 +21,8 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
-
 > [!IMPORTANT]
-> * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
+> * On February 29, 2024, Continuous Export was retired as part of the classic Application Insights resource retirement.
 > 
 > * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
 >
@@ -198,7 +197,10 @@ Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -Ingesti
 
 ### Azure Resource Manager templates
 
-This section provides templates.
+This section provides templates. 
+
+   > [!CAUTION]
+   > Ensure that you have removed all Continous Export settings from your resource before running the migration templates. See [Prerequisites](#prerequisites) 
 
 #### Template file
 
@@ -289,13 +291,13 @@ This section provides answers to common questions.
 
 Microsoft will begin an automatic phased approach to migrating classic resources to workspace-based resources beginning in May 2024 and this migration will span the course of several months. We can't provide approximate dates that specific resources, subscriptions, or regions will be migrated.
 
-We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the deprecation notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
+We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the retirement notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
 
 If you don't wish to have your classic resource automatically migrated to a workspace-based resource, you may delete or manually migrate the resource.
 
 ### Is there any implication on the cost from migration?
 
-There's usually no difference, with one exeception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
+There's usually no difference, with one exception - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
 
 The migration to workspace-based Application Insights offers a number of options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
 
@@ -343,7 +345,7 @@ To avoid this issue, make sure to use the latest version of the Terraform [azure
 
 For backwards compatibility, calls to the old API for creating Application Insights resources will continue to work. Each of these calls will eventually create both a workspace-based Application Insights resource and a Log Analytics workspace to store the data.
 
-We strongly encourage updating to the [new API](resource-manager-app-resource.md) for better control over resource creation.
+We strongly encourage updating to the [new API](create-workspace-resource.md) for better control over resource creation.
 
 ### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
 Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.

@@ -1,6 +1,6 @@
 ---
 title: Enrich data in a pipeline
-description: Configure an enrich pipeline stage to enrich data in a Data Processor pipeline with contextual or reference data.
+description: Configure an enrich pipeline stage to enrich data in an Azure IoT Data Processor pipeline with contextual or reference data.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want enrich data in a pipeline so that I can contextualize data from disparate data sources to make data more meaningful and actionable.
 ---
 
-# Enrich data in a pipeline
+# Enrich data in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -22,7 +22,7 @@ You can join the pipeline's data to a reference dataset's data by using common t
 
 ## Prerequisites
 
-To configure and use an enrich pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use an enrich pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
 
 ## Configure the stage
 

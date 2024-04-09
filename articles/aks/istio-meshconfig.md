@@ -2,7 +2,7 @@
 title: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 description: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 02/14/2024
 ms.author: shasb
 author: shashankbarsin
@@ -158,3 +158,4 @@ Fields present in [open source MeshConfig reference documentation][istio-meshcon
 
 [istio-meshconfig]: https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/
 [istio-sidecar-race-condition]: https://istio.io/latest/docs/ops/common-problems/injection/#pod-or-containers-start-with-network-issues-if-istio-proxy-is-not-ready
+

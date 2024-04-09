@@ -35,7 +35,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 - Azure Cloud Shell or Azure PowerShell.
 
-    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
@@ -45,7 +45,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 - Azure Cloud Shell or Azure CLI.
     
-    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
     
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -229,6 +229,6 @@ az network watcher list --out table
 
 To learn more about Network Watcher features, see:
 
-- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md)
+- [NSG flow logs](nsg-flow-logs-overview.md)
 - [Connection monitor](connection-monitor-overview.md)
-- [Connection troubleshoot](network-watcher-connectivity-overview.md)
+- [Connection troubleshoot](connection-troubleshoot-overview.md)

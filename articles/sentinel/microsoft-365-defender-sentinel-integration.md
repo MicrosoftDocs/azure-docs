@@ -26,9 +26,6 @@ Other services whose alerts are collected by Microsoft Defender XDR include:
 
 In addition to collecting alerts from these components and other services, Microsoft Defender XDR generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
-> [!IMPORTANT]
-> The Microsoft Defender XDR connector is now generally available!
-
 ## Common use cases and scenarios
 
 - One-click connect of Microsoft Defender XDR incidents, including all alerts and entities from Microsoft Defender XDR components, into Microsoft Sentinel.
@@ -58,6 +55,8 @@ Once the Microsoft Defender XDR integration is connected, the connectors for all
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft Defender XDR incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
 - To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft Defender XDR-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Microsoft Entra ID Protection) when connecting Microsoft Defender XDR. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft Defender XDR incident integration.
+
+- If your workspace is onboarded to the [unified security operations platform](microsoft-sentinel-defender-portal.md), you *must* turn off all Microsoft incident creation rules, as they aren't supported. For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform)
 
 ## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 

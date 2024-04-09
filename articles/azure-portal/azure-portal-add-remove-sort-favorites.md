@@ -1,7 +1,7 @@
 ---
 title: Manage favorites in Azure portal
 description: Learn how to add or remove services from the Favorites list.
-ms.date: 09/27/2023
+ms.date: 03/04/2024
 ms.topic: how-to
 ---
 
@@ -21,7 +21,7 @@ In this example, we'll add **Cost Management + Billing** to the **Favorites** li
 
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png" alt-text="Screenshot showing All services in the Azure portal menu.":::
 
-1. Enter the word "cost" in the **Filter services** field near the top of the **All services** page. Services that have "cost" in the title or that have "cost" as a keyword are shown.
+1. Enter the word "cost" in the **Filter services** field near the top of the **All services** pane. Services that have "cost" in the title or that have "cost" as a keyword are shown.
 
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png" alt-text="Screenshot showing a search in All services in the Azure portal.":::
 
@@ -31,6 +31,12 @@ In this example, we'll add **Cost Management + Billing** to the **Favorites** li
 
 1. **Cost Management + Billing** is now added as the last item in your **Favorites** list.
 
+## Rearrange your favorite services
+
+When you add a new service to your **Favorites** list, it appears as the last item in the list. To move it to a different position, select the new service, then drag and drop it to the desired location.
+
+You can continue to drag and drop any service in your **Favorites** list to place them in the order you choose.
+
 ## Remove an item from Favorites
 
 You can remove items directly from the **Favorites** list.
@@ -39,9 +45,12 @@ You can remove items directly from the **Favorites** list.
 
    :::image type="content" source="media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png" alt-text="Screenshot showing how to remove a service from Favorites in the Azure portal.":::
 
-2. On the information card, select the star so that it changes from filled to unfilled. The service is removed from the **Favorites** list.
+2. On the information card, select the star so that it changes from filled to unfilled.
+
+The service is then removed from your **Favorites** list.
 
 ## Next steps
 
+- Learn how to [manage your settings and preferences in the Azure portal](set-preferences.md).
 - To create a project-focused workspace, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
-- Explore the [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR).
+

@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/13/2024
+ms.date: 04/05/2024
 recommendations: false
 ---
 
@@ -103,9 +103,14 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
 
-## Resources configuration
+## Resource configuration
 
-Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
+
+This article describes network settings related to disabling public network for Azure OpenAI resources, Azure AI search resources, and storage accounts. Using selected networks with IP rules is not supported, because the services' IP addresses are dynamic.
+
+> [!TIP]
+> You can use the bash script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/validate-oyd-vnet.sh) to validate your setup, and determine if all of the requirements listed here are being met. 
 
 ## Create resource group
 
@@ -141,7 +146,7 @@ If you created the Azure OpenAI via Azure portal, the [custom subdomain](/azure/
 To allow your Azure AI Search and Storage Account to recognize your Azure OpenAI service via Microsoft Entra ID authentication, you need to assign a managed identity for your Azure OpenAI service. The easiest way is to toggle on system assigned managed identity on Azure portal.
 :::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="A screenshot showing the system assigned managed identity option in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
 
-To set the managed identities via the management API, see [the management API reference documentation](/rest/api/cognitiveservices/accountmanagement/accounts/update#identity).
+To set the managed identities via the management API, see [the management API reference documentation](/rest/api/aiservices/accountmanagement/accounts/update#identity).
 
 ```json
 
@@ -330,7 +335,7 @@ Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` ro
 ### Ingestion API
 
 
-See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.
+See the [ingestion API reference article](/rest/api/azureopenai/ingestion-jobs?context=/azure/ai-services/openai/context/context) for details on the request and response objects used by the ingestion API.
 
 More notes:
 
@@ -372,40 +377,4 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 
 ### Inference API
 
-See the [inference API reference article](/azure/ai-services/openai/reference#completions-extensions) for details on the request and response objects used by the inference API.   
-
-More notes:
-
-* **Do not** set `dataSources[0].parameters.key`. The service uses system assigned managed identity to authenticate the Azure AI Search.
-* **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, to enable vector search (with `queryType` set properly), use `embeddingDeploymentName`.
-
-Example:
-
-```bash
-accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
-curl -i -X POST https://my-resource.openai.azure.com/openai/deployments/turbo/extensions/chat/completions?api-version=2023-10-01-preview \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $accessToken" \
--d \
-'
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "https://my-search-service.search.windows.net",
-                "indexName": "my-index",
-                "queryType": "vector",
-                "embeddingDeploymentName": "ada"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "Who is the primary DRI for QnA v2 Authoring service?"
-        }
-    ]
-}
-'
-```
+See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.   

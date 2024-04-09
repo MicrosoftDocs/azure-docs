@@ -24,6 +24,7 @@ To use summarization, you submit for analysis and handle the API output in your 
 |---------|---------|---------|
 | REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](../quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
 
+Custom Summarization enables users to build custom AI models to summarize unstructured text, such as contracts or novels. By creating a Custom Summarization project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](../custom/quickstart.md).
 ---
 
 

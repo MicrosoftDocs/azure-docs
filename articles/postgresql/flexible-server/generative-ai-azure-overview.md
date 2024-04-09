@@ -1,9 +1,9 @@
 ---
-title: Azure AI Extension
-description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server.
+title: Generate vector embeddings with Azure OpenAI in Azure Databae for PostgreSQL.
+description: Use vector indexes and OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 02/02/2024
+ms.date: 02/29/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -498,6 +498,7 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/register/action | Registers the subscription to Azure Sentinel |
 > | Microsoft.SecurityInsights/unregister/action | Unregisters the subscription from Azure Sentinel |
 > | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
+> | Microsoft.SecurityInsights/contentTranslators/action | Check a translation of content |
 > | Microsoft.SecurityInsights/Aggregations/read | Gets aggregated information |
 > | Microsoft.SecurityInsights/alertRules/read | Gets the alert rules |
 > | Microsoft.SecurityInsights/alertRules/write | Updates alert rules |

@@ -266,14 +266,9 @@
           href: configure-windows-endpoint-monitoring.md
         - name: Configure reverse DNS lookup
           href: configure-reverse-dns-lookup.md
-      - name: Update OT monitoring software
-        items:
-        - name: Update from a recent version
-          href: update-ot-software.md
-          displayName: upgrade
-        - name: Update from legacy versions
-          href: update-legacy-ot-software.md
-          displayName: upgrade
+      - name: Update OT monitoring software from a recent version
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Backup and restore
         href: back-up-restore-sensor.md
         displayName: back up
@@ -381,6 +376,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
           href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: DELL XE4 SFF
+          href: appliance-catalog/dell-xe4-sff.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi) 

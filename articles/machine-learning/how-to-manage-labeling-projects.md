@@ -306,7 +306,7 @@ You can also add users and customize the permissions so that they can access lab
 
 ## Troubleshoot issues
 
-Use these tips if you see any of the following issues:
+Use these tips if you see any of the following issues while managing your project:
 
 |Issue |Resolution |
 |---------|---------|
@@ -320,7 +320,9 @@ Use these tips if you see any of the following issues:
 
 |Issue |Resolution |
 |---------|---------|
-|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.|
+|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.
+
+If you have problems creating the project, see [Troubleshoot problems during creation of a data labeling project](how-to-troubleshoot-data-labeling.md)
 
 ## Next step
 

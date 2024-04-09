@@ -22,13 +22,13 @@ Distributed tracing is available in the following SDKs:
 
 |SDK |Supported version |Notes |
 |----|------------------|------|
-|.NET v3 SDK |[>= `3.36.0`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0) |This feature is available in both preview and non-preview versions. For non-preview versions it's off by default. You can enable tracing by setting `IsDistributedTracingEnabled = false` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
-|.NET v3 SDK preview |[>= `3.33.0-preview`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) |This feature is available in both preview and non-preview versions. For preview versions it's on by default. You can disable tracing by setting `IsDistributedTracingEnabled = true` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
+|.NET v3 SDK |[>= `3.36.0`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0) |This feature is available in both preview and non-preview versions. For non-preview versions, it's off by default. You can enable tracing by setting `DisableDistributedTracing = false` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
+|.NET v3 SDK preview |[>= `3.33.0-preview`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview) |This feature is available in both preview and non-preview versions. For preview versions, it's on by default. You can disable tracing by setting `DisableDistributedTracing = true` in `CosmosClientOptions.CosmosClientTelemetryOptions`. |
 |Java v4 SDK |[>= `4.43.0`](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.43.0) | |
 
 ## Trace attributes
 
-Azure Cosmos DB traces follow the [OpenTelemetry database specification](https://github.com/open-telemetry/opentelemetry-specification) and also provide several custom attributes. You may see different attributes depending on the operation of your request, and these attributes are core attributes for all requests.
+Azure Cosmos DB traces follow the [OpenTelemetry database specification](https://github.com/open-telemetry/opentelemetry-specification) and also provide several custom attributes. You can see different attributes depending on the operation of your request, and these attributes are core attributes for all requests.
 
 |Attribute |Type |Description |
 |----------|-----|------------|
@@ -48,11 +48,11 @@ Azure Cosmos DB traces follow the [OpenTelemetry database specification](https:/
 
 ### Gather diagnostics
 
-If you've configured logs in your trace provider, you can automatically get [diagnostics](./troubleshoot-dotnet-sdk.md#capture-diagnostics) for Azure Cosmos DB requests that failed or had high latency. These logs can help you diagnose failed and slow requests without requiring any custom code to capture them. 
+If you configured logs in your trace provider, you can automatically get [diagnostics](./troubleshoot-dotnet-sdk.md#capture-diagnostics) for Azure Cosmos DB requests that failed or had high latency. These logs can help you diagnose failed and slow requests without requiring any custom code to capture them. 
 
 ### [.NET](#tab/dotnet)
 
-In addition to getting diagnostic logs for failed requests, you can configure different latency thresholds for when to collect diagnostics from successful requests. The default values are 100 ms for point operations and 500 ms for non point operations and can be adjusted through client options.
+In addition to getting diagnostic logs for failed requests, you can configure different latency thresholds for when to collect diagnostics from successful requests. The default values are 100 ms for point operations and 500 ms for non point operations. These thresholds can be adjusted through client options.
 
 ```csharp
 CosmosClientOptions options = new CosmosClientOptions()
@@ -110,7 +110,7 @@ In addition to getting diagnostic logs for failed requests, you can configure di
 
 ## Configure OpenTelemetry
 
-To use OpenTelemetry with the Azure Cosmos DB SDKs, add the `Azure.Cosmos.Operation` source to your trace provider. OpenTelemetry is compatible with many exporters that can ingest your data. The following sample uses the `Azure Monitor OpenTelemetry Exporter`, but you can choose to configure any exporter you wish. Depending on your chosen exporter, you may see a delay ingesting data of up to a few minutes.
+To use OpenTelemetry with the Azure Cosmos DB SDKs, add the `Azure.Cosmos.Operation` source to your trace provider. OpenTelemetry is compatible with many exporters that can ingest your data. The following sample uses the `Azure Monitor OpenTelemetry Exporter`, but you can choose to configure any exporter you wish. Depending on your chosen exporter, you might see a delay ingesting data of up to a few minutes.
 
 > [!TIP]
 > If you use the `Azure.Monitor.OpenTelemetry.Exporter` package, ensure you're using version >= `1.0.0-beta.11`.
@@ -122,7 +122,7 @@ This sample shows how to configure OpenTelemetry for a .NET console app. See the
 
 ## Configure the Application Insights SDK
 
-There are many different ways to configure Application Insights depending on the language your application is written in and your compute environment. For more information, see the [Application Insights documentation](../../azure-monitor/app/app-insights-overview.md#how-do-i-use-application-insights). Ingestion of data into Application Insights may take up to a few minutes.
+There are many different ways to configure Application Insights depending on the language your application is written in and your compute environment. For more information, see the [Application Insights documentation](../../azure-monitor/app/app-insights-overview.md#how-do-i-use-application-insights). Ingestion of data into Application Insights can take up to a few minutes.
 
 > [!NOTE]
 > Use version >= `2.22.0-beta2` of the Application Insights package for your target .NET environment.

@@ -129,7 +129,7 @@ When you enable pod security policy, AKS creates one default policy named *privi
 
     The following condensed example output shows the *psp:privileged* `ClusterRole` is assigned to any *system:authenticated* users. This ability provides a basic level of privilege without your own policies being defined.
 
-    ```output
+    ```yaml
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
@@ -141,7 +141,7 @@ When you enable pod security policy, AKS creates one default policy named *privi
       kind: ClusterRole
       name: psp:privileged
     subjects:
-   - apiGroup: rbac.authorization.k8s.io
+    - apiGroup: rbac.authorization.k8s.io
       kind: Group
       name: system:masters
     ```
@@ -344,14 +344,14 @@ In the previous step, you created a pod security policy to reject pods that requ
     metadata:
       name: psp-deny-privileged-clusterrole
     rules:
-   - apiGroups:
-     - extensions
-      resources:
-     - podsecuritypolicies
-      resourceNames:
-     - psp-deny-privileged
-      verbs:
-     - use
+    - apiGroups:
+      - extensions
+       resources:
+      - podsecuritypolicies
+       resourceNames:
+      - psp-deny-privileged
+       verbs:
+      - use
     ```
 
 2. Create the ClusterRole using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
@@ -372,7 +372,7 @@ In the previous step, you created a pod security policy to reject pods that requ
       kind: ClusterRole
       name: psp-deny-privileged-clusterrole
     subjects:
-   - apiGroup: rbac.authorization.k8s.io
+    - apiGroup: rbac.authorization.k8s.io
       kind: Group
       name: system:serviceaccounts
     ```

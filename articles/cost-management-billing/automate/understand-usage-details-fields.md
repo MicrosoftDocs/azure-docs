@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 02/26/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -47,8 +47,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
-| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
-| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
+| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
+| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
 | ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). |
 | ConsumedService | All | Name of the service the charge is associated with. |
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
@@ -90,10 +90,10 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
-| Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS. |
+| Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | Publisher for Marketplace services. |
-| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
+| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
 | Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
@@ -115,7 +115,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice² ³| EA, pay-as-you-go | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (pay-as-you-go price) for your contract. |
+| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (pay-as-you-go price) for your contract. |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
@@ -123,11 +123,13 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
 
+⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
+
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
-### Reconcile charges for MCA accounts
+## Reconcile charges for MCA accounts
 
 MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
 
@@ -135,8 +137,39 @@ MCA customers can use the following information to reconcile charges between bil
 2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
 3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
 
+## Reconcile reservation purchases with usage records
 
-### Rounding adjustment details
+Every reservation purchase and usage record has two associated IDs:  `ReservationId` and `ProductOrderId`.
+
+- Reservation purchase records (`PricingModel` = `Reservation`, `ChargeType` = `Purchase`):
+    - The records carry the purchase order ID as `ProductOrderId`.
+    - Additionally, they stamp the same purchase order ID as `ReservationId`.
+- Reservation usage records (`PricingModel` = `Reservation`, `ChargeType` = `Usage`/`UnusedReservation`):
+    - Like purchase records, the usage records also carry the purchase order ID as `ProductOrderId`.
+    - However, the `ReservationId` can differ, as it gets attributed to the resources that benefited from the reservation.
+    - Keep in mind that actions such as split, merge, partial refund, or exchange can create new reservations.
+
+Although the `ReservationId` itself might differ, it's still part of the same order. Therefore, the `ProductOrderId` can be effectively used to associate the purchase with the usage record, facilitating reconciliation between reservation purchases and usage.
+
+| Record type | `ReservationId`	| `ProductOrderId` |
+| --- | --- | --- |
+|Reservation purchase record (actual cost) |	Purchase order ID |	Purchase order ID |
+|Reservation usage record (amortized and actual cost) |	Differing reservation ID |	Purchase order ID |
+
+For more information, see [Manage Reservations for Azure resources](../reservations/manage-reserved-vm-instance.md).
+
+## Identify EA charges for included quantity
+
+Included quantity (IQ) refers to the amount of a metered resource that can be consumed without incurring any extra cost in an Enterprise Agreement. When dealing with IQ, consider the following points:
+
+Meter characteristics - Meters associated with IQ exhibit specific traits in the cost file because the meters allow consumption without any extra charges. In the cost file, a meter with IQ has:
+
+- **ChargeType**: Usage, **PricingModel**: OnDemand.
+- **Unit price**, **effective price**, and **Cost** set to 0, because you're not billed for their consumption.
+- **Quantity** isn't zero. It shows the actual consumption of the meter.
+- However, the **PayG (pay-as-you-go) price** still shows the retail price, which is nonzero.
+
+## Rounding adjustment details
 
 Rounding adjustment isn't available in the cost details file during an open month. The adjustment is visible when the month closes and the invoice gets generated.
 
@@ -153,7 +186,7 @@ The rounding adjustment record is available in the Cost Details file at the Bill
 
 Here's an example of how rounding adjustment works in practice:
 
-Suppose you have two resources in your subscription, A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
+Suppose you have two resources in your subscription: A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
 
 - Resource A: $0.1234 x 10 = $1.234
 - Resource B: $0.5678 x 10 = $5.678
@@ -168,7 +201,7 @@ However, when the invoice is generated, the costs are rounded to two decimal pla
 
 The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To make sure that Cost Management costs match the invoice, the amount is shown in the cost details file.
 
-### List of terms from older APIs
+## List of terms from older APIs
 
 The following table maps terms used in older APIs to the new terms. Refer to the above table for those descriptions.
 

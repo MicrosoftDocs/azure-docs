@@ -6,8 +6,8 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/16/2024
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 04/08/2024
 ms.author: radeltch
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -27,8 +27,12 @@ ms.author: radeltch
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [401162]:https://launchpad.support.sap.com/#/notes/401162
+[2235581]:https://launchpad.support.sap.com/#/notes/2235581
+[2684254]:https://launchpad.support.sap.com/#/notes/2684254
 
 [sles-for-sap-bp]:https://documentation.suse.com/sbp-supported.html
+[sles-for-sap-bp12]:https://documentation.suse.com/sbp/sap-12/
+[sles-for-sap-bp15]:https://documentation.suse.com/sbp/sap-15/
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
@@ -48,8 +52,9 @@ Before you begin, read the following SAP Notes and papers:
   - The supported SAP software, operating system (OS), and database combinations.
   - The required SAP kernel versions for Windows and Linux on Microsoft Azure.
 - SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
-- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server (SLES) for SAP Applications.
-- SAP Note [1944799] has SAP HANA guidelines for SLES for SAP Applications.
+- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server 12 (SLES 12) for SAP Applications.
+-  SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
+- SAP Note [2235581] has SAP HANA supported Operating systems
 - SAP Note [2178632] has detailed information about all the monitoring metrics that are reported for SAP in Azure.
 - SAP Note [2191498] has the required SAP host agent version for Linux in Azure.
 - SAP Note [2243692] has information about SAP licensing for Linux in Azure.
@@ -61,7 +66,7 @@ Before you begin, read the following SAP Notes and papers:
 - [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 - [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] guide.
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
-- [SUSE Linux Enterprise Server for SAP Applications best practices guides][sles-for-sap-bp]:
+- [SUSE Linux Enterprise Server for SAP Applications 15 best practices guides][sles-for-sap-bp15] and [SUSE Linux Enterprise Server for SAP Applications 12 best practices guides][sles-for-sap-bp12]:
   - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
   - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications).
 
@@ -770,7 +775,7 @@ You can migrate the SAP HANA master node by running the following command:
 crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`.
 
 When the migration is finished, the `crm_mon -r` output looks like this example:
 
@@ -792,7 +797,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 ```
 
-The SAP HANA resource on `hn1-db-0` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
 su - <hana sid>adm

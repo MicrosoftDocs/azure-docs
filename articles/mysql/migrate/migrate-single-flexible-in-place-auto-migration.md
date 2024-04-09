@@ -13,7 +13,7 @@ ms.custom: mvc, mode-api
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic or General Purpose SKU**, data storage used **<= 20 GiB** and **no complex features (CMK, AAD, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
+**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 20 GiB** and **no complex features (CMK, AAD, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -22,10 +22,10 @@ The in-place migration provides a highly resilient and self-healing offline migr
 * The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. Stopped Single Server is deleted 7 days after the migration.
 
 > [!NOTE]
-> In-place migration is only for Single Server database workloads with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled. All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure MySQL Import to migrate.
+> If your Single Server instance has General Purpose V1 storage, your scheduled instance will undergo an additional restart operation 12 hours prior to the scheduled migration time. This restart operation serves to enable the log_bin server parameter needed to upgrade the instance to General Purpose V2 storage before undergoing the in-place auto-migration.
 
 ## Eligibility
-* If you own a Single Server workload with Basic or GP SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
+* If you own a Single Server workload with Basic, General Purpose or Memory Optimized SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts and review migration schedule
 
@@ -76,16 +76,17 @@ Following described are the ways to review your migration schedule once you have
 * For Single Servers with less than 20 GiB storage, the storage size is set to 20 GiB as that is the minimum storage limit on Azure Database for MySQL - Flexible Server.
 * Both username formats – username@server_name (Single Server) and username (Flexible Server) are supported on the migrated Flexible Server.
 * Both connection string formats – Single Server and Flexible Server are supported on the migrated Flexible Server.
+* For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Please note, for certain workloads this could impact performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 
 ## Post-migration steps
 
 > [!NOTE]
 > Post-migration do no restart the stopped Single Server instance as it may hamper your client's and application connectivity.
 
-Copy the following properties from the source Single Server to target Flexible Server post in-place migration operation is completed successfully:
-
-* Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
-* Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
+* Copy the following properties from the source Single Server to target Flexible Server post in-place migration operation is completed successfully:
+  * Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
+  * Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
+* For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Please note, for certain workloads this could impact performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 
 ## Frequently Asked Questions (FAQs)
 
@@ -99,7 +100,7 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **Q. How can I set up or view in-place migration alerts?​**
 
-**A.** Following are the ways you can set up alerts :
+**A.** Following are the ways you can set up alerts:
 
 * Configure service health alerts to receive in-place migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 * Check the in-place migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
@@ -110,7 +111,7 @@ Copy the following properties from the source Single Server to target Flexible S
 
 **Q. What are some post-migration activities I need to perform?​**
 
-**A.** Following are some post-migration activities :
+**A.** Following are some post-migration activities:
 
 * Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
 * Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
