@@ -49,7 +49,7 @@ The following table lists the new maximum supported limits.
 | SIMs                   | 20,000 per ASE |
 | SIM provisioning       | 10,000 per JSON file via Azure portal, 4 MB per REST API call  |
 
-For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing#service-limits).
+For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## March 2024
 
