@@ -8,7 +8,6 @@ ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
-ms.reviewer: michawil
 
 ---
 

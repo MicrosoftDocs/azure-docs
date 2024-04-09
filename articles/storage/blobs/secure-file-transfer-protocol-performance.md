@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
-ms.reviewer: ylunagaria
 
 ---
 

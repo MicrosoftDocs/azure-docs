@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2023
 ms.custom: references_regions
 ms.author: normesta
-ms.reviewer: ylunagaria
+
 ---
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management. 
-
 
 Here's a video that tells you more about it.
 
@@ -149,6 +148,13 @@ At this time, in accordance with the Microsoft Security SDL, we don't plan on su
 
 To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
+## Networking considerations
+
+SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured, then all requests will receive a disconnect from the service. When using SFTP, you may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they aren't specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+
+> [!NOTE]
+> Audit tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](../common/transport-layer-security-configure-minimum-version.md).
+
 ### Known supported clients
 
 The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting. This list isn't exhaustive and may change over time.
@@ -194,9 +200,12 @@ Enabling the SFTP endpoint has an hourly cost. For the latest pricing informatio
 
 Transaction, storage, and networking prices for the underlying storage account apply. All SFTP transactions get converted to Read, Write or Other transactions on your storage accounts. This includes all SFTP commands and API calls. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
 
-## See also
+## Related content
 
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support-how-to.md)
+- [Authorize access to Azure Blob Storage from an SSH File Transfer Protocol (SFTP) client](secure-file-transfer-protocol-support-authorize-access.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-connect.md)
 - [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
 - [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
 - [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)
