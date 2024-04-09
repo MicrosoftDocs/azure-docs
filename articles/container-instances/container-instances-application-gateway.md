@@ -23,7 +23,7 @@ In this article, you use the Azure CLI to create the resources for this scenario
 As long as the application gateway runs and the container group exposes a stable private IP address in the network's delegated subnet, the container group is accessible at this public IP address.
 
 > [!NOTE]
-> Azure Application Gateway [supports HTTP, HTTPS, HTTP/2, and WebSocket protocols](../application-gateway/application-gateway-faq.md#what-protocols-does-application-gateway-support).
+> Azure Application Gateway [supports HTTP, HTTPS, HTTP/2, and WebSocket protocols](../application-gateway/application-gateway-faq.yml).
 >
 > Azure charges for an application gateway based on the amount of time that the gateway is provisioned and available, as well as the amount of data it processes. See [pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
