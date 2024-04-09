@@ -76,7 +76,7 @@ To learn more about this topic, checkout [Update Manager and scheduled patching]
 > In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
 > If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
 
-## Shutdown Machines
+## Shut Down Machines
 
 We're unable to apply maintenance updates to any shutdown machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal. This is only a display issue that the team is currently working to fix it. The maintenance configuration hasn't been disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#check-configuration).
 
