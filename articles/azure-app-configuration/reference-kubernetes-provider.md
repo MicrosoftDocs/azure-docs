@@ -369,6 +369,8 @@ spec:
       - snapshotName: snapshot_app1
 ```
 
+---
+
 ### Key prefix trimming
 
 The following sample uses the `trimKeyPrefixes` property to trim two prefixes from key names before adding them to the generated ConfigMap.
@@ -626,3 +628,5 @@ data:
     key2=value2
     key3=value3
 ```
+
+---

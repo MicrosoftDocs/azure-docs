@@ -96,7 +96,7 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 
 Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra authentication or a list of connection strings for access key-based authentication.
 
-### [.NET](#tab/dotnet)
+### [.NET](#tab/net)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
