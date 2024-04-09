@@ -32,7 +32,7 @@ This ability to have multiple Code Signing Accounts and Certificate Profiles is 
 
 
 [!NOTE]
-Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
+>Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
 
 ### Trusted Signing account
 
@@ -57,7 +57,8 @@ Trusted Signing provides five total Certificate Profile types that all subscribe
     - **VBS Enclave**: Used for signing [Virtualization-based Security Enclaves](https://learn.microsoft.com/windows/win32/trusted-execution/vbs-enclaves) on Windows.
     - **Public Trust Test**: Used for test signing only and aren't publicly trusted by default. Consider Public Trust Test Certificate Profile as a great option for inner loop build signing. 
     
-        **Note**: All certificates under this Certificate Profile type include the Lifetime EKU (1.3.6.1.4.1.311.10.3.13) forcing validation to respect the lifetime of the signing certificate regardless of the presence of a valid time stamp countersignature. 
+     >[!NOTE]
+     >All certificates under this Certificate Profile type include the Lifetime EKU (1.3.6.1.4.1.311.10.3.13) forcing validation to respect the lifetime of the signing certificate regardless of the presence of a valid time stamp countersignature. 
 
 - **Private Trust**
     - **Private Trust**: Used for signing internal or private artifacts such as Line of Business (LoB) applications and containers. It can also be used to sign [catalog files for Windows App Control for Business](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-catalog-files-to-support-wdac).
@@ -66,7 +67,7 @@ Trusted Signing provides five total Certificate Profile types that all subscribe
 
 ## Supported roles
 
-Azure Role Based Access Controls (RBAC) is a cornerstone concept for all Azure resources. Trusted Signing adds two custom roles to meet subscribers’ needs for creating an Identity Validation (Code Signing Identity Verifier) and signing with Certificate Profiles (Code Signing Certificate Profile Signer). These custom roles explicitly must be assigned to perform those two critical functions in using Trusted Signing. Below is a complete list of roles Trusted Signing supports and their capabilities, including all standard Azure roles.
+Azure Role Based Accesfnotes Controls (RBAC) is a cornerstone concept for all Azure resources. Trusted Signing adds two custom roles to meet subscribers’ needs for creating an Identity Validation (Code Signing Identity Verifier) and signing with Certificate Profiles (Code Signing Certificate Profile Signer). These custom roles explicitly must be assigned to perform those two critical functions in using Trusted Signing. Below is a complete list of roles Trusted Signing supports and their capabilities, including all standard Azure roles.
 
 |Role|Managed/View Account|Manage Certificate Profiles|Sign with Certificate Profile|View Signing History|Manage Role Assignment|Manage Identity Validation|
 |---------------|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|
