@@ -85,19 +85,6 @@ The settings in this tab are described in the following table.
 
 ### Configure pipeline using ARM templates
 
-You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
-
-
-| Component | Type | Description |
-|:---|:---|:---|
-| Log Analytics workspace | `Microsoft.OperationalInsights/workspaces` | Remove this section if you're using an existing Log Analytics workspace. The only parameter required is the workspace name. The immutable ID for the workspace, which is needed for other components, will be automatically created. |
-| Data collection endpoint (DCE) | `Microsoft.Insights/dataCollectionEndpoints` | Remove this section if you're using an existing DCE. The only parameter required is the DCE name. The logs ingestion URL for the DCE, which is needed for other components, will be automatically created. |
-| Edge pipeline extension | `Microsoft.KubernetesConfiguration/extensions` | The only parameter required is the pipeline extension name. |
-| Custom location | `Microsoft.ExtendedLocation/customLocations` | Custom location of the the Arc-enabled Kubernetes cluster to create the custom |
-| Edge pipeline instance | `Microsoft.monitor/pipelineGroups` | Edgepipeline instasnce that includes configuration of the listener, exporters, and data flows. You must modify the properties of the pipeline instance before deploying the template. |
-| Data collection rule (DCR) | `Microsoft.Insights/dataCollectionRules` | The only parameter required is the DCR name, but you must modify the properties of the DCR before deploying the template. |
-
-
 
 ### Edge pipeline extension
 
@@ -711,50 +698,10 @@ kubectl get services -n <namespace where azure monitor pipeline was installed>
 
 If the application producing logs is external to the cluster, copy the *external-ip* value of the service *nginx-controller-service* with the load balancer type. If the application is on a pod within the cluster, copy the *cluster-ip* value. If the external-ip field is set to *pending*, you will need to configure an external IP for this ingress manually according to your cluster configuration.
 
-### Syslog clients
-Update Syslog clients to send data to the pipeline endpoint and the port of your Syslog dataflow. For example, if you have a linux machine with *syslog/rsyslog* log installed, add this information to the configuration file `rsyslog.conf`.
-
-You can update the configuration file with the following command:
-
-```bash
-sudo nano /etc/rsyslog.conf
-```
-
-For example, the following configuration file sends logs to a pipeline at address 10.0.0.92:514.
-
-```
-# rsyslog configuration file
-
-# Filter duplicated messages
-$RepeatedMsgReduction on
-
-#
-# Set the default permissions for all log files.
-#
-$FileOwner syslog
-$FileGroup adm
-$FileCreateMode 0640
-$DirCreateMode 0755
-$Umask 0022
-$PrivDropToUser syslog
-$PrivDropToGroup syslog
-
-#
-# Where to place spool and state files
-#
-$WorkDirectory /var/spool/syslog
-
-#
-# Include all config files in /etc/rsyslog.d/
-#
-#IncludeConfig /etc/rsyslog.d/*.conf   
-
-# ---
-*.* @10.0.0.92:514
-```
-
-### OTLP clients
-The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/).
+| Client | Description |
+|:---|:---|
+| Syslog | Update Syslog clients to send data to the pipeline endpoint and the port of your Syslog dataflow. |
+| OTLP | The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/). |
 
 
 ## Cache configuration
