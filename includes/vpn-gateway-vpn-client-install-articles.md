@@ -6,7 +6,7 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-| Authentication | Tunnel type |Server config| Generate config files| Configure VPN client |
+| Authentication | Tunnel type |Configure server| Generate config files| Configure VPN client |
 | --- | --- | --- |---| --- |
 | Azure certificate | IKEv2, SSTP   | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)|  [Windows](../articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md)| [Native VPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-native.md)
 | Azure certificate | OpenVPN  | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)|  [Windows](../articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md)|- [OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md)<br>- [Azure VPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)
