@@ -745,10 +745,10 @@
           - name: Overview
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-introduction.md
-          - name: Enable Defender for open-source relational databases on Azure
+          - name: Enable on Azure
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: enable-defender-for-databases-azure.md
-          - name: Enable Defender for open-source relational databases on AWS
+          - name: Enable on AWS
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: enable-defender-for-databases-aws.md
           - name: Respond to Defender open-source database alerts
