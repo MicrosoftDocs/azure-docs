@@ -14,8 +14,8 @@ ms.subservice: calling
 
 # Overview of video issues
 
-Establishing a video call involves many components and processes to setup an end to end video experience. Steps include the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
-If there's a problem in any of these stages, users ma video-related quality issues.
+Establishing a video call involves many components and processes. Steps include the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
+If there's a problem in any of these stages, users may experience video-related issues.
 For example, users may complain about being unable to see the video or the poor quality of the video.
 Therefore, understanding how video content flow from the sender to the receiver is crucial for debugging and mitigating video issues.
 
@@ -30,7 +30,7 @@ After the SDK completes the handshake at the signaling layer with the server, it
 The browser performs video encoding and packetization at the RTP(Real-time Transport Protocol) layer for transmission.
 The other participants in the call receive notifications from the server, indicating the availability of a video stream from the sender.
 Your application can decide whether to subscribe to the video stream or not. 
-If your applications subscribes to the video stream from the server (for example, using [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API), the server forwards the sender's video packets to the receiver.
+If your application subscribes to the video stream from the server (for example, using [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API), the server forwards the sender's video packets to the receiver.
 The receiver's browser decodes and renders the incoming video.
 
 When you use ACS Web Calling SDK for video calls, the SDK and browser may adjust the video quality of the sender based on the available bandwidth.
@@ -39,8 +39,7 @@ Additionally, CPU overload on the sender side can also influence the browser's d
 
 ## Common issues in video calls
 
-We can see that the whole process involves factors such as the sender's camera device, as well as the network conditions at the sender and receiver ends,
-including bandwidth and packets lost, all of which can potentially impact the video quality perceived by the users.
+We can see that the whole process involves factors such as the sender's camera device, The network conditions at the sender and receiver ends also play an important role. Bandwidth and packets lost can  impact the video quality perceived by the users.
 
 Here we list several common video issues, along with potential causes for each issue:
 
@@ -51,9 +50,9 @@ Here we list several common video issues, along with potential causes for each i
 * The application disposes the video renderer while subscribing the video
 * The maximum number of active video subscriptions has been reached
 * The video sender's browser is in the background
-* The video sender has dropped the call unexpectedly
-* The video sender has network issues
-* The receiver has network issues
+* The video sender dropped the call unexpectedly
+* The video sender experiences network issues
+* The receiver experiences network issues
 * The frames are received but not decoded
 * The participant enables the camera while waiting in the lobby
 
