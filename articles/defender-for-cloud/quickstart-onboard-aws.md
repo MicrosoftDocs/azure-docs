@@ -94,7 +94,7 @@ Make sure the selected Log Analytics workspace has a security solution installed
 
 [Learn more about monitoring components](monitoring-components.md) for Defender for Cloud.
 
-### Defender for open-source databases
+### Defender for open-source databases (Preview)
 
 If you choose the Defender for open-source relational databases plan, you need:
 
@@ -102,9 +102,9 @@ If you choose the Defender for open-source relational databases plan, you need:
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Connect your [non-Azure machines](quickstart-onboard-machines.md), [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md)
+- Connect your [Azure account](connect-azure-subscription.md) or [AWS account](quickstart-onboard-aws.md).
 
-- Region availability: All public AWS regions
+Region availability: All public AWS regions (excluding Tel Aviv, Milan, Jakarta, Spain and Bahrain).
 
 ### Defender for Servers
 

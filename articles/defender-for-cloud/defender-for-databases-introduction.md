@@ -1,7 +1,7 @@
 ---
 title: What is Defender for open-source databases
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
-ms.date: 04/07/2024
+ms.date: 04/09/2024
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
@@ -16,7 +16,7 @@ This plan brings threat protections for the following open-source relational dat
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
 
-and for AWS:
+and for RDS instances on AWS (Preview):
 
 - Aurora PostgreSQL
 - Aurora MySQL
