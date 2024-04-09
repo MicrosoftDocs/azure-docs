@@ -36,6 +36,12 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
+## ExpressRoute cheat sheet
+
+Quickly access the most important ExpressRoute resources and information with this [cheat sheet](https://download.microsoft.com/download/b/9/2/b92e3598-6e2e-4327-a87f-8dc210abca6c/AzureNetworking-ExRCheatSheet-v1-2.pdf).
+
+:::image type="content" source="./media/expressroute-introduction/cheat-sheet.png" alt-text="Screenshot of the ExpressRoute cheat sheet for accessing information quickly." lightbox="./media/expressroute-introduction/cheat-sheet-expanded.png":::
+
 ## Features
 
 ### Layer 3 connectivity

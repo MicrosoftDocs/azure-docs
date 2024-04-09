@@ -395,7 +395,7 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
-        - name: How to migrate from Twilio video to Azure Communication Services
+        - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
@@ -652,6 +652,10 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Migrate to Azure Communication Services
+      items:
+      - name: Migrate from Twilio Video to Azure Communication Services
+        href: concepts/migrate-to-azure-communication-services.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation
@@ -793,6 +797,8 @@ items:
         href: concepts/analytics/logs/rooms-logs.md
       - name: Rooms metrics 
         href: concepts/analytics/rooms-metrics.md
+      - name: Closed captions logs
+        href: concepts/analytics/logs/closed-captions-logs.md
     - name: Service events via EventGrid
       items:
       - name: Overview
@@ -1037,6 +1043,14 @@ items:
     items:
     - name: Voice and Video
       items:
+      - name: General troubleshooting strategies
+        items:
+        - name: Overview
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md
+        - name: Understanding error messages and codes
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
+        - name: Reporting an issue
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md
       - name: Calling (JavaScript)
         items:
         - name: Device and permission issues
