@@ -21,8 +21,19 @@ This article shows how to list blobs using the [Azure Storage client library for
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
+- **Code project**: This article assumes you have an existing project where you can add the code provided in the examples. If you don't have a project, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- **Packages**: The following packages need to be installed:
+    - **Azure.Storage.Blobs**
+    - **Azure.Identity** (for Microsoft Entra ID authorization)
+    - Add the following `using` directives to your code file:
+        ```csharp
+        using Azure.Identity;
+        using Azure.Storage.Blobs;
+        using Azure.Storage.Blobs.Models;
+        using Azure.Storage.Blobs.Specialized;
+        ```
+    To learn more about package installation, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
+- **Authorization**: The authorization mechanism must have the necessary permissions to list blobs. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for the following REST API operation:
     - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
 
 ## About blob listing options
