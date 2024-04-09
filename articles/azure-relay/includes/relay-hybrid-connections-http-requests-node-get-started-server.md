@@ -1,21 +1,16 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 05/02/2018
-ms.author: clemensv
-ms.custom: include file
-
+ms.date: 01/04/2024
+ms.author: samurp
 ---
 
 ### Create a Node.js application
 
 Create a new JavaScript file called `listener.js`.
 
-### Add the Relay NPM package
+### Add the Relay package
 
 Run `npm install hyco-https` from a Node command prompt in your project folder.
 
@@ -37,7 +32,7 @@ Run `npm install hyco-https` from a Node command prompt in your project folder.
 
 3. Add the following code to the `listener.js` file. :
 
-    You will notice that the code is not much different from any simple HTTP server
+    You notice that the code isn't much different from any simple HTTP server
     example you can find in Node.js beginner tutorials, which the exception of
     using the `createRelayedServer` instead of the typical `createServer`
     function.
@@ -66,7 +61,7 @@ Run `npm install hyco-https` from a Node command prompt in your project folder.
         console.log('error: ' + err);
     });
     ```
-    Here is what your listener.js file should look like:
+    Here's what your listener.js file should look like:
    
     ```js
     const https = require('hyco-https');
