@@ -68,7 +68,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
     | --- | --- |
     | **Database id** | `cosmicworks` |
     | **Database throughput type** | **Manual** |
-    | **Database throughput amount** | `4000` |
+    | **Database throughput amount** | `1000` |
     | **Container id** | `products` |
     | **Partition key** | `/categoryId` |
 
@@ -122,7 +122,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     :::image type="content" source="media/tutorial-dotnet-web-app/section-data-database-scale.png" alt-text="Screenshot of the Scale option within the database node.":::
 
-1. Reduce the throughput from **4,000** down to **400**.
+1. Reduce the throughput from **1,000** down to **400**.
 
     :::image type="content" source="media/tutorial-dotnet-web-app/section-scale-throughput.png" alt-text="Screenshot of the throughput settings for the database reduced down to 400 RU/s.":::
 
