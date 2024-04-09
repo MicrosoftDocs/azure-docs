@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-python
 ms.topic: best-practice
-ms.date: 04/08/20234
+ms.date: 04/08/2024
 ---
 
 # Best practices for Python SDK in Azure Cosmos DB for NoSQL

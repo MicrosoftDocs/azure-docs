@@ -155,8 +155,6 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 The [query metrics](query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it's being spent on the back-end vs the client. Learn more on the [query performance guide](performance-tips-query-sdk.md?pivots=programming-language-python).
 
-https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-develop-emulator?pivots=api-nosql&tabs=windows%2Cpython
-
 ## Next steps
 
 * Learn about Performance guidelines for the [Python SDK](performance-tips-python-sdk.md)
