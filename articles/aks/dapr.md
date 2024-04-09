@@ -67,7 +67,30 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components and APIs
 
-Stable Azure + open source components are supported. Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are available, but not supported.
+A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
+
+- [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
+- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower SLA guarantee.
+
+#### Managed components
+
+| API | Component | Type |
+| --- | --------- | ------ |
+| State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
+| Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
+| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br> | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
+
+#### Standard components
+
+| API | Component | Type |
+| --- | --------- | ------ |
+| State management | Azure CosmosDB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
+| Publish & subscribe | Apache Kafka<br>Redis Streams | `pubsub.kafka`<br>`pubsub.redis` |
+| Binding | Azure Event Grid<br>Azure CosmosDB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
+| Configuration | PostgreSQL<br>Redis | `bindings.postgresql`<br>`bindings.redis` |
+
+> [!NOTE]
+> Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are available, but not supported.
 
 ### Clouds/regions
 
