@@ -66,7 +66,6 @@ To create a compute instance in Azure AI Studio:
     - **Assign a managed identity**: You can attach system assigned or user assigned managed identities to grant access to resources. The name of the created system managed identity will be in the format `/workspace-name/computes/compute-instance-name` in your Microsoft Entra ID.
     - **Enable SSH access**: Enter credentials for an administrator user account that will be created on each compute node. These can be used to SSH to the compute nodes.
 
-
 1. On the **Applications** page you can add custom applications to use on your compute instance, such as RStudio or Posit Workbench. Then select **Next**.
 1. On the **Tags** page you can add additional information to categorize the resources you create. Then select **Review + Create** or **Next** to review your settings.
 
