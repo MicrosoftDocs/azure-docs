@@ -296,7 +296,7 @@ For minor versions not supported by AKS, scaling in or out should continue to wo
 The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 ### What is the allowed difference in versions between control plane and node pool?
-The [version skew policy](https://kubernetes.io/releases/version-skew-policy/) now allows a difference of upto 3 versions between control plane and agent pools. AKS follows this skew version policy change starting from version 1.30 onwards. 
+The [version skew policy](https://kubernetes.io/releases/version-skew-policy/) now allows a difference of upto 3 versions between control plane and agent pools. AKS follows this skew version policy change starting from version 1.28 onwards. 
 
 ### Can I skip multiple AKS versions during cluster upgrade?
 
