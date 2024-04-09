@@ -10,6 +10,8 @@ ms.date: 03/13/2024
 
 The default quota for models varies by model and region. Default quota limits are subject to change.
 
+Quota for standard deployments is described in of terms of [Tokens-Per-Minute (TPM)](../../how-to/quota.md).
+
 | Region           | GPT-4   | GPT-4-32K   | GPT-4-Turbo   | GPT-4-Turbo-V   | GPT-35-Turbo   | GPT-35-Turbo-Instruct   | Text-Embedding-Ada-002   | text-embedding-3-small   | text-embedding-3-large   | Babbage-002   | Babbage-002 - finetune   | Davinci-002   | Davinci-002 - finetune   | GPT-35-Turbo - finetune   | GPT-35-Turbo-1106 - finetune   | GPT-35-Turbo-0125 - finetune   |
 |:-----------------|:-------:|:-----------:|:-------------:|:---------------:|:--------------:|:-----------------------:|:------------------------:|:------------------------:|:------------------------:|:-------------:|:------------------------:|:-------------:|:------------------------:|:-------------------------:|:------------------------------:|:-------------------------------|
 | australiaeast    | 40 K    | 80 K        | 80 K          | 30 K            | 300 K          | -                       | 350 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
@@ -29,3 +31,5 @@ The default quota for models varies by model and region. Default quota limits ar
 | uksouth          | -       | -           | 80 K          | -               | 240 K          | -                       | 350 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
 | westeurope       | -       | -           | -             | -               | 240 K          | -                       | 240 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
 | westus           | -       | -           | 80 K          | 30 K            | 300 K          | -                       | 350 K                    | -                        | -                        | -             | -                        | -             | -                        | -                         | -                              | -                              |
+
+1 K = 1000 Tokens-Per-Minute (TPM). The relationship between TPM and Requests Per Minute (RPM) is [currently defined as 6 RPM per 1000 TPM](../../how-to/quota.md#understanding-rate-limits).

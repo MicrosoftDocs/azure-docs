@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 03/28/2024
+ms.date: 04/08/2024
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize network performance.
@@ -247,6 +247,6 @@ VNet flow logs can be enabled during the preview in the following regions:
 
 ## Related content
 
-- To learn how to create, change, enable, disable, or delete VNet flow logs, see [Manage VNet flow logs using Azure PowerShell](vnet-flow-logs-powershell.md) or [Manage VNet flow logs using the Azure CLI](vnet-flow-logs-cli.md).
+- To learn how to create, change, enable, disable, or delete VNet flow logs, see the [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md) guides.
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
