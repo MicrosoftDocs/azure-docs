@@ -41,7 +41,7 @@ This section outlines variations and considerations when using Microsoft Entra E
 
 ### Azure Active Directory B2C
 
-This section outlines variations and considertaions when using Azure Active Directory B2C services.
+This section outlines variations and considerations when using Azure Active Directory B2C services.
 
 | Product | Unsupported, limited, and/or modified features |
 |---------|--------|
