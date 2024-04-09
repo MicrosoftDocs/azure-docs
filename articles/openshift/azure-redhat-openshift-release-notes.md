@@ -5,13 +5,23 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 08/16/2023
+ms.date: 12/20/2023
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+## Version 4.13 - December 2023
+
+We're pleased to announce the launch of OpenShift 4.13 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.13](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html). Version 4.11 will be outside of support after February 10, 2024.  Existing clusters version 4.11 and below should be upgraded before then.
+
+## Update - September 2023
+
+To create a private cluster without a public IP address, you can now add the parameter `--outbound-type UserDefinedRouting` to the `aro create` command. See [Create a private cluster without a public IP address](howto-create-private-cluster-4x.md#create-a-private-cluster-without-a-public-ip-address) for details.
+
+A cluster that is deployed with this feature and is running version 4.11 or higher can be scaled to 120 nodes and 30,000 pods.
 
 ## Version 4.12 - August 2023
 

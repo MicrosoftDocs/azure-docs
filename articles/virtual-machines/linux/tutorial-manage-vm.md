@@ -1,20 +1,22 @@
 ---
-title: Tutorial - Create and manage Linux VMs with the Azure CLI 
+title: Tutorial - Create and manage Linux VMs with the Azure CLI
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Linux VMs in Azure
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
 ms.date: 03/23/2023
-ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
-
+ms.author: jushiman
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
 ---
 
 # Tutorial: Create and Manage Linux VMs with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -25,15 +27,15 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Resize a VM
 > * View and understand VM state
 
-This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. 
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. 
+Create a resource group with the [az group create](/cli/azure/group) command.
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region.
 
 
 ```azurecli-interactive
@@ -44,7 +46,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 ## Create virtual machine
 
-Create a virtual machine with the [az vm create](/cli/azure/vm) command. 
+Create a virtual machine with the [az vm create](/cli/azure/vm) command.
 
 When you create a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. The following example creates a VM named *myVM* that runs SUSE Linux Enterprise Server (SLES). A user account named *azureuser* is created on the VM, and SSH keys are generated if they do not exist in the default key location (*~/.ssh*):
 
@@ -52,7 +54,7 @@ When you create a virtual machine, several options are available such as operati
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM \
-    --image SLES \
+    --image SuseSles15SP3 \
     --public-ip-sku Standard \
     --admin-username azureuser \
     --generate-ssh-keys
@@ -89,11 +91,11 @@ exit
 
 ## Understand VM images
 
-The Azure Marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine. 
+The Azure Marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm image list --output table
 ```
 
@@ -118,9 +120,9 @@ x64             WindowsServer                 MicrosoftWindowsServer  2012-Datac
 x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
 ```
 
-A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images, published by OpenLogic, with an offer that matches *CentOS*. 
+A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images, published by OpenLogic, with an offer that matches *CentOS*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm image list --offer CentOS --publisher OpenLogic --all --output table
 ```
 
@@ -149,7 +151,7 @@ x64             CentOS                     OpenLogic    8_5-gen2         OpenLog
 > [!NOTE]
 > Canonical has changed the **Offer** names they use for the most recent versions. Before Ubuntu 20.04, the **Offer** name is UbuntuServer. For Ubuntu 20.04 the **Offer** name is `0001-com-ubuntu-server-focal` and for Ubuntu 22.04 it's `0001-com-ubuntu-server-jammy`.
 
-To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a CentOS 8.5.  
+To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a CentOS 8.5.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:8_5:latest --generate-ssh-keys
@@ -161,7 +163,7 @@ A virtual machine size determines the amount of compute resources such as CPU, G
 
 ### VM Sizes
 
-The following table categorizes sizes into use cases.  
+The following table categorizes sizes into use cases.
 
 | Type                      |    Description       |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -176,9 +178,9 @@ The following table categorizes sizes into use cases.
 
 ### Find available VM sizes
 
-To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm) command. 
+To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm) command.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm list-sizes --location eastus2 --output table
 ```
 
@@ -206,13 +208,13 @@ Example partial output:
 
 ### Create VM with specific size
 
-In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm) and the `--size` parameter. 
+In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm) and the `--size` parameter.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
-    --image SLES \
+    --image SuseSles15SP3 \
     --size Standard_D2ds_v4  \
     --generate-ssh-keys
 ```
@@ -225,25 +227,25 @@ After a VM has been deployed, it can be resized to increase or decrease resource
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](/cli/azure/vm) command returns the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](/cli/azure/vm) command returns the list of sizes.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
 
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm) command to perform the resize.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_D4s_v3
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used.
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-Once deallocated, the resize can occur. 
+Once deallocated, the resize can occur.
 
 ```azurecli-interactive
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
@@ -257,7 +259,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ## VM power states
 
-An Azure VM can have one of many power states. This state represents the current state of the VM from the standpoint of the hypervisor. 
+An Azure VM can have one of many power states. This state represents the current state of the VM from the standpoint of the hypervisor.
 
 ### Power states
 
@@ -265,7 +267,7 @@ An Azure VM can have one of many power states. This state represents the current
 |----|----|
 | Starting | Indicates the virtual machine is being started. |
 | Running | Indicates that the virtual machine is running. |
-| Stopping | Indicates that the virtual machine is being stopped. | 
+| Stopping | Indicates that the virtual machine is being stopped. |
 | Stopped | Indicates that the virtual machine is stopped. Virtual machines in the stopped state still incur compute charges.  |
 | Deallocating | Indicates that the virtual machine is being deallocated. |
 | Deallocated | Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
@@ -273,7 +275,7 @@ An Azure VM can have one of many power states. This state represents the current
 
 ### Find the power state
 
-To retrieve the state of a particular VM, use the [az vm get-instance-view](/cli/azure/vm) command. Be sure to specify a valid name for a virtual machine and resource group. 
+To retrieve the state of a particular VM, use the [az vm get-instance-view](/cli/azure/vm) command. Be sure to specify a valid name for a virtual machine and resource group.
 
 ```azurecli-interactive
 az vm get-instance-view \
@@ -294,11 +296,11 @@ To retrieve the power state of all the VMs in your subscription, use the [Virtua
 
 ## Management tasks
 
-During the life-cycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using the Azure CLI, many common management tasks can be run from the command line or in scripts. 
+During the life-cycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using the Azure CLI, many common management tasks can be run from the command line or in scripts.
 
 ### Get IP address
 
-This command returns the private and public IP addresses of a virtual machine.  
+This command returns the private and public IP addresses of a virtual machine.
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
@@ -337,8 +339,7 @@ In this tutorial, you learned about basic VM creation and management such as how
 > * Resize a VM
 > * View and understand VM state
 
-Advance to the next tutorial to learn about VM disks.  
+Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
-

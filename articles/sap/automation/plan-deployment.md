@@ -4,7 +4,7 @@ description: Prepare for using SAP Deployment Automation Framework. Steps includ
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 12/14/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -12,35 +12,40 @@ ms.subservice: sap-automation
 
 # Plan your deployment of the SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running [SAP Deployment Automation Framework](deployment-framework.md) like deployment mechanisms, credentials management, and virtual network design.
+There are multiple considerations for planning SAP deployments using the [SAP Deployment Automation Framework](deployment-framework.md). These include subscription planning, credentials management virtual network design.
 
 For generic SAP on Azure design considerations, see [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap).
 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP Deployment Automation Framework repository](https://github.com/Azure/SAP-automation-samples/tree/main/Terraform/WORKSPACES). The templates use parameter files with your system-specific information to perform the deployment.
 
+## Subscription planning
+
+You should deploy the control plane and the workload zones in different subscriptions. The control plane should reside in a hub subscription that is used to host the management components of the SAP automation framework. 
+
+The SAP systems should be hosted in spoke subscriptions, which are dedicated to the SAP systems. An example of partitioning the systems would be to host the development systems in a separate subscription with a dedicated virtual network and the production systems would be hosted in their own subscription with a dedicated virtual network.
+
+This approach provides a both a security boundary and allows for clear separation of duties and responsibilities. For example, the SAP Basis team can deploy systems into the workload zones, and the infrastructure team can manage the control plane. 
+
+
 ## Control plane planning
 
-You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure-hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SAP Deployment Automation Framework](configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure-hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SAP Deployment Automation Framework](configure-devops.md). For setting up a Linux virtual machines as the deployer, see [Set up Linux virtual machines for SAP Deployment Automation Framework](deploy-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
-* In which regions do you need to deploy workloads?
+* In which regions do you need to deploy SAP systems?
 * Is there a dedicated subscription for the control plane?
 * Is there a dedicated deployment credential (service principal) for the control plane?
-* Are you deploying to an existing virtual network or creating a new virtual network?
+* Is there an existing virtual network or is a new virtual network needed?
 * How is outbound internet provided for the virtual machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
-* Are you going to use an existing private DNS zone for the virtual machines or will you use the control plane for it?
+* Are you going to use an existing private DNS zone for the virtual machines or use the control plane for hosting Private DNS?
 * Are you going to use Azure Bastion for secure remote access to the virtual machines?
 * Are you going to use the SAP Deployment Automation Framework configuration web application for performing configuration and deployment activities?
 
 ### Control plane
-
-If you're supporting multiple workload zones in a region, use a unique identifier for your control plane. Don't use the same identifier as for the workload zone. For example, use `MGMT` for management purposes.
-
-The automation framework also supports having the control plane in separate subscriptions than the workload zones.
 
 The control plane provides the following services:
 
@@ -50,7 +55,7 @@ The control plane provides the following services:
 - Azure Bastion for providing secure remote access to the deployed virtual machines.
 - An SAP Deployment Automation Framework configuration Azure web application for performing configuration and deployment activities.
 
-The control plane is defined by using two configuration files.
+The control plane is defined by using two configuration files, one for the deployer and one for the SAP Library.
 
 The deployment configuration file defines the region, environment name, and virtual network information. For example:
 
@@ -70,14 +75,16 @@ management_firewall_subnet_address_prefix = "10.170.20.0/26"
 bastion_deployment = true
 management_bastion_subnet_address_prefix = "10.170.20.128/26"
 
+use_webapp = true
+
 webapp_subnet_address_prefix = "10.170.20.192/27"
 deployer_assign_subscription_permissions = true
 
 deployer_count = 2
 
-use_service_endpoint = true
-use_private_endpoint = true
-enable_firewall_for_keyvaults_and_storage = true
+use_service_endpoint = false
+use_private_endpoint = false
+public_network_access_enabled = true
 
 ```
 
@@ -106,11 +113,7 @@ The SAP library resource group provides storage for SAP installation media, Bill
 
 ## Workload zone planning
 
-Most SAP application landscapes are partitioned in different tiers. In SAP Deployment Automation Framework, these tiers are called workload zones. For example, you might have different workload zones for development, quality assurance, and production. For more information, see [Workload zones](deployment-framework.md#deployment-components).
-
-The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
-
-The `SAP01` and `SAP02` designations define the logical names for the Azure virtual networks. They can be used to further partition the environments. Suppose you need two Azure virtual networks for the same workload zone. For example, you might have a multi-subscription scenario where you host development environments in two subscriptions. You can use the different logical names for each virtual network. For example, you can use `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
+Most SAP application landscapes are partitioned in different tiers. In SAP Deployment Automation Framework, these tiers are called workload zones. For example, you might have different workload zones for development, quality assurance, and production systems. For more information, see [Workload zones](deployment-framework.md#deployment-components).
 
 The workload zone provides the following shared services for the SAP applications:
 
@@ -124,8 +127,11 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * How many workload zones does your scenario require (development, quality assurance, and production)?
 * Are you deploying into new virtual networks or are you using existing virtual networks?
-* How is DNS configured (integrated with existing DNS or deployed a private DNS zone in the control plane)?
 * What storage type do you need for the shared storage (Azure Files NFS or Azure NetApp Files)?
+
+The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
+
+The `SAP01` and `SAP02` designations define the logical names for the Azure virtual networks. They can be used to further partition the environments. Suppose you need two Azure virtual networks for the same workload zone. For example, you might have a multi-subscription scenario where you host development environments in two subscriptions. You can use the different logical names for each virtual network. For example, you can use `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
 
 For more information, see [Configure a workload zone deployment for automation](deploy-workload-zone.md).
 
@@ -172,7 +178,7 @@ The automation framework uses the workload zone key vault for storing both the a
 
 To create your service principal:
 
-1. Sign in to the [Azure CLI](/cli/azure/) with an account that has permissions to create a service principal.
+1. Sign in to the [Azure CLI](/cli/azure/) with an account that has permissions to create a service principal
 1. Create a new service principal by running the command `az ad sp create-for-rbac`. Make sure to use a description name for `--name`. For example:
 
     ```azurecli
@@ -191,13 +197,16 @@ To create your service principal:
     }
     ```
 
-1. Optionally, assign the User Access Administrator role to your service principal. For example:
+1. Assign the User Access Administrator role to your service principal. For example:
 
     ```azurecli
     az role assignment create --assignee <your-application-ID> --role "User Access Administrator" --scope /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>
     ```
 
 For more information, see the [Azure CLI documentation for creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
 ### Permissions management
 
@@ -208,32 +217,76 @@ In a locked-down environment, you might need to assign another permission to the
 The following table shows the required permissions for the service principals.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Credential                                   | Area                                | Required permissions         |
-> | -------------------------------------------- | ----------------------------------- | ---------------------------- |
-> | Control Plane SPN                            | Control plane subscription          | Contributor                  |
-> | Workload Zone SPN                            | Target subscription                 | Contributor                  |
-> | Workload Zone SPN                            | Control plane subscription          | Reader                       |
-> | Workload Zone SPN                            | Control plane virtual network       | Network contributor          |
-> | Workload Zone SPN                            | SAP library `tfstate` storage account | Storage account contributor  |
-> | Workload Zone SPN                            | SAP library `sapbits` storage account | Reader                       |
-> | Workload Zone SPN                            | Private DNS zone                    | Private DNS zone contributor |
-> | Web Application Identity                     | Target subscription                 | Reader                       |
-> | Cluster Virtual Machine Identity             | Resource group                      | Fencing role                 |
+> | Credential                                   | Area                                  | Required permissions                   | Duration           |
+> | -------------------------------------------- | ------------------------------------- | -------------------------------------- | ------------------ |
+> | Control Plane SPN                            | Control plane subscription            | Contributor                            |                    |
+> | Control Plane SPN                            | Deployer resource group               | Contributor                            |                    |
+> | Control Plane SPN                            | Deployer resource group               | User Access Administrator              | During setup       | 
+> | Control Plane SPN                            | SAP Library resource group            | Contributor                            |                    |
+> | Control Plane SPN                            | SAP Library resource group            | User Access Administrator              |                    |
+> | Workload Zone SPN                            | Target subscription                   | Contributor                            |                    |
+> | Workload Zone SPN                            | Workload zone resource group          | Contributor, User Access Administrator |                    |
+> | Workload Zone SPN                            | Control plane subscription            | Reader                                 |                    |
+> | Workload Zone SPN                            | Control plane virtual network         | Network contributor                    |                    |
+> | Workload Zone SPN                            | SAP library `tfstate` storage account | Storage account contributor            |                    |
+> | Workload Zone SPN                            | SAP library `sapbits` storage account | Reader                                 |                    |
+> | Workload Zone SPN                            | Private DNS zone                      | Private DNS zone contributor           |                    |
+> | Web Application Identity                     | Target subscription                   | Reader                                 |                    |
+> | Cluster Virtual Machine Identity             | Resource group                        | Fencing role                           |                    |
 
 ### Firewall configuration
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Component                           | Addresses                                                                                                 | Duration                                 | Notes                                                                                                    |
-> | ----------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-> | SDAF                                | `github.com/Azure/sap-automation`, `github.com/Azure/sap-automation-samples`, `githubusercontent.com`     | Setup of deployer                        |                                                                                                          |
-> | Terraform                           | `releases.hashicorp.com`, `registry.terraform.io`, `checkpoint-api.hashicorp.com`                         | Setup of deployer                        | See [Installing Terraform](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform). |
-> | Azure CLI                           | Installing [Azure CLI](/cli/azure/install-azure-cli-linux)                                                | Setup of deployer and during deployments | The firewall requirements for the Azure CLI installation are defined in [Installing Azure CLI](/cli/azure/azure-cli-endpoints). |
-> | PIP                                 | `bootstrap.pypa.io`                                                                                       | Setup of deployer                        | See [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html). |
-> | Ansible                             | `pypi.org`, `pythonhosted.org`, `galaxy.ansible.com`                                                      | Setup of deployer                        |                                                                                                |
-> | PowerShell Gallery                  | `onegetcdn.azureedge.net`, `psg-prod-centralus.azureedge.net`, `psg-prod-eastus.azureedge.net`            | Setup of Windows-based systems           | See [PowerShell Gallery](/powershell/gallery/getting-started#network-access-to-the-powershell-gallery). |
+> | Component                           | Addresses                                                                                                 | Duration                                 | Notes                                                                                                                                        |
+> | ----------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+> | SDAF                                | `github.com/Azure/sap-automation`, `github.com/Azure/sap-automation-samples`, `githubusercontent.com`     | Setup of deployer                        |                                                                                                                                              |
+> | Terraform                           | `releases.hashicorp.com`, `registry.terraform.io`, `checkpoint-api.hashicorp.com`                         | Setup of deployer                        | See [Installing Terraform](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform).                                    |
+> | Azure CLI                           | Installing [Azure CLI](/cli/azure/install-azure-cli-linux)                                                | Setup of deployer and during deployments | The firewall requirements for the Azure CLI installation are defined in [Installing Azure CLI](/cli/azure/azure-cli-endpoints).              |
+> | PIP                                 | `bootstrap.pypa.io`                                                                                       | Setup of deployer                        | See [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).                                |
+> | Ansible                             | `pypi.org`, `pythonhosted.org`, `files.pythonhosted.org`, `galaxy.ansible.com`, 'https://ansible-galaxy-ng.s3.dualstack.us-east-1.amazonaws.com'     | Setup of deployer                        |                                                                                                   |
+> | PowerShell Gallery                  | `onegetcdn.azureedge.net`, `psg-prod-centralus.azureedge.net`, `psg-prod-eastus.azureedge.net`            | Setup of Windows-based systems           | See [PowerShell Gallery](/powershell/gallery/getting-started#network-access-to-the-powershell-gallery).                                      |
 > | Windows components                  | `download.visualstudio.microsoft.com`, `download.visualstudio.microsoft.com`, `download.visualstudio.com` | Setup of Windows-based systems           | See [Visual Studio components](/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server#install-visual-studio). |
-> | SAP downloads                       | `softwaredownloads.sap.com`                                                                                    | SAP software download                    | See [SAP downloads](https://launchpad.support.sap.com/#/softwarecenter). |
-> | Azure DevOps agent                  | `https://vstsagentpackage.azureedge.net`                                                                       | Setup of Azure DevOps                       |  |
+> | SAP downloads                       | `softwaredownloads.sap.com`                                                                                    | SAP software download                    | See [SAP downloads](https://launchpad.support.sap.com/#/softwarecenter).                                                                     |
+> | Azure DevOps agent                  | `https://vstsagentpackage.azureedge.net`                                                                       | Setup of Azure DevOps                    |                                                                                                                                              |
+
+
+You can test the connectivity to the URLs from a Linux Virtual Machine in Azure using a PowerShell script that uses the 'run-command' feature in Azure to test the connectivity to the URLs.
+
+The following example shows how to test the connectivity to the URLs by using an interactive PowerShell script.
+
+```powershell
+
+$sdaf_path = Get-Location
+if ( $PSVersionTable.Platform -eq "Unix") {
+    if ( -Not (Test-Path "SDAF") ) {
+      $sdaf_path = New-Item -Path "SDAF" -Type Directory
+    }
+}
+else {
+    $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+    if ( -not (Test-Path $sdaf_path)) {
+        New-Item -Path $sdaf_path -Type Directory
+    }
+}
+
+Set-Location -Path $sdaf_path
+
+git clone https://github.com/Azure/sap-automation.git 
+
+cd sap-automation
+cd deploy
+cd scripts
+
+if ( $PSVersionTable.Platform -eq "Unix") {
+ ./Test-SDAFURLs.ps1
+}
+else {
+ .\Test-SDAFURLs.ps1
+}
+
+```
+
+
 
 ## DevOps structure
 
@@ -252,14 +305,15 @@ You can create this repository by cloning the [SAP Deployment Automation Framewo
 
 The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files.
 
-| Folder name | Contents | Description |
-| ----------- | -------- | ----------- |
-| None (root level) | Configuration files, template files | The root folder for all systems that you're managing from this deployment environment. |
-| CONFIGURATION | Shared configuration files | A shared folder for referring to custom configuration files from multiple places. For example, custom disk sizing configuration files. |
-| DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
-| LIBRARY | Configuration files for SAP library | A folder with [SAP library configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
-| LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
-| SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. For example, **PROD-WEEU-SAPO00-ABC**. |
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Folder name       | Contents                                | Description                                                                                                                                                                                                                                                                      |
+> | ----------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+> | BOMS              | BoM Files                               | Used for manual BoM download                                                                                                                                                                                                                                                     |
+> | DEPLOYER          | Configuration files for the deployer    | A folder with [deployer configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**.          |
+> | LIBRARY           | Configuration files for SAP library     | A folder with [SAP library configuration files](configure-control-plane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**.                |
+> | LANDSCAPE         | Configuration files for workload zone   | A folder with [configuration files for all workload zones](deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**.                      |
+> | SYSTEM            | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. For example, **PROD-WEEU-SAPO00-ABC**. |
 
 :::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot that shows example folder structure, with separate folders for SAP HANA and multiple workload environments.":::
 
@@ -380,7 +434,7 @@ For more information, see [Configure the SAP system for automation](configure-sy
 
 When you plan a deployment, it's important to consider the overall flow. There are three main steps of an SAP deployment on Azure with the automation framework.
 
-1. Deploy the control plane. This step deploys components to support the SAP automation framework in a specified Azure region. Some parts of this step are to:
+1. Deploy the control plane. This step deploys components to support the SAP automation framework in a specified Azure region.
     1. Create the deployment environment.
     1. Create shared storage for Terraform state files.
     1. Create shared storage for SAP installation media.

@@ -6,6 +6,8 @@
     href: about.md  
 - name: Concepts
   items:
+  - name: Peering Service FAQ
+    href: faq.yml
   - name: Locations and partners
     href: location-partners.md
   - name: Peering Service connection
@@ -46,5 +48,3 @@
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: FAQ
-    href: faq.yml

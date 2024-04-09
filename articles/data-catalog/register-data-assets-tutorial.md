@@ -3,8 +3,8 @@ title: 'Tutorial: Register data assets in Azure Data Catalog'
 description: This tutorial describes how to register data assets in your Azure Data Catalog. 
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 12/08/2022
-# Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
+ms.date: 12/13/2023
+# Customer intent: As a Microsoft Entra owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
 ---
 # Tutorial: Register data assets in Azure Data Catalog
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* You need to have your own [Microsoft Entra tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 * An [Azure Data Catalog](data-catalog-get-started.md)
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
@@ -39,7 +39,7 @@ The database name we're using in this tutorial is *RLSTest*.
 
 You can now register data assets from the database sample by using Azure Data Catalog.
 
-1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and select **Publish Data**.
 
    :::image type="content" source="media/register-data-assets-tutorial/data-catalog-publish-data.png" alt-text="The data catalog is open with the Publish Data button selected.":::
 
@@ -230,7 +230,7 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 
    :::image type="content" source="media/register-data-assets-tutorial/data-catalog-connect1.png" alt-text="Product is selected from the table of returned results. The Open In button is selected, and Excel is selected from the dropdown menu.":::
 
-1. Select **Open** in the download pop-up window. This experience may vary depending on the browser.
+1. Select **Open** in the download pop-up window. This experience might vary depending on the browser.
 
 1. In the **Microsoft Excel Security Notice** window, select **Enable**.
 
@@ -262,7 +262,7 @@ Select **View Connection Strings** to view and copy ADO.NET, ODBC, and OLEDB con
 
 In this step, you see how to set up security for your data assets. Data Catalog doesn't give users access to the data itself. The owner of the data source controls data access.
 
-You can use Data Catalog to discover data sources and to view the metadata related to the sources registered in the catalog. There may be situations, however, where data sources should only be visible to specific users or to members of specific groups. For these scenarios, you can use Data Catalog to take ownership of registered data assets, and control the visibility of the assets you own.
+You can use Data Catalog to discover data sources and to view the metadata related to the sources registered in the catalog. There could be situations, however, where data sources should only be visible to specific users or to members of specific groups. For these scenarios, you can use Data Catalog to take ownership of registered data assets, and control the visibility of the assets you own.
 
 > [!NOTE]
 > The management capabilities described in this exercise are available only in the Standard Edition of Azure Data Catalog, not in the Free Edition.
@@ -310,7 +310,7 @@ In Azure Data Catalog, you can delete an individual asset or delete multiple ass
 
 ## Clean up resources
 
-Follow the [Remove data assets](#remove-data-assets) steps to clean up any assets you may have used while following this tutorial.
+Follow the [Remove data assets](#remove-data-assets) steps to clean up any assets you have used while following this tutorial.
 
 ## Summary
 

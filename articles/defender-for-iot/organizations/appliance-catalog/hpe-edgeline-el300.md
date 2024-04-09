@@ -15,7 +15,7 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors or on-pre
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | L500 |
+|**Hardware profile** | L100 |
 |**Performance** |Max bandwidth: 100 Mbps<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
@@ -149,4 +149,4 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

@@ -1,91 +1,135 @@
 ---
 title: Integrate the Azure Cosmos DB for NoSQL with Service Connector
-description: Integrate the Azure Cosmos DB SQL into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+description: Integrate the Azure Cosmos DB for NoSQL into your application with Service Connector
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 09/19/2022
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.date: 02/02/2024
 ---
 
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB for NoSQL using Service Connector. You might still be able to connect to the Azure Cosmos DB for SQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for NoSQL to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for NoSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
+Service Connector can be used to connect the following compute services to Azure Cosmos DB for NoSQL:
+
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+The table below shows which combinations of client types and authentication methods are supported for connecting your compute service to Azure Cosmos DB for NoSQL using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
-### [Azure App Service](#tab/app-service)
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java - Spring Boot | Yes                              | Yes                            | Yes                        | Yes               |
+| Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
+| Python             | Yes                              | Yes                            | Yes                        | Yes               |
+| Go                 | Yes                              | Yes                            | Yes                        | Yes               |
+| None               | Yes                              | Yes                            | Yes                        | Yes               |
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Cosmos DB for NoSQL using Service Connector.
 
-### [Azure Container Apps](#tab/container-apps)
+## Default environment variable names or application properties and Sample code
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### [Azure Spring Apps](#tab/spring-apps)
+### System-assigned managed identity
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Node.js            | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+#### SpringBoot client type
 
----
+Using a system-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
 
-## Default environment variable names or application properties
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.cloud.azure.cosmos.credential.managed-identity-enabled | Whether to enable managed identity | `true` |
+| spring.cloud.azure.cosmos.database                   | Your database          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| spring.cloud.azure.cosmos.endpoint        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
-Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information.
+#### Other client types
 
-### Azure App Service and Azure Container Apps
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                        |
+| ------------------------------------ | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
-#### Secret / Connection string
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a system-assigned identity.
+[!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
+
+### User-assigned managed identity
+
+#### SpringBoot client type
+
+Using a user-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.cloud.azure.cosmos.credential.managed-identity-enabled | Whether to enable managed identity | `true` |
+| spring.cloud.azure.cosmos.database                   | Your database          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| spring.cloud.azure.cosmos.endpoint        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
+| spring.cloud.azure.cosmos.credential.client-id        | Your client ID               | `<client-ID>`                                                                                                                                                                 |
+
+#### Other client types
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
+| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
+| AZURE_COSMOS_CLIENTID                | Your client ID                | `<client-ID>`                                                                                                                                                                                                      |
+| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a user-assigned identity.
+[!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
+
+### Connection string
+
+#### SpringBoot client type
+
+| Default environment variable name | Description                      | Example value                                                                                                                                                                                |
+|-----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| azure.cosmos.key                  | The access key for your database for Spring Cloud Azure version below 4.0 | `<access-key>`                                                                                                                                                                               |
+| azure.cosmos.database             | Your database for Spring Cloud Azure version below 4.0                    | `<database-name>`                                                                                                                                                                            |
+| azure.cosmos.uri                  | Your database URI for Spring Cloud Azure version below 4.0                | `https://<database-server>.documents.azure.com:443/` |
+| spring.cloud.azure.cosmos.key     | The access key for your database for Spring Cloud Azure version over 4.0  | `<access-key>`                                                                                                                                                                               |
+| spring.cloud.azure.cosmos.database| Your database for Spring Cloud Azure version over 4.0                     | `<database-name>`                                                                                                                                                                            |
+| spring.cloud.azure.cosmos.endpoint| Your database URI for Spring Cloud Azure version over 4.0                 | `https://<database-server>.documents.azure.com:443/` |
+
+#### Other client types
 
 | Default environment variable name | Description                         | Example value                                                                                                                                                                                |
 |-----------------------------------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_COSMOS_CONNECTIONSTRING     | Azure Cosmos DB for NoSQL connection string | `AccountEndpoint=https://<database-server>.documents.azure.com:443/;AccountKey=<account-key>` |
 
-#### System-assigned managed identity
+#### Sample code
 
-| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
-|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
-| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
-| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
-
-#### User-assigned managed identity
-
-| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
-|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
-| AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                            |
-| AZURE_COSMOS_CLIENTID                | Your client secret ID                | `<client-ID>`                                                                                                                                                                                                      |
-| AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a connection string.
+[!INCLUDE [code for cosmos sql](./includes/code-cosmossql-secret.md)]
 
 #### Service principal
 
+#### SpringBoot client type
+
+| Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
+|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.cloud.azure.cosmos.credential.client-id                | Your client ID                | `<client-ID>`                                                                                                                                                                                                      |
+| spring.cloud.azure.cosmos.credential.client-secret            | Your client secret                   | `<client-secret>`                                                                                                                                                                                                  |
+| spring.cloud.azure.cosmos.profile.tenant-id            | Your tenant ID                   | `<tenant-ID>`  |
+| spring.cloud.azure.cosmos.database                | Your database                      | `<database-name>`                                                                                                                                                                                                      |
+| spring.cloud.azure.cosmos.endpoint        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
+
+
+#### Other client types
 | Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
 |--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<database-server>/listConnectionStrings?api-version=2021-04-15` |
@@ -95,13 +139,10 @@ Use the connection details below to connect your compute services to the Azure C
 | AZURE_COSMOS_TENANTID                | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                      |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<database-server>.documents.azure.com:443/`                                                                                                                                                               |
 
-### Azure Spring Apps
+#### Sample code
 
-| Default environment variable name | Description                      | Example value                                                                                                                                                                                |
-|-----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| azure.cosmos.key                  | The access key for your database | `<access-key>`                                                                                                                                                                               |
-| azure.cosmos.database             | Your database                    | `<database-name>`                                                                                                                                                                            |
-| azure.cosmos.uri                  | Your database URI                | `https://<database-server>.documents.azure.com:443/` |
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a service principal.
+[!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ## Next steps
 

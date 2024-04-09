@@ -46,15 +46,17 @@ az login
 
 Next, sign in to your Batch account in the Azure CLI using the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. This step gives you access to Batch service commands. Then, you can manage Batch resources like pools, jobs, and tasks.
 
-You can authenticate your Batch account in the Azure CLI in two ways. The default method is to [authenticate using Azure AD](#authenticate-with-azure-ad). We recommend using this method in most scenarios. Another option is to [use Shared Key authentication](#authenticate-with-shared-key).
+You can authenticate your Batch account in the Azure CLI in two ways. The default method is to [authenticate using Microsoft Entra ID](#authenticate-with-azure-ad). We recommend using this method in most scenarios. Another option is to [use Shared Key authentication](#authenticate-with-shared-key).
 
 If you're creating Azure CLI scripts to automate Batch commands, you can use either authentication method. In some scenarios, Shared Key authentication might be simpler than creating a service principal. 
 
-#### Authenticate with Azure AD
+<a name='authenticate-with-azure-ad'></a>
 
-The default method for authenticating with your Batch account is through Azure AD. When you [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli) interactively or with a service principal, you can use those same cached credentials to sign you into your Batch account with Azure AD. This authentication method also offers Azure role-based access control (Azure RBAC). With Azure RBAC, user access depends on their assigned role, not account keys. You only need to manage the Azure roles, not account keys. Azure AD then handles access and authentication. 
+#### Authenticate with Microsoft Entra ID
 
-To sign in to your Batch account with Azure AD, run `az batch login`. Make sure to include the require parameters for your Batch account's name (`-n`), and your resource group's name (`-g`).
+The default method for authenticating with your Batch account is through Microsoft Entra ID. When you [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli) interactively or with a service principal, you can use those same cached credentials to sign you into your Batch account with Microsoft Entra ID. This authentication method also offers Azure role-based access control (Azure RBAC). With Azure RBAC, user access depends on their assigned role, not account keys. You only need to manage the Azure roles, not account keys. Microsoft Entra ID then handles access and authentication. 
+
+To sign in to your Batch account with Microsoft Entra ID, run `az batch login`. Make sure to include the require parameters for your Batch account's name (`-n`), and your resource group's name (`-g`).
 
 ```azurecli-interactive
 az batch account login -g <your-resource-group> -n <your-batch-account>

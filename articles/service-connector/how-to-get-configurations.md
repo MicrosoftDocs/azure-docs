@@ -1,8 +1,8 @@
 ---
 title: Get connection configurations added by Service Connector
 description: Get connection configurations added by Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 07/04/2023

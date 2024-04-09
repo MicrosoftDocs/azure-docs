@@ -14,10 +14,11 @@ ms.custom: engagement-fy23
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
 
-In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Active Directory B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
+In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Active Directory B2C. 
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
@@ -25,7 +26,6 @@ For an overview of options to secure the developer portal, see [Secure access to
 > * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
 > * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. On the **Create** page, provide the following information:
     1. Enter a unique name for the user flow.
     1. In **Identity providers**, select **Email signup**.
-    1. In **User attributes and token claims**, select the following attributes and claims that are needed for the API Management developer portal (not needed for the legacy developer portal).
+    1. In **User attributes and token claims**, select the following attributes and claims that are needed for the API Management developer portal.
         * **Collect attributes**: Given Name, Surname
         * **Return claims**: Given Name, Surname, Email Addresses, User’s ObjectID
 
@@ -105,13 +105,13 @@ For steps to update the Azure AD B2C app, see [Switch redirect URIs to the singl
 1. Select **Azure Active Directory B2C** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 ## Developer portal - add Azure Active Directory B2C account authentication
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
+> You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
 
 In the developer portal, sign-in with Azure Active Directory B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
@@ -129,32 +129,6 @@ When the signup is complete, you're redirected back to the developer portal. You
 Although a new account is automatically created whenever a new user signs in with Azure Active Directory B2C, you may consider adding the same widget to the signup page.
 
 The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
-
-## Legacy developer portal - how to sign up with Azure Active Directory B2C
-
-[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-
-> [!NOTE]
-> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](../active-directory-b2c/add-password-reset-policy.md) before signing up/signing into a developer account using Azure Active Directory B2C. 
-
-1. Open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
-
-    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="Screenshot of sign up in legacy developer portal.":::
-
-1. Choose to sign up with **Azure Active Directory B2C**.
-
-    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Screenshot of sign up with Azure Active Directory B2C in legacy developer portal.":::
-
-1. You're redirected to the signup policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
-
-   > [!NOTE]
-   > If Azure Active Directory B2C is the only option enabled on the **Identities** tab in the Azure portal, you'll be redirected to the signup policy directly.
-
-   :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
-
-   When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
-
-
 
 ## Next steps
 

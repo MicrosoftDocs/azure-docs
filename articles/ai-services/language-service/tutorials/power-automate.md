@@ -2,14 +2,13 @@
 title: Use Language service in power automate
 titleSuffix: Azure AI services
 description: Learn how to use Azure AI Language in power automate, without writing code.
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
-ms.date: 03/02/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ms.custom: cogserv-non-critical-language
 ---
 

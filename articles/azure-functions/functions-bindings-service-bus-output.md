@@ -3,9 +3,10 @@ title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.date: 01/15/2024
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -39,11 +40,57 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+# [Isolated worker model](#tab/isolated-process)
+
+This code defines and initializes the `ILogger`: 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a message and writes it to a second queue:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
+
+&nbsp;
+<hr/>
+
+This example uses an HTTP trigger with an `OutputType` object to both send an HTTP response and write the output message. 
+
+```csharp
+[Function("HttpSendMsg")]
+public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext context)
+{
+   _logger.LogInformation($"C# HTTP trigger function processed a request for {context.InvocationId}.");
+
+   HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+   await response.WriteStringAsync("HTTP response: Message sent");
+            
+   return new OutputType()
+   {
+       OutputEvent = "MyMessage",
+       HttpResponse = response
+   };
+}
+```
+
+This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
+
+```csharp
+ public class OutputType
+{
+   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
+   public string OutputEvent { get; set; }
+
+   public HttpResponseData HttpResponse { get; set; }
+}
+```
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
-```cs
+```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
 public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
@@ -52,11 +99,27 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
-# [Isolated process](#tab/isolated-process)
+&nbsp;
+<hr/>
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
+Instead of using the return statement to send the message, this HTTP trigger function returns an HTTP response that is different from the output message.
 
+```csharp
+[FunctionName("HttpTrigger1")]
+public static async Task<IActionResult> Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, 
+[ServiceBus("TopicOrQueueName", Connection = "ServiceBusConnection")] IAsyncCollector<string> message, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
+    await message.AddAsync("MyMessage");
+    await message.AddAsync("MyMessage2");
+
+    string responseMessage = "This HTTP triggered sent a message to Service Bus.";
+
+    return new OkObjectResult(responseMessage);
+}
+```
 
 ---
 
@@ -293,7 +356,19 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#service-bus-output).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), use the [ServiceBusOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.ServiceBus/src/ServiceBusOutputAttribute.cs) to define the queue or topic written to by the output.
+
+The following table explains the properties you can set using the attribute:
+
+| Property |Description|
+| --- | --- |
+|**EntityType**|Sets the entity type as either `Queue` for sending messages to a queue or `Topic` when sending messages to a topic. |
+|**QueueOrTopicName**|Name of the topic or queue to send messages to. Use `EntityType` to set the destination type.|
+|**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -331,18 +406,6 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 For a complete example, see [Example](#example).
 
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Attributes](functions-bindings-service-bus-trigger.md#attributes) in the trigger reference.
-
-# [Isolated process](#tab/isolated-process)
-
-In [C# class libraries](dotnet-isolated-process-guide.md), use the [ServiceBusOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.ServiceBus/src/ServiceBusOutputAttribute.cs) to define the queue or topic written to by the output.
-
-The following table explains the properties you can set using the attribute:
-
-| Property |Description|
-| --- | --- |
-|**EntityType**|Sets the entity type as either `Queue` for sending messages to a queue or `Topic` when sending messages to a topic. |
-|**QueueOrTopicName**|Name of the topic or queue to send messages to. Use `EntityType` to set the destination type.|
-|**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 
 ---
 
@@ -462,6 +525,8 @@ When the parameter value is null when the function exits, Functions doesn't crea
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 

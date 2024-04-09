@@ -3,7 +3,8 @@ title: Azure Blob storage input binding for Azure Functions
 description: Learn how to provide Azure Blob storage input binding data to an Azure Function.
 ms.topic: reference
 ms.date: 03/02/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -14,29 +15,26 @@ The input binding allows you to read blob storage data as input to an Azure Func
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
-::: zone-end
-::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
-
-::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]  
+::: zone-end  
+::: zone pivot="programming-language-python"   
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+::: zone-end 
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+# [Isolated process](#tab/isolated-process)
+
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
 # [In-process](#tab/in-process)
 
@@ -53,12 +51,6 @@ public static void Run(
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
 ---
 
@@ -320,6 +312,15 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-input).
 
+# [Isolated process](#tab/isolated-process)
+
+Isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+
 # [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute), which takes the following parameters:
@@ -345,15 +346,6 @@ public static void Run(
 ```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**BlobPath** | The path to the blob.|
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 ---
 
@@ -441,17 +433,17 @@ See the [Example section](#example) for complete examples.
 
 The binding types supported by Blob input depend on the extension package version and the C# modality used in your function app. 
 
-# [In-process](#tab/in-process)
-
-See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
-
 # [Isolated process](#tab/isolated-process)
 
 [!INCLUDE [functions-bindings-storage-blob-input-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-input-dotnet-isolated-types.md)]
 
+# [In-process](#tab/in-process)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
+
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
 
 If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 

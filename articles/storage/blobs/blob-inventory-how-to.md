@@ -9,7 +9,8 @@ ms.date: 02/24/2023
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -37,7 +38,7 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
 
 5. In the **Add a rule** page, name your new rule.
 
-6. Choose a container.
+6. Choose the container that will store inventory reports.
 
 7. Under **Object type to inventory**, choose whether to create a report for blobs or containers.
 

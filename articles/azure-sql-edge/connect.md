@@ -3,13 +3,16 @@ title: Connect and query Azure SQL Edge
 description: Learn how to connect to and query Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 07/28/2023
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
 ---
 # Connect and query Azure SQL Edge
 
-In Azure SQL Edge, after you deploy a container, you can connect to the database engine from any of the following locations:
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
+
+In Azure SQL Edge, after you deploy a container, you can connect to the Database Engine from any of the following locations:
 
 - Inside the container
 - From another Docker container running on the same host
@@ -22,7 +25,7 @@ You can connect to an instance of Azure SQL Edge instance from any of these comm
 
 - [sqlcmd](/sql/linux/sql-server-linux-setup-tools): **sqlcmd** client tools are already included in the container image of Azure SQL Edge. If you attach to a running container with an interactive bash shell, you can run the tools locally. SQL client tools *aren't* available on the ARM64 platform.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)
-- [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+- [Azure Data Studio](/azure-data-studio/download-azure-data-studio)
 - [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 To connect to an Azure SQL Edge Database Engine from a network machine, you need the following:
@@ -100,7 +103,7 @@ To connect to an instance of Azure SQL Edge by using SQL Server Management Studi
 
 To connect to an instance of Azure SQL Edge by using Visual Studio Code on a Windows, macOS or Linux machine, see [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, macOS or Linux machine, see [Azure Data Studio](/sql/azure-data-studio/quickstart-sql-server).
+To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, macOS or Linux machine, see [Azure Data Studio](/azure-data-studio/quickstart-sql-server).
 
 ## Next steps
 

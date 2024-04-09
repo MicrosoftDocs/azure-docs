@@ -31,7 +31,7 @@ To create a snapshot of a block blob, use one of the following methods:
 - [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-The following code example shows how to create a snapshot. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Azure AD credentials to authorize requests to the service. For more information about using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+The following code example shows how to create a snapshot. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Microsoft Entra credentials to authorize requests to the service. For more information about using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(

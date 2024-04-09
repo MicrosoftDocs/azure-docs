@@ -1,14 +1,12 @@
 ---
 title: Overview of Maintenance Configurations for Azure virtual machines
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/06/2021
-ms.author: cynthn
-#pmcontact: ApnaLakshay
+ms.author: jushiman
 ---
 
 # Managing VM updates with Maintenance Configurations
@@ -59,14 +57,23 @@ This scope is integrated with [Update Manager](../update-center/overview.md), wh
 - The upper maintenance window is 3 hours 55 mins.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
 - The value of **Repeat** should be at least 6 hours.
+- The start time for a schedule should be at least 10 minutes after the schedule's creation time.
 
->[!IMPORTANT]
-> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+>[!NOTE]
+> 1. The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+> 2. The count of characters of Resource Group name along with Maintenance Configuration name should be less than 128 characters
+
+In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
 To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
 
-> [!NOTE]
-> In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+> [!IMPORTANT]
+> If you move a resource to a different resource group or subscription, then scheduled patching for the resource stops working as this scenario is currently unsupported by the system. The team is working to provide this capability but in the meantime, as a workaround, for the resource you want to move (in static scope)
+> 1. You need to remove the assignment of it
+> 2. Move the resource to a different resource group or subscription
+> 3. Recreate the assignment of it
+> In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
+> If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
 
 ## Shut Down Machines
 
@@ -81,7 +88,7 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure portal](maintenance-configurations-portal.md)
 
 >[!IMPORTANT]
-> Pre/Post **tasks** property is currently exposed in the API but it is not supported a this time.
+> Pre/Post **tasks** property is currently exposed in the API but it is not supported at this time.
 
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
@@ -95,8 +102,10 @@ The following are the recommended limits for the mentioned indicators
 | Total number of Resource associations to a schedule | 3000 |
 | Resource associations on each dynamic scope    | 1000 |
 | Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
+| Number of dynamic scopes per schedule   | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 30  |
 
-The following are the Dynamic Scope Limits for **each dynamic scope**
+The following are the Dynamic Scope recommended limits for **each dynamic scope**
 
 | Resource    | Limit          |
 |----------|----------------------------|

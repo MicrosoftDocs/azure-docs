@@ -2,18 +2,16 @@
 title: 'Quickstart: Use Azure OpenAI Service with the Java SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first chat completions call with the Java SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2023
-keywords: 
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/java/quickstarts/get-started-app-chat-template) | [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij) 
 
 ## Prerequisites
 
@@ -22,9 +20,7 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 * The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 - The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
-
-<sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
@@ -39,7 +35,7 @@ keywords:
 
 Create a new Gradle project.
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
@@ -112,7 +108,7 @@ dependencies {
     public class GetChatCompletionsSample {
     
         public static void main(String[] args) {
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
             String deploymentOrModelId = "gpt-35-turbo";
     

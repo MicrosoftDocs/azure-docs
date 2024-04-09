@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
 ms.date: 03/06/2023
 ms.custom:

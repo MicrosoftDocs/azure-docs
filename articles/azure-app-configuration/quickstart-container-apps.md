@@ -2,12 +2,12 @@
 title: "Quickstart: Use Azure App Configuration in Azure Container Apps"
 description: Learn how to connect a containerized application to Azure App Configuration, using Service Connector.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: service-connector
 ms.topic: quickstart
 ms.date: 03/02/2023
-ms.author: mcleans
+ms.author: malev
 
 ---
 

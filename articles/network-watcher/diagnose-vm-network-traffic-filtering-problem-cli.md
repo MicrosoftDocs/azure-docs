@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](network-watcher-security-group-view-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Azure Cloud Shell or Azure CLI.
 
-    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This quickstart requires version 2.0 or later of the Azure CLI. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
  

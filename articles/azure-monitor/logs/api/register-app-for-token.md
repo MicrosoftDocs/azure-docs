@@ -19,7 +19,7 @@ Create a service principal and register an app using the Azure portal, Azure CLI
 1. To register an app, open the Active Directory Overview page in the Azure portal.
 
 1. Select **App registrations** from the side bar.
-:::image type="content" source="../media/api-register-app/active-directory-overview-page.png" alt-text="A screenshot showing the Azure Active Directory overview page.":::  
+:::image type="content" source="../media/api-register-app/active-directory-overview-page.png" alt-text="A screenshot showing the Microsoft Entra overview page.":::  
 
 1. Select **New registration**
 1. On the Register an application page, enter a **Name** for the application. 
@@ -27,7 +27,7 @@ Create a service principal and register an app using the Azure portal, Azure CLI
 
 1. On the app's overview page, select **Certificates and Secrets**
 1. Note the **Application (client) ID**. It's used in the HTTP request for a token.
-:::image type="content" source="../media/api-register-app/app-registration-overview.png" alt-text="A screenshot showing the App registrations overview page in Azure Active Directory.":::
+:::image type="content" source="../media/api-register-app/app-registration-overview.png" alt-text="A screenshot showing the App registrations overview page in Microsoft Entra ID.":::
   
 1. In the **Client secrets tab** Select **New client secret**
 1. Enter a **Description** and select **Add**
@@ -77,7 +77,7 @@ The CLI following example assigns the `Reader` role to the service principal for
 For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ### [PowerShell](#tab/powershell)
-The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see [using Azure PowerShell to create a service principal to access resources](../../../active-directory/develop/howto-authenticate-service-principal-powershell.md)  
+The following sample script demonstrates creating a Microsoft Entra service principal via PowerShell. For a more detailed walkthrough, see [using Azure PowerShell to create a service principal to access resources](../../../active-directory/develop/howto-authenticate-service-principal-powershell.md)  
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -120,4 +120,4 @@ For more information, see [Assign Azure roles using the Azure portal](../../../r
 Once you've assigned a role, you can use your app, client ID, and client secret to generate a bearer token to access the REST API.
 
 > [!NOTE]
-> When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403.
+> When using Microsoft Entra authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403.

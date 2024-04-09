@@ -4,7 +4,6 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -12,7 +11,7 @@ ms.author: cshoe
 
 # Health probes in Azure Container Apps
 
-Azure Container Apps Health probes are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). These probes allow the Container Apps runtime to regularly inspect the status of your container apps.
+Azure Container Apps health probes allow the Container Apps runtime to regularly inspect the status of your container apps.
 
 You can set up probes using either TCP or HTTP(S) exclusively.
 
@@ -165,10 +164,13 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
+> [!NOTE]
+> Default probes are currently not applied on workload profile environments when using the Consumption plan. This behavior may change in the future.
+
 | Probe type | Default values |
 | -- | -- |
-| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1 second<br>Failure threshold: 240 seconds |
-| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1 second<br>Failure threshold: 48 seconds |
+| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
 | Liveness | Protocol: TCP<br>Port: ingress target port |
 
 If your app takes an extended amount of time to start (which is common in Java) you often need to customize the probes so your container doesn't crash.

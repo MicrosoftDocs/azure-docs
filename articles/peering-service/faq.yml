@@ -2,15 +2,12 @@
 metadata:
   title: Azure Peering Service FAQ
   description: Answers to frequently asked questions about Microsoft Azure Peering Service.
-  services: peering-service
   author: halkazwini
+  ms.author: halkazwini
   ms.service: peering-service
   ms.topic: faq
-  ms.workload: Infrastructure-services
-  ms.date: 03/29/2023
-  ms.author: halkazwini
-  ms.custom: engagement-fy23
-title: Peering Service frequently asked questions (FAQ)
+  ms.date: 09/27/2023
+title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
 
@@ -45,15 +42,18 @@ sections:
       - question: |
           I have smaller subnets (</24) for my regional offices. Are smaller subnets supported with this service?
         answer: |
-          Yes, Microsoft Azure Peering Service supports smaller prefix routing. Prefixes smaller than a /24 must be registered by the MAPS Partner in the Peering resource to receive a service key and then activated by the customer in the Peering Service resource using the service key.
+          Yes, Peering Service supports smaller prefix routing. Prefixes smaller than a /24 must be registered by the Peering Service Partner in the Peering resource to receive a service key and then activated by the customer in the Peering Service resource using the service key.
+
+      - question: |
+          Can I move Peering Service resources across resource groups or subscriptions?
+        answer: |
+          For a list of resources that can be moved, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md#microsoftpeering).
       
 
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
-  - To learn about Peering Service, see [Peering Service overview](about.md).
-  - To find a service provider, see [Peering Service partners and locations](location-partners.md).
-  - To onboard a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
-  - To register a Peering Service connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
-  - To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+  - To learn about Peering Service, see [Azure Peering Service overview](about.md).
+  - To find a service provider, see [Peering Service partners](location-partners.md).
+  - To register a Peering Service connection, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).

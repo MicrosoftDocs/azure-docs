@@ -8,7 +8,6 @@ keywords: 'Azure, SAP'
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 11/17/2021
 ms.author: kimforss
 ---
@@ -19,9 +18,9 @@ You can deploy all [SAP Deployment Automation Framework](deployment-framework.md
 
 ## Control plane operations
 
-You can deploy or update the control plane by using the [prepare_region](bash/prepare-region.md) shell script.
+You can deploy or update the control plane by using the [deploy_controlplane](bash/deploy-controlplane.md) shell script.
 
-Remove the control plane by using the [remove_region](bash/remove-region.md) shell script.
+Remove the control plane by using the [remove_controlplane](bash/remove-controlplane.md) shell script.
 
 You can bootstrap the deployer in the control plane by using the [install_deployer](bash/install-deployer.md) shell script.
 
@@ -50,4 +49,4 @@ Update the Terraform state file by using the
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy the control plane by using Bash](bash/prepare-region.md)
+> [Deploy the control plane by using Bash](bash/deploy-controlplane.md)

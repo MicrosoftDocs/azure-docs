@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/22/2022
+ms.date: 11/10/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure. 
 ---
@@ -15,7 +15,10 @@ ms.author: alkohli
 
 This tutorial describes how to configure network for your Azure Stack Edge Mini R device with an onboard GPU by using the local web UI.
 
-The connection process can take around 20 minutes to complete.
+The connection process can take about 20 minutes to complete.
+
+> [!NOTE]
+> On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.
 
 In this tutorial, you learn about:
 

@@ -1,10 +1,10 @@
 ---
-title: Hue with Hadoop on HDInsight Linux-based clusters - Azure 
+title: Hue with Hadoop on HDInsight Linux-based clusters - Azure
 description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/14/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 12/05/2023
 ---
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -48,11 +48,11 @@ Use the information in the table below for your Script Action. See [Customize HD
 
 1. From the Hue portal, select **Query Editors**, and then select **Hive** to open the Hive editor.
 
-    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="HDInsight hue portal use hive editor":::
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="HDInsight hue portal use hive editor.":::
 
 2. On the **Assist** tab, under **Database**, you should see **hivesampletable**. This is a sample table that is shipped with all Hadoop clusters on HDInsight. Enter a sample query in the right pane and see the output on the **Results** tab in the pane below, as shown in the screen capture.
 
-    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="HDInsight hue portal hive query":::
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="HDInsight hue portal hive query.":::
 
     You can also use the **Chart** tab to see a visual representation of the result.
 
@@ -61,7 +61,7 @@ Use the information in the table below for your Script Action. See [Customize HD
 1. From the Hue portal, select **File Browser** in the top-right corner of the menu bar.
 2. By default the file browser opens at the **/user/myuser** directory. Select the forward slash right before the user directory in the path to go to the root of the Azure storage container associated with the cluster.
 
-    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="HDInsight hue portal file browser":::
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="HDInsight hue portal file browser.":::
 
 3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories.
 
@@ -80,7 +80,7 @@ Use the information in the table below for your Script Action. See [Customize HD
 
 1. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
-   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Hue portal error sample message":::
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Hue portal error sample message.":::
 
    This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on the primary headnode.
 

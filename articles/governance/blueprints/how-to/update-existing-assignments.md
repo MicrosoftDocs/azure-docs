@@ -6,6 +6,8 @@ ms.topic: how-to
 ---
 # How to update an existing blueprint assignment
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 When a blueprint is assigned, the assignment can be updated. There are several reasons for updating
 an existing assignment, including:
 

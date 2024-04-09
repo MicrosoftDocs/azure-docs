@@ -7,11 +7,11 @@ ms.topic: how-to
 
 # Monitor service provider activity
 
-Customers who have delegated subscriptions to service providers through [Azure Lighthouse](../overview.md) can [view Azure Activity log](../../azure-monitor/essentials/activity-log.md) data to see all actions taken. This data provides full visibility for actions that service providers take on delegated customer resources. The activity log also shows operations from users within the customer's own Azure Active Directory (Azure AD) tenant.
+Customers who have delegated subscriptions to service providers through [Azure Lighthouse](../overview.md) can [view Azure Activity log](../../azure-monitor/essentials/activity-log.md) data to see all actions taken. This data provides full visibility for actions that service providers take on delegated customer resources. The activity log also shows operations from users within the customer's own Microsoft Entra tenant.
 
 ## View activity log data
 
-[View the activity log](../../azure-monitor/essentials/activity-log.md#view-the-activity-log) from the **Monitor** menu in the Azure portal. Use the filters if you want to show results from a specific subscription.
+[View the activity log](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log) from the **Monitor** menu in the Azure portal. Use the filters if you want to show results from a specific subscription.
 
 You can also [view and retrieve activity log events](../../azure-monitor/essentials/activity-log.md#other-methods-to-retrieve-activity-log-events) programmatically.
 
@@ -23,7 +23,7 @@ In the activity log, you'll see the name of the operation and its status, along 
 > [!NOTE]
 > Users from the service provider appear in the activity log, but these users and their role assignments aren't shown in **Access Control (IAM)** or when retrieving role assignment info via APIs.
 
-Logged activity is available in the Azure portal for the past 90 days. You can also [store this data for a longer period](../../azure-monitor/essentials/activity-log.md#retention-period) if needed.
+Logged activity is available in the Azure portal for the past 90 days. You can also [store this data for a longer period](../../azure-monitor/essentials/activity-log-insights.md#retention-period) if needed.
 
 ## Set alerts for critical operations
 

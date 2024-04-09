@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The following article details how the Azure Blueprints Australian Government ISM PROTECTED blueprint
 sample maps to the ISM PROTECTED controls. For more information about the controls, see
 [ISM PROTECTED](https://www.cyber.gov.au/ism).

@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Forward Syslog data to Microsoft Sentinel and Azure Monitor by using Azure Monitor Agent'
-description: In this tutorial, you learn how to monitor Linux-based devices by forwarding Syslog data to a Log Analytics workspace. 
+description: In this tutorial, you learn how to monitor Linux-based devices by forwarding Syslog data to a Log Analytics workspace.
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
-ms.topic: tutorial 
+ms.topic: tutorial
 ms.date: 01/05/2023
-ms.custom: template-tutorial, devx-track-linux
+ms.custom: template-tutorial, linux-related-content
 #Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
 ---
 
@@ -98,7 +98,7 @@ If you're forwarding Syslog data to an Azure VM, follow these steps to allow rec
 Connect to your Linux VM and run the following command to configure the Linux Syslog daemon:
 
 ```bash
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py
 ```
 
 This script can make changes for both rsyslog.d and syslog-ng.

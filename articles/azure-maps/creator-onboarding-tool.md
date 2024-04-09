@@ -75,7 +75,7 @@ Integrate the indoor map into your applications using the Web SDK.
 > [Use the Azure Maps Indoor Maps module]
 
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
-[Conversion service]: /rest/api/maps/v2/conversion
+[Conversion service]: /rest/api/maps-creator/conversion
 [Convert a drawing package]: creator-indoor-maps.md#convert-a-drawing-package
 [dataset]: creator-indoor-maps.md#datasets
 [Drawing package requirements]: drawing-requirements.md?pivots=drawing-package-v2

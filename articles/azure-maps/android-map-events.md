@@ -1,8 +1,8 @@
 ---
 title: Handle map events in Android maps | Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Android SDK to handle events.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -14,6 +14,12 @@ zone_pivot_groups: azure-maps-android
 # Interact with the map (Android SDK)
 
 This article shows you how to use the maps events manager.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Interact with the map
 

@@ -6,7 +6,9 @@ ms.author: karlaescobar
 ms.date: 04/19/2022
 ms.service: dms
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sql-migration-content
 ---
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup

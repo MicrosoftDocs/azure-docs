@@ -1,8 +1,8 @@
 ---
 title: Data-driven style Expressions in Android maps | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Android SDK to adjust styles in maps.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,6 +12,12 @@ zone_pivot_groups: azure-maps-android
 ---
 
 # Data-driven style expressions (Android SDK)
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can filter data in a data source or a layer. Expressions may consist of conditional logic, like if-statements. And, they can be used to manipulate data using: string operators, logical operators, and mathematical operators.
 

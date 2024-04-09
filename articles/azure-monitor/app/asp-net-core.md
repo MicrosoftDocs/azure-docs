@@ -4,12 +4,14 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 04/24/2023
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
 
 This article describes how to enable and configure Application Insights for an [ASP.NET Core](/aspnet/core) application.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -23,7 +25,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 
 We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions in [Application Insights for Worker Service applications](./worker-service.md).
 
-A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
+An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -654,11 +656,21 @@ public class HomeController : Controller
 
 For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](./api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights by using the [GetMetric API](./get-metric.md).
 
+### How do I capture Request and Response body in my telemetry?
+
+ASP.NET Core has [built-in
+support](/aspnet/core/fundamentals/http-logging) for
+logging HTTP Request/Response information (including body) via
+[`ILogger`](#ilogger-logs). It is recommended to leverage this. This may
+potentially expose personally identifiable information (PII) in telemetry, and
+can cause costs (performance costs and Application Insights billing) to
+significantly increase, so evaluate the risks carefully before using this.
+
 ### How do I customize ILogger logs collection?
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
 
-Capture **Information** and more severe logs by changing the logging configuration for the Application Insights provider as follows.
+Capture **Information** and less severe logs by changing the logging configuration for the Application Insights provider as follows.
 
 ```json
 {
@@ -719,57 +731,75 @@ If the SDK is installed at build time as shown in this article, you don't need t
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
 * The SDK collects [event counters](./eventcounters.md) on Linux because [performance counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
-* Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### Is this SDK supported for Worker Services?
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+No. Please use [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md) for worker services.
 
-var builder = WebApplication.CreateBuilder(args);
+### How can I uninstall the SDK?
 
-// The following will configure the channel to use the given folder to temporarily
-// store telemetry items during network or Application Insights server issues.
-// User should ensure that the given folder already exists
-// and that the application has read/write permissions.
-builder.Services.AddSingleton(typeof(ITelemetryChannel),
-                        new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-builder.Services.AddApplicationInsightsTelemetry();
-
-var app = builder.Build();
-```
-
-### [ASP.NET Core 3.1](#tab/netcore3)
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-
-public void ConfigureServices(IServiceCollection services)
-{
-    // The following will configure the channel to use the given folder to temporarily
-    // store telemetry items during network or Application Insights server issues.
-    // User should ensure that the given folder already exists
-    // and that the application has read/write permissions.
-    services.AddSingleton(typeof(ITelemetryChannel),
-                            new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-    services.AddApplicationInsightsTelemetry();
-}
-```
+To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the NuGet Package Manager in Visual Studio.
 
 > [!NOTE]
-> This .NET version is no longer supported.
+> These instructions are for uninstalling the ASP.NET Core SDK. If you need to uninstall the ASP.NET SDK, see [How can I uninstall the ASP.NET SDK?](./asp-net.md#how-can-i-uninstall-the-sdk).
 
----
+1. Uninstall the Microsoft.ApplicationInsights.AspNetCore package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package).
+1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
 
-This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.
+### What is created when you add the Application Insights SDK?
 
-### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
+When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages won't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
 
-This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications by using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
+
+- [Your project's name].csproj
+
+    ```csharp
+      <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4core</ApplicationInsightsResourceId>
+      </PropertyGroup>
+    
+      <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+      </ItemGroup>
+    
+      <ItemGroup>
+        <WCFMetadata Include="Connected Services" />
+      </ItemGroup>
+    ```
+
+- Appsettings.json:
+
+    ```json
+    "ApplicationInsights": {
+        "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
+    ```
+
+- ConnectedService.json
+    
+    ```json
+    {
+      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+      "Version": "16.0.0.0",
+      "GettingStartedDocument": {
+        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+      }
+    }
+    ```
+- Startup.cs
+
+    ```csharp
+       public void ConfigureServices(IServiceCollection services)
+            {
+                services.AddRazorPages();
+                services.AddApplicationInsightsTelemetry(); // This is added
+            }
+    ```
 
 ## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 

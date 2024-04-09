@@ -14,7 +14,7 @@ ms.custom: private_preview
 # Playing audio in calls
 
 The play action provided through the Azure Communication Services Call Automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
-- Providing Azure Communication Services access to pre-recorded audio files of WAV format, that ACS can access with support for authentication
+- Providing Azure Communication Services access to pre-recorded audio files of WAV format, that Azure Communication Services can access with support for authentication
 - Regular text that can be converted into speech output through the integration with Azure AI services.
 
 You can leverage the newly announced integration between [Azure Communication Services and Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales please see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md).

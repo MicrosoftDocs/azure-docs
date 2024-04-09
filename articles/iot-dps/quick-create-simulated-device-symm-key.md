@@ -163,7 +163,7 @@ In this section, you prepare a development environment that's used to build the 
    ```
 
    >[!NOTE]
-   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/main/migration_guide_provisioning.md).
+   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. 
 
 ::: zone-end
 
@@ -716,7 +716,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-Provision multiple symmetric key devices using an enrollment group:
+In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)
+> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)

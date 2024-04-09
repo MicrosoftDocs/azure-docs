@@ -134,12 +134,54 @@ DateTimeOffset validUntil = validFrom.AddDays(1);
 CancellationToken cancellationToken = new CancellationTokenSource().Token;
 
 CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, participants, cancellationToken);
+
+// CreateRoom or CreateRoomAsync methods can take CreateRoomOptions type as an input parameter.
+bool pstnDialOutEnabled = false;
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+{
+    ValidFrom = validFrom,
+    ValidUntil = validUntil,
+    PstnDialOutEnabled = pstnDialOutEnabled,
+    Participants = participants
+};
+
+createdRoom = await roomsClient.CreateRoomAsync(createRoomOptions, cancellationToken);
 string roomId = createdRoom.Id;
 Console.WriteLine("\nCreated room with id: " + roomId);
 
 ```
+*pstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+
+```csharp
+// Create a room
+CancellationToken cancellationToken = new CancellationTokenSource().Token;
+
+// CreateRoom or CreateRoomAsync methods to create a room with PSTN dial out capability
+bool pstnDialOutEnabled = true;
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+{
+    PstnDialOutEnabled = pstnDialOutEnabled,
+};
+
+CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(createRoomOptions, cancellationToken);
+Console.WriteLine("\nCreated a room with PSTN dial out enabled: " + createdRoom.PstnDialOutEnabled);
+
+// UpdateRoom or UpdateRoomAsync methods can take UpdateRoomOptions to enable or disable PSTN dial out capability
+pstnDialOutEnabled = false;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+{
+    PstnDialOutEnabled = pstnDialOutEnabled,
+};
+
+CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updateRoomOptions, cancellationToken);
+Console.WriteLine("\nUpdated a room with PSTN dial out enabled: " + updatedRoom.PstnDialOutEnabled);
+
+```
 
 ## Get properties of an existing room
 
@@ -163,7 +205,18 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 DateTimeOffset updatedValidFrom = DateTimeOffset.UtcNow;
 DateTimeOffset updatedValidUntil = DateTimeOffset.UtcNow.AddDays(10);
 CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updatedValidFrom, updatedValidUntil, cancellationToken);
-Console.WriteLine("\nUpdated room with validFrom: " + updatedRoom.ValidFrom + " and validUntil: " + updatedRoom.ValidUntil);
+
+// UpdateRoom or UpdateRoomAsync methods can take UpdateRoomOptions type as an input parameter.
+bool pstnDialOutEnabled = true;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+{
+    ValidFrom = validFrom,
+    ValidUntil = validUntil,
+    PstnDialOutEnabled = pstnDialOutEnabled,
+};
+
+updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updateRoomOptions, cancellationToken);
+Console.WriteLine("\nUpdated room with validFrom: " + updatedRoom.ValidFrom + ", validUntil: " + updatedRoom.ValidUntil + " and pstnDialOutEnabled: " + updatedRoom.PstnDialOutEnabled);
 ```
 
 ### List all active rooms
@@ -265,7 +318,7 @@ Created a room with id: 99445276259151407
 
 Retrieved room with id: 99445276259151407
 
-Updated room with validFrom: 2023-05-11T22:11:46.784Z and validUntil: 2023-05-21T22:16:46.784Z
+Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-21T22:16:46.784Z and pstnDialOutEnabled: true
 
 First room id in all active rooms: 99445276259151407
 

@@ -29,7 +29,7 @@ By default, all the workloads deployed in an Azure Operator Nexus instance are N
 
 ### CPU pinning
 
-CPU pinning is a technique to allocate specific CPU cores to dedicated tasks or workloads, which helps ensure consistent performance and resource isolation. Pinning critical network functions or real-time applications to specific CPU cores allows operators to minimize latency and improve predictability in their infrastructure. This approach is useful in scenarios where strict quality-of-service requirements exist, because these tasks can receive dedicated processing power for optimal performance.
+CPU pinning is a technique to allocate specific CPU cores to dedicated tasks or workloads, which help ensure consistent performance and resource isolation. Pinning critical network functions or real-time applications to specific CPU cores allows operators to minimize latency and improve predictability in their infrastructure. This approach is useful in scenarios where strict quality-of-service requirements exist, because these tasks can receive dedicated processing power for optimal performance.
 
 All of the virtual machines created for virtual network function (VNF) or containerized network function (CNF) workloads on Azure Operator Nexus compute are pinned to specific virtual cores. This pinning provides better performance and avoids CPU stealing.
 
@@ -82,6 +82,14 @@ The following properties reflect the operational state of a BMM:
   - `Error`: The machine couldn't be provisioned.
 
   `Preparing` and `Provisioning` are transitory states. `Provisioned`, `Available`, and `Error` are end-state statuses.
+
+- `MachineRoles` helps identify the role(s) that BMM fulfills in the Nexus cluster. The following roles are assigned to BMM resources:
+
+  - `Control plane`: These BMM runs the Kubernetes control plane agents for Nexus platform cluster.
+  - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
+  - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
+  
+  Refer this [link](reference-near-edge-baremetal-machine-roles.md) for more details on Machine Roles.
 
 ## BMM operations
 

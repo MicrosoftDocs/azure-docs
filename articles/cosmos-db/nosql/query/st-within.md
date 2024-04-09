@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean expression indicating whether the GeoJSON object (GeoJSON **Po
 
 ## Syntax
 
-```sql
+```nosql
 ST_WITHIN(<spatial_expr_1>, <spatial_expr_2>)  
 ```
 
@@ -39,7 +40,7 @@ Returns a boolean value.
 
 The following example shows how to find if a **Point** is within a **Polygon**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-within/query.sql" highlight="2-32":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-within/query.sql" highlight="2-32":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-within/result.json":::
 
@@ -48,7 +49,7 @@ The following example shows how to find if a **Point** is within a **Polygon**.
 - This function benefits from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_INTERSECT`](st-intersects.md)

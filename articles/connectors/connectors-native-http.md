@@ -1,37 +1,45 @@
 ---
-title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
+title: Create workflows that call external endpoints or other workflows
+description: Create workflows that send outbound requests over HTTP or HTTPS in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/31/2022
-tags: connectors
+ms.date: 04/08/2024
 ---
 
-# Call service endpoints over HTTP or HTTPS from Azure Logic Apps
+# Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-For example, you can monitor a service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow.
+Some scenarios might require that you create a logic app workflow that sends outbound requests to endpoints on other services or systems over HTTP or HTTPS. For example, suppose that you want to monitor a service endpoint for your website by checking that endpoint on a specific schedule. When a specific event happens at that endpoint, such as your website going down, that event triggers your workflow and runs the actions in that workflow.
 
-* To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
+> [!NOTE]
+>
+> To create a workflow that receives and responds to inbound HTTPS calls instead, see 
+> [Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md) 
+> and the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+
+This guide shows how to use the HTTP trigger and HTTP action so that your workflow can send outbound calls to other services and systems, for example:
+
+* To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your workflow runs. The trigger passes any content from the endpoint's response to the actions in your workflow.
 
 * To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
-
-This article shows how to use the HTTP trigger and HTTP action so that your logic app can send outbound calls to other services and systems.
-
-For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The URL for the target endpoint that you want to call
+* The URL for the destination endpoint that you want to call
 
-* Basic knowledge about how to create logic app workflows. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
+* The logic app workflow from where you want to call the destination endpoint. To start with the HTTP trigger, you need a blank workflow. To use the HTTP action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
 
-* The logic app from where you want to call the target endpoint. To start with the HTTP trigger, you'll need a blank logic app workflow. To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+## Connector technical reference
+
+For technical information about trigger and action parameters, see the following sections:
+
+* [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 <a name="http-trigger"></a>
 
@@ -39,28 +47,49 @@ For information about encryption, security, and authorization for outbound calls
 
 This built-in trigger makes an HTTP call to the specified URL for an endpoint and returns a response.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
+### [Standard](#tab/standard)
 
-1. Under the designer's search box, select **Built-in**. In the search box, enter `http` as your filter. From the **Triggers** list, select the **HTTP** trigger.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-   ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
+1. [Follow these general steps to add the built-in trigger named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   This example renames the trigger to "HTTP trigger" so that the step has a more descriptive name. Also, the example later adds an HTTP action, and both names must be unique.
+   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
 
-1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
+1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the destination endpoint. Set up the recurrence for how often you want the trigger to check the destination endpoint.
 
-   ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
+   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following topics:
 
-   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see these topics:
+   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
+
+1. To add other available parameters, open the **Advanced parameters** list, and select the parameters that you want.
+
+1. Add any other actions that you want to run when the trigger fires.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
+
+1. [Follow these general steps to add the built-in trigger named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+
+   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
+
+1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the destination endpoint. Set up the recurrence for how often you want the trigger to check the destination endpoint.
+
+   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following topics:
 
    * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-1. Continue building your logic app's workflow with actions that run when the trigger fires.
+1. Add any other actions that you want to run when the trigger fires.
 
-1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 <a name="http-action"></a>
 
@@ -68,23 +97,38 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 This built-in action makes an HTTP call to the specified URL for an endpoint and returns a response.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Open your logic app in Logic App Designer.
+### [Standard](#tab/standard)
 
-   This example uses the HTTP trigger as the first step.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Under the step where you want to add the HTTP action, select **New step**.
+   This example uses the HTTP trigger added in the previous section as the first step.
 
-   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+1. [Follow these general steps to add the built-in action named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. Under **Choose an action**, select **Built-in**. In the search box, enter `http` as your filter. From the **Actions** list, select the **HTTP** action.
+   This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
 
-   ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
+1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the destination endpoint.
 
-   This example renames the action to "HTTP action" so that the step has a more descriptive name.
+   If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see these topics:
 
-1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the target endpoint.
+   * [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authenticate access to resources with managed identities](../logic-apps/create-managed-service-identity.md)
 
-   ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
+1. To add other available parameters, open the **Advanced parameters** list, and select the parameters that you want.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
+
+   This example uses the HTTP trigger added in the previous section as the first step.
+
+1. [Follow these general steps to add the built-in action named **HTTP** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+   This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
+
+1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the destination endpoint.
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see these topics:
 
@@ -93,18 +137,19 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ## Trigger and action outputs
 
-Here's more information about the outputs from an HTTP trigger or action, which returns this information:
+Here's more information about the outputs from an HTTP trigger or action, which returns the following information:
 
 | Property | Type | Description |
 |----------|------|-------------|
 | `headers` | JSON object | The headers from the request |
 | `body` | JSON object | The object with the body content from the request |
 | `status code` | Integer | The status code from the request |
-|||
 
 | Status code | Description |
 |-------------|-------------|
@@ -115,17 +160,20 @@ Here's more information about the outputs from an HTTP trigger or action, which 
 | 403 | Forbidden |
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
-|||
+
+## URL security for outbound calls
+
+For information about encryption, security, and authorization for outbound calls from your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 <a name="single-tenant-authentication"></a>
 
 ## Authentication for single-tenant environment
 
-If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
+If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
 * [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
 
-* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+* [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
 <a name="tls-ssl-certificate-authentication"></a>
 
@@ -172,7 +220,9 @@ For more information, review the following documentation:
 
 <a name="client-certificate-authentication"></a>
 
-### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+<a name='client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication'></a>
+
+### Client certificate or Microsoft Entra ID OAuth with "Certificate" credential type authentication
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
 
@@ -221,9 +271,15 @@ To handle content that has `multipart/form-data` type in HTTP requests, you can 
 }
 ```
 
-For example, suppose you have a logic app that sends an HTTP POST request for an Excel file to a website by using that site's API, which supports the `multipart/form-data` type. Here's how this action might look:
+For example, suppose you have a workflow that sends an HTTP POST request for an Excel file to a website by using that site's API, which supports the `multipart/form-data` type. The following sample shows how this action might appear:
 
-![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
+**Standard workflow**
+
+:::image type="content" source="./media/connectors-native-http/http-action-multipart-standard.png" alt-text="Screenshot shows Standard workflow with HTTP action and multipart form data." lightbox="./media/connectors-native-http/http-action-multipart-standard.png":::
+
+**Consumption workflow**
+
+:::image type="content" source="./media/connectors-native-http/http-action-multipart-consumption.png" alt-text="Screenshot shows Consumption workflow with HTTP action and multipart form data." lightbox="./media/connectors-native-http/http-action-multipart-consumption.png":::
 
 Here's the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
@@ -255,27 +311,39 @@ To provide form-urlencoded data in the body for an HTTP request, you have to spe
 
 For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
 
-![Screenshot that shows an HTTP request with the 'content-type' header set to 'application/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
+**Standard workflow**
+
+:::image type="content" source="./media/connectors-native-http/http-action-urlencoded-standard.png" alt-text="Screenshot that shows Standard workflow with HTTP request and content-type header set to application/x-www-form-urlencoded." lightbox="./media/connectors-native-http/http-action-urlencoded-standard.png":::
+
+**Consumption workflow**
+
+:::image type="content" source="./media/connectors-native-http/http-action-urlencoded-consumption.png" alt-text="Screenshot that shows Consumption workflow with HTTP request and content-type header set to application/x-www-form-urlencoded." lightbox="./media/connectors-native-http/http-action-urlencoded-consumption.png":::
 
 <a name="asynchronous-pattern"></a>
 
 ## Asynchronous request-response behavior
 
-For *stateful* workflows in both multi-tenant and single-tenant Azure Logic Apps, all HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) as the default behavior. This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+For *stateful* workflows in both multitenant and single-tenant Azure Logic Apps, all HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) as the default behavior. This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions don't use the asynchronous operation pattern. Instead, they only run synchronously, return the ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response as-is, and proceed to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), use a stateful workflow instead.
 
-* In the Logic App Designer, the HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
+* The HTTP action's underlying JavaScript Object Notation (JSON) definition implicitly follows the asynchronous operation pattern.
 
-  To find this setting, follow these steps:
+* The HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
 
-  1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+  To find the **Asynchronous Pattern** setting, follow these steps, based on whether you have a Standard or Consumption workflow:
+
+  **Standard workflow***
+
+  1. In the workflow designer, select the HTTP action. On the information pane that opens, select **Settings**.
+
+  1. Under **Networking**, find the **Asynchronous Pattern** setting.
+
+  **Consumption workflow**
+
+  1. In the workflow designer, on the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
   1. Find the **Asynchronous Pattern** setting.
-
-     !["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
-
-* The HTTP action's underlying JavaScript Object Notation (JSON) definition implicitly follows the asynchronous operation pattern.
 
 <a name="disable-asynchronous-operations"></a>
 
@@ -288,13 +356,21 @@ Sometimes, you might want to disable the HTTP action's asynchronous behavior in 
 
 <a name="turn-off-asynchronous-pattern-setting"></a>
 
-### Turn off **Asynchronous Pattern** setting
+### Turn off Asynchronous Pattern setting
 
-1. In the Logic App Designer, on the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+#### [Standard](#tab/standard)
+
+1. In the workflow designer, select the HTTP action, and on the information pane that opens, select **Settings**.
+
+1. Under **Networking**, find the **Asynchronous Pattern** setting. Turn the setting to **Off** if enabled.
+
+#### [Consumption](#tab/consumption)
+
+1. In the workflow designer, on the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
 1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if enabled, and select **Done**.
 
-   ![Disable the "Asynchronous Pattern" setting](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+---
 
 <a name="add-disable-async-pattern-option"></a>
 
@@ -316,7 +392,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 ### Set up interval between retry attempts with the Retry-After header
 
-To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
+To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the destination endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
 
 Here's the same example that shows the HTTP action response that contains `Retry-After`:
 
@@ -331,7 +407,7 @@ Here's the same example that shows the HTTP action response that contains `Retry
 
 ## Pagination support
 
-Sometimes, the target service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
+Sometimes, the destination service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
 ## Disable checking location headers
 
@@ -347,12 +423,12 @@ Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that
 
 ### Omitted HTTP headers
 
-If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
+If an HTTP trigger or action includes these headers, Azure Logic Apps removes these headers from the generated request message without showing any warning or error:
 
 * `Accept-*` headers except for `Accept-version`
 * `Allow`
-* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type`, which are honored when you use the POST and PUT operations. However, Logic Apps drops these headers when you use the GET operation.
-* `Cookie` header, but Logic Apps honors any value that you specify using the **Cookie** property.
+* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type`, which are honored when you use the POST and PUT operations. However, Azure Logic Apps drops these headers when you use the GET operation.
+* `Cookie` header, but Azure Logic Apps honors any value that you specify using the **Cookie** property.
 * `Expires`
 * `Host`
 * `Last-Modified`
@@ -360,14 +436,13 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 * `Set-Cookie`
 * `Transfer-Encoding`
 
-Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
+Although Azure Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Azure Logic Apps ignores these headers.
 
-## Connector reference
+<a name="mismatch-content-type"></a>
 
-For technical information about trigger and action parameters, see these sections:
+### Response content doesn't match the expected content type
 
-* [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
-* [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
+The HTTP action throws a **BadRequest** error if the HTTP action calls the backend API with the `Content-Type` header set to **application/json**, but the response from the backend doesn't actually contain content in JSON format, which fails internal JSON format validation.
 
 ## Next steps
 

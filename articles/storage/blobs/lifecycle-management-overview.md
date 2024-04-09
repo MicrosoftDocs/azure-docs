@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 08/30/2023
+ms.date: 10/26/2023
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
@@ -21,11 +21,10 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool, or cold to hot immediately when they're accessed, to optimize for performance.
-- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. 
+- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
-- Define rules to be run once per day at the storage account level.
-- Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
+- Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
 Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
@@ -130,14 +129,14 @@ The following sample rule filters the account to run the actions on objects that
 
 ### Rule filters
 
-Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters.
+Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude.
 
 Filters include:
 
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
-| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
+| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only the Delete action is supported for `appendBlob`; Set Tier isn't supported. | Yes |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. This filter will match all blobs in *sample-container* whose names begin with *blob1*.<br /><br />. | If you don't define **prefixMatch**, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -161,7 +160,7 @@ Lifecycle management supports tiering and deletion of current versions, previous
 
 <sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
 
-<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
+<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
 
 <sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
 
@@ -183,7 +182,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-The platform runs the lifecycle policy once a day. Once you configure or edit a policy, it can take up to 24 hours for changes to go into effect. Once the policy is in effect, it could take up to 24 hours for some actions to run. Therefore, the policy actions may take up to 48 hours to complete. 
+The platform runs the lifecycle policy once a day. When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
 
 If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 
@@ -441,10 +440,6 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
   ]
 }
 ```
-
-## Feature support
-
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Regional availability and pricing
 

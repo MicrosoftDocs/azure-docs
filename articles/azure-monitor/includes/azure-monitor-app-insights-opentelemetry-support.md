@@ -6,6 +6,30 @@ ms.topic: include
 ms.date: 08/26/2023
 ---
 
+## Troubleshooting
+
+### [ASP.NET Core](#tab/aspnetcore)
+
+Not working? Check out the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet).
+
+#### [.NET](#tab/net)
+
+Not working? Check out the troubleshooting page for [.NET](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet).
+
+### [Java](#tab/java)
+
+Not working? Check out the troubleshooting page for [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java).
+
+### [Node.js](#tab/nodejs)
+
+Not working? Check out the troubleshooting page for [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs).
+
+### [Python](#tab/python)
+
+Not working? Check out the troubleshooting page for [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
+
+---
+
 ## Support
 
 Select a tab for the language of your choice to discover support options.
@@ -39,7 +63,7 @@ Select a tab for the language of your choice to discover support options.
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
-- For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Python/issues/new).
+- For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-python/issues/new/choose).
 
 ---
 

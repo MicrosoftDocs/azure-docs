@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the various tools and visualization charts in the Responsible AI text dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: wenxwei

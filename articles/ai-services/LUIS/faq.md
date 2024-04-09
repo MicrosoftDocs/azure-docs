@@ -1,13 +1,13 @@
 ---
 title: LUIS frequently asked questions
 description: Use this article to see frequently asked questions about LUIS, and troubleshooting information
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 01/19/2024
 ---
 
 # Language Understanding Frequently Asked Questions (FAQ)

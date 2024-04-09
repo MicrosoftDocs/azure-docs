@@ -4,9 +4,9 @@ description: Use Azure RTOS embedded software to connect an STMicroelectronics B
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
-ms.devlang: cs
+ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 1/23/2024
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to IoT Hub
@@ -126,7 +126,7 @@ To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi an
 
 1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i-iot-hub/stm-b-l4s5i.png" alt-text="Photo that that shows key components on the STM DevKit board.":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i-iot-hub/stm-b-l4s5i.png" alt-text="Photo that shows key components on the STM DevKit board.":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -356,11 +356,11 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a general device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a general device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l475e-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

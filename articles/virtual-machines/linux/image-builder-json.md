@@ -3,12 +3,12 @@ title: Create an Azure Image Builder Bicep file or ARM template JSON template
 description: Learn how to create a Bicep file or ARM template JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
-ms.date: 07/17/2023
+ms.reviewer: jushiman
+ms.date: 10/03/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, linux-related-content, devx-track-azurecli
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -34,6 +34,7 @@ The basic format is:
   "properties": {
     "buildTimeoutInMinutes": <minutes>,
     "customize": [],
+    "errorHandling":[],
     "distribute": [],
     "optimize": [],
     "source": {},
@@ -575,6 +576,7 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name":   "<name>",
     "scriptUri": "<path to script>",
     "runElevated": <true false>,
+    "runAsSystem": <true false>,
     "sha256Checksum": "<sha256 checksum>"
   },
   {
@@ -582,7 +584,8 @@ The `PowerShell` customizer supports running PowerShell scripts and inline comma
     "name": "<name>",
     "inline": "<PowerShell syntax to run>",
     "validExitCodes": [<exit code>],
-    "runElevated": <true or false>
+    "runElevated": <true or false>,
+    "runAsSystem": <true or false>
   }
 ]
 ```
@@ -596,6 +599,7 @@ customize: [
     name:   '<name>'
     scriptUri: '<path to script>'
     runElevated: <true false>
+    runAsSystem: <true false>
     sha256Checksum: '<sha256 checksum>'
   }
   {
@@ -604,6 +608,7 @@ customize: [
     inline: '<PowerShell syntax to run>'
     validExitCodes: [<exit code>]
     runElevated: <true or false>
+    runAsSystem: <true or false>
   }
 ]
 ```
@@ -617,13 +622,14 @@ Customize properties:
 - **inline** – Inline commands to be run, separated by commas.
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command. The property avoids reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
+- **runAsSystem** - Optional, boolean, determines whether the PowerShell script should be run as the System user.
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
     To generate the sha256Checksum, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet in PowerShell.
 
 ### File customizer
 
-The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image. 
+The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
 
 
 # [JSON](#tab/json)
@@ -786,6 +792,42 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 - Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder reads these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+
+## Properties: errorHandling
+
+The `errorHandling` property allows you to configure how errors are handled during image creation.
+
+# [JSON](#tab/json)
+
+```json
+{
+  "errorHandling": {
+    "onCustomizerError": "abort",
+    "onValidationError": "cleanup"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+errorHandling: {
+  onCustomizerError: 'abort',
+  onValidationError: 'cleanup'
+}
+```
+
+---
+
+The `errorHandling` property allows you to configure how errors are handled during image creation. It has two properties:
+
+- **onCustomizerError** - Specifies the action to take when an error occurs during the customizer phase of image creation.
+- **onValidationError** - Specifies the action to take when an error occurs during validation of the image template.
+
+The `errorHandling` property also has two possible values for handling errors during image creation:
+
+- **cleanup** - Ensures that temporary resources created by Packer are cleaned up even if Packer or one of the customizations/validations encounters an error. This maintains backwards compatibility with existing behavior.
+- **abort** - In case Packer encounters an error, the Azure Image Builder (AIB) service skips the clean up of temporary resources. As the owner of the AIB template, you are responsible for cleaning up these resources from your subscription. These resources may contain useful information such as logs and files left behind in a temporary VM, which can aid in investigating the error encountered by Packer.
 
 ## Properties: distribute
 
@@ -1041,7 +1083,7 @@ The **versioning** property is for the `sharedImage` distribute type only. It's 
 - **latest** - New strictly increasing schema per design
 - **source** - Schema based upon the version number of the source image.
 
-The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
+The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version.
 
 > [!NOTE]
 > The existing version generation logic for `sharedImage` distribution is deprecated. Two new options are provided: monotonically increasing versions that are always the latest version in a gallery, and versions generated based on the version number of the source image. The enum specifying the version generation schema allows for expansion in the future with additional version generation schemas.
@@ -1162,9 +1204,9 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 # [JSON](#tab/json)
 
 ```json
-"optimize": { 
-      "vmboot": { 
-        "state": "Enabled" 
+"optimize": {
+      "vmboot": {
+        "state": "Enabled"
       }
     }
 ```
@@ -1182,6 +1224,8 @@ optimize: {
 
 - **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
 - state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+
+To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
 
 ## Properties: source
 
@@ -1341,8 +1385,8 @@ The following JSON sets the source image as an image stored in a [Direct Shared 
 
 ```json
     source: {
-      "type": "SharedImageVersion",      
-      "imageVersionId": "<replace with resourceId of the image stored in the Direct Shared Gallery>"      
+      "type": "SharedImageVersion",
+      "imageVersionId": "<replace with resourceId of the image stored in the Direct Shared Gallery>"
     },
 ```
 
@@ -1390,6 +1434,9 @@ SharedImageVersion properties:
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
 
+> [!IMPORTANT]
+> The staging resource group specified cannot be associated with another image template, must be empty (no resources inside), in the same region as the image template, and have either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource.
+
 # [JSON](#tab/json)
 
 ```json
@@ -1417,7 +1464,7 @@ properties: {
 - **The stagingResourceGroup property is specified with a resource group that exists**
 
   If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service checks to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error is thrown. The staging resource group has the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
-  
+
 > [!IMPORTANT]
 > You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image. For the CLI command and portal instructions on how to assign the contributor role to the resource group see the following documentation [Troubleshoot VM Azure Image Builder: Authorization error creating disk](./image-builder-troubleshoot.md#authorization-error-creating-disk)
 

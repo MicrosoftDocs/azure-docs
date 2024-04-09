@@ -1,13 +1,12 @@
 ---
 title: Migrate QnA Maker knowledge bases to custom question answering
 description: Migrate your legacy QnAMaker knowledge bases to custom question answering to take advantage of the latest features.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.author: jboback
 author: jboback
-ms.date: 09/08/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Migrate from QnA Maker to custom question answering
@@ -27,7 +26,7 @@ Resource level settings such as Role-based access control (RBAC) aren't migrated
 
 ## Steps to migrate SDKs
 
-This [SDK Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md) is intended to help the migration to the new Question Answering client library, [Azure.AI.Language.QuestionAnswering](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering), from the old one, [Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker). It focuses on side-by-side comparisons for similar operations between the two packages.
+This [SDK Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md) is intended to help the migration to the new custom question answering client library, [Azure.AI.Language.QuestionAnswering](https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering), from the old one, [Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker). It focuses on side-by-side comparisons for similar operations between the two packages.
 
 ## Steps to migrate knowledge bases
 

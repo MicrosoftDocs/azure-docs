@@ -40,9 +40,9 @@ The Bicep file used in this article is from [Azure Quickstart Templates](https:/
 
 The Bicep file defines three Azure resources:
 
-* [Microsoft.HealthcareApis/workspaces](/azure/templates/microsoft.healthcareapis/workspaces): create a Microsoft.HealthcareApis/workspaces resource.
+* Microsoft.HealthcareApis/workspaces: create a Microsoft.HealthcareApis/workspaces resource.
 
-* [Microsoft.HealthcareApis/workspaces/fhirservices](/azure/templates/microsoft.healthcareapis/workspaces/fhirservices): create a Microsoft.HealthcareApis/workspaces/fhirservices resource.
+* Microsoft.HealthcareApis/workspaces/fhirservices: create a Microsoft.HealthcareApis/workspaces/fhirservices resource.
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create a Microsoft.Storage/storageAccounts resource.
 

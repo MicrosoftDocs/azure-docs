@@ -121,7 +121,9 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -157,7 +159,7 @@ For simplicity, this quickstart uses connection strings, but in production envir
 
 ## Basic email sending 
 
-To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
+To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will not be sent until either the `poll` method is called or we wait for completion of the poller.
 
 ```java
 EmailMessage message = new EmailMessage()
@@ -173,6 +175,7 @@ try
     PollResponse<EmailSendResult> pollResponse = null;
 
     Duration timeElapsed = Duration.ofSeconds(0);
+    Duration POLLER_WAIT_TIME = Duration.ofSeconds(10);
 
     while (pollResponse == null
             || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED

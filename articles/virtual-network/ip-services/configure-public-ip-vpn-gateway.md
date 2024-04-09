@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/16/2022
+ms.date: 09/19/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -19,7 +19,7 @@ A VPN gateway is a virtual network gateway used to send encrypted traffic betwee
 
 VPN gateway supports standard and basic SKU public IP addresses depending on the SKU of the VPN gateway. Public IP prefixes aren't supported. 
 
-In this article, you'll learn how to create a VPN gateway using an existing public IP in your subscription. 
+In this article, you learn how to create a VPN gateway using an existing public IP in your subscription. 
 
 ## Prerequisites
 
@@ -29,19 +29,19 @@ In this article, you'll learn how to create a VPN gateway using an existing publ
 
 ## Create VPN gateway using existing public IP
 
-In this section, you'll create a VPN gateway. You'll select the IP address you created in the prerequisites as the public IP for the VPN gateway.
+In this section, you create a VPN gateway. You select the IP address you created in the prerequisites as the public IP for the VPN gateway.
 
 ### Create virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**.
+1. In the search box at the top of the portal, enter **Virtual network**.
 
-3. In the search results, select **Virtual networks**.
+1. In the search results, select **Virtual networks**.
 
-4. Select **+ Create**.
+1. Select **+ Create**.
 
-5. In **Create virtual network**, enter or select the following information.
+1. In **Create virtual network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -52,7 +52,7 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
     | Name | Enter **myVNet**. |
     | Region | Select **West US 2**. |
     
-6. Select the **Review + create** tab, or select the blue **Review + create** button.
+1. Select the **Review + create** tab, or select the blue **Review + create** button.
 
 7. Select **Create**.
 

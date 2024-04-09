@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Number Lookup SDK overview
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Number Lookup is part of the Phone Numbers SDK. It can be used for your applications to add additional checks before sending an SMS or placing a call.
 
@@ -24,12 +24,12 @@ The following list presents the set of features which are currently available in
 
 | Group of features | Capability                                                                            | .NET  | JS | Java | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Core Capabilities | Get Number Type                                                          | ✔️   | ❌    | ❌    | ❌      |
-|                   | Get Carrier registered name                                         | ✔️   | ❌    | ❌    | ❌      |
-|                   | Get associated Mobile Network Code, if available(two or three decimal digits used to identify network operator within a country) | ✔️   | ❌    | ❌    | ❌      |
-|                   | Get associated Mobile Country Code, if available(three decimal digits used to identify the country of a mobile operator) | ✔️   | ❌    | ❌    | ❌      |
-|                   | Get associated ISO Country Code | ✔️   | ❌    | ❌    | ❌      |
-| Phone Number      | All number types in E164 format                                      | ✔️   | ❌    | ❌    | ❌      |
+| Core Capabilities | Get Number Type                                                          | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Get Carrier registered name                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Get associated Mobile Network Code, if available (two or three decimal digits used to identify network operator within a country) | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Get associated Mobile Country Code, if available (three decimal digits used to identify the country of a mobile operator) | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Get associated ISO Country Code | ✔️   | ✔️    | ✔️    | ✔️      |
+| Phone Number      | All number types in E164 format                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 
 
 ## Next steps

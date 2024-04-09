@@ -2,17 +2,11 @@
 title: Solution architectures using Azure NetApp Files | Microsoft Docs
 description: Provides references to best practices for solution architectures using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 09/18/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -28,7 +22,7 @@ Azure NetApp Files’ integration with Azure native services like Azure Kubernet
 The following diagram depicts the categorization of reference architectures, blueprints and solutions on this page as laid out in the above introduction:
 
 **Azure NetApp Files key use cases**
-:::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
+:::image type="content" source="./media/azure-netapp-files-solution-architectures/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="./media/azure-netapp-files-solution-architectures/solution-architecture-categories.png":::
 
 In summary, Azure NetApp Files is a versatile and scalable storage service that provides an ideal platform for migrating various workload categories, running specialized workloads, and integrating with Azure native services. Azure NetApp Files’ high-performance, security, and scalability features make it a reliable choice for businesses looking to run their applications and workloads in Azure.
 
@@ -123,6 +117,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 * [SAP on Azure NetApp Files Sizing Best Practices](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-netapp-files-sizing-best-practices/ba-p/3895300)
 * [Optimize HANA deployments with Azure NetApp Files application volume group for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimize-hana-deployments-with-azure-netapp-files-application/ba-p/3683417)
+* [Configuring Azure NetApp Files Application Volume Group (AVG) for zonal SAP HANA deployment](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/configuring-azure-netapp-files-anf-application-volume-group-avg/ba-p/3943801)
 * [Using Azure NetApp Files AVG for SAP HANA to deploy HANA with multiple partitions (MP)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-netapp-files-avg-for-sap-hana-to-deploy-hana-with/ba-p/3742747)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
@@ -133,8 +128,6 @@ This section provides references to SAP on Azure solutions.
 * [Azure Application Consistent Snapshot tool (AzAcSnap)](azacsnap-introduction.md)
 * [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
-* [SAP HANA on Azure NetApp Files - Data protection with BlueXP backup and recovery](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-hana-on-azure-netapp-files-data-protection-with-bluexp/ba-p/3840116)
-* [SAP HANA on Azure NetApp Files – System refresh & cloning operations with BlueXP backup and recovery](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-hana-on-azure-netapp-files-system-refresh-amp-cloning/ba-p/3908660)
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
@@ -149,6 +142,7 @@ This section provides references to SAP on Azure solutions.
 * [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
 * [Manual Recovery Guide for SAP DB2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
 * [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
+* [SAP Netweaver 7.5 with MaxDB 7.9 on Azure using Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp/ba-p/3905041)
 
 ### SAP IQ-NLS
 
@@ -184,9 +178,9 @@ This section provides references for Virtual Desktop infrastructure solutions.
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
-* [Enhanced Performance and Scalability: Azure AD-joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)
+* [Enhanced Performance and Scalability: Microsoft Entra joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)
 * [Setting up Azure NetApp Files for MSIX App Attach](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
-* [Multiple forests with AD DS and Azure AD – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/multi-forest)
+* [Multiple forests with AD DS and Microsoft Entra ID – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/multi-forest)
 * [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
 * [Deploy Esri ArcGIS Pro in Azure Virtual Desktop – Azure Example Scenarios](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
 
@@ -213,6 +207,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [Azure Modeling and Simulation Workbench](../modeling-simulation-workbench/index.yml)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
@@ -242,7 +237,6 @@ This section provides solutions for Azure platform services.
 * [Comparing and Contrasting the AKS/ANF NFS subdir external provisioner with Astra Trident](https://techcommunity.microsoft.com/t5/azure-architecture-blog/comparing-and-contrasting-the-aks-anf-nfs-subdir-external/ba-p/3057547)
 * [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
-* [Trident - Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 * [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
 * [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)

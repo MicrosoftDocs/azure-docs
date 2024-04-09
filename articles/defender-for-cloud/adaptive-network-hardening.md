@@ -73,7 +73,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 ## Modify a rule  <a name ="modify-rule"> </a>
 
-You may want to modify the parameters of a rule that has been recommended. For example, you may want to change the recommended IP ranges.
+You might want to modify the parameters of a rule that has been recommended. For example, you might want to change the recommended IP ranges.
 
 Some important guidelines for modifying an adaptive network hardening rule:
 
@@ -126,14 +126,14 @@ To add an adaptive network hardening rule:
 
 ## Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you might determine that applying a suggested rule could block legitimate traffic.
 
 To delete an adaptive network hardening rule for your current session:
 
-- In the **Rules** tab, select the three dots (...) at the end of the rule's row, and select **Delete**.  
+- In the **Rules** tab, select the three dots (...) at the end of the rule's row, and select **Delete**.
 
     ![Deleting a rule.](./media/adaptive-network-hardening/delete-hard-rule.png)
 
-## Next steps
+## Next step
 
-- View common question about [adaptive network hardening](faq-defender-for-servers.yml)
+- View common questions about [adaptive network hardening](faq-defender-for-servers.yml#which-ports-are-supported-by-adaptive-network-hardening-)

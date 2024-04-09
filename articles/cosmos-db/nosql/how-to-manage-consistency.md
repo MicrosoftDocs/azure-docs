@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 02/16/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.devlang: csharp, java, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-dotnet, devx-track-extended-java
 ---
 
@@ -80,17 +81,17 @@ documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy
 // Override consistency at the request level via request options
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
-var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+var response = await client.ReadDocumentAsync(collectionUri, document, requestOptions);
 ```
 
 # [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
-ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.GetContainer(databaseName, containerName)
-    .CreateItemAsync(
+    .ReadItemAsync(
         item,
         new PartitionKey(itemPartitionKey),
         requestOptions);

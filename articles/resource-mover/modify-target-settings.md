@@ -1,14 +1,13 @@
 ---
 title: Modify destination settings when moving Azure VMs between regions with Azure Resource Mover
 description: Learn how to modify destination settings when moving Azure VMs between regions with Azure Resource Mover.
-manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23, UpdateFrequency2
-#Customer intent: As an Azure admin,  I want to modify destination settings when moving resources to another region.
+#Customer intent: As an Azure admin,  I want to modify destination settings when moving resources to another region using Azure Resource Mover.
 
 ---
 # Modify destination settings
@@ -92,7 +91,7 @@ When moving Azure SQL Database resources, you can modify the destination setting
 
 ### Edit SQL destination settings
 
-You modify the destination settings for a Azure SQL Database resource as follows: 
+You modify the destination settings for an Azure SQL Database resource as follows: 
 
 1. In **Across regions**, for the resource you want to modify, click the **Destination configuration** entry.
 2. In **Configuration settings**, specify the destination settings summarized in the table above.

@@ -3,14 +3,14 @@ title: Enforce job execution on Azure Automation Hybrid Runbook Worker
 description: This article tells how to use a custom Azure Policy definition to enforce job execution on an Azure Automation Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/15/2023
+ms.date: 09/17/2023
 ms.topic: conceptual
 ---
 
 # Use Azure Policy to enforce job execution on Hybrid Runbook Worker
 
 > [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group when initiating from the Azure portal, with the Azure PowerShell, or REST API. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook in the Azure sandbox.
 

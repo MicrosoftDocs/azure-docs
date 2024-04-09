@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Deploy the Australian Government ISM PROTECTED blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 To deploy the Azure Blueprints ISM PROTECTED blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]

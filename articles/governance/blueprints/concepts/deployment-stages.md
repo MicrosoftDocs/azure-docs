@@ -6,6 +6,8 @@ ms.topic: conceptual
 ---
 # Stages of a blueprint deployment
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 When a blueprint gets deployed, a series of actions is taken by the Azure Blueprints service to
 deploy the resources defined in the blueprint. This article provides details about what each step
 involves.

@@ -9,10 +9,12 @@
   items:
   - name: Use Azure Container Storage with AKS
     href: container-storage-aks-quickstart.md
+- name: Tutorials
+  items:
+  - name: Create AKS cluster and install Azure Container Storage
+    href: install-container-storage-aks.md
 - name: How-to guides
   items:
-  - name: Install Azure Container Storage
-    href: install-container-storage-aks.md
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
   - name: Use with Ephemeral Disk
@@ -21,8 +23,16 @@
     href: use-container-storage-with-elastic-san.md
   - name: Use volume snapshot and restore
     href: volume-snapshot-restore.md
+  - name: Expand a persistent volume
+    href: resize-volume.md
+  - name: Clone a persistent volume
+    href: clone-volume.md
+  - name: Enable multi-zone storage redundancy
+    href: enable-multi-zone-redundancy.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
+  - name: Troubleshoot Azure Container Storage
+    href: troubleshoot-container-storage.md    
 - name: Concepts
   items:
   - name: FAQ

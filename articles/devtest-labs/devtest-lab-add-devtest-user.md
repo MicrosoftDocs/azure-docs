@@ -100,7 +100,7 @@ To add a member:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Azure Active Directory (Azure AD). For information about adding an external user to Azure AD as a guest, see [Add a new guest user](../active-directory/fundamentals/add-users-azure-active-directory.md#add-a-new-guest-user). If the user isn't in Azure AD, use the portal procedure instead.
+You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Microsoft Entra ID. For information about adding an external user to Microsoft Entra ID as a guest, see [Add a new guest user](../active-directory/fundamentals/add-users-azure-active-directory.md#add-a-new-guest-user). If the user isn't in Microsoft Entra ID, use the portal procedure instead.
 
 In the following script, update the parameter values under the `# Values to change` comment. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 

@@ -3,7 +3,7 @@ title: "Proofpoint TAP (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Proofpoint TAP (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ The [Proofpoint Targeted Attack Protection (TAP)](https://www.proofpoint.com/us/
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | apiUsername<br/>apipassword<br/>workspaceID<br/>workspaceKey<br/>uri<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinelproofpointtapazurefunctioncode |
 | **Log Analytics table(s)** | ProofPointTAPClicksPermitted_CL<br/> ProofPointTAPClicksBlocked_CL<br/> ProofPointTAPMessagesDelivered_CL<br/> ProofPointTAPMessagesBlocked_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -99,59 +97,7 @@ To integrate with Proofpoint TAP (using Azure Functions) make sure you have:
 
 
 
-Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Proofpoint TAP connector.
-
-1. Click the **Deploy to Azure** button below. 
-
-	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinelproofpointtapazuredeploy) 
-2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
-3. Enter the **Workspace ID**, **Workspace Key**, **API Username**, **API Password**, and validate the **Uri**.
-> - The default URI is pulling data for the last 300 seconds (5 minutes) to correspond with the default Function App Timer trigger of 5 minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion. 
-> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
-4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
-5. Click **Purchase** to deploy.
-
-Option 2 - Manual Deployment of Azure Functions
-
-This method provides the step-by-step instructions to deploy the Proofpoint TAP connector manually with Azure Function.
-
-
-**1. Create a Function App**
-
-1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
-2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
-3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
-4. Make other preferrable configuration changes, if needed, then click **Create**.
-
-
-**2. Import Function App Code**
-
-1. In the newly created Function App, select **Functions** on the left pane and click **+ Add**.
-2. Select **Timer Trigger**.
-3. Enter a unique Function **Name** and modify the cron schedule, if needed. The default value is set to run the Function App every 5 minutes. (Note: the Timer trigger should match the `timeInterval` value below to prevent overlapping data), click **Create**.
-4. Click on **Code + Test** on the left pane. 
-5. Copy the [Function App Code](https://aka.ms/sentinelproofpointtapazurefunctioncode) and paste into the Function App `run.ps1` editor.
-5. Click **Save**.
-
-
-**3. Configure the Function App**
-
-1. In the Function App, select the Function App Name and select **Configuration**.
-2. In the **Application settings** tab, select **+ New application setting**.
-3. Add each of the following six (6) application settings individually, with their respective string values (case-sensitive): 
-		apiUsername
-		apipassword
-		workspaceID
-		workspaceKey
-		uri
-		logAnalyticsUri (optional)
-> - Set the `uri` value to: `https://tap-api-v2.proofpoint.com/v2/siem/all?format=json&sinceSeconds=300`
-> - The default URI is pulling data for the last 300 seconds (5 minutes) to correspond with the default Function App Timer trigger of 5 minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly to prevent overlapping data ingestion.
-> - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
-> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`
-4. Once all application settings have been entered, click **Save**.
 
 
 

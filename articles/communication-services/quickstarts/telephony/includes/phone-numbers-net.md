@@ -64,7 +64,7 @@ var connectionString = "<connection_string>";
 var client = new PhoneNumbersClient(connectionString);
 ```
 
-Phone Number clients also have the option to authenticate with Azure Active Directory Authentication. With this option,
+Phone Number clients also have the option to authenticate with Microsoft Entra authentication. With this option,
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
 
 ```csharp

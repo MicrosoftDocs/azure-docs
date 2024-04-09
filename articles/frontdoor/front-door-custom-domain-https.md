@@ -5,7 +5,6 @@ description: In this tutorial, you learn how to enable and disable HTTPS on your
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.author: duau
@@ -13,6 +12,8 @@ ms.author: duau
 ---
 
 # Configure HTTPS on a Front Door (classic) custom domain
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This article shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door (classic) under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site using HTTPS, it validates the web site's security certificate and verifies if issued by a legitimate certificate authority. This process provides security and protects your web applications from malicious attacks.
 
@@ -87,10 +88,10 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires at least Application Administrator role permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires at least Application Administrator role permissions in Microsoft Entra ID. The registration only needs to be performed **once per Microsoft Entra tenant**.
 > * The application ID is assigned by Azure specifically for Azure Front Door (classic).
 > * Azure Front Door (classic) has a different *Application Id* than Azure Front Door Standard/Premium tier.
 > * The role assigned is only for the subscription selected unless you define a different scope.

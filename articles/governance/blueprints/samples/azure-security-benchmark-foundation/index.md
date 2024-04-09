@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The Azure Security Benchmark Foundation blueprint sample provides a set of baseline infrastructure
 patterns to help you build a secure and compliant Azure environment. The blueprint helps you deploy
 a cloud-based architecture that offers solutions to scenarios that have accreditation or compliance

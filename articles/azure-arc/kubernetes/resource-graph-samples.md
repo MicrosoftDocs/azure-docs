@@ -3,7 +3,7 @@ title: Azure Resource Graph sample queries for Azure Arc-enabled Kubernetes
 description: Sample Azure Resource Graph queries for Azure Arc-enabled Kubernetes showing use of resource types and tables to access Azure Arc-enabled Kubernetes related resources and properties.
 ms.date: 08/09/2023
 ms.topic: sample
-ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell
+ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Azure Resource Graph sample queries for Azure Arc-enabled Kubernetes
 

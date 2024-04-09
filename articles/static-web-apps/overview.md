@@ -33,7 +33,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
-- **Authentication provider integrations** with Azure Active Directory and GitHub.
+- **Authentication provider integrations** with Microsoft Entra ID and GitHub.
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.

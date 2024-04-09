@@ -6,17 +6,17 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed.
 
 This quickstart demonstrates how to use the Azure CLI commands to create a cluster with Azure Managed Instance for Apache Cassandra. It also shows to create a datacenter, and scale nodes up or down within the datacenter.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
@@ -47,7 +47,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
    > - Azure Monitoring
-   > - Azure Active Directory
+   > - Microsoft Entra ID
    > - Azure Security
 
 1. Apply some special permissions to the Virtual Network, which are required by the managed instance. Use the `az role assignment create` command, replacing `<subscriptionID>`, `<resourceGroupName>`, and `<vnetName>` with the appropriate values:
@@ -186,7 +186,7 @@ Configuring client certificates is **optional**. A client application can connec
 - Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
 - Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to [instructions on preparing SSL certificates](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html) for production), and all intermediaries (if applicable).
 
-If you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS), you need to provide the certificates via Azure CLI. The below command will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit `cassandra.yaml` settings). Once applied, your  cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options )).
+If you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS), you need to provide the certificates via Azure CLI. The below command will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit `cassandra.yaml` settings). Once applied, your  cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options)).
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

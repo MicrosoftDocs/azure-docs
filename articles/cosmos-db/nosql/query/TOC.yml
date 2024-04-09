@@ -1,6 +1,12 @@
 - name: NoSQL query documentation
   displayName: sql query, query basics
   href: index.yml
+- name: Microsoft Copilot for Azure in Cosmos DB (preview)
+  items:
+    - name: Use Copilot (preview)
+      href: how-to-enable-use-copilot.md
+    - name: Copilot transparency FAQ
+      href: ../../copilot-faq.yml
 - name: Clauses
   items:
     - name: SELECT

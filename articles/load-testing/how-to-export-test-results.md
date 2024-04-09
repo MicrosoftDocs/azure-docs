@@ -4,17 +4,17 @@ titleSuffix: Azure Load Testing
 description: Learn how to export load test results in Azure Load Testing and use them for reporting in third-party tools.
 services: load-testing
 ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
-ms.date: 02/10/2023
+ms.author: ninallam
+author: ninallam
+ms.date: 02/08/2024
 ms.topic: how-to
-
+# CustomerIntent: As a tester, I want to understand how I can export the load test results, so that I can use other reporting tools to analyze the load test results.
 ---
 # Export test results from Azure Load Testing for use in third-party tools
 
-In this article, you learn how to download the test results from Azure Load Testing in the Azure portal. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
+In this article, you learn how to export your Azure Load Testing test results. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, or by copying the results from an Azure storage account. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
-You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-troubleshoot-failing-test.md).
+You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md).
 
 You can generate the Apache JMeter dashboard from the CSV log file following the steps mentioned [here](https://jmeter.apache.org/usermanual/generating-dashboard.html#report).
 
@@ -23,7 +23,7 @@ You can generate the Apache JMeter dashboard from the CSV log file following the
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 - An Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
-## Test results file
+## Test results file format
 
 Azure Load Testing generates a test results CSV file for each [test engine instance](./concept-load-testing-concepts.md#test-engine). Learn how you can [scale out your load test](./how-to-high-scale-load.md).
 
@@ -39,8 +39,12 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 ```
 
 ## Access and download load test results
+
+After a load test run finishes, you can access and download the load test results through the Azure portal, or as an artifact in your CI/CD workflow.
+
 >[!IMPORTANT]
->For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file will not be available for download. You can configure a [JMeter Backend Listener](#export-test-results-using-jmeter-backend-listeners) to export the results to a data store of your choice. 
+>For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-jmeter-backend-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container). 
+
 # [Azure portal](#tab/portal)
 
 To download the test results for a test run in the Azure portal:
@@ -134,18 +138,53 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
 
     :::image type="content" source="./media/how-to-export-test-results/azure-pipelines-run-summary.png" alt-text="Screenshot that shows the Azure Pipelines workflow summary page, highlighting the test results in the Stages section." lightbox="./media/how-to-export-test-results/azure-pipelines-run-summary.png":::
 ---
-## Export test results using JMeter Backend Listeners
-You can use [JMeter Backend Listeners](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL or monitoring tools like AppInsights. 
 
-You can use the backend listeners available by default in JMeter, backend listeners from [jmeter-plugins.org](https://jmeter-plugins.org), or a custom backend listener in the form of a Java archive (JAR) file. 
+## Export test results using JMeter backend listeners
 
-A sample JMeter script that uses a [backend listener for Azure Application Insights](https://github.com/adrianmo/jmeter-backend-azure) is available [here](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
+You can use a [JMeter backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL, or monitoring tools like Azure Application Insights.
 
-The following code snippet shows an example of a backend listener, for Azure Application Insights, in a JMX file:
+You can use the default JMeter backend listeners, backend listeners from [jmeter-plugins.org](https://jmeter-plugins.org), or a custom backend listener in the form of a Java archive (JAR) file.
+
+The following code snippet shows an example of how to use the backend listener for Azure Application Insights, in a JMeter file (JMX):
+
 :::code language="xml" source="~/azure-load-testing-samples/jmeter-backend-listeners/sample-backend-listener-appinsights.jmx" range="85-126" :::
 
-## Next steps
+You can download the full [example of using the Azure Application Insights backend listener](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
 
-- Learn more about [Troubleshooting test execution errors](./how-to-troubleshoot-failing-test.md).
-- For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+## Copy test artifacts from a storage account container
+
+>[!IMPORTANT]
+>Copying test artifacts from a storage account container is only enabled for load tests with more than 45 engine instances or with a test run duration greater than three hours. 
+
+To copy the test results and log files for a test run from a storage account, in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
+
+1. On the left pane, select **Tests** to view a list of tests, and then select your test.
+
+    :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::
+1. From the list of test runs, select your test run.
+
+    :::image type="content" source="media/how-to-export-test-results/test-runs-list.png" alt-text="Screenshot that shows the list of test runs for a test in an Azure Load Testing resource.":::
+
+   >[!TIP]
+   > To limit the number of tests to display in the list, you can use the search box and the **Time range** filter.
+
+1. On the **Test run details** pane, select **Copy artifacts**.
+
+     :::image type="content" source="media/how-to-export-test-results/test-run-page-copy-artifacts.png" alt-text="Screenshot that shows how to copy the test artifacts from the 'Test run details' pane.":::
+
+     > [!NOTE]
+     > A load test run needs to be in the *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
+
+1. Copy the SAS URL of the storage account container. 
+
+    You can use the SAS URL in the [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-copy#copy-a-container) to copy the results CSV files and the log files for the test run to your storage account.
+    
+    The SAS URL is valid for 60 minutes from the time it gets generated. If the URL expires, select **Copy artifacts** to generate a new SAS URL. 
+
+## Related content
+
+- Learn more about [Diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).
+- Learn more about [Comparing multiple test results](./how-to-compare-multiple-test-runs.md).
+- Learn more about [Configuring automated performance testing in Azure Pipelines](./quickstart-add-load-test-cicd.md).

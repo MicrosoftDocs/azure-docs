@@ -7,7 +7,7 @@ ms.author: abtripathi
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/09/2023
 ---

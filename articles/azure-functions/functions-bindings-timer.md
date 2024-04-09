@@ -3,8 +3,9 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.date: 02/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -47,7 +48,13 @@ This example shows a C# function that executes each time the minutes have a valu
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
+
+# [In-process model](#tab/in-process)
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -61,10 +68,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
-
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -97,7 +101,7 @@ import azure.functions as func
 app = func.FunctionApp()
 
 @app.function_name(name="mytimer")
-@app.schedule(schedule="0 */5 * * * *", 
+@app.timer_trigger(schedule="0 */5 * * * *", 
               arg_name="mytimer",
               run_on_startup=True) 
 def test_function(mytimer: func.TimerRequest) -> None:
@@ -230,9 +234,9 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#timer-trigger).
+[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
 |Attribute property | Description|
 |---------|----------------------|
@@ -240,7 +244,7 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 |**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
-# [Isolated process](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
 |Attribute property | Description|
 |---------|----------------------|
@@ -389,7 +393,7 @@ Each field can have one of the following types of values:
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
 |A specific value |<nobr>`0 5 * * * *`</nobr>| Once every hour of the day at minute 5 of each hour |
-|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, beginning at hour 5 |
+|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, during hour 5 |
 |A range (`-` operator)|<nobr>`5-7 * * * * *`</nobr>| Three times a minute - at seconds 5 through 7 during every minute of every hour of each day |
 |A set of values (`,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Three times a minute - at seconds 5, 8, and 10 during every minute of every hour of each day |
 |An interval value (`/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 times an hour - at second 0 of every 5th minute of every hour of each day |

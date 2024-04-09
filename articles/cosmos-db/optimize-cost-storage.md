@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Optimize storage cost in Azure Cosmos DB
@@ -17,7 +17,7 @@ Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, whic
 
 ## Storage cost
 
-Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos DB account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://www.documentdb.com/capacityplanner) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos DB container, to monitor your storage, see [Monitor Azure Cosmos DB](./monitor.md)) article.
+Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos DB account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://cosmos.azure.com/capacitycalculator) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos DB container, to monitor your storage, see [Monitor Azure Cosmos DB](./monitor.md)) article.
 
 ## Optimize cost with item size
 

@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Azure Key Vault Certificate client library - Java
-description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
+description: Learn about the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
@@ -119,11 +119,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 #### Grant access to your key vault
 
-Create an access policy for your key vault that grants certificate permissions to your user account.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
 
 #### Set environment variables
 

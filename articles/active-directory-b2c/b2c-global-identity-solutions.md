@@ -2,23 +2,22 @@
 title: Azure Active Directory B2C global identity framework
 titleSuffix: Azure AD B2C
 description: Learn how to configure Azure AD B2C to provide customer identity and access management for global customers.
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
-ms.workload: identity
-ms.topic: conceptual
-ms.date: 12/15/2022
+ms.topic: concept-article
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer building a customer-facing application. I need to understand the different approaches to implement an identity platform using Azure AD B2C tenants for a globally operating business model. I want to make an informed decision about the architecture that best suits my application's requirements.
 ---
 
 # Azure Active Directory B2C global identity framework
 
 [Azure Active Directory B2C](overview.md) is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 
-Azure Active Directory B2C (Azure AD B2C) is a separate service from [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). It's built on the same technology as Azure AD but for a different purpose. It allows businesses to build customer facing applications, and then allows self-service sign-up to applications.
+Azure Active Directory B2C (Azure AD B2C) is a separate service from [Microsoft Entra ID](../active-directory/fundamentals/whatis.md). It's built on the same technology as Microsoft Entra ID but for a different purpose. It allows businesses to build customer facing applications, and then allows self-service sign-up to applications.
 
 Azure AD B2C is a globally distributed service made up of several components:
 

@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: manashgoswami 
-ms.author: magoswam
-ms.reviewer: ssalgado 
+author: manashgoswami
+ms.author: manashg
+ms.reviewer: ssalgado
 ms.date: 06/7/2023
-ms.custom: automl, event-tier1-build-2022, ignite-2022
+ms.custom: automl
 ---
 
 # What is automated machine learning (AutoML)?
@@ -213,7 +213,7 @@ How-to articles provide additional detail into what functionality automated ML o
    
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
 
 ### Python SDK reference

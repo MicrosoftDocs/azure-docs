@@ -7,7 +7,7 @@ ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom: amqp, mqtt, linux-related-content
 ---
 # Common issues and resolutions for Azure IoT Edge for Linux on Windows
 

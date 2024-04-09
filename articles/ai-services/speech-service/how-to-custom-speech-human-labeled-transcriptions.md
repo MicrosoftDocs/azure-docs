@@ -1,14 +1,12 @@
 ---
 title: Human-labeled transcriptions guidelines - Speech service
 titleSuffix: Azure AI services
-description: You use human-labeled transcriptions with your audio data to improve speech recognition accuracy. This is especially helpful when words are deleted or incorrectly replaced. 
-services: cognitive-services
+description: You use human-labeled transcriptions with your audio data to improve speech recognition accuracy. This kind of transcription is especially helpful when words are deleted or incorrectly replaced. 
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 1/19/2024
 ms.author: eur
 ---
 
@@ -16,7 +14,7 @@ ms.author: eur
 
 Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced. This guide can help you create high-quality transcriptions. 
 
-A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service will use up to 20 hours of audio for training. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service uses up to 20 hours of audio for training. This guide has sections for US English, Mandarin Chinese, and German locales.
 
 The transcriptions for all WAV files are contained in a single plain-text file (.txt or .tsv). Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
 
@@ -30,7 +28,7 @@ speech03.wav	the lazy dog was not amused
 
 The transcriptions are text-normalized so the system can process them. However, you must do some important normalizations before you upload the dataset. 
 
-Human-labeled transcriptions for languages other than English and Mandarin Chinese, must be UTF-8 encoded with a byte-order marker. For other locales transcription requirements, see the sections below.
+Human-labeled transcriptions for languages other than English and Mandarin Chinese, must be UTF-8 encoded with a byte-order marker. For other locales transcription requirements, see the following sections.
 
 ## en-US
 
@@ -40,21 +38,21 @@ Here are a few examples:
 
 | Characters to avoid | Substitution | Notes |
 | ------------------- | ------------ | ----- |
-| “Hello world” | "Hello world" | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
-| John’s day | John's day | The apostrophe has been substituted with the appropriate ASCII character. |
-| It was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens. |
+| “Hello world” | "Hello world" | The opening and closing quotations marks are substituted with appropriate ASCII characters. |
+| John’s day | John's day | The apostrophe is substituted with the appropriate ASCII character. |
+| It was good—no, it was great! | it was good--no, it was great! | The em dash is substituted with two hyphens. |
 
 ### Text normalization for US English
 
 Text normalization is the transformation of words into a consistent format used when training a model. Some normalization rules are applied to text automatically, however, we recommend using these guidelines as you prepare your human-labeled transcription data:
 
 - Write out abbreviations in words.
-- Write out non-standard numeric strings in words (such as accounting terms).
+- Write out nonstandard numeric strings in words (such as accounting terms).
 - Non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 - Abbreviations that are pronounced as words shouldn't be edited (such as "radar", "laser", "RAM", or "NATO").
 - Write out abbreviations that are pronounced as separate letters with each letter separated by a space.
 - If you use audio, transcribe numbers as words that match the audio (for example, "101" could be pronounced as "one oh one" or "one hundred and one").
-- Avoid repeating characters, words, or groups of words more than three times, such as "yeah yeah yeah yeah". Lines with such repetitions might be dropped by the Speech service.
+- Avoid repeating characters, words, or groups of words more than three times, such as "yeah yeah yeah yeah". The Speech service might drop lines with such repetition.
 
 Here are a few examples of normalization that you should perform on the transcription:
 
@@ -119,7 +117,7 @@ The following normalization rules are automatically applied to transcriptions:
 - Remove all punctuation, including various types of quotation marks ("test", 'test', "test„, and «test» are OK).
 - Discard rows with any special characters from this set: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
 - Expand numbers to spoken form, including dollar or Euro amounts.
-- Accept umlauts only for a, o, and u. Others will be replaced by "th" or be discarded.
+- Accept umlauts only for a, o, and u. Others are replaced by "th" or discarded.
 
 Here are a few examples of normalization automatically performed on the transcription:
 
@@ -131,7 +129,7 @@ Here are a few examples of normalization automatically performed on the transcri
 
 ## ja-JP
 
-In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
+In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences are discarded. To add longer text, insert a period in between.
 
 ## zh-CN
 
@@ -141,8 +139,8 @@ Here are a few examples:
 
 | Characters to avoid | Substitution   | Notes |
 | ------------------- | -------------- | ----- |
-| "你好" | "你好" | The opening and closing quotations marks have been substituted with appropriate characters. |
-| 需要什么帮助? | 需要什么帮助？| The question mark has been substituted with appropriate character. |
+| "你好" | "你好" | The opening and closing quotations marks are substituted with appropriate characters. |
+| 需要什么帮助? | 需要什么帮助？| The question mark is substituted with the appropriate character. |
 
 ### Text normalization for Mandarin Chinese
 
@@ -160,10 +158,10 @@ Here are a few examples of normalization that you should perform on the transcri
 
 The following normalization rules are automatically applied to transcriptions:
 
-- Remove all punctuation
-- Expand numbers to spoken form
-- Convert full-width letters to half-width letters
-- Using uppercase letters for all English words
+- Remove all punctuation.
+- Expand numbers to spoken form.
+- Convert full-width letters to half-width letters.
+- Using uppercase letters for all English words.
 
 Here are some examples of automatic transcription normalization:
 

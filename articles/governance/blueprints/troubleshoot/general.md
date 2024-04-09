@@ -6,6 +6,8 @@ ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 You may run into errors when creating, assigning, or removing blueprints. This article describes
 various errors that may occur and how to resolve them.
 

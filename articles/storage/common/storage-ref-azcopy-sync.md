@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy sync com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 02/09/2023
+ms.date: 03/29/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -19,7 +19,7 @@ Replicates the source location to the destination location. This article provide
 The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:
   
 - Local <-> Azure Blob / Azure File (either SAS or OAuth authentication can be used)
-- Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
+- Azure Blob <-> Azure Blob (either SAS or OAuth authentication can be used)
 - Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
 - Azure Blob <-> Azure File
 
@@ -144,6 +144,8 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
 
+`--put-blob-size-mb`   Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or ADLS Gen 2 to ADLS Gen 2). For Hierarchical Namespace accounts, you'll need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
 `--preserve-smb-info`    For SMB-aware locations, flag will be set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that isn't preserved for folders.  (default true)
@@ -162,7 +164,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

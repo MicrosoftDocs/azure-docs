@@ -1,31 +1,31 @@
 ---
-title: Model training on serverless compute (preview)
+title: Model training on serverless compute
 titleSuffix: Azure Machine Learning
 description: You no longer need to create your own compute cluster to train your model in a scalable way.  You can now use a compute cluster that Azure Machine Learning has made available for you.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
-ms.date: 05/09/2023
+ms.date: 10/23/2023
 ---
 
-# Model training on serverless compute (preview)
+# Model training on serverless compute
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully managed, on-demand compute. Azure Machine Learning creates, scales, and manages the compute for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
-Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network (preview) isolation reducing the burden on you.
+Machine learning professionals can specify the resources the job needs. Azure Machine Learning manages the compute infrastructure, and provides managed network isolation reducing the burden on you.
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
-Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from Azure Machine Learning studio, SDK and CLI.  Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
+Serverless compute can be used to fine-tune models in the model catalog such as LLAMA 2. Serverless compute can be used to run all types of jobs from Azure Machine Learning studio, SDK and CLI.  Serverless compute can also be used for building environment images and for responsible AI dashboard scenarios. Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
 
 ## Advantages of serverless compute
 
@@ -35,30 +35,29 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
 * Reduction in steps involved to run a job
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
-* Lesser wait times before job starts executing in some cases.
+* Lesser wait times before jobs start executing in some cases.
 * User identity and workspace user-assigned managed identity is supported for job submission. 
-* With managed network isolation you can streamline and automate your network isolation configuration.
+* With managed network isolation, you can streamline and automate your network isolation configuration. Customer virtual network is also supported
 * Admin control through quota and Azure policies
 
 ## How to use serverless compute
 
+* You can finetune foundation models such as LLAMA 2 using notebooks as shown below:
+  *  [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
+  *  [Fine Tune LLAMA 2 using multiple nodes](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/multinode-text-classification/emotion-detection-llama-multinode-serverless.ipynb)
 * When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  With serverless, you can skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a job, the job runs on serverless compute. Omit the compute name in your CLI or SDK jobs to use serverless compute in the following job types and optionally provide resources a job would need in terms of instance count and instance type:
 
   * Command jobs, including interactive jobs and distributed training
   * AutoML jobs
   * Sweep jobs
+  * Parallel jobs
 
 * For pipeline jobs through CLI use `default_compute: azureml:serverless` for pipeline level default compute.  For pipelines jobs through SDK use `default_compute="serverless"`. See [Pipeline job](#pipeline-job) for an example.
-* To use serverless job submission in Azure Machine Learning studio, first enable the feature in the **Manage previews** section:
-
-    :::image type="content" source="media/how-to-use-serverless-compute/enable-preview.png" alt-text="Screenshot shows how to enable serverless compute in studio." lightbox="media/how-to-use-serverless-compute/enable-preview.png":::
 
 * When you [submit a training job in studio (preview)](how-to-train-with-ui.md), select **Serverless** as the compute type.
 * When using [Azure Machine Learning designer](concept-designer.md), select **Serverless** as default compute.
-
-> [!IMPORTANT]
-> If you want to use serverless compute with a workspace that is configured for network isolation, the workspace must be using managed network isolation. For more information, see [workspace managed network isolation](how-to-managed-network.md).
-
+* You can use serverless compute for responsible AI dashboard
+  * [AutoML Image Classification scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-automl-image-classification-fridge.ipynb) 
 
 ## Performance considerations
 
@@ -74,15 +73,15 @@ Serverless compute can help speed up your training in the following ways:
 
 When submitting the job, you still need sufficient Azure Machine Learning compute quota to proceed (both workspace and subscription level quota).  The default VM size for serverless jobs is selected based on this quota.  If you specify your own VM size/family:
 
-* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family or changing the VM size
-* If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
-* If you do have sufficient quota for VM family to run the serverless job, but it's currently consumed by other jobs, you'll get a message that your job must wait in a queue until quota is available  
+* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family or changing the VM size
+* If you don't have quota for your specified VM size, you see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
+* If you do have sufficient quota for VM family to run the serverless job, but other jobs are using the quota, you get a message that your job must wait in a queue until quota is available  
 
-When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" to see all the quota consumed by serverless jobs.
+When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you see the name "Serverless" to see all the quota consumed by serverless jobs.
 
 ## Identity support and credential pass through
 
-* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. 
+* **User credential pass through** : Serverless compute fully supports user credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Microsoft Entra ID. 
 
     # [Python SDK](#tab/python)
 
@@ -210,7 +209,7 @@ environment:
 The compute defaults to serverless compute with:
 
 * Single node for this job.  The default number of nodes is based on the type of job.  See following sections for other job types.
-* CPU virtual machine, determined based on quota, performance, cost, and disk size.
+* CPU virtual machine, which is determined based on quota, performance, cost, and disk size.
 * Dedicated virtual machines
 * Workspace location
 
@@ -224,7 +223,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     from azure.ai.ml import command 
     from azure.ai.ml import MLClient # Handle to the workspace
     from azure.identity import DefaultAzureCredential # Authentication package
-    from azure.ai.ml.entities import ResourceConfiguration 
+    from azure.ai.ml.entities import JobResourceConfiguration 
 
     credential = DefaultAzureCredential()
     # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
@@ -237,7 +236,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     job = command(
         command="echo 'hello world'",
         environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-        resources = ResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
+        resources = JobResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
     )
     # submit the command job
     ml_client.create_or_update(job)
@@ -295,7 +294,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 ## Example for all fields with command jobs
 
-Here's an example of all fields specified including identity the job should use. There's no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
+Here's an example of all fields specified including identity the job should use. There's no need to specify virtual network settings as workspace level managed network isolation is automatically used.
 
 # [Python SDK](#tab/python)
 
@@ -350,7 +349,7 @@ View more examples of training with serverless compute at:-
   
 ## AutoML job
 
-There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
+There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, the GPU VM size is automatically selected. It's possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the [submit a training job in studio (preview)](how-to-train-with-ui.md) feature in the preview panel.
 
 # [Python SDK](#tab/python)
 
@@ -389,3 +388,4 @@ You can also set serverless compute as the default compute in Designer.
 View more examples of training with serverless compute at:-
 * [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
 * [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
+* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)

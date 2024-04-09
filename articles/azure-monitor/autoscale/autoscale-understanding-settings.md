@@ -4,12 +4,10 @@ description: This article explains autoscale settings, how they work, and how th
 author: EdB-MSFT
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/02/2022
+ms.date: 11/29/2023
 ms.subservice: autoscale
-ms.custom: ignite-2022
 ms.author: edbaynash
 ms.reviewer: akkumari
-
 ---
 # Understand autoscale settings
 
@@ -120,7 +118,7 @@ The following table describes the elements in the preceding autoscale setting's 
 | rule | scaleAction | Action |The action to take when the metricTrigger of the rule is triggered. |
 | scaleAction | direction | Operation |"Increase" to scale out, or "Decrease" to scale in.|
 | scaleAction | value |Instance count |How much to increase or decrease the capacity of the resource. |
-| scaleAction | cooldown | Cool down (minutes)|The amount of time to wait after a scale operation before scaling again. For example, if **cooldown = "PT10M"**, autoscale doesn't attempt to scale again for another 10 minutes. The cooldown is to allow the metrics to stabilize after the addition or removal of instances. |
+| scaleAction | cooldown | Cool down (minutes)|The amount of time to wait after a scale operation before scaling again. The cooldown period comes into effect after a scale-in or a scale-out event. For example, if **cooldown = "PT10M"**, autoscale doesn't attempt to scale again for another 10 minutes. The cooldown is to allow the metrics to stabilize after the addition or removal of instances. |
 
 ## Autoscale profiles
 
@@ -242,7 +240,7 @@ There are three types of autoscale profiles:
 
 ## Autoscale evaluation
 
-Autoscale settings can have multiple profiles. Each profile can have multiple rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Autoscale then evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type.
+Autoscale settings can have multiple profiles. Each profile can have multiple rules. Each time the autoscale job runs, it begins by choosing the applicable profile for that time. Autoscale then evaluates the minimum and maximum values, any metric rules in the profile, and decides if a scale action is necessary. The autoscale job runs every 30 to 60 seconds, depending on the resource type. After a scale action occurs, the autoscale job waits for the cooldown period before it scales again. The cooldown period applies to both scale-out and scale-in actions. 
 
 ### Which profile will autoscale use?
 

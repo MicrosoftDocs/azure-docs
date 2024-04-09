@@ -78,7 +78,7 @@ public class App
 
 ## Authenticate the Phone Numbers Client
 
-The PhoneNumberClientBuilder is enabled to use Azure Active Directory Authentication
+The PhoneNumberClientBuilder is enabled to use Microsoft Entra authentication
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal

@@ -3,9 +3,9 @@ title: Enable diagnostic logging in the DICOM service - Azure Health Data Servic
 description: This article explains how to enable diagnostic logging in the DICOM service.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 10/13/2023
 ms.author: mmitrik
 ---
 
@@ -16,7 +16,7 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
 ## Enable logs
 
 1. To enable logging DICOM service, select your DICOM service in the Azure portal.
-2. Select the **Activity log** blade, and then select **Diagnostic settings**.
+2. Select the **Activity log** on the left pane, and then select **Diagnostic settings**.
 
    [ ![Screenshot of Azure activity log.](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
 
@@ -30,9 +30,9 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
 
 5. Select the **Category** and **Destination** details for accessing the diagnostic logs.
 
-   * **Send to Log Analytics workspace** in the Azure Monitor. You’ll need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+   * **Send to Log Analytics workspace** in the Azure Monitor. You need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
    * **Archive to a storage account** for auditing or manual inspection. The storage account you want to use needs to be already created.
-   * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You’ll need to create an event hub namespace and event hub policy before you can configure this step.
+   * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this step.
    * **Send to partner solution** that you're working with as partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
 
      For information about supported metrics, see [Supported metrics with Azure Monitor](.././../azure-monitor/essentials/metrics-supported.md).
@@ -46,7 +46,7 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
    For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Log details
-The log schema used differs based on the destination. Log Analytics has a schema that will differ from other destinations. Each log type will also have a schema that differs.
+The log schema used differs based on the destination. Log Analytics has a schema that differs from other destinations. Each log type has a schema that differs.
 
 ### Audit log details
 
@@ -71,7 +71,7 @@ The DICOM service returns the following fields in the audit log as seen when str
 
 #### Log Analytics logs
 
-The DICOM service returns the following fields in the audit log in Log Analytics: 
+The DICOM service returns the following fields in the audit sign-in Log Analytics: 
 
 |Field Name  |Type  |Notes  |
 |---------|---------|---------|
@@ -99,7 +99,7 @@ The DICOM service returns the following fields in the audit log as seen when str
 |correlationId|String|Correlation ID
 |operationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
 |time|DateTime|Date and time of the event. 
-|resultDescription|String|Description of the log entry. An example here is a diagnostic log with a validation warning message when storing a file.
+|resultDescription|String|Description of the log entry. An example is a diagnostic log with a validation warning message when storing a file.
 |resourceId|String| Azure path to the resource.
 |identity|Dynamic|A generic property bag containing identity information (currently doesn't apply to DICOM).
 |location|String|The location of the server that processed the request.
@@ -108,21 +108,21 @@ The DICOM service returns the following fields in the audit log as seen when str
 
 #### Log Analytics logs
 
-The DICOM service returns the following fields in the audit log in Log Analytics: 
+The DICOM service returns the following fields in the audit sign-in Log Analytics: 
 
 |Field Name  |Type  |Notes  |
 |---------|---------|---------|
 |CorrelationId|String|Correlation ID
 |OperationName|String|Describes the type of operation (for example, Retrieve, Store, Query, etc.) 
 |TimeGenerated|DateTime|Date and time of the event. 
-|Message|String|Description of the log entry. An example here is a diagnostic log with a validation warning message when storing a file.
+|Message|String|Description of the log entry. An example is a diagnostic log with a validation warning message when storing a file.
 |Location|String|The location of the server that processed the request.
 |Properties|String|Additional information about the event in JSON array format. Examples include DICOM identifiers present in the request.
 |LogLevel|String|Log level (Informational, Error).
 
 ## Sample Log Analytics queries
 
-Below are a few basic Application Insights queries you can use to explore your log data.
+Here are a few basic Application Insights queries you can use to explore your log data.
 
 Run the following query to see the **100 most recent** logs:
 
@@ -145,12 +145,8 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## Conclusion
-
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. 
-
 ## Next steps
-In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
- 
->[!div class="nextstepaction"]
->[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

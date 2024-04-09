@@ -56,7 +56,7 @@ A high-level future architecture likely contains many data sources and data cons
 
 Additionally, if you're already using Azure, identify the following:
 
-- Any existing Azure resources that you can use during the POC. For example, resources can include Azure Active Directory (Azure AD), or Azure ExpressRoute.
+- Any existing Azure resources that you can use during the POC. For example, resources can include Microsoft Entra ID, or Azure ExpressRoute.
 - What Azure region(s) your organization prefers.
 - A subscription you can use for non-production POC work.
 - The throughput of your network connection to Azure.
@@ -144,7 +144,7 @@ Identify the team members and their commitment to support your POC. Team members
 - An application data expert to source the data for the POC dataset.
 - An Azure Synapse specialist.
 - An expert advisor to optimize the POC tests.
-- Any person who will be required for specific POC project tasks but who aren't required for its entire duration. These supporting resources could include network administrators, Azure administrators, or Azure AD administrators.
+- Any person who will be required for specific POC project tasks but who aren't required for its entire duration. These supporting resources could include network administrators, Azure administrators, or Microsoft Entra administrators.
 
 > [!TIP]
 > We recommend engaging an expert advisor to assist with your POC. [Microsoft's partner community](https://appsource.microsoft.com/marketplace/partner-dir) has global availability of expert consultants who can help you assess, evaluate, or implement Azure Synapse.

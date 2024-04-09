@@ -5,7 +5,7 @@ services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 10/12/2023
 ms.author: jodowns
 
 ---
@@ -78,9 +78,9 @@ For more information, see the following resources:
 
 ### Use a high threshold for rate limits
 
-Usually it's good practice to set your rate limit threshold to be quite high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
+Usually it's good practice to set your rate limit threshold to be high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
 
-High rate-limit thresholds avoid blocking legitimate traffic. These thresholds still provide protection against extremely high numbers of requests that might overwhelm your infrastructure.
+High rate-limit thresholds avoid blocking legitimate traffic. These thresholds still provide protection against very high numbers of requests that might overwhelm your infrastructure.
 
 ## Geo-filtering best practices
 

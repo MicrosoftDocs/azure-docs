@@ -1,13 +1,13 @@
 ---
 title: Deploy Azure SSIS integration runtime using PowerShell
-description: This PowerShell script creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud. 
+description: This PowerShell script creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: article
 ms.author: chugu
 author: chugugrace
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 01/25/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 10/20/2023
 ---
 
 # PowerShell script - deploy Azure-SSIS integration runtime
@@ -49,7 +49,7 @@ This script uses the following commands:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

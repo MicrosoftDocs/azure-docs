@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 11/08/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -50,7 +50,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     `Failed to get access token by using service principal.  
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.`
 
-- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Microsoft Entra ID is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 
@@ -131,7 +131,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -1,8 +1,9 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
@@ -11,33 +12,18 @@ ms.author: eur
 
 The Speech SDK depends on the following Linux system libraries:
 
-- The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
-- The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`)
-- The shared library for ALSA applications (`libasound`)
-- You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
+- The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`.
+- The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`).
+- The shared library for ALSA applications (`libasound`).
+
+You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
 
 > [!IMPORTANT]
-> The Speech SDK does not yet support OpenSSL 3.0, which is the default in Ubuntu 22.04 and Debian 12. 
+> The Speech SDK does not yet support OpenSSL 3.0, which is the default in Ubuntu 22.04 and Debian 12.
 
-To install OpenSSL 1.x from sources on Debian/Ubuntu based systems that don't have it, do:
-```Bash
-wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf -
-cd openssl-1.1.1u
-./config --prefix=/usr/local
-make -j $(nproc)
-sudo make install_sw install_ssldirs
-sudo ldconfig -v
-export SSL_CERT_DIR=/etc/ssl/certs
-```
-Notes on installation:
-- Check https://www.openssl.org/source/ for the latest OpenSSL 1.x version to use.
-- The setting of `SSL_CERT_DIR` must be in effect systemwide or at least in the console where applications that use the Speech SDK are launched from, otherwise OpenSSL 1.x installed in `/usr/local` may not find certificates.
-- Ensure that the console output from `ldconfig -v` includes `/usr/local/lib` as it should on modern systems by default. If this isn't the case, set `LD_LIBRARY_PATH` (with the same scope as `SSL_CERT_DIR`) to add `/usr/local/lib` to the library path:
-  ```Bash
-  export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-  ```
+# [Ubuntu 18.04/20.04](#tab/ubuntu)
 
-# [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
+Run these commands:
 
 ```Bash
 sudo apt-get update
@@ -53,7 +39,10 @@ sudo apt-get update
 sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
-# [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
+# [RHEL 7/8 and CentOS 7](#tab/rhel-centos)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Install the development tools and libraries:
 
@@ -64,7 +53,8 @@ sudo yum install alsa-lib openssl wget
 ```
 
 > [!IMPORTANT]
+>
 > - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/ai-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/ai-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL, follow the instructions on [how to configure OpenSSL for Linux](~/articles/ai-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---

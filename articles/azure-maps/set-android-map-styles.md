@@ -2,8 +2,8 @@
 title: Set a map style in Android maps
 titleSuffix: Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps Android SDK in either the layout file or the activity class to adjust the style.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -16,12 +16,15 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you two ways to set map styles using the Azure Maps Android SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps].
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## Prerequisites
 
 Be sure to complete the steps in the Quickstart: [Create an Android app].
-
->[!IMPORTANT]
->The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps].
 
 ## Set map style in the layout
 
@@ -253,6 +256,5 @@ See the following articles for more code samples to add to your maps:
 
 [Add a bubble layer]: map-add-bubble-layer-android.md
 [Add a symbol layer]: how-to-add-symbol-to-android-map.md
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
 [Create an Android app]: quick-android-map.md
 [supported map styles in Azure Maps]: supported-map-styles.md

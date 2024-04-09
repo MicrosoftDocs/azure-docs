@@ -3,13 +3,12 @@ title: Use blob index tags to manage and find data on Azure Blob Storage
 description: See examples of how to use blob index tags to categorize, manage, and query for blob objects.
 titleSuffix: Azure Storage
 author: normesta
-
 ms.author: normesta
 ms.date: 07/21/2022
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use blob index tags to manage and find data on Azure Blob Storage
@@ -281,13 +280,13 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 3. To find all blobs that match a specific blob tag, use the `az storage blob filter` command. 
 
    ```azurecli
-   az storage blob filter --account-name mystorageaccount --tag-filter ""tag1"='value1' and "tag2"='value2'" --auth-mode login
+   az storage blob filter --account-name mystorageaccount --tag-filter """tag1""='value1' and ""tag2""='value2'" --auth-mode login
    ```
 
 4. To find blobs only in a specific container, include the container name in the `--tag-filter` parameter.
 
    ```azurecli
-   az storage blob filter --account-name mystorageaccount --tag-filter ""@container"='myContainer' and "tag1"='value1' and "tag2"='value2'" --auth-mode login
+   az storage blob filter --account-name mystorageaccount --tag-filter """@container""='myContainer' and ""tag1""='value1' and ""tag2""='value2'" --auth-mode login
    ```
 
 ### [AzCopy](#tab/azcopy)

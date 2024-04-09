@@ -34,7 +34,7 @@ This dataset contains approximately 10 GB of data and is updated daily.
 
 ## Storage location
 
-This dataset is stored in the West US 2 and West Central US Azure regions. Allocating compute resources in West US 2 or West Central US is recommended for affinity.
+This dataset is stored in the West US 2, West Central US and South Central US Azure regions. Allocating compute resources in West US 2 or West Central US or South Central US is recommended for affinity.
 
 ## Data Access
 
@@ -43,6 +43,10 @@ West US 2: 'https://datasetreferencegenomes.blob.core.windows.net/dataset'
 West Central US: 'https://datasetreferencegenomes-secondary.blob.core.windows.net/dataset'
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=JtQoPFqiC24GiEB7v9zHLi4RrA2Kd1r%2F3iFt2l9%2FlV8%3D
+
+South Central US: 'https://datasetreferencegenomesc.blob.core.windows.net/dataset'
+
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2023-01-03&st=2024-02-12T20%3A07%3A21Z&se=2029-02-13T20%3A07%3A00Z&sr=c&sp=rl&sig=ASZYVyhqLOXKsT%2BcTR8MMblFeI4uZ%2Bnno%2FCnQk2RaFs%3D
 
 ## Use Terms
 
@@ -60,8 +64,6 @@ For any questions or feedback about this dataset, contact the [Genome Reference 
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-reference-genomes -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-reference-genomes)**.
 
 ## Getting the Reference Genomes from Azure Open Datasets
 

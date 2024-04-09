@@ -8,7 +8,7 @@ ms.author: alkohli
 
 The activation key that you use:
 
-- Is an Azure Active Directory (Azure AD) based authentication key.
+- Is a Microsoft Entra ID based authentication key.
 - Expires after three days.
 - Isn't used after device activation.
 

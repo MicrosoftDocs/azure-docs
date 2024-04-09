@@ -1,15 +1,22 @@
 ---
 title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft Docs
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
-author: yelevin
 ms.topic: conceptual
-ms.date: 06/21/2023
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Automate threat response with playbooks in Microsoft Sentinel
 
 This article explains what Microsoft Sentinel playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## What is a playbook?
 
@@ -24,6 +31,8 @@ A playbook is a collection of these remediation actions that you run from Micros
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
 While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
+
+After onboarding to the unified security operations platform, the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
 
 ### Playbook templates
 
@@ -75,7 +84,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 Microsoft Sentinel now supports the following logic app resource types:
 
-- **Consumption**, which runs in multi-tenant Azure Logic Apps and uses the classic, original Azure Logic Apps engine.
+- **Consumption**, which runs in multitenant Azure Logic Apps and uses the classic, original Azure Logic Apps engine.
 - **Standard**, which runs in single-tenant Azure Logic Apps and uses a redesigned Azure Logic Apps engine.
 
 The **Standard** logic app type offers higher performance, fixed pricing, multiple workflow capability, easier API connections management, native network capabilities such as support for virtual networks and private endpoints (see note below), built-in CI/CD features, better Visual Studio Code integration, an updated workflow designer, and more.
@@ -111,8 +120,9 @@ There are many differences between these two resource types, some of which affec
 
 - **Microsoft Sentinel Contributor** role lets you attach a playbook to an analytics or automation rule.
 - **Microsoft Sentinel Responder** role lets you access an incident in order to run a playbook manually. But to actually run the playbook, you also need...
-- **Microsoft Sentinel Playbook Operator** role lets you run a playbook manually.
-- **Microsoft Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
+
+    - **Microsoft Sentinel Playbook Operator** role lets you run a playbook manually.
+    - **Microsoft Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
 
 #### Learn more
 
@@ -181,7 +191,7 @@ The incident triggers an automation rule which runs a playbook with the followin
 
 - Wait until a response is received from the admins, then continue to run.
 
-- If the admins have chosen **Block**, send a command to the firewall to block the IP address in the alert, and another to Azure AD to disable the user.
+- If the admins have chosen **Block**, send a command to the firewall to block the IP address in the alert, and another to Microsoft Entra ID to disable the user.
 
 #### Response
 
@@ -189,7 +199,7 @@ The incident triggers an automation rule which runs a playbook with the followin
 
 Two examples:
 
-**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md):
+**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Microsoft Entra ID Protection](../active-directory/identity-protection/overview-identity-protection.md):
 
    - Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
@@ -197,10 +207,10 @@ Two examples:
 
      - Send a Teams message to the user, requesting confirmation that the user took the suspicious action.
 
-     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Azure AD Identity Protection will label the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
+     - Check with Microsoft Entra ID Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Microsoft Entra ID Protection will label the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
 
         > [!NOTE]
-        > This particular Azure AD action does not initiate any enforcement activity on the user, nor does it initiate any configuration of enforcement policy. It only tells Azure AD Identity Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Azure AD Identity Protection.
+        > This particular Microsoft Entra action does not initiate any enforcement activity on the user, nor does it initiate any configuration of enforcement policy. It only tells Microsoft Entra ID Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Microsoft Entra ID Protection.
 
 **Example 2:** Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
@@ -232,12 +242,9 @@ They are designed to be run automatically, and ideally that is how they should b
 There are circumstances, though, that call for running playbooks manually. For example: 
 
 - When creating a new playbook, you'll want to test it before putting it in production. 
-- There may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. 
-
+- There might be situations where you'll want to have more control and human input into when and whether a certain playbook runs. 
 
     You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident, alert, or entity and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents and entities.
-
-
 
 ### Set an automated response
 
@@ -245,7 +252,7 @@ Security operations teams can significantly reduce their workload by fully autom
 
 Setting automated response means that every time an analytics rule is triggered, in addition to creating an alert, the rule will run a playbook, which will receive as an input the alert created by the rule.
 
-If the alert creates an incident, the incident will trigger an automation rule which may in turn run a playbook, which will receive as an input the incident created by the alert.
+If the alert creates an incident, the incident will trigger an automation rule which might in turn run a playbook, which will receive as an input the incident created by the alert.
 
 #### Alert creation automated response
 
@@ -261,7 +268,7 @@ For playbooks that are triggered by incident creation and receive incidents as t
 
 - Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create an automated response only for this analytics rule.
 
-- From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
+- From the **Automation rules** tab in the **Automation** page, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
     > [!NOTE]
     > **Microsoft Sentinel requires permissions to run incident-trigger playbooks.**
@@ -282,17 +289,17 @@ See the [complete instructions for creating automation rules](tutorial-respond-t
 
 Full automation is the best solution for as many incident-handling, investigation, and mitigation tasks as you're comfortable automating. Having said that, there can be good reasons for a sort of hybrid automation: using playbooks to consolidate a string of activities against a range of systems into a single command, but running the playbooks only when and where you decide. For example:
 
-- You may prefer your SOC analysts have more human input and control over some situations.
+- You might prefer your SOC analysts have more human input and control over some situations.
 
-- You may also want them to be able to take action against specific threat actors (entities) on-demand, in the course of an investigation or a threat hunt, in context without having to pivot to another screen. (This ability is now in Preview.)
+- You might also want them to be able to take action against specific threat actors (entities) on-demand, in the course of an investigation or a threat hunt, in context without having to pivot to another screen. (This ability is now in Preview.)
 
-- You may want your SOC engineers to write playbooks that act on specific entities (now in Preview) and that can only be run manually.
+- You might want your SOC engineers to write playbooks that act on specific entities (now in Preview) and that can only be run manually.
 
 - You would probably like your engineers to be able to test the playbooks they write before fully deploying them in automation rules.
 
 For these and other reasons, Microsoft Sentinel allows you to **run playbooks manually** on-demand for entities and incidents (both now in Preview), as well as for alerts. 
 
-- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** blade. Select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu.
+- **To run a playbook on a specific incident,** select the incident from the grid in the **Incidents** page. In the [Azure portal](https://portal.azure.com), select **Actions** from the incident details pane, and choose **Run playbook (Preview)** from the context menu.  In the [Defender portal](https://security.microsoft.com/), select **Run playbook (Preview)** directly from the incident details page.
 
     This opens the **Run playbook on incident** panel.
 
@@ -344,7 +351,7 @@ To see all the API connections, enter *API connections* in the header search box
 - Status - indicates the connection status: error, connected.
 - Resource group - API connections are created in the resource group of the playbook (Azure Logic Apps) resource.
 
-Another way to view API connections would be to go to the **All Resources** blade and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.
+Another way to view API connections would be to go to the **All Resources** page and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.
 
 In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
 
@@ -366,8 +373,8 @@ The following recommended playbooks, and other similar playbooks are available t
     | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content&nbsp;hub/<br>Azure Marketplace |
     | -------- | ----------------------------------- | ----------------------------------------- |
     | **Block an IP address in Azure Firewall** | [AzureFirewall-BlockIP-addNewRule](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Firewall/Playbooks/AzureFirewall-BlockIP-addNewRule) | [Azure Firewall Solution for Sentinel](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/sentinel4azurefirewall.sentinel4azurefirewall?tab=Overview) |
-    | **Block an Azure AD user** | [Block-AADUser](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Active%20Directory/Playbooks/Block-AADUser) | [Azure Active Directory solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
-    | **Reset an Azure AD user password** | [Reset-AADUserPassword](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Active%20Directory/Playbooks/Reset-AADUserPassword) | [Azure Active Directory solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
+    | **Block a Microsoft Entra user** | Block-AADUser | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
+    | **Reset a Microsoft Entra user password** | Reset-AADUserPassword | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
     | **Isolate or unisolate device using<br>Microsoft Defender for Endpoint** | [Isolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Isolate-MDEMachine)<br>[Unisolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Unisolate-MDEMachine) | [Microsoft Defender for Endpoint solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderendpoint?tab=Overview) |
 
 - **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
@@ -383,5 +390,3 @@ The following recommended playbooks, and other similar playbooks are available t
 
 - [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Create and perform incident tasks in Microsoft Sentinel using playbooks](create-tasks-playbook.md)
-
-

@@ -43,7 +43,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing-telemetry-correlation.md) and [smart detection](alerts/proactive-diagnostics.md).
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-trace-data.md) and [smart detection](alerts/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and VM insights.
 

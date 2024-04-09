@@ -6,7 +6,6 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 08/26/2021
 ---
@@ -47,7 +46,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (12 vCores) / (3) = 2,400 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (12 vCores) / (3) = 4,000 RU/s
@@ -67,7 +66,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
@@ -87,7 +86,7 @@ Then the recommended request units for Azure Cosmos DB API for NoSQL are
 Provisioned RU/s, API for NoSQL = (600 RU/s/vCore) * (36 vCores) / (3) = 7,200 RU/s
 `
 
-And the recommended request units for Azure Cosmso DB for MongoDB are
+And the recommended request units for Azure Cosmos DB for MongoDB are
 
 `
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
@@ -120,7 +119,6 @@ The table below summarizes the relationship between *vCores* and *vCPUs* for Azu
 ## Next steps
 * [Learn about Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Learn how to plan and manage costs for Azure Cosmos DB](plan-manage-costs.md)
-* [Review options for migrating to Azure Cosmos DB](migration-choices.md)
 * [Plan your migration to Azure Cosmos DB for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
 
 [regions]: https://azure.microsoft.com/regions/

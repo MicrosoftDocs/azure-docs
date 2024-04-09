@@ -126,7 +126,12 @@ sections:
       - question: |
           Can I ping my load balancer?
         answer: |
-          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md)  
+          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md) 
+          
+      - question: |
+          Can I include On-premises IPs in the backend pool of Azure Load Balancer?
+        answer: |
+          No, Azure Load Balancer does not support the direct addition of On-premises IPs to its backend pool. The load balancer employs a platform-specific IP address (168.63.129.16) for health probes, limited to communication within Azure's virtual network. Consequently, it cannot probe resources located on-premises.
 
 additionalContent: |
 

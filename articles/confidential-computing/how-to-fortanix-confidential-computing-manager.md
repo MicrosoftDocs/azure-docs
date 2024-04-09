@@ -1,14 +1,12 @@
 ---
 title: Fortanix Confidential Computing Manager in an Azure managed application
 description: Learn how to deploy Fortanix Confidential Computing Manager (CCM) in a managed application in the Azure portal.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.author: mamccrea
-ms.custom: ignite-fall-2021
+ms.author: jushiman
 ---
 
 # Fortanix Confidential Computing Manager in an Azure managed application
