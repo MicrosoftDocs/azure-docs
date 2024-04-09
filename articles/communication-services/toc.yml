@@ -805,6 +805,10 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Closed captions
+      items:
+      - name: Closed captions overview
+        href: concepts/interop/enable-closed-captions.md         
     - name: UI Library
       items:
       - name: UI Library overview
@@ -1050,7 +1054,7 @@ items:
         - name: Understanding error messages and codes
           href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
         - name: Reporting an issue
-          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue.md
       - name: Calling (JavaScript)
         items:
         - name: Device and permission issues
