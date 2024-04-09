@@ -56,7 +56,6 @@ Here we list several common video issues, along with potential causes for each i
 * The video sender experiences network issues
 * The receiver experiences network issues
 * The frames are received but not decoded
-* The participant enables the camera while waiting in the lobby
 
 ### The user only sees black video from the remote participant
 * The video sender's browser is in the background
