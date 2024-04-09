@@ -30,7 +30,7 @@ Azure Cosmos DB Python SDK provides client-side logical representation to access
 
 Start with this list:
 
-* Take a look at the [Common issues and workarounds] section in this article.
+* Take a look at the [Common issues and workarounds](#common-issues-and-workarounds) section in this article.
 * Look at the Python SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-python/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the `*Cosmos*` tag.
 * Review the [performance tips](performance-tips-python-sdk.md) for Azure Cosmos DB Python SDK, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-python/issues). If there's an option to add tags to your GitHub issue, add a `*Cosmos*` tag.
@@ -98,10 +98,10 @@ client = CosmosClient(URL, credential=KEY, enable_diagnostics_logging=True)
 database = client.create_database(DATABASE_NAME, logger=logger)
 ```
 
-## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
+## Retry design
 See our guide to [designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
-## <a name="common-issues-workarounds"></a>Common issues and workarounds
+## Common issues and workarounds
 
 ### General suggestions
 For best performance:
@@ -116,7 +116,7 @@ Checking the [portal metrics](../monitor.md) will help determine if it's a clien
 ### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
 
-#### <a name="connection-limit-on-host"></a>Connection limit on a host machine
+#### Connection limit on a host machine
 Some Linux systems, such as Red Hat, have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections, too.
 Run the following command.
 
@@ -125,7 +125,7 @@ ulimit -a
 ```
 The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see the Azure Cosmos DB Python SDK [performance tips](performance-tips-python-sdk.md).
 
-#### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
+#### Azure SNAT (PAT) port exhaustion
 
 If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
@@ -136,7 +136,7 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
 
-#### <a name="cant-connect"></a>Can't reach the Service - firewall
+#### Can't reach the Service - firewall
 ``azure.core.exceptions.ServiceRequestError:`` indicates that the SDK can't reach the service. Follow the [Connection limit on a host machine](#connection-limit-on-host).
 
 ### Failure connecting to Azure Cosmos DB Emulator
@@ -148,9 +148,6 @@ The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the Python SD
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
 Otherwise, you face connection issues.
 
-### Request rate too large
-This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
-
 ### Common query issues
 
 The [query metrics](query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it's being spent on the back-end vs the client. Learn more on the [query performance guide](performance-tips-query-sdk.md?pivots=programming-language-python).
@@ -159,9 +156,3 @@ The [query metrics](query-metrics.md) will help determine where the query is spe
 
 * Learn about Performance guidelines for the [Python SDK](performance-tips-python-sdk.md)
 * Learn about the best practices for the [Python SDK](best-practice-python.md)
-
- <!--Anchors-->
-[Common issues and workarounds]: #common-issues-workarounds
-[Enable client SDK logging]: #enable-client-sice-logging
-[Connection limit on a host machine]: #connection-limit-on-host
-[Azure SNAT (PAT) port exhaustion]: #snat

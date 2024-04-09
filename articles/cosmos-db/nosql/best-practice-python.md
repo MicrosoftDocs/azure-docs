@@ -23,7 +23,7 @@ This guide includes best practices for solutions built using the latest version 
 
 ## SDK usage
 
-- Always using the [latest version](sdk-python.md) of the Azure Cosmos DB SDK available for optimal performance.
+- Always use the [latest version](sdk-python.md) of the Azure Cosmos DB SDK available for optimal performance.
 - Use a single instance of `CosmosClient` for the lifetime of your application for better performance.
 - Set the `PreferredLocations` in the SDK using [ConnectionPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/latest/azure.cosmos.html#azure.cosmos.documents.ConnectionPolicy). During failovers, write operations are sent to the current write region and all reads are sent to the first region within your preferred locations list. For more information about regional failover mechanics, see [availability troubleshooting](troubleshoot-sdk-availability.md).
 - A transient error is an error that has an underlying cause that soon resolves itself. Applications that connect to your database should be built to expect these transient errors. To handle them, implement retry logic in your code instead of surfacing them to users as application errors. The SDK has built-in logic to handle these transient failures on retryable requests like read or query operations. The SDK can't retry on writes for transient failures as writes aren't idempotent. The SDK does allow users to configure retry logic for throttles. For details on which errors to retry on [visit here](conceptual-resilient-sdk-applications.md#should-my-application-retry-on-errors).
@@ -37,8 +37,7 @@ This guide includes best practices for solutions built using the latest version 
 
 ## Host characteristics
 
-- You may run into connectivity/availability issues due to lack of resources on your client machine. Monitor your CPU utilization on nodes running the Azure Cosmos DB client, and scale up/out if usage is high. Also, consider running your workload using the [cluster](https://nodejs.org/api/cluster.html) module.
-- For most common cases of production workloads, we highly recommend using at least 4-cores and 8-GB memory VMs whenever possible.
+- You may run into connectivity/availability issues due to lack of resources on your client machine. Monitor your CPU utilization on nodes running the Azure Cosmos DB client, and scale up/out if usage is high.
 - If using a virtual machine to run your application, enable [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) on your VM to help with bottlenecks due to high traffic and reduce latency or CPU jitter. You might also want to consider using a higher end Virtual Machine where the max CPU usage is under 70%.
 - By default, query results are returned in chunks of 100 items or 4 MB, whichever limit is hit first. If a query returns more than 100 items, increase the page size to reduce the number of round trips required. Memory consumption increases as page size increases.
 

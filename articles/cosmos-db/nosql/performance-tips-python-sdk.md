@@ -32,9 +32,7 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 So if you're asking "How can I improve my database performance?" consider the following options:
 
 ## Networking
-<a name="collocate-clients"></a>
 * **Collocate clients in same Azure region for performance**
-<a id="same-region"></a>
 
 When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
@@ -58,13 +56,13 @@ Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK release notes](sdk-python.md) to determine the most recent SDK and review improvements.
 
-* <a id="max-connection-python"></a> **Use a singleton Azure Cosmos DB client for the lifetime of your application**
+* **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client per AppDomain for the lifetime of the application.
+Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client for the lifetime of the application.
 
-* <a id="override-default-consistency-python"></a> **Use the lowest consistency level required for your application**
+* **Use the lowest consistency level required for your application**
 
-When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*.
+When you create a *CosmosClient*, account level consistency is used if none is specified in the client creation. For more information on consistency levels, see the [consistency-levels](https://aka.ms/cosmos-consistency-levels) document.
 
 * **Scale out your client-workload**
 
@@ -98,7 +96,7 @@ Add/modify the following lines:
 
 For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-python).
 
-### <a id="python-indexing"></a><a id="indexing-policy"></a> Indexing policy
+### Indexing policy
  
 * **Exclude unused paths from indexing for faster writes**
 
@@ -119,7 +117,6 @@ db.create_container(
 For more information, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
 ### Throughput
-<a id="measure-rus"></a>
 
 * **Measure and tune for lower request units/second usage**
 
@@ -145,7 +142,6 @@ print("Request charge is : ", container.client_connection.last_response_headers[
 
 The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
 
-<a id="429"></a>
 * **Handle rate limiting/request rate too large**
 
 When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
