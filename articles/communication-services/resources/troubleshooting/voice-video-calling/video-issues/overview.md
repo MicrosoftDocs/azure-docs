@@ -39,7 +39,7 @@ Additionally, CPU overload on the sender side can also influence the browser's d
 
 ## Common issues in video calls
 
-We can see that the whole process involves factors such as the sender's camera device, The network conditions at the sender and receiver ends also play an important role. Bandwidth and packets lost can  impact the video quality perceived by the users.
+We can see that the whole process involves factors such as the sender's camera device. The network conditions at the sender and receiver ends also play an important role. Bandwidth and packets lost can  impact the video quality perceived by the users.
 
 Here we list several common video issues, along with potential causes for each issue:
 
@@ -48,7 +48,7 @@ Here we list several common video issues, along with potential causes for each i
 * The sender's video isn't available when the user subscribes to it
 * The remote video becomes unavailable while subscribing the video
 * The application disposes the video renderer while subscribing the video
-* The maximum number of active video subscriptions has been reached
+* The maximum number of active video subscriptions was reached
 * The video sender's browser is in the background
 * The video sender dropped the call unexpectedly
 * The video sender experiences network issues
