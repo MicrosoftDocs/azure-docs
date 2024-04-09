@@ -3969,6 +3969,11 @@
             "source_path_from_root":"/articles/virtual-network-manager/concept-security-admin-rules-network-groups.md",
             "redirect_url":"/azure/virtual-network-manager/overview",
             "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/trusted-signing/concept.md",
+            "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
+            "redirect_document_id":false 
         }
     ]
 }
