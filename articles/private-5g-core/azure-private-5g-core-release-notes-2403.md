@@ -1,6 +1,6 @@
 ---
 title: Azure Private 5G Core 2403 release notes
-description: Discover what's new in the Azure Private 5G Core 2403 release
+description: Discover what's new in the Azure Private 5G Core 2403 release.
 author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
@@ -36,6 +36,22 @@ The following table shows the support status for different Packet Core releases 
 ### TCP Maximum Segment Size (MSS) Clamping
 
 TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+
+### Improved Packet Core Scaling 
+
+The maximum supported limits for a range of parameters in an Azure Private 5G Core deployment have increased.  These limits have been confirmed through testing, but other factors may affect what is achievable in a given scenario. 
+The following table lists the new maximum supported limits.
+
+| Element                | Maximum supported |
+|------------------------|-------------------|
+| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
+| Bandwidth              | Over 25 Gbps per ASE |
+| RAN nodes (eNB/gNB)    | 200 per packet core |
+| Active UEs             | 10,000 per deployment (all sites) |
+| SIMs                   | 20,000 per ASE |
+| SIM provisioning       | 10,000 per JSON file via Azure portal, 4MB per REST API call  |
+
+See [Service Limits](azure-stack-edge-virtual-machine-sizing#service-limits) for more information.
 
 ## Issues fixed in the AP5GC 2403 release
 
