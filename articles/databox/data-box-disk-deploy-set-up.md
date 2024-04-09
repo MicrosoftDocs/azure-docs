@@ -75,7 +75,7 @@ Before you begin, make sure that:
 > [!IMPORTANT]
 > Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk Unlock tool**.
 
-### [Standard disk](#tab/standard)
+### [Bitlocker disk](#tab/bitlocker)
 
 Use the included USB cable to connect the disk to a Windows or Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
@@ -83,7 +83,7 @@ Use the included USB cable to connect the disk to a Windows or Linux machine run
 
 ### [Self-encrypting disk](#tab/sed)
 
-Use the included SATA 3 cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+Do not use any cables the included SATA 3 cable to connect the disk to a Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
 Insert image of disk and cable here.
 
@@ -110,6 +110,75 @@ Azure CLI instructions
 Perform the following steps to connect and unlock your disks.
 
 ### [Windows](#tab/windows)
+
+Perform the following steps to connect and unlock your disks.
+
+1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
+2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
+
+    In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
+
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)
+
+3. Extract the toolset on the same computer that you will use to copy the data.
+4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
+5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below.
+
+    ```powershell
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /SystemCheck
+    Successfully verified that the system can run the tool.
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    ```
+
+6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+
+    ```powershell
+    PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
+    Enter the passkey :
+    testpasskey1
+
+    Following volumes are unlocked and verified.
+    Volume drive letters: D:
+
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    ```
+
+7. Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
+
+    ```powershell
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
+    USAGE:
+    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
+
+    Example: DataBoxUnlock /PassKey:<your passkey>
+    Example: DataBoxUnlock /SystemCheck
+    Example: DataBoxUnlock /Help
+
+    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
+    /SystemCheck:    This option checks if your system meets the requirements to run the tool.
+    /Help:           This option provides help on cmdlet usage and examples.
+
+    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    ```
+
+8. Once the disk is unlocked, you can view the contents of the disk.
+
+    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+    > [!NOTE]
+    > Don't format or modify the contents or existing file structure of the disk.
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
+
+
+This is the end.
+
+
 
 Perform the following steps to connect to and unlock your self-encrypted Data Box Disks on a Windows client.
 
@@ -311,12 +380,31 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
     > [!IMPORTANT]
     > SEDUtil is an external utility for Self-Encrypting Drives. This is not managed by Microsoft. More information, including license information for this utility, can be found at [https://sedutil.com/](https://sedutil.com/).
 
-1.	Extract `SEDUtil` to a local path on the machine and add the extracted tool path to the `PATH` environment variable. This is required in a later step when the utility utilizes `SEDUtil` to unlock the disk. 
-1. Validate that `SEDUtil` has been extracted to a local path and that the `PATH` environment variable contains the it's path. This can be done using one of the following examples.
+1.	Extract `SEDUtil` to a local path on the machine and add the extracted tool path to the `PATH` environment variable. This is required in a later step when the utility utilizes `SEDUtil` to unlock the disk.
+
+    ### [CentOS](#tab/centos)
+
+    CentOS steps
+
+    ### [Debian](#tab/debian)
+
+    Debian steps
+
+    ### [Red Hat Enterprise Linux](#tab/rhel)
+
+    RHEL steps
 
     ### [Ubuntu](#tab/ubuntu)
 
-    Validate the above setup by running below command from any path.
+    Ubuntu steps
+
+    ### [Another distro](#tab/another)
+
+    Steps for another distro go here.
+
+    ---
+
+1. Validate that `SEDUtil` has been extracted to a local path and that the `PATH` environment variable contains the it's path. Use the following command to perform the Validation.
 
     ```bash
     sudo sedutil-cli --scan
@@ -325,12 +413,6 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
     The following example output confirms that the validation completed successfully.
    
     :::image type="content" source="media/data-box-disk-deploy-set-up/scan-results.png" alt-text="Screen capture showing the successful results when scanning a system for Data Box Disks." lightbox="media/data-box-disk-deploy-set-up/scan-results-lrg.png":::
-
-    ### [Another distro](#tab/another)
-
-    Steps for another distro go here.
-
-    ---
 
 1.  Azure disks can be identified using the following command. Disk serial numbers can be verified for a volume using the following command.
 
@@ -361,12 +443,13 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
     ```
 
     The following image shows the sample output.
+
     :::image type="content" source="media/data-box-disk-deploy-set-up/help-output.png" alt-text="Screen capture displaying sample output from the Data Box Disk Unlock Utility help command." lightbox="media/data-box-disk-deploy-set-up/help-output-lrg.png":::
 
 1. After the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to folders based on the desired destination data type.
 1. After the required data is copied to the disk, make sure to unmount and remove the disk safely using the following command.
     ```bash
-    sudo .\/DataBoxDiskUnlock_x86_64 \/Unmount  \/sed
+    sudo ./DataBoxDiskUnlock_x86_64 /Unmount  /sed
     ```
 
     The following example output confirms that the volume unmounted successfully.    

@@ -67,7 +67,8 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 
 ## Supported connection
 
-The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
+- When using BitLocker disks, the client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
+- When using self-encrypting disks, the client computer containing the data must have a SATA 3 connection. All other connections are unsupported. If a cable was supplied with your Data Box Disk, do not use it. 
 
 ## Supported storage accounts
 
