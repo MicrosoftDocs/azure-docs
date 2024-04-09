@@ -5,11 +5,12 @@ ms.topic: include
 ms.date: 01/04/2024
 ms.author: clemensv
 ---
+
 ### Create a Node.js application
 
 Create a new JavaScript file called `listener.js`.
 
-### Add the Relay NPM package
+### Add the Relay package
 
 Run `npm install hyco-ws` from a Node command prompt in your project folder.
 

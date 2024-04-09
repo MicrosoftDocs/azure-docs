@@ -1,20 +1,15 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 08/10/2023
-ms.author: clemensv
-ms.custom: include file
-
+ms.date: 01/04/2024
+ms.author: samurp
 ---
 
 
 ### Create a console application
 
-If you have disabled the "Requires Client Authorization" option when creating the Relay,
+If you disabled the "Requires Client Authorization" option when creating the Relay,
 you can send requests to the Hybrid Connections URL with any browser. For accessing
 protected endpoints, you need to create and pass a token in the `ServiceBusAuthorization`
 header, which is shown here.

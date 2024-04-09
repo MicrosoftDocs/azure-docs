@@ -3,13 +3,13 @@ author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
 ms.date: 01/04/2024
-ms.author: clemensv
+ms.author: samurp
 ---
 ### Create a Node.js application
 
 Create a new JavaScript file called `sender.js`.
 
-### Add the Relay NPM package
+### Add the Relay Node Package Manager package
 
 Run `npm install hyco-ws` from a Node command prompt in your project folder.
 

@@ -1,19 +1,14 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 01/04/2024
 ms.author: samurp
-ms.custom: include file
-
 ---
 
 ### Create a Java application
 
-If you have disabled the "Requires Client Authorization" option when creating the Relay,
+If you disabled the "Requires Client Authorization" option when creating the Relay,
 you can send requests to the Hybrid Connections URL with any browser. For accessing
 protected endpoints, you need to create and pass a token in the `ServiceBusAuthorization`
 header, which is shown here.
@@ -21,9 +16,9 @@ header, which is shown here.
 Here's a simple Maven project structure and a Java class that demonstrates sending requests to 
 a Hybrid Connections URL with client authorization utilizing the Azure Relay library. 
 
-### Add the Relay MVN package
+### Add the Relay package
 
-Modify your pom.xml file in your maven application package to include the following:
+Modify your pom.xml file in your maven application package to include the Azure Relay package.
 
 ```xml
 <dependency>
@@ -34,8 +29,8 @@ Modify your pom.xml file in your maven application package to include the follow
 ```
 
 Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project to add the 
-dependency jar file in the lib directory of your project. This will also import all dependencies
-of the `azure-relay` mvn package. This package provides functions to construct Relay URIs and tokens.
+dependency jar file in the lib directory of your project. It also imports all dependencies
+of the `azure-relay` mvn package. This package provides functions to construct Relay uniform resource identifiers (URIs) and tokens.
 
 ### Write some code to send messages
 
@@ -84,7 +79,7 @@ of the `azure-relay` mvn package. This package provides functions to construct R
     - `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
     - `nst key` -   The primary key of the namespace you saved earlier.
 
-5. Add the following code to the `Sender.java` file, below is the expected main function for your java class: 
+5. Add the following code to the `Sender.java` file. The main function should look like the following code. 
 
     ```java
     public static void main(String[] args) throws IOException {
@@ -155,7 +150,7 @@ of the `azure-relay` mvn package. This package provides functions to construct R
     }
     ```
 
-    Here is what your `Sender.java` file should look like:
+    Here's what your `Sender.java` file should look like:
 
     ```java
     package com.example.sender;
