@@ -28,7 +28,7 @@ Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**, and t
 
 Once the register push notification API is called when the device token information is saved in Registrar. After TTL lifespan ends, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
 
-In case that you want to revoke an identity you need to follow [the next process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
+In case that you want to revoke an identity you need to follow [this process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
 
 Note: For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there's no way to increase this value.
 
