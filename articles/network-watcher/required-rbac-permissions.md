@@ -111,11 +111,10 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 
 ## Next hop
 
-> [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/readNetworkWatchers/nextHop/read                    | Get the next hop from a VM                                     |
-> | Microsoft.Network/networkInterfaces/read | Get a network interface definition                             |
+| Action                                                              | Description                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/readNetworkWatchers/nextHop/read                    | Get the next hop from a VM                                     |
+| Microsoft.Network/networkInterfaces/read | Get a network interface definition                             |
 
 ## Network security group view
 
