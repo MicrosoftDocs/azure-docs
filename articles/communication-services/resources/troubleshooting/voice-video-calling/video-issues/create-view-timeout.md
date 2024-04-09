@@ -40,7 +40,7 @@ A feasible but less elegant approach for handling this createView timeout error 
 Some users might end the call by terminating the browser process instead of by hanging up.
 The server is unaware that the user dropped the call until the timeout of 40 seconds ended.
 The participant remains on roster list until the server removes it at the end of the timeout (40 seconds).
-If other participants try to subscribe to a video from the user who droped from the call unexpectedly, they get an error as no incoming video frames are received.
+If other participants try to subscribe to a video from the user who dropped from the call unexpectedly, they get an error as no incoming video frames are received.
 No further detailed information is available. The server maintains the participants in the roster list even if no answer is received from them, until the timeout period ends.
 
 
@@ -55,12 +55,12 @@ A workaround approach for handling this createView timeout error is to continuou
 Similar to the sender's network issues, if a video receiver has network issues the video subscription may fail.
 This could be due to high packet loss rate or temporary network connection errors.
 The SDK can detect network disconnection and fires a [`networkReconnect`](../../../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-web#network-values) UFD event.
-However, in a WebRTC call, the default `STUN connectivity check` triggers a disconnection event if there is no response from the other party after around 10-15 seconds.
+However, in a WebRTC call, the default `STUN connectivity check` triggers a disconnection event if there's no response from the other party after around 10-15 seconds.
 
 This means if there's a [`networkReconnect`](../../../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-web#network-values) UFD, the receiver side might not have received packets for already 15 seconds.
 
-In case of network issues is connection on the receiver's side, your application should subscribe to the video after [`networkReconnect`](../../../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-web#network-values) UFD is recovered.
-You will likely have limited control over network issues. Thus, we advise monitoring the network information and presenting the information on the user interface. You should also consider monitoring your client [media quality and network status](../../../../concepts/voice-video-calling/media-quality-sdk?pivots=platform-web) and make necessary changes to your client as needed. For instance you might consider automatically turning off incoming video streams when you notice that the client is experience degraded network performance.
+If there are network issues from the connection on the receiver's side, your application should subscribe to the video after [`networkReconnect`](../../../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-web#network-values) UFD is recovered.
+You'll likely have limited control over network issues. Thus, we advise monitoring the network information and presenting the information on the user interface. You should also consider monitoring your client [media quality and network status](../../../../concepts/voice-video-calling/media-quality-sdk?pivots=platform-web) and make necessary changes to your client as needed. For instance, you might consider automatically turning off incoming video streams when you notice that the client is experience degraded network performance.
 
 ### When a user enables the camera while waiting in the lobby
 In an ACS to Teams call, if other participants attempt to subscribe to a video while the video sender is still in the lobby, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview)  API fails
