@@ -3,7 +3,7 @@ title: Connect an MXCHIP AZ3166 to Azure IoT Hub
 description: Use Eclipse ThreadX embedded software to connect an MXCHIP AZ3166 device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: iot
 ms.devlang: c
 ms.topic: tutorial
 ms.date: 04/08/2024
@@ -348,9 +348,9 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 In this tutorial, you built a custom image that contains Eclipse ThreadX sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following article to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT.
+As a next step, explore the following article to learn more about embedded development options.  
 
 > [!div class="nextstepaction"]
-> [Connect a general simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](./concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > Eclipse ThreadX provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

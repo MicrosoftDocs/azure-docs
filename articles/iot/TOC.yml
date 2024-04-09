@@ -68,15 +68,17 @@ items:
       href: tutorial-multiple-components.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Use MQTT to connect aMobile device
+    - name: Use MQTT to connect a Mobile device
       href: tutorial-use-mqtt.md
 
   - name: Concepts
     items:
       - name: Security architecture
         href: iot-security-architecture.md    
-      - name: IoT devices
+      - name: IoT device development
         items:
+        - name: What is IoT device development
+          href: concepts-iot-device-development.md
         - name: IoT device types
           href: concepts-iot-device-types.md
         - name: C SDK and Embedded C SDK usage scenarios
@@ -85,6 +87,8 @@ items:
           href: concepts-manage-device-reconnections.md 
         - name: IoT device selection
           href: concepts-iot-device-selection.md
+        - name: Troubleshoot embedded device tutorials
+          href: troubleshoot-embedded-device-tutorials.md
         - name: Guide for Eclipse ThreadX security practices
           href: concepts-eclipse-threadx-security-practices.md
       - name: IoT Plug and Play

@@ -3,7 +3,7 @@ title: Connect an STMicroelectronics B-L475E to Azure IoT Hub
 description: Use Eclipse ThreadX embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: iot
 ms.devlang: c
 ms.topic: tutorial
 ms.date: 04/08/2024
@@ -15,7 +15,7 @@ ms.date: 04/08/2024
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/eclipse-threadx/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
 
-In this tutorial, you use Azure RTOS to connect the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
+In this tutorial, you use Eclipse ThreadX to connect the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
 You complete the following tasks:
 
@@ -353,10 +353,10 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 In this tutorial, you built a custom image that contains Eclipse ThreadX sample code, and then flashed the image to the STM DevKit device. You connected the STM DevKit to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following article to learn more about using the IoT device SDKs.
+As a next step, explore the following article to learn more about embedded development options.  
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](./concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Eclipse ThreadX provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

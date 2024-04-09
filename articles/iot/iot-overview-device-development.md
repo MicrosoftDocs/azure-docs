@@ -79,7 +79,7 @@ For MCU devices, see:
 
 All of the device SDKs include samples that demonstrate how to use the SDK to connect to the cloud, send telemetry, and use the other primitives.
 
-The [IoT device development](../iot-develop/about-iot-develop.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
+The [IoT device development](./concepts-iot-device-development.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
 
