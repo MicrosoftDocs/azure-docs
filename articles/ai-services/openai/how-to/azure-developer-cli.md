@@ -80,16 +80,6 @@ Use this article to learn how to automate resource deployment for Azure OpenAI O
 > [!NOTE]
 > The search indexer is set to run every 5 minutes to index the data in the storage account. You can either wait a few minutes for the uploaded data to be indexed, or you can manually run the indexer from the search service page.
 
-## Use Azure OpenAI On Your Data
+## Next steps
 
-After running the `azd` template and uploading your data, you're ready to start using Azure OpenAI on Your Data. Use the following links to find instructions on creating environment variables for your machine and running code in your preferred usage method:
-
-* [Azure OpenAI Studio](../use-your-data-quickstart.md?pivots=programming-language-studio#chat-playground)
-* [C#](../use-your-data-quickstart.md?pivots=programming-language-csharp#retrieve-required-variables)
-* [JavaScript](../use-your-data-quickstart.md?pivots=programming-language-javascript#retrieve-required-variables)
-* [Python](../use-your-data-quickstart.md?pivots=programming-language-python#retrieve-required-variables)
-* [Spring](../use-your-data-quickstart.md?pivots=programming-language-spring#retrieve-required-variables)
-* [Go](../use-your-data-quickstart.md?pivots=programming-language-go#retrieve-required-variables)
-* [REST API](../use-your-data-quickstart.md?pivots=rest-api#retrieve-required-variables)
-* [Powershell](../use-your-data-quickstart.md?programming-language-powershell#retrieve-required-variables)
-
+After running the `azd` template and uploading your data, you're ready to start using Azure OpenAI on Your Data. See the [quickstart article](../use-your-data-quickstart.md) for code samples you can use to build your applications.
