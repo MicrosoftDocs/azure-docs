@@ -1972,8 +1972,6 @@ groups:
     title: REST
   - id: programming-language-powershell
     title: PowerShell
-  - id: azure-developer-cli
-    title: Azure Developer CLI
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages

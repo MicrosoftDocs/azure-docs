@@ -1,6 +1,30 @@
+---
+title: 'Use the Azure Developer CLI to deploy resources for Azure OpenAI On Your Data'
+titleSuffix: Azure OpenAI
+description: Use this article to learn how to automate resource deployment for Azure OpenAI On Your Data.
+manager: nitinme
+ms.service: azure-ai-openai
+ms.topic: quickstart
+author: aahill
+ms.author: aahi
+ms.date: 04/09/2024
+recommendations: false
+---
+
+# Use the Azure Developer CLI to deploy resources for Azure OpenAI On Your Data 
+
+Use this article to learn how to automate resource deployment for Azure OpenAI On Your Data. The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations and includes the completed sample app code.
+
+## Prerequisites
+
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
+- Access granted to Azure OpenAI in the desired Azure subscription.
+
+  Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+
 ## Clone and initialize the Azure Developer CLI template
 
-The Azure Developer CLI (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations and includes the completed sample app code. This automated approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. 
+
 
 1. For the steps ahead, clone and initialize the template.
 
