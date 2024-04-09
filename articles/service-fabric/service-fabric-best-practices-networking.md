@@ -81,7 +81,7 @@ More information about the inbound security rules:
 
 * **Cluster**. Used for inter-node communication.
 
-* **Ephemeral**. Service Fabric uses a part of these ports as application ports, and the remaining are available for the OS. It also maps this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample here. Make sure that the difference between the start and the end ports is at least 255. You might run into conflicts if this difference is too low, because this range is shared with the OS. To see the configured dynamic port range, run *netsh int ipv4 show dynamic port tcp*. These ports aren't needed for Linux clusters.
+* **Ephemeral**. Service Fabric uses a part of these ports as application ports, and the remaining are available for the OS. It also maps this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample here. Make sure that the difference between the start and the end ports is at least 255. You might run into conflicts if this difference is too low, because this range is shared with the OS. To see the configured dynamic port range, run *netsh int ipv4 show dynamicport tcp*. These ports aren't needed for Linux clusters.
 
 * **Application**. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, that is, the ephemeralPorts range as set in the configuration. Service Fabric uses these ports whenever new ports are required and takes care of opening the firewall for these ports on the nodes.
 
