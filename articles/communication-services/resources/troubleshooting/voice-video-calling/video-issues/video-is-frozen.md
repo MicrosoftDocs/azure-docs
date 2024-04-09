@@ -22,7 +22,7 @@ or if the video sender drops the call unexpectedly.
 
 ## How to detect using SDK
 
-Bu using the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), your application can register a listener callback to detect the network condition changes and listen for other end user impacting events.
+By using the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), your application can register a listener callback to detect the network condition changes and listen for other end user impacting events.
 
 At the video sending end, you can check events with the values of `networkReconnect`, `networkSendQuality`, `cameraFreeze`, `cameraStoppedUnexpectedly`.
 
@@ -44,6 +44,6 @@ In this way, users can be aware of any network quality issues and aren't surpris
 If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
 
 Other reasons, especially those that occur on the sender side, such as the sender's camera stopped or the sender dropping the call unexpectedly,
-cannot currently be known by the receiver because there's no reporting mechanism for this part from the sender to other participants.
+can't currently be known by the receiver because there's no reporting mechanism for this part from the sender to other participants.
 In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 

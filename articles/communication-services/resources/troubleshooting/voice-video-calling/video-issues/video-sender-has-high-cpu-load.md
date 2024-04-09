@@ -18,7 +18,7 @@ It's an expected behavior, as lowering the encoding resolution can reduce the CP
 It's important to note that this behavior is controlled by the browser, and we're unable to control it at the JavaScript layer.
 
 ## How to detect in the SDK
-The WebRTC Stats API provides of [`qualityLimitationReason`](https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason) can provide more detailed analysis of why the media quality in the stream is reduced. 
+There is [`qualityLimitationReason`](https://developer.mozilla.org/en-US/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason) in WebRTC Stats API, which can provide a detailed reason why the media quality in the stream is reduced. However, the Azure Communication Services WebJS SDK doesn't expose this information.
 
 ## How to mitigate or resolve
 When the browser detects high CPU load, it degrades the encoding resolution, which isn't an issue from the SDK perspective.
