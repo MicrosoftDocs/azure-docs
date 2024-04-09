@@ -1,16 +1,16 @@
 ---
 title: Fraud detection with the Apache Flink® DataStream API
-description: Learn about Fraud detection with the Apache Flink® DataStream API
+description: Learn about Fraud detection with the Apache Flink® DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 04/09/2024
 ---
 
 # Fraud detection with the Apache Flink® DataStream API
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-In this article, learn how to build a fraud detection system for alerting on suspicious credit card transactions. Using a simple set of rules, you will see how Flink allows us to implement advanced business logic and act in real-time.
+In this article, learn how to build a fraud detection system for alerting on suspicious credit card transactions. Using a simple set of rules, you see how Flink allows us to implement advanced business logic and act in real-time.
 
 This sample is from the use case on Apache Flink [Fraud Detection with the DataStream API](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/).
 
@@ -27,7 +27,7 @@ This sample is from the use case on Apache Flink [Fraud Detection with the DataS
 
 ## Maven project pom.xml on IntelliJ Idea
 
-A provided Flink Maven Archetype will create a skeleton project with all the necessary dependencies quickly, so you only need to focus on filling out the business logic. These dependencies include flink-streaming-java which is the core dependency for all Flink streaming applications and flink-walkthrough-common that has data generators and other classes specific to this walkthrough.
+A Flink Maven Archetype creates a skeleton project with all the necessary dependencies quickly, so you only need to focus on filling out the business logic. These dependencies include flink-streaming-java, which is the core dependency for all Flink streaming applications and flink-walkthrough-common that has data generators and other classes specific to this walkthrough.
 
 ```
         <dependency>
@@ -128,15 +128,15 @@ Full Dependencies
 
 ## Main Source Code
 
-This job uses a source that generates an infinite stream of credit card transactions for you to process. Each transaction contains an account ID (accountId), timestamp (timestamp) of when the transaction occurred, and US$ amount (amount).The logic is that if transaction of the small amount (< 1.00) is immediately followed by a large amount ( > 500) it sets off alarm and updates the output logs.It uses data from TransactionIterator class (below) which is hardcoded so that account id 3 is detected as fraudulent transaction.
+This job uses a source that generates an infinite stream of credit card transactions for you to process. Each transaction contains an account ID (accountId), timestamp (timestamp) of when the transaction occurred, and US$ amount (amount). The logic is that if transaction of the small amount (< 1.00) followed by a large amount (> 500) it sets off alarm and updates the output logs.
 
-Scammers don’t wait long to make their large purchases to reduce the chances their test transaction is noticed. For example, suppose you wanted to set a 1-minute timeout to your fraud detector; i.e., in the previous example transactions 3 and 4 would only be considered fraud if they occurred within 1 minute of each other. Flink’s KeyedProcessFunction allows you to set timers that invoke a callback method at some point in time in the future.
+Scammers don’t wait long to make their large purchases to reduce the chances their test transaction is noticed. For example, suppose you wanted to set a 1-minute timeout to your fraud detector. In the previous example, transactions three and four would only be considered fraud if they occurred within 1 minute of each other. Flink’s KeyedProcessFunction allows you to set timers that invoke a callback method at some point in time in the future.
 
 Let’s see how we can modify our Job to comply with our new requirements:
 
-Whenever the flag is set to true, also set a timer for 1 minute in the future. When the timer fires, reset the flag by clearing its state. If the flag is ever cleared the timer should be canceled. To cancel a timer, you have to remember what time it is set for, and remembering implies state, so you will begin by creating a timer state along with your flag state.
+Whenever the flag set to true, also set a timer for 1 minute in the future. When the timer fires, reset the flag by clearing its state. If the flag is ever cleared, the timer should be canceled. To cancel a timer, you have to remember what time it set for, and remembering implies state, so you begin by creating a timer state along with your flag state.
 
-KeyedProcessFunction#processElement is called with a Context that contains a timer service. The timer service can be used to query the current time, register timers, and delete timers. With this, you can set a timer for 1 minute in the future every time the flag is set and store the timestamp in timerState.
+KeyedProcessFunction#processElement is called with a Context that contains a timer service. The timer service can be used to query the current time, register timers, and delete timers. You can set a timer for 1 minute in the future every time the flag set and store the timestamp in timerState.
 
 Sample `FraudDetector.java`
 
@@ -185,7 +185,7 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
         // Get the current state for the current key
         Boolean lastTransactionWasSmall = flagState.value();
 
-        // Check if the flag is set
+        // Check if the flag set
         if (lastTransactionWasSmall != null) {
             if (transaction.getAmount() > LARGE_AMOUNT) {
                 //Output an alert downstream
@@ -200,8 +200,8 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
 
         // KeyedProcessFunction#processElement is called with a Context that contains a timer 
         // service. The timer service can be used to query the current time, register timers, and 
-        // delete timers. With this, you can set a timer for 1 minute in the future every time the flag 
-        // is set and store the timestamp in timerState.
+        // delete timers. You can set a timer for 1 minute in the future every time the flag 
+        // set and store the timestamp in timerState.
 
         if (transaction.getAmount() < SMALL_AMOUNT) {
             // set the flag to true
@@ -244,7 +244,8 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
 ```
 ## Package the jar and submit to HDInsight Flink on AKS webssh pod
 
-image
+:::image type="content" source="./media/fraud-detection-flink-datastream-api/package-jar.png" alt-text="Screenshot showing how to package the jar." border="true" lightbox="./media/fraud-detection-flink-datastream-api/package-jar.png":::
+
 
 ## Submit the job to HDInsight Flink Cluster on AKS
 
@@ -252,9 +253,9 @@ image
 
 ## Expected Output
 
-Running this code with the provided TransactionSource will emit fraud alerts for account 3. You should see the following output in your task manager logs.
+Running this code with the provided TransactionSource emits fraud alerts for account 3. You should see the following output in your task manager logs.
 
-:::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager-logs.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager-logs.png":::
+:::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager-log.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager-log.png":::
 
 ## Reference
 * [Fraud Detector v2: State + Time](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/#fraud-detector-v2-state--time--1008465039)
