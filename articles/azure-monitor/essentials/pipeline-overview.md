@@ -26,7 +26,8 @@ Some environments may choose to implement a local edge pipeline to manage data c
 
 :::image type="content" source="media/pipeline-overview/pipeline-overview.png" lightbox="media/pipeline-overview/pipeline-overview.png" alt-text="Diagram that shows the data flow for Azure Monitor pipeline." border="false":::
 
-## Data collection rule
+## Data collection rules
+*Data collection rules (DCRs)* are sets of instructions supporting data collection using the Azure Monitor pipeline. Depending on the scenario, DCRs specify such details as what data should be collected, how to transform that data, and where to send it. In some scenarios, you can use the Azure portal to configure data collection, while other scenarios may require you to create and manage your own DCR. See [Data collection rules in Azure Monitor](./data-collection-rule-overview.md) for details on how to create and work with DCRs.
 
 ## Transformations
 *Transformations* allow you to modify incoming data before it's stored in Azure Monitor. They are [KQL queries](../logs/log-query-overview.md) defined in the DCR that run in the cloud pipeline. See [Data collection transformations in Azure Monitor](./data-collection-transformations.md) for details on how to create and use transformations.
