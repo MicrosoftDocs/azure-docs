@@ -1,7 +1,7 @@
 ---
 title: 'How to generate reproducible output with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to generate reproducible output (preview) with Azure OpenAI Service
+description: Learn how to generate reproducible output (preview) with Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -15,7 +15,7 @@ recommendations: false
 
 # Learn how to use reproducible output (preview)
 
-By default if you ask an Azure OpenAI Chat Completion model the same question multiple times you are likely to get a different response. The responses are therefore considered to be non-deterministic. Reproducible output is a new  preview feature that allows you to selectively change the default behavior to help product more deterministic outputs.
+By default if you ask an Azure OpenAI Chat Completion model the same question multiple times you're likely to get a different response. The responses are therefore considered to be non-deterministic. Reproducible output is a new  preview feature that allows you to selectively change the default behavior to help product more deterministic outputs.
 
 ## Reproducible output support
 
