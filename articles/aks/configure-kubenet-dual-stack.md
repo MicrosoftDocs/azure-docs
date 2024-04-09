@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 12/07/2023
-ms.custom: devx-track-azurecli, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, build-2023
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
@@ -539,3 +539,4 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

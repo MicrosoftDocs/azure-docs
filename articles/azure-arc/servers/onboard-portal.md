@@ -3,6 +3,7 @@ title: Connect hybrid machines to Azure using a deployment script
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
 ms.date: 10/23/2023
 ms.topic: conceptual
+ms.custom: linux-related-content
 ---
 
 # Connect hybrid machines to Azure using a deployment script

@@ -4,6 +4,7 @@ description: Learn how to collect metrics from the Azure Kubernetes Service (AKS
 author: aritraghosh
 ms.author: aritraghosh
 ms.service: azure-kubernetes-service
+ms.subservice: aks-monitoring
 ms.topic: how-to
 ms.date: 01/31/2024
 ms.custom: references_regions, devx-track-azurecli
@@ -246,3 +247,4 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
 [az-feature-unregister]: /cli/azure/feature#az-feature-unregister
 [release-tracker]: https://releases.aks.azure.com/#tabversion
+

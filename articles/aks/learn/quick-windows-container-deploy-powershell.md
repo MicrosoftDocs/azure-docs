@@ -3,6 +3,9 @@ title: Deploy a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
 ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -117,6 +120,7 @@ To use Windows Server 2022, specify the following parameters:
 >
 > - Specifying the `OsSKU` parameter requires PowerShell Az module version 9.2.0 or higher.
 > - Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
+> - Windows Server 2022 is being retired after Kubernetes version 1.34 reaches its end of life (EOL). For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 To add a Windows Server 2022 node pool, call the [New-AzAksNodePool][new-azaksnodepool] cmdlet:
 
@@ -321,3 +325,4 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [new-azaksnodepool]: /powershell/module/az.aks/new-azaksnodepool
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
+

@@ -131,6 +131,8 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
+    - name: PowerShell remoting to Azure Arc-enabled servers
+      href: ssh-arc-powershell-remoting.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Extended Security Updates
@@ -167,6 +169,8 @@
       href: azcmagent-connect.md
     - name: azcmagent disconnect
       href: azcmagent-disconnect.md
+    - name: azcmagent extension
+      href: azcmagent-extension.md
     - name: azcmagent genkey
       href: azcmagent-genkey.md
     - name: azcmagent help

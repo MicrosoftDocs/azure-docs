@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 03/28/2024
 ---
 
 # Run or reset indexers, skills, or documents
@@ -21,6 +21,10 @@ In Azure AI Search, there are several ways to run an indexer:
 + Run on demand, with or without a "reset".
 
 This article explains how to run indexers on demand, with and without a reset. It also describes indexer execution, duration, and concurrency.
+
+## How indexers connect to Azure resources
+
+Indexers are one of the few subsystems that make overt outbound calls to other Azure resources. In terms of Azure roles, indexers don't have separate identities: a connection from the search engine to another Azure resource is made using the [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md) of a search service. If the indexer connects to an Azure resource on a virtual network, you should create a [shared private link](search-indexer-howto-access-private.md) for that connection. For more information about secure connections, see the [Security in Azure AI Search](search-security-overview.md).
 
 ## Indexer execution
 

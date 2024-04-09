@@ -31,6 +31,8 @@ pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoke
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
 ```cmd
 pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
 ```
@@ -348,7 +350,7 @@ In the example below we're calling the embedding model once per every item that 
 ```python
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 

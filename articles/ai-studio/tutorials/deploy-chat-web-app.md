@@ -7,10 +7,10 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 2/8/2024
+ms.date: 4/8/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: aahi
+author: aahill
 ---
 
 # Tutorial: Deploy a web app for chat on your data
@@ -218,14 +218,6 @@ You're almost there! Now you can test the web app.
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
 
 ## Remarks
-
-### Remarks about adding your data
-
-Although it's beyond the scope of this tutorial, to understand more about how the model uses your data, you can export the playground setup to prompt flow. 
-
-:::image type="content" source="../media/tutorials/chat-web-app/prompt-flow-open.png" alt-text="Screenshot of the chat playground with the open in prompt flow button in view." lightbox="../media/tutorials/chat-web-app/prompt-flow-open.png":::
-
-Following through from there you can see the graphical representation of how the model uses your data to construct the response. For more information about prompt flow, see [prompt flow](../how-to/prompt-flow.md).
 
 ### Chat history
 

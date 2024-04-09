@@ -46,7 +46,7 @@ az account get-access-token
 Sign in the service principal for tenant 2 using the appID, the app key, and the ID of tenant 2:
 
 ```azurecli-interactive
-az login --service-principal -u $appid -p secret --tenant $tenant2
+az login --service-principal -u $appid -p $secret --tenant $tenant2
 az account get-access-token
 ```
 

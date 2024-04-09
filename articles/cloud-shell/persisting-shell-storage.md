@@ -4,7 +4,7 @@ ms.contributor: jahelmic
 ms.date: 10/03/2023
 ms.topic: article
 tags: azure-resource-manager
-ms.custom: linux-related-content
+ms.custom:
 title: Persist files in Azure Cloud Shell
 ms.reviewer: mattmcinnes
 ---
