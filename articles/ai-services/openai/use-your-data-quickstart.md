@@ -70,10 +70,6 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 [!INCLUDE [Connect your data to OpenAI using Azure OpenAI Studio](includes/connect-your-data-studio.md)]
 
-# [Azure Developer CLI](#tab/cli)
-
-[!INCLUDE [Connect your data to OpenAI using the Azure Developer CLI](includes/use-your-data-azure-developer-cli.md)]
-
 ---
 
 ::: zone-end
@@ -123,12 +119,6 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/use-your-data-rest.md)]
-
-::: zone-end
-
-::: zone pivot="azure-developer-cli"
-
-[!INCLUDE [Azure Developer CLI](includes/use-your-data-azure-developer-cli.md)]
 
 ::: zone-end
 
