@@ -353,6 +353,7 @@ Terminal Server has been deployed and configured as follows:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
    - Purity Code Level: 6.5.1
+   - Safe Mode: Disabled
    - Array Time zone: UTC
    - DNS Server IP Address: 172.27.255.201
    - DNS Domain Suffix: not set by operator during setup
