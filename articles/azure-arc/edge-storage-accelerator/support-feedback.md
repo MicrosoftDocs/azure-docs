@@ -1,5 +1,5 @@
 ---
-title: Support and feedback for Edge Storage Accelerator
+title: Support and feedback for Edge Storage Accelerator (preview)
 description: Learn how to get support and provide feedback Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
@@ -8,9 +8,9 @@ ms.date: 04/09/2024
 
 ---
 
-# Support and feedback for Edge Storage Accelerator
+# Support and feedback for Edge Storage Accelerator (preview)
 
-If you experience an issue or need support, you can complete the [Edge Storage Accelerator support request form here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUOVlRSjJNOFgxNkRPN1IzQUZENFE4SjlSNy4u).
+If you experience an issue or need support during the preview, you can submit an [Edge Storage Accelerator support request form here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUOVlRSjJNOFgxNkRPN1IzQUZENFE4SjlSNy4u).
 
 ## Release notes
 
