@@ -7,10 +7,10 @@ ms.custom: devx-track-azurecli
 ms.date: 4/9/2024
 ms.author: jordanselig
 ---
-# Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3 (Preview)
+# Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3
 
 > [!NOTE]
-> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently **in preview**. 
+> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3. 
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
@@ -232,7 +232,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 > [!NOTE]
 > If your migration includes a custom domain suffix, your custom domain suffix configuration might show as degraded once the migration is complete due to a known bug. Your App Service Environment should still function as expected. The degraded status should resolve itself within 6-8 hours. If the configuration is degraded after 8 hours or if your custom domain suffix is not functioning, contact support.
-
+>
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Screenshot of a sample degraded custom domain suffix configuration.":::
 >
 
