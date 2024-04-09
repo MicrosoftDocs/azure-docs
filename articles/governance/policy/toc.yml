@@ -196,9 +196,44 @@
     - name: Aliases
       href: ./concepts/definition-structure-alias.md
       displayName: alias, array alias, definition structure
-  - name: Understand effects
-    displayName: order, evaluation
-    href: ./concepts/effects.md
+  - name: Understand effect
+    items:
+    - name: Basics
+      href: ./concepts/effect-basics.md
+      displayName: basics, order, evaluation, interchanging, layering
+    - name: Add to network group
+      href: ./concepts/effect-add-to-network-group.md
+      displayName: add network group, addToNetworkGroup
+    - name: Append
+      href: ./concepts/effect-append.md
+      displayName: append
+    - name: Audit
+      href: ./concepts/effect-audit.md
+      displayName: audit
+    - name: Audit if not exists
+      href: ./concepts/effect-audit-if-not-exists.md
+      displayName: audit if not exists, auditIfNotExists
+    - name: Deny
+      href: ./concepts/effect-deny.md
+      displayName: deny
+    - name: Deny action
+      href: ./concepts/effect-deny-action.md
+      displayName: deny action, denyAction
+    - name: Deploy if not exists
+      href: ./concepts/effect-deploy-if-not-exists.md
+      displayName: deploy if not exists, deployIfNotExists
+    - name: Disabled
+      href: ./concepts/effect-disabled.md
+      displayName: disabled
+    - name: Manual
+      href: ./concepts/effect-manual.md
+      displayName: Manual
+    - name: Modify
+      href: ./concepts/effect-modify.md
+      displayName: modify
+    - name: Mutate (preview)
+      href: ./concepts/effect-mutate.md
+      displayName: mutate, preview, aks, kubernetes
   - name: Scope
     displayName: location, notScope, exemption, waiver, save
     href: ./concepts/scope.md

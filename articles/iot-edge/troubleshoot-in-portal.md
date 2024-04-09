@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot from the Azure portal - Azure IoT Edge | Microsoft Docs 
+title: Troubleshoot Azure IoT Edge devices from the Azure portal
 description: Use the troubleshooting page in the Azure portal to monitor IoT Edge devices and modules
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 3/15/2023
+ms.date: 04/08/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -42,13 +42,13 @@ You can access the troubleshooting page in the portal through either the IoT Edg
 
 On the **Troubleshoot** page of your device, you can view and download logs from any of the running modules on your IoT Edge device.
 
-This page has a maximum limit of 1500 log lines, and any logs longer than that will be truncated. If the logs are too large, the attempt to get module logs will fail. In that case, try to change the time range filter to retrieve less data or consider using direct methods to [Retrieve logs from IoT Edge deployments](how-to-retrieve-iot-edge-logs.md) to gather larger log files.
+This page has a maximum limit of 1,500 log lines, and any logs longer are truncated. If the logs are too large, the attempt to get module logs fails. In that case, try to change the time range filter to retrieve less data or consider using direct methods to [Retrieve logs from IoT Edge deployments](how-to-retrieve-iot-edge-logs.md) to gather larger log files.
 
 Use the dropdown menu to choose which module to inspect.
 
 :::image type="content" source="./media/troubleshoot-in-portal/select-module.png" alt-text="Screenshot showing how to choose a module from the dropdown menu that you want to inspect.":::
 
-By default, this page displays the last fifteen minutes of logs. Select the **Time range** filter to see different logs. Use the slider to select a time window within the last 60 minutes, or check **Enter time instead** to choose a specific datetime window.
+By default, this page displays the last 15 minutes of logs. Select the **Time range** filter to see different logs. Use the slider to select a time window within the last 60 minutes, or check **Enter time instead** to choose a specific datetime window.
 
 :::image type="content" source="./media/troubleshoot-in-portal/select-time-range.png" alt-text="Screenshot showing how to choose a time or time range from the time range popup filter.":::
 
