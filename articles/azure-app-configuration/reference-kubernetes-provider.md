@@ -78,9 +78,9 @@ If the `spec.configuration.selectors` property isn't set, all key-values with no
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying key-values.|false|string|
+|keyFilter|The key filter for querying key-values.|alternative|string|
 |labelFilter|The label filter for querying key-values.|false|string|
-|snapshotName|The snapshot for querying its contained key-values.|false|string|
+|snapshotName|The snapshot for querying its contained key-values.|alternative|string|
 
 The `spec.configuration.refresh` property has the following child properties.
 
@@ -97,7 +97,7 @@ The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, wh
 |key|The key of a key-value.|true|string|
 |label|The label of a key-value.|false|string|
 
-The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. `Opaque`, `kubernetes.io/tls` [Secret types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) are supported.
+The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. All selected secrets would be sourced into one `Opaque` type Secret by default. For generating other types of Secret, see [Key Vault references](#key-vault-references) for more details.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -147,9 +147,9 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying feature flags.|false|string|
+|keyFilter|The key filter for querying feature flags.|alternative|string|
 |labelFilter|The label filter for querying feature flags.|false|string|
-|snapshotName|The snapshot for querying its contained feature flags.|false|string|
+|snapshotName|The snapshot for querying its contained feature flags.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
 
@@ -331,6 +331,8 @@ spec:
 
 Use the `configuration.selectors.snapshotName` property to specify a snapshot and its contained key-values will be downloaded.
 
+#### [snapshot only](#tab/snapshotOnly)
+
 The following example downloads key-values from specified snapshot.
 
 ``` yaml
@@ -344,6 +346,26 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
     selectors:
+      - snapshotName: snapshot_app1
+```
+
+#### [snapshot with key/label filters](#tab/withfilters)
+
+In following example, snapshot and key/label filters are used to retrieve key-values. It's important to note that the values of the last selector take precedence and override any overlapping keys from the previous selectors.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
       - snapshotName: snapshot_app1
 ```
 
@@ -418,8 +440,7 @@ spec:
           servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
 
-By default, all key vault reference items will be projected as key-value pairs into the specified target Secret, and the type of that target secret is `opaque`, which cannot be customized. Given that Kubernetes has [various types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) of Secret besides `opaque`, Azure App Configuration Kubernetes Provider currently give compatibility for `kubernetes.io/tls` type.
-If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
+By default, all key vault reference items will be projected as key-value pairs into the specified target Secret, and the type of that target secret is `Opaque`, which cannot be customized. Given that Kubernetes has [various types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) of Secret besides `Opaque`, Azure App Configuration Kubernetes Provider currently give compatibility for `kubernetes.io/tls` type. If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
  
 ```
 {

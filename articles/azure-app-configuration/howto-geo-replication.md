@@ -164,13 +164,6 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`
 
-### [Kubernetes](#tab/kubernetes)
-
-Azure App Configuration Kubernetes provider will automatically discover replicas and attempt to connect to them when it fails to connect to user-provided endpoint. Replica auto-discovery is enabled by default and can be disabled by setting `replicaDiscoveryEnabled` to `false`.
-
-> [!NOTE]
-> The failover support is available if you use version **1.3.0** or later of Azure App Configuration Kubernetes Provider.
-
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
@@ -185,6 +178,8 @@ The failover won't happen for client errors like authentication failures.
 You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
 
 The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
+
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -203,6 +198,27 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+### [Kubernetes](#tab/kubernetes)
+
+Replica auto-discovery is enabled by default and can be disabled by setting `replicaDiscoveryEnabled` to `false`.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+    name: appconfigurationprovider-sample
+spec:
+    endpoint: <your-app-configuration-store-endpoint>
+    replicaDiscoveryEnabled: false
+    target:
+    configMapName: configmap-created-by-appconfig-provider
+```
+
+> [!NOTE]
+> The failover support is available if you use version **1.3.0** or later of Azure App Configuration Kubernetes Provider.
+
+---
 
 ## Next steps
 
