@@ -27,35 +27,39 @@ Whether you have a manual or automated process in place for handling unsubscribe
 
 The function of the link and instructions in the email is vital. They must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list or lists.
 
-A proper unsubscribe mechanism should be explicit and transparent from the email recipient's perspective. This mechanism helps ensure that recipients know precisely which messages they're unsubscribing from. Ideally, you should offer a preferences center that gives them the option to unsubscribe from multiple lists in your organization. This process prevents accidental unsubscribe actions and enables users to manage their opt-in and opt-out preferences effectively through the unsubscribe management process.
+A proper unsubscribe mechanism is explicit and transparent from the email recipient's perspective. Recipients should know precisely which messages they're unsubscribing from.
+
+Ideally, you should offer a preferences center that gives recipients the option to unsubscribe from multiple lists in your organization. A preferences center prevents accidental unsubscribe actions. It enables users to manage their opt-in and opt-out preferences effectively through the unsubscribe management process.
 
 ## Managing email opt-out preferences by using the suppression list
 
-Azure Communication Services offers a powerful platform with a centralized, managed unsubscribe list (suppression list) and opt-out preferences saved to a data store. This feature helps developers meet the guidelines of email providers that require a one-click unsubscribe implementation in the emails sent from Azure Communication Services. To proactively identify and avoid significant delivery problems, the suppression list features include but aren't limited to:
+Azure Communication Services offers a centralized, managed unsubscribe list and opt-out preferences saved to a data store. This feature helps developers meet the guidelines of email providers that require a one-click unsubscribe implementation in the emails sent from Azure Communication Services.
 
-* Offers domain-level, customer managed lists that provide opt-out capabilities.
-* Provides Azure resources that allow for Create, Read, Update, and Delete (CRUD) operations via Azure portal, Management SDKs, or REST APIs.
-* Apply filters in the sending pipeline, all recipients are filtered against the addresses in the domain suppression lists and email delivery isn't attempted for the recipient addresses.
-* Gives the ability to manage a suppression list for each sender email address, which is used to filter/suppress email recipient addresses when sending emails.
-* Caches suppression list data to reduce expensive database lookups, and this caching is domain-specific based on the frequency of use.
-* Adds email addresses programmatically for an easy opt-out process for unsubscribing.
+To proactively identify and avoid significant delivery problems, suppression list features include:
+
+* Domain-level, customer-managed lists that provide opt-out capabilities.
+* Azure resources that allow for create, read, update, and delete (CRUD) operations via the Azure portal, management SDKs, or REST APIs.
+* The use of filters in the sending pipeline. All recipients are filtered against the addresses in the domain suppression lists, and email delivery isn't attempted for the recipient addresses.
+* The ability to manage a suppression list for each sender email address, which is used to filter or suppress email recipient addresses in sent emails.
+* Caching of suppression list data to reduce expensive database lookups. This caching is domain specific and is based on the frequency of use.
+* The ability to programmatically add email addresses for an easy opt-out process for unsubscribing.
 
 ## Benefits of opt-out or unsubscribe management
 
 Using a suppression list in Azure Communication Services offers several benefits:
 
-* Compliance and Legal Considerations: Use opt-out links to meet legal responsibilities defined in local government legislation like the CAN-SPAM Act in the United States. It ensures that customers can easily manage opt-outs and maintain compliance with these regulations.
-* Better Sender Reputation: When emails aren't sent to users who opted out, it helps protect the sender's reputation and lower the chance of being blocked by email providers.
-* Improved User Experience: It respects the preferences of users who don't wish to receive communications. Collecting and storing email preferences lead to a better user experience and potentially higher engagement rates with recipients who choose to receive emails.
-* Operational Efficiency: Suppression lists can be managed programmatically. Use this feature to efficiently handle large numbers of opt-out requests without manual intervention.
-* Cost-Effectiveness: By not sending emails to recipients who opted out, it reduces the volume of sent emails. This can lower operational costs associated with email delivery.
-* Data-Driven Decisions: The suppression list feature provides insights into the number of opt-outs. Use this valuable data to make informed decisions about email campaign strategies.
+* **Compliance and legal considerations**: Use opt-out links to meet legal responsibilities defined in local government legislation like the CAN-SPAM Act in the United States. The suppression list helps ensure that customers can easily manage opt-outs and maintain compliance with these regulations.
+* **Better sender reputation**: When emails aren't sent to users who opted out, it helps protect the sender's reputation and lowers the chance of being blocked by email providers.
+* **Improved user experience**: A suppression list respects the preferences of users who don't want to receive communications. Collecting and storing email preferences lead to a better user experience and potentially higher engagement rates with recipients who choose to receive emails.
+* **Operational efficiency**: Suppression lists can be managed programmatically. You can efficiently handle large numbers of opt-out requests without manual intervention.
+* **Cost-effectiveness**: Not sending emails to recipients who opted out reduces the volume of sent emails. The reduced volume can lower operational costs associated with email delivery.
+* **Data-driven decisions**: The suppression list feature provides insights into the number of opt-outs. Use this valuable data to make informed decisions about email campaign strategies.
 
-These benefits contribute to a more efficient, compliant, and user-friendly email communication system using Azure Communication Services. To enable email logs and monitor your email delivery, follow the steps outlined in [Azure Communication Services email logs Communication Service in Azure Communication Service](../../concepts/analytics/logs/email-logs.md).
+These benefits contribute to a more efficient, compliant, and user-friendly email communication system that uses Azure Communication Services. To enable email logs and monitor your email delivery, follow the steps in [Azure Communication Services email logs](../../concepts/analytics/logs/email-logs.md).
 
 ## Next steps
 
-* [Creating and manage a domain-level suppression list in Azure Communication Services](../../quickstarts/email/manage-suppression-list-management-sdks.md)
+* [Create and manage a domain-level suppression list in Azure Communication Services](../../quickstarts/email/manage-suppression-list-management-sdks.md)
   
 The following topics might be interesting to you:
 
