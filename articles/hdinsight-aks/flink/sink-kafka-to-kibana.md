@@ -10,7 +10,7 @@ ms.date: 04/09/2024
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
+Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana.
 
 Flink can be used to analyze a stream of taxi ride events and compute metrics. Metrics can include number of rides per hour, the average fare per ride, or the most popular pickup locations. You can write these metrics to an Elasticsearch index using a Flink sink and use Kibana to connect and create charts or dashboards to display metrics in real-time.
 
@@ -234,31 +234,31 @@ public class kafkaSinkToElastic {
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java</artifactId>
-            <version>3.0.1-1.17</version>>
+            <version>${flink.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-core</artifactId>
-            <version>3.0.1-1.17</version>>
+            <version>${flink.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients</artifactId>
-            <version>3.0.1-1.17</version>>
+            <version>${flink.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka</artifactId>
-            <version>3.0.1-1.17</version>>
+            <version>${flink.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-elasticsearch-base -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-elasticsearch7</artifactId>
-            <version>3.0.1-1.17</version>>
+            <version>3.0.1-1.17</version>
         </dependency>
     </dependencies>
     <build>
