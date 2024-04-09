@@ -22,12 +22,6 @@ Replicas are new servers you manage similar to regular Azure Database for Postgr
 
 Learn how to [create and manage replicas](how-to-read-replicas-portal.md).
 
-> [!NOTE]  
-> Azure Database for PostgreSQL flexible server is currently supporting the following features in Preview:
->
-> - Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
-> - Virtual endpoints
-
 ## When to use a read replica
 
 The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the primary. Read replicas can also be deployed on a different region and can be promoted to be a read-write server in the event of a disaster recovery.
@@ -60,7 +54,7 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
   - China East 3
 
 > [!NOTE]
-> The preview features - virtual endpoints and promote to primary server - are not currently supported in the special regions listed above.
+> Virtual endpoints and promote to primary server features - are not currently supported in the special regions listed above.
 
 ### Use paired regions for disaster recovery purposes
 
@@ -145,7 +139,7 @@ At the prompt, enter the password for the user account.
 
 Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** page. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
 
-* **Via Virtual Endpoints (preview)**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints-preview) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+* **Via Virtual Endpoints**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
 
 ## Promote replicas
 
@@ -156,9 +150,9 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 Promotion of replicas can be done in two distinct manners:
 
-**Promote to primary server (preview)**
+**Promote to primary server**
 
-This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](#virtual-endpoints-preview) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will only be successful if the targeted replica is included in the reader endpoint configuration.
+This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](#virtual-endpoints) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will only be successful if the targeted replica is included in the reader endpoint configuration.
 
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
 
@@ -173,7 +167,7 @@ The diagram below illustrates the configuration of the servers before the promot
 :::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Diagram that shows promote to independent server and remove from replication operation." lightbox="./media/concepts-read-replica/promote-to-independent-server.png":::
 
 > [!IMPORTANT]  
-> The **Promote to primary server** action is currently in preview. The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
+> The **Promote to independent server and remove from replication** action is backward compatible with the previous promote functionality.
 
 > [!IMPORTANT]  
 > **Server Symmetry**: For a successful promotion using the promote to primary server operation, both the primary and replica servers must have identical tiers and storage sizes. For instance, if the primary has 2vCores and the replica has 4vCores, the only viable option is to use the "promote to independent server and remove from replication" action. Additionally, they need to share the same values for [server parameters that allocate shared memory](#server-parameters).
@@ -201,7 +195,7 @@ The promote operation won't carry over specific configurations and parameters. H
 - **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica won't automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
 - **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
 
-## Virtual Endpoints (preview)
+## Virtual Endpoints
 
 Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the Azure Database for PostgreSQL flexible server instance. This means you don't have to update your application's connection string after performing the **promote to primary server** action, as the endpoints will automatically point to the correct instance following a role change.
 
@@ -244,7 +238,7 @@ The sections below delve into how these endpoints react to both "Promote to prim
 > [!NOTE]  
 > Resetting the admin password on the replica server is currently not supported. Additionally, updating the admin password along with promoting replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server and then update the password on the newly promoted server separately.
 
-Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints-preview).
+Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
 
 ## Monitor replication
 
@@ -293,7 +287,7 @@ Being prepared for potential regional disasters is critical to ensure the uninte
 
 1.  **Establish a geo-replicated read replica**: It's essential to have a read replica set up in a separate region from your primary. This ensures continuity in case the primary region faces an outage. More details can be found in the [geo-replication](#geo-replication) section.
 2.  **Ensure server symmetry**: The "promote to primary server" action is the most recommended for handling regional outages, but it comes with a [server symmetry](#configuration-management) requirement. This means both the primary and replica servers must have identical configurations of specific settings. The advantages of using this action include:
-     * No need to modify application connection strings if you use [virtual endpoints](#virtual-endpoints-preview).
+     * No need to modify application connection strings if you use [virtual endpoints](#virtual-endpoints).
      * It provides a seamless recovery process where, once the affected region is back online, the original primary server automatically resumes its function, but in a new replica role.
 3.  **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region if there is an outage. They eliminate the need for any changes in the connection strings of your application.
 4.  **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more information, see the [Configuration management](#configuration-management-1) section.
@@ -307,7 +301,7 @@ Being proactive and preparing in advance for regional disasters ensure the resil
 
 In the event of a prolonged outage with Azure Database for PostgreSQL flexible server in a specific region that threatens your application's service-level agreement (SLA), be aware that both the actions discussed below aren't service-driven. User intervention is required for both. It's a best practice to automate the entire process as much as possible and to have robust monitoring in place. For more information about what information is provided during an outage, see the [Service outage](concepts-business-continuity.md#service-outage) page. Only a forced promote is possible in a region down scenario, meaning the amount of data loss is roughly equal to the current lag between the replica and primary. Hence, it's crucial to [monitor the lag](#monitor-replication). Consider the following steps:
 
-**Promote to primary server (preview)**
+**Promote to primary server**
 
 Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](#monitor-replication) column in the Azure portal will display "Reconfiguring". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
 
