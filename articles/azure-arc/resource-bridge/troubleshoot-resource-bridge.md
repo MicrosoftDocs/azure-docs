@@ -120,7 +120,7 @@ This occurs when a firewall or proxy has SSL/TLS inspection enabled and blocks h
 
 If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
 
-### .local not supported
+### No such host - .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
 `"message": "Post \"https://esx.lab.local/52c-acac707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
