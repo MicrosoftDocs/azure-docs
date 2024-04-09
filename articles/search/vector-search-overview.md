@@ -14,19 +14,19 @@ ms.date: 04/09/2024
 
 # Vectors in Azure AI Search
 
-Vector search is an approach in information retrieval that supports indexing and query execution over numeric representations of content. Because the content is numeric rather than plain text, matching is based on vectors that are most similar to the query vector, which lets you find matches across:
+Vector search is an approach in information retrieval that supports indexing and query execution over numeric representations of content. Because the content is numeric rather than plain text, matching is based on vectors that are most similar to the query vector, which enables matching across:
 
 + semantically similar content ("dog" and "canine", conceptually similar yet linguistically distinct)
 + multilingual content ("dog" in English and "hund" in German)
 + multiple content types ("dog" in plain text and a photograph of a dog in an image file)
 
-This article is a high-level introduction to vectors in Azure AI Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
+This article provides [a high-level introduction to vectors](#vector-search-concepts) in Azure AI Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> + [Provide embeddings](vector-search-how-to-generate-embeddings.md) or [generate embeddings (preview)](vector-search-integrated-vectorization.md)
-> + [Create a vector store](vector-search-how-to-create-index.md)
+> + [Provide embeddings](vector-search-how-to-generate-embeddings.md) for your index or [generate embeddings (preview)](vector-search-integrated-vectorization.md) in an indexer pipeline
+> + [Create a vector index](vector-search-how-to-create-index.md)
 > + [Run vector queries](vector-search-how-to-query.md)
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/azure-search-vector-samples). 
@@ -35,17 +35,17 @@ You could also begin with the [vector quickstart](search-get-started-vector.md) 
 
 Scenarios for vector search include:
 
-+ **Vector database**. Azure AI Search stores the data that you query over. Use it as a [pure vector store](vector-store.md) any time you need long-term memory or a knowledge base, or grounding data for [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag), or any app that uses vectors.
-
 + **Similarity search**. Encode text using embedding models such as OpenAI embeddings or open source models such as SBERT, and retrieve documents with queries that are also encoded as vectors.
 
 + **Search across different content types (multimodal)**. Encode images and text using multimodal embeddings (for example, with [OpenAI CLIP](https://github.com/openai/CLIP) or [GPT-4 Turbo with Vision](/azure/ai-services/openai/whats-new#gpt-4-turbo-with-vision-now-available) in Azure OpenAI) and query an embedding space composed of vectors from both content types.
 
-+ [**Hybrid search**](hybrid-search-overview.md). In Azure AI Search, hybrid search refers to vector and keyword query execution from the same request. Vector support is implemented at the field level, with an index containing both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic ranking](semantic-search-overview.md) for more accuracy with L2 reranking using the same language models that power Bing.
++ [**Hybrid search**](hybrid-search-overview.md). In Azure AI Search, hybrid search refers to vector and keyword query execution in the same request. Vector support is implemented at the field level, with an index containing both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic ranking](semantic-search-overview.md) for more accuracy with L2 reranking using the same language models that power Bing.
 
 + **Multilingual search**. Providing a search experience in the users own language is possible through embedding models and chat models trained in multiple languages. If you need more control over translation, you can supplement with the [multi-language capabilities](search-language-support.md) that Azure AI Search supports for nonvector content, in hybrid search scenarios.
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for metadata filters, and including or excluding search results based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine can process the filter before or after the vector query executes.
+
++ **Vector database**. Azure AI Search stores the data that you query over. Use it as a [pure vector store](vector-store.md) any time you need long-term memory or a knowledge base, or grounding data for [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag), or any app that uses vectors.
 
 ## How vector search works in Azure AI Search
 
