@@ -26,4 +26,4 @@ If the number of active video subscriptions exceeds the limit, the [`createView`
 | resultCategories | Expected                                              |
 
 ## How to ensure that your client subscribes to the correct number of video streams
-Your applications should catch and handle this error gracefully. To understand how many incoming videos  should be rendered, you should ensure that your application uses the [Optimal Video Count (OVC)](../../../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) API and only display the correct number of incoming videos that can be rendered at a given time.
+Your applications should catch and handle this error gracefully. To understand how many incoming videos  should be rendered, use the [Optimal Video Count (OVC)](../../../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) API and only display the correct number of incoming videos that can be rendered at a given time.
