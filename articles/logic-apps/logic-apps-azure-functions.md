@@ -302,7 +302,7 @@ Before you can set up your function app to use Microsoft Entra authentication, y
 
      1. On the managed identity's **Overview** pane, you can find the identity's client ID, for example:
 
-        ![Screenshot showing the user-assigned identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
+        ![Screenshot showing the user-assigned identity's "Overview" pane with the client ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
 
 <a name="find-tenant-id"></a>
 
