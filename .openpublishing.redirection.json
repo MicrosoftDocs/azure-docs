@@ -1071,6 +1071,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
+            "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
             "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
             "redirect_document_id": false
@@ -3963,6 +3968,11 @@
         {
             "source_path_from_root":"/articles/virtual-network-manager/concept-security-admin-rules-network-groups.md",
             "redirect_url":"/azure/virtual-network-manager/overview",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/trusted-signing/concept.md",
+            "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
             "redirect_document_id":false 
         }
     ]

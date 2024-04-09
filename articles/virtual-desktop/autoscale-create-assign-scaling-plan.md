@@ -29,7 +29,7 @@ To use scaling plans, make sure you follow these guidelines:
 - Scaling plan configuration data must be stored in the same region as the host pool configuration. Deploying session host VMs is supported in all Azure regions.
 - When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
-- If you want to use personal desktop autoscale with hibernation (preview), you will need enable the hibernation feature when [creating VMs](deploy-azure-virtual-desktop.md) for your personal host pool. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
+- If you want to use personal desktop autoscale with hibernation (preview), you will need to enable the hibernation feature when [creating VMs](deploy-azure-virtual-desktop.md) for your personal host pool. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
 
     > [!IMPORTANT]
     > Hibernation is currently in PREVIEW.
@@ -445,6 +445,6 @@ To assign a scaling plan to existing host pools:
 
 Now that you've created your scaling plan, here are some things you can do:
 
-- [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)
+- [Monitor Autoscale operations with Insights](autoscale-diagnostics.md)
 
 If you'd like to learn more about terms used in this article, check out our [autoscale glossary](autoscale-glossary.md). For examples of how autoscale works, see [Autoscale example scenarios](autoscale-scenarios.md). You can also look at our [Autoscale FAQ](autoscale-faq.yml) if you have other questions.

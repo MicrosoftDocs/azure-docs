@@ -805,6 +805,10 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Closed captions
+      items:
+      - name: Closed captions overview
+        href: concepts/interop/enable-closed-captions.md         
     - name: UI Library
       items:
       - name: UI Library overview
