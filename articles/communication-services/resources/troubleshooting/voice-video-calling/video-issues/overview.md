@@ -39,7 +39,9 @@ Additionally, CPU overload on the sender side can also influence the browser's d
 
 ## Common issues in video calls
 
-We can see that the whole process involves factors such as the sender's camera device. The network conditions at the sender and receiver ends also play an important role. Bandwidth and packets lost can  impact the video quality perceived by the users.
+We can see that the whole process involves factors such as the sender's camera device.
+The network conditions at the sender and receiver end also play an important role.
+Bandwidth and packets lost can impact the video quality perceived by the users.
 
 Here we list several common video issues, along with potential causes for each issue:
 

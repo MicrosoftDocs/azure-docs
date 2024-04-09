@@ -42,7 +42,7 @@ In this way, users can be aware of any network quality issues and aren't surpris
 
 If you expect the user's network environment to be poor, you can also use the [Video Constraint Feature](../../../../concepts/voice-video-calling/video-constraints.md) to limit the max resolution, max fps, or max bitrate sent by the sender to reduce the bandwidth required for transmitting video.
 
-Other reasons, especially those that occur on the sender side, such as the sender's camera stopped or the sender dropping the call unexpectedly,
-can't currently be known by the receiver because of the abscence of reporting mechanism from the sender to other participants.
+Other reasons, especially those occur on the sender side, such as the sender's camera stopped or the sender dropping the call unexpectedly,
+can't currently be known by the receiver due to the absence of reporting mechanism from the sender to other participants.
 In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 
