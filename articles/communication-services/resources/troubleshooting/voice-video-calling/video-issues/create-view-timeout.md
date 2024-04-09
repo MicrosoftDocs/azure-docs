@@ -36,7 +36,7 @@ Your application can implement its own detection mechanism and notify the partic
 The participants can subscribe the video again.
 A feasible but less elegant approach for handling this createView timeout error is to continuously retry invoking the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API until it succeeds.
 
-### The video sender has dropped from the call unexpectedly
+### The video sender dropped from the call unexpectedly
 Some users might end the call by terminating the browser process instead of by hanging up.
 The server is unaware that the user dropped the call until the timeout of 40 seconds ended.
 The participant remains on roster list until the server removes it at the end of the timeout (40 seconds).
@@ -45,7 +45,7 @@ No further detailed information is available. The server maintains the participa
 
 
 ### The video sender has network issues
-If the video sender has network issues during the time other participants are subscribing to their video the video subscription may fail.
+If the video sender has network issues during the time other participants are subscribing to their video the video, subscription may fail.
 This error is unexpected on the video receiver's side.
 For example, if the sender experiences a temporary network disconnection, other participants are unable to receive video frames from the sender. 
 
@@ -53,7 +53,7 @@ A workaround approach for handling this createView timeout error is to continuou
 
 ### The video receiver has network issues
 Similar to the sender's network issues, if a video receiver has network issues the video subscription may fail.
-This could be due to high packet loss rate or temporary network connection errors.
+This issue could be due to high packet loss rate or temporary network connection errors.
 The SDK can detect network disconnection and fires a [`networkReconnect`](../../../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-web#network-values) UFD event.
 However, in a WebRTC call, the default `STUN connectivity check` triggers a disconnection event if there's no response from the other party after around 10-15 seconds.
 
