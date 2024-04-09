@@ -25,6 +25,7 @@ When there's a `create view timeout` issue, the [`createView`](/javascript/api/%
 | code             | 408(Request Timeout)                                  |
 | subcode          | 43203                                                 |
 | message          | Failed to render stream, timeout                      |
+| resultCategories | Unexpected                                            |
 
 ## Reasons behind createView timeout failures and how to mitigate the issue
 ### The video sender's browser is in the background
