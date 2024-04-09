@@ -41,7 +41,7 @@ Importing a zone file creates a new zone in Azure DNS if the zone doesn't alread
 * When record sets are merged, the time to live (TTL) of pre-existing record sets is used.
 * Start of Authority (SOA) parameters, except `host` are always taken from the imported zone file. The name server record set at the zone apex also always uses the TTL taken from the imported zone file.
 * An imported CNAME record will replace the existing CNAME record that has the same name. 
-* When a conflict happens between a CNAME record and another record with the same name of different type, the existing record gets used.
+* When a conflict happens between a CNAME record and another record with the same name of different type, the imported record is used.
 
 ### Additional information about importing
 
