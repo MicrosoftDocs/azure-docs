@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/12/2023
+ms.date: 04/09/2023
 ms.author: kendownie
 ---
 
@@ -315,6 +315,12 @@ To run the network connectivity test, run the following PowerShell commands:
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
 ```
+
+If the test fails, collect WinHTTP debug traces to troubleshoot: `netsh trace start scenario=InternetClient_dbg capture=yes overwrite=yes maxsize=1024`
+
+Run the network connectivity test again, and then stop collecting traces: `netsh trace stop`
+
+Put the generated `NetTrace.etl` file into a ZIP archive, open a support case, and share the file with support.
 
 ## Summary and risk limitation
 
