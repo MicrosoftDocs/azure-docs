@@ -413,8 +413,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a GPT-4 or gpt-35-turbo-16k model. If you didn't previously deploy a GPT-4 or gpt-35-turbo-16k model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
-    > The evaluation process may take up lots of tokens, so it's recommended to use a model which can support >=16k tokens.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 
