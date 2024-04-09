@@ -708,7 +708,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Create or update role assignments](conditions-authorization-actions-attributes.md#create-or-update-role-assignments) |
 > | Attribute source | Request |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
 > | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
@@ -718,7 +718,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Delete a role assignment](conditions-authorization-actions-attributes.md#delete-a-role-assignment) |
 > | Attribute source | Resource |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
 > | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
