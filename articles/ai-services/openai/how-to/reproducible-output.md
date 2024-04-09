@@ -1,12 +1,12 @@
 ---
 title: 'How to generate reproducible output with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to generate reproducible output (preview) with Azure OpenAI Service
+description: Learn how to generate reproducible output (preview) with Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 04/09/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -15,7 +15,7 @@ recommendations: false
 
 # Learn how to use reproducible output (preview)
 
-By default if you ask an Azure OpenAI Chat Completion model the same question multiple times you are likely to get a different response. The responses are therefore considered to be non-deterministic. Reproducible output is a new  preview feature that allows you to selectively change the default behavior towards producing more deterministic outputs.
+By default if you ask an Azure OpenAI Chat Completion model the same question multiple times you're likely to get a different response. The responses are therefore considered to be non-deterministic. Reproducible output is a new  preview feature that allows you to selectively change the default behavior to help product more deterministic outputs.
 
 ## Reproducible output support
 
@@ -23,12 +23,14 @@ Reproducible output is only currently supported with the following:
 
 ### Supported models
 
-- `gpt-4-1106-preview` ([region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability))
-- `gpt-35-turbo-1106` ([region availability)](../concepts/models.md#gpt-35-turbo-model-availability))
+* `gpt-35-turbo` (1106) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
+* `gpt-35-turbo` (0125) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
+* `gpt-4` (1106-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability)
+* `gpt-4` (0125-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability)
 
 ### API Version
 
-- `2023-12-01-preview`
+Support for reproducible output was first added in API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
 ## Example
 
@@ -43,14 +45,14 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-12-01-preview"
+  api_version="2024-02-01"
 )
 
 for i in range(3):
   print(f'Story Version {i + 1}\n---')
     
   response = client.chat.completions.create(
-    model="gpt-4-1106-preview", # Model = should match the deployment name you chose for your 1106-preview model deployment
+    model="gpt-35-turbo-0125", # Model = should match the deployment name you chose for your 0125-preview model deployment
     #seed=42,
     temperature=0.7,
     max_tokens =200, 
@@ -72,7 +74,7 @@ for i in range(3):
 $openai = @{
    api_key     = $Env:AZURE_OPENAI_API_KEY
    api_base    = $Env:AZURE_OPENAI_ENDPOINT # like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-   api_version = '2023-12-01-preview' # may change in the future
+   api_version = '2024-02-01' # may change in the future
    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # name you chose for your deployment
 }
 
@@ -155,14 +157,14 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-12-01-preview"
+  api_version="2024-02-01"
 )
 
 for i in range(3):
   print(f'Story Version {i + 1}\n---')
     
   response = client.chat.completions.create(
-    model="gpt-4-1106-preview", # Model = should match the deployment name you chose for your 1106-preview model deployment
+    model="gpt-35-turbo-0125", # Model = should match the deployment name you chose for your 0125-preview model deployment
     seed=42,
     temperature=0.7,
     max_tokens =200, 
@@ -184,7 +186,7 @@ for i in range(3):
 $openai = @{
    api_key     = $Env:AZURE_OPENAI_API_KEY
    api_base    = $Env:AZURE_OPENAI_ENDPOINT # like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-   api_version = '2023-12-01-preview' # may change in the future
+   api_version = '2024-02-01' # may change in the future
    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # name you chose for your deployment
 }
 
@@ -250,7 +252,10 @@ Matter coalesced into the simplest elements, hydrogen and helium, which later fo
 ---
 ```
 
-By using the same `seed` parameter of 42 for each of our three requests we're able to produce much more consistent (in this case identical) results.
+By using the same `seed` parameter of 42 for each of our three requests, while keeping all other parameters the same, we're able to produce much more consistent results.
+
+> [!IMPORTANT]  
+> Determinism is not guaranteed with reproducible output. Even in cases where the seed parameter and `system_fingerprint` are the same across API calls it is not currently uncommon to still observe a degree of response variability.  
 
 ## Parameter details
 
