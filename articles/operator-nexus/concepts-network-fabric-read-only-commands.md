@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 04/08/2024
+ms.date: 04/09/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -88,7 +88,24 @@ To ensure security and compliance, RO commands must adhere to the following spec
      Expected output: 
     
     ```azurecli
-    
+    az networkfabric device run-ro --resource-group Fab3LabNF-6-0-A --resource-name nffab3-6-0-A-AggrRack-CE1 --ro-command "show version" --no-wait --debug
+
+    cli.knack.cli: Command arguments: ['networkfabric', 'device', 'run-ro', '--resource-group', 'ResourceGroupName', '--resource-name', 'ResourceName', '--ro-command', 'show version', '--no-wait', '--debug']
+    cli.knack.cli: __init__ debug log:
+    Enable color in terminal.
+    Enable VT mode.
+    cli.knack.cli: Event: Cli.PreExecute []
+    cli.knack.cli: Event: CommandParser.OnGlobalArgumentsCreate [<function CLILogging.on_global_arguments at 0x0198A418>, <function OutputProducer.on_global_arguments at 0x01A8D658>, <function CLIQuery.on_global_arguments at 0x01BA82B0>]
+    cli.knack.cli: Event: CommandInvoker.OnPreCommandTableCreate []
+    cli.azure.cli.core: Modules found from index for 'networkfabric': ['azext_managednetworkfabric']
+    cli.azure.cli.core: Loading command modules:
+    cli.azure.cli.core: Name                  Load Time    Groups  Commands
+    cli.azure.cli.core: Total (0)                 0.000         0         0
+    cli.azure.cli.core: These extensions are not installed and will be skipped: ['azext_ai_examples', 'azext_next']
+    cli.azure.cli.core: Loading extensions:
+    cli.azure.cli.core: Name                  Load Time    Groups  Commands  Directory
+    cli.azure.cli.core: managednetworkfabric      0.604        22        26  \XXXXX\XXXXX\.azure\cliextensions\managednetworkfabric
+    cli.azure.cli.core: Total (1)                 0.604        22        26
     ```
 3. Check the status of the operation programmatically using the following Azure CLI command:
 
@@ -107,24 +124,24 @@ To ensure security and compliance, RO commands must adhere to the following spec
 4. View and download the generated output file. Sample output is shown here.
 
     ```azurecli
-    {
-    "architecture": "x86_64",
-    "bootupTimestamp": 1709086001.499244,
-    "configMacAddress": "00:00:00:00:00:00",
-    "hardwareRevision": "12.05",
-    "hwMacAddress": "d4:af:f7:81:a7:01",
-    "imageFormatVersion": "3.0",
-    "imageOptimization": "Default",
-    "internalBuildID": "d009619b-2677-41db-86d6-fcccff30ae3b",
-    "internalVersion": "4.30.3M-33434233.4303M:,
-    "isIntlVersion": false,
-    "memFree": 4009876,
-    "memTotal": 8107980,
-    "mfgName": "Arista",
-    "modelName": "DCS-7280DR3-24-F"
-    "serialNumber": "JPE21115459",
-    "systemMacAddress": "d4:af:f7:81:a7:01",
-    "uptime": 627826.81,
-    "version": "4.30.3M"
+     {
+     "architecture": "x86_64",
+      "bootupTimestamp": 1701940797.5429916,
+      "configMacAddress": "00:00:00:00:00:00",
+      "hardwareRevision": "12.05",
+      "hwMacAddress": "c4:ca:2b:62:6d:d3",
+      "imageFormatVersion": "3.0",
+      "imageOptimization": "Default",
+      "internalBuildId": "d009619b-XXXX-XXXX-XXXX-fcccff30ae3b",
+      "internalVersion": "4.30.3M-33434233.4303M",
+      "isIntlVersion": false,
+      "memFree": 3744220,
+      "memTotal": 8107980,
+      "mfgName": "Arista",
+      "modelName": "DCS-7280DR3-24-F",
+      "serialNumber": "JPAXXXX1LZ",
+      "systemMacAddress": "c4:ca:2b:62:6d:d3",
+      "uptime": 8475685.5,
+      "version": "4.30.3M"
      }
     ```
