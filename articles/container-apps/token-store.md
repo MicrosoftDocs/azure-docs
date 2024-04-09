@@ -34,6 +34,8 @@ Before you can create a token store for your container app, you first need an Az
 
 1. Enter the values appropriate for your needs in the *Generate SAS* window.
 
+    Make sure you include the *read*, *write* and *delete* permissions in your definition.
+
     > [!NOTE]
     > Make sure you keep track of your SAS expiration dates to ensure access to your container doesn't cease.
 
