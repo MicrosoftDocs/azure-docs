@@ -49,7 +49,7 @@ Charges for active users are prorated during the first and the last calendar mon
 
   - On January 31, the charge is for 10 users prorated for 16 days of January out of 31 days, totaling a charge for 5.16 active users.
   - On February 28, the full monthly charge applies for 20 users.
-  - Upon deletion on March 25, the charge for March would be prorated for 15 users for 25 days out of 31 days, totaling a charge for 12.90 active users.
+  - Upon deletion on March 25, the charge for March would be prorated for 15 users for 25 days out of 31 days, totaling a charge for 12.09 active users.
 
 ## Next steps
 
