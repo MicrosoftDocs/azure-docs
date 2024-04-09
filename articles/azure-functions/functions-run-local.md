@@ -229,6 +229,8 @@ func start
 npm install
 npm start     
 ```
+
+The Azure Functions CLI will find functions using the value of the `main` key in your `project.json` file. For multiple functions, use a glob as in the default: `dist/src/functions/*.js`.
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
