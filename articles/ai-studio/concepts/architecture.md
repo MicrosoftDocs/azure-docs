@@ -94,15 +94,15 @@ For more information on Azure access-based control, see [What is Azure attribute
 
 The default storage account for an AI hub has the following containers. These containers are created for each AI project, and the `{workspace-id}` prefix matches the unique ID for the AI project. The container is accessed by the AI project using a [connection](connections.md).
 
+> [!TIP]
+> To find the ID for your AI project, go to the AI project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+
 | Container name | Connection name | Description |
 | --- | --- | --- |
 | {workspace-ID}-azureml | workspaceartifactstore | Storage for assets such as metrics, models, and components. |
 | {workspace-ID}-blobstore| workspaceblobstore | Storage for data upload, job code snapshots, and pipeline data cache. |
 | {workspace-ID}-code | NA | Storage for notebooks, compute instances, and prompt flow. |
-
-> [!TIP]
-> The {workspace-id}-code container is created lazily, so it doesn't exist until you've performed an action that needs it. For example, creating a compute instance.
-
+| {workspace-ID}-file | NA | Alternative container for data upload. |
 
 ## Encryption
 
