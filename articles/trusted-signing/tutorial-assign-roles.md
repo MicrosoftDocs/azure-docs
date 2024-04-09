@@ -32,7 +32,7 @@ Complete the following steps to assign roles in Trusted Signing.
 2.	Select on the **Roles** tab and search "Trusted Signing". You can see in the screenshot below the two custom roles.
 ![Screenshot of Azure portal UI with the Trusted Signing custom RBAC roles.](./media/trusted-signing-rbac-roles.png)
 
-3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current) guide to assign the relevant roles to your identities. _You'll need at least a Contributor role to create a Trusted Signing account and certificate profile._
+3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](/azure/role-based-access-control/role-assignments-portal?tabs=current) guide to assign the relevant roles to your identities. _You'll need at least a Contributor role to create a Trusted Signing account and certificate profile._
 4. For more granular access control on the certificate profile level, you can use the Azure CLI to assign roles. The following commands can be used to assign the _Code Signing Certificate Profile Signer_ role to users/service principles to sign files. 
 ```
 az role assignment create --assignee <objectId of user/service principle> 
