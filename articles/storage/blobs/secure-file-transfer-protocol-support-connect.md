@@ -12,15 +12,17 @@ ms.author: normesta
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
 
-You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP, and then connect to Blob Storage by using an SFTP client. 
+This article shows you how to securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. 
+
+Before you can authorize access, you must first enable SFTP support. See [Enable or disable SFTP support](secure-file-transfer-protocol-support-how-to.md).
 
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 ## Prerequisites
 
-- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+- Enable SFTP support for Azure Blob Storage. See [Enable or disable SFTP support](secure-file-transfer-protocol-support-how-to.md).
 
-- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+- Authorize access to SFTP clients. See [Authorize access to clients](secure-file-transfer-protocol-support-authorize-access.md).
 
 - If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22 used by SFTP.
 

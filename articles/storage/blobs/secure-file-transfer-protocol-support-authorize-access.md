@@ -14,9 +14,11 @@ ms.author: normesta
 
 This article shows you how to authorize access to SFTP clients so that can securely connect to the Blob Storage endpoint of your Azure Storage account by using an SFTP client. 
 
-Before you can authorize access, you must first enable SFTP support. See [Enable or disable SFTP support](secure-file-transfer-protocol-support-how-to).
-
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+
+## Prerequisites
+
+- Enable SFTP support for Azure Blob Storage. See [Enable or disable SFTP support](secure-file-transfer-protocol-support-how-to.md).
 
 ## Configure permissions
 

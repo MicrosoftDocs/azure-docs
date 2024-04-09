@@ -156,11 +156,11 @@ items:
       items:
       - name: Overview
         href: secure-file-transfer-protocol-support.md
-      - name: Enable or disable SFTP support
+      - name: Enable or disable support
         href: secure-file-transfer-protocol-support-how-to.md
-      - name: Authorize access to SFTP clients
+      - name: Authorize access to clients
         href: secure-file-transfer-protocol-support-authorize-access.md
-      - name: Connect from an SFTP client
+      - name: Connect from a client
         href: secure-file-transfer-protocol-support-connect.md
       - name: Performance considerations
         href: secure-file-transfer-protocol-performance.md
