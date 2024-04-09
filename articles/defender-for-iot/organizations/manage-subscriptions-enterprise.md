@@ -76,7 +76,7 @@ Use the following procedure to calculate how many devices you need to monitor if
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/xdr-device-inventory-iot.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/xdr-device-inventory-iot.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/device-inventory-iot.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/device-inventory-iot.png":::
 
 1. Round up your total to a multiple of 100 and compare it against the number of licenses you have. <!-- surely this should be round down?? -->
 
