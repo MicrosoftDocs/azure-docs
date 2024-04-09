@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 04/08/2024
+ms.date: 04/09/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -15,12 +15,13 @@ This article explains the post validation Fabric cable validation, where the pri
 
 ## Prerequisites
 
-- Provision the Nexus Network Fabric successfully. 
-- Provide the storage URL with WRITE access via a support ticket. 
+- Ensure the Nexus Network Fabric is successfully provisioned. 
+- Provide the Network Fabric ID, storage account, and storage URL with WRITE access via a support ticket. 
+> [!NOTE]
+> The Storage URL (SAS) is short-lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
 
 ## Validate cabling
 
-1. Open a Microsoft support ticket. The Support engineer makes the necessary update.
 1. Execute the following Azure CLI command:
 
     ```azurecli
