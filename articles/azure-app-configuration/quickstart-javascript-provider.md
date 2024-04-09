@@ -65,79 +65,122 @@ If your application requires configuration to be consumed as an object, you can 
 This API constructs a configuration object based on the key-values loaded from Azure App Configuration.
 It minimizes the code changes required to integrate Azure App Configuration into your application.
 
-1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
+The following samples show how to load configuration and consume it as either a `Map` or an object.
+Create a new file called *app.js* in the *app-configuration-quickstart* directory and copy the code from each sample.
 
-    ### [Use configuration as a Map](#tab/config-as-map)
+### Sample 1: Load key-values with default selector
 
-    ```javascript
-    const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+In this sample, you connect to Azure App Configuration using a connection string and load key-values without specifying advanced options.
+By default, it loads all key-values with no label.
 
-    async function run() {
-        let settings;
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
-        // Sample 1: Connect to Azure App Configuration using a connection string and load all key-values with null label.
-        settings = await load(connectionString);
+async function run() {
+    console.log("Sample 1: Load key-values with default selector");
 
-        // Find the key "message" and print its value.
-        console.log(settings.get("message"));  // Output: Message from Azure App Configuration
+    // Connect to Azure App Configuration using a connection string and load all key-values with null label.
+    const settings = await load(connectionString);
 
-        // Find the key "app.json" as an object, and print its property "myKey".
-        const jsonObject = settings.get("app.json");
-        console.log(jsonObject.myKey);  // Output: myValue
+    console.log("---Consume configuration as a Map---");
+    // Find the key "message" and print its value.
+    console.log('settings.get("message"):', settings.get("message"));           // settings.get("message"): Message from Azure App Configuration
+    // Find the key "app.greeting" and print its value.
+    console.log('settings.get("app.greeting"):', settings.get("app.greeting")); // settings.get("app.greeting"): Hello World
+    // Find the key "app.json" whose value is an object.
+    console.log('settings.get("app.json"):', settings.get("app.json"));         // settings.get("app.json"): { myKey: 'myValue' }
 
-        // Sample 2: Load all key-values with null label and trim "app." prefix from all keys.
-        settings = await load(connectionString, {
+    console.log("---Consume configuration as an object---");
+    // Construct configuration object from loaded key-values, by default "." is used to separate hierarchical keys.
+    const config = settings.constructConfigurationObject();
+    // Use dot-notation to access configuration
+    console.log("config.message:", config.message);             // config.message: Message from Azure App Configuration
+    console.log("config.app.greeting:", config.app.greeting);   // config.app.greeting: Hello World
+    console.log("config.app.json:", config.app.json);           // config.app.json: { myKey: 'myValue' }
+}
+
+run().catch(console.error);
+```
+
+### Sample 2: Load key-values and trim prefix from keys
+
+In this sample, you load key-values with an option `trimKeyPrefixes`.
+After key-values are loaded, the prefix "app." is trimmed from all keys.
+This can be convenient especially when the keys share a long prefix.
+
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+async function run() {
+    console.log("Sample 2: Load key-values and trim prefix from keys");
+
+    // Load all key-values with no label, and trim "app." prefix from all keys.
+    const settings = await load(connectionString, {
         trimKeyPrefixes: ["app."]
-        });
+    });
 
-        // From the keys with trimmed prefixes, find a key with "greeting" and print its value.
-        console.log(settings.get("greeting")); // Output: Hello World
+    console.log("---Consume configuration as a Map---");
+    // Find the key "message" and print its value. The key is not trimmed as it does not start with "app."
+    console.log('settings.get("message"):', settings.get("message"));   // settings.get("message"): Message from Azure App Configuration
+    // The original key "app.greeting" is trimmed as "greeting".
+    console.log('settings.get("greeting"):', settings.get("greeting")); // settings.get("greeting"): Hello World
+    // The original key "app.json" is trimmed as "json".
+    console.log('settings.get("json"):', settings.get("json"));         // settings.get("json"): { myKey: 'myValue' }
 
-        // Sample 3: Load all keys starting with "app." prefix and null label.
-        settings = await load(connectionString, {
+    console.log("---Consume configuration as an object---");
+    // Construct configuration object from loaded key-values with trimmed keys.
+    const config = settings.constructConfigurationObject();
+    // Use dot-notation to access configuration
+    console.log("config.message:", config.message);     // config.message: Message from Azure App Configuration
+    console.log("config.greeting:", config.greeting);   // config.greeting: Hello World
+    console.log("config.json:", config.json);           // config.json: { myKey: 'myValue' }
+}
+
+run().catch(console.error);
+```
+
+### Sample 3: Load specific key-values using selectors
+
+In this sample, you load a subset of key-values by specifying the `selectors` option.
+Only keys starting with "app." are loaded.
+Note that you can specify multiple selectors based on your needs, each with `keyFilter` and `labelFilter` properties.
+
+
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+async function run() {
+    console.log("Sample 3: Load specific key-values using selectors");
+
+    // Load a subset of keys starting with "app." prefix.
+    const settings = await load(connectionString, {
         selectors: [{
             keyFilter: "app.*"
         }],
-        });
+    });
 
-        // Print true or false indicating whether a setting is loaded.
-        console.log(settings.has("message")); // Output: false
-        console.log(settings.has("app.greeting")); // Output: true
-        console.log(settings.has("app.json")); // Output: true
-    }
+    console.log("---Consume configuration as a Map---");
+    // The key "message" is not loaded as it does not start with "app."
+    console.log('settings.has("message"):', settings.has("message"));           // settings.has("message"): false
+    // The key "app.greeting" is loaded
+    console.log('settings.has("app.greeting"):', settings.has("app.greeting")); // settings.has("app.greeting"): true
+    // The key "app.json" is loaded
+    console.log('settings.has("app.json"):', settings.has("app.json"));         // settings.has("app.json"): true
 
-    run().catch(console.error);
-    ```
-
-    ### [Use configuration as an object](#tab/config-as-object)
-
-    ```javascript
-    const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
-
-    async function run() {
-        // Load all key-values from Azure App Configuration
-        const settings = await load(connectionString);
-        
-        // Construct configuration object from loaded key-values
-        const config = settings.constructConfigurationObject({
-            separator: "."
-        });
-
-    // Print out the configuration object
-    console.log("Constructed configuration object 'config': ");
-    console.log(config);
-
+    console.log("---Consume configuration as an object---");
+    // Construct configuration object from loaded key-values
+    const config = settings.constructConfigurationObject({ separator: "." });
     // Use dot-notation to access configuration
-    console.log(`config.message:\t${config.message}`);
-    console.log(`config.app.greeting:\t${config.app.greeting}`);
-    console.log(`config.app.json.myKey:\t${config.app.json.myKey}`);
-    }
+    console.log("config.message:", config.message);         // config.message: undefined
+    console.log("config.app.greeting:", config.greeting);   // config.app.greeting: Hello World
+    console.log("config.app.json:", config.json);           // config.app.json: { myKey: 'myValue' }
+}
 
-    run().catch(console.error);
-    ```
-
+run().catch(console.error);
+```
 
 ## Run the application
 
@@ -175,6 +218,8 @@ It minimizes the code changes required to integrate Azure App Configuration into
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
     ```
 
+    ---
+
 1. Print the value of the environment variable to validate that it's set properly with the following command.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
@@ -209,36 +254,56 @@ It minimizes the code changes required to integrate Azure App Configuration into
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
+    ---
+
 1. After the environment variable is properly set, run the following command to run the app locally:
 
     ```bash
     node app.js
     ```
 
-    You should see the following output:
+    You should see the following output for each sample:
 
-    ### [Use configuration as a Map](#tab/config-as-map)
+    **Sample 1**
 
     ```Output
-    Message from Azure App Configuration
-    myValue
-    Hello World
-    false
-    true
-    true
+    Sample 1: Load key-values with default selector
+    ---Consume configuration as a Map---
+    settings.get("message"): Message from Azure App Configuration
+    settings.get("app.greeting"): Hello World
+    settings.get("app.json"): { myKey: 'myValue' }
+    ---Consume configuration as an object---
+    config.message: Message from Azure App Configuration
+    config.app.greeting: Hello World
+    config.app.json: { myKey: 'myValue' }
     ```
 
-    ### [Use configuration as an object](#tab/config-as-object)
+    **Sample 2**
 
     ```Output
-    Constructed configuration object 'config': 
-    {
-        app: { greeting: 'Hello World', json: { myKey: 'myValue' } },
-        message: 'Message from Azure App Configuration'
-    }
+    Sample 2: Load key-values and trim prefix from keys
+    ---Consume configuration as a Map---
+    settings.get("message"): Message from Azure App Configuration
+    settings.get("greeting"): Hello World
+    settings.get("json"): { myKey: 'myValue' }
+    ---Consume configuration as an object---
     config.message: Message from Azure App Configuration
-    config.app.greeting:    Hello World
-    config.app.json.myKey:  myValue
+    config.greeting: Hello World
+    config.json: { myKey: 'myValue' }
+    ```
+
+    **Sample 3**
+
+    ```Output
+    Sample 3: Load specific key-values using selectors
+    ---Consume configuration as a Map---
+    settings.has("message"): false
+    settings.has("app.greeting"): true
+    settings.has("app.json"): true
+    ---Consume configuration as an object---
+    config.message: undefined
+    config.app.greeting: Hello World
+    config.app.json: { myKey: 'myValue' }
     ```
 
 ## Clean up resources
