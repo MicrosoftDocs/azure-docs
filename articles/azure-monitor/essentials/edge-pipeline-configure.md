@@ -16,7 +16,7 @@ The Azure Monitor edge pipeline is a containerized solution that is deployed on 
 
 The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
-The pipeline configuration file the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline. The [DCR](./pipeline-overview.md#data-collection-rule) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
+The pipeline configuration file the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
