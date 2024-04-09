@@ -636,7 +636,7 @@
           items:
             - name: Best practices for Python SDK
               href: best-practice-python.md
-            - name: Performance tips for Python SDK v4
+            - name: Performance tips for Python SDK
               href: performance-tips-python-sdk.md    
         - name: JavaScript
           items:

@@ -44,7 +44,7 @@ This guide includes best practices for solutions built using the latest version 
 
 
 ## Next steps
-To learn more about performance tips for Python SDK, see [Performance tips for Azure Cosmos DB Python SDK v4](performance-tips-python-sdk.md).
+To learn more about performance tips for Python SDK, see [Performance tips for Azure Cosmos DB Python SDK](performance-tips-python-sdk.md).
 
 To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
 
