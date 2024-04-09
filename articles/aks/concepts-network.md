@@ -2,7 +2,9 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 03/26/2024
+author: schaffererin
+ms.author: schaffererin
 ms.custom: fasttrack-edit
 ---
 
@@ -281,3 +283,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-cni-powered-by-cilium]: azure-cni-powered-by-cilium.md
 [azure-cni-powered-by-cilium-limitations]: azure-cni-powered-by-cilium.md#limitations
 [use-byo-cni]: use-byo-cni.md
+

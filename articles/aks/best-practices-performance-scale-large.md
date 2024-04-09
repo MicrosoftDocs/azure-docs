@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 01/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
@@ -132,3 +135,4 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 
 <!-- LINKS - External -->
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
+

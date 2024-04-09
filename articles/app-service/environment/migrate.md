@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the in-place migration fea
 description: Overview of the in-place migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 03/27/2024
+ms.date: 04/08/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -139,7 +139,7 @@ Your App Service Environment v3 can be deployed across availability zones in the
 
 If your existing App Service Environment uses a custom domain suffix, you're prompted to configure a custom domain suffix for your new App Service Environment v3. You need to provide the custom domain name, managed identity, and certificate. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). You must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration if needed.
 
-If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly.  
+If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. Also, on App Service Environment v2, if you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. On App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. This difference is because App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. With App Service Environment v2, there's only a single domain suffix.
 
 ### Migrate to App Service Environment v3
 

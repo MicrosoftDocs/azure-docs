@@ -6,6 +6,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
 ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -46,8 +49,8 @@ The following table includes parameters you can use to define a custom storage c
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |resourceGroup | Specify the resource group for the Azure Disks | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster|
-|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
-|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
+|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
+|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
 |LogicalSectorSize | Logical sector size in bytes for ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
 |tags | Azure Disk [tags][azure-tags] | Tag format: `key1=val1,key2=val2` | No | ""|
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest][disk-encryption] | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
@@ -407,8 +410,10 @@ kubectl delete -f azure-pvc.yaml
 [disk-host-cache-setting]: ../virtual-machines/windows/premium-storage-performance.md#disk-caching
 [use-ultra-disks]: use-ultra-disks.md
 [ultra-ssd-disks]: ../virtual-machines/linux/disks-ultra-ssd.md
+[premiumv2_lrs_disks]: ../virtual-machines/disks-types.md#premium-ssd-v2
 [azure-tags]: ../azure-resource-manager/management/tag-resources.md
 [disk-encryption]: ../virtual-machines/windows/disk-encryption.md
 [azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
 [on-demand-bursting]: ../virtual-machines/disk-bursting.md
 [customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md
+

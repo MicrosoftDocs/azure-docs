@@ -28,7 +28,7 @@ To learn more about how to use the device SDKs, see [What is Azure IoT device an
 
 Use the embedded device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
-To learn more about when to use the embedded device SDKs, see [C SDK and Embedded C SDK usage scenarios](../iot-develop/concepts-using-c-sdk-and-embedded-c-sdk.md).
+To learn more about when to use the embedded device SDKs, see [C SDK and Embedded C SDK usage scenarios](./concepts-using-c-sdk-and-embedded-c-sdk.md).
 
 ### Device SDK lifecycle and support
 

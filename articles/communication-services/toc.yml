@@ -189,6 +189,8 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    - name: Manage domain suppression lists with Azure Communication Services Management SDKs
+      href: quickstarts/email/manage-suppression-list-management-sdks.md
     - name: Sending emails using SMTP 
       items:
         - name: Setting up SMTP Authentication
@@ -393,7 +395,7 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
-        - name: How to migrate from Twilio video to Azure Communication Services
+        - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
@@ -650,6 +652,10 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Migrate to Azure Communication Services
+      items:
+      - name: Migrate from Twilio Video to Azure Communication Services
+        href: concepts/migrate-to-azure-communication-services.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation
@@ -791,6 +797,8 @@ items:
         href: concepts/analytics/logs/rooms-logs.md
       - name: Rooms metrics 
         href: concepts/analytics/rooms-metrics.md
+      - name: Closed captions logs
+        href: concepts/analytics/logs/closed-captions-logs.md
     - name: Service events via EventGrid
       items:
       - name: Overview
@@ -937,6 +945,8 @@ items:
       href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
+    - name: Managing Opt-outs
+      href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Pricing
@@ -1033,6 +1043,14 @@ items:
     items:
     - name: Voice and Video
       items:
+      - name: General troubleshooting strategies
+        items:
+        - name: Overview
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md
+        - name: Understanding error messages and codes
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md
+        - name: Reporting an issue
+          href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue.md
       - name: Calling (JavaScript)
         items:
         - name: Device and permission issues
@@ -1047,6 +1065,64 @@ items:
             href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
           - name: The askDevicePermission API takes too long
             href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
+        - name: References
+          items:
+          - name: How to collect client logs
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-client-logs.md
+          - name: How to collect diagnostic audio recordings from the browser
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-diagnostic-audio-recordings.md
+          - name: How to collect verbose log from browsers
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-browser-verbose-log.md
+          - name: How to collect Windows audio event log
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-windows-audio-event-log.md
+          - name: User Facing Diagnostics
+            items:
+            - name: Network
+              items:
+              - name: noNetwork
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-network.md
+              - name: networkRelaysNotReachable
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-relays-not-reachable.md
+              - name: networkReconnect
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-reconnect.md
+              - name: networkReceiveQuality
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-receive-quality.md
+              - name: networkSendQuality
+                href: resources/troubleshooting/voice-video-calling/references/ufd/network-send-quality.md
+            - name: Audio
+              items:
+              - name: noSpeakerDevicesEnumerated
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-speaker-devices-enumerated.md
+              - name: speakingWhileMicrophoneIsMuted
+                href: resources/troubleshooting/voice-video-calling/references/ufd/speaking-while-microphone-is-muted.md
+              - name: noMicrophoneDevicesEnumerated
+                href: resources/troubleshooting/voice-video-calling/references/ufd/no-microphone-devices-enumerated.md
+              - name: microphoneNotFunctioning
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-not-functioning.md
+              - name: microphoneMuteUnexpectedly
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-mute-unexpectedly.md
+              - name: microphonePermissionDenied
+                href: resources/troubleshooting/voice-video-calling/references/ufd/microphone-permission-denied.md
+            - name: Video
+              items:
+              - name: cameraFreeze
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-freeze.md
+              - name: cameraStartFailed
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-start-failed.md
+              - name: cameraStartTimedOut
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-start-timed-out.md
+              - name: cameraPermissionDenied
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-permission-denied.md
+              - name: cameraStoppedUnexpectedly
+                href: resources/troubleshooting/voice-video-calling/references/ufd/camera-stopped-unexpectedly.md
+            - name: Screensharing
+              items:
+              - name: screenshareRecordingDisabled
+                href: resources/troubleshooting/voice-video-calling/references/ufd/screenshare-recording-disabled.md
+              - name: capturerStartFailed
+                href: resources/troubleshooting/voice-video-calling/references/ufd/capturer-start-failed.md
+              - name: capturerStoppedUnexpectedly
+                href: resources/troubleshooting/voice-video-calling/references/ufd/capturer-stopped-unexpectedly.md
 - name: References
   items:
   - name: Reference documentation overview

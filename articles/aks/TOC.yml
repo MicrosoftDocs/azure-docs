@@ -262,6 +262,8 @@
                   href: cluster-extensions.md
                 - name: Use the Azure CLI
                   href: deploy-extensions-az-cli.md
+            - name: Use the AKS Visual Studio Code extension
+              href: aks-extension-vs-code.md
     - name: Nodes
       items:
         - name: Cluster nodes

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/21/2024
+ms.date: 04/03/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -16,13 +16,13 @@ ms.custom:
 
 # Service limits in Azure AI Search
 
-Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure AI Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [create Azure AI Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multitenant shared service that comes with your Azure subscription. 
 
 + **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
-+ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD. S3 High Density (S3 HD) is engineered for [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (three thousand indexes per service). S3 HD doesn't provide the [indexer feature](search-indexer-overview.md) and data ingestion must use APIs that push data from source to index. 
++ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD. S3 High Density (S3 HD) is engineered for [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (3,000 indexes per service). S3 HD doesn't provide the [indexer feature](search-indexer-overview.md) and data ingestion must use APIs that push data from source to index. 
 
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
@@ -37,7 +37,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 ## Index limits
 
 | Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
-| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+|----------|------|--------|----|----|----|------------|----|----|
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximum dimensions per vector field | 3072 |3072 |3072 |3072 |3072 |3072 |3072 |3072 |
@@ -47,12 +47,15 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
+| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.92 TB | 2.4 TB | 100 GB| N/A | N/A |
 
-<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index. 
+<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only tier with a lower limit of 100 fields per index. 
 
 <sup>2</sup> The upper limit on fields includes both first-level fields and nested subfields in a complex collection. For example, if an index contains 15 fields and has two complex collections with five subfields each, the field count of your index is 25. Indexes with a very large fields collection can be slow. [Limit fields and attributes](search-what-is-an-index.md#physical-structure-and-size) to just those you need, and run indexing and query test to ensure performance is acceptable.
 
-<sup>3</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
+<sup>3</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3,000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
+
+<sup>4</sup> On most tiers, maximum index size is all available storage on your search service. For S2, S3, and S3 HD, the maximum size of any index is the number provided in the table. Applies to search services created after April 3, 2024.
 
 You might find some variation in maximum limits if your service happens to be provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications are portable across equivalent service tiers in any region.
 
@@ -72,41 +75,47 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or `SKU`).
 
 The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
+The table describes the vector index size quota per partition across the service tiers. For context, it includes:
 
 + [Partition storage limits](#service-limits) for each tier, repeated here for context.
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
-Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
+Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota or review the **Indexes** page or **Usage** tab in the Azure portal.
 
-### Services created before July 1, 2023
+Vector limits vary by service creation date and tier. To check the age of your search service and learn more about vector indexes, see [Vector index size and staying under limits](vector-search-index-size.md).
+
+### Vector limits on services created after April 3, 2024 in supported regions
+
+The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
-| Basic | 2                  | 0.5                                        | 115 million                  |
-| S1    | 25                 | 1                                          | 235 million                  |
-| S2    | 100                | 6                                          | 1,400 million                |
-| S3    | 200                | 12                                         | 2,800 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+|--------|--------------------|--------------------------------------------|------------------------------|
+| Basic | 15                  | 5                                          | 1,100 million              |
+| S1    | 160                 | 35                                         | 8,200 million              |
+| S2    | 350                 | 100                                        | 23,500 million             |
+| S3    | 700                 | 200                                        | 47,000 million             |
+| L1    | 1,000               | 12                                         | 2,800 million              |
+| L2    | 2,000               | 36                                         | 8,400 million              |
 
-### Services created after July 1, 2023 in supported regions
+Notice that L1 and L2 limits are unchanged in the April 3 rollout.
 
-Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
+### Vector limits on services created between July 1, 2023 and April 3, 2024
 
-The following regions **do not** support increased limits:
+The following limits applied to new services created between July 1 and April 3, 2024, except for the following regions, which have the original limits from before July 1, 2023:
 
 + Germany West Central
 + West India
 + Qatar Central
 
+All other regions have these limits:
+
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-| ----- | ------------------ | ------------------------------------------ | ---------------------------- |
+|--------|--------------------|--------------------------------------------|------------------------------|
 | Basic | 2                  | 1                                          | 235 million                  |
 | S1    | 25                 | 3                                          | 700 million                  |
 | S2    | 100                | 12                                         | 2,800 million                |
@@ -114,13 +123,23 @@ The following regions **do not** support increased limits:
 | L1    | 1,000              | 12                                         | 2,800 million                |
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
+### Vector limits on services created before July 1, 2023
+
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+|--------|--------------------|--------------------------------------------|------------------------------|
+| Basic | 2                  | 0.5                                        | 115 million                  |
+| S1    | 25                 | 1                                          | 235 million                  |
+| S2    | 100                | 6                                          | 1,400 million                |
+| S3    | 200                | 12                                         | 2,800 million                |
+| L1    | 1,000              | 12                                         | 2,800 million                |
+| L2    | 2,000              | 36                                         | 8,400 million                |
+
 ## Indexer limits
 
 Maximum running times exist to provide balance and stability to the service as a whole, but larger data sets might need more indexing time than the maximum allows. If an indexing job can't complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
 
-
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+|----------|------|--------|----|----|----|------------|----|----|
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |10 |10 |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |10 |10 |
 | Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |10 |10 |
@@ -150,8 +169,8 @@ Maximum running times exist to provide balance and stability to the service as a
 
 Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/shared-private-link-resources). This section describes the limits associated with this capability.
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2 |
+|----------|------|-------|----|----|----|-------|----|----|
 | Private endpoint indexer support | No | Yes | Yes | Yes | Yes | No | Yes | Yes |
 | Private endpoint support for indexers with a skillset<sup>1</sup> | No | No | No | Yes | Yes | No | Yes | Yes |
 | Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | 20 | 20 |
@@ -166,7 +185,7 @@ Indexers can access other Azure resources [over private endpoints](search-indexe
 Maximum number of synonym maps varies by tier. Each rule can have up to 20 expansions, where an expansion is an equivalent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
-| -------- | -----|------ |----|----|----|-------|---|----|
+|----------|------|-------|----|----|----|-------|----|----|
 | Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
@@ -175,7 +194,7 @@ Maximum number of synonym maps varies by tier. Each rule can have up to 20 expan
 Maximum number of [index aliases](search-how-to-alias.md) varies by tier. In all tiers, the maximum number of aliases is double the maximum number of indexes allowed.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
-| -------- | -----|------ |----|----|----|-------|---|----|
+|----------|------|-------|----|----|----|-------|----|----|
 | Maximum aliases |6 |10 or 30 |100 |400 |400 |2000 per partition or 6000 per service |20 |20 |
 
 ## Data limits (AI enrichment)
@@ -201,13 +220,13 @@ Static rate request limits for operations related to a service:
 ## API request limits
 
 * Maximum of 16 MB per request <sup>1</sup>
-* Maximum 8 KB URL length
-* Maximum 1000 documents per batch of index uploads, merges, or deletes
+* Maximum 8-KB URL length
+* Maximum 1,000 documents per batch of index uploads, merges, or deletes
 * Maximum 32 fields in $orderby clause
 * Maximum 100,000 characters in a search clause
 * The maximum number of clauses in `search` (expressions separated by AND or OR) is 1024
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
-* Maximum search term size is 1000 characters for [prefix search](query-simple-syntax.md#prefix-queries) and [regex search](query-lucene-syntax.md#bkmk_regex)
+* Maximum search term size is 1,000 characters for [prefix search](query-simple-syntax.md#prefix-queries) and [regex search](query-lucene-syntax.md#bkmk_regex)
 * [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
 
 <sup>1</sup> In Azure AI Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that aren't otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
@@ -216,7 +235,7 @@ Limits on query size and composition exist because unbounded queries can destabi
 
 ## API response limits
 
-* Maximum 1000 documents returned per page of search results
+* Maximum 1,000 documents returned per page of search results
 * Maximum 100 suggestions returned per Suggest API request
 
 ## API key limits

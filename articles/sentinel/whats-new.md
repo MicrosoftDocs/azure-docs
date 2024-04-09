@@ -20,7 +20,8 @@ The listed features were released in the last three months. For information abou
 
 ## April 2024
 
-[Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
+- [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
+- [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
 
 ### Unified security operations platform in the Microsoft Defender portal (preview)
 
@@ -30,6 +31,12 @@ The unified security operations platform in the Microsoft Defender portal is now
 - [Microsoft Sentinel in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 - [Microsoft Security Copilot in Microsoft Defender XDR](/microsoft-365/security/defender/security-copilot-in-microsoft-365-defender)
+
+### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
+
+Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+
+For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ## March 2024
 
