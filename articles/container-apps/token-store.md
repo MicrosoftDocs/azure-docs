@@ -73,9 +73,9 @@ az containerapp auth update \
   --token-store true
 ```
 
-Additionally,  you can create your store using an [ARM template](/rest/api/containerapps/container-apps-auth-configs/create-or-update?view=rest-containerapps-2023-11-02-preview&tabs=HTTP).
+Additionally,  you can create your store using an [ARM template](/rest/api/containerapps/container-apps-auth-configs/create-or-update).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize sign in and sign out](authentication.md#customize-sign-in-and-sign-out.md)
+> [Customize sign in and sign out](authentication.md#customize-sign-in-and-sign-out)
