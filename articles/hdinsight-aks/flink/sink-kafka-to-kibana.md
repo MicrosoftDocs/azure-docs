@@ -225,7 +225,7 @@ public class kafkaSinkToElastic {
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <kafka.version>3.2.0</kafka.version>
     </properties>
@@ -234,31 +234,31 @@ public class kafkaSinkToElastic {
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-core</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-elasticsearch-base -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-elasticsearch7</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>>
         </dependency>
     </dependencies>
     <build>
@@ -293,10 +293,8 @@ public class kafkaSinkToElastic {
 On [Secure Shell for Flink](./flink-web-ssh-on-portal-to-flink-sql.md), you can use the following commands.
 
 ```
-msdata@pod-0 [ ~ ]$ ls -l FlinkElasticSearch-1.0-SNAPSHOT.jar 
--rw-r----- 1 msdata msdata 114616575 Jul 31 06:09 FlinkElasticSearch-1.0-SNAPSHOT.jar
-msdatao@pod-0 [ ~ ]$ bin/flink run -c contoso.example.kafkaSinkToElastic -j FlinkElasticSearch-1.0-SNAPSHOT.jar
-Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
+user@sshnode-0 [ ~ ]$ bin/flink run -c contoso.example.kafkaSinkToElastic -j FlinkElasticSearch-1.0-SNAPSHOT.jar
+Job has been submitted with JobID e043a0723960fd23f9420f73d3c4f14f
 ```
 ## Start Elasticsearch and Kibana to perform analytics on Kibana
 
