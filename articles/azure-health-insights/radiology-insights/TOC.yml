@@ -24,8 +24,10 @@ items:
       href: overview.md
 - name: Quickstarts
   items:
-     - name: Use the Radiology Insights model
-       href: get-started.md
+      - name: Use the Radiology Insights model (platform)
+        href: get-started.md
+      - name: Use the Radiology Insights model (CLI)
+        href: get-started-CLI.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
@@ -40,6 +42,8 @@ items:
        href: inferences.md
 - name: Reference
   items:
+     - name: tutorial
+       href: tutorial.md
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/radiology-insights
      - name: SDKs
