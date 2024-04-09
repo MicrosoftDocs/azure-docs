@@ -42,9 +42,10 @@ A `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` value indicates a
 - **Private-Trust Identity Validation example**:
 A  `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` value indicates a Trusted Signing subscriber using Private-Trust Identity Validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is Trusted Signing's Private-Trust code signing type and the `29433.35007.34545.16815.37291.11644.53265.56135` is unique to the subscriber's Identity Validation for Private Trust. Because Private-Trust Identity Validations can be used for WDAC CI Policy signing, there's also a slightly different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. However, the suffix values match the durable identity value for the subscriber's Identity Validation for Private Trust.  
 
-- **Note**: The durable identity EKUs can be used in WDAC CI Policy settings to pin trust to an identity in Trusted Signing accordingly. Refer to [Use signed policies to protect Windows Defender Application Control against tampering](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering) and [Windows Defender Application Control Wizard](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-wizard) for WDAC Policy creation.
+[!NOTE]
+The durable identity EKUs can be used in WDAC CI Policy settings to pin trust to an identity in Trusted Signing accordingly. Refer to [Use signed policies to protect Windows Defender Application Control against tampering](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering) and [Windows Defender Application Control Wizard](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-wizard) for WDAC Policy creation.
 
-- All Trusted Signing Public Trust certificates also contain the `1.3.6.1.4.1.311.97.1.0` EKU to be easily identified as a publicly trusted certificate from Trusted Signing. All EKUs are in addition to the Code Signing EKU (`1.3.6.1.5.5.7.3.3`) to identify the specific usage type for certificate consumers. The only exception is certificates from CI Policy Certificate Profile types, where no Code Signing EKU is present.
+All Trusted Signing Public Trust certificates also contain the `1.3.6.1.4.1.311.97.1.0` EKU to be easily identified as a publicly trusted certificate from Trusted Signing. All EKUs are in addition to the Code Signing EKU (`1.3.6.1.5.5.7.3.3`) to identify the specific usage type for certificate consumers. The only exception is certificates from CI Policy Certificate Profile types, where no Code Signing EKU is present.
 
 ## Zero-touch certificate lifecycle management
 
@@ -53,9 +54,10 @@ Trusted Signing aims to simplify signing as much as possible for subscribers usi
 - Secure key generation, storage, and usage in FIPS 140-2 Level 3 hardware crypto modules managed by the service.
 - Daily renewals of the certificates to ensure subscribers always have a valid certificate to sign with for their Certificate Profile resources.
 
-Every certificate created and issued is logged for subscribers in the Azure Portal and logging data feeds, including the serial number, thumbprint, created date, expiry date, and status (for example, "Active", "Expired", or "Revoked").
+Every certificate created and issued is logged for subscribers in the Azure portal and logging data feeds, including the serial number, thumbprint, created date, expiry date, and status (for example, "Active", "Expired", or "Revoked").
 
-**Note**: Trusted Signing does NOT support subscribers importing or exporting private keys and certificates. All certificates and keys used in Trusted Signing are managed inside FIPS 140-2 Level 3 operated hardware crypto modules.
+[!NOTE]
+Trusted Signing does NOT support subscribers importing or exporting private keys and certificates. All certificates and keys used in Trusted Signing are managed inside FIPS 140-2 Level 3 operated hardware crypto modules.
 
 ### Time stamp countersignatures
 
@@ -71,7 +73,7 @@ Trusted Signing passionately supports a healthy ecosystem by using active threat
 
 - If there's a confirmed case of misuse or abuse, Trusted Signing immediately completes the necessary steps to mitigate and remediate any threats, including targeted or broad certificate revocation and account suspension.
 
-- Subscribers can also complete revocation actions directly from the Azure Portal for any certificates that are logged under a Certificate Profile they own.
+- Subscribers can also complete revocation actions directly from the Azure portal for any certificates that are logged under a Certificate Profile they own.
 
 ## Next steps
 

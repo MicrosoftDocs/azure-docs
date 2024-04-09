@@ -24,7 +24,8 @@ Trusted Signing provides two primary trust models to support a wide variety of s
 - Public-Trust <add link to #public-trust>
 - Private-Trust <add link to #private-trust>
 
-**Note**: Subscribers to Trusted Signing aren't limited to the signing scenarios application of the trust models shared in this article. Trusted Signing was designed to support Windows Authenticode code signing and App Control for Business features in Windows with an ability to broadly support other signing and trust models beyond Windows. 
+[!NOTE]
+Subscribers to Trusted Signing aren't limited to the signing scenarios application of the trust models shared in this article. Trusted Signing was designed to support Windows Authenticode code signing and App Control for Business features in Windows with an ability to broadly support other signing and trust models beyond Windows. 
 
 ## Public-Trust
 
@@ -41,7 +42,8 @@ The Public-Trust resources in Trusted Signing are designed to support the follow
 
 Public-Trust is recommended for signing any artifact that is to be shared publicly and for the signer to be a validated legal organization or individual. 
 
-**Note**: Trusted Signing includes options for "Test" Certificate Profiles under the Public-Trust collection. These "Test" Certificate Profiles are intended to be used for inner loop dev/test signing and trust only in test environments.
+[!NOTE]
+Trusted Signing includes options for "Test" Certificate Profiles under the Public-Trust collection. These "Test" Certificate Profiles are intended to be used for inner loop dev/test signing and trust only in test environments.
 
 ## Private-Trust
 
