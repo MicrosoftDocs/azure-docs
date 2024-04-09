@@ -1,5 +1,5 @@
 ---
-title: Azure Web Application Firewall on Azure Front Door Sensitive Data Protection
+title: Azure Web Application Firewall on Azure Front Door Sensitive Data Protection (preview)
 description: Learn about Azure Web Application Firewall Azure Front Door Sensitive Data Protection.
 author: vhorne
 ms.author: victorh
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/09/2024
 ---
 
-# What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?
+# What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection (preview)?
 
 > [!IMPORTANT]
 > Web Application Firewall on Azure Front Door Sensitive Data Protection is currently in PREVIEW.
