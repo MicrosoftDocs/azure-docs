@@ -30,7 +30,7 @@ You can select one of the three possible virtual hub routing preference configur
    1. If there are Routes from both ExpressRoute and Site-to-site VPN connections:
 
       * If all the routes are local to the virtual hub, the routes learned from ExpressRoute connections will be chosen because Virtual hub routing preference is set to ExpressRoute.
-      * If all the routes are through remote hubs, Site-to-site VPN will be preferred over ExpressRoute.
+      * If all the routes are through remote hubs, ExpressRoute will be preferred over Site-to-site VPN.
    1. Prefer routes with the shortest BGP AS-Path length.
 
 * **VPN**
