@@ -11,14 +11,14 @@ ms.date: 04/08/2024
 
 # Move Azure Disk persistent volumes to same or different subscription
 
-This article describes how to safely move Azure Disk persistent volumes from one Azure Kubernetes Service (AKS) cluster to another in the same or in a different subscription that is in the same region.
+This article describes how to safely move Azure Disk persistent volumes from one Azure Kubernetes Service (AKS) cluster to another in the same subscription or in a different subscription. The target subscription must be in the same region.
 
 The sequence of steps to complete this move are:
 
 * Confirm the Azure Disk resource state on the source AKS cluster isn't in an **Attached** state to avoid data loss.
-* Move the Azure Disk resource to the target resource group in the same or different subscription.
-* Validate the Azure Disk resource move succeeded.
-* Create the persistent volume (PV), persistent volume claim (PVC) and mount the moved disk as a volume on a pod on the target cluster  
+* Move the Azure Disk resource to the target resource group in the same subscription or a different subscription.
+* Validate that the Azure Disk resource move succeeded.
+* Create the persistent volume (PV) and the persistent volume claim (PVC) and then mount the moved disk as a volume on a pod on the target cluster.  
 
 ## Before you begin
 
@@ -29,7 +29,7 @@ The sequence of steps to complete this move are:
 
 ## Validate disk volume state
 
-Preserving data is important while working with persistent volumes to avoid risk of data corruption, inconsistencies, or data loss. To prevent loss during the migration or move process, you first verify the disk volume is unattached by performing the following steps.
+Preserving data is important while working with persistent volumes to avoid risk of data corruption, inconsistencies, or data loss. To prevent loss during the migration or move process, you must first verify the disk volume is unattached by performing the following steps.
 
 1. Identify the node resource group hosting the Azure managed disks using the [`az aks show`][az-aks-show] command and add the `--query nodeResourceGroup` parameter.
 
@@ -67,6 +67,9 @@ Preserving data is important while working with persistent volumes to avoid risk
     "diskState": "Unattached",
     ```
 
+    > [!NOTE]
+    > Note the value of the `resourceGroup` field for each disk that you want to move from the output above. This resource group is the node resource group, not the cluster resource group. You'll need the name of this resource group in order to move the disks.
+
 1. If `diskState` shows `Attached`, first verify if any workloads are still accessing the volume and stop them first. After a period of time, disk state returns state `Unattached` and can then be moved.
 
 ## Move persistent volume
@@ -75,14 +78,14 @@ To move the persistent volume or volumes to another AKS cluster, follow the step
 
 During this process, you reference:
 
-* The name or resource ID of the source node resource group hosting the Azure managed disks
-* The name or resource ID of the destination resource group to move the managed disks to
+* The name or resource ID of the source node resource group hosting the Azure managed disks. You can find the name of the node resource group by navigating to the **Disks** dashboard in the Azure portal and noting the associated resource group for your disk.
+* The name or resource ID of the destination resource group to move the managed disks to.
 * The name or resource ID of the managed disks resources.
 
 > [!NOTE]
 > Because of the dependencies between resource providers, this operation can take up to four hours to complete.
 
-## Verify the resources moved
+## Verify that the disk volume has moved
 
 After moving the disk volume to the target cluster resource group, validate the resource in the resource group list using the [`az disk list`][az-disk-list] command referencing the destination resource group the resources were moved to. In this example, the disks were moved to a resource group named *MC_myResourceGroup_myAKSCluster_westus*.
 
@@ -90,32 +93,13 @@ After moving the disk volume to the target cluster resource group, validate the 
     az disk list --resource-group MC_myResourceGroup_myAKSCluster_westus
   ```
 
-Identify the resource ID of the disk resource using the [`az resource list`][az-resource-list] command and add the `--resource-group` and `--name` parameters to specify the target resource group and the name of the disk resource.
-
-The output of the command is a condensed example.
-
-```output
-[
-  {
-    "changedTime": "2023-04-25T12:54:27.429375+00:00",
-    "createdTime": "2023-04-25T12:44:21.812795+00:00",
-    "extendedLocation": null,
-    "id": "/subscriptions/0ee07caa-76ad-4537-8667-4a5beae1d91c/resourceGroups/mc_myResourceGroup_myakscluster_westus/providers/Microsoft.Compute/disks/pvc-9583b9de-5b3a-4b86-aa2d-2b2c79102b71",
-    "identity": null,
-    "kind": null,
-    "location": "eastus",
-    "managedBy": null,
-    "name": "pvc-9583b9de-5b3a-4b86-aa2d-2b2c79102b71",
-```
-
 ## Mount the moved disk as a volume
 
 To mount the moved disk volume, you'll create a static persistent volume with the resource ID copied in the previous steps, the persistent volume claim, and in this example a simple pod.
 
-1. Create a *pv-azuredisk.yaml* file with a persistent volume. Update *volumeHandle* with disk resource ID from the previous step.
+1. Create a *pv-azuredisk.yaml* file with a persistent volume. Update the *volumeHandle* field with the disk resource ID from the previous step.
 
-    ```yml
-    ---
+    ```yaml
     apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -137,8 +121,7 @@ To mount the moved disk volume, you'll create a static persistent volume with th
 
 1. Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*.
 
-    ```yml
-    ---
+    ```yaml
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
@@ -176,7 +159,6 @@ To mount the moved disk volume, you'll create a static persistent volume with th
 1. To reference your *PersistentVolumeClaim*, create a *azure-disk-pod.yaml* file. In the example manifest, the name of the pod is *mypod*.
 
     ```yml
-    ---
     apiVersion: v1
     kind: Pod
     metadata:
@@ -248,7 +230,6 @@ To mount the moved disk volume, you'll create a static persistent volume with th
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
 [az-aks-show]: /cli/azure/disk#az-disk-show
 [az-disk-list]: /cli/azure/disk#az-disk-list
-[az-resource-list]: /cli/azure/resource#az-resource-list
 [move-resources-checklist]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources
 [move-resources-using-porta]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal
 [move-resources-using-azure-powershell]: ../azure-resource-manager/management/move-resource-group-and-subscription.md#use-azure-powershell
