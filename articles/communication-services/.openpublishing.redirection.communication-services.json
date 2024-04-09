@@ -405,6 +405,11 @@
             "source_path_from_root": "/articles/communication-services/tutorials/file-sharing-tutorial.md",
             "redirect_url": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/reporting-an-issue.md",
+            "redirect_url": "/articles/communication-services/resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue",
+            "redirect_document_id": false
         }
     ]
 }
