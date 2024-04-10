@@ -8,9 +8,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 01/22/2024
+ms.date: 04/08/2024
 ms.author: radeltch
 ---
+
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide-general.md
@@ -760,7 +761,7 @@ pcs resource move SAPHana_HN1_03-master
 pcs resource move SAPHana_HN1_03-clone --master
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this command should migrate the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`. 
 
 After the migration is done, the `sudo pcs status` output looks like:
 
@@ -775,7 +776,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-The SAP HANA resource on `hn1-db-0` is stopped. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
 
 ```bash
 sapcontrol -nr 03 -function StopWait 600 10
