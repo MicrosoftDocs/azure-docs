@@ -708,7 +708,7 @@ The following ARM template shows how to configure the environment for running a 
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -761,7 +761,8 @@ The following ARM template shows how to configure the environment for running a 
             }
           ],
           "defaultAction": "Deny"
-        }
+        },
+        "allowSharedKeyAccess": true
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
@@ -769,7 +770,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "apiVersion": "2023-01-31",
+      "apiVersion": "2023-07-31-preview",
       "name": "[parameters('userAssignedIdentityName')]",
       "location": "[parameters('location')]"
     },
@@ -779,7 +780,7 @@ The following ARM template shows how to configure the environment for running a 
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('storageAccountName'))]",
       "name": "[guid(tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd'), resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')))]",
       "properties": {
-        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), '2023-01-31').principalId]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), '2023-07-31-preview').principalId]",
         "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd')]",
         "principalType": "ServicePrincipal"
       },
