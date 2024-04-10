@@ -19,9 +19,7 @@ This article helps you configure your point-to-site (P2S) VPN gateway to use Mic
 
 ## About VPN Gateway and first-party App IDs
 
-Microsoft released a first-party Microsoft Entra application (first-party App ID) for the Azure VPN Client. Previously, Microsoft Entra ID authentication was only available for P2S VPN gateways using a third-party App ID. When you use a first-party Application ID (App ID), you don't need to authorize the Azure VPN client application, as you would with a third-party application. The App ID (Audience) value is different for first-party and third-party applications and isn't interchangeable.
-
-To better understand the difference between the two types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
+Microsoft released a first-party Microsoft Entra application (first-party App ID) for the Azure VPN Client. Previously, Microsoft Entra ID authentication was only available for P2S VPN gateways using a third-party App ID. When you use a first-party Application ID (App ID), you don't need to authorize the Azure VPN client application, as you would with a third-party application. The App ID (Audience) value is different for first-party and third-party applications and isn't interchangeable. To better understand the difference between the two types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
 
 VPN Gateway doesn't simultaneously support both Microsoft Entra ID authentication with third-party App ID, and Microsoft Entra ID authentication with first-party App ID: the two mechanisms are mutually exclusive. The VPN gateway supports only a single App ID: it can be either a third-party App ID, or a first-party App ID.
 
