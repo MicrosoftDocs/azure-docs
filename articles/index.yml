@@ -1407,7 +1407,7 @@ productDirectory:
     # Card
     - title: Azure NetApp Files
       summary: Enterprise-grade Azure file shares, powered by NetApp
-      imageSrc: ./media/index/netapp-files.svg
+      imageSrc: ./media/index/azure-netapp-files.svg
       azureCategories:
         - storage
       url: azure-netapp-files/index.yml
