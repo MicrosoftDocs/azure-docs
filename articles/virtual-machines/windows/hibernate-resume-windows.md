@@ -22,6 +22,8 @@ To learn how hibernation works, check out the [hibernation overview](../hibernat
 ## Supported configurations
 Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
 
+For a list of hibernation compatible VM sizes, check out the [supported VM sizes section in the hibernation overview](../hibernate-resume.md#supported-vm-sizes).
+
 ### Supported Windows versions
 The following Windows operating systems support hibernation:
 
@@ -40,7 +42,7 @@ The following Windows operating systems support hibernation:
 
 For general limitations, Azure feature limitations supported VM sizes, and feature prerequisites check out the ["Supported configurations" section in the hibernation overview](../hibernate-resume.md#supported-configurations).
 
-## Creating a Linux VM with hibernation enabled
+## Creating a Windows VM with hibernation enabled
 
 To hibernate a VM, you must first enable the feature while creating the VM. You can only enable hibernation for a VM on initial creation. You can't enable this feature after the VM is created.
 

@@ -10,7 +10,7 @@ ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Hibernation for Azure virtual machines overview
+# Hibernation for Azure virtual machines
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
@@ -76,19 +76,13 @@ VM sizes with up to 32-GB RAM from the following VM series support hibernation.
 
 ## Setting up hibernation
 
-Setting up hibernation on Azure is a two step process:
-
-**Step 1**: Enable the hibernation feature while creating the VM.
-
-**Step 2**: Install the necessary agent programs on the guest (the VM you just created) and configure your VM for hibernation.
-
-Both of these steps are detailed in the OS specific setup and configuration documentation:
+Enabling hibernation is detailed in the OS specific setup and configuration documentation:
 
 ### Linux VMs
-To configure hibernation on a Linux guest, check out the [Linux hibernation documentation](./linux/hibernate-resume-linux.md).
+To configure hibernation on a Linux VM, check out the [Linux hibernation documentation](./linux/hibernate-resume-linux.md).
 
 ### Windows VMs
-To configure hibernation on a Windows guest, check out the [Windows hibernation documentation](./windows/hibernate-resume-windows.md).
+To configure hibernation on a Windows VM, check out the [Windows hibernation documentation](./windows/hibernate-resume-windows.md).
 
 ## Troubleshooting
 Refer to the [Hibernation troubleshooting guide](./hibernate-resume-troubleshooting.md) for general troubleshooting information.

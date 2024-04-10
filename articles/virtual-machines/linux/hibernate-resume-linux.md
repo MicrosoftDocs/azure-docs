@@ -22,6 +22,8 @@ To learn how hibernation works, check out the [hibernation overview](../hibernat
 ## Supported configurations
 Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
 
+For a list of hibernation compatible VM sizes, check out the [supported VM sizes section in the hibernation overview](../hibernate-resume.md#supported-vm-sizes).
+
 ### Supported Linux distros
 The following Linux operating systems support hibernation:
 
