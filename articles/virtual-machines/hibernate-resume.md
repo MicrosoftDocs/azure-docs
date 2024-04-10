@@ -1,26 +1,20 @@
 ---
-title: Learn about hibernating your VM
-description: Learn how to hibernate a VM.
+title: Hibernation overview
+description: Overview of hibernating your VM.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 04/10/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Hibernating virtual machines
+# Hibernating virtual machines overview
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
-> [!IMPORTANT]
-> Azure Virtual Machines - Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Hibernation allows you to pause VMs that aren't being used and save on compute costs. It's an effective cost management feature for scenarios such as:
-- Virtual desktops, dev/test, and other scenarios where the VMs don't need to run 24/7.
-- Systems with long boot times due to memory intensive applications. These applications can be initialized on VMs and hibernated. These “prewarmed” VMs can then be quickly started when needed, with the applications already up and running in the desired state.
+[!INCLUDE [hibernate-resume-intro](../includes/hibernate-resume-intro.md)]
 
 ## How hibernation works
 
@@ -39,6 +33,13 @@ When hibernating a VM:
 ## Supported configurations
 Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
 
+### Supported Operating systems
+Supported operating systems, OS specific limtations, and configuration procedures are listed the OS' documentation section.
+
+[Windows VM hibernation documentation](./windows/hibernate-resume-windows.md)
+
+[Linux VM hibernation documentation](./windows/hibernate-resume-linux.md)
+
 ### Supported VM sizes 
 
 VM sizes with up to 32-GB RAM from the following VM series support hibernation.  
@@ -46,45 +47,6 @@ VM sizes with up to 32-GB RAM from the following VM series support hibernation.
 - [Dadsv5-series](dasv5-dadsv5-series.md) 
 - [Dsv5-series](../virtual-machines/dv5-dsv5-series.md)
 - [Ddsv5-series](ddv5-ddsv5-series.md) 
-
-
-### Operating system support and limitations
-
-#### [Linux](#tab/osLimitsLinux)
-
-##### Supported Linux versions
-The following Linux operating systems support hibernation:
-
-- Ubuntu 22.04 LTS
-- Ubuntu 20.04 LTS
-- Ubuntu 18.04 LTS
-- Debian 11
-- Debian 10 (with backports kernel)
-
-##### Linux Limitations
--	Hibernation isn't supported with Trusted Launch for Linux VMs  
-
-
-#### [Windows](#tab/osLimitsWindows)
-
-##### Supported Windows versions
-The following Windows operating systems support hibernation:
-
-- Windows Server 2022
-- Windows Server 2019
-- Windows 11 Pro
-- Windows 11 Enterprise
-- Windows 11 Enterprise multi-session
-- Windows 10 Pro
-- Windows 10 Enterprise
-- Windows 10 Enterprise multi-session
-
-##### Windows limitations
--	The page file can't be on the temp disk.  
--	Applications such as Device Guard and Credential Guard that require virtualization-based security (VBS) work with hibernation when you enable Trusted Launch on the VM and Nested Virtualization in the guest OS.
--	Hibernation is only supported with Nested Virtualization when Trusted Launch is enabled on the VM
-
----
 
 ### General limitations
 - You can't enable hibernation on existing VMs.
@@ -225,127 +187,11 @@ Once you've created a VM with hibernation enabled, you need to configure the gue
 
 ## Guest configuration for hibernation
 
-### Configuring hibernation on Linux
-There are many ways you can configure the guest OS for hibernation in Linux VMs.  
+### Linux VMs
+To configure hibernation on a Linux guest, check out the [Linux hibernation documentation](./linux/hibernate-resume-linux.md).
 
-#### Option 1: LinuxHibernateExtension
-When you create a Hibernation-enabled VM via the Azure portal, the LinuxHibernationExtension is automatically installed on the VM. 
-
-If the extension is missing, you can [manually install the LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
-
->[!NOTE]
-> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
-
-##### [CLI](#tab/cliLHE)
-    
-To install LinuxHibernateExtension with the Azure CLI, run the following command:
-
-```azurecli
-az vm extension set -n LinuxHibernateExtension --publisher Microsoft.CPlat.Core --version 1.0 \    --vm-name MyVm --resource-group MyResourceGroup --enable-auto-upgrade true
-```
-
-##### [PowerShell](#tab/powershellLHE)
-
-To install LinuxHibernateExtension with PowerShell, run the following command:
-
-```powershell
-Set-AzVMExtension -Publisher Microsoft.CPlat.Core -ExtensionType LinuxHibernateExtension -VMName <VMName> -ResourceGroupName <RGNAME> -Name "LinuxHibernateExtension" -Location <Location> -TypeHandlerVersion 1.0
-```  
----
-
-#### Option 2: hibernation-setup-tool 
-You can install the hibernation-setup-tool package on your Linux VM from Microsoft’s Linux software repository at [packages.microsoft.com](https://packages.microsoft.com).
-
-To use the Linux software repository, follow the instructions at [Linux package repository for Microsoft software](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software#ubuntu).
-
-##### [Ubuntu 18.04 (Bionic)](#tab/Ubuntu18HST) 
-
-To use the repository in Ubuntu 18.04, open git bash and run this command:
-
-```bash
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-
-sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
-
-sudo apt-get update
-```
-
-##### [Ubuntu 20.04 (Focal)](#tab/Ubuntu20HST) 
-
-To use the repository in Ubuntu 20.04, open git bash and run this command:
-
-```bash
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee etc/apt/trusted.gpg.d/microsoft.asc
-
-sudo apt-add-repository https://packages.microsoft.com/ubuntu/20.04/prod
-
-sudo apt-get update
-```
----
-
-
-To install the package, run this command in git bash:
-```bash
-sudo apt-get install hibernation-setup-tool
-```
-
-Once the package installs successfully, your Linux guest OS has been configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, thereby simplifying your VM creation experience. 
-
-### Configuring hibernation on Windows
-Enabling hibernation while creating a Windows VM automatically installs the 'Microsoft.CPlat.Core.WindowsHibernateExtension' VM extension. This extension configures the guest OS for hibernation. This extension doesn't need to be manually installed or updated, as this extension is managed by the Azure platform.
-
->[!NOTE]
->When you create a VM with hibernation enabled, Azure automatically places the page file on the C: drive. If you're using a specialized image, then you'll need to follow additional steps to ensure that the pagefile is located on the C: drive. 
-
->[!NOTE]
->Using the WindowsHibernateExtension requires the Azure VM Agent to be installed on the VM. If you choose to opt-out of the Azure VM Agent, then you can configure the OS for hibernation by running powercfg /h /type full inside the guest. You can then verify if hibernation is enabled inside guest using the powercfg /a command.
-
-## Hibernating a VM
-
-Once a VM with hibernation enabled has been created and the guest OS is configured for hibernation, you can hibernate the VM through the Azure portal, the Azure CLI, PowerShell, or REST API. 
-
-
-#### [Portal](#tab/PortalDoHiber) 
-
-To hibernate a VM in the Azure portal, click the 'Hibernate' button on the VM Overview page.
-
-![Screenshot of the button to hibernate a VM in the Azure portal.](./media/hibernate-resume/hibernate-overview-button.png)
-
-#### [CLI](#tab/CLIDoHiber) 
-
-To hibernate a VM in the Azure CLI, run this command:
-
-```azurecli
-az vm deallocate --resource-group TestRG --name TestVM --hibernate true 
-```
-
-#### [PowerShell](#tab/PSDoHiber)  
-
-To hibernate a VM in PowerShell, run this command:
-
-```powershell
-Stop-AzVM -ResourceGroupName "TestRG" -Name "TestVM" -Hibernate      
-```
-
-After running the above command, enter 'Y' to continue:
-
-```
-Virtual machine stopping operation 
-
-This cmdlet will stop the specified virtual machine. Do you want to continue? 
-
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y 
-```
-
-#### [REST API](#tab/APIDoHiber) 
-
-To hibernate a VM using the REST API, run this command:
-
-```json
-POST 
-https://management.azure.com/subscriptions/.../providers/Microsoft.Compute/virtualMachines/{vmName}/deallocate?hibernate=true&api-version=2021-03-01 
-```
----
+### Windows VMs
+To configure hibernation on a Windows guest, check out the [Windows hibernation documentation](./windows/hibernate-resume-windows.md).
 
 ## View state of hibernated VM 
 
@@ -475,7 +321,7 @@ Your output should look something like this:
 
 ## Start hibernated VMs 
 
-You can start hibernated VMs just like how you would start a stopped VM.
+You can start hibernated VMs just like how you would start a stopped VM. This can be done through the Azure portal, the Azure CLI, PowerShell, or REST API.
 
 ### [Portal](#tab/PortalStartHiber)
 To start a hibernated VM using the Azure portal, click the 'Start' button on the VM Overview page.
