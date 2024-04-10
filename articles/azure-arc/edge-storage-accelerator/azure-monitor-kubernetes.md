@@ -40,6 +40,6 @@ If you want to access log data via Azure Monitor, you must enable [Azure Monitor
 
 Additionally, you can use [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) to query collected log data.
 
-## Next Steps
+## Next steps
 
 [Edge Storage Accelerator overview](overview.md)

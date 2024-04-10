@@ -1,5 +1,5 @@
 ---
-title: How-To - Install Edge Storage Accelerator (ESA) on a single-node K3s cluster using Ubuntu or AKS Edge Essentials (preview)
+title: Install Edge Storage Accelerator (ESA) on a single-node K3s cluster using Ubuntu or AKS Edge Essentials (preview)
 description: Learn how to create a single-node K3s cluster for Edge Storage Accelerator and install Edge Storage Accelerator on your Ubuntu or Edge Essentials environment.
 author: sethmanheim
 ms.author: sethm
