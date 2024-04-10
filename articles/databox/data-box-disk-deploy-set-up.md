@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 04/09/2024
 ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -101,7 +101,7 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 
 ### [Azure CLI](#tab/cli)
 
-Azure CLI instructions
+Azure CLI instructions to retrieve your passkey
 
 ---
 
@@ -123,59 +123,44 @@ Perform the following steps to connect and unlock your disks.
 
 3. Extract the toolset on the same computer that you will use to copy the data.
 4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
-5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below.
+5. Verify that your client computer meets the operating system requirements for the **Data Box Unlock tool**. Run a system check in the folder containing the extracted **Data Box Disk toolset** as shown in the following example.
 
     ```powershell
-    Windows PowerShell
-    Copyright (C) Microsoft Corporation. All rights reserved.
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /SystemCheck
-    Successfully verified that the system can run the tool.
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    .\DataBoxDiskUnlock.exe /SystemCheck
     ```
 
-6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+    The following sample output confirms that your client computer meets the operating system requirements.
+
+    :::image type="content" source="media/data-box-disk-deploy-set-up/system-check.png" alt-text="Screen capture showing the results of a successful system check using the Data Box Disk Unlock tool." lightbox="media/data-box-disk-deploy-set-up/system-check-lrg.png":::
+
+6. Run	`DataBoxDiskUnlock.exe`, providing the passkey obtained in the [Retrieve your passkey](#retrieve-your-passkey) section. The passkey is submitted as the `Passkey` parameter value as shown in the following example. 
 
     ```powershell
-    PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkey :
-    testpasskey1
-
-    Following volumes are unlocked and verified.
-    Volume drive letters: D:
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    .\DataBoxDiskUnlock.exe /Passkey:<testPasskey>
     ```
 
-7. Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
+    A successful response includes the drive letter assigned to the disk as shown in the following example output.
+
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlocked-win.png" alt-text="Screen capture showing a successful response from the Data Box Disk Unlock tool containing the drive letter assigned." lightbox="media/data-box-disk-deploy-set-up/disk-unlocked-win-lrg.png":::
+
+7. Repeat the unlock steps for any future disk reinserts. If you need help with the Data Box Disk unlock tool, use the `help` command as shown in the following sample code and example output.
 
     ```powershell
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
-    USAGE:
-    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
-
-    Example: DataBoxUnlock /PassKey:<your passkey>
-    Example: DataBoxUnlock /SystemCheck
-    Example: DataBoxUnlock /Help
-
-    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
-    /SystemCheck:    This option checks if your system meets the requirements to run the tool.
-    /Help:           This option provides help on cmdlet usage and examples.
-
-    PS C:\DataBoxDiskUnlockTool\DiskUnlock>
+    .\DataBoxDiskUnlock.exe /help
     ```
 
-8. Once the disk is unlocked, you can view the contents of the disk.
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlock-help.png" alt-text="Screenshot showing the output fo the Data Box Unlock tool's Help sommand." lightbox="media/data-box-disk-deploy-set-up/disk-unlock-help-lrg.png":::
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+8. After the disk is unlocked, you can view the contents of the disk.
+
+    :::image type="content" source="media/data-box-disk-deploy-set-up/data-box-disk-content.png" alt-text="Screenshot showing the contents of the unlocked Data Box Disk." lightbox="media/data-box-disk-deploy-set-up/data-box-disk-content-lrg.png":::
 
     > [!NOTE]
     > Don't format or modify the contents or existing file structure of the disk.
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
 
-
+<!--
 This is the end.
 
 
@@ -217,6 +202,8 @@ Perform the following steps to connect to and unlock your self-encrypted Data Bo
     > Don't format or modify the contents or existing file structure of the disk.
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
+
+-->
 
 ### [Linux](#tab/linux)
 
@@ -452,7 +439,9 @@ Perform the following steps to connect and unlock Data Box disks on a Linux-base
     sudo ./DataBoxDiskUnlock_x86_64 /Unmount  /sed
     ```
 
-    The following example output confirms that the volume unmounted successfully.    
+    The following example output confirms that the volume unmounted successfully.
+1. Waiting additional step 10 data from Shashank
+1. Waiting additional step 11 data from Shashank
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md).
 
