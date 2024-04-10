@@ -67,7 +67,7 @@
         href: how-to-onboard-a-cnf-using-the-azure-cli.md
       - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
         href: how-to-onboard-a-vnf-using-the-azure-cli.md
-      - name: Use Helm option parameters to debug installation failures
+      - name: Use Helm option parameters to prevent Containerized Network Function (CNF) deletion on install failure
         href: how-to-use-helm-option-parameters.md
       - name: Onboard Azure Resource Manager (ARM) resources using the Azure Operator Service Manager (AOSM) CLI Extension
         href: how-to-onboard-arm-resources-using-the-azure-cli.md
