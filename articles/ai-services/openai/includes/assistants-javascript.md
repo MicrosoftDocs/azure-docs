@@ -208,10 +208,10 @@ import "dotenv/config";
 // }
 
 // Not recommended - for local demo purposes only
-const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY as string;
-const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
+const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY;
+const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
 const credential = new AzureKeyCredential(azureOpenAIKey);
-const getClient = (): AssistantsClient => {
+const getClient = () => {
   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
   return assistantsClient;
 }
