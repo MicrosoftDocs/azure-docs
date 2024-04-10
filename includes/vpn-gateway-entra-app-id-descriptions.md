@@ -19,7 +19,7 @@ When using the Azure VPN client first-party App ID, consider the following:
 
 * The Azure VPN client for Linux is a newly released client and supports only first-party application App ID (not third-party).
 
-* At this time, the Azure VPN client for Linux is the only version of the Azure VPN client that supports the first-party App ID. An annoucement will be made when we release versions that support first-party App ID for other operating systems.
+* At this time, the Azure VPN client for Linux is the only version of the Azure VPN client that supports the first-party App ID. An announcement will be made when we release versions that support first-party App ID for other operating systems.
 
 * Azure Government, Azure Germany, and Azure operated by China 21Vianet aren't currently supported for first-party App ID.
 
