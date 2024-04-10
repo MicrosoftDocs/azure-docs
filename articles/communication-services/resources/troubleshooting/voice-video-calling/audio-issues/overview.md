@@ -13,13 +13,13 @@ ms.subservice: calling
 ---
 
 # Overview of audio issues
-Audio quality is important in conference calls. If any participants on a call can not hear each other well enough, then the participants likely leave the call.
+Audio quality is important in conference calls. If any participants on a call can’t hear each other well enough, then the participants likely leave the call.
 To establish a voice call with good quality, several factors must be considered. These factors include:
 
 - The users granted the microphone permission
 - The users microphone is working properly
-- The network condition are good enough on sending and receiving ends
-- The audio output level is fonctioning properly
+- The network conditions are good enough on sending and receiving ends
+- The audio output level is functioning properly
 
 All of these factors are important from an end-to-end perspective.
 
@@ -45,8 +45,8 @@ Here we list several common audio issues, along with potential causes for each i
 * Other network issues.
 
 ### The user experiences echo during the call
-* The browser's acoustic echo canceller isn't able to remove the echo on the audio sender's side.
+* The browser's acoustic echo canceler isn't able to remove the echo on the audio sender's side.
 
 ### The volume of the incoming audio is low
-* The volume of the outgoing audio is low on the sender's side.
+* There's a low volume of outgoing audio on the sender's side.
 * There's an issue with the speaker or audio volume settings on the receiver's side
