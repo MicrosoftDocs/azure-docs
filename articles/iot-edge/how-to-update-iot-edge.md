@@ -11,7 +11,10 @@ services: iot-edge
 
 # Update IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+**Applies to:** ![IoT Edge 1.5 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.5 ![IoT Edge 1.4 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.4
+
+> [!IMPORTANT]
+> IoT Edge 1.5 LTS and IoT Edge 1.4 LTS are [supported releases](../support.md#releases). IoT Edge 1.4 LTS is end of life on November 12, 2024.
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
