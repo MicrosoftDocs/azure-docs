@@ -144,13 +144,13 @@ The natively integrated vector database in our NoSQL API will become available i
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](ai-advantage.md)
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-## More Vector Databases
+## More Vector Stores
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
-- [Azure AI Search](../search/search-what-is-azure-search.md)
+- [Azure AI Search](../search/vector-store.md)
 - [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)
