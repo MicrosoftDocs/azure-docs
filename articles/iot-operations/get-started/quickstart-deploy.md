@@ -300,7 +300,7 @@ If you want to delete the Azure IoT Operations deployment but plan on reinstalli
 
 1. In your resource group in the Azure portal, select your cluster.
 1. On your cluster resource page, select **Extensions**.
-1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. You don't need to uninstall the secrest provider extension:
+1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. You don't need to uninstall the secrets provider extension:
 
     :::image type="content" source="media/quickstart-deploy/uninstall-extensions.png" alt-text="Screenshot that shows the extensions to uninstall.":::
 
