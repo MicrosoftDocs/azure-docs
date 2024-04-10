@@ -16,7 +16,7 @@ ms.subservice: calling
 High round trip time and high jitter buffer delay are the most common causes of audio delay.
 
 There are several reasons that can cause high round trip time.
-Besides the long distance or many hops between two endpoints, one common reason is network congestion, which occurs when the network is overloaded with traffic. In case of congestion, network packets wait in a queue for a long time.
+Besides the long distance or many hops between two endpoints, one common reason is network congestion, which occurs when the network is overloaded with traffic. If there is congestion, network packets wait in a queue for a long time.
 Another possible reason is a high number of packets resend at the `TCP` layer if the client uses `TCP` or `TLS` relay. A high resend number can occur when packets are lost or delayed in transit.
 In addition, the physical medium used to transmit data can also affect the round trip time. For example, Wi-Fi usually has higher network latency than Ethernet, which can lead to higher round trip times.
 
