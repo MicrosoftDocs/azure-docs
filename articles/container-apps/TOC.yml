@@ -190,6 +190,8 @@
   items:
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Token store
+      href: token-store.md
     - name: Managed identities
       items:
         - name: Use managed identities
