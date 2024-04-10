@@ -26,3 +26,7 @@
     items:
     - name: Trusted Signing trust models
       href: concept-trusted-signing-trust-models.md
+    - name: Trusted Signing resources and roles
+      href: concept-trusted-signing-resources-roles.md
+    - name: Trusted Signing certificate management
+      href: concept-trusted-signing-cert-management.md
