@@ -17,7 +17,7 @@ ms.date: 03/29/2024
 
 This article identifies the known issues and when applicable their workarounds in Azure Arc site manager.
 
-The release notes are continuously updated, and as critical issues are discovered, they're added. 
+The release notes are continuously updated, and as critical issues are discovered, they're added.  
 
 > [!IMPORTANT]
 > This release is the first iteration of Public Preview and represents what is currently possible in Azure Arc site manager.
