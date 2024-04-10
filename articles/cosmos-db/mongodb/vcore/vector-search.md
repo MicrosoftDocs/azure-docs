@@ -1,7 +1,7 @@
 ---
-title: Integrated vector database
+title: Vector store
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Use integrated vector database in Azure Cosmos DB for MongoDB vCore to enhance AI-based applications.
+description: Use vector store in Azure Cosmos DB for MongoDB vCore to enhance AI-based applications.
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
@@ -17,11 +17,11 @@ ms.date: 11/1/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Use the vector database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to alternative vector databases and incur additional costs.
+Use the vector database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore, along with the original data from which the vector data are created. It eliminates the need to transfer your data to alternative vector stores and incur additional costs.
 
-## What is a vector database?
+## What is a vector database or vector store?
 
-A [vector database](../../vector-database.md) is a database designed to store and manage vector embeddings, which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. Vector search is used to query these embeddings.
+A [vector database](../../vector-database.md) is a database designed to store and manage vector embeddings, which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. Vector search algorithms are used to index and query these embeddings.
 
 ## What is vector search?
 
