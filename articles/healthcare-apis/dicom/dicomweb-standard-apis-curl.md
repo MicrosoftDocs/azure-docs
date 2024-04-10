@@ -207,7 +207,7 @@ curl --request PUT "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 > [!NOTE]
 > This is a non-standard API that allows the upsert of a single DICOM files. 
 
-The following method is required to upload a single DICOM file.
+Use this method to upload a single DICOM file:
 
 _Details:_
 * Path: ../studies
