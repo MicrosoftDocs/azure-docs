@@ -553,7 +553,7 @@
               href: csi-migrate-in-tree-volumes.md
         - name: Block storage
           items:
-              - name: Provision Azure Disks storage
+              - name: Provision Azure Disk storage
                 href: azure-csi-disk-storage-provision.md
               - name: Azure Disks CSI driver
                 href: azure-disk-csi.md
@@ -563,6 +563,8 @@
                 href: use-ultra-disks.md
               - name: Bring your own keys for disks
                 href: azure-disk-customer-managed-keys.md
+              - name: Move an Azure Disk to a different subscription
+                href: csi-disk-move-subscriptions.md
               - name: Azure Container Storage 
                 href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
