@@ -94,7 +94,7 @@ import json
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -365,7 +365,7 @@ We had requested that the model generate an image of a sine wave. In order to do
 
 ```python
 data = json.loads(messages.model_dump_json(indent=2))  # Load JSON data into a Python object
-image_file_id = data['data'][1]['content'][0]['image_file']['file_id']
+image_file_id = data['data'][0]['content'][0]['image_file']['file_id']
 
 print(image_file_id)  # Outputs: assistant-1YGVTvNzc2JXajI5JU9F0HMD
 ```
@@ -868,7 +868,7 @@ When annotations are present in the Message content array, you'll see illegible 
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )

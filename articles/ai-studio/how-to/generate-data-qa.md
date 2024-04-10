@@ -22,14 +22,14 @@ In this article, you learn how to get question and answer pairs from your source
 ## Install the Synthetics Package
 
 ```shell
-python --version  # ensure you've >=3.8
+python --version  # use version 3.8 or later
 pip3 install azure-identity azure-ai-generative
 pip3 install wikipedia langchain nltk unstructured
 ```
 
-## Connect to Azure Open AI
+## Connect to Azure OpenAI
 
-We need to connect to Azure Open AI so that we can access the LLM to generate data for us.
+We need to connect to Azure OpenAI so that we can access the LLM to generate data for us.
 
 ```python
 from azure.ai.resources.client import AIClient 
@@ -175,7 +175,7 @@ To use the `generated_qa.jsonl` file for evaluation, you need to add this file a
 
 ## Generate data from files
 
-Generating data from files might be more practical for large amounts of data. You can use the `generate_async()` function OF THE `QADataGenerator` to make concurrent requests to Azure Open AI for generating data from files.
+Generating data from files might be more practical for large amounts of data. You can use the `generate_async()` function OF THE `QADataGenerator` to make concurrent requests to Azure OpenAI for generating data from files.
 
 Files might have large texts that go beyond model's context lengths. They need to be split to create smaller chunks. Moreover, they shouldn't be split mid-sentence. Such partial sentences might lead to improper QA samples. You can use LangChain's `NLTKTextSplitter` to split the files before generating data.
 

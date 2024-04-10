@@ -28,7 +28,7 @@ Use this tier if any of the following statements is true:
 * You require HTTP communication rates greater than 5 MB/s for ingress and egress using pull delivery or push delivery. Event Grid currently supports up to 40 MB/s for ingress and 80 MB/s for egress for events published to namespace topics (HTTP). MQTT supports a throughput rate of 40 MB/s for publisher and subscriber clients.
 * You require CloudEvents retention of up to 7 days.
 
-For more information, see quotas and limits for [namespaces](quotas-limits.md#namespace-resource-limits).
+For more information, see quotas and limits for [namespaces](quotas-limits.md#event-grid-namespace-resource-limits).
 
 ## Event Grid basic tier
 

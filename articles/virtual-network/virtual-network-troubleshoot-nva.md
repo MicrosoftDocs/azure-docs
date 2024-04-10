@@ -4,7 +4,6 @@ description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and va
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: troubleshooting
 ms.date: 10/26/2018

@@ -12,7 +12,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: apache-cassandra
   ms.topic: landing-page
-  ms.date: 02/28/2023
+  ms.date: 02/21/2024
 landingContent:
   - title: About API for Cassandra
     linkLists:
@@ -82,5 +82,5 @@ landingContent:
         links:
           - text: Migrate from PostgreSQL using Apache Kafka
             url: postgres-migrate-cosmos-db-kafka.md
-          - text: Migrate from Oracle DB to API for Striim
+          - text: Migrate from Oracle Database to API for Striim
             url: migrate-data-striim.md

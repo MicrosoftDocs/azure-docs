@@ -14,10 +14,7 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
-Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
+Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md).
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure AI Speech [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/ai-services/speech-service/context/context).
@@ -109,7 +106,7 @@ For Java embedded applications, add [client-sdk-embedded](https://mvnrepository.
 Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. Install [Apache Maven](https://maven.apache.org/install.html).
-1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
+1. Open a command prompt where you want the new project, and create a new `pom.xml` file.
 1. Copy the following XML content into `pom.xml`:
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -134,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.35.0</version>
+            <version>1.37.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -155,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.35.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.37.0@aar'
 }
 ```
 ::: zone-end
@@ -167,13 +164,13 @@ For embedded speech, you need to download the speech recognition models for [spe
 
 The following [speech to text](speech-to-text.md) models are available: da-DK, de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, pt-PT, zh-CN, zh-HK, and zh-TW.
 
-All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices.
 
 ## Embedded speech configuration
 
-For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you download to your local device. 
+For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you download to your local device.
 
-Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -186,7 +183,7 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
 // For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     Environment.GetEnvironmentVariable("MODEL_KEY"));
 
 // For text to speech
@@ -211,7 +208,7 @@ auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
 // For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     GetEnvironmentVariable("MODEL_KEY"));
 
 // For text to speech
@@ -234,7 +231,7 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
 // For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     System.getenv("MODEL_KEY"));
 
 // For text to speech

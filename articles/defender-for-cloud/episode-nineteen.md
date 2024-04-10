@@ -27,15 +27,16 @@ ms.date: 04/27/2023
 - [08:22](/shows/mdc-in-the-field/defender-for-devops#time=08m22s) -  Demonstration
 
 ## Recommended resources
-  - [Learn more](./defender-for-devops-introduction.md) about Defender for DevOps.
-  - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-  - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
-  - For more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- [Learn more](./defender-for-devops-introduction.md) about Defender for DevOps
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
-     - [Twitter](https://twitter.com/msftsecurity)
+  - [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
+  - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

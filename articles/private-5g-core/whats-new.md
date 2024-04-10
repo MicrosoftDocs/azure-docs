@@ -17,10 +17,75 @@ ms.date: 12/21/2023
 
 To help you stay up to date with the latest developments, this article covers:
 
-- New features, improvements and fixes for the online service.
+- New features, improvements, and fixes for the online service.
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
+
+## April 2024
+### Packet core 2403
+
+**Type:** New release
+
+**Date available:** April 4, 2024
+
+The 2403 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2403 release notes](azure-private-5g-core-release-notes-2403.md).
+
+### TCP Maximum Segment Size (MSS) Clamping
+
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+
+### Improved Packet Core Scaling 
+
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario. 
+The following table lists the new maximum supported limits.
+
+| Element                | Maximum supported |
+|------------------------|-------------------|
+| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
+| Bandwidth              | Over 25 Gbps per ASE |
+| RAN nodes (eNB/gNB)    | 200 per packet core |
+| Active UEs             | 10,000 per deployment (all sites) |
+| SIMs                   | 20,000 per ASE |
+| SIM provisioning       | 10,000 per JSON file via Azure portal, 4 MB per REST API call  |
+
+For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
+
+## March 2024
+
+### Azure Policy support
+
+**Type:** New feature
+
+**Date available:** March 26, 2024
+
+You can now use [Azure Policy](../governance/policy/overview.md) to enforce security-related settings in your AP5GC deployment. Azure Policy allows you to ensure compliance with organizational standards across supported Azure services. AP5GC has built-in policy definitions for:
+
+- using Microsoft Entra ID to access local monitoring tools
+- using customer-managed keys to encrypt SIM groups.
+
+See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-reference.md) for details.
+
+### SUPI concealment
+
+**Type:** New feature
+
+**Date available:** March 22, 2024
+
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). The concealment is performed by the UEs on registration, and deconcealment is performed by the packet core. You can now securely manage the required private keys through the Azure portal and provision SIMs with public keys.
+
+For more information, see [Enable SUPI concealment](supi-concealment.md).
+
+## February 2024
+### New Entra ID user role needed for distributed tracing tool
+
+**Type:** New feature
+
+**Date available:** February 21, 2024
+
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+
+See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
 
 ## December 2023
 ### Packet Capture

@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -44,7 +44,7 @@ The following sections list important terms that you see on your invoice and pro
 
 The **Invoice Summary** is at the top of the first page and shows information about your billing profile and how you pay.
 
-![Invoice summary section](./media/mca-understand-your-invoice/invoicesummary.png)
+:::image type="content" border="true" source="./media/mca-understand-your-invoice/invoicesummary.png" alt-text="Screenshot showing the Invoice summary section.":::
 
 | Term | Description |
 | --- | --- |
@@ -60,7 +60,7 @@ The **Invoice Summary** is at the top of the first page and shows information ab
 
 The **Billing Summary**  shows the charges against the billing profile since the previous billing period, any credits that were applied, tax, and the total amount due.
 
-![Billing summary section](./media/mca-understand-your-invoice/billingsummary.png)
+:::image type="content" border="true" source="./media/mca-understand-your-invoice/billingsummary.png" alt-text="Screenshot showing the Billing summary section.":::
 
 | Term | Description |
 | --- | --- |
@@ -83,7 +83,7 @@ The details show the cost for each invoice section broken down by product order.
 
 The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
-![Details by invoice section](./media/mca-understand-your-invoice/invoicesectiondetails.png)
+:::image type="content" border="true" source="./media/mca-understand-your-invoice/invoicesectiondetails.png" alt-text="Screenshot showing the details by invoice section.":::
 
 | Term |Description |
 | --- | --- |

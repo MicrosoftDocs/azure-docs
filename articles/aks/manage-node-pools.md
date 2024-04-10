@@ -4,6 +4,10 @@ description: Learn how to manage node pools for a cluster in Azure Kubernetes Se
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
+author: schaffererin
+ms.author: schaffererin
+
+ms.subservice: aks-nodes
 ---
 
 # Manage node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -205,18 +209,18 @@ As your workload demands change, you can associate existing capacity reservation
     ```
 - You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
 - Create a new cluster and assign the newly created identity.
-    ```azurecli-interactive
-        az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
-              --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-              --assign-identity $IDENTITY_ID --enable-managed-identity         
-    ```
+  ```azurecli-interactive
+    az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+        --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+        --assign-identity $IDENTITY_ID --enable-managed-identity         
+  ```
 - You can also assign the user-managed identity on an existing managed cluster with update command.
 
-   ```azurecli-interactive
-      az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
-              --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-              --assign-identity $IDENTITY_ID --enable-managed-identity         
-     ```
+  ```azurecli-interactive
+    az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+            --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+            --assign-identity $IDENTITY_ID --enable-managed-identity         
+  ```
 
 ### Associate an existing capacity reservation group with a node pool
 
@@ -579,3 +583,4 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [use-tags]: use-tags.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+

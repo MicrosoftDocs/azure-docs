@@ -3,7 +3,10 @@ title: Best practices for network resources in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 
 ---
 
@@ -81,7 +84,7 @@ Since you don't create the virtual network and subnets separately from the AKS c
 * Simple websites with low traffic.
 * Lifting and shifting workloads into containers.
 
-For most production deployments, you should plan for and use Azure CNI networking.
+For production deployments, both kubenet and Azure CNI are valid options. Environments which require separation of control and management, Azure CNI may the preferred option.  Additionally, kubenet is suited for Linux only environments where IP address range conservation is a priority.
 
 You can also [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking]. Like Azure CNI networking, these address ranges shouldn't overlap each other or any networks associated with the cluster (virtual networks, subnets, on-premises and peered networks).
 
@@ -145,15 +148,17 @@ An *ingress controller* is a daemon that runs on an AKS node and watches for inc
 
 Ingress controllers must be scheduled on a Linux node. Indicate that the resource should run on a Linux-based node using a node selector in your YAML manifest or Helm chart deployment. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
 
-> [!NOTE]
-> Windows Server nodes shouldn't run the ingress controller.
+## Ingress with the application routing addon
 
-There are many scenarios for ingress, including the following how-to guides:
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed, ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
-* Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
+
+* Integration with Azure DNS for public and private zone management.
+
+* SSL termination with certificates stored in Azure Key Vault.
+
+For more information about the application routing add-on, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ## Secure traffic with a web application firewall (WAF)
 
@@ -240,14 +245,10 @@ This article focused on network connectivity and security. For more information 
 [sp-delegation]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [expressroute]: ../expressroute/expressroute-introduction.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-[aks-ingress-internal]: ingress-internal-ip.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+

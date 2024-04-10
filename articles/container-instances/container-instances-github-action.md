@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 12/09/2022
-ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Configure a GitHub Action to create a container instance
@@ -249,11 +249,11 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
         - name: 'Build and push image'
-          uses: azure/docker-login@v1
+          uses: docker/login-action@v3
           with:
-            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            username: ${{ secrets.REGISTRY_USERNAME }}
-            password: ${{ secrets.REGISTRY_PASSWORD }}
+            registry: <registry-name>.azurecr.io
+            username: ${{ secrets.AZURE_CLIENT_ID }}
+            password: ${{ secrets.AZURE_CLIENT_SECRET }}
         - run: |
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}

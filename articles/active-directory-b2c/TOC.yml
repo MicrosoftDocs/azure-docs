@@ -547,6 +547,9 @@
             href: partner-whoiam.md
           - name: xID
             href: partner-xid.md
+      - name: Enable CAPTCHA
+        href: add-captcha.md
+        displayName: Completely Automated Public Turing Tests to Tell Computer and Human Apart, HIP, Human Interactive Proofs 
       - name: Web Application Firewall partners
         items:
         - name: Akamai
@@ -714,6 +717,8 @@
           href: display-control-verification.md
         - name: Time-based one-time password (TOTP)
           href: display-control-time-based-one-time-password.md
+        - name: CAPTCHA verification
+          href: display-control-captcha.md
     - name: ClaimsProviders
       href: claimsproviders.md
       items:
@@ -761,6 +766,9 @@
         - name: SSO session
           href: custom-policy-reference-sso.md
           displayName: single sign-on
+        - name: CAPTCHA
+          href: captcha-technical-profile.md
+          displayName: CAPTCHA challenge, Completely Automated Public Turing Tests to Tell Computer and Human Apart
     - name: UserJourneys
       href: userjourneys.md
     - name: SubJourneys

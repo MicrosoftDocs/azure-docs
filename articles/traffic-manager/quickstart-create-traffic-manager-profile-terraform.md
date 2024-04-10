@@ -10,6 +10,7 @@ ms.author: tarcher
 ms.date: 6/8/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Traffic Manager profile using Terraform

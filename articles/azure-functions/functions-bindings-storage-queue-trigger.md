@@ -41,6 +41,8 @@ Use the queue trigger to start a function when a new item is received on a queue
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 # [Isolated worker model](#tab/isolated-process)
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
@@ -96,7 +98,7 @@ The [usage](#usage) section explains `queueItem`. The [message metadata section]
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -210,7 +212,7 @@ app = func.FunctionApp()
 @app.function_name(name="QueueFunc")
 @app.queue_trigger(arg_name="msg", queue_name="inputqueue",
                    connection="storageAccountConnectionString")  # Queue trigger
-@app.write_queue(arg_name="outputQueueItem", queue_name="outqueue",
+@app.queue_output(arg_name="outputQueueItem", queue_name="outqueue",
                  connection="storageAccountConnectionString")  # Queue output binding
 def test_function(msg: func.QueueMessage,
                   outputQueueItem: func.Out[str]) -> None:
@@ -414,7 +416,7 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp"  
 
-The usage of the Queue trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The usage of the Queue trigger depends on the extension package version, and the C# modality used in your function app, which can be one of these modes:
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -432,7 +434,7 @@ Choose a version to see usage details for the mode and version.
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs). You can bind to any of the following types:
 
-* Plain-old CLR object (POCO)
+* Plain-old .NET CLR object (POCO)
 * `string`
 * `byte[]`
 * [QueueMessage]
@@ -460,7 +462,7 @@ When binding to an object, the Functions runtime tries to deserialize the JSON p
 
 # [Extension 2.x+](#tab/extensionv2/isolated-process)
 
-Earlier versions of this extension in the isolated worker process only support binding to strings. Additional options are available to **Extension 5.x+**.
+Earlier versions of this extension in the isolated worker process only support binding to strings. More options are available to **Extension 5.x+**.
 
 ---
 ::: zone-end  
@@ -537,15 +539,11 @@ To handle poison messages manually, check the [dequeueCount](#message-metadata) 
 
 ## Peek lock
 
-The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a 10-minute timeout managed by the Storage service. This timeout can't be changed.  
+The peek-lock pattern happens automatically for queue triggers, using the visibility mechanics provided by the storage service. As messages are dequeued by the triggered function, they're marked as invisible. Execution of a queue triggered function can have one of these results on message in the queue:
 
-When the function starts, it starts processing a message under the following conditions.
-
-- If the function is successful, then the function execution completes and the message is deleted.
-- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message.
-- If the function never completes due to a crash, the message visibility expires and the message re-appears in the queue.
-
-All of the visibility mechanics are handled by the Storage service, not the Functions runtime.
+- Function execution completes successfully and the message is deleted from the queue.
+- Function execution fails and the Functions host updates the visibility of the message based on the `visibilityTimeout` [setting in the host.json file](./functions-bindings-storage-queue.md#host-json). The default visibility timeout is zero, which means that the message immediately reappears in the queue for reprocessing. Use the `visibilityTimeout` setting to delay the reprocessing of messages that fail to process. This timeout setting applies to all queue triggered functions in the function app.
+- The Functions host crashes during function execution. When this uncommon event occurs, the host can't apply the `visibilityTimeout` to the message being processed. Instead, the message is left with the default 10 minute timeout set by the storage service. After 10 minutes, the message reappears in the queue for reprocessing. This service-defined default timeout can't be changed.   
 
 ## Polling algorithm
 
@@ -553,19 +551,19 @@ The queue trigger implements a random exponential back-off algorithm to reduce t
 
 The algorithm uses the following logic:
 
-- When a message is found, the runtime waits 100 milliseconds and then checks for another message
+- When a message is found, the runtime waits 100 milliseconds and then checks for another message.
 - When no message is found, it waits about 200 milliseconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
 - The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
-For local development the maximum polling interval defaults to two seconds.
+During local development, the maximum polling interval defaults to two seconds.
 
 > [!NOTE]
 > In regards to billing when hosting function apps in the Consumption plan, you are not charged for time spent polling by the runtime.
 
 ## Concurrency
 
-When there are multiple queue messages waiting, the queue trigger retrieves a batch of messages and invokes function instances concurrently to process them. By default, the batch size is 16. When the number being processed gets down to 8, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function on one virtual machine (VM) is 24. This limit applies separately to each queue-triggered function on each VM. If your function app scales out to multiple VMs, each VM will wait for triggers and attempt to run functions. For example, if a function app scales out to 3 VMs, the default maximum number of concurrent instances of one queue-triggered function is 72.
+When there are multiple queue messages waiting, the queue trigger retrieves a batch of messages and invokes function instances concurrently to process them. By default, the batch size is 16. When the number being processed gets down to 8, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function on one virtual machine (VM) is 24. This limit applies separately to each queue-triggered function on each VM. If your function app scales out to multiple VMs, each VM waits for triggers and attempt to run functions. For example, if a function app scales out to 3 VMs, the default maximum number of concurrent instances of one queue-triggered function is 72.
 
 The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM).
 

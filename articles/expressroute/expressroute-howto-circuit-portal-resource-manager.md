@@ -43,11 +43,17 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
 1. Select the **Subscription** and **Resource Group** for the circuit. Then select the type of **Resiliency** for your setup.
 
-    **Maximum Resiliency** - This option provides the highest level of resiliency for your ExpressRoute circuit. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute locations.
+    **Maximum Resiliency (Recommended)** - This option provides the highest level of resiliency for your ExpressRoute connectivity. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute locations.
+
+    > [!NOTE]
+    > Maximum Resiliency provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for all critical and production workloads.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
     **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
+    
+    > [!NOTE]
+    > Standard Resiliency does not provide protection against location wide outages. This option is suitable for non-critical and non-production workloads.
     
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of standard resiliency for an ExpressRoute connection.":::
 
@@ -67,7 +73,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     | Provider (Provider port type)| Select the internet service provider who you are requesting your service from. |
     | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
 
     > [!IMPORTANT]
@@ -75,9 +81,13 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
-    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
+    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you're provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
+
+    **High Resiliency**
+
+    For high resiliency, select one of the supported ExpressRoute Metro service providers and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](metro.md).
 
     **Standard Resiliency**
 
@@ -122,7 +132,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
     | Provider | Select the internet service provider who you are requesting your service from. |
     | Peering Location | Select the physical location where you're peering with Microsoft. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
     | Allow classic operations | Enable this option to allow classic virtual networks to link to the circuit. |
 
