@@ -6,7 +6,8 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 04/10/2024
- ms.author: mattmcinnes
+ ms.author: jainan
+ ms.reviewer: mattmcinnes
  ms.custom: include file
 ---
 
