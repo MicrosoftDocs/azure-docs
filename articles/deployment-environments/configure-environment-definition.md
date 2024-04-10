@@ -108,7 +108,7 @@ runner: Terraform
 If you created your own Terraform image and are storing it in a different registry, you can edit the runner property to specify the location that image, as shown in the following example:
 
 ```yaml
-runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 
