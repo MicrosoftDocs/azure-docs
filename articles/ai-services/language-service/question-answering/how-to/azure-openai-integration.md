@@ -74,4 +74,4 @@ At the same time, customers often require a custom answer authoring experience t
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
-* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
+* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md)
