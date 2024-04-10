@@ -159,7 +159,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully:
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
