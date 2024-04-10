@@ -20,6 +20,9 @@ Azure HDInsight Open known issues:
 |---------------------|-------------------|
 | Kafka | [Kafka 2.4.1 validation error in ARM templates](./kafka241-validation-error-arm-templates.md) |
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
+| Platform | [Switch users through the Ambari UI](./hdinsight-known-issues-ambari-users-cache.md)|
+
+
 
 
 

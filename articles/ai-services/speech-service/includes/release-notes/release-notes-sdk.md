@@ -13,6 +13,23 @@ ms.author: eur
 
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04.
 
+### Speech SDK 1.37.0: 2024-April release
+
+####  New features
+
+* Add support for input text streaming in speech synthesis.
+* Change the default speech synthesis voice to en-US-AvaMultilingualNeural.
+* Update Android builds to use OpenSSL 3.x.
+
+####  Bug fixes
+
+* Fix occasional JVM crashes during SpeechRecognizer dispose when using MAS. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2125)
+* Improve detection of default audio devices on Linux. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2292)
+
+####  Samples
+
+* Updated for new features.
+
 ### Speech SDK 1.36.0: 2024-March release
 
 ####  New features

@@ -95,7 +95,7 @@ You can add a Microsoft Teams user to the call using the `addParticipant` method
 
 ```typescript
 await acsClient.getCallConnection(callConnectionId).addParticipant({
-    targetParticipant: { microsoftTeamsUserId: TARGET_TEAMS_USER_ID },
+    targetParticipant: { microsoftTeamsUserId: process.env.TARGET_TEAMS_USER_ID },
     sourceDisplayName: "Jack (Contoso Tech Support)"
 });
 ```
