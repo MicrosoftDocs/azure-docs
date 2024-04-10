@@ -44,7 +44,7 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [C# quickstart](includes/assistants-javascript.md)]
+[!INCLUDE [JavaScript quickstart](includes/assistants-javascript.md)]
 
 ::: zone-end
 
