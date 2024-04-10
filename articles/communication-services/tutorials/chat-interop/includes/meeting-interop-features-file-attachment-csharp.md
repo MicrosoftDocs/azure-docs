@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
+Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
 
 ## Prerequisites 
 
@@ -18,11 +18,6 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
 * You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.5.0-beta.1 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
-
-## Goal
-
-1. Be able to render file attachment in the message thread. Each file attachment card has an "Open" button.
-2. Be able to render image attachments as inline images.
 
 ## Handle file attachments
 
@@ -62,7 +57,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back to event handler we have created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `attachmentType` of `file`: 
+Now let's go back to event handler we have created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `ChatAttachmentType` of `file`: 
 
 ```csharp
 
@@ -99,14 +94,33 @@ That's all we need to do to handle file attachments.
 
 ## Handle image attachments
 
-Image attachments need to be treated differently to standard `file` attachments. Image attachment have the `attachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
+Image attachments need to be treated differently to standard `file` attachments. Image attachment have the `ChatAttachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
 
-Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
+Please go over the tutorial [Enabling inline image support](../meeting-interop-features-inline-image.md) first. To identity image attachments, we need to check if message content contains the same image ID from the attachments.
 
-Now you're familiar with how inline images work and it's easy to render image attachments just like a regular inline image. 
-
+```csharp
+bool isImageAttachment = message.Content.Message.Contains(x.Id);
 ```
 
+if this flag is true, then we should apply inline image logic to render it:
+
+```csharp
+IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
+// Fetch image and render
+var chatAttachmentImageUris = new List<Uri>();
+foreach (ChatAttachment imageAttachment in imageAttachments)
+{
+    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", communicationTokenCredential.GetToken().Token);
+    var response = await client.GetAsync(imageAttachment.PreviewUri);
+    var randomAccessStream = await response.Content.ReadAsStreamAsync();
+    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+    {
+        var bitmapImage = new BitmapImage();
+        await bitmapImage.SetSourceAsync(randomAccessStream.AsRandomAccessStream());
+        InlineImage.Source = bitmapImage;
+    });
+    chatAttachmentImageUris.Add(imageAttachment.PreviewUri);
+}
 ```
 
 
