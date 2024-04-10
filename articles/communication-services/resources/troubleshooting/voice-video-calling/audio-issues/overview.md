@@ -13,13 +13,13 @@ ms.subservice: calling
 ---
 
 # Overview of audio issues
-Voice calling quality is an extremely important function in conference calls. If any participants on a call can not hear each other well enough then the participants on the call will likely leave the call
-To establish a voice call with good quaclity, several factors must be considered. These factors include:
+Audio quality is important in conference calls. If any participants on a call can not hear each other well enough, then the participants likely leave the call.
+To establish a voice call with good quality, several factors must be considered. These factors include:
 
-- The users have given the proper permisson that a microphone can be used.
-- Proper workikng microphone.
-- Good network connection on both the sending and receiving ends.
-- Proper functioning audo level output.
+- The users granted the microphone permission
+- The users microphone is working properly
+- The network condition are good enough on sending and receiving ends
+- The audio output level is fonctioning properly
 
 All of these factors are important from an end-to-end perspective.
 
