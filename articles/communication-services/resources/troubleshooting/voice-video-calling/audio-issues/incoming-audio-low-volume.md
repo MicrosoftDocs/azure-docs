@@ -22,7 +22,7 @@ The [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk
 
 To check the audio output level, you can look at `audioOutputLevel` value, which ranges from 0 to 65536.
 This value is derived from `audioLevel` in WebRTC Stats. [https://www.w3.org/TR/webrtc-stats/#dom-rtcinboundrtpstreamstats-audiolevel](https://www.w3.org/TR/webrtc-stats/#dom-rtcinboundrtpstreamstats-audiolevel)
-If the `audioOutputLevel` value is low, it indicates that the volume sent by the sender is also low.
+A low `audioOutputLevel` value indicates that the volume sent by the sender is also low.
 
 ## How to mitigate or resolve
 If the `audioOutputLevel` value is low, this is likely that the volume sent by the sender is also low.
