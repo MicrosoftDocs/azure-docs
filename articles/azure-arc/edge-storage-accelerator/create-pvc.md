@@ -34,8 +34,8 @@ This size does not affect the ceiling of blob storage used in the cloud to suppo
                storage: 5Gi 
        storageClassName: esa
        volumeMode: Filesystem
-       ### This name is from your PV config ###
-       volumeName: INSERT_NAME_FROM_PV
+       ### This name is referencing your PV name in your PV config ###
+       volumeName: INSERT_YOUR_PV_NAME
    status: 
        accessModes: 
            - ReadWriteMany 

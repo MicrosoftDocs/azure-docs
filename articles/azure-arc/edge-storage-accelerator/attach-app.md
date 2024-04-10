@@ -149,7 +149,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 1. Run the following command and replace `POD_NAME_HERE` with your copied value from the previous step:
 
    ```bash
-   kubectl exec -it POD_NAME_HERE bash
+   kubectl exec -it POD_NAME_HERE -- bash
    ```
 
 1. Change directories into the `/mnt/blob` mount path as specified from your `configPod.yaml`.
