@@ -139,8 +139,3 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-11-15-pr
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
 
 [!INCLUDE [clean up environment variables](../../../includes/clean-up-variables.md)]
-
-## Next steps
-
-* [Language detection language support](../../language-support.md)
-* [How to call the API](../../how-to/call-api.md)
