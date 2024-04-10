@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 03/21/2024
+ms.date: 04/10/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -26,7 +26,6 @@ Microsoft.MobilePacketCore/nrfDeployments
 Microsoft.MobilePacketCore/nssfDeployments 
 Microsoft.MobilePacketCore/upfDeployments 
 Microsoft.MobilePacketCore/observabilityServices 
-
 
 ## Related content
 
