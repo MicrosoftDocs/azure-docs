@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 04/09/2024
+ms.date: 04/10/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -67,6 +67,7 @@ To ensure security and compliance, RO commands must adhere to the following spec
 - Only one `show` command at a time can be used on a specific device.
 -  You can run the `show` command on another CLI window in parallel.
 - You can run a `show` command on different devices at the same time.
+- Cable validation supports both 4 rack and 8 rack BOMs.
 
 ## Troubleshoot using read-only commands
 
