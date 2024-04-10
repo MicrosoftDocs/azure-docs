@@ -4,7 +4,7 @@ description: This article answers common questions about Azure VM disaster recov
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 02/27/2024
+ms.date: 04/10/2024
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -65,6 +65,10 @@ Currently, in the portal, you can only select an automation account in the same 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
 Yes, you can delete it if you don't need it.
+
+### Does upgrading kernel firmware on a server protected by Azure Site Recovery for disaster recovery have any impact?
+
+No, it won't have any impact on the ongoing replication because the server is already protected through Azure Site Recovery.
 
 ### Can I replicate VMs to another subscription?
 
