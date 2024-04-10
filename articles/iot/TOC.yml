@@ -56,7 +56,7 @@ items:
         href: tutorial-service.md
     - name: Embedded device development
       items:
-        - name: Connect an MXCHIP AZ3166 to Azure IoT Hub
+        - name: Connect an MXCHIP AZ3166 to IoT Hub
           href: tutorial-devkit-mxchip-az3166-iot-hub.md
         - name: Connect an STMicroelectronics B-L475E to IoT Hub
           href: tutorial-devkit-stm-b-l475e-iot-hub.md
