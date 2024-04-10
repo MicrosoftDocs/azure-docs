@@ -26,7 +26,7 @@ By default, Durable Functions uses Azure Storage as it's backing store. However,
 * The MSSQL storage provider: [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
 
 > [!NOTE]
-> These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade#manually-upgrade-the-durable-functions-extension) need to manage in their `.csproj`.
+> These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) need to manage in their `.csproj`.
 
 ## .NET isolated
 
