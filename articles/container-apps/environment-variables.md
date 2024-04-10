@@ -39,7 +39,7 @@ az containerapp create -n my-containerapp -g MyResourceGroup \
 
 ### [PowerShell](#tab/powershell)
 
-If you want to use PowerShell you have to, first, create a in-memory object called Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar using the [New-AzContainerAppEnvironmentVarObject](/powershell/module/az.app/new-azcontainerappenvironmentvarobject) PowerShell cmdlet.
+If you want to use PowerShell you have to, first, create a in-memory object called [EnvironmentVar](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar) using the [New-AzContainerAppEnvironmentVarObject](/powershell/module/az.app/new-azcontainerappenvironmentvarobject) PowerShell cmdlet.
 
 To use this cmdlet, you have to pass the name of the environment variable using the `-Name` parameter and the value using the `-Value` parameter, respectively.
 
@@ -53,7 +53,7 @@ If you want to reference a secret, you have to ensure that the secret you want t
 $envVar = New-AzContainerAppEnvironmentVarObject -Name "envVarName" -SecretRef "secretName"
 ```
 
-Then you have to create another in-memory object called Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container using the [New-AzContainerAppTemplateObject](/powershell/module/az.app/new-azcontainerapptemplateobject) PowerShell cmdlet.
+Then you have to create another in-memory object called [Container](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container) using the [New-AzContainerAppTemplateObject](/powershell/module/az.app/new-azcontainerapptemplateobject) PowerShell cmdlet.
 
 On this cmdlet, you have to pass the name of your container image (not the container app!) you desire using the `-Name` parameter, the fully qualified image name using the `-Image` parameter and reference the environment object you defined previously on the variable `$envVar`.
 
@@ -117,7 +117,7 @@ az containerapp update \
 
 ### [PowerShell](#tab/powershell)
 
-Similarly to what you need to do upon creating a new Container App you have to create an object called Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar, which is contained within a Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container. This Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container is then used with the [New-AzContainerApp](/powershell/module/az.app/new-azcontainerapp) PowerShell cmdlet.
+Similarly to what you need to do upon creating a new Container App you have to create an object called [EnvironmentVar](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar), which is contained within a [Container](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container). This [Container](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container) is then used with the [New-AzContainerApp](/powershell/module/az.app/new-azcontainerapp) PowerShell cmdlet.
 
 In this cmdlet, you only need to pass the template object you defined previously as described on the [Configuring environment variables](#configuring-environment-variables) section.
 
