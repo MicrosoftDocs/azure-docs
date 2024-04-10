@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 04/10/2024
 ms.author: alkohli
 ---
 # Erase data from your Azure Stack Edge
