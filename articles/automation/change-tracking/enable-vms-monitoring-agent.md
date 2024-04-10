@@ -67,17 +67,17 @@ This section provides detailed procedure on how you can enable change tracking o
 
 #### [Arc-enabled VMs - portal/cli](#tab/arcvms)
 
-To enable the Change Tracking and Inventory on Arc-enabled servers, Ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
+To enable the Change Tracking and Inventory on Arc-enabled servers, ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
 
-Follow the steps to associate the data collection rule to the Arc-enabled VMs:
+Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 
 1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
-1. To associate a data collection rule with Azure Arc VM, Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
+1. Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
    :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
 1. Select the data collection rule from the listing page.
-1. In the data collection rule page, select **Resources** and then select **Add**.
+1. In the data collection rule page, under **Configurations**, select **Resources** and then select **Add**.
     
    :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
     
