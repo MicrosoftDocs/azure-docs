@@ -24,8 +24,8 @@ Trusted Signing provides two primary trust models to support a wide variety of s
 - [Public-Trust](#public-trust)
 - [Private-Trust](#private-trust)
 
-[!NOTE]
-Trusted Signing was designed to support Windows Authenticode code signing and Windows Defender Application Control features in Windows with an ability to broadly support other signing and trust models beyond those Windows features. 
+>[!NOTE]
+>Subscribers to Trusted Signing aren't limited to the signing scenarios application of the trust models shared in this article. Trusted Signing was designed to support Windows Authenticode code signing and App Control for Business features in Windows with an ability to broadly support other signing and trust models beyond Windows. 
 
 ## Public-Trust
 
