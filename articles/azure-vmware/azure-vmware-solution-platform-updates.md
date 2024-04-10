@@ -11,6 +11,10 @@ ms.date: 3/27/2024
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
 
+## April 2024
+
+Azure VMware Solution Stretched Clusters is now generally available in the East US region. [Learn more](architecture-stretched-clusters.md)
+
 ## March 2024
 
 Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
