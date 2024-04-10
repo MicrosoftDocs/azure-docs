@@ -41,8 +41,6 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Deploy a container group - Docker Compose
-      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
