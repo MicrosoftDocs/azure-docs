@@ -1,30 +1,48 @@
 ---
-title: What is a connected registry
-description: Overview and scenarios of the connected registry feature of Azure Container Registry
+title: What is a Connected Registry
+description: Overview and scenarios of the Connected Registry feature of Azure Container Registry, including its benefits and use cases.
 ms.author: jeburke
 ms.service: container-registry
 ms.topic: overview
 ms.date: 10/31/2023
 ms.custom: references_regions
+#customer intent: As a reader, I want to understand the overview and scenarios of the connected registry feature of Azure Container Registry so that I can utilize it effectively.
 ---
 
-# What is a connected registry? 
+# What is a Connected Registry? 
 
 In this article, you learn about the *connected registry* feature of [Azure Container Registry](container-registry-intro.md). A connected registry is an on-premises or remote replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a connected registry to help speed up access to registry artifacts on-premises and to build advanced scenarios, for example using [nested IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 
-> [!NOTE]
+> [!IMPORTANT]
 > The connected registry is a preview feature of the **Premium** container registry service tier, and subject to [limitations](#limitations). For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 ## Available regions
 
-* Canada Central
-* East Asia
-* East US
-* North Europe
-* Norway East
-* Southeast Asia
-* West Central US
-* West Europe
+Connected registry is supported in following regions:
+
+| Continent    | Region           |
+|--------------|------------------|
+| East Asia    | Japan            |
+|              | Southeast Asia   |
+|              |                  |
+| North America| Canada Central   |
+|              | Canada Central   |
+|              | East US          |
+|              | East US 2 EUAP   |
+|              | South Central US |
+|              | West Central US  |
+|              | West US          |
+|              | West US 3        |
+|              |                  |
+| Europe       | Norway East      |
+|              | North Europe     |
+|              | West Europe      |
+|              |                  |
+| Oceania      | Australia East   |
+|              |                  |
+| Middle East  | UAE              |
+|              |                  |
+| South America| Brazil South     |
 
 ## Scenarios
 
@@ -37,18 +55,29 @@ Scenarios for a connected registry include:
 * Connected factories
 * Point-of-sale retail locations
 * Shipping, oil-drilling, mining, and other occasionally connected environments
+* Improve scalability of multiple deployments
+* Customize persistent storage volumes for container workloads
+* Secure delivery, tracking, and auto management of updates
 
 ## How does the connected registry work?
 
-The following image shows a typical deployment model for the connected registry.
+The connected registry is deployed on a server or device on-premises, or an environment that supports container workloads on-premises such as Azure IoT Edge and Azure Arc-enabled Kubernetes. The connected registry synchronizes container images and other OCI artifacts with a cloud-based Azure container registry.
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-overview.png" alt-text="Diagram of connected registry overview":::
+The following image shows a typical deployment model for the connected registry using IoT Edge. 
+
+:::image type="content" source="media/intro-connected-registry/connected-registry-overview.png" alt-text="Diagram of connected registry overview using IoT Edge":::
+
+The following image shows a typical deployment model for the connected registry using Azure Arc-enabled Kubernetes. 
+
+:::image type="content" source="media/intro-connected-registry/connected-registry-azure-arc.png" alt-text="Diagram of connected registry overview using Arc-enabled Kubernetes":::
 
 ### Deployment
 
 Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud.
 
-Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
+Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md). 
+
+Enable connected registry-Arc extension to the Arc-enabled k8s cluster, and securing the connection with TLS with default configurations for Read only and continuous sync window. The connected registry can be deployed on the Arc-enabled k8s cluster and synchronize the images from ACR to connected registry on-perm can be used to pull images from connected registry.
 
 The connected registry's *activation status* indicates whether it's deployed on-premises.
 
@@ -73,7 +102,7 @@ A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
 ### Registry hierarchy
 
-Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md), you can nest connected registries in either mode. The parent connected to the cloud registry can operate in either mode. 
+Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md) and Azure Arc-enabled Kubernetes, you can nest connected registries in either mode. The parent connected to the cloud registry can operate in either mode. 
 
 Child registries must be compatible with their parent capabilities. Thus, both ReadWrite and ReadOnly mode connected registries can be children of a connected registry operating in ReadWrite mode, but only a ReadOnly mode registry can be a child of a connected registry operating in ReadOnly mode.  
 
