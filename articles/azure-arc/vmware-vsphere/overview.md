@@ -2,7 +2,7 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 03/21/2024
+ms.date: 04/10/2024
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
@@ -26,6 +26,9 @@ Arc-enabled VMware vSphere allows you to:
 - Install the Arc-connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
 
 - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you with a single pane view for your infrastructure across both environments.
+
+> [!NOTE]
+> For additional guidance regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
 
 ## Onboard resources to Azure management at scale
 
