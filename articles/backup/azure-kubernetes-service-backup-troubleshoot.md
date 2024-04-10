@@ -116,12 +116,13 @@ This error appears due to absence of these FQDN rules because of which configura
 
 ### Scenario 4
 
+#### On Azure Portal
 **Error message**:
 
    ```Error
 Backup extension is not installed is not in a healthy state. This will impact your backup and restore operations. Click to fix the issue.
 ```
-**Cause**: Azure policy preventing to pull no allowed images. [Learn more](../aks/policy-reference.md).
+**Cause**: Azure policy maybe is preventing to pull no allowed images. [Learn more](../aks/policy-reference.md).
 
 This error appears due to policy blocking no allowed images to pull in AKS.
 
@@ -132,7 +133,7 @@ This error appears due to policy blocking no allowed images to pull in AKS.
  ```azurecli-interactive
    kubectl get events -A
    ```
-
+#### On az-cli
 **Error message**:
 
    ```Error
