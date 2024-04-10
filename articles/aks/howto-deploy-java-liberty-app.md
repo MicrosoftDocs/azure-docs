@@ -357,7 +357,7 @@ Use the following steps to test the Docker image locally before deploying to Azu
 
 1. After the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+1. Select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Upload the image to Azure Container Registry
 
