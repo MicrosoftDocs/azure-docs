@@ -111,7 +111,9 @@
           href: tutorial-ci-cd-runners-jobs.md
           displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Revision management
-      href: revisions-manage.md    
+      href: revisions-manage.md
+    - name: Environment Variables
+      href: environment-variables.md    
     - name: Use health probes
       href: health-probes.md
     - name: Storage mounts
@@ -190,6 +192,8 @@
   items:
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Token store
+      href: token-store.md
     - name: Managed identities
       items:
         - name: Use managed identities

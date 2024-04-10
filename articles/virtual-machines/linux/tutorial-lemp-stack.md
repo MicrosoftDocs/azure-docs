@@ -718,7 +718,7 @@ az role assignment create \
     --scope $MY_RESOURCE_GROUP_ID -o JSON
 ```
 Results:
-<!-- expected_similarity=0.3
+<!-- expected_similarity=0.3 -->
 ```JSON
 {
   "condition": null,
@@ -739,7 +739,7 @@ Results:
   "updatedOn": "2023-09-04T09:29:17.237445+00:00"
 }
 ```
--->
+
 
 <!--
 ## Export the SSH configuration for use with SSH clients that support OpenSSH

@@ -191,7 +191,7 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 > [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 1. Start **Termite**.
 1. Select **Settings**.
@@ -398,7 +398,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

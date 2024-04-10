@@ -10,13 +10,13 @@ ms.date: 07/14/2022
 ---
 
 # Service Fabric application and service manifests
-This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files. For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md). The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
 > [!WARNING]
-> The manifest XML file schema enforces correct ordering of child elements.  As a partial workaround, open "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio while authoring or modifying any of the Service Fabric manifests. This will allow you to check the ordering of child elements and provides intelli-sense.
+> The manifest XML file schema enforces correct ordering of child elements. As a partial workaround, open "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio while authoring or modifying any of the Service Fabric manifests. This will allow you to check the ordering of child elements and provides intelli-sense.
 
 ## Describe a service in ServiceManifest.xml
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front-end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here's a service manifest for the ASP.NET Core web front-end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -58,22 +58,22 @@ The service manifest declaratively defines the service type and version. It spec
 
 **Version** attributes are unstructured strings and not parsed by the system. Version attributes are used to version each component for upgrades.
 
-**ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
+**ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they're all activated whenever the system looks for any one of the declared service types.
 
-The executable specified by **EntryPoint** is typically the long-running service host. **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point.  The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. If the process ever terminates or crashes, the resulting process is monitored and restarted (beginning again with **SetupEntryPoint**).  
+The executable specified by **EntryPoint** is typically the long-running service host. **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. If the process ever terminates or crashes, the resulting process is monitored and restarted (beginning again with **SetupEntryPoint**).  
 
 Typical scenarios for using **SetupEntryPoint** are when you run an executable before the service starts or you perform an operation with elevated privileges. For example:
 
-* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a Node.js application.
+* Setting up and initializing environment variables that the service executable needs. This isn't limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a Node.js application.
 * Setting up access control by installing security certificates.
 
-For more information on how to configure the SetupEntryPoint, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
+For more information on how to configure the SetupEntryPoint, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md).
 
 **EnvironmentVariables** (not set in the preceding example) provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
 
 **DataPackage** (not set in the preceding example) declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
-**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. The settings file contains sections of user-defined, key-value pair settings that the process reads back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml* file:
+**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. The settings file contains sections of user-defined, key-value pair settings that the process reads back at run time. During an upgrade, if only the **ConfigPackage** **version** changes, then the running process isn't restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here's an example *Settings.xml* file:
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -103,7 +103,7 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application in ApplicationManifest.xml
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here's the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -146,18 +146,21 @@ Thus, an application manifest describes elements at the application level and re
 </ApplicationManifest>
 ```
 
-Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. Version attributes are also used to version each component for upgrades.
+Like service manifests, **Version** attributes are unstructured strings and aren't parsed by the system. Version attributes are also used to version each component for upgrades.
 
-**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instantiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation. To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instantiated and can override application or service configuration settings.  The default parameter value is used if the value isn't changed during application instantiation. To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** contains references to service manifests that compose this application type. An application manifest can contain multiple service manifest imports, each one can be versioned independently. Imported service manifests determine what service types are valid within this application type. 
-Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. **Policies** (not set in the preceding example) for end-point binding, security and access, and package sharing can be set on imported service manifests.  For more information, see [Configure security policies for your application](service-fabric-application-runas-security.md).
+**ServiceManifestImport** contains references to service manifests that compose this application type. An application manifest can contain multiple service manifest imports, and each can be versioned independently. Imported service manifests determine what service types are valid within this application type. 
+Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. **Policies** (not set in the preceding example) for end-point binding, security and access, and package sharing can be set on imported service manifests. For more information, see [Configure security policies for your application](service-fabric-application-runas-security.md).
 
-**DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well. An application manifest can contain multiple default services.
+**DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They're upgraded along with any other services in the application instance and can be removed as well. An application manifest can contain multiple default services.
+
+> [!WARNING]
+> **DefaultServices** is deprecated in favor of `StartupServices.xml`. You can read about StartupServices.xml in [Introducing StartupServices.xml in Service Fabric Application](service-fabric-startupservices-model.md).
 
 **Certificates** (not set in the preceding example) declares the certificates used to [setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) or [encrypt secrets in the application manifest](service-fabric-application-secret-management.md).
 
-**Placement Constraints** are the statements that define where services should run. These statements are attached to individual services that you select for one or more node properties. For more information, see [Placement constraints and node property syntax](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax)
+**Placement Constraints** are the statements that define where services should run. These statements are attached to individual services that you select for one or more node properties. For more information, see [Placement constraints and node property syntax](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax).
 
 **Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level, including whether the service(s) have access to the Service Fabric runtime.
 
@@ -165,7 +168,7 @@ Within the ServiceManifestImport, you override configuration values in Settings.
 > A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 >
 
-**Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md).  Principals are referenced in the **Policies** sections.
+**Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md). Principals are referenced in the **Policies** sections.
 
 
 
