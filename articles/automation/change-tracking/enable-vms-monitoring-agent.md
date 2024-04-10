@@ -65,7 +65,7 @@ This section provides detailed procedure on how you can enable change tracking o
 1. Select **Enable** to initiate the deployment.
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
 
-#### [Arc-enabled VMs - portal/cli](#tab/arcvms)
+#### [Arc-enabled VMs - portal/CLI](#tab/arcvms)
 
 To enable the Change Tracking and Inventory on Arc-enabled servers, ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
 
