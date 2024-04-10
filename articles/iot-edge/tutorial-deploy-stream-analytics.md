@@ -3,7 +3,7 @@ title: "Tutorial - Deploy Azure Stream Analytics as an IoT Edge module"
 description: "In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device."
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/10/2023
+ms.date: 04/08/2024
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -224,7 +224,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
  
    Add the route names and values with the pairs shown in following table. Replace instances of `{moduleName}` with the name of your Azure Stream Analytics module. This module should be the same name you see in the modules list of your device on the **Set modules** page, as shown in the Azure portal.
 
-   :::image type="content" source="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png" alt-text="Screenshot showing the name of your Stream Analytics modules in your I o T Edge device in the Azure portal." lightbox="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png":::
+   :::image type="content" source="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png" alt-text="Screenshot showing the name of your Stream Analytics modules in your IoT Edge device in the Azure portal." lightbox="media/tutorial-deploy-stream-analytics/stream-analytics-module-name.png":::
 
     | Name | Value |
     | --- | --- |

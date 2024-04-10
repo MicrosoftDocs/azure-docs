@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/28/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Rewrite URL
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
 
@@ -40,7 +42,7 @@ This policy can be used when a human and/or browser-friendly URL should be trans
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -88,6 +90,6 @@ You can only add query string parameters using the policy. You can't add extra t
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
