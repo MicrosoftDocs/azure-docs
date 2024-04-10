@@ -14,7 +14,7 @@ ms.subservice: calling
 
 # The user experiences poor audio quality
 
-There're many different factors that can affect poor audio quality. For instance, it may be due to:
+There are many different factors that can affect poor audio quality. For instance, it may be due to:
 
 - A poor network connectivity
 - A faulty microphone on the speaker's end
