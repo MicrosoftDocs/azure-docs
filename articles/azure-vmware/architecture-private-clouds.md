@@ -70,9 +70,9 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | Central US | AZ02 | **AV36** | No |
 | Central US | AZ03 | AV36P | No |
 | East Asia | AZ01 | AV36 | No |
-| East US | AZ01 | AV36P | No |
-| East US | AZ02 | **AV36P** | No |
-| East US | AZ03 | AV36, AV36P, AV64 | No |
+| East US | AZ01 | AV36P | Yes |
+| East US | AZ02 | **AV36P** | Yes |
+| East US | AZ03 | AV36, AV36P, AV64 | Yes |
 | East US 2 | AZ01 | **AV36**, AV64 | No |
 | East US 2 | AZ02 | AV36P, **AV52**, AV64 | No |
 | France Central | AZ01 | AV36 | No |
