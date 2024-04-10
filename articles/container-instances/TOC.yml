@@ -103,8 +103,8 @@
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
       href: container-instances-dedicated-hosts.md
-    - name: Deploy in availability zones (preview)
-      href: availability-zones.md
+    - name: Availability zones and disaster recovery 
+      href: ../reliability/reliability-containers.md?toc=/azure/container-instances/toc.json
     - name: Configure DNS name reuse
       href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
