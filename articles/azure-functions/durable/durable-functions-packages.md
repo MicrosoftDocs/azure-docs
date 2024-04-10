@@ -10,11 +10,11 @@ ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Overview of the Durable Functions packages
+# The Durable Functions packages
 
 [Durable Functions](./durable-functions-overview.md) is available in all first-party Azure Functions runtime environments (e.g. .NET, Node, Python, etc.). As such, there are multiple Durable Functions SDKs and packages for each language runtime supported. This guide provides a description of each Durable Functions package from the perspective of each runtime supported.
 
-## .NET in-process (and non .NET users directly managing extensions)
+## .NET in-process
 
 .NET in-process users need to reference the [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This package is known as the "WebJobs extension" for Durable Functions.
 
