@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 04/10/2024
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
@@ -273,10 +273,10 @@ You will install Azure PowerShell modules on your client that will work with you
         Install-Module -Name Az -RequiredVersion 1.10.0
         ```
 
-3.  Make sure that you have Az module version 1.10.0 running at the end of the installation.
+3.  Make sure that you have the correct Az module version running at the end of the installation.
 
 
-    If you used PowerShell 7 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
+    If you used PowerShell 7 or later, the example output below indicates that the Az version 2.0.1 (or later) modules were installed successfully.
 
     ```output
 
@@ -286,13 +286,13 @@ You will install Azure PowerShell modules on your client that will work with you
     PS C:\windows\system32> Get-Module -Name "Az*" -ListAvailable
     ```
 
-    If you used PowerShell 5.1 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
+    If you used PowerShell 5.1 or later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
 
     ```powershell
     PS C:\WINDOWS\system32> Get-InstalledModule -Name Az -AllVersions
-    Version              Name                                Repository           Description
-    -------              ----                                ----------           ------
-    1.10.0               Az                                  PSGallery            Mic...
+    Version     Name     Repository     Description
+    -------     ----     ----------     -----------
+    1.10.0      Az       PSGallery      Mic...
 
     PS C:\WINDOWS\system32>
     ```
