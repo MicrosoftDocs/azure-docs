@@ -1,6 +1,6 @@
 ---
-title: Learn about hibernating your Linux VM
-description: Learn how to hibernate a Linux VM.
+title: Learn about hibernating your Linux virtual machine
+description: Learn how to hibernate a Linux virtual machine.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
@@ -65,7 +65,7 @@ Set-AzVMExtension -Publisher Microsoft.CPlat.Core -ExtensionType LinuxHibernateE
 ```  
 ---
 
-### hibernation-setup-tool 
+### Hibernation-setup-tool 
 You can install the hibernation-setup-tool package on your Linux VM from Microsoft’s Linux software repository at [packages.microsoft.com](https://packages.microsoft.com).
 
 To use the Linux software repository, follow the instructions at [Linux package repository for Microsoft software](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software#ubuntu).
@@ -101,11 +101,11 @@ To install the package, run this command in git bash:
 sudo apt-get install hibernation-setup-tool
 ```
 
-Once the package installs successfully, your Linux guest OS has been configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, thereby simplifying your VM creation experience. 
+Once the package installs successfully, your Linux guest OS is configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, simplifying your VM creation experience. 
 
 ## Hibernating a VM
 
-Once a VM with hibernation enabled has been created and the guest OS is configured for hibernation, you can hibernate the VM and check its current status through the Azure portal, the Azure CLI, PowerShell, or REST API. 
+Once a VM with hibernation enabled is created and the guest OS is configured for hibernation, you can hibernate the VM. You can then check its current status through the Azure portal, the Azure CLI, PowerShell, or REST API. 
 
 To learn more about hibernating a VM, check out ["Hibernating a VM" in the hibernation overview](../hibernate-resume.md#hibernating-a-vm).
 
@@ -122,16 +122,16 @@ To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in 
 
 VMs from the Compute Gallery and OS disks can also have hibernation enabled. 
 
-To learn more about deploying hibernation-enabled VMs from the Compute Gallery, check out ["Deploy hibernation enabled VMs from the Azure Compute Gallery"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-the-azure-compute-gallery)
+To learn more about deploying hibernation-enabled VMs from the Compute Gallery, check out ["Deploy hibernation enabled VMs from the Azure Compute Gallery"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-the-azure-compute-gallery).
 
 To learn more about deploying hibernation-enabled VMs from an OS disk, check out ["Deploy hibernation enabled VMs from an OS disk"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-an-os-disk).
 
 
 ## Troubleshooting
-Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information
+Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information.
 
 ## FAQs
-Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information
+Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)

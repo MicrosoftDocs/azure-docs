@@ -1,6 +1,6 @@
 ---
-title: Learn about hibernating your Windows VM
-description: Learn how to hibernate a Windows VM.
+title: Learn about hibernating your Windows virtual machine
+description: Learn how to hibernate a Windows virtual machine.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
@@ -35,15 +35,8 @@ The following Windows operating systems support hibernation:
 - Windows 10 Enterprise multi-session
 
 ### Prerequisites and configuration limitations
-- The page file can't be on the temp disk.  
+- The Windows page file can't be on the temp disk.  
 - Applications such as Device Guard and Credential Guard that require virtualization-based security (VBS) work with hibernation when you enable Trusted Launch on the VM and Nested Virtualization in the guest OS.
-- Hibernation is only supported with Nested Virtualization when Trusted Launch is enabled on the VM
-- You can't enable hibernation on existing VMs.
-- You can't resize a VM if it has hibernation enabled.
-- When a VM is hibernated, you can't attach, detach, or modify any disks or NICs associated with the VM. The VM must instead be moved to a Stop-Deallocated state.
-- When a VM is hibernated, there's no capacity guarantee to ensure that there's sufficient capacity to start the VM later. In the rare case that you encounter capacity issues, you can try starting the VM at a later time. Capacity reservations don't guarantee capacity for hibernated VMs.
-- You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
-- You can't disable hibernation on a VM once enabled.
 
 For general limitations, Azure feature limitations supported VM sizes, and feature prerequisites check out the ["Supported configurations" section in the hibernation overview](../hibernate-resume.md#supported-configurations).
 
@@ -94,7 +87,7 @@ New-AzVm `
 
 ### [REST](#tab/enableWithREST)
 
-First, [create a VM with hibernation enabled](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+First, [create a VM with hibernation enabled](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled).
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
@@ -152,7 +145,7 @@ Your output should look something like this:
 }
 
 ```
-To learn more about REST, check out an [API example](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled)
+To learn more about REST, check out an [API example](/rest/api/compute/virtual-machines/create-or-update#create-a-vm-with-hibernationenabled).
 
 ---
 
@@ -168,7 +161,7 @@ Enabling hibernation while creating a Windows VM automatically installs the 'Mic
 
 ## Hibernating a VM
 
-Once a VM with hibernation enabled has been created and the guest OS is configured for hibernation, you can hibernate the VM and check its current status through the Azure portal, the Azure CLI, PowerShell, or REST API. 
+Once a VM with hibernation enabled is created and the guest OS is configured for hibernation, you can hibernate the VM. You can then check its current status through the Azure portal, the Azure CLI, PowerShell, or REST API. 
 
 To learn more about hibernating a VM, check out ["Hibernating a VM" in the hibernation overview](../hibernate-resume.md#hibernating-a-vm).
 
@@ -185,15 +178,15 @@ To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in 
 
 VMs from the Compute Gallery and OS disks can also have hibernation enabled. 
 
-To learn more about deploying hibernation-enabled VMs from the Compute Gallery, check out ["Deploy hibernation enabled VMs from the Azure Compute Gallery"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-the-azure-compute-gallery)
+To learn more about deploying hibernation-enabled VMs from the Compute Gallery, check out ["Deploy hibernation enabled VMs from the Azure Compute Gallery"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-the-azure-compute-gallery).
 
 To learn more about deploying hibernation-enabled VMs from an OS disk, check out ["Deploy hibernation enabled VMs from an OS disk"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-an-os-disk).
 
 ## Troubleshooting
-Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information
+Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information.
 
 ## FAQs
-Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information
+Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)

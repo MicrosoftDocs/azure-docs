@@ -51,6 +51,7 @@ VM sizes with up to 32-GB RAM from the following VM series support hibernation.
 ### General limitations
 - You can't enable hibernation on existing VMs.
 - You can't resize a VM if it has hibernation enabled.
+- Hibernation is only supported with Nested Virtualization when Trusted Launch is enabled on the VM
 - When a VM is hibernated, you can't attach, detach, or modify any disks or NICs associated with the VM. The VM must instead be moved to a Stop-Deallocated state.
 -	When a VM is hibernated, there's no capacity guarantee to ensure that there's sufficient capacity to start the VM later. In the rare case that you encounter capacity issues, you can try starting the VM at a later time. Capacity reservations don't guarantee capacity for hibernated VMs.
 -	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
