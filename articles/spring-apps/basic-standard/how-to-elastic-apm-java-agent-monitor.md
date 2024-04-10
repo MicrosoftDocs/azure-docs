@@ -189,7 +189,7 @@ Elastic APM Java agent also captures the JVM metrics from the Azure Spring Apps 
 
 Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Apps Services and choose an appropriate action - such as Teams notification, creation of a JIRA issue, a webhook-based API call, and others.
 
-:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png" alt-text="ScreeElastic / Kibana screenshot showing A P M Services page with 'Create rule' pane showing and Actions highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png":::
+:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png" alt-text="Screenshot of Elastic / Kibana that shows the APM Services page with Create rule pane showing and Actions highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png":::
 
 ## Next steps
 
