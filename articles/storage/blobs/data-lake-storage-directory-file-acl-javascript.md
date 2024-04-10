@@ -47,6 +47,8 @@ StorageSharedKeyCredential
 } = require("@azure/storage-file-datalake");
 ```
 
+[!INCLUDE [data-lake-storage-sdk-note](../../../includes/data-lake-storage-sdk-note.md)]
+
 ## Connect to the account
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
