@@ -7,7 +7,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurecli
-ms.topic: how-to
+ms.topic: concept-article
 ms.date: 04/02/2024
 ---
 
