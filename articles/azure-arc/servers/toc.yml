@@ -131,6 +131,8 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
+    - name: PowerShell remoting to Azure Arc-enabled servers
+      href: ssh-arc-powershell-remoting.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Extended Security Updates

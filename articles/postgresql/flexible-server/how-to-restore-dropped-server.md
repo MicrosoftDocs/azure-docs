@@ -7,7 +7,7 @@ ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 01/18/2024
+ms.date: 01/23/2024
 ---
 
 # Restore a dropped Azure Database for PostgreSQL - Flexible Server instance
