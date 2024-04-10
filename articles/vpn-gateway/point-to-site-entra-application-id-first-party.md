@@ -5,13 +5,13 @@ description: Learn how to configure P2S gateway settings and Microsoft Entra ID 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/10/2024
 ms.author: cherylmc
 
 # Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Azure VPN client for Linux.
 ---
 
-# Configure a P2S VPN gateway for Microsoft Entra ID authentication - first-party App ID - Linux clients (preview)
+# Configure a P2S VPN gateway for Microsoft Entra ID authentication - first-party App ID - Linux clients (Preview)
 
 This article helps you configure your point-to-site (P2S) VPN gateway to use Microsoft Entra ID authentication with a first-party Application ID (App ID). This type of P2S Microsoft Entra ID authentication connection is available for Linux clients connecting using the Azure VPN client for Linux.
 
@@ -19,25 +19,25 @@ This article helps you configure your point-to-site (P2S) VPN gateway to use Mic
 
 ## About VPN Gateway and first-party App IDs
 
-Microsoft is migrating the current Azure VPN client application from a third-party application, to a first-party application that uses first-party authentication. When you use a first-party Application ID (App ID), you don't need to authorize the Azure VPN client application and generate an App ID manually, as you would with a third-party application. The App ID is already available for you to use when you specify Microsoft Entra ID authentication settings for your P2S VPN gateway.
-
-To better understand the difference between the two types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
+Microsoft released a first-party Microsoft Entra application (first-party App ID) for the Azure VPN Client. Previously, Microsoft Entra ID authentication was only available for P2S VPN gateways using a third-party App ID. When you use a first-party Application ID (App ID), you don't need to authorize the Azure VPN client application, as you would with a third-party application. The App ID (Audience) value is different for first-party and third-party applications and isn't interchangeable. To better understand the difference between the two types of application objects, see [How and why applications are added to Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/how-applications-are-added).
 
 VPN Gateway doesn't simultaneously support both Microsoft Entra ID authentication with third-party App ID, and Microsoft Entra ID authentication with first-party App ID: the two mechanisms are mutually exclusive. The VPN gateway supports only a single App ID: it can be either a third-party App ID, or a first-party App ID.
 
-The version of the Azure VPN Client that connects is specific to either first-party, or third-party App ID. This means that a point-to-site VPN that's configured to use Microsoft Entra ID authentication can be configured either to support first-party App ID clients, or third-party App ID clients. But not both.
+The version of the Azure VPN Client that connects is specific to either first-party, or third-party App ID. This means that a point-to-site VPN that's configured to use Microsoft Entra ID authentication can be configured either to support first-party App ID VPN clients, or third-party App ID VPN clients. But not both.
 
-If you've already configured point-to-site and specified Microsoft Entra ID authentication, you're likely using third-party App ID with your current Azure VPN Clients and therefore can only use versions of the Azure VPN Client that support third-party App ID.
+If you've already configured point-to-site and specified Microsoft Entra ID authentication, you're likely using third-party App ID with your current Azure VPN Clients and therefore can only use versions of the Azure VPN Client that support third-party App ID. The Azure VPN Client for Linux can't connect to the third-party App ID configuration.
 
 When using the Azure VPN client first-party App ID, consider the following:
 
 * The Azure VPN client for Linux is a newly released client and supports only first-party application App ID (not third-party).
 
-* At this time, the Azure VPN client for Linux is the only version of the Azure VPN client that supports the first-party App ID.
+* At this time, the Azure VPN client for Linux is the only version of the Azure VPN client that supports the first-party App ID. An annoucement will be made when we release versions that support first-party App ID for other operating systems.
 
 * Azure Government, Azure Germany, and Azure operated by China 21Vianet aren't currently supported for first-party App ID.
 
 * Custom Audience (first-party) is supported.
+
+* The first-party App ID (Audience) value for the Azure VPN Client is different than the value you use for a third-party App ID.
 
 ## Prerequisites
 
