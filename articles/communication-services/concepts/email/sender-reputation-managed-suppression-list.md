@@ -161,7 +161,7 @@ When users are subscribed to multiple lists in your organization, it's ideal to 
 * [Best practices for implementing DMARC](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
 * [Troubleshoot your DMARC implementation](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#troubleshooting-your-dmarc-implementation)
 * [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-* [Create and manage an Email Communication Services resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
+* [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
 * [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following topics might be interesting to you:

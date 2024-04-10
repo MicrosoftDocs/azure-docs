@@ -18,12 +18,12 @@ You can use email client libraries in Azure Communication Services to add transa
 
 | Assembly               | Protocol             |Open vs. closed source| Namespace                          | Capabilities                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Open            | `Azure.ResourceManager.Communication` | Provision and manage Email Communication Services resources             |
+| Azure Resource Manager | REST | Open            | `Azure.ResourceManager.Communication` | Provision and manage email communication resources             |
 | Email                    | REST | Open              | `Azure.Communication.Email`             | Send and get status on email messages |
 
-### Azure email communication resource
+### Azure email communication resources
 
-Azure Resource Manager for Email Communication Services is meant for email domain administration.
+Azure Resource Manager for email communication resources is meant for email domain administration.
 
 | Area           | JavaScript | .NET | Python | Java SE | iOS | Android | Other                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -44,7 +44,7 @@ This sandbox setup helps developers start building the application. Gradually, y
 
 ## Next steps
 
-* [Create and manage an Email Communication Services resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
+* [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
 * [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following topics might be interesting to you:

@@ -1,7 +1,7 @@
 ---
 title: Allowed attachment types for sending email in Azure Communication Services
 titleSuffix: An Azure Communication Services concept article
-description: Learn about how validation for attachment MIME types works for Email Communication Services in Azure Communication Services.
+description: Learn about how validation for attachment MIME types works in Azure Communication Services.
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -17,11 +17,11 @@ The [SendMail operation](../../quickstarts/email/send-email.md) allows the optio
 
 ## What is a MIME type?
 
-MIME types are a way to identify the type of data that's being sent over the internet. When users send email requests by using Email Communication Services in Azure Communication Services, they can specify the MIME type of the email content so that the recipient's email client can properly display and interpret the message. If an email message includes an attachment, the MIME type is set to the appropriate file type (for example, `application/pdf` for a PDF document).
+MIME types are a way to identify the type of data that's being sent over the internet. When users send email requests by using Azure Communication Services, they can specify the MIME type of the email content so that the recipient's email client can properly display and interpret the message. If an email message includes an attachment, the MIME type is set to the appropriate file type (for example, `application/pdf` for a PDF document).
 
 Developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types, irrespective of the software or platform that the system is using. This information helps ensure that the email message is delivered correctly and that the recipient can access the content as intended. Using MIME types can also help to improve the security of email communications, because they can indicate whether an email message includes executable content or other potentially harmful elements.
 
-MIME types are a critical component of email communication. By using MIME types with Email Communication Services in Azure Communication Services, developers can help ensure that their email messages are delivered correctly and securely.
+MIME types are a critical component of email communication. By using MIME types with Azure Communication Services, developers can help ensure that their email messages are delivered correctly and securely.
 
 ## Allowed attachment types
 
@@ -101,9 +101,9 @@ IANA maintains a registry of standardized MIME types. The registry includes a un
 
 ## Next steps
 
-* [Prepare an Email Communication Services resource for Azure Communication Services](./prepare-email-communication-resource.md)
+* [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md)
 * [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-* [Send email by using Email Communication Services in Azure Communication Services](../../quickstarts/email/send-email.md)
+* [Send email by using Azure Communication Services](../../quickstarts/email/send-email.md)
 * [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents might be interesting to you:

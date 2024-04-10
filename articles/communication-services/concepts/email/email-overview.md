@@ -46,9 +46,9 @@ With Azure Communication Services, you can speed up your market entry with scala
 
 ## Next steps
 
-- [Prepare an Email Communication Services resource for Azure Communication Services](./prepare-email-communication-resource.md)
+- [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md)
 - [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-- [Create and manage an Email Communication Services resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
+- [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
 - [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following topics might be interesting to you:
