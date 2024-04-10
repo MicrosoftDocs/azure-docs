@@ -23,7 +23,7 @@ In this quickstart you are going to learn how to start a group call from Azure C
 
 ## Sample Code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/place-interop-group-calls).
 
 ## Prerequisites
 
