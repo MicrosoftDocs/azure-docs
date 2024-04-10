@@ -12,7 +12,7 @@ ms.date: 03/30/2024
 
 # Vector database
 
-[!INCLUDE[NoSQL, MongoDB, PostgreSQL](includes/appliesto-nosql-mongodb-postgresql.md)]
+[!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
 Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
