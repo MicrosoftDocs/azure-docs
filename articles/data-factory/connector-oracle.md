@@ -53,23 +53,6 @@ Specifically, this Oracle connector supports:
 
 The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
 
->[!Note]
->If you use the self hosted integration runtime version 5.36.8726.3 or higher, update your Oracle server side settings to opt in these secure algorithms:
->
->- The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for **OAS encryption**.
->
->    - AES256 
->    - AES192 
->    - 3DES168 
->    - AES128 
->    - 3DES112 
->    - DES
->    
->- The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for **OAS data integrity**.
->    - SHA256 
->    - SHA384 
->    - SHA512
-
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -163,6 +146,22 @@ To enable encryption on Oracle connection, you have two options:
     3.	Place the `truststore` file on the self-hosted IR machine. For example, place the file at C:\MyTrustStoreFile.
     4.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore`/`TrustStorePassword`value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
+>[!Note]
+>If you use the self hosted integration runtime version 5.36.8726.3 or higher, update your Oracle server side settings to opt in these secure algorithms:
+>
+>- The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for **OAS encryption**.
+>
+>    - AES256 
+>    - AES192 
+>    - 3DES168 
+>    - AES128 
+>    - 3DES112 
+>    - DES
+>    
+>- The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for **OAS data integrity**.
+>    - SHA256 
+>    - SHA384 
+>    - SHA512
 
 **Example:**
 
