@@ -27,7 +27,7 @@ It's important to note that if the user revokes access permission during the cal
 
 ## How to mitigate or resolve
 Your application should always call the `askDevicePermission` API after the `CallClient` is initialized.
-This way gives the user a chance to grant the device permission if they did not do so before or if the permission state is `prompt`.
+This way gives the user a chance to grant the device permission if they didn't do so before or if the permission state is `prompt`.
 
 It's also important to listen for the `microphonePermissionDenied` event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
 
