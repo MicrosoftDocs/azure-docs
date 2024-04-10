@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 12/21/2023
+ms.date: 04/11/2024
 ---
 
 # Tutorial: Create a chat app with Azure Web PubSub service
@@ -369,7 +369,6 @@ const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
 const app = express();
 const hubName = 'Sample_ChatApp';
-const port = 8080;
 
 let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hubName);
 
@@ -397,7 +396,7 @@ Rerun the server by running `node server`.
 
 # [Java](#tab/java)
 
-First add Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
+First add Azure Web PubSub SDK dependency and gson into the `dependencies` node of `pom.xml`:
 
 ```xml
 <!-- https://mvnrepository.com/artifact/com.azure/azure-messaging-webpubsub -->
@@ -405,6 +404,12 @@ First add Azure Web PubSub SDK dependency into the `dependencies` node of `pom.x
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-webpubsub</artifactId>
     <version>1.2.12</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
 </dependency>
 ```
 
@@ -418,6 +423,8 @@ import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
 import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
 import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
 import com.azure.messaging.webpubsub.models.WebPubSubContentType;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import io.javalin.Javalin;
 
 public class App {
@@ -452,7 +459,10 @@ public class App {
             option.setUserId(id);
             WebPubSubClientAccessToken token = service.getClientAccessToken(option);
             ctx.contentType("application/json");
-            String response = String.format("{\"url\":\"%s\"}", token.getUrl());
+            Gson gson = new Gson();
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("url", token.getUrl());
+            String response = gson.toJson(jsonObject);
             ctx.result(response);
             return;
         });
@@ -647,7 +657,7 @@ For now, you need to implement the event handler by your own in Java. The steps 
 2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
     ```java
     
-    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    // validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
     app.options("/eventhandler", ctx -> {
         ctx.header("WebHook-Allowed-Origin", "*");
     });
@@ -655,12 +665,12 @@ For now, you need to implement the event handler by your own in Java. The steps 
 
 3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection to broadcast the connected event to all clients so they can see who joined the chat room.
     ```java
-    // validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    // validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
     app.options("/eventhandler", ctx -> {
         ctx.header("WebHook-Allowed-Origin", "*");
     });
 
-    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    // handle events: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#events
     app.post("/eventhandler", ctx -> {
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
@@ -677,7 +687,7 @@ For now, you need to implement the event handler by your own in Java. The steps 
 4. The `ce-type` of `message` event is always `azure.webpubsub.user.message`. Details see [Event message](./reference-cloud-events.md#message). We update the logic to handle messages that when a message comes in we broadcast the message in JSON format to all the connected clients.
    
     ```java
-    // handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    // handle events: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#events
     app.post("/eventhandler", ctx -> {
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
@@ -700,7 +710,7 @@ For now, you need to implement the event handler by your own in Python. The step
 
 2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
     ```python
-    # validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+    # validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
     @app.route('/eventhandler', methods=['OPTIONS'])
     def handle_event():
         if request.method == 'OPTIONS':
@@ -713,8 +723,8 @@ For now, you need to implement the event handler by your own in Python. The step
 
 3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
     ```python
-    # validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
-    # handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+    # validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
+    # handle events: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#events
     @app.route('/eventhandler', methods=['POST', 'OPTIONS'])
     def handle_event():
         if request.method == 'OPTIONS':
@@ -886,7 +896,9 @@ Open `http://localhost:8080/index.html`. You can input your user name and start 
 
 ## Lazy Auth with `connect` event handler
 
-In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-client-events.md#connect). Now let's use `connect` event handler to acheive the similar as what the [negotiate](#negotiate) section does.
+In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-client-events.md#connect). 
+
+Now let's use `connect` event handler to acheive the similar as what the [negotiate](#negotiate) section does.
 
 ### Update hub settings
 
@@ -903,7 +915,9 @@ az webpubsub hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --
 
 ### Update upstream logic to handle connect event
 
-Now let's update upstream logic to handle connect event. We could also remove the negotiate endpoint now. As similar to what we do in negotiate endpoint as demo purpose, we also read id from the query parameters. In connect event, the original client query is preserved in connect event requet body.
+Now let's update upstream logic to handle connect event. We could also remove the negotiate endpoint now. 
+
+As similar to what we do in negotiate endpoint as demo purpose, we also read id from the query parameters. In connect event, the original client query is preserved in connect event requet body.
 
 # [C#](#tab/csharp)
 
@@ -994,24 +1008,35 @@ app.listen(8080, () => console.log("server started"));
 # [Java](#tab/java)
 Now let's add the logic to handle the connect event `azure.webpubsub.sys.connect`:
 ```java
-// validation: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#validation
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+// validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
 app.options("/eventhandler", ctx -> {
     ctx.header("WebHook-Allowed-Origin", "*");
 });
 
-// handle events: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents#events
+// handle events: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#connect
 app.post("/eventhandler", ctx -> {
     String event = ctx.header("ce-type");
     if ("azure.webpubsub.sys.connect".equals(event)) {
         System.out.println("Connecting.");
-        if (){
-            ctx.status(200);
+        Gson gson = new Gson();
+        JsonObject requestBody = gson.fromJson(ctx.body(), JsonObject.class); // Parse JSON request body
+        if (requestBody.has("query")) {
+            JsonElement queryElement = requestBody.get("query");
+            if (queryObject.has("id")) {
+                ctx.status(200);
+                String id = queryObject.get("id").getAsString();
 
+            }
+
+            return;
         } else {
             ctx.status(401).text("missing user id");
 
         }
-        String id = ctx.header("ce-userId");
     } else if ("azure.webpubsub.sys.connected".equals(event)) {
         String id = ctx.header("ce-userId");
         System.out.println(id + " connected.");
@@ -1105,7 +1130,7 @@ Now let's update the web page to direct connect to Web PubSub service. One thing
 
 ### Rerun the server
 
-Now [rerun the server](#run-the-web-server) and visit the web page following the instructions before. If you've stopped `awps-tunnel`, please also rerun the tunnel tool. 
+Now [rerun the server](#run-the-web-server) and visit the web page following the instructions before. If you've stopped `awps-tunnel`, please also [rerun the tunnel tool](#run-awps-tunnel-locally). 
 
 ## Next steps
 
