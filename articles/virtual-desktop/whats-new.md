@@ -44,9 +44,9 @@ Clipboard redirection in Azure Virtual Desktop allows users to copy and paste co
 
 For more information, see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md?tabs=intune). 
 
-### APRL for Azure Virtual Desktop workload now available 
+### Azure Proactive Resiliency Library (APRL) for Azure Virtual Desktop workload now available
 
-The Azure Proactive Resiliency Library (APRL) now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
+The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
 
 For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/).
 
