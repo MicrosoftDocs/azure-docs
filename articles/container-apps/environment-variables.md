@@ -88,19 +88,26 @@ After the Container App is created, the only way to update the Container App env
 ### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for Container Apps and then select your app.
-:::image type="content" source="media/environment-variables/container-apps-portal.png" alt-text="Screenshot of the Azure portal search bar with Container App as one of the results.":::
+
+    :::image type="content" source="media/environment-variables/container-apps-portal.png" alt-text="Screenshot of the Azure portal search bar with Container App as one of the results.":::
+
 1. In the app's left menu, select Revisions and replicas > Create new revision
-:::image type="content" source="media/environment-variables/create-new-revision.png" alt-text="Screenshot of Container App Revision creation page.":::
+
+    :::image type="content" source="media/environment-variables/create-new-revision.png" alt-text="Screenshot of Container App Revision creation page.":::
+
 1. Then you have to edit the current existing container image:
-:::image type="content" source="media/environment-variables/edit-revision.png" alt-text="Screenshot of Container App Revision container image settings page.":::
+
+    :::image type="content" source="media/environment-variables/edit-revision.png" alt-text="Screenshot of Container App Revision container image settings page.":::
+
 1. In the Environment variables section, you can Add new Environment variables by clicking on Add.
 
 1. Then set the Name of your Environment variable and the Source (it can be a reference to a [secret](manage-secrets.md)).
-:::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section.":::
+
+    :::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section.":::
 
     1. If you select the Source as manual, you can manually input the Environment variable value.
     
-    :::image type="content" source="media/environment-variables/manual-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section with one of the environments source selected as Manual.":::
+        :::image type="content" source="media/environment-variables/manual-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section with one of the environments source selected as Manual.":::
 
 ### [Azure CLI](#tab/cli)
 
