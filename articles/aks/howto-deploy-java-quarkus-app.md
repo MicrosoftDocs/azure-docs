@@ -60,7 +60,7 @@ Instead of `quarkus dev`, you can accomplish the same thing with Maven by using 
 
 You may be asked if you want to send telemetry of your usage of Quarkus dev mode. If so, answer as you like.
 
-Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don’t want the debugger at all, you can use `-Ddebug=false`.
+Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don't want the debugger at all, you can use `-Ddebug=false`.
 
 The output should look like the following example:
 
@@ -623,3 +623,4 @@ You may also want to use `docker rmi` to delete the container images `postgres` 
 - [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
 - [Quarkus](https://quarkus.io/)
 - [Jakarta EE on Azure](/azure/developer/java/ee)
+

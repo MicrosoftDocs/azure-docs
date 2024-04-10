@@ -4,6 +4,9 @@ description: Learn how to manage node pools for a cluster in Azure Kubernetes Se
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.subservice: aks-nodes
 ---
 
@@ -580,3 +583,4 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [use-tags]: use-tags.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+

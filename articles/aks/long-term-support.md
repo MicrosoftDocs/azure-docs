@@ -125,3 +125,4 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 > [!NOTE]
 > Kubernetes 1.30.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
+
