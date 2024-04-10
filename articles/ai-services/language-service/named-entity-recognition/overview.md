@@ -21,7 +21,7 @@ Named Entity Recognition (NER) is one of the features offered by [Azure AI Langu
 * The [**conceptual articles**](concepts/named-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 > [!NOTE]
-> [Entity Resolution](concepts/entity-resolutions.md) was upgraded to the [Entity Metadata](concepts/entity-metadata.md) starting in API version 2023-04-15-preview. While this shouldn't cause a problem for new users, existing users may need to change the format of their data.
+> [Entity Resolution](concepts/entity-resolutions.md) was upgraded to the [Entity Metadata](concepts/entity-metadata.md) starting in API version 2023-04-15-preview. If you are calling the preview version of the API equal or newer than 2023-04-15-preview, please check out the [Entity Metadata](concepts/entity-metadata.md) article to use the resolution feature.
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
