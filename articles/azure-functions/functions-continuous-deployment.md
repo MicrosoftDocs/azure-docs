@@ -3,7 +3,7 @@ title: Continuous deployment for Azure Functions
 description: Use the continuous deployment features of Azure App Service when publishing to Azure Functions.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/10/2024
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
 
@@ -64,7 +64,9 @@ GitHub Actions is the default build provider for GitHub projects. GitHub Actions
 
 ### [App Service (Kudu) service](#tab/app-service)
 
-The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site is accessible to your app. For more information, see [Secure the scm endpoint](security-concepts.md#secure-the-scm-endpoint). 
+The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site can be accessed by your deployment. Many publishing tools require basic authentication to connect to the `scm` endpoint. For more information, see [Enable basic authentication for deployments](#enable-basic-authentication-for-deployments). 
+
+This build provider is used when you deploy your code project by using Visual Studio, Visual Studio Code, or Azure Functions Core Tools. If you haven't already deployed by using one of these tools, you might need to Enable basic authentication on the SCM endpoint.  
 
 ---
 
@@ -179,6 +181,41 @@ You should keep these considerations in mind when planning for a continuous depl
 + You should always configure continuous deployment for a staging slot and not for the production slot. When you use the production slot, code updates are pushed directly to production without being verified in Azure. Instead, enable continuous deployment to a staging slot, verify updates in the staging slot, and after everything runs correctly you can [swap the staging slot code into production](./functions-deployment-slots.md#swap-slots).
 
 + The Deployment Center doesn't support enabling continuous deployment for a function app with inbound network restrictions. You need instead configure the build provider workflow directly in GitHub or Azure Pipelines. These workflows also require you to use a virtual machine in the same virtual network as the function app as either a [self-hosted agent (Pipelines)](/azure/devops/pipelines/agents/agents#self-hosted-agents) or a [self-hosted runner (GitHub)](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+
+## Continuous deployment during app creation
+
+Currently, you can configure continuous deployment from GitHub using GitHub Actions when you create your function app in the Azure portal. You can do this on the **Deployment** tab.
+
+If you want to use a different deployment source or build provider for continuous integration, first create your function app and then return to the portal and [set up continuous integration in the Deployment Center](#credentials).
+
+## Enable basic authentication for deployments
+
+By default, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
+
+> [!IMPORTANT]
+> Because basic authenication passes credentials in clear text, you must only access the `scm` endpoint over an encrypted connection, such as HTTPS.
+
+To enable basic authentication to the `scm` endpoint:
+
+### [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
+
+1. In the app's left menu, select **Configuration** > **General settings**.
+
+1. Set **SCM Basic Auth Publishing Credentials** to **On**, then select **Save**.
+
+### [Azure CLI](#tab/azure-cli)
+
+You can use the Azure CLI to turn on basic authentication by using this [`az resource update`](/cli/azure/resource#az-resource-update) command to update the resource that controls the `scm` endpoint. 
+
+```azure-cli
+az resource update --resource-group <RESOURCE_GROUP> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<APP_NAME> --set properties.allow=true
+```
+
+In this command, replace the placeholders with your resource group name and app name.
+
+---
 
 ## Next steps
 
