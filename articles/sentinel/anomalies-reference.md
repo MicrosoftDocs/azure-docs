@@ -457,14 +457,7 @@ Configuration details:
 
 ### Domain Reputation Palo Alto anomaly (DISCONTINUED)
 
-    **Description:** This algorithm evaluates the reputation for all domains seen specifically in Palo Alto firewall (PAN-OS product) logs. A high anomaly score indicates a low reputation, suggesting that the domain has been observed to host malicious content or is likely to do so.
-
-    | Attribute                        | Value                                                              |
-    | -------------------------------- | ------------------------------------------------------------------ |
-    | **Anomaly type:**                | Customizable machine learning                                      |
-    | **Data sources:**                | CommonSecurityLog (PAN)                                            |
-    | **MITRE ATT&CK tactics:**        | Command and Control                                                |
-    | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
+**Description:** This algorithm evaluates the reputation for all domains seen specifically in Palo Alto firewall (PAN-OS product) logs. A high anomaly score indicates a low reputation, suggesting that the domain has been observed to host malicious content or is likely to do so.
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -522,14 +515,7 @@ Configuration details:
 
 ### Multi-region logins in a single day via Palo Alto GlobalProtect (DISCONTINUED)
 
-    **Description:** This algorithm detects a user account which had sign-ins from multiple non-adjacent regions in a single day through a Palo Alto VPN.
-
-    | Attribute                        | Value                                                              |
-    | -------------------------------- | ------------------------------------------------------------------ |
-    | **Anomaly type:**                | Customizable machine learning                                      |
-    | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-    | **MITRE ATT&CK tactics:**        | Defense Evasion<br>Initial Access                                  |
-    | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+**Description:** This algorithm detects a user account which had sign-ins from multiple non-adjacent regions in a single day through a Palo Alto VPN.
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
