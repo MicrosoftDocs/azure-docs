@@ -53,4 +53,4 @@ Use the following steps to download a Secure Erase Certificate for your device a
 
 ## Next steps
 
- - [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md).
+ - [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
