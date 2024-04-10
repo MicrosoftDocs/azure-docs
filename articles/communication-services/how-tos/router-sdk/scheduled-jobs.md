@@ -152,10 +152,10 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    client.updateJob(eventGridEvent.getData().toObject(new TypeReference<Map<String, Object>>() {
+    job = client.updateJob(eventGridEvent.getData().toObject(new TypeReference<Map<String, Object>>() {
 }).get("JobId").toString(), BinaryData.fromObject(new RouterJob()
         .setMatchingMode(new QueueAndMatchMode())
-        .setPriority(100)), null);
+        .setPriority(100)), null).toObject(RouterJob.class);
 }
 ```
 
