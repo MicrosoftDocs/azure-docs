@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: mode-other, devx-track-js
+zone_pivot_groups: acs-interop-chat-tutorial-js-csharp
 ---
 
 # Tutorial: Enable file attachment support in your Chat app
