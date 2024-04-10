@@ -193,7 +193,7 @@ If you want to use a different deployment source or build provider for continuou
 By default, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
 
 > [!IMPORTANT]
-> Because basic authenication passes credentials in clear text, you must only access the `scm` endpoint over an encrypted connection, such as HTTPS.
+> When you use basic authenication, credentials are sent in clear text. To protect these credentials, you must only access the `scm` endpoint over an encrypted connection ( HTTPS) when using basic authentication. For more information, see [Secure deployment](security-concepts.md#secure-deployment).
 
 To enable basic authentication to the `scm` endpoint:
 
