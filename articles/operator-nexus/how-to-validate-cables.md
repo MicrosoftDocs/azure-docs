@@ -11,12 +11,13 @@ ms.date: 04/10/2024
 ---
 # Validate Cables for Nexus Network Fabric 
 
-This article explains the post validation Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It is vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
+This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or non-compliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It is vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 ## Prerequisites
 
 - Ensure the Nexus Network Fabric is successfully provisioned. 
-- Provide the Network Fabric ID, storage account, and storage URL with WRITE access via a support ticket. 
+- Provide the Network Fabric ID and storage URL with WRITE access via a support ticket. 
+
 > [!NOTE]
 > The Storage URL (SAS) is short-lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
 
@@ -27,15 +28,17 @@ This article explains the post validation Fabric cable validation, where the pri
     ```azurecli
     az networkfabric fabric validate-configuration –resource-group "<NFResourceGroupName>" --resource-name "<NFResourceName>" --validate-action "Cabling" --no-wait --debug  
     ```
-     The following (truncated) output should appear:
+     The following (truncated) output should appear. Locate the operation status URL within the output. This URL is used to check the status of the operation, as described in the following step. 
 
-    url":"https://XXXXXXXXX.blob.core.windows.net/validationresultcontainer/XXXXXX-nf_ValidateAction_XXXX-XX-XX_10-27-12-AM.json?skoid=bd48ad0e-970d-4324-8f73-9f607aeeeaa4&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2023-09-29T10%3A27%3A12Z&ske=2023-09-29T11%3A27%3A12Z&sks=b&skv=2021-10-04&sv=2021-10-04&st=2023-09-29T10%3A27%3A12Z&se=2023-09-29T11%3A27%3A12Z&sr=c&sp=r&sig=ihzrbwuOHzQIlcJnJR3MEUXlsawifkqlB9MuwLAJx9A%3D"}} 
+    ```azurecli
+     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx 
+      ```
 
 3. You can programmatically check the status of the operation by running the following command:
     ```azurecli
     az rest -m get -u "<Azure-operationsstatus-endpoint url>" 
     ```
-    The operation status indicates if the API succeeded or failed, and appears similar to the following output: 
+    The operation status indicates if the API succeeded or failed. 
 
     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx 
 
@@ -152,10 +155,6 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
                         } 
                       ]
 ```
-
-
-> [!NOTE]
-> Top of the Rack (TOR) switch to compute sample is not currently supported.
 
 #### Statuses of validation
 
