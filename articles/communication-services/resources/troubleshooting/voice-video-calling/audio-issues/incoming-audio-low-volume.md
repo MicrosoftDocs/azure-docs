@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # The volume of the incoming audio is low
-If users report that the volume of incoming audio is low, there could be several possible causes. One possibility is that the volume sent by the sender is low. Another possibility is that the operating system system volume is set too low. Finally, it's possible that the speaker output volume is set too low.
+If users report low incoming audio volume, there could be several possible causes. One possibility is that the volume sent by the sender is low. Another possibility is that the operating system system volume is set too low. Finally, it's possible that the speaker output volume is set too low.
 
 If you use [raw audio](../../../../quickstarts/voice-video-calling/get-started-raw-media-access.md?pivots=platform-web) API , you may also need to check the output volume of the audio element.
 
@@ -35,5 +35,5 @@ Users can check their device's volume settings and speaker output to ensure that
 ### Using Web Audio GainNode to increase the volume
 It may be possible to address this issue at the application layer using Web Audio GainNode. By using this feature with the raw audio stream, it's possible to increase the output volume of the stream.
 
-You can also look to expose a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) in your client user interface to let your users know what the current volume level is set at.
+You can also look to display a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) in your client user interface to let your users know what the current volume level is set at.
 
