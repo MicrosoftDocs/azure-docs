@@ -52,6 +52,9 @@ Here is a sample input-vnf-nfd.jsonc file:
   "nf_name": "ubuntu-vm",
   // Version of the network function definition in 1.1.1 format (three integers separated by dots).
   "version": "1.0.0",
+  // If set to true, all NFD configuration parameters are made available to the designer, including optional parameters and those with defaults.
+  // If not set or set to false, only required parameters without defaults will be exposed.
+  "expose_all_parameters": false,
   // Optional. Name of the storage account Artifact Store resource.
   // Will be created if it does not exist (with a default name if none is supplied).
   "blob_artifact_store_name": "ubuntu-blob-store",
@@ -99,6 +102,7 @@ Here is a sample input-vnf-nfd.jsonc file:
 | **nf_name**                       | Name of NF definition.                                                                                                                                                                                                           |
 | **version**                       | Version of the NF definition in A.B.C format.                                                                                                                                                                                    |
 | **blob_artifact_store_name**      | Name of the storage account Artifact Store resource. Created if it doesn't exist.                                                                                                                                                |
+| **expose_all_parameters**         | Whether or not to make all NFD configuration parameters available to the designer.                                                                                                                                               |
 | **arm_template**                  | artifact_name: Name of the artifact.                                                                                                                                                                                             |
 |                                   | _file_path_: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash. |
 |                                   | _version_: Version of the artifact. For ARM templates version must be in format A.B.C.                                                                                                                                           |
