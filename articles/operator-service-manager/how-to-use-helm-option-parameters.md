@@ -57,7 +57,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
   scope: resourceGroup(configObject.publisherResourceGroup)
 }
 
-resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {
   name: '${configObject.nfdgName}${i}'
   location: configObject.location
   identity: identityObject
@@ -83,7 +83,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
   name: nfDefinitionVersion
   location: location
   properties: {
-    deployParameters: string(loadJsonContent('deploymentParameters.json'))
+    deployParameters: string(loadJsonContent('deployParameters.json'))
     networkFunctionType: 'ContainerizedNetworkFunction'
     networkFunctionTemplate: {
       nfviType: 'AzureArcKubernetes'
@@ -102,7 +102,7 @@ roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfil
 1. Confirm that you have made this edit correctly by comparing against the following snippet from the Contoso example NF
 
 ```bicep
-resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {
   name: '${configObject.nfdgName}${i}'
   location: configObject.location
   identity: identityObject
@@ -158,7 +158,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
   name: nfDefinitionVersion
   location: location
   properties: {
-    deployParameters: string(loadJsonContent('deploymentParameters.json'))
+    deployParameters: string(loadJsonContent('deployParameters.json'))
     networkFunctionType: 'ContainerizedNetworkFunction'
     networkFunctionTemplate: {
       nfviType: 'AzureArcKubernetes'
@@ -186,7 +186,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
 The `--atomic` parameter can be overridden for each of these network function applications independently. Here's an example NF BICEP template that overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
 
 ```bicep
-resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deploymentParameters: {
+resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {
   name: '${configObject.nfdgName}${i}'
   location: configObject.location
   identity: identityObject

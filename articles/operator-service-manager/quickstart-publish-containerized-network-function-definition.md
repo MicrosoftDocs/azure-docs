@@ -96,7 +96,7 @@ The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This di
 
 | Directory/File             | Description                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| nfDefinition/deploymentParameters.json | Defines the schema for the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
+| nfDefinition/deployParameters.json | Defines the schema for the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
 | nfDefinition/nginxdemo-mappings.json   | Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.       |
 | nfDefinition/deploy.bicep              | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
 | artifacts/artifacts.json               | A list of the helm packages and container images required by the NF.                                                               |

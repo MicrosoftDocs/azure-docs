@@ -71,7 +71,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
    ```json
    {
      "ubuntu-vm-nfdg": {
-       "deploymentParameters": [
+       "deployParameters": [
          {
            "ubuntu-template": {
              "subnetName": "ubuntu-vm-subnet",
