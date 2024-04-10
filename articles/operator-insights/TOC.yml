@@ -37,11 +37,11 @@
     href: set-up-ingestion-agent.md
 - name: Integration
   items:
-  - name: Use Azure Operator Insights Data Product dashboards
+  - name: Use Data Product dashboards
     href: dashboards-use.md
-  - name: Query data in the Azure Operator Insights Data Product
+  - name: Query data in a Data Product
     href: data-query.md
-  - name: Use Microsoft Purview with an Azure Operator Insights Data Product
+  - name: Use Microsoft Purview with a Data Product
     href: purview-setup.md
 - name: Management
   items:
