@@ -3,8 +3,9 @@ title: Troubleshooting Domain Configuration issues for Azure Email Communication
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Troubleshooting domain configuration issues.
 author: raviverm
-manager: dacarte
+manager: daysha-carter
 services: azure-communication-services
+ms.author: raviverm
 ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services

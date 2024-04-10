@@ -3,8 +3,9 @@ title: Quota increase for Azure Email Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: Learn about requesting an increase to the default limit.
 author: raviverm
-manager: dacarte
+manager: daysha-carter
 services: azure-communication-services
+ms.author: raviverm
 ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
