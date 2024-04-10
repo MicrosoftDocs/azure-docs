@@ -125,6 +125,8 @@ In this cmdlet, you only need to pass the template object you defined previously
 Update-AzContainerApp -TemplateContainer $containerTemplate
 ```
 
+---
+
 ## Next steps
 
 - [Revision management](revisions-manage.md)
