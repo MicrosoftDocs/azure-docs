@@ -13,9 +13,9 @@ ms.subservice: calling
 ---
 
 # The volume of the incoming audio is low
-If users report low incoming audio volume, there could be several possible causes. One possibility is that the volume sent by the sender is low. Another possibility is that the operating system system volume is set too low. Finally, it's possible that the speaker output volume is set too low.
+If users report low incoming audio volume, there could be several possible causes. One possibility is that the volume sent by the sender is low. Another possibility is that the operating system volume is set too low. Finally, it's possible that the speaker output volume is set too low.
 
-If you use [raw audio](../../../../quickstarts/voice-video-calling/get-started-raw-media-access.md?pivots=platform-web) API , you may also need to check the output volume of the audio element.
+If you use [raw audio](../../../../quickstarts/voice-video-calling/get-started-raw-media-access.md?pivots=platform-web) API, you may also need to check the output volume of the audio element.
 
 ## How to detect using the SDK
 The [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) provides a way to monitor the incoming audio volume at receiving end.
