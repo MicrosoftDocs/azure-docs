@@ -29,11 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-<<<<<<< HEAD
 Create the application gateway using the tabs on the **Create application gateway** page. The Standard v2 SKU is used. To create a Basic SKU using the Azure portal, see [Deploy Application Gateway basic (Preview)](deploy-basic-portal.md)
-=======
-Create the application gateway using the tabs on the **Create application gateway** page.
->>>>>>> c9857e04153491c87a428e6dc0473697afbb3f99
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
@@ -57,13 +53,9 @@ Create the application gateway using the tabs on the **Create application gatewa
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-<<<<<<< HEAD
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
   
     - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
-=======
-    - **Subnet name** (Application Gateway subnet): The **Subnets** list shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
->>>>>>> c9857e04153491c87a428e6dc0473697afbb3f99
 
          ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 

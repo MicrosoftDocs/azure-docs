@@ -54,7 +54,7 @@ See the following table for a comparison between Basic and Stadard_v2.
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinitiy<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>AKS (via AGIC)<br>Zone | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br> | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
 | Functionality - advanced | URL rewrite<br>mTLS<br>Private Link<br>Private-only<sup>1</sup><br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
 | Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<br>5<br>5<br>5<br>5  | 1250<br>100<br>100<br>1200<br>400 |
-| Capacity Unit            | Connections Per Second per Compute Unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
+| Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
 
 ## Pricing
 
