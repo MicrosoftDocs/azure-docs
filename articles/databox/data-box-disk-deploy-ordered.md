@@ -103,7 +103,7 @@ Take the following steps to order Data Box Disk.
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
 
    > [!NOTE]
-    > Data Box Disk supports copying only 512 byte aligned .vhd files, for creating managed disks. Other formats such as .vmdk are not supported.
+    > Data Box Disk supports copying only 1 MiB aligned fixed .vhd files for creating managed disks. Dynamic VHDs, differencing VHDs, .vmdk or VHDX files are not supported.
     > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
 1. Select **Next: Security>** to continue.
