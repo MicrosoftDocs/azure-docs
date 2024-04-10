@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # The speaking participant's microphone has a problem
-When the speaking's participant's microphone has a problem, it may cause the outgoing audio to be silent, resulting in one-way audio issue in the call.
+When the speaking's participant's microphone has a problem, it might cause the outgoing audio to be silent, resulting in one-way audio issue in the call.
 
 ## How to detect using the SDK
 Your application can use [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) and register a listener callback to detect the device issue.
