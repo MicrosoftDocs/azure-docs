@@ -253,7 +253,7 @@ After you've completed the redistribution, you can verify the change by viewing 
 
 If necessary, you can also reset the RU/s per physical partition so that the RU/s of your container are evenly distributed across all physical partitions.
 
-#### [API for MongoDB](#tab/mongodb/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 Use the `Update-AzCosmosDBMongoDBCollectionPerPartitionThroughput` command for collections with dedicated RU/s or the `Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput` command for databases with shared RU/s with parameter `-EqualDistributionPolicy` to distribute RU/s evenly across all physical partitions.
 
