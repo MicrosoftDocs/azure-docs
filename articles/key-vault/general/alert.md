@@ -174,7 +174,7 @@ AzureDiagnostics
 1. Select **New alert rule**
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows query window with selected new alert rule](../media/alert-21.png)
+    > ![Screenshot that shows query window with selected new alert rule.](../media/alert-21.png)
 
 1. In **Condition** tab use following configuration:
     + In **Measurement** set **Aggregation granularity** to **1 day**
@@ -183,21 +183,21 @@ AzureDiagnostics
     + In **Alert logic** set **Threshold value** to **0** and **Frequency of evaluation** to **1 day**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows alert condition configuration](../media/alert-22.png)
+    > ![Screenshot that shows alert condition configuration.](../media/alert-22.png)
    
 1. In **Actions** tab configure alert to send an email
     1. Select **create action group** 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows how to create action group](../media/alert-23.png)
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to create action group.](../media/alert-23.png)
     1. Configure **Create action group** 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows how to configure action group](../media/alert-24.png)
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure action group.](../media/alert-24.png)
     1. Configure **Notifications** to send an email
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows how to configure notification](../media/alert-25.png)
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification.](../media/alert-25.png)
     1. Configure **Details** to trigger **Warning** alert
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows how to configure notification details](../media/alert-26.png)
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification details.](../media/alert-26.png)
     1. Select **Review + create**
     
 ## Next steps
