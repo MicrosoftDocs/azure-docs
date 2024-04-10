@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Before you start platform deployment pre-requisites"
+title: "Azure Operator Nexus: Before you start platform deployment prerequisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
 author: surajmb
 ms.author: surmb
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Operator Nexus platform prerequisites
 
-Operators will need to complete the prerequisites before the deploy of the
+Operators need to complete the prerequisites before the deploy of the
 Operator Nexus platform software. Some of these steps may take
 extended amounts of time, thus, a review of these prerequisites may prove beneficial.
 
@@ -21,32 +21,32 @@ In subsequent deployments of Operator Nexus instances, you can skip to creating 
 ## Azure prerequisites
 
 When deploying Operator Nexus for the first time or in a new region,
-you'll first need to create a Network Fabric Controller and then a Cluster Manager as specified [here](./howto-azure-operator-nexus-prerequisites.md). Additionally, the following tasks will need to be accomplished:
+you'll first need to create a Network Fabric Controller and then a Cluster Manager as specified [here](./howto-azure-operator-nexus-prerequisites.md). Additionally, the following tasks need to be accomplished:
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
 - Establish ExpressRoute connectivity from your WAN to an Azure Region
-- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must have selected a Defender for Servers plan in your Operator Nexus subscription prior to deployment. Additional information available [here](./howto-set-up-defender-for-cloud-security.md).
+- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must have selected a Defender for Servers plan in your Operator Nexus subscription before deployment. Additional information available [here](./howto-set-up-defender-for-cloud-security.md).
 
 ## On your premises prerequisites
 
-When deploying Operator Nexus on-premises instance in your datacenter, various teams are likely involved to perform a variety of roles. The following tasks must be performed accurately in order to ensure a successful platform software installation.
+When deploying Operator Nexus on-premises instance in your datacenter, various teams are likely involved performing various roles. The following tasks must be performed accurately in order to ensure a successful platform software installation.
 
 ### Physical hardware setup
 
-An operator that wishes to take advantage of the Operator Nexus service will need to
+An operator that wishes to take advantage of the Operator Nexus service needs to
 purchase, install, configure, and operate hardware resources. This section of
-the document will describe the necessary components and efforts to purchase and implement the appropriate hardware systems. This section will discuss the bill of materials, the rack elevations diagram and the cabling diagram, as well as the steps required to assemble the hardware.
+the document describes the necessary components and efforts to purchase and implement the appropriate hardware systems. This section discusses the bill of materials, the rack elevations diagram and the cabling diagram, and the steps required to assemble the hardware.
 
 #### Using the Bill of Materials (BOM)
 
-To ensure a seamless operator experience, Operator Nexus has developed a BOM for the hardware acquisition necessary for the service. This BOM is a comprehensive list of the necessary components and quantities needed to implement the environment for a successful implementation and maintenance of the on-premises instance. The BOM is structured to provide the operator with a series of stock keeping units (SKU) that can be ordered from hardware vendors. SKUs will be discussed later in the document.
+To ensure a seamless operator experience, Operator Nexus has developed a BOM for the hardware acquisition necessary for the service. This BOM is a comprehensive list of the necessary components and quantities needed to implement the environment for a successful implementation and maintenance of the on-premises instance. The BOM is structured to provide the operator with a series of stock keeping units (SKU) that can be ordered from hardware vendors. SKUs is discussed later in the document.
 
 #### Using the elevation diagram
 
 The rack elevation diagram is a graphical reference that demonstrates how the
 servers and other components fit into the assembled and configured racks. The
-rack elevation diagram is provided as part of the overall build instructions and will help the operators staff to correctly configure and install all of the hardware components necessary for service operation.
+rack elevation diagram is provided as part of the overall build instructions. It will help the operators staff to correctly configure and install all of the hardware components necessary for service operation.
 
 #### Cabling diagram
 
@@ -59,21 +59,21 @@ Cabling diagrams are graphical representations of the cable connections that are
 A SKU is an inventory management and tracking method
 that allows grouping of multiple components into a single designator. A SKU
 allows an operator to order all needed components with through specify one SKU
-number. This expedites the operator and vendor interaction while reducing
-ordering errors due to complex parts lists.
+number. The SKU expedites the operator and vendor interaction while reducing
+ordering errors because of complex parts lists.
 
-#### Placing a SKU based order
+#### Placing a SKU-based order
 
 Operator Nexus has created a series of SKUs with vendors such as Dell, Pure
-Storage and Arista that the operator will be able to reference when they place
+Storage and Arista that the operator can reference when they place
 an order. Thus, an operator simply needs to place an order based on the SKU
 information provided by Operator Nexus to the vendor to receive the correct
 parts list for the build.
 
 ### How to build the physical hardware footprint
 
-The physical hardware build is executed through a series of steps which will be detailed in this section.
-There are three prerequisite steps prior to the build execution. This section will also discuss assumptions
+The physical hardware build is executed through a series of steps, which will be detailed in this section.
+There are three prerequisite steps before the build execution. This section will also discuss assumptions
 concerning the skills of the operator's employees to execute the build.
 
 #### Ordering and receipt of the specific hardware infrastructure SKU
@@ -85,23 +85,23 @@ delivery timeframes.
 
 #### Site preparation
 
-The installation site must be capable of supporting the hardware infrastructure from a space, power,
+The installation site can support the hardware infrastructure from a space, power,
 and network perspective. The specific site requirements will be defined by the SKU purchased for the
 site. This step can be accomplished after the order is placed and before the receipt of the
 SKU.
 
 #### Scheduling resources
 
-The build process will require several different staff members to perform the
+The build process requires several different staff members to perform the
 build, such as engineers to provide power, network access and cabling, systems
 staff to assemble the racks, switches, and servers, to name a few. To ensure that the
 build is accomplished in a timely manner, we recommend scheduling these team members
 in advance based on the delivery schedule.
 
-#### Assumptions regarding build staff skills
+#### Assumptions about build staff skills
 
 The staff performing the build should be experienced at assembling systems
-hardware such as racks, switches, PDUs and servers. The instructions provided will discuss
+hardware such as racks, switches, PDUs, and servers. The instructions provided will discuss
 the steps of the process, while referencing rack elevations and cabling diagrams.
 
 #### Build process overview
@@ -121,7 +121,7 @@ instructions will be provided by the rack manufacturer.
 
 #### How to visually inspect the physical hardware installation
 
-It is recommended to label on all cables following ANSI/TIA 606 Standards,
+It's recommended to label on all cables following ANSI/TIA 606 Standards,
 or the operator's standards, during the build process. The build process
 should also create reverse mapping for cabling from a switch port to far end
 connection. The reverse mapping can be compared to the cabling diagram to
@@ -229,7 +229,7 @@ Terminal Server has been deployed and configured as follows:
    %admin ALL=(ALL) NOPASSWD: ALL
    ```
    
-6. Start/Enable the LLDP service if it is not running:
+6. Start/Enable the LLDP service if it isn't running:
    
    Check if LLDP service is running on TS:
    ```bash
@@ -248,7 +248,7 @@ Terminal Server has been deployed and configured as follows:
    Notice: journal has been rotated since unit was started, output may be incomplete.
    ```
 
-   If the service is not active (running), start the service:
+   If the service isn't active (running), start the service:
    ```bash
    sudo systemctl start lldpd
    ```
@@ -342,8 +342,8 @@ Terminal Server has been deployed and configured as follows:
 ## Set up storage array
 
 1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation within the Aggregation Rack.
-2. Operator will need to provide the storage array Technician with information, in order for the storage array Technician to arrive on-site to configure the appliance.
-3. Required location-specific data that will be shared with storage array technician:
+2. Operator needs to provide the storage array Technician with information, in order for the storage array Technician to arrive on-site to configure the appliance.
+3. Required location-specific data that is shared with storage array technician:
    - Customer Name:
    - Physical Inspection Date:
    - Chassis Serial Number:
@@ -353,6 +353,7 @@ Terminal Server has been deployed and configured as follows:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
    - Purity Code Level: 6.5.1
+   - Safe Mode: Disabled
    - Array Time zone: UTC
    - DNS Server IP Address: 172.27.255.201
    - DNS Domain Suffix: not set by operator during setup
@@ -361,7 +362,7 @@ Terminal Server has been deployed and configured as follows:
    - Syslog Secondary: 172.27.255.211
    - SMTP Gateway IP address or FQDN: not set by operator during setup
    - Email Sender Domain Name: domain name of the sender of the email (example.com)
-   - Email Address(es) to be alerted: not set by operator during setup
+   - Email Addresses to be alerted: not set by operator during setup
    - Proxy Server and Port: not set by operator during setup
    - Management: Virtual Interface
      - IP Address: 172.27.255.200
@@ -390,7 +391,7 @@ Terminal Server has been deployed and configured as follows:
    - ct1.eth11: not set by operator during setup
    - ct1.eth18: not set by operator during setup
    - ct1.eth19: not set by operator during setup
-   - Pure Tuneables to be applied:
+   - Pure Tunable to be applied:
      - puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";
      - puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";
      - puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";

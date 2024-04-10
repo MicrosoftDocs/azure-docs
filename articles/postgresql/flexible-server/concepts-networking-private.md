@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: gennadyk
 author: GennadNY
-ms.date: 01/19/2024
+ms.date: 04/04/2024
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)
