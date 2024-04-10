@@ -20,7 +20,7 @@ In this article, you'll upgrade your ingestion agent and roll back an upgrade.
 
 Decide which version of the ingestion agent you would like to upgrade to. If no version is specified when upgrading, the current version will be installed.
 
-See [What's new with Azure Operator Insights ingestion agent](ingestion-agent-release-notes.md) for a list of recent releases, version numbers and what's changed in each version. If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+See [What's new with Azure Operator Insights ingestion agent](ingestion-agent-release-notes.md) for a list of recent releases and what's changed in each version. If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
 If you would like to verify the authenticity of the ingestion agent package before upgrading, see [How to use the GPG Repository Signing Key](https://learn.microsoft.com/en-us/linux/packages#how-to-use-the-gpg-repository-signing-key)
 
