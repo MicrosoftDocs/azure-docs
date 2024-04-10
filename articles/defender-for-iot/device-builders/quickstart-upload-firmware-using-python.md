@@ -20,6 +20,7 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
 
 ### Prepare your environment
 
+* Ensure that your client has the necessary permissions to upload firmware images to Defender for IoT Firmware Analysis. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
 * Make note of your subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
 * Ensure that your firmware image is stored in the same directory as the following code
 
