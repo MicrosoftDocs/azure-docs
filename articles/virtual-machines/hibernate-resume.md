@@ -10,7 +10,7 @@ ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Hibernation overview for Azure virtual machines
+# Hibernation for Azure virtual machines overview
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
