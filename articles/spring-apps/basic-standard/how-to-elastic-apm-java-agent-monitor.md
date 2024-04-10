@@ -80,11 +80,11 @@ Before proceeding, you need your Elastic APM server connectivity information han
 
 1. Under your deployment on Elastic Cloud Console, select the **APM & Fleet** section to get Elastic APM Server endpoint and secret token.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png" alt-text="Elastic screenshot 'A P M & Fleet' page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png" alt-text="Screenshot of the APM & Fleet page with Copy endpoint and APM Server secret token highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png":::
 
 1. Download Elastic APM Java Agent from [Maven Central](https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent).
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png" alt-text="Maven Central screenshot with jar download highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png" alt-text="Screenshot of Maven Central with jar download highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png":::
 
 1. Upload Elastic APM Agent to the custom persistent storage you enabled earlier. Go to Azure Fileshare and select **Upload** to add the agent JAR file.
 
@@ -173,23 +173,23 @@ Use the following steps to monitor applications and metrics:
 
 1. After Kibana is open, search for *APM* in the search bar, then select **APM**.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Elastic / Kibana screenshot showing A P M search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Screenshot of Elastic / Kibana that shows the A P M search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
 
 Kibana APM is the curated application to support Application Monitoring workflows. Here you can view high-level details such as request/response times, throughput, and the transactions in a service with the most impact on the duration.
 
-:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png" alt-text="Elastic / Kibana screenshot showing A P M Services Overview page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png":::
+:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png" alt-text="Screenshot of Elastic / Kibana that shows the APM Services Overview page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png":::
 
 You can drill down in a specific transaction to understand the transaction-specific details such as the distributed tracing.
 
-:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png" alt-text="Elastic / Kibana screenshot showing A P M Services Transactions page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png":::
+:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png" alt-text="Screenshot of Elastic / Kibana that shows the APM Services Transactions page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png":::
 
 Elastic APM Java agent also captures the JVM metrics from the Azure Spring Apps apps that are available with Kibana App for users for troubleshooting.
 
-:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png" alt-text="Elastic / Kibana screenshot showing A P M Services J V M page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png":::
+:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png" alt-text="Screenshot of Elastic / Kibana that shows the APM Services JVM page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png":::
 
 Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Apps Services and choose an appropriate action - such as Teams notification, creation of a JIRA issue, a webhook-based API call, and others.
 
-:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png" alt-text="Elastic / Kibana screenshot showing A P M Services page with 'Create rule' pane showing and Actions highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png":::
+:::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png" alt-text="ScreeElastic / Kibana screenshot showing A P M Services page with 'Create rule' pane showing and Actions highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png":::
 
 ## Next steps
 
