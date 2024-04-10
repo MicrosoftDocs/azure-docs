@@ -41,11 +41,11 @@ You can view connectivity status for an Arc site as a whole from the main page o
 
    :::image type="content" source="./media/how-to-view-connectivity-status/overview-sites-page.png" alt-text="Screenshot that shows selecting the Overview page in site manager.":::
 
-1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the example below, one site is **up to date** and one site **needs attention**.
+1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the example below, sites are shown with different statuses.
 
    :::image type="content" source="./media/how-to-view-connectivity-status/site-connection-overview.png" alt-text="Screenshot that shows the connectivity view in the sites overview page.":::
 
-1. To understand which site is **up to date** and which site **needs attention**, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
+1. To understand which site has which status, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
 
    :::image type="content" source="./media/how-to-view-connectivity-status/click-connectivity-status-site-details.png" alt-text="Screenshot that shows selecting the Sites tab to get more detail about connectivity status.":::
 

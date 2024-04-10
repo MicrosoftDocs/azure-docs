@@ -43,11 +43,11 @@ View alert status for an Arc site from the main page of Azure Arc site manager.
 
    :::image type="content" source="./media/how-to-view-alerts/overview-sites-page.png" alt-text="Screenshot that shows selecting the overview page from site manager.":::
 
-1. In the **Overview** page, you can view the summarized alert statuses of all sites. This site-level alert status is an aggregation of all the alert statuses of the resources in that site. In the example below, one site is **up to date** and one site **needs attention**.
+1. In the **Overview** page, you can view the summarized alert statuses of all sites. This site-level alert status is an aggregation of all the alert statuses of the resources in that site. In the example below, sites are shown with different statuses.
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts.png" alt-text="Screenshot that shows viewing the alert status on the site manager overview page.":::
 
-1. To understand which site is **up to date** and which site **needs attention**, select either the **Sites** tab or the blue status text.
+1. To understand which site has which status, select either the **Sites** tab or the blue status text.
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details.png" alt-text="Screenshot of site manager overview page directing to the sites page to view more details.":::
 
