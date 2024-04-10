@@ -19,8 +19,9 @@ All existing engine version server upgrades to 8.0.36 engine version.
 To check your engine version, run `SELECT VERSION();` command at the MySQL prompt
 
 ## Features
-- Support for Azure Defender for Azure DB for MySQL Flexible Server
-
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-databases-introduction) 
+- Introducing Defender for Cloud support to simplify security management with threat protection from anomalous database activities in Azure Database for MySQL flexible server instances.
+  
 ## Improvement
 - Expose old_alter_table for 8.0.x.
 

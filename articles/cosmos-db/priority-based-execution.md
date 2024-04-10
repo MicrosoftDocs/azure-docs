@@ -43,7 +43,7 @@ To get started using priority-based execution, navigate to the **Features** page
 - Java v4: [v4.45.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.45.0) or later
 - Spark 3.2: [v4.19.0](https://central.sonatype.com/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-2_2-12/4.19.0) or later
 - JavaScript v4: [v4.0.0](https://www.npmjs.com/package/@azure/cosmos) or later
-- Python 4.6.0: [v4.6.0](https://pypi.org/project/azure-cosmos/4.6.0/) or later
+- Python: [v4.5.2b2](https://pypi.org/project/azure-cosmos/4.5.2b2/) or later. Available only in preview version.
 
 ## Code samples
 

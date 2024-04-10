@@ -6,10 +6,12 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 03/26/2024
 ms.author: danlep
 ---
 # Create subscriptions in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 When you publish APIs through Azure API Management, it's easy and common to secure access to those APIs by using subscription keys. Client applications that need to consume the published APIs must include a valid subscription key in HTTP requests when they make calls to those APIs. To get a subscription key for accessing APIs, a subscription is required. For more information about subscriptions, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
@@ -32,6 +34,9 @@ To take the steps in this article, the prerequisites are as follows:
 1. Optionally, select **Allow tracing** to enable tracing for debugging and troubleshooting APIs. [Learn more](api-management-howto-api-inspector.md)
 
     [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
+
+    [!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
+
 1. Select a **Scope** of the subscription from the dropdown list. [Learn more](api-management-subscriptions.md#scope-of-subscriptions)
 1. Optionally, choose if the subscription should be associated with a **User** and whether to send a notification for use with the developer portal.
 1. Select **Create**.

@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Import SOAP API to API Management and convert to REST
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import a SOAP API as a WSDL specification and then convert it to a REST API. The article also shows how to test the API in API Management.
 
 In this article, you learn how to:

@@ -12,12 +12,12 @@ ms.author: tomkerkhove
 
 # Self-hosted gateway migration guide
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article explains how to migrate existing self-hosted gateway deployments to self-hosted gateway v2.
 
 > [!IMPORTANT]
 > Support for Azure API Management self-hosted gateway version 0 and version 1 container images is ending on 1 October 2023, along with its corresponding Configuration API v1. [Learn more in our deprecation documentation](./breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md)
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## What's new?
 
