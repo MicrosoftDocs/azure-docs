@@ -319,6 +319,9 @@ Disk caching | Disk Caching isn't supported for disks 4 TiB and larger. If multi
 
 ## Replicated machines - storage
 
+> [!NOTE]
+> Azure Site Recovery supports storage accounts with page blob for unmanaged disk replication.
+
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
 - It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
