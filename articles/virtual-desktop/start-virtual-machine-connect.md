@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/05/2024
 ms.author: helohr
 ms.custom: subject-rbac-steps
 ---
@@ -49,7 +49,7 @@ To learn how to assign the *Desktop Virtualization Power On Contributor* role to
 
 Now that you've assigned the *Desktop Virtualization Power On Contributor* role to the service principal on your subscriptions, you can configure Start VM on Connect using the Azure portal or PowerShell.
 
-# [Portal](#tab/azure-portal)
+# [Azure Portal](#tab/azure-portal)
 
 To configure Start VM on Connect using the Azure portal:
 
@@ -65,25 +65,11 @@ To configure Start VM on Connect using the Azure portal:
 
 2. Select **Save** to apply the settings.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 You need to make sure you have the names of the resource group and host pool you want to configure. To configure Start VM on Connect using PowerShell:
 
-1. Open a PowerShell prompt.
-
-1. Sign in to Azure using the `Connect-AzAccount` cmdlet. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)
-
-1. Find the name of the subscription that contains host pools and session host VMs you want to use with Start VM on Connect by listing all that are available to you:
-
-   ```powershell
-   Get-AzSubscription
-   ```
-
-1. Change your current Azure session to use the subscription you identified in the previous step, replacing the value for `-SubscriptionName` with the name or ID of the subscription:
-
-   ```powershell
-   Set-AzContext -Subscription "<subscription name or id>"
-   ```
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
 1. To enable or disable Start VM on Connect, do one of the following steps:
 
@@ -98,6 +84,10 @@ You need to make sure you have the names of the resource group and host pool you
       ```powershell
       Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
       ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To configure Start VM on Connect using Azure CLI:
 
 ---
 
