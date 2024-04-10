@@ -184,7 +184,7 @@ You should keep these considerations in mind when planning for a continuous depl
 
 ## Continuous deployment during app creation
 
-Currently, you can configure continuous deployment from GitHub using GitHub Actions when you create your function app in the Azure portal. You can do this on the **Deployment** tab.
+Currently, you can configure continuous deployment from GitHub using GitHub Actions when you create your function app in the Azure portal. You can do this on the **Deployment** tab in the **Create Function App** page.
 
 If you want to use a different deployment source or build provider for continuous integration, first create your function app and then return to the portal and [set up continuous integration in the Deployment Center](#credentials).
 
