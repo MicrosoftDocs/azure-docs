@@ -46,7 +46,7 @@ When you create a Hibernation-enabled VM via the Azure portal, the LinuxHibernat
 If the extension is missing, you can [manually install the LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
 
 >[!NOTE]
-> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](../hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
+> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the Linux hibernation troubleshooting guide](../linux/hibernate-resume-troubleshooting-linux.md#azure-extensions-disabled-on-debian-images).
 
 #### [CLI](#tab/cliLHE)
     
@@ -137,5 +137,4 @@ Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)
-- [Learn about Azure Virtual Desktop](/azure/virtual-desktop/overview.md)
 - [Look into Azure VM Sizes](../sizes.md)

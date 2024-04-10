@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows VM hibernation
+title: Troubleshoot hibernation on Windows virtual machines
 description: Learn how to troubleshoot hibernation on Windows VMs.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -9,7 +9,7 @@ ms.author: jainan
 ms.reviewer: mattmcinnes
 ---
 
-# Troubleshooting Windows VM hibernation
+# Troubleshooting hibernation on Windows VMs
 
 > [!IMPORTANT]
 > Azure Virtual Machines - Hibernation is currently in PREVIEW.
@@ -17,13 +17,15 @@ ms.reviewer: mattmcinnes
 
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature in Windows, issues creating hibernation enabled Windows VMs, and issues with hibernating a Windows VM.
 
+To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](hibernate-resume-troubleshooting.md).
+
 ## Unable to hibernate a Windows VM
 
 If you're unable to hibernate a VM, first [check whether hibernation is enabled on the VM](../hibernate-resume-troubleshooting.md#unable-to-hibernate-a-vm).
 
 If hibernation is enabled on the VM, check if hibernation is successfully enabled in the guest OS. You can check the status of the Hibernation extension to see if the extension was able to successfully configure the guest OS for hibernation.
 
-:::image type="content" source="../media/hibernate-resume/provisioning-success-windows.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded for a Windows VM.":::
+:::image type="content" source="../media/hibernate-resume/provisioning-success-windows.png" alt-text="Screenshot of the status and status message reporting that provisioning succeeded for a Windows VM.":::
 
 The VM instance view would have the final output of the extension:
 ```
@@ -70,7 +72,7 @@ C:\Users\vmadmin>powercfg /a
 
 ```
 
-If 'Hibernate' isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. This occurs if guest hibernate hasn't been configured for the VM.
+If Hibernate isn't listed as a supported sleep state, there should be a reason associated with it, which should help determine why hibernate isn't supported. This occurs if guest hibernate isn't configured for the VM.
 
 ```
 C:\Users\vmadmin>powercfg /a
@@ -105,13 +107,13 @@ Also validate that the AzureHibernateExtension returns to a Succeeded state. If 
 >[!NOTE]
 >If the extension remains in a failed state, you can't hibernate the VM
 
-Commonly seen issues where the extension fails
+Commonly seen issues where the extension fails.
 
 | Issue | Action |
 |--|--|
 | Page file is in temp disk. Move it to OS disk to enable hibernation. | Move page file to the C: drive and trigger reapply on the VM to rerun the extension |
 | Windows failed to configure hibernation due to insufficient space for the hiberfile | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
-| Extension error message: “A device attached to the system isn't functioning” | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
+| Extension error message: "A device attached to the system isn't functioning" | Ensure that C: drive has sufficient space. You can try expanding your OS disk, your C: partition size to overcome this issue. Once you have sufficient space, trigger the Reapply operation so that the extension can retry enabling hibernation in the guest and succeeds. |
 | Hibernation is no longer supported after Virtualization Based Security (VBS) was enabled inside the guest | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. [Enable virtualization in the guest OS.](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
 | Enabling hibernate failed. Response from the powercfg command. Exit Code: 1. Error message: Hibernation failed with the following error: The request isn't supported. The following items are preventing hibernation on this system. The current Device Guard configuration disables hibernation. An internal system component disabled hibernation. Hypervisor | Enable Virtualization in the guest to get VBS capabilities along with the ability to hibernate the guest. To enable virtualization in the guest, refer to [this document](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v#enable-hyper-v-using-powershell) |
 
@@ -136,13 +138,13 @@ Commonly seen issues:
 | Issue | Action |
 |--|--|
 | Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
-| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you are trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
+| Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you're trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
 
 Logs needed for troubleshooting:
 
 If you encounter an issue outside of these known scenarios, the following logs can help Azure troubleshoot the issue: 
-1. Event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
-1. On bug check, a guest crash dump is helpful.
+1. Relevant event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
+1. During a bug check, a guest crash dump is helpful.
 
 ## Unable to resume a Windows VM
 When you start a VM from a hibernated state, you can use the VM instance view to get more details on whether the guest successfully resumed from its previous hibernated state or if it failed to resume and instead did a cold boot. 

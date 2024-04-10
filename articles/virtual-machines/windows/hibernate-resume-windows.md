@@ -185,12 +185,11 @@ To learn more about deploying hibernation-enabled VMs from the Compute Gallery, 
 To learn more about deploying hibernation-enabled VMs from an OS disk, check out ["Deploy hibernation enabled VMs from an OS disk"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-an-os-disk).
 
 ## Troubleshooting
-Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooting.md) for more information.
+Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooting.md) and the [Windows VM hibernation troubleshooting guide](./hibernate-resume-troubleshooting-windows.md) for more information.
 
 ## FAQs
 Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)
-- [Learn about Azure Virtual Desktop](/azure/virtual-desktop/overview.md)
 - [Look into Azure VM Sizes](../sizes.md)

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Linux VM hibernation
+title: Troubleshoot hibernation on Linux virtual machines
 description: Learn how to troubleshoot hibernation on Linux VMs.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -9,13 +9,15 @@ ms.author: jainan
 ms.reviewer: mattmcinnes
 ---
 
-# Troubleshooting Linux VM hibernation
+# Troubleshooting hibernation on Linux VMs
 
 > [!IMPORTANT]
 > Azure Virtual Machines - Hibernation is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature on Linux, issues creating hibernation enabled Linux VMs, and issues with hibernating a Linux VM.
+
+To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](hibernate-resume-troubleshooting.md).
 
 ## Unable to hibernate a Linux VM
 
@@ -28,7 +30,7 @@ If hibernation is enabled on the VM, check if hibernation is successfully enable
 ## Guest Linux VMs unable to hibernate
 You can check the extension status if you used the extension to enable hibernation in the guest OS.
 
-:::image type="content" source="./media/hibernate-resume/provisioning-success-linux.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded on a Linux VM.":::
+:::image type="content" source="../media/hibernate-resume/provisioning-success-linux.png" alt-text="Screenshot of the status and status message reporting that provisioning has succeeded on a Linux VM.":::
 
 If you used the hibernation-setup-tool to configure the guest for hibernation, you can check if the tool executed successfully through this command:
 
@@ -66,6 +68,6 @@ Azure extensions are currently disabled by default for Debian images (more detai
 sed -i -e 's/^Extensions\.Enabled =.* $/Extensions.Enabled=y/" /etc/waagent.conf
 ```
 
-:::image type="content" source="./media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png" alt-text="Screenshot of the cloud init input field for new Linux VMs.":::
+:::image type="content" source="../media/hibernate-resume/debian-image-enable-extensions-via-cloud-init.png" alt-text="Screenshot of the cloud init input field for new Linux VMs.":::
 
-Alternatively, you can enable hibernation on the guest by [installing the hibernation-setup-tool](hibernate-resume.md#option-2-hibernation-setup-tool).
+Alternatively, you can enable hibernation on the guest by [installing the hibernation-setup-tool on your Linux VM](../linux/hibernate-resume-linux.md#hibernation-setup-tool).
