@@ -3,7 +3,7 @@ title: Monitor Azure Site Recovery with Azure Monitor Logs
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 04/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 
@@ -62,10 +62,17 @@ You can capture the data churn rate information and source data upload rate info
 7. Once the installation is complete, go to Log Analytics workspace and select **Legacy agents management**. Go to the **Data** page and select **Windows Performance Counters**. 
 8. Select **'+'** to add the following two counters with a sample interval of 300 seconds:
 
-    - ASRAnalytics(*)\SourceVmChurnRate
-    - ASRAnalytics(*)\SourceVmThrpRate
+    - `ASRAnalytics(*)\SourceVmChurnRate`
+    - `ASRAnalytics(*)\SourceVmThrpRate`
 
 The churn and upload rate data will start feeding into the workspace.
+
+> [!NOTE]
+> Currently, you can't search for these counters. However, you can add them by copying and pasting their full names.
+> - **SourceVmThrpRate** shows the network through put rate on the source.
+> - **SourceVmChurnRate** shows the data change rate on the disk at the source virtual machine.
+> 
+> ![Screenshot of the counters setting screen.](./media/monitoring-log-analytics/counters.png)
 
 
 ## Query the logs - examples
