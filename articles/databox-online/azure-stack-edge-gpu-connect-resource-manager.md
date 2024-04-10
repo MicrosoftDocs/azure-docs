@@ -231,7 +231,7 @@ If your repository isn't trusted or you need more information, see [Validate the
 
 Install Azure PowerShell modules on your client that work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery.
+1. Run PowerShell as an administrator. You must have access to PowerShell gallery.
 
 
 1. First verify that there are no existing versions of `AzureRM` and `Az` modules on your client. To check, run the following commands:
@@ -250,7 +250,7 @@ Install Azure PowerShell modules on your client that work with your device.
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
-    - If your client is using PowerShell Core version 7.0 and later:
+    - If your client is using PowerShell Core version 7.0 or later:
 
         ```powershell
         # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet.
@@ -265,7 +265,7 @@ Install Azure PowerShell modules on your client that work with your device.
         Get-Module -Name "Az*" -ListAvailable
         ```
 
-    - If your client is using PowerShell 5.1 and later:
+    - If your client is using PowerShell 5.1 or later:
 
         ```powershell
         #Install the Az module version 1.10.0
@@ -301,7 +301,7 @@ Install Azure PowerShell modules on your client that work with your device.
 
 Install Azure PowerShell modules on your client that work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery.
+1. Run PowerShell as an administrator. You must have access to PowerShell gallery.
 
 
 2. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
@@ -319,7 +319,7 @@ Install Azure PowerShell modules on your client that work with your device.
     Get-Module -Name "Azure*" -ListAvailable
     ```
 
-    Make sure that you have Azure-RM module version 2.5.0 running at the end of the installation.
+    Make sure you have Azure-RM module version 2.5.0 running at the end of the installation.
     If you have an existing version of Azure-RM module that doesn't match the required version, uninstall using the following command:
 
     `Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose`
