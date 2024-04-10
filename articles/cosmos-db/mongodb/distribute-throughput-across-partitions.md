@@ -108,7 +108,7 @@ az extension add \
 ```
 ---
 
-#### [API for MongoDB](#tab/mongodb/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 Use the `Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput` command to read the current RU/s on each physical partition.
 
