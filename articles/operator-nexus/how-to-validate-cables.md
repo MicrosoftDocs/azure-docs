@@ -40,8 +40,6 @@ This article explains the  Fabric cable validation, where the primary function o
     ```
     The operation status indicates if the API succeeded or failed. 
 
-    https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx 
-
 > [!NOTE]
 > The operation takes roughly 20~40 minutes to complete based on the number of racks.  
 
