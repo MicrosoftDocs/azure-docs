@@ -17,7 +17,7 @@ ms.reviewer: mattmcinnes
 
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature on Linux, issues creating hibernation enabled Linux VMs, and issues with hibernating a Linux VM.
 
-To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](hibernate-resume-troubleshooting.md).
+To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](../hibernate-resume-troubleshooting.md).
 
 ## Unable to hibernate a Linux VM
 
