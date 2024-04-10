@@ -28,13 +28,20 @@ If you're creating a new Container App through the [Azure portal](https://portal
 
 You can create your Container App with enviroment variables using the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command by passing the environment variables as space-separated 'key=value' entries using the `--env-vars` parameter.
 
-If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`
-
 ```azurecli
 az containerapp create -n my-containerapp -g MyResourceGroup \
     --image my-app:v1.0 --environment MyContainerappEnv \
     --secrets mysecret=secretvalue1 anothersecret="secret value 2" \
-    --env-vars GREETING="Hello, world" SECRETENV=secretref:anothersecret
+    --env-vars GREETING="Hello, world" ANOTHERENV=anotherenv
+```
+
+If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`
+
+```azurecli
+az containerapp update \
+    -n <APP NAME> 
+    -g <RESOURCE_GROUP_NAME> 
+    --set-env-vars <VAR_NAME>=secretref:<SECRET_NAME>
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -76,6 +83,8 @@ Update-AzContainerApp -TemplateContainer $containerTemplate
 
 ## Adding environment variables on existing container apps
 
+After the Container App is created, the only way to update the Container App environment variables is by creating a new revision with the needed changes.
+
 ### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for Container Apps and then select your app.
@@ -88,7 +97,9 @@ Update-AzContainerApp -TemplateContainer $containerTemplate
 
 1. Then set the Name of your Environment variable and the Source (it can be a reference to a [secret](manage-secrets.md)).
 :::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section.":::
+
     1. If you select the Source as manual, you can manually input the Environment variable value.
+    
     :::image type="content" source="media/environment-variables/manual-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section with one of the environments source selected as Manual.":::
 
 ### [Azure CLI](#tab/cli)
@@ -106,7 +117,7 @@ az containerapp update \
 
 If you want to create multiple environment variables, you can insert space-separated values in the 'key=value' format.
 
-If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`, see the following image:
+If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`, see the following example:
 
 ```azurecli
 az containerapp update \
