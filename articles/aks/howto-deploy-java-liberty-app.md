@@ -112,7 +112,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group that you created previously. If you followed the recommended convention, enter your initials, and then select the appropriate resource group.
 1. In the list of resources in the resource group, select the resource with the **Type** value of **Container registry**.
 1. On the left pane, under **Settings**, select **Access keys**.
-1. Save aside the values for **Login server**, **Registry name**, **Username**, and **Password**. You can use the copy icon at the right of each field to copy the value to the system clipboard.
+1. Save aside the values for **Login server**, **Registry name**, **Username**, and **Password**. You can use the copy icon next to each field to copy the value to the system clipboard.
 1. Go back to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
 1. Select the bottom-most deployment in the list. The **Deployment name** value matches the publisher ID of the offer. It contains the string `ibm`.
