@@ -20,7 +20,7 @@ Both Enterprise and Enterprise Flash support open-source Redis 6 and some new fe
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
+You need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ### Availability by region
 
@@ -40,7 +40,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    | ------------ |  ------- | -------------------------------------------------- |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **DNS name** | Enter a name that is unique in the region. | The cache name must be a string between 1 and 63 characters when _combined with the cache's region name_ that contain only numbers, letters, or hyphens. (If the cache name is less than 45 characters long it should work in all currently available regions.) The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net*. |
+   | **DNS name** | Enter a name that is unique in the region. | The cache name must be a string between 1 and 63 characters when _combined with the cache's region name_ that contain only numbers, letters, or hyphens. (If the cache name is fewer than 45 characters long it should work in all currently available regions.) The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net*. |
    | **Location** | Drop down and select a location. | Enterprise tiers are available in selected Azure regions. |
    | **Cache type** | Drop down and select an *Enterprise* or *Enterprise Flash* tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
 
@@ -68,7 +68,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    > 
 
    > [!IMPORTANT]
-   > You can't change modules after you create the cache instance. The setting is create-only i.e modules must be enabled at the time you create an Azure Cache for Redis instance and there is no option to enable the modules configuration post cache creation.
+   > You can't change modules after you create a cache instance. Modules must be enabled at the time you create an Azure Cache for Redis instance. There is no option to enable the configuration of a module after you create a cache.
    >
 
 1. Select **Next: Tags** and skip.
