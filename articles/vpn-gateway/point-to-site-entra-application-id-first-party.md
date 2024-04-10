@@ -21,6 +21,18 @@ This article helps you configure your point-to-site (P2S) VPN gateway to use Mic
 
 [!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
+When using the Azure VPN client first-party App ID, consider the following:
+
+* The Azure VPN client for Linux is a newly released client and supports only first-party application App ID (not third-party).
+
+* At this time, the Azure VPN client for Linux is the only version of the Azure VPN client that supports the first-party App ID. An announcement will be made when we release versions that support first-party App ID for other operating systems.
+
+* Azure Government, Azure Germany, and Azure operated by China 21Vianet aren't currently supported for first-party App ID.
+
+* The first-party App ID (Audience) value for the Azure VPN Client is different than the value you use for a third-party App ID.
+
+* The Azure VPN Client for Linux supports Custom App ID.
+
 ## Prerequisites
 
 **Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra authentication. You can also create a new VPN gateway that specifies Microsoft Entra authentication. The link to create a new gateway is included in this article.
