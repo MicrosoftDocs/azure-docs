@@ -19,8 +19,9 @@ ms.date: 04/08/2024
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://nodejs.org/" target="_blank">Node.js LTS with TypeScript or ESM support.</a>
-- npm package `@azure/identity` for passwordless authentication or `@azure/core-auth` for service key authentication
-- npm package `@azure/openai-assistants`
+- npm package `@azure/identity` for passwordless authentication or `@azure/core-auth` for service key authentication. 
+- [Azure CLI](/cli/azure/install-azure-cli) used for passwordless authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
+- npm package `@azure/openai-assistants`.
 - Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
 - An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example.
@@ -61,6 +62,30 @@ Create and assign persistent environment variables for your key and endpoint.
 
 [!INCLUDE [environment-variables](environment-variables.md)]
 
+Add an additional environment variable for the deployment name: `AZURE_OPENAI_DEPLOYMENT_NAME`.
+
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```cmd
+setx AZURE_OPENAI_DEPLOYMENT_NAME "REPLACE_WITH_YOUR_DEPLOYMENT_NAME" 
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_DEPLOYMENT_NAME', 'REPLACE_WITH_YOUR_DEPLOYMENT_NAME', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```bash
+export AZURE_OPENAI_DEPLOYMENT_NAME="REPLACE_WITH_YOUR_DEPLOYMENT_NAME"
+```
+
+---
+
 ## Create an assistant
 
 In our code we are going to specify the following values:
@@ -76,27 +101,24 @@ In our code we are going to specify the following values:
 
 An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
 
-#### [Recommended: TS Passwordless](#tab/typescript-passwordless)
+#### [TypeScript](#tab/typescript)
 
-Create and run an assistant with the following TypeScript module:
+Sign in to Azure with `az login` then create and run an assistant with the following **recommdended** passwordless TypeScript module (index.ts):
 
 :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index.ts" :::
 
-#### [JS Passwordless](#tab/javascript-passwordless)
-
-Create and run an assistant with the following TypeScript module:
-
-:::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
-
-#### [TS Password](#tab/typescript-password)
-
-Create and run an assistant with the following TypeScript module:
+To use the service key for authentication, you can create and run an assistant with the following TypeScript module (index.ts):
 
 :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index-using-password.ts" :::
 
-#### [JS Password](#tab/javascript-password)
+#### [JavaScript](#tab/javascript)
 
-Create and run an assistant with the following TypeScript module:
+
+Sign in to Azure with `az login` then create and run an assistant with the following **recommdended** passwordless Javascript module (index.mjs):
+
+:::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
+
+To use the service key for authentication, you can create and run an assistant with the following JavaScript module (index.mjs):
 
 :::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index-using-password.mjs" :::
 
