@@ -4,7 +4,7 @@ description: How to find unattached Azure managed and unmanaged (VHDs/page blobs
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 04/25/2022
+ms.date: 04/10/2024
 ms.author: rogarana
 ---
 
@@ -24,6 +24,10 @@ If you have unattached managed disks and no longer need the data on them, the fo
     On the **Disks** blade, you are presented with a list of all your disks.
 
 1. Select the disk you'd like to delete, this brings you to the individual disk's blade.
+
+    > [!NOTE]
+    > The disk's blade also displays the **LastOwnershipUpdateTime** property. This property represents when the disk’s state was last updated. For an unattached disk, this shows the time when the disk was unattached. This property is blank for newly created disks, until their state changes.
+
 1. On the individual disk's blade, confirm the disk state is unattached, then select **Delete**.
 
     :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Screenshot of an individual managed disks blade. This blade will show unattached in the disk state if it is unattached. You can delete this disk if you do not need to preserve its data any longer":::
