@@ -30,7 +30,7 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
 
     :::image type="content" source="media/review-with-copilot/analyze-with-copilot.png" alt-text="Screenshot of the recommendations page that shows where the analyze with Copilot button is located." lightbox="media/review-with-copilot/analyze-with-copilot.png":::
 
-1. Select one of the suggested prompts or enter a question in natural language.
+1. Select one of the suggested prompts or enter a prompt in natural language.
 
     Some sample prompts include:
 
@@ -64,4 +64,18 @@ Copilot gives you the ability to summarize a recommendation. By using prompts, y
 
 1. Select a recommendation.
 
-1.  
+1. Select **Summarize with Copilot**.
+
+    :::image type="content" source="media/review-with-copilot/summarize-with-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/review-with-copilot/summarize-with-copilot.png":::
+
+1. (Optional) if prompted, select a resource type to summarize.
+
+    :::image type="content" source="media/review-with-copilot/resource-to-summarize.png" alt-text="Screenshot of the resource options that can be selected by copilot in the prompt." lightbox="media/review-with-copilot/resource-to-summarize.png":::
+
+1. Review the summary provided by Copilot.
+
+1. Enter a natural language response, for example `help me remediate this recommendation` or select from the suggested prompts.
+
+
+
+    
