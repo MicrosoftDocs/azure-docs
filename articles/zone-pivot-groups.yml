@@ -3167,3 +3167,12 @@ groups:
     title: Azure CLI
   - id: development-environment-azure-developer
     title: Azure Developer CLI
+# Owner: jopeng
+- id: acs-interop-chat-tutorial-js-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
