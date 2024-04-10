@@ -22,6 +22,10 @@
   items:
   - name: FAQ
     href: faq.md
+- name: Troubleshooting
+  items:
+  - name: Known Issues
+    href: known-issues.md
 - name: Reference
   items:
   - name: Azure Arc

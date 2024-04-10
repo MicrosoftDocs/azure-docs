@@ -46,6 +46,8 @@ landingContent:
             url: how-to-view-alerts.md
           - text: How do I configure monitor?
             url: how-to-configure-monitor-site.md
+          - text: Known issues.
+            url: known-issues.md
   - title: Explore more
     linkLists:
       - linkListType: reference
