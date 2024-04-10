@@ -7,7 +7,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: tutorial
-ms.date: 01/16/2024
+ms.date: 02/26/2024
 ms.custom: mvc, devx-track-azurecli
 ---
 

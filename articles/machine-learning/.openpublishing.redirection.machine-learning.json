@@ -6,11 +6,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/tutorial-feature-store-domain-specific-language.md",
-        "redirect_url": "/azure/machine-learning/",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-train-deploy-notebook.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false

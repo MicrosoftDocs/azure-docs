@@ -1,6 +1,6 @@
 ---
 title: Azure Private 5G Core 2403 release notes
-description: Discover what's new in the Azure Private 5G Core 2403 release
+description: Discover what's new in the Azure Private 5G Core 2403 release.
 author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
@@ -35,21 +35,38 @@ The following table shows the support status for different Packet Core releases 
 
 ### TCP Maximum Segment Size (MSS) Clamping
 
-TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core will now automatically set this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+
+### Improved Packet Core Scaling 
+
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario. 
+The following table lists the new maximum supported limits.
+
+| Element                | Maximum supported |
+|------------------------|-------------------|
+| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
+| Bandwidth              | Over 25 Gbps per ASE |
+| RAN nodes (eNB/gNB)    | 200 per packet core |
+| Active UEs             | 10,000 per deployment (all sites) |
+| SIMs                   | 20,000 per ASE |
+| SIM provisioning       | 10,000 per JSON file via Azure portal, 4 MB per REST API call  |
+
+For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## Issues fixed in the AP5GC 2403 release
 
 The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |  SKU Fixed In |
-  |-----|-----|-----|-----|----|
+  |-----|---------|-------|---------------|
   | 1 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | 2403.0-2 |
-  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |  
+  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |
+  | 3 | Security | [CVE-2024-20685](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-20685) | 2403.0-2 |
 
 ## Known issues in the AP5GC 2403 release
 <!--**TO BE UPDATED**>
   |No.  |Feature  | Issue | Workaround/comments |
-  |-----|-----|-----|-----|
+  |-----|-----|-----|
   | 1 |  |  |  |
 <-->
 
