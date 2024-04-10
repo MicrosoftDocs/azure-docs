@@ -167,7 +167,7 @@ def analyze_layout():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = document_intelligence_client.begin_analyze_document_from_url(
         "prebuilt-layout", formUrl
     )
 
