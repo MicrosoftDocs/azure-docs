@@ -116,7 +116,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 1. Go back to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
 1. Select the bottom-most deployment in the list. The **Deployment name** value matches the publisher ID of the offer. It contains the string `ibm`.
-1. On the left pane, select **Outputs**.
+1. On the navigation pane, select **Outputs**.
 1. By using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
    * `cmdToConnectToCluster`
