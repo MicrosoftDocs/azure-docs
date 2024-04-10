@@ -27,7 +27,7 @@ Arc-enabled System Center VMM allows you to:
 - Install the Arc-connected machine agents at scale on SCVMM VMs to [govern, protect, configure, and monitor them](../servers/overview.md#supported-cloud-operations).
 
 > [!NOTE]
-> For additional guidance regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
+> For more information regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
 
 ## Onboard resources to Azure management at scale
 
