@@ -39,4 +39,6 @@ which can happen when the operating system or driver layer terminates the audio 
 The `microphoneMuteUnexpectedly` event can occur when the audio input track's source is temporarily unable to provide media data.
 For example, a hardware mute button of some headset models can trigger this event.
 
-The application should listen to the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) events. The application should display a warning message when receiving events. By doing so, the user is aware of the issue and can troubleshoot by switching to a different microphone device or by unplugging and plugging in their current microphone device.
+The application should listen to the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) events.
+The application should display a warning message when receiving events.
+By doing so, the user is aware of the issue and can troubleshoot by switching to a different microphone device or by unplugging and plugging in their current microphone device.
