@@ -7,6 +7,9 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.date: 03/07/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -508,3 +511,4 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [managed-identity-operator]: ../role-based-access-control/built-in-roles.md#managed-identity-operator
+

@@ -3,7 +3,7 @@ title: Write messages to Apache HBase® with Apache Flink® DataStream API
 description: Learn how to write messages to Apache HBase with Apache Flink DataStream API.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/25/2024
+ms.date: 04/02/2024
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
@@ -170,7 +170,7 @@ hbase:002:0>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <hbase.version>2.4.11</hbase.version>
-        <kafka.version>3.2.0</kafka.version> // Replace with 2.4.0 for HDInsight Kafka 2.4
+        <kafka.version>3.2.0</kafka.version>
     </properties>
     <dependencies>
         <dependency>
@@ -194,7 +194,7 @@ hbase:002:0>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-hbase-base</artifactId>
-            <version>1.16.0</version>
+            <version>${flink.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
         <dependency>

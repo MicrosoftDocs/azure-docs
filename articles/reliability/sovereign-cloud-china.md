@@ -39,6 +39,14 @@ This section outlines variations and considerations when using Microsoft Entra E
 |---------|--------|------------|
 | Microsoft Entra External ID | For Microsoft Entra External ID B2B feature variations in Microsoft Azure for customers in China, see [Microsoft Entra B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
 
+### Azure Active Directory B2C
+
+This section outlines variations and considerations when using Azure Active Directory B2C services.
+
+| Product | Unsupported, limited, and/or modified features |
+|---------|--------|
+| Azure Active Directory B2C | For Azure Active Directory B2C feature variations in Microsoft Azure for customers in China, see [Developer notes for Azure Active Directory B2C](../active-directory-b2c/custom-policy-developer-notes.md).  |
+
 ### Media
 
 This section outlines variations and considerations when using Media services.

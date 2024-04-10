@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: alkuchar
 author: AwdotiaRomanowna
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 ---
 
 # Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server

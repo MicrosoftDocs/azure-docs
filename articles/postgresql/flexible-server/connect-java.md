@@ -9,7 +9,7 @@ ms.reviewer: ""
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 01/02/2024
+ms.date: 01/23/2024
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL - Flexible Server

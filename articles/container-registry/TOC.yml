@@ -178,8 +178,6 @@
           href: container-registry-authentication-managed-identity.md
         - name: Authenticate with token 
           href: container-registry-repository-scoped-permissions.md
-        - name: Authenticate from Azure Container Instances
-          href: container-registry-auth-aci.md
         - name: Authenticate from Kubernetes
           items:
           - name: Kubernetes scenarios

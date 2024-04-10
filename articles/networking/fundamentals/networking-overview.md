@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 04/02/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -80,7 +80,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 ### <a name="bastion"></a>Azure Bastion
 
-[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
+[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. There are a variety of different SKU/tiers available for Azure Bastion. The tier you select affects the features that are available. For more information, see [About Bastion configuration settings](../../bastion/configuration-settings.md).
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 

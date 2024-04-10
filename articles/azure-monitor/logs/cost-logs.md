@@ -152,6 +152,7 @@ In some scenarios, combining this data can result in cost savings. Typically, th
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
 - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
+- [MDCFileIntegrityMonitoringEvents](/azure/azure-monitor/reference/tables/mdcfileintegritymonitoringevents)
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data. To learn more on how Microsoft Sentinel customers can benefit, please see the [Microsoft Sentinel Pricing page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
