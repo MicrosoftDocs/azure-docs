@@ -18,19 +18,19 @@ The following ServiceTypes are available in AKS:
   
   ClusterIP creates an internal IP address for use within the AKS cluster. The ClusterIP Service is good for _internal-only applications_ that support other workloads within the cluster. ClusterIP is used by default if you don't explicitly specify a type for a Service.
 
-  ![Diagram showing ClusterIP traffic flow in an AKS cluster][aks-clusterip]
+  ![Diagram showing ClusterIP traffic flow in an AKS cluster.][aks-clusterip]
 
 ## NodePort
 
   NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
 
-  ![Diagram showing NodePort traffic flow in an AKS cluster][aks-nodeport]
+  ![Diagram showing NodePort traffic flow in an AKS cluster.][aks-nodeport]
 
 ## LoadBalancer
 
   LoadBalancer creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports.
 
-  ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
+  ![Diagram showing Load Balancer traffic flow in an AKS cluster.][aks-loadbalancer]
 
   For HTTP load balancing of inbound traffic, another option is to use an [Ingress controller][ingress-controllers].
 
