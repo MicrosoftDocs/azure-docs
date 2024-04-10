@@ -204,7 +204,7 @@ If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [
 The agent is hosted on the "Linux software repository for Microsoft products": [https://packages.microsoft.com](https://packages.microsoft.com).
 
 To download and install a package from the software repository, **follow the steps available at: [
-How to install Microsoft software packages using the Linux Repository](https://learn.microsoft.com/en-us/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository), which vary dependent on your VM's Linux distribution.**
+How to install Microsoft software packages using the Linux Repository](https://learn.microsoft.com/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository), which vary dependent on your VM's Linux distribution.**
 
 _For example, if installing on a VM running Red Hat Enterprise Linux (RHEL) 8, the command to  download the repo config package will be:_
 ```
