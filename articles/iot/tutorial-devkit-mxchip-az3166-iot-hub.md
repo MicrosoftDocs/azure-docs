@@ -1,23 +1,22 @@
 ---
-title: Connect an MXCHIP AZ3166 to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect an MXCHIP AZ3166 device to Azure IoT Hub and send telemetry.
+title: Connect an MXCHIP AZ3166 to Azure IoT Hub 
+description: Use Eclipse ThreadX embedded software to connect an MXCHIP AZ3166 device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
-ms.service: iot-develop
+ms.service: iot
 ms.devlang: c
-ms.topic: quickstart
-ms.date: 1/23/2024
+ms.topic: tutorial
+ms.date: 04/08/2024
 ms.custom: devx-track-azurecli
+
+#Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
+# Tutorial: Use Eclipse ThreadX to connect an MXCHIP AZ3166 devkit to IoT Hub
 
-**Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
-**Total completion time**:  30 minutes
+[![Browse code](media/common/browse-code.svg)](https://github.com/eclipse-threadx/getting-started/tree/master/MXChip/AZ3166)
 
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
-
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT.
+In this tutorial, you use Eclipse ThreadX to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT.
 
 You complete the following tasks:
 
@@ -31,7 +30,7 @@ You complete the following tasks:
 * A PC running Windows 10 or Windows 11
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
-* Azure CLI. You have two options for running Azure CLI commands in this quickstart:
+* Azure CLI. You have two options for running Azure CLI commands in this tutorial:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * Hardware
@@ -42,21 +41,21 @@ You complete the following tasks:
 
 ## Prepare the development environment
 
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
+To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the tutorial. Then you install a set of programming tools.
 
-### Clone the repo for the quickstart
+### Clone the repo
 
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
+Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another tutorial, you don't need to do it again.
 
 To clone the repo, run the following command:
 
 ```shell
-git clone --recursive https://github.com/azure-rtos/getting-started.git
+git clone --recursive https://github.com/eclipse-threadx/getting-started.git
 ```
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device tutorial, you don't need to do it again.
 
 > [!NOTE]
 > The setup script installs the following tools:
@@ -71,7 +70,7 @@ To install the tools:
 
     *getting-started\tools\get-toolchain.bat*
 
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the tutorial. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
    ```shell
@@ -128,7 +127,7 @@ To connect the MXCHIP DevKit to Azure, you modify a configuration file for Wi-Fi
 
 1. On the MXCHIP DevKit, locate the **Reset** button, and the Micro USB port. You use these components in the following steps. Both are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/mxchip-iot-devkit.png" alt-text="Locate key components on the MXChip devkit board":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/mxchip-iot-devkit.png" alt-text="Locate key components on the MXChip devkit board":::
 
 1. Connect the Micro USB cable to the Micro USB port on the MXCHIP DevKit, and then connect it to your computer.
 1. In File Explorer, find the binary file that you created in the previous section.
@@ -145,13 +144,13 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](./troubleshoot-embedded-device-tutorials.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
     * **Port**: The port that your MXCHIP DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
@@ -192,7 +191,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     SUCCESS: Connected to IoT Hub
 
     Receive properties: {"desired":{"$version":1},"reported":{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"ledState":false,"telemetryInterval":{"ac":200,"av":1,"value":10},"$version":4}}
-    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Eclipse ThreadX","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
 
@@ -207,7 +206,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you use the Plug and Play capabilities that surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. You can perform many actions without using plug and play by selecting the action from the left side menu of your device pane in IoT Explorer. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
+You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you use the Plug and Play capabilities that surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this tutorial. You can perform many actions without using plug and play by selecting the action from the left side menu of your device pane in IoT Explorer. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -216,7 +215,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 1. Select **IoT Plug and Play components**.
 1. Select **Default component**. IoT Explorer displays the IoT Plug and Play components that are implemented on your device.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of MXCHIP DevKit default component in IoT Explorer":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of MXCHIP DevKit default component in IoT Explorer":::
 
 1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
 
@@ -234,7 +233,7 @@ To view device properties using Azure IoT Explorer:
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on MXCHIP DevKit in IoT Explorer":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on MXCHIP DevKit in IoT Explorer":::
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
@@ -259,14 +258,14 @@ To view telemetry in Azure IoT Explorer:
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
 
 1. Select **Stop** to end receiving events.
 
@@ -285,7 +284,7 @@ To use Azure CLI to view device telemetry:
         "event": {
             "origin": "mydevice",
             "module": "",
-            "interface": "dtmi:azurertos:devkit:gsgmxchip;1",
+            "interface": "dtmi:eclipsethreadx:devkit:gsgmxchip;1",
             "component": "",
             "payload": "{\"humidity\":41.21,\"temperature\":31.37,\"pressure\":1005.18}"
         }
@@ -304,7 +303,7 @@ To call a method in Azure IoT Explorer:
 1. For the **setLedState** command, set the **state** to **true**.
 1. Select **Send command**. You should see a notification in IoT Explorer, and the yellow User LED light on the device should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
+    :::image type="content" source="media/tutorial-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
 
 1. Set the **state** to  **false**, and then select **Send command**. The yellow User LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
@@ -339,23 +338,19 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](./troubleshoot-embedded-device-tutorials.md).
 
-For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
+For debugging the application, see [Debugging with Visual Studio Code](https://github.com/eclipse-threadx/getting-started/blob/master/docs/debugging.md).
 
 [!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
 ## Next steps
 
-In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
+In this tutorial, you built a custom image that contains Eclipse ThreadX sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT.
-
-> [!div class="nextstepaction"]
-> [Connect a general simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
+As a next step, explore the following article to learn more about embedded development options.  
 
 > [!div class="nextstepaction"]
-> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](./concepts-using-c-sdk-and-embedded-c-sdk.md)
 
-> [!IMPORTANT]
-> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
+> Eclipse ThreadX provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
