@@ -2,7 +2,7 @@
 title: Managing Environment Variables on Azure Container Apps
 description: Learn to manage environment variables in Azure Container Apps.
 services: container-apps
-author: fredcardoso
+author: fred-cardoso
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 04/10/2024
