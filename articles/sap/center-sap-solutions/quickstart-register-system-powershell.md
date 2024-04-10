@@ -84,13 +84,20 @@ To register an existing SAP system in Azure Center for SAP solutions:
    | Australia Central | Australia East |
    | East Asia | East Asia |
    | Southeast Asia | East Asia |
+   | Korea Central | Korea Central |
+   | Japan East | Japan East |
    | Central India | Central India |
    | Canada Central | Canada Central |
    | Brazil South | Brazil South |
    | UK South | UK South |
    | Germany West Central | Germany West Central |
    | Sweden Central | Sweden Central |
-
+   | France Central | France Central |
+   | Switzerland North | Switzerland North |
+   | Norway East | Norway East |
+   | South Africa North | South Africa North |
+   | UAE North | UAE North |
+   
    - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
    - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
    - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you do not specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
