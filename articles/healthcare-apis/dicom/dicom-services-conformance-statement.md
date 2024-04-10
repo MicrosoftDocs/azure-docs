@@ -79,7 +79,7 @@ The following `Content-Type` header(s) are supported:
 * `application/dicom`
 
 > [!NOTE]
-> The Server **will not** coerce or replace attributes that conflict with existing data for POST requests. All data will be stored as provided. For upsert (PUT) requests, the existing data will be replaced by the new data received. 
+> The server won't coerce or replace attributes that conflict with existing data for POST requests. All data is stored as provided. For upsert (PUT) requests, the existing data is replaced by the new data received. 
 
 #### Store required attributes
 The following DICOM elements are required to be present in every DICOM file attempting to be stored:
