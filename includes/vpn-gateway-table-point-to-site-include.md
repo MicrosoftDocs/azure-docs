@@ -16,7 +16,7 @@
 |**Microsoft Entra ID authentication**|**Deployment model/method** | **Article** |
 |---|---|---|
 |First-party App ID - Linux|Resource Manager | [How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
-|Third-party App ID - Windows, MacOS| Resource Manager |[How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
+|Third-party App ID - Windows, macOS| Resource Manager |[How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
 
 
 |**RADIUS authentication**|**Deployment model/method** | **Azure portal** | **PowerShell** |
