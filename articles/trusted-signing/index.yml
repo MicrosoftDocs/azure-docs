@@ -40,8 +40,6 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Signing?
-            url: concept.md
           - text: Trusted Signing trust models
             url: concept-trusted-signing-trust-models.md
           - text: Trusted Signing resources and roles
