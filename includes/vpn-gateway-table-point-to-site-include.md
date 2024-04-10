@@ -13,10 +13,10 @@
 || Resource Manager | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [How-to](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
 || Classic (legacy deployment model)| [How-to](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Supported |
 
-|**Microsoft Entra ID authentication**|**App ID** | **Article** |
+|**Microsoft Entra ID authentication**|**Deployment model/method** | **Article** |
 |---|---|---|
-||First-party App ID - Linux| [How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
-||Third-party App ID - Windows, MacOS| [How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
+|First-party App ID - Linux|Resource Manager | [How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
+|Third-party App ID - Windows, MacOS| Resource Manager |[How-to](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)|
 
 
 |**RADIUS authentication**|**Deployment model/method** | **Azure portal** | **PowerShell** |
