@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
-[!INCLUDE [hibernate-resume-intro](../includes/hibernate-resume-intro.md)]
+[!INCLUDE [hibernate-resume-intro](./includes/hibernate-resume-intro.md)]
 
 ## How hibernation works
 
@@ -38,7 +38,7 @@ Supported operating systems, OS specific limtations, and configuration procedure
 
 [Windows VM hibernation documentation](./windows/hibernate-resume-windows.md)
 
-[Linux VM hibernation documentation](./windows/hibernate-resume-linux.md)
+[Linux VM hibernation documentation](./linux/hibernate-resume-linux.md)
 
 ### Supported VM sizes 
 
@@ -193,6 +193,54 @@ To configure hibernation on a Linux guest, check out the [Linux hibernation docu
 
 ### Windows VMs
 To configure hibernation on a Windows guest, check out the [Windows hibernation documentation](./windows/hibernate-resume-windows.md).
+
+
+## Hibernate a VM
+
+Once a VM with hibernation enabled has been created and the guest OS is configured for hibernation, you can hibernate the VM through the Azure portal, the Azure CLI, PowerShell, or REST API. 
+
+
+#### [Portal](#tab/PortalDoHiber) 
+
+To hibernate a VM in the Azure portal, click the 'Hibernate' button on the VM Overview page.
+
+![Screenshot of the button to hibernate a VM in the Azure portal.](./media/hibernate-resume/hibernate-overview-button.png)
+
+#### [CLI](#tab/CLIDoHiber) 
+
+To hibernate a VM in the Azure CLI, run this command:
+
+```azurecli
+az vm deallocate --resource-group TestRG --name TestVM --hibernate true 
+```
+
+#### [PowerShell](#tab/PSDoHiber)  
+
+To hibernate a VM in PowerShell, run this command:
+
+```powershell
+Stop-AzVM -ResourceGroupName "TestRG" -Name "TestVM" -Hibernate      
+```
+
+After running the above command, enter 'Y' to continue:
+
+```
+Virtual machine stopping operation 
+
+This cmdlet will stop the specified virtual machine. Do you want to continue? 
+
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y 
+```
+
+#### [REST API](#tab/APIDoHiber) 
+
+To hibernate a VM using the REST API, run this command:
+
+```json
+POST 
+https://management.azure.com/subscriptions/.../providers/Microsoft.Compute/virtualMachines/{vmName}/deallocate?hibernate=true&api-version=2021-03-01 
+```
+---
 
 ## View state of hibernated VM 
 

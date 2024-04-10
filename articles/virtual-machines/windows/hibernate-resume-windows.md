@@ -10,11 +10,11 @@ ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Hibernating virtual machines
+# Hibernating Windows virtual machines
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-[!INCLUDE [hibernate-resume-intro](../includes/hibernate-resume-intro.md)]
+[!INCLUDE [hibernate-resume-intro](./includes/hibernate-resume-intro.md)]
 
 ## How hibernation works
 To learn how hibernation works, check out the [hibernation overview](../hibernate-resume.md).
@@ -159,11 +159,13 @@ Enabling hibernation while creating a Windows VM automatically installs the 'Mic
 >[!NOTE]
 >Using the WindowsHibernateExtension requires the Azure VM Agent to be installed on the VM. If you choose to opt-out of the Azure VM Agent, then you can configure the OS for hibernation by running powercfg /h /type full inside the guest. You can then verify if hibernation is enabled inside guest using the powercfg /a command.
 
-## Hibernating a VM
-
+## Hibernate a VM
 Once a VM with hibernation enabled is created and the guest OS is configured for hibernation, you can hibernate the VM. You can then check its current status through the Azure portal, the Azure CLI, PowerShell, or REST API. 
 
-To learn more about hibernating a VM, check out ["Hibernating a VM" in the hibernation overview](../hibernate-resume.md#hibernating-a-vm).
+To learn more about hibernating a VM, check out ["Hibernate a VM" in the hibernation overview](../hibernate-resume.md#hibernate-a-vm).
+
+## View state of hibernated VM
+You can check the state of a hibernated VM through the Azure portal, the Azure CLI, PowerShell, or REST API.
 
 To learn how to check the status of a hibernated VM, check out ["Viewing the state of a hibernated VM" in the hibernation overview](../hibernate-resume.md#view-state-of-hibernated-vm).
 
@@ -183,7 +185,7 @@ To learn more about deploying hibernation-enabled VMs from the Compute Gallery, 
 To learn more about deploying hibernation-enabled VMs from an OS disk, check out ["Deploy hibernation enabled VMs from an OS disk"](../hibernate-resume.md#deploy-hibernation-enabled-vms-from-an-os-disk).
 
 ## Troubleshooting
-Refer to the [Hibernate troubleshooting guide](./hibernate-resume-troubleshooting.md) for more information.
+Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooting.md) for more information.
 
 ## FAQs
 Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
