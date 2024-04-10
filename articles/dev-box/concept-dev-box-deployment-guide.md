@@ -172,34 +172,106 @@ When you create custom VM images, also consider using [dev box customization tas
 Learn more about how to [configure a compute gallery for a dev center](./how-to-configure-azure-compute-gallery.md).
 
 ### Step 7: Attach catalog
-- create repo
-- add customization tasks
 
-### Step x: Create dev box definitions
-- align with dev team leads
-- shared among all projects
-- link compute resources  & VM image
-- GPU vs CPU needs
-- Consider pricing
+Dev box users can customize their dev box by using setup tasks, for example to install additional software, clone a repository, and more. These tasks are run as part of the dev box creation process. By using dev box customization and setup tasks, you can reduce the number of VM images that you need to maintain for your projects.
 
-### Step x: Create projects
-- Assign security group for Project admins
-- Assign security group for dev box users
-- consider limitations of dev boxes per developer
+Setup tasks are defined in a catalog, which can be GitHub repository or an Azure DevOps repository. Attach one or more catalogs to the dev center. All tasks are available for all dev boxes created across all projects in a dev center.
 
-### Step x: Create dev box pools
-- Owner: Project admin
-- links dev box definition & network connection
-- Consider location of developers
-- Consider auto-stop
+Microsoft provides a quick start catalog to help you get started with customizations. This catalog includes a default set of tasks that define common setup tasks, such as installing software with WinGet or Chocolatey, cloning a repo, configuring applications, or running PowerShell scripts.
 
-### Step x: Configure dev box access
-RDP vs browser
+Consider attaching a catalog in the following cases:
 
-### Step x: Configure Microsoft Intune
-- device configuration
-- licenses
-- conditional access policies
+- Dev box users have individual customization requirements for their dev box
+- You want to provide development teams with a set of standardized options to customize their dev box
+- You want to limit the number of VM images and dev box definitions to maintain
+
+Consider creating a new catalog if the tasks in the quick start catalog are insufficient. You can attach both the quick start catalog and your own catalogs to the dev center.
+
+Learn how to [create dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
+
+### Step 8: Create dev box definitions
+
+A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs/GPUs, and storage.
+
+You configure dev box definitions at the level of a dev center. All dev center projects share the dev box definitions in the dev center.
+
+Consider creating one or more dev box definitions in the following cases:
+
+- Development teams require different VM images because they need another operating system version or other applications.
+- Development teams have different compute resource requirements. For example, data science teams might need a dev box with GPUs, and database administrators might need a machine with lots of storage and memory.
+
+Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
+
+### Step 9: Create projects
+
+In Microsoft Dev Box, you create and associate a project with a dev center. A project typically corresponds with a development project within your organization. For example, you might create a project for the development of a line of business application, and another project for the development of the company website.
+
+Within a project, you define the list of [dev box pools](#step-x-create-dev-box-pools) that are available for dev box users to create dev boxes. At the project level, you can specify a limit to the number of dev boxes a dev box user can create.
+
+Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality at the project level:
+
+- Grant project administrators access to perform administrative tasks on Microsoft Dev Box projects (Project Admin role)
+- Grant dev box users access to create and manage their dev boxes in a Dev Box project (Dev Box User role)
+
+Consider using a Microsoft Entra ID group for managing access for dev box users and administrators of a project.
+
+Consider creating a dev center project in the following cases:
+
+- You want to provide a development team with a set of standardized cloud developer workstations for their software development project
+- You have multiple development projects that have separate project adminstrators and access permissions
+
+Learn more about [how to create and manage projects](./how-to-manage-dev-box-projects.md).
+
+### Step 10: Create dev box pools
+
+Within a project, a project admin can create one or more dev box pools. Dev box users use the developer portal to select a dev box pool for creating their dev box.
+
+A dev box pool links a dev box definition with a [network connection](#step-5-configure-network-connections). You can choose from Microsoft-hosted connections or your own Azure network connections. The location of the network connection determines the location where a dev box is hosted. Consider creating a dev box pool with a network connection nearest the dev box users.
+
+To reduce the cost of running dev boxes, you can configure dev boxes in a dev box pool to shut down daily at a predefined time.
+
+Consider creating a dev box pool in the following cases:
+
+- Create a dev box pool for each dev box definition that is needed by the development team.
+- To reduce the network latency, create a dev box pool for each geographical location where you have dev box users. Choose a network connection that is nearest the dev box user.
+- Create a dev box pool for developers that need access to other Azure resources or on-premises resources. Select from the list of [Azure network connections](#step-5-configure-network-connections) in the dev center when you configure the dev box pool.
+
+Learn more about [how to create and manage dev box pools](./how-to-manage-dev-box-pools.md).
+
+### Step 11: Configure Microsoft Intune
+
+Microsoft Dev Box uses Microsoft Intune to manage your dev boxes. Use Microsoft Intune Admin Center to configure the Intune settings related to your Dev Box deployment.
+
+> [!NOTE]
+> Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. 
+
+#### Device configuration
+
+After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
+
+#### Configure conditional access policies
+
+You can use Intune to configure conditional access policies to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
+
+Some usage scenarios for conditional access in Microsoft Dev Box include: 
+
+- Restricting access to dev box to only managed devices 
+- Restricting the ability to copy/paste from the dev box 
+- Restricting access to dev box from only certain geographies 
+
+Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
+
+#### Backup and restore a dev box
+
+Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
+
+Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
+
+#### Privilege management
+
+You can configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges. Microsoft Intune Endpoint Privilege Management allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
+
+Learn more about how to [configure Microsoft Intune Endpoint Privilege for Microsoft Dev Box](./how-to-elevate-privilege-dev-box.md).
 
 ## Related content
 
