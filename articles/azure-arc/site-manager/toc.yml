@@ -26,6 +26,8 @@
   items:
   - name: Known Issues
     href: known-issues.md
+  - name: Troubleshooting
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Azure Arc

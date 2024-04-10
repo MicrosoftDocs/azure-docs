@@ -48,6 +48,8 @@ landingContent:
             url: how-to-configure-monitor-site.md
           - text: Known issues.
             url: known-issues.md
+          - text: Troubleshooting.
+            url: troubleshooting.md
   - title: Explore more
     linkLists:
       - linkListType: reference
