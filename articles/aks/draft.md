@@ -5,6 +5,7 @@ author: qpetraroia
 ms.author: qpetraroia
 ms.topic: article
 ms.date: 06/22/2023
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, build-spring-2022
 ---
 
@@ -127,3 +128,4 @@ After you create your artifacts and set up GitHub OIDC, you can use `draft gener
 [az-aks-draft-create]: /cli/azure/aks/draft#az-aks-draft-create
 [az-aks-draft-setup-gh]: /cli/azure/aks/draft#az-aks-draft-setup-gh
 [az-aks-draft-generate-workflow]: /cli/azure/aks/draft#az-aks-draft-generate-workflow
+

@@ -1,6 +1,6 @@
 ---
 title: Review Docker host hardening recommendations
-description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
+description: How to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark with Microsoft Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
@@ -26,21 +26,20 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 
-
 ## Identify and remediate security vulnerabilities in your Docker configuration
 
 1. From Defender for Cloud's menu, open the **Recommendations** page.
 
 1. Filter to the recommendation **Vulnerabilities in container security configurations should be remediated** and select the recommendation.
 
-    The recommendation page shows the affected resources (Docker hosts). 
+    The recommendation page shows the affected resources (Docker hosts).
 
     :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations.":::
 
     > [!NOTE]
-    > Machines that aren't running Docker will be shown in the **Not applicable resources** tab. They'll appear in Azure Policy as Compliant. 
+    > Machines that aren't running Docker will be shown in the **Not applicable resources** tab. They'll appear in Azure Policy as Compliant.
 
-1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
+1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate.
 
     > [!TIP]
     > If you started at the asset inventory page and reached this recommendation from there, select the **Take action** button on the recommendation page.
@@ -55,9 +54,8 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 1. When you're sure the command is appropriate and ready for your host, select **Run**.
 
+## Next step
 
-## Next steps
-
-Docker hardening is just one aspect of Defender for Cloud's container security features. 
+Docker hardening is just one aspect of Defender for Cloud's container security features.
 
 Learn more [Container security in Defender for Cloud](defender-for-containers-introduction.md).

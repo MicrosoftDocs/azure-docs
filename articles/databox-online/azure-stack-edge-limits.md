@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 
 # Azure Stack Edge limits
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro GPU or Azure Stack Edge Pro FPGA solution. 
 

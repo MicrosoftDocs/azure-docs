@@ -2,6 +2,7 @@
 author: cephalin
 ms.author: cephalin
 ms.topic: include
+ms.custom: devx-track-azurecli
 ms.date: 01/22/2024
 ---
 
@@ -270,4 +271,3 @@ jobs:
 ```
 
 -----
-

@@ -2,7 +2,7 @@
 title: Faiss Index Lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Faiss Index Lookup tool for flows in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
@@ -16,6 +16,9 @@ author: lgayhardt
 # Faiss Index Lookup tool for flows in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 The prompt flow *Faiss Index Lookup* tool is tailored for querying within a user-provided Faiss-based vector store. In combination with the [Large Language Model (LLM) tool](llm-tool.md), it can help to extract contextually relevant information from a domain knowledge base.
 

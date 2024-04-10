@@ -39,8 +39,8 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   If you've already installed the `connectedk8s` extension, update the extension to the latest version:
 
   ```azurecli
-   az extension update --name connectedk8s
-   ```
+  az extension update --name connectedk8s
+  ```
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 

@@ -9,10 +9,44 @@ ms.author: eur
 ### Upcoming plans for Linux and Android users:
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-* With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
-* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
+* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04.
+
+### Speech SDK 1.37.0: 2024-April release
+
+####  New features
+
+* Add support for input text streaming in speech synthesis.
+* Change the default speech synthesis voice to en-US-AvaMultilingualNeural.
+* Update Android builds to use OpenSSL 3.x.
+
+####  Bug fixes
+
+* Fix occasional JVM crashes during SpeechRecognizer dispose when using MAS. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2125)
+* Improve detection of default audio devices on Linux. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2292)
+
+####  Samples
+
+* Updated for new features.
+
+### Speech SDK 1.36.0: 2024-March release
+
+####  New features
+
+* Add support  for language identification in multi-lingual translation on v2 endpoints using AutoDetectSourceLanguageConfig::FromOpenRange().
+
+####  Bug fixes
+
+* Fix SynthesisCanceled event not fired if stop is called during SynthesisStarted event.
+* Fix a noise issue in embedded speech synthesis.
+* Fix a crash in embedded speech recognition when running multiple recognizers in parallel.
+
+* Fix the phrase detection mode setting on v1/v2 endpoints.
+* Fixes to various issues with Microsoft Audio Stack.
+####  Samples
+
+* Updates for new features.
 
 ### Speech SDK 1.35.0: February 2024 release
 
@@ -877,7 +911,7 @@ Stay healthy!
 - C#, C++: Added `UtteranceId` in `ConversationTranscriptionResult`, a consistent ID across all the intermediates and final speech recognition result. Details for [C#](/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult), [C++](/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
 - Python: Added support for `Language ID`. See speech_sample.py in [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
 - Windows: Added compressed audio input format support on Windows platform for all the win32 console applications. Details [here](../../how-to-use-codec-compressed-audio-input-streams.md).
-- JavaScript: Support speech synthesis (text to speech) in NodeJS. Learn more [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text to speech).
+- JavaScript: Support speech synthesis (text to speech) in NodeJS. Learn more [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech).
 - JavaScript: Add new APIs to enable inspection of all send and received messages. Learn more [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript).
 
 #### Bug fixes

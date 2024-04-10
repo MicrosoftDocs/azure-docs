@@ -62,10 +62,9 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
        throw error;
    }
 
-    // commit transaction
-    session.commitTransaction();
-
-    ```
+   // commit transaction
+   session.commitTransaction();
+   ```
 
 3. Run the following command to execute the multi-document transaction. The host, port, user, and key can be found in the Azure portal.
 

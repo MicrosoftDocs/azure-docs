@@ -80,8 +80,8 @@ landingContent:
           url: quickstart-java-spring-app.md
         - text: Code a Python app
           url: quickstart-python.md
-        - text: Azure Resource Manager template
-          url: quickstart-resource-manager.md       
+        - text: Azure Resource Manager deployment
+          url: quickstart-deployment-overview.md       
         - text: Azure Container Apps
           url: quickstart-container-apps.md
       - linkListType: tutorial
@@ -136,9 +136,7 @@ landingContent:
         links:
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
-        - text: .NET app
-          url: use-feature-flags-dotnet-core.md
-        - text: .NET Framework app
+        - text: .NET/.NET Framework app
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md

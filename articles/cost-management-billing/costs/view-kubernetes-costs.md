@@ -12,7 +12,7 @@ ms.custom:
 ms.reviewer: sadoulta
 ---
 
-# View Kubernetes costs (Preview)
+# View Kubernetes costs
 
 This article helps you view Azure Kubernetes Service (AKS) cost in Microsoft Cost management. You use the following views to analyze your Kubernetes costs, which are available at the subscription scope.
 
@@ -24,7 +24,7 @@ Visibility into a Kubernetes cluster cost helps you identify opportunities for o
 
 ## Prerequisites
 
-- You must enable AKS cost analysis on the cluster to view its costs. If you have multiple clusters running in a subscription, you must enable AKS cost analysis on every cluster. For more information about how to enable cost analysis for clusters, see [Azure Kubernetes Service cost analysis (preview)](../../aks/cost-analysis.md).
+- You must enable AKS cost analysis on the cluster to view its costs. If you have multiple clusters running in a subscription, you must enable AKS cost analysis on every cluster. For more information about how to enable cost analysis for clusters, see [Azure Kubernetes Service cost analysis](../../aks/cost-analysis.md).
 - Kubernetes cost views are available only for the following subscription agreement types:
   - Enterprise Agreement
   - Microsoft Customer Agreement  
@@ -57,7 +57,7 @@ To view AKS costs from the Cost Management page:
 1. Sign in to [Azure portal](https://portal.azure.com/) and search for **Cost analysis**.
 2. Verify that you are at the correct scope. If necessary, select **change** to select the correct subscription scope that hosts your Kubernetes clusters.  
     :::image type="content" source="./media/view-kubernetes-costs/scope-change.png" alt-text="Screenshot showing the scope change item." lightbox="./media/view-kubernetes-costs/scope-change.png" :::
-1. Select the **All views** tab, then under Customizable views, select a view under **Kubernetes views (preview)**.  
+1. Select the **All views** tab, then under Customizable views, select a view under **Kubernetes views**.  
     :::image type="content" source="./media/view-kubernetes-costs/kubernetes-views.png" alt-text="Screenshot showing the Kubernetes views (preview) items." lightbox="./media/view-kubernetes-costs/kubernetes-views.png" :::
 
 ## Kubernetes clusters view

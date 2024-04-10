@@ -74,6 +74,21 @@
             "source_path_from_root": "/articles/certification/how-to-indirectly-connected-devices.md",
             "redirect_url": "/azure/certification/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/program-requirements-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-troubleshoot-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-test-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
         }
     ]
 }

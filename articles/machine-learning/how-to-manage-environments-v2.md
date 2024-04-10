@@ -71,13 +71,13 @@ To connect to the workspace, you need identifier parameters - a subscription, re
 
 There are two types of environments in Azure Machine Learning: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
-Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Azure Machine Learning routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
+Curated environments are provided by Azure Machine Learning and are available by default. Azure Machine Learning routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
 
-You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` or `azureml:<curated-environment-name>@latest` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
+You can use these curated environments out of the box for training or deployment by referencing a specific version or latest version of the environment. Use the following syntax: `azureml://registries/azureml/environment/<curated-environment-name>/versions/<version-number>` or `azureml://registries/azureml/environment/<curated-environment-name>/labels/latest`. You can also use them as a reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
 You can see the set of available curated environments in the Azure Machine Learning studio UI, or by using the CLI (v2) via `az ml environment list`.
 
-## Create an environment
+## Create a custom environment
 
 You can define an environment from a Docker image, a Docker build context, and a conda specification with Docker image. 
 
@@ -297,7 +297,7 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 
 # [Azure CLI](#tab/cli)
 
-To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure Machine Learning environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, don't specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and aren't tracked in your environment asset registry.
+To use a **custom environment** for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure Machine Learning environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, don't specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and aren't tracked in your environment asset registry.
 
 # [Python SDK](#tab/python)
 
