@@ -12,7 +12,7 @@ ms.author: jboback
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [More samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
-Use this quickstart to create an entity linking application with the client library for Java. In the following example, you will create a Java application that can identify and disambiguate entities found in text.
+Use this quickstart to create an entity linking application with the client library for Java. In the following example, you create a Java application that can identify and disambiguate entities found in text.
 
 ## Prerequisites
 
@@ -146,4 +146,4 @@ Text: Altair 8800, Score: 0.88, Offset: 116, Length: 11
 * [Entity linking language support](../../language-support.md)
 * [How to call the entity linking API](../../how-to/call-api.md)  
 * [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable)
-* [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+*[More samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
