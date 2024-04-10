@@ -27,5 +27,5 @@ If the `audioOutputLevel` value isn't always low but the user can't hear audio, 
 ## How to mitigate or resolve
 Speaker issues are considered external problems from the perspective of the ACS Calling SDK.
 
-It's recommended that your applicaton expose a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) in your client user interface to let your users know what the current volume level is set at.
+You application user interface should display a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) to let your users know what the current volume level is set at.
 If the incoming audio isn't silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.
