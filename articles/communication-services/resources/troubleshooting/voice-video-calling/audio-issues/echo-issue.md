@@ -31,5 +31,5 @@ Since the sound played from headphone doesn't leak, the microphone doesn't pick 
 
 Adjusting the speaker's volume level and the microphone's sensitivity level is another way that may help. If the volume level is low enough, it can alleviate the echo issue.
 
-Other solutions are to point an external speaker away from the microphone so that the external sound is not picked up.
+Other solutions are to point an external speaker away from the microphone so that the external sound isn't picked up.
 
