@@ -42,7 +42,7 @@ To proactively identify and avoid significant delivery problems, suppression lis
 * The use of filters in the sending pipeline. All recipients are filtered against the addresses in the domain suppression lists, and email delivery isn't attempted for the recipient addresses.
 * The ability to manage a suppression list for each sender email address, which is used to filter or suppress email recipient addresses in sent emails.
 * Caching of suppression list data to reduce expensive database lookups. This caching is domain specific and is based on the frequency of use.
-* The ability to programmatically add email addresses for an easy opt-out process for unsubscribing.
+* The ability to programmatically add email addresses for an easy opt-out or unsubscribe process.
 
 ## Benefits of opt-out or unsubscribe management
 

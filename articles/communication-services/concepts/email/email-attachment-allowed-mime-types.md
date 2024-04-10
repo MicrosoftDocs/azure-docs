@@ -19,7 +19,7 @@ The [SendMail operation](../../quickstarts/email/send-email.md) allows the optio
 
 MIME types are a way to identify the type of data that's being sent over the internet. When users send email requests by using Email Communication Services in Azure Communication Services, they can specify the MIME type of the email content so that the recipient's email client can properly display and interpret the message. If an email message includes an attachment, the MIME type is set to the appropriate file type (for example, `application/pdf` for a PDF document).
 
-Developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types, irrespective of the software or platform being used. This information helps ensure that the email message is delivered correctly and that the recipient can access the content as intended. Using MIME types can also help to improve the security of email communications, because they can indicate whether an email message includes executable content or other potentially harmful elements.
+Developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types, irrespective of the software or platform that the system is using. This information helps ensure that the email message is delivered correctly and that the recipient can access the content as intended. Using MIME types can also help to improve the security of email communications, because they can indicate whether an email message includes executable content or other potentially harmful elements.
 
 MIME types are a critical component of email communication. By using MIME types with Email Communication Services in Azure Communication Services, developers can help ensure that their email messages are delivered correctly and securely.
 
@@ -83,7 +83,7 @@ This table lists common supported file extensions and their corresponding MIME t
 | .woff | Web Open Font Format | `font/woff` |
 | .woff2 | Web Open Font Format 2.0 | `font/woff2` |
 | .xls | Microsoft Excel spreadsheet (97-2003) | `application/vnd.ms-excel` |
-| .xlsb | Microsoft Excel Binary spreadsheet | `application/vnd.ms-excel.sheet.binary.macroEnabled.12` |
+| .xlsb | Microsoft Excel binary spreadsheet | `application/vnd.ms-excel.sheet.binary.macroEnabled.12` |
 | .xlsm | Microsoft Excel macro-enabled spreadsheet | `application/vnd.ms-excel.sheet.macroEnabled.12` |
 | .xlsx | Microsoft Excel spreadsheet (Open XML) | `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` |
 | .xml | Extensible Markup Language file | `application/xml`, `text/xml` |
@@ -91,7 +91,7 @@ This table lists common supported file extensions and their corresponding MIME t
 
 There are many other file extensions and MIME types that you can use for email attachments. However, this list includes accepted types for sending attachments in the SendMail operation.
 
-Some email clients and servers might have limitations or restrictions on file size and types that could result in the failure of email delivery. Ensure that the recipient can accept the email attachment, or refer to the documentation for the recipient's email providers.
+Some email clients and servers might have limitations or restrictions on file size and types that could result in the failure of email delivery. Ensure that the recipient can accept the email attachment, or refer to the documentation for the recipient's email provider.
 
 ## Additional information
 

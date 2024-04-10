@@ -1,7 +1,7 @@
 ---
-title: Email Communication Services in Azure Communication Services
+title: Overview of Azure Communication Services email
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the concepts of Email Communication Services resource type.
+description: Learn about the concepts of using Azure Communication Services to send email.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -10,15 +10,17 @@ ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Email Communication Services in Azure Communication Services
+# Overview of Azure Communication Services email
 
 Email continues to be a key customer engagement channel globally for businesses. Businesses rely heavily on email communication for seamless business operations.
 
-Azure Communication Services offers an intelligent communication platform to enable businesses to build engaging business-to-consumer (B2C) experiences. The Email Communication Services resource type in Azure Communication Services facilitates high-volume transactional, bulk, and marketing emails on the Azure platform. It supports application-to-person (A2P) use cases.
+Azure Communication Services offers an intelligent communication platform to enable businesses to build engaging business-to-consumer (B2C) experiences. Azure Communication Services facilitates high-volume transactional, bulk, and marketing emails. It supports application-to-person (A2P) use cases.
 
-Email Communication Services can simplify the integration of email capabilities to your applications by using production-ready email SDK options. It also supports SMTP commands. Email Communication Services enables rich collaboration in communication modalities. It combines with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
+Azure Communication Services can simplify the integration of the email capability in your applications by using production-ready email SDK options. It also supports SMTP commands.
 
-With Email Communication Services, you can speed up your market entry with scalable and reliable email features by using your own SMTP domains. As with other communication channels, Email Communication Services lets you pay only for what you use.
+Azure Communication Services email enables rich collaboration in communication modalities. It combines with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
+
+With Azure Communication Services, you can speed up your market entry with scalable and reliable email features by using your own SMTP domains. As with other communication channels, when you use Azure Communication Services to send email, you pay only for what you use.
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 

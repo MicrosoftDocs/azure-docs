@@ -116,7 +116,7 @@ The following SMTP codes can describe soft bounces:
 | 5.7.26 | Multiple Authentication Checks Failed | The email failed multiple authentication checks on the recipient's email system. Review your authentication settings and methods. |
 | 5.7.27 | Sender Address Has Null MX | Your email domain doesn't have a valid MX record. Contact the domain administrator to fix the DNS configuration. |
 | 5.7.28 | Mail Flood Detected | The recipient's email system detected a mail flood. Check the email traffic and identify the cause of the flood. |
-| 5.7.29 | Arc Validation Failure | The email failed Authenticated Received Chain (ARC) validation on the recipient's email system . Verify the ARC signature on your side. |
+| 5.7.29 | Arc Validation Failure | The email failed Authenticated Received Chain (ARC) validation on the recipient's email system. Verify the ARC signature on your side. |
 | 5.7.30 | Require TLS Support Required | The recipient's email system requires Transport Layer Security (TLS) support for secure email transmission. Make sure that your system supports TLS. |
 | 5.7.51 | Tenant Inbound Attribution | The recipient's email system attributes the inbound email to a specific tenant. Check the email's sender information and tenant attribution. |
 
