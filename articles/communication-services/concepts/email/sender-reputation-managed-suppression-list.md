@@ -24,7 +24,7 @@ Azure Communication Services offers email capabilities that can enrich your cust
 * Monitoring spam and abuse reports.
 * Maintaining a healthy contact list.
 * Understanding user engagement and inbox placements.
-* Understanding customer complaints and providing an easy opt-out process for unsubscribing.
+* Understanding customer complaints and providing an easy process for opting out or unsubscribing.
 
 To enable email logs and monitor your email delivery, follow the steps in [Azure Communication Services email logs](../../concepts/analytics/logs/email-logs.md).
 
@@ -72,7 +72,7 @@ The following SMTP codes can describe hard bounces:
 | 5.7.13 | User Account Disabled | The recipient's email account was disabled, and the email server is not accepting messages for that account. The mail service provider might have deactivated or suspended the recipient's email address, rendering the address inaccessible for receiving emails. Or, the user or the organization chose to disable the email account. |
 | 5.4.310 | DNS Domain Does Not Exist | The recipient's email domain doesn't exist or has an incorrect DNS configuration. Verify the domain's DNS settings. |
 
-Sending emails repeatedly to addresses that don't exist can significantly affect your sending reputation. It's crucial to take action by promptly removing those addresses from your contact list and diligently managing a healthy contact list.
+Sending emails repeatedly to addresses that don't exist can significantly affect your sender reputation. It's crucial to take action by promptly removing those addresses from your contact list and diligently managing a healthy contact list.
 
 ### Error codes for soft bounces
 
@@ -140,7 +140,7 @@ Email addresses can remain on the managed suppression list for a maximum of 14 d
 
 ## Reputation-related and asynchronous email delivery failures
 
-Some email service providers generate email bounces from reputation issues. These bounces are often classified as spam and abuse related, because of specific reputation or content problems. The bounce messages might include URLs to webpages that provide further explanations for the bounces, to help you understand the reason for the delivery failure and enable appropriate action.
+Some email service providers generate email bounces from reputation issues. These bounces are often classified as spam and abuse related, because of specific reputation or content issues. The bounce messages might include URLs to webpages that provide further explanations for the bounces, to help you understand the reason for the delivery failure and enable appropriate action.
 
 In addition to the SMTP-level bounces, bounces might occur after the receiving server accepts a message. Initially, the response from the email service provider might suggest successful email delivery. But later, the provider sends a bounce response.
 
@@ -148,9 +148,9 @@ These asynchronous bounces are typically directed to the return path address men
 
 ## Opt-out or unsubscribe management
 
-Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribe requests, it's important to provide an **Unsubscribe** link in the email payload that you send. When recipients decide not to receive further emails, they can select the **Unsubscribe** link and remove their email address from your mailing list.
+Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribe requests, it's important to provide an **Unsubscribe** link in the email payload that you send. When recipients decide not to receive further emails, they can select the **Unsubscribe** link and remove their email address from your mailing list.
 
-The functionality of the links and instructions in the email is vital. They must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list or lists.
+The functionality of the links and instructions in the email is vital. They must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list.
 
 An unsubscribe mechanism should be explicit and transparent from the subscriber's perspective. It should ensure that users know precisely which messages they're unsubscribing from.
 

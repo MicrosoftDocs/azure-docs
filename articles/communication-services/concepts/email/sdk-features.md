@@ -16,10 +16,10 @@ You can use email client libraries in Azure Communication Services to add transa
 
 ## Client libraries
 
-| Assembly               | Protocol             |Open vs. closed source| Namespace                          | Capabilities                                                      |
+| Assembly               | Protocol             |Open vs. closed source| Namespace                          | Capability                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Open            | `Azure.ResourceManager.Communication` | Provision and manage email communication resources             |
-| Email                    | REST | Open              | `Azure.Communication.Email`             | Send and get status on email messages |
+| Azure Resource Manager | REST | Open            | `Azure.ResourceManager.Communication` | Provision and manage email communication resources.             |
+| Email                    | REST | Open              | `Azure.Communication.Email`             | Send and get status on email messages. |
 
 ### Azure email communication resources
 
@@ -33,7 +33,7 @@ Azure Resource Manager for email communication resources is meant for email doma
 
 | Feature | Capability                                                                            | JavaScript  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Sendmail | Send email messages. </br> *Attachments are supported.*                               | ✔️   | ✔️    | ✔️    | ✔️      |
+| SendMail | Send email messages.</br> *Attachments are supported.*                               | ✔️   | ✔️    | ✔️    | ✔️      |
 | Get Status       | Receive delivery reports for sent messages.                                            | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## API throttling and timeouts

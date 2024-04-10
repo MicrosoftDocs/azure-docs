@@ -16,7 +16,7 @@ Similar to Chat, VoIP, and SMS modalities under Azure Communication Services, yo
 
 - Approve the domain that your organization allows you to send mail from.
 - Define the sender domain for the P1 sender email address (also known as the Mail From email address) that appears on the envelope of the email. For more information, see [RFC 5321](https://tools.ietf.org/html/rfc5321).
-- Define the P2 sender email address that most email recipients will see on their email client. For more information, see [RFC 5322](https://tools.ietf.org/html/rfc5322).
+- Define the P2 sender email address that most email recipients see on their email client. For more information, see [RFC 5322](https://tools.ietf.org/html/rfc5322).
 - Set up and verify the sender domain by adding necessary DNS records for the sender verification to succeed.
 
 One of the key principles for Azure Communication Services is to have a simplified developer experience. The service's email platform simplifies the experience for developers and eases the back-and-forth operation with organization administrators. It improves the end-to-end experience by allowing admin developers to configure the necessary sender authentication and other compliance-related steps to send email, so you can focus on building the required payload.
