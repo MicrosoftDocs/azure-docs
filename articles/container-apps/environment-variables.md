@@ -1,5 +1,5 @@
 ---
-title: Managing Environment Variables on Azure Container Apps
+title: Manage environment variables on Azure Container Apps
 description: Learn to manage environment variables in Azure Container Apps.
 services: container-apps
 author: fred-cardoso
@@ -9,12 +9,12 @@ ms.date: 04/10/2024
 ms.author: fredcardoso
 ---
 
-# Managing Environment Variables on Azure Container Apps
+# Manage environment variables on Azure Container Apps
 
 In Azure Container Apps, you're able to set runtime environment variables. These variables can be set as manually entries or as references to [secrets](manage-secrets.md).
 These environment variables are loaded onto your Container App during runtime.
 
-## Configuring environment variables
+## Configure environment variables
 
 You can configure the Environment Variables upon the creation of the Container App or later by creating a new revision.
 
@@ -46,7 +46,7 @@ az containerapp update \
 
 ### [PowerShell](#tab/powershell)
 
-If you want to use PowerShell you have to, first, create a in-memory object called [EnvironmentVar](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar) using the [New-AzContainerAppEnvironmentVarObject](/powershell/module/az.app/new-azcontainerappenvironmentvarobject) PowerShell cmdlet.
+If you want to use PowerShell you have to, first, create an in-memory object called [EnvironmentVar](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar) using the [New-AzContainerAppEnvironmentVarObject](/powershell/module/az.app/new-azcontainerappenvironmentvarobject) PowerShell cmdlet.
 
 To use this cmdlet, you have to pass the name of the environment variable using the `-Name` parameter and the value using the `-Value` parameter, respectively.
 
@@ -81,7 +81,7 @@ Update-AzContainerApp -TemplateContainer $containerTemplate
 
 ---
 
-## Adding environment variables on existing container apps
+## Add environment variables on existing container apps
 
 After the Container App is created, the only way to update the Container App environment variables is by creating a new revision with the needed changes.
 
