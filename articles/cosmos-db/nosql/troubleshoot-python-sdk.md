@@ -137,7 +137,7 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
 * Assign a public IP to your Azure VM.
 
 #### Can't reach the Service - firewall
-``azure.core.exceptions.ServiceRequestError:`` indicates that the SDK can't reach the service. Follow the [Connection limit on a host machine](#connection-limit-on-host).
+``azure.core.exceptions.ServiceRequestError:`` indicates that the SDK can't reach the service. Follow the [Connection limit on a host machine](#connection-limit-on-a-host-machine).
 
 ### Failure connecting to Azure Cosmos DB Emulator
 
