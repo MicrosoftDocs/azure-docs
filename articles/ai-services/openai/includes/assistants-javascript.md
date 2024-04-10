@@ -7,7 +7,8 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/08/2024
+ms.date: 04/10/2024
+ms.custom: passwordless-js, devex-track-javascript
 ---
 
 <a href="/javascript/api/@azure/openai-assistants" target="_blank">Reference documentation</a> | <a href="https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai-assistants" target="_blank">Library source code</a> | <a href="https://www.npmjs.com/package/@azure/openai-assistants" target="_blank">Package (npm)</a> |
@@ -24,7 +25,16 @@ ms.date: 04/08/2024
 - npm package `@azure/openai-assistants`.
 - Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
-- An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example.
+- An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example. 
+- Azure OpenAI RBAC role of `Cognitive Services User`.
+
+## Passwordless authentication is recommended
+
+For passwordless authentication, you need to 
+
+1. Use the `@azure/identity` package.
+1. Assign the `Cognitive Services User` role to your user account. This can be done in the Azure portal under **Access control (IAM)** > **Add role assignment**.
+1. Sign in with the Azure CLI such as `az login`.
 
 ## Set up
 
@@ -112,7 +122,6 @@ To use the service key for authentication, you can create and run an assistant w
 :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index-using-password.ts" :::
 
 #### [JavaScript](#tab/javascript)
-
 
 Sign in to Azure with `az login` then create and run an assistant with the following **recommdended** passwordless Javascript module (index.mjs):
 
