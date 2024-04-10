@@ -15,7 +15,7 @@ ms.custom: mode-api, devx-track-js
 # QuickStart: Add closed captions to your calling app
 
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Closed Captions for Web](./includes/closed-captions/closed-captions-javascript.md)]

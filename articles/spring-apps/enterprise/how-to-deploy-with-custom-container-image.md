@@ -84,7 +84,7 @@ To disable listening on a port for images that aren't web applications, add the 
 
 1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
 
-   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal showing the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal that shows the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
    > [!NOTE]
    > The **Commands** and **Arguments** field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
@@ -245,7 +245,7 @@ AppPlatformContainerEventLogs
 | where App == "hw-20220317-1b"
 ```
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the Azure Monitor that shows the container events log.":::
 
 ### Scan your image for vulnerabilities
 
