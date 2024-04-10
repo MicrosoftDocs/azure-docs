@@ -26,7 +26,7 @@ As a result, the user may hear distorted audio, crackling noise, and mechanical 
 ## How to detect using the SDK
 Detecting poor audio quality can be challenging because the browser's reported information doesn't always reflect audio quality.
 
-However, even if poor audio quality is caused by a poor network connection, you can still detect these issues and display the information to users, so they're aware of the potential issue with audio quality.
+However, even if a poor network connection is causing poor audio quality, you can still indentify these issues and display the information about potential issue with audio quality.
 
 Through [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
