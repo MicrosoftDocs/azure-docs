@@ -25,8 +25,8 @@ In the context of a call center, customers may want to receive a scheduled callb
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A Job Router queue with queueId `Callback` has been [created](manage-queue.md).
 - A Job Router worker with channel capacity on the `Voice` channel has been [created](../../concepts/router/matching-concepts.md).
-- Subscribe to the [JobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation)
-- Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
+- Subscribe to the [JobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation).
+- Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md).
 
 ## Create a job using the ScheduleAndSuspendMode
 
@@ -87,7 +87,7 @@ client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
 
 ## Wait for the scheduled time to be reached, then queue the job
 
-When the scheduled time has been reached, the job's status is updated to `WaitingForActivation` and Job Router emits a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation) to Event Grid.  If this event has been subscribed, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker, which updates the job's status to `queued`.
+When the scheduled time has been reached, the job's status is updated to `WaitingForActivation` and Job Router emits a [RouterJobWaitingForActivation event](subscribe-events.md#microsoftcommunicationrouterjobwaitingforactivation) to Event Grid.  If this event is subscribed, some required actions may be performed, before enabling the job to be matched to a worker.  For example, in the context of the contact center, such an action could be making an outbound call and waiting for the customer to accept the callback.  Once the required actions are complete, the job can be queued by calling the `UpdateJobAsync` method with the `MatchingMode` set to `QueueAndMatchMode` and priority set to `100` to quickly find an eligible worker, which updates the job's status to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -162,5 +162,5 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 ::: zone-end
 
 ## Next steps
-
-- Learn how to [accept the Job Router offer](accept-decline-offer.md) that is issued once a matching worker has been found for the job.
+i
+- Learn how to [accept the Job Router offer](accept-decline-offer.md) that is issued once a matching worker is found for the job.
