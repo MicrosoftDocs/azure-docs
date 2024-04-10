@@ -2,11 +2,11 @@
 title: Call setup issues - The call setup takes too long
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Learn how to troubleshoot when the call setup takes too long.
-author: enricohuang
-ms.author: enricohuang
+author: sloanster
+ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/10/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -18,8 +18,7 @@ If the call setup takes too long, it's often due to network issues.
 Another factor that contributes to call setup delay is the stream acquisition delay, which is the time it takes for a browser to get the media stream.
 Additionally, device performance can also affect call setup time. For example, a busy browser may take longer to schedule the API request, resulting in a longer call setup time.
 
-## How to detect
-### SDK
+## How to detect using the SDK
 The application can calculate the delay between when the call is initiated and when it's connected.
 
 ## How to mitigate or resolve

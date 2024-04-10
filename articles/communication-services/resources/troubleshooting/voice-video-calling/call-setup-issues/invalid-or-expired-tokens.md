@@ -2,11 +2,11 @@
 title: Call setup issues - Invalid or expired tokens
 titleSuffix: Azure Communication Services - Troubleshooting Guide
 description: Learn how to troubleshoot token issues.
-author: enricohuang
-ms.author: enricohuang
+author: sloanster
+ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/10/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -18,12 +18,11 @@ It's important to note that access tokens have an expiration time of 24 hours by
 If necessary, you can adjust the lifespan of tokens issued for your application by creating a short-lived token.
 However, if you have a long-running call that could exceed the lifetime of the token, you need to implement refreshing logic in your application.
 
-## How to detect
-### SDK
+## How to detect using the SDK
 When the application calls `createCallAgent` API, if the token is expired, SDK throws an error.
 The error code/subcode is
 
-| error            |                                                       |
+| error            | Details                                               |
 |------------------|-------------------------------------------------------|
 | code             | 401 (UNAUTHORIZED)                                    |
 | subcode          | 40235                                                 |
