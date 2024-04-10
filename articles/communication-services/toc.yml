@@ -922,7 +922,7 @@ items:
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
     - name: Quota increase for email domains
-      href: concepts/email/.md  
+      href: concepts/email/email-quota-increase.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains

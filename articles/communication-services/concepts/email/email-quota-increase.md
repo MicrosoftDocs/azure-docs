@@ -5,7 +5,6 @@ description: Learn about requesting an increase to the default limit.
 author: raviverm
 manager: dacarte
 services: azure-communication-services
-ms.author: ravi.verma
 ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -42,7 +41,7 @@ Once you complete the previous steps, you can start building your sender reputat
 
 ## 5. Request an email quota increase  
 
-To request an email quota increase, compile the information outlined in the [Email quota increase request form](https://microsoft-my.sharepoint.com/:w:/p/raviverm/ETwbXkxMGlVBosTGBjnIF-YBxo8YQ8Eb8uI4T7fT44LNzQ?e=oBfQYw). Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/en-us/support/create-ticket/), requesting to raise your email sending limit.
+To request an email quota increase, compile the information outlined in the [Email quota increase request form](https://microsoft-my.sharepoint.com/:w:/p/raviverm/ETwbXkxMGlVBosTGBjnIF-YBxo8YQ8Eb8uI4T7fT44LNzQ?e=oBfQYw). Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
 
 Email quota increase requests aren't automatically approved. The reviewing team considers your overall sender reputation when determining approval status. Sender reputation includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse. 
 

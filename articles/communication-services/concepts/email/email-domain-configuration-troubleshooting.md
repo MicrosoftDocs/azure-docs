@@ -5,7 +5,6 @@ description: Learn about Troubleshooting domain configuration issues.
 author: raviverm
 manager: dacarte
 services: azure-communication-services
-ms.author: ravi.verma
 ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -45,7 +44,7 @@ Once the verification process starts, Azure Email Communication Service attempts
 
     The `nslookup` query should return records like this: 
 
-    ![alt text](../media/email-domain-nslookup-query.png "Screen capture of the example results from an nslookup query to return the TXT records for your custom domain.")
+    ![Results from an nslookup query to read the TXT records for your custom domain](../media/email-domain-nslookup-query.png "Screen capture of the example results from an nslookup query to read the TXT records for your custom domain.")
 
 5. Review the list of TXT records for your custom domain. If you don’t see your TXT record listed, Azure Email Communication Service can't verify the domain.
 
@@ -74,7 +73,7 @@ Once you verify the domain status, you need to verify the Sender Policy Framewor
 
     This query returns a list of TXT records for your custom domain. 
 
-    ![alt text](../media/email-domain-nslookup-spf-query.png "Screen capture of the example results from an nslookup query to return the SPF records for your custom domain.")
+    ![Results from an nslookup query to read the SPF records for your custom domain](../media/email-domain-nslookup-spf-query.png "Screen capture of the example results from an nslookup query to read the SPF records for your custom domain.")
 
 6. Review the list of TXT headers for your custom domain. If you don’t see your SPF record listed here, Azure Email Communication Service can't verify the SPF Status for your custom domain. 
 
@@ -101,7 +100,7 @@ If Azure Email Communication Service fails to verify the DKIM or DKIM2 status, f
 
 3. This query returns the CNAME DKIM records for your custom domain.
 
-    ![alt text](../media/email-domain-nslookup-cname-dkim.png "Screen capture of the example results from an nslookup query to return CNAME DKIM records for your custom domain.")
+    ![Results from an nslookup query to read CNAME DKIM records for your custom domain](../media/email-domain-nslookup-cname-dkim.png "Screen capture of the example results from an nslookup query to read CNAME DKIM records for your custom domain.")
 
 4. If `nslookup` returns your CNAME DKIM or DKIM2 records, similar to the preceding image, then you can expect Azure Email Communication Service to verify the DKIM or DKIM2 status.
 
