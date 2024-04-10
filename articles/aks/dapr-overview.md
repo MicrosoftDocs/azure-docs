@@ -3,7 +3,7 @@ title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
 ms.topic: article
-ms.date: 07/07/2023
+ms.date: 04/10/2024
 ---
 
 # Dapr
@@ -89,8 +89,8 @@ The Dapr extension offers managed generally available and preview versions of Da
 
 A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
 
-- [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
-- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower service level agreement (SLA) guarantee.
+- [Managed components:](#managed-components) Fully managed, GA components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
+- [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
 
 ##### Managed components
 
