@@ -67,38 +67,37 @@ This section provides detailed procedure on how you can enable change tracking o
 
 #### [Arc-enabled VMs - portal/cli](#tab/arcvms)
 
-To enable the Change Tracking and Inventory on Arc-enabled servers, follow these steps:
+To enable the Change Tracking and Inventory on Arc-enabled servers, Ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
 
-1. Ensure that you install the Change Tracking extension and Azure Monitoring Agent (AMA) extension.
-1. Ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. Follow the steps to execute:
+Follow the steps to associate the data collection rule to the Arc-enabled VMs:
 
-   1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
-   1. To associate a data collection rule with Azure Arc VM, Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
+1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
+1. To associate a data collection rule with Azure Arc VM, Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
-       :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
-    1. Select the data collection rule from the listing page.
-    1. In the data collection rule page, select **Resources** and then select **Add**.
+1. Select the data collection rule from the listing page.
+1. In the data collection rule page, select **Resources** and then select **Add**.
     
-       :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
     
-    1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
+1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
     
-    :::image type="content" source="media/enable-vms-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-vms-monitoring-agent/scope-select-arc-machines.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-vms-monitoring-agent/scope-select-arc-machines.png":::
     
-    1. Install the Change Tracking extension as per the OS type for the Arc-enabled VM.
+1. Install the Change Tracking extension as per the OS type for the Arc-enabled VM.
     
-       **Linux**
+   **Linux**
        
-       ```azurecli
-       az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Linux  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
-       ```
+   ```azurecli
+   az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Linux  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   ```
 
-      **Windows**
+   **Windows**
 
-       ```azurecli
-       az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
-       ```   
+   ```azurecli
+   az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   ```   
 --- 
 
 >[!NOTE]
