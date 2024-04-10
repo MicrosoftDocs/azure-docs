@@ -57,8 +57,8 @@ print("Queue statistics: " + queue_statistics)
 ::: zone pivot="programming-language-java"
 
 ```java
-BinaryData queueStatistics = client.getQueueStatisticsWithResponse("queue1").getValue();
-System.out.println("Queue statistics: " + queueStatistics.toString());
+RouterQueueStatistics queueStatistics = client.getQueueStatisticsWithResponse("queue1").getValue();
+System.out.println("Queue statistics: " + BinaryData.fromObject(queueStatistics).toString());
 ```
 
 ::: zone-end
