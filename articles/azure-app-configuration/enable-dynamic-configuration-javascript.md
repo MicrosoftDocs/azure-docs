@@ -1,7 +1,7 @@
 ---
 title: Use dynamic configuration in JavaScript
 titleSuffix: Azure App Configuration
-description: Learn how to dynamically update configuration data for JavaScript
+description: Learn how to dynamically update configuration data for JavaScript.
 services: azure-app-configuration
 author: eskibear
 ms.service: azure-app-configuration
@@ -44,9 +44,9 @@ Add the following key-value to your Azure App Configuration store. For more info
 
 The following examples show how to use refreshable configuration values in console applications.
 The refresh behavior is configured by `refreshOptions` parameter when calling `load` function.
-The loaded configuration will be updated when a change is detected on the server.
+The loaded configuration is updated when a change is detected on the server.
 
-1. Open the file *app.js*, update the `run()` function to call the `load` function with `refreshOptions` specified.
+1. Open the file *app.js* and update the `load` function with `refreshOptions` specified.
 
     ### [Use configuration as Map](#tab/configurtion-map)
 
@@ -114,7 +114,7 @@ The loaded configuration will be updated when a change is detected on the server
 
     ---
 
-1. Now the file *app.js* should look like the following:
+1. Now the file *app.js* should look like the following code snippet:
 
     ### [Use configuration as Map](#tab/configurtion-map)
 
@@ -205,7 +205,7 @@ The loaded configuration will be updated when a change is detected on the server
     | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
     | *sentinel*     | *2*                       | Leave empty | Leave empty        |
 
-1. Once the values have been updated the updated value will print out when the refresh interval has passed.
+1. Once the values are updated, the updated value is printed after the refresh interval.
 
     ```console
     Hello World - Updated!
