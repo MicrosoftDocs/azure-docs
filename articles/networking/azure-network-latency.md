@@ -658,6 +658,9 @@ Use the following tabs to view latency statistics for each region.
 | West US 2           | 212           | 234        | 195         |
 | West US 3           | 235           | 256        | 218         |
 
+> [!NOTE]
+> Round-trip latency to West India from other Azure regions is included in the table. However, West India is not a source region so roundtrips from West India are not included in the table.]
+
 #### [Asia](#tab/Asia/APAC)
 
 | Source              | East Asia | Southeast Asia |
