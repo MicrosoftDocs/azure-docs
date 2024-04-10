@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-[!INCLUDE [hibernate-resume-intro](./includes/hibernate-resume-intro.md)]
+[!INCLUDE [hibernate-resume-intro](../includes/hibernate-resume-intro.md)]
 
 ## How hibernation works
 To learn how hibernation works, check out the [hibernation overview](../hibernate-resume.md).
@@ -50,7 +50,7 @@ After ensuring that your VM configuration is supported, you can use the Azure po
 
 To enable hibernation in the Azure portal, check the 'Enable hibernation' box during VM creation.
 
-![Screenshot of the checkbox in the Azure portal to enable hibernation when creating a new VM.](./media/hibernate-resume/hibernate-enable-during-vm-creation.png)
+![Screenshot of the checkbox in the Azure portal to enable hibernation when creating a new VM.](../media/hibernate-resume/hibernate-enable-during-vm-creation.png)
 
 
 ### [CLI](#tab/enableWithCLI)
@@ -174,7 +174,7 @@ To learn how to check the status of a hibernated VM, check out ["Viewing the sta
 
 You can start hibernated VMs just like how you would start a stopped VM. This can be done through the Azure portal, the Azure CLI, PowerShell, or REST API.
 
-To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in the hibernation overview](../hibernate-resume.md#starting-a-hibernated-vm).
+To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in the hibernation overview](../hibernate-resume.md#start-hibernated-vms).
 
 ## Alternative deployments
 
@@ -192,5 +192,5 @@ Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)
-- [Learn about Azure Virtual Desktop](../virtual-desktop/overview.md)
-- [Look into Azure VM Sizes](sizes.md)
+- [Learn about Azure Virtual Desktop](/azure/virtual-desktop/overview.md)
+- [Look into Azure VM Sizes](../sizes.md)

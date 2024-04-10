@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[!INCLUDE [hibernate-resume-intro](./includes/hibernate-resume-intro.md)]
+[!INCLUDE [hibernate-resume-intro](../includes/hibernate-resume-intro.md)]
 
 ## How hibernation works
 To learn how hibernation works, check out the [hibernation overview](../hibernate-resume.md).
@@ -46,7 +46,7 @@ When you create a Hibernation-enabled VM via the Azure portal, the LinuxHibernat
 If the extension is missing, you can [manually install the LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
 
 >[!NOTE]
-> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
+> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](../hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
 
 #### [CLI](#tab/cliLHE)
     
@@ -118,7 +118,7 @@ To learn how to check the status of a hibernated VM, check out ["Viewing the sta
 
 You can start hibernated VMs just like how you would start a stopped VM. This can be done through the Azure portal, the Azure CLI, PowerShell, or REST API.
 
-To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in the hibernation overview](../hibernate-resume.md#starting-a-hibernated-vm).
+To learn how to start a hibernated VM, check out ["Starting a hibernated VM" in the hibernation overview](../hibernate-resume.md#start-hibernated-vms).
 
 ## Alternative deployments
 
@@ -130,12 +130,12 @@ To learn more about deploying hibernation-enabled VMs from an OS disk, check out
 
 
 ## Troubleshooting
-Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooting.md) for more information.
+Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooting.md) and the [Linux VM hibernation troubleshooting guide](./hibernate-resume-troubleshooting-linux.md) for more information.
 
 ## FAQs
 Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
 ## Next Steps:
 - [Learn more about Azure billing](/azure/cost-management-billing/)
-- [Learn about Azure Virtual Desktop](../virtual-desktop/overview.md)
-- [Look into Azure VM Sizes](sizes.md)
+- [Learn about Azure Virtual Desktop](/azure/virtual-desktop/overview.md)
+- [Look into Azure VM Sizes](../sizes.md)
