@@ -99,7 +99,7 @@ You can use the following links to access the sample core, ARM and Bicep templat
 When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. You can edit the runner property to specify the location of your custom image, as shown in the following example:
 
 ```yaml
-runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}"
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 ### Specify parameters for an environment definition
