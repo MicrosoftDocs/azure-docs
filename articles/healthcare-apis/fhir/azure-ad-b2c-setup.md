@@ -301,7 +301,7 @@ The validation process involves creating a patient resource in the FHIR service,
 
 Run the [Postman](https://www.postman.com) application locally or in a web browser. For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using Postman](use-postman.md).
 
-When you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
+When you follow the steps to [GET FHIR resource](use-postman.md#get-the-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
 #### Create a patient resource in the FHIR service
 

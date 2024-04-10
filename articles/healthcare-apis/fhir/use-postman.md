@@ -1,6 +1,6 @@
 ---
-title: Access the Azure Health Data Services FHIR service using Postman
-description: This article describes how to access Azure Health Data Services FHIR service with Postman.
+title: Use Postman to access the FHIR service in Azure Health Data Services 
+description: Learn how to access the FHIR service in Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
@@ -9,7 +9,7 @@ ms.date: 04/10/2024
 ms.author: kesheth
 ---
 
-# Access using Postman
+# Access the FHIR service by using Postman
 
 This article shows the steps to access the FHIR&reg; service in Azure Health Data Services with [Postman](https://www.getpostman.com/).
 
@@ -54,14 +54,6 @@ To access the FHIR service, you need to create or update these variables:
 
 :::image type="content" source="media/postman/postman-environments-variable.png" alt-text="Screenshot showing environments variable." lightbox="media/postman/postman-environments-variable.png":::
 
-## Connect to the FHIR server
-
-Open Postman, select the **workspace**, **collection**, and **environment** you want to use. Select the `+` icon to create a new request. 
-
-:::image type="content" source="media/postman/postman-create-new-request.png" alt-text="Screenshot showing creation of new request." lightbox="media/postman/postman-create-new-request.png":::
-
-To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and then choose **Send**. You should be able to see the `Status of FHIR service - HTTP Status` code response with 200 and OverallStatus as **Healthy** in response, which means your health check is successful.
-
 ## Get capability statement
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You should see the capability statement of the FHIR service.
@@ -74,7 +66,7 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You sh
 
 ## Get Microsoft Entra access token using Client Credential grant type
 
-The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you must get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
+The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you need to get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
 Create a new `POST` request:
 
@@ -142,6 +134,14 @@ You can get the Microsoft Entra access token using your Entra account credential
 1. Ensure the token is in the **Authorization Header** of the REST call.
 
 Examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the **Claims** tab to see detailed descriptions for each claim in the token.
+
+## Connect to the FHIR server
+
+Open Postman, select the **workspace**, **collection**, and **environment** you want to use. Select the `+` icon to create a new request. 
+
+:::image type="content" source="media/postman/postman-create-new-request.png" alt-text="Screenshot showing creation of new request." lightbox="media/postman/postman-create-new-request.png":::
+
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and then choose **Send**. You should be able to see the `Status of FHIR service - HTTP Status` code response with 200 and OverallStatus as **Healthy** in response, which means your health check is successful.
 
 ## Get the FHIR resource
 
