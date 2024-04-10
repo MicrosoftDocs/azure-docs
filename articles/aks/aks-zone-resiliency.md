@@ -3,7 +3,7 @@ title: Zone resiliency considerations for Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the various considerations for zone resiliency in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 04/10/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -92,9 +92,22 @@ To create a Standard SKU load balancer in AKS, see [Use a standard load balancer
 
 ### Configure AZ-aware networking
 
+To ensure that your application's network traffic is resilient to failures, you should configure AZ-aware networking for your AKS workloads. Azure offers various networking services that support AZs:
 
+* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md): You can deploy VPN and [ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) gateways in Azure AZs to enable better resiliency, scalability, and availability to virtual network gateways. For more information, see [Create a zone-redundant virtual network gateways in availability zones](../vpn-gateway/create-zone-redundant-vnet-gateway.md).
+* [Azure Application Gateway v2](../application-gateway/overview-v2.md): The v2 SKU of Azure Application Gateway supports performance enhancements, including support for zone-redundant deployments. For more information, see [Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-cli.md).
+* [Azure NAT Gateway](../nat-gateway/nat-overview.md): With Azure NAT Gateway, you can create NAT gateways in specific AZs or use a zonal deployment for isolation to specific zones. For more information, see [NAT Gateway and availability zones](../nat-gateway/nat-overview.md#availability-zones).
+* [Azure Front Door](../frontdoor/front-door-overview.md): Azure Front Door is a global, scalable entry-point that uses the Microsoft global network to create fast, secure, and resilient applications. It provides a globally distributed network of points of presence (POP). For more information, see [Azure Front Door POP locations](../frontdoor/edge-locations-by-region.md).
 
-### Use autoscaling for your workloads
+### Set up a zone-redundant, geo-replicated container registry
+
+To ensure that your container images are highly available and resilient to failures, you should set up a zone-redundant container registry. The [Azure Container Registry (ACR)](../container-registry/container-registry-intro.md) Premium SKU supports [geo-replication](../container-registry/container-registry-geo-replication.md) and optional [zone redundancy](../container-registry/zone-redundancy.md). These features provide availability and reduce latency for regional operations.
+
+### Ensure availability and redundancy for keys and secrets
+
+[Azure Key Vault](../key-vault/general/overview.md) features multiple layers of redundancy to make sure your keys and secrets remain available to your application even if individual components of the service fail, or if Azure regions or AZs are unavailable. For more information, see [Azure Key Vault availability and redundancy](../key-vault/general/disaster-recovery-guidance.md).
+
+### Leverage autoscaling features
 
 You can improve application availability and resiliency in AKS using autoscaling features, which help you achieve the following goals:
 
