@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 04/09/2024
+ms.date: 04/10/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -182,6 +182,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 - Post Validation Connections between TORs and Compute Servers isn't supported. 
 - Cable Validation for NPB isn't supported because there's no support for "show lldp neighbors" from Arista.  
 - The Storage URL must be in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
+- Cable validation supports both 4 rack and 8 rack BOMs.
 
 ## Generate the storage URL
 
