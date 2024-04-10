@@ -19,6 +19,8 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 ## Prerequisites
 
+* Read the [conceptual overview of this feature](./concepts-update-orchestration.md), which provides an explanation of update strategies, runs, stages, and groups references in this document.
+
 * You must have a fleet resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates a fleet resource with five AKS member clusters as an example.
 
 * Set the following environment variables:
@@ -41,8 +43,6 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   ```azurecli-interactive
   az extension update --name fleet
   ```
-
-* Follow the [conceptual overview of this feature](./architectural-overview.md#update-orchestration-across-multiple-clusters), which provides an explanation of update runs, stages, groups, and their characteristics.
 
 ## Update all clusters one by one
 

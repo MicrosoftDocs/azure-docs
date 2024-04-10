@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/15/2024
+ms.date: 03/19/2024
 ---
 
 ### Outbound connectivity
@@ -25,7 +25,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Microsoft Container Registry| 443 | `https://mcr.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. | Download container images for Arc Resource Bridge.|
 |Microsoft open source packages manager| 443 | `packages.microsoft.com`| Appliance VM IPs need outbound connection. | Download Linux installation package.|
 |Custom Locations| 443 | `sts.windows.net`| Appliance VM IPs need outbound connection. | Required for use by the Custom Locations cluster extension.|
-|Python package| 443 | `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
-|Azure CLI| 443 | `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|
+|Python package| 443 | `pypi.org`, `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
+|Azure CLI| 443 | `pythonhosted.org`, `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|
 |Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
 |Windows NTP Server| 123 | `time.windows.com` | Appliance VM & Management machine (if Hyper-V default is Windows NTP) need outbound connection on UDP | OS time sync in appliance VM & Management machine (Windows NTP).|

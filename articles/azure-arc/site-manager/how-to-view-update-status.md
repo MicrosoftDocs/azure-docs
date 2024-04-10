@@ -14,7 +14,7 @@ ms.date: 03/24/2024
 
 # How to view update status for an Arc site
 
-This article details how to view update status for an Arc site, which reflects the status for the overall site and enables the ability to view the update status for support resources as well. The status of an overall site is based upon the underlying resources.
+This article details how to view update status for an Arc site. A site's update status reflects the status of the underlying resources. From the site status view, you can find detailed status information for the supported resources as well.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In the Azure portal, status is indicated using color.
 
 ## View update status
 
-You can view update status for an Arc site as a whole from the main page of Azure Arc site manager.
+You can view update status for an Arc site as a whole from the main page of Azure Arc site manager (preview).
 
 1. From the [Azure portal](https://portal.azure.com), navigate to **Azure Arc** and select **Site manager (preview)** to open site manager.
 
@@ -43,11 +43,11 @@ You can view update status for an Arc site as a whole from the main page of Azur
 
    :::image type="content" source="./media/how-to-view-update-status/overview-sites-page.png" alt-text="Screenshot that shows selecting the Overview page in site manager.":::
 
-2. In the **Overview** page, you can view the summarized update statuses of your sites. This site-level status is aggregated from the statuses of its managed resources. In the example below, sites are shown with different statuses.
+1. In the **Overview** page, you can view the summarized update statuses of your sites. This site-level status is aggregated from the statuses of its managed resources. In the example below, sites are shown with different statuses.
 
    :::image type="content" source="./media/how-to-view-update-status/site-manager-update-status-overview-page.png" alt-text="Screenshot that shows the update status summary on the view page.":::
 
-3. To understand which site has which status, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
+1. To understand which site has which status, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
 
    :::image type="content" source="./media/how-to-view-update-status/click-update-status-site-details.png" alt-text="Screenshot that shows selecting the Sites tab to get more detail about update status.":::
 
@@ -57,6 +57,6 @@ You can view update status for an Arc site as a whole from the main page of Azur
 
    :::image type="content" source="./media/how-to-view-update-status/site-update-status-from-sites-page.png" alt-text="Screenshot that shows selecting the update status for a site to see the resource details.":::
 
-3. On the site's resource page, you can view the update status for each resource within the site, including the resource that had resulted in the top-level most important status.
+1. On the site's resource page, you can view the update status for each resource within the site, including the resource responsible for the top-level most important status.
 
    :::image type="content" source="./media/how-to-view-update-status/london-resource-status-updates.png" alt-text="Screenshot that shows using the site details page to identify resources with pending or in progress updates.":::

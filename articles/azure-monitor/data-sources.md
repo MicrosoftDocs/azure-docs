@@ -11,8 +11,7 @@ ms.reviewer: shseth
 
 # Sources of monitoring data for Azure Monitor and their data collection methods
 
-Azure Monitor is based on a [common monitoring data platform](data-platform.md) that allows different types of data from multiple types of resources to be analyzed together using a common set of tools. This article describes common sources of monitoring data collected by Azure Monitor and their data collection methods. Use this article as a starting point to understand the option for collecting different types of data being generated in your environment.
-
+Azure Monitor is based on a [common monitoring data platform](data-platform.md) that allows different types of data from multiple types of resources to be analyzed together using a common set of tools. Currently, different sources of data for Azure Monitor use different methods to deliver their data, and each typically require different types of configuration. This article describes common sources of monitoring data collected by Azure Monitor and their data collection methods. Use this article as a starting point to understand the option for collecting different types of data being generated in your environment.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
@@ -62,7 +61,7 @@ Azure Kubernetes Service (AKS) clusters create the same activity logs and platfo
 
 
 ## Application
-Application monitoring in Azure Monitor is done with [Application Insights](/azure/application-insights/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
+Application monitoring in Azure Monitor is done with [Application Insights](/azure/azure-monitor/app/app-insights-overview/), which collects data from applications running on various platforms in Azure, another cloud, or on-premises. When you enable Application Insights for an application, it collects metrics and logs related to the performance and operation of the application and stores it in the same Azure Monitor data platform used by other data sources. 
 
 See [Application Insights overview](./app/app-insights-overview.md) for further details about the data that Application insights collected and links to articles on onboarding your application.
 

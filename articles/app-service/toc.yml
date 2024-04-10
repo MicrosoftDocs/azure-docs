@@ -94,25 +94,23 @@
       href: reference-app-settings.md
 - name: Logs and monitoring
   items:
-    - name: Monitoring overview
+    - name: Monitor
+      href: monitor-app-service.md
+    - name: Monitoring data reference
+      href: monitor-app-service-reference.md
+    - name: Azure Monitor tutorial
+      href: tutorial-troubleshoot-monitor.md
+    - name: Monitoring options
       href: overview-monitoring.md
-    - name: Enable diagnostic logs
+    - name: Stream diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md
-    - name: Monitor with Azure Monitor
-      items:
-        - name: Azure Monitor tutorial
-          href: tutorial-troubleshoot-monitor.md
-        - name: About Azure Monitor logs
-          href: monitor-app-service.md
-        - name: Azure Monitor logs reference
-          href: monitor-app-service-reference.md
     - name: Monitor instance health
       href: monitor-instances-health-check.md
     - name: About App Service diagnostics tool
       href: overview-diagnostics.md
-    - name: About Quotas & alerts
+    - name: About quotas & alerts
       href: web-sites-monitor.md
 - name: Domains and certificates
   items:
@@ -158,7 +156,9 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
-        - name: Java with Spring Data
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
           href: tutorial-java-quarkus-postgresql-app.md            
@@ -373,6 +373,8 @@
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
       items:
+        - name: Configure a sidecar container
+          href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions

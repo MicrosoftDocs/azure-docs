@@ -16,9 +16,6 @@ This article explains how to deploy a container group that includes a liveness p
 
 Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
 
-> [!NOTE]
-> Currently you cannot use a liveness probe in a container group deployed to a virtual network.
-
 ## YAML deployment
 
 Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGINX container that eventually becomes unhealthy.

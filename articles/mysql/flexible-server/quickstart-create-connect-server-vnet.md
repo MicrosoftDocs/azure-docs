@@ -8,9 +8,7 @@ ms.date: 11/21/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom:
-  - mvc
-  - mode-ui
+ms.custom: mvc, mode-ui, linux-related-content
 ---
 
 # Connect Azure Database for MySQL - Flexible Server with private access connectivity method

@@ -12,7 +12,7 @@ ms.date: 02/16/2024
 
 # How to view alert status for an Arc site
 
-This article details how to view alert status for an Arc site, which reflects the status for the overall site and enables the ability to view the alert status for support resources as well. The status of an overall site is based upon the underlying resources.
+This article details how to view the alert status for an Arc site. A site's alert status reflects the status of the underlying resources. From the site status view, you can find detailed status information for the supported resources as well.
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ In the Azure portal, status is indicated using color.
 
 ## View alert status
 
-View alert status for an Arc site from the main page of Azure Arc site manager.
+View alert status for an Arc site from the main page of Azure Arc site manager (preview).
 
 1. From the [Azure portal](https://portal.azure.com), navigate to **Azure Arc** and select **Site manager (preview)** to open site manager.
 
-1. From Azure Arc site manager, navigate to the **Overview** page. 
+1. From Azure Arc site manager, navigate to the **Overview** page.
 
    :::image type="content" source="./media/how-to-view-alerts/overview-sites-page.png" alt-text="Screenshot that shows selecting the overview page from site manager.":::
 
@@ -57,6 +57,6 @@ View alert status for an Arc site from the main page of Azure Arc site manager.
 
 1. If there's an alert, select the status text to open details for a given site. You can also select the name of the site to open its details.
 
-1. On a site's resource page, you can view the alert status for each resource within the site, including the resource that had resulted in the top-level most important status.
+1. On a site's resource page, you can view the alert status for each resource within the site, including the resource responsible for the top-level most important status.
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-london.png" alt-text="Screenshot that shows the site detail page with alert status for each resource.":::

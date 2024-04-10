@@ -12,9 +12,9 @@ ms.date: 02/16/2024
 
 ---
 
-# Frequently asked questions: Azure Arc site manager
+# Frequently asked questions: Azure Arc site manager (preview)
 
-The following are frequently asked questions and answers for Azure Arc site manager:
+The following are frequently asked questions and answers for Azure Arc site manager.
 
 **Question:** I have resources in the resource group, which aren't yet supported by site manager. Do I need to move them?
 
@@ -35,4 +35,3 @@ The following are frequently asked questions and answers for Azure Arc site mana
 **Question:** Does an Arc site have to represent a physical site or location?
 
 **Answer:** Site manager is tailored for customers who manage on-premises infrastructure. Arc sites can also be created to represent more than just a physical location as well.
-
