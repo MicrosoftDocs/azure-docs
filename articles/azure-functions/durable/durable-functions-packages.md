@@ -32,7 +32,7 @@ By default, Durable Functions uses Azure Storage as it's backing store. However,
 
 ## .NET isolated
 
-.NET isolated users need to reference the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This replaces the "WebJobs" extension used in .NET in-process as .NET isolated projects cannot directly reference WebJobs packages. This package is known as the "worker extension" for Durable Functions.
+.NET isolated users need to reference the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This replaces the "WebJobs" extension used in .NET in-process as .NET isolated projects can't directly reference WebJobs packages. This package is known as the "worker extension" for Durable Functions.
 
 ### The storage providers packages
 
@@ -43,12 +43,12 @@ In .NET isolated, the alternative [storage providers](./durable-functions-storag
 
 ## Extension Bundles users
 
-Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles) (the recommended dependency management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK as Extension Bundles will take care of installing the rest. The SDKs for each first-party language is listed below:
+Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles) (the recommended dependency management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK as Extension Bundles takes care of installing the rest. The SDKs for each first-party language are listed below:
 
 * Node (JavaScript / TypeScript): The [durable-functions](https://www.npmjs.com/package/durable-functions) npm package.
 * Python: The [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) PyPI package.
 * Java: The [durabletask-azure-functions](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions) Maven package.
-* PowerShell: The current GA SDK is built-in to Azure Functions PowerShell language worker, so no installation is needed. Please see the note below for details.
+* PowerShell: The current GA SDK is built-in to Azure Functions PowerShell language worker, so no installation is needed. See the following _note_ for details.
 
 > [!NOTE]
 > For PowerShell users: we have a _preview_ SDK standalone package under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
