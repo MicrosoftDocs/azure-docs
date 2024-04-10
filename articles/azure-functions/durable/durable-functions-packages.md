@@ -16,8 +16,6 @@ ms.reviewer: azfuncdf
 
 ## .NET in-process (and non .NET users directly managing extensions)
 
-### The WebJobs extension
-
 .NET in-process users need to reference the [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This package is known as the "WebJobs extension" for Durable Functions.
 
 ### The storage providers packages
