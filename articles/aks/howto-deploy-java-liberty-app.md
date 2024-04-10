@@ -108,7 +108,7 @@ The following steps guide you to create a Liberty runtime on AKS. After you comp
 
 If you moved away from the **Deployment is in progress** pane, the following steps show you how to get back to that pane. If you're still on the pane that shows **Your deployment is complete**, go to the newly created resource group and skip to the third step.
 
-1. In the upper left of any portal page, select the menu button, and then select **Resource groups**.
+1. In the corner of any portal page, select the menu button, and then select **Resource groups**.
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group that you created previously. If you followed the recommended convention, enter your initials, and then select the appropriate resource group.
 1. In the list of resources in the resource group, select the resource with the **Type** value of **Container registry**.
 1. On the left pane, under **Settings**, select **Access keys**.
