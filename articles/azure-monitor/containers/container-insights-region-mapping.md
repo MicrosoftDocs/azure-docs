@@ -9,6 +9,7 @@ ms.reviewer: aul
 
 # Regions supported by Container insights
 
+## Kubernetes cluster region
 The following table specifies the regions that are supported for Container insights on different platforms.
 
 | Platform | Regions |
@@ -16,6 +17,7 @@ The following table specifies the regions that are supported for Container insig
 | AKS | All regions supported by AKS as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=kubernetes-service). | 
 | Arc-enabled Kubernetes | All public regions supported by Arc-enabled Kubernetes as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc). |
 
+## Log Analytics workspace region
 The Log Analytics workspace supporting Container insights must be in the same region except for the regions listed in the following table. 
 
 
