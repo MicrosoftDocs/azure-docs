@@ -42,6 +42,13 @@ You get several Azure AI hub default resources in your resource group. You need 
 
 Use one of the following methods to create an Azure AI hub resource with a private endpoint. Each of these methods __requires an existing virtual network__:
 
+# [Azure portal](#tab/azure-portal)
+
+1. From the [Azure portal](https://portal.azure.com), go to Azure AI Studio and choose __+ New Azure AI__.
+1. Choose network isolation mode in __Networking__ tab.
+1. Scroll down to __Workspace Inbound access__ and choose __+ Add__.
+1. Input required fields. When selecting the __Region__, select the same region as your virtual network.
+
 # [Azure CLI](#tab/cli)
 
 Create your Azure AI hub resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
@@ -104,18 +111,21 @@ az network private-endpoint dns-zone-group add \
     --zone-name privatelink.notebooks.azure.net
 ```
 
-# [Azure portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), go to Azure AI Studio and choose __+ New Azure AI__.
-1. Choose network isolation mode in __Networking__ tab.
-1. Scroll down to __Workspace Inbound access__ and choose __+ Add__.
-1. Input required fields. When selecting the __Region__, select the same region as your virtual network.
-
 ---
 
 ## Add a private endpoint to an Azure AI hub
 
 Use one of the following methods to add a private endpoint to an existing Azure AI hub:
+
+# [Azure portal](#tab/azure-portal)
+
+1. From the [Azure portal](https://portal.azure.com), select your Azure AI hub.
+1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
+1. When selecting the __Region__, select the same region as your virtual network.
+1. When selecting __Resource type__, use `azuremlworkspace`.
+1. Set the __Resource__ to your workspace name.
+
+Finally, select __Create__ to create the private endpoint.
 
 # [Azure CLI](#tab/cli)
 
@@ -173,16 +183,6 @@ az network private-endpoint dns-zone-group add \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
 
-# [Azure portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), select your Azure AI hub.
-1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
-1. When selecting the __Region__, select the same region as your virtual network.
-1. When selecting __Resource type__, use `azuremlworkspace`.
-1. Set the __Resource__ to your workspace name.
-
-Finally, select __Create__ to create the private endpoint.
-
 ---
 
 ## Remove a private endpoint
@@ -194,6 +194,12 @@ You can remove one or all private endpoints for an Azure AI hub. Removing a priv
 
 To remove a private endpoint, use the following information:
 
+# [Azure portal](#tab/azure-portal)
+
+1. From the [Azure portal](https://portal.azure.com), select your Azure AI hub.
+1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
+1. Select the endpoint to remove and then select __Remove__.
+
 # [Azure CLI](#tab/cli)
 
 When using the Azure CLI, use the following command to remove the private endpoint:
@@ -203,12 +209,6 @@ az network private-endpoint delete \
     --name <private-endpoint-name> \
     --resource-group <resource-group-name> \
 ```
-
-# [Azure portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), select your Azure AI hub.
-1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
-1. Select the endpoint to remove and then select __Remove__.
 
 ---
 
@@ -221,15 +221,15 @@ In some situations, you might want to allow someone to connect to your secured A
 
 To enable public access, use the following steps:
 
-# [Azure CLI](#tab/cli)
-
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
-
 # [Azure portal](#tab/azure-portal)
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure AI hub.
 1. From the left side of the page, select __Networking__ and then select the __Public access__ tab.
 1. Select __Enabled from all networks__, and then select __Save__.
+
+# [Azure CLI](#tab/cli)
+
+Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
 
 ---
 
