@@ -121,7 +121,7 @@ instructions will be provided by the rack manufacturer.
 
 #### How to visually inspect the physical hardware installation
 
-It is recommended to label on all cables following ANSI/TIA 606 Standards,
+It's recommended to label on all cables following ANSI/TIA 606 Standards,
 or the operator's standards, during the build process. The build process
 should also create reverse mapping for cabling from a switch port to far end
 connection. The reverse mapping can be compared to the cabling diagram to
@@ -229,7 +229,7 @@ Terminal Server has been deployed and configured as follows:
    %admin ALL=(ALL) NOPASSWD: ALL
    ```
    
-6. Start/Enable the LLDP service if it is not running:
+6. Start/Enable the LLDP service if it isn't running:
    
    Check if LLDP service is running on TS:
    ```bash
@@ -248,7 +248,7 @@ Terminal Server has been deployed and configured as follows:
    Notice: journal has been rotated since unit was started, output may be incomplete.
    ```
 
-   If the service is not active (running), start the service:
+   If the service isn't active (running), start the service:
    ```bash
    sudo systemctl start lldpd
    ```
