@@ -21,12 +21,6 @@ For information specific to Linux VMs, check out the [Linux VM hibernation troub
 
 For information specific to Windows VMs, check out the [Windows VM hibernation troubleshooting guide](./windows/hibernate-resume-troubleshooting-windows.md).
 
-## Subscription not registered to use hibernation
-If you receive the error "Your subscription isn't registered to use Hibernate" and the box is greyed out in the Azure portal, make sure you have [register for the Hibernation preview.](hibernate-resume.md)
-
-![Screenshot of the greyed-out 'enable hibernation' box with a warning below it and a link to "Learn More" about registering your subscription.](./media/hibernate-resume/subscription-not-registered.png)
-
-
 ## Unable to create a VM with hibernation enabled
 If you're unable to create a VM with hibernation enabled, ensure that you're using a VM size, OS version that supports Hibernation. Refer to the supported VM sizes, OS versions section in the user guide and the limitations section for more details. Here are some common error codes that you might observe:
 
