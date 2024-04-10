@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Tutorial: Import and publish your first API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This tutorial shows how to import an OpenAPI specification backend API in JSON format into Azure API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at `https://conferenceapi.azurewebsites.net`.
 
 Once you import the backend API into API Management, your API Management API becomes a façade for the backend API. You can customize the façade to your needs in API Management without touching the backend API. For more information, see [Transform and protect your API](transform-api.md).

@@ -4,6 +4,7 @@ description: Describes performance benchmarks Azure NetApp Files delivers for Li
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2021
 ms.author: anfdocs

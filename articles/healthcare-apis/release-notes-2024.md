@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 04/02/2024
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -14,6 +14,61 @@ ms.custom: references_regions
 # Release notes 2024: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## April 2024
+
+### FHIR service
+
+#### The bulk delete operation is generally available
+
+The bulk delete operation allows deletion of FHIR resources across different levels, enabling healthcare organizations to comply with data retention policies while providing asynchronous processing capabilities. The benefits of the bulk delete operation are:
+
+- **Execute bulk delete at different levels**: The bulk delete operation allows you to delete resources from the FHIR server asynchronously. You can execute bulk delete at different levels:
+    - **System level**: Enables deletion of FHIR resources across all resource types.
+    - **Individual resource type**: Allows deletion of specific FHIR resources.
+- **Customizable**: Query parameters allow filtering of raw resources for targeted deletions.
+- **Async processing**: The operation is asynchronous, providing a polling endpoint to track progress.
+
+Learn more:
+- [Bulk delete in the FHIR service](./fhir/fhir-bulk-delete.md)
+
+## March 2024
+
+### DICOM service
+
+#### Integration with Azure Data Lake Storage is generally available
+
+Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services is generally available. The DICOM service provides cloud-scale storage for medical imaging data using the DICOMweb standard. With the integration of Azure Data Lake Storage, organizations can enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.
+
+By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+-	Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+-	Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
+-	Unlock new analytics and AI/ML scenarios by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric.
+-	Grant controls to manage storage permissions, access controls, tiers, and rules.
+
+Learn more:
+- [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](./dicom/dicom-data-lake.md)
+- [Deploy the DICOM service with Azure Data Lake Storage](./dicom/deploy-dicom-services-in-azure-data-lake.md)
+
+### FHIR Service 
+
+#### Bundle parallelization (GA)
+Bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing.
+
+Learn more:
+- [Bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+
+#### Import operation accepts multiple resource types in single file
+
+Import operation allowed to have resource type per input file in the request parameters. With this enhance capability, you can pass multiple resource types in single file.
+
+#### Bug Fixes
+
+- **Fixed: Import operation ingest resources with same resource type and lastUpdated field value**. Before this change, resources executed in a batch with same type and lastUpdated field value were not ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
+
+- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
+
+- **Fixed: Improve performance for bundle processing**. Updates are made to the task execution method, leading to bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
 
 ## February 2024
 

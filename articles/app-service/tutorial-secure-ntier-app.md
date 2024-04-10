@@ -57,7 +57,7 @@ The tutorial uses two sample Node.js apps that are hosted on GitHub. If you don'
 
 To complete this tutorial:
 
-[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/articles/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
 
 ## 1. Create two instances of a web app
 

@@ -14,7 +14,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Relay Hybrid Connec
 
 - This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) or [Get started with Relay Hybrid Connections - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.56 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -47,11 +47,11 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 The following script gets the resource ID of the relay namespace. It constructs the ID for the hybrid connection, and subscribes to an Event Grid topic. The script sets the endpoint type to `hybridconnection` and uses the hybrid connection ID for the endpoint.
 
 ```azurecli-interactive
-relayname=<namespace-name>
+relaynsname=<namespace-name>
 relayrg=<resource-group-for-relay>
 hybridname=<hybrid-name>
 
-relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
+relayid=$(az relay namespace show --resource-group $relayrg --name $relaynsname --query id --output tsv)
 hybridid="$relayid/hybridConnections/$hybridname"
 topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 

@@ -2,7 +2,11 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about Confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -81,3 +85,4 @@ With the local container filesystem backed by VM memory, writing to the containe
 [azure-dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [deploy-confidential-containers-default-aks]: deploy-confidential-containers-default-policy.md
 [confidential-containers-security-policy]: ../confidential-computing/confidential-containers-aks-security-policy.md
+

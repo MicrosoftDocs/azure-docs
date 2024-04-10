@@ -12,7 +12,9 @@ ms.custom: references_regions
 ---
 # Virtual network configuration reference: API Management
 
-This reference provides detailed network configuration settings for an API Management instance deployed in an Azure virtual network in the [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) mode.
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
+This reference provides detailed network configuration settings for an API Management instance deployed (injected) in an Azure virtual network in the [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) mode.
 
 For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 

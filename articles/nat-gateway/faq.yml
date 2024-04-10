@@ -23,6 +23,10 @@ sections:
         answer: |
           See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
 
+      - question: How many NAT gateways are allowed per subscription?
+        answer: | 
+          The number of NAT gateway resources allowed per subscription per region vary based on offer category type, such as free trial, pay-as-you-go, CSP, and Enterprise Agreement. Enterprise Agreement and CSP offer types can have up to 1000 NAT gateway resources. Sponsored and pay-as-you-go offer types can have up to 100 NAT gateway resources. All other offer types, such as free trial, can have up to 15 NAT gateway resources. 
+      
       - question: Can NAT gateway be used across subscriptions?
         answer: |
           No, a NAT gateway resource can't be used with more than one subscription at a time. For step by step guidance, see [Create and configure NAT gateway after region move](region-move-nat-gateway.md).

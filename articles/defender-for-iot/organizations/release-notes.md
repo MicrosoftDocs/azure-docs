@@ -38,7 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **24.1** | | | |
-| 24.1.0  |02/2024 | Major |01/2025 |
+| 24.1.3  |04/2024 | Major |03/2025 |
+| 24.1.2  |02/2024 | Major |01/2025 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
@@ -103,11 +104,22 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 24.1.x
 
-### Version 24.1.0
+### Version 24.1.3
+
+**Release date**: 04/2024
+
+**Supported until**: 03/2025
+
+This version includes the following updates and enhancements:
+
+- [Sensor time drift detection](whats-new.md#sensor-time-drift-detection)
+- Bug fixes for stability improvements
+
+### Version 24.1.2
 
 **Release date**: 02/2024
 
-**Supported until**: 03/2025
+**Supported until**: 01/2025
 
 This version includes the following updates and enhancements:
 

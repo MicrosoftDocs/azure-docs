@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the in-place migration fea
 description: Overview of the in-place migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 03/1/2024
+ms.date: 04/08/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
 
-The in-place migration feature automates your migration to App Service Environment v3 by upgrading your existing App Service Environment in the same subnet. This migration option is best for customers who want to migrate to App Service Environment v3 with minimal changes to their networking configurations and can support about one hour of application downtime. If you can't support downtime, see the [side migration feature](side-by-side-migrate.md) or the [manual migration options](migration-alternatives.md).
+The in-place migration feature automates your migration to App Service Environment v3 by upgrading your existing App Service Environment in the same subnet. This migration option is best for customers who want to migrate to App Service Environment v3 with minimal changes to their networking configurations. You must also be able to support about one hour of application downtime. If you can't support downtime, see the [side migration feature](side-by-side-migrate.md) or the [manual migration options](migration-alternatives.md).
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -97,6 +97,12 @@ If your App Service Environment doesn't pass the validation checks or you try to
 
 In-place migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what happens during these steps and how your environment and apps are impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
+### Validate that migration is supported using the in-place migration feature for your App Service Environment
+
+The platform validates that your App Service Environment can be migrated using the in-place migration feature. If your App Service Environment doesn't pass all validation checks, you can't migrate at this time using the in-place migration feature. See the [troubleshooting](#troubleshooting) section for details of the possible causes of validation failure. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates. If you can't migrate using the in-place migration feature, see the [manual migration options](migration-alternatives.md).
+
+The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
+
 ### Generate IP addresses for your new App Service Environment v3
 
 The platform creates the [new inbound IP (if you're migrating an ELB App Service Environment) and the new outbound IP](networking.md#addresses) addresses. While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
@@ -133,7 +139,7 @@ Your App Service Environment v3 can be deployed across availability zones in the
 
 If your existing App Service Environment uses a custom domain suffix, you're prompted to configure a custom domain suffix for your new App Service Environment v3. You need to provide the custom domain name, managed identity, and certificate. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). You must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration if needed.
 
-If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly.  
+If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. Also, on App Service Environment v2, if you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. On App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. This difference is because App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. With App Service Environment v2, there's only a single domain suffix.
 
 ### Migrate to App Service Environment v3
 

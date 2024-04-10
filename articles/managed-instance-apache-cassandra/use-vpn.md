@@ -11,12 +11,30 @@ ms.devlang: azurecli
 ---
 # Use a VPN with Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra nodes require access to many other Azure services when they're injected into your virtual network. Normally, you enable this access by ensuring that your virtual network has outbound access to the internet. If your security policy prohibits outbound access, you can configure firewall rules or user-defined routes for the appropriate access. For more information, see [Required outbound network rules](network-rules.md).
+Azure Managed Instance for Apache Cassandra nodes requires access to many other Azure services when they're injected into your virtual network. Normally, access is enabled by ensuring that your virtual network has outbound access to the internet. If your security policy prohibits outbound access, you can configure firewall rules or user-defined routes for the appropriate access. For more information, see [Required outbound network rules](network-rules.md).
 
 However, if you have internal security concerns about data exfiltration, your security policy might prohibit direct access to these services from your virtual network. By using a virtual private network (VPN) with Azure Managed Instance for Apache Cassandra, you can ensure that data nodes in the virtual network communicate with only a single VPN endpoint, with no direct access to any other services.
 
 > [!IMPORTANT]
 > The ability to use a VPN with Azure Managed Instance for Apache Cassandra is in public preview. This feature is provided without a service-level agreement, and we don't recommend it for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## How it works
+
+A virtual machine called the operator is part of each Azure Managed Instance for Apache Cassandra. It helps manage the cluster, by default, the operator is in the same virtual network as the cluster. Which means that the operator and data VMs have the same Network Security Group (NSG) rules. Which isn't ideal for security reasons, and it also lets customers prevent the operator from reaching necessary Azure services when they set up NSG rules for their subnet. 
+
+Using VPN as your connection method for an Azure Managed Instance for Apache Cassandra lets the operator be in a different virtual network than the cluster by using the private link service. Meaning that the operator can be in a virtual network that has access to the necessary Azure services and the cluster can be in a virtual network that you control.
+
+:::image type="content" source="./media/use-vpn/vpn-design.png" alt-text="Screenshot of a vpn design." lightbox="./media/use-vpn/vpn-design.png" border="true":::
+
+With the VPN, the operator can now connect to a private IP address inside the address range of your virtual network called a private endpoint. The private link routes the data between the operator and the private endpoint through the Azure backbone network, avoiding exposure to the public internet.
+
+## Security Benefits
+
+We want to prevent attackers from accessing the virtual network where the operator is deployed and trying to steal data. So, we have security measures in place to make sure that the Operator can only reach necessary Azure services.
+
+* Service Endpoint Policies: These policies offer granular control over egress traffic within the virtual network, particularly to Azure services. By using service endpoints, they establish restrictions, permitting data access exclusively to specified Azure services like Azure Monitoring, Azure Storage, and Azure KeyVault. Notably, these policies ensure that data egress is limited solely to predetermined Azure Storage accounts, enhancing security and data management within the network infrastructure.
+
+* Network Security Groups: These groups are used to filter network traffic to and from the resources in an Azure virtual network. We block all traffic from the Operator to the internet, and only allow traffic to certain Azure services through a set of NSG rules.
 
 ## How to use a VPN with Azure Managed Instance for Apache Cassandra
 
