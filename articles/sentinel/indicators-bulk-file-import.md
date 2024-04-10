@@ -61,7 +61,7 @@ The templates provide all the fields you need to create a single valid indicator
 
 1. Drag your indicators file to the **Upload a file** section or browse for the file using the link.
 
-1. Enter a source for the indicators in the **Source** text box. This value is be stamped on all the indicators included in that file. You can view this property as the **SourceSystem** field. The source is also be displayed in the **Manage file imports** pane. Learn more about how to view indicator properties here: [Work with threat indicators](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). 
+1. Enter a source for the indicators in the **Source** text box. This value is stamped on all the indicators included in that file. View this property as the `SourceSystem` field. The source is also displayed in the **Manage file imports** pane. For more information, see [Work with threat indicators](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs). 
 
 1. Choose how you want Microsoft Sentinel to handle invalid indicator entries by selecting one of the radio buttons at the bottom of the **Import using a file** pane. 
    - Import only the valid indicators and leave aside any invalid indicators from the file.

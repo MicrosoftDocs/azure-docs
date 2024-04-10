@@ -120,7 +120,7 @@ This occurs when a firewall or proxy has SSL/TLS inspection enabled and blocks h
 
 If the result is `The response ended prematurely while waiting for the next frame from the server`, then the http2 call is being blocked and needs to be allowed. Work with your network administrator to disable the SSL/TLS inspection to allow http2 calls from the machine used to deploy the bridge.
 
-### .local not supported
+### No such host - .local not supported
 When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
 `"message": "Post \"https://esx.lab.local/52c-acac707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
@@ -145,9 +145,9 @@ Be sure that the proxy server on your management machine trusts both the SSL cer
 
 An error that contains `dial tcp: lookup westeurope.dp.kubernetesconfiguration.azure.com: no such host` while deploying Arc resource bridge means that the configuration dataplane is currently unavailable in the specified region. The service may be temporarily unavailable. Please wait for the service to be available and then retry the deployment.
 
-### No such host for Arc resource bridge required URL
+### Proxy connect tcp - No such host for Arc resource bridge required URL
 
-An error that contains an Arc resource bridge required URL with the message `no such host` indicates that DNS is not able to resolve the URL. The error may look similar to the example below, where the required URL is `https://msk8s.api.cdp.microsoft.com`:
+An error that contains an Arc resource bridge required URL with the message `proxyconnect tcp: dial tcp: lookup http: no such host` indicates that DNS is not able to resolve the URL. The error may look similar to the example below, where the required URL is `https://msk8s.api.cdp.microsoft.com`:
 
 `Error:  { _errorCode_: _InvalidEntityError_, _errorResponse_: _{\n\_message\_: \_Post \\\_https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select\\\_: POST https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select giving up after 6 attempt(s): Post \\\_https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select\\\_: proxyconnect tcp: dial tcp: lookup http: no such host\_\n}_ }`
 

@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: kabharati
 author: kabharati
-ms.date: 01/22/2024
+ms.date: 01/23/2024
 ---
 
 # Storage autogrow using Azure portal in Azure Database for PostgreSQL - Flexible Server
