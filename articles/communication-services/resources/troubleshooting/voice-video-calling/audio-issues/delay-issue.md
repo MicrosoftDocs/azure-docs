@@ -6,7 +6,7 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/10/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -28,15 +28,14 @@ Depending on network conditions, the length of the jitter buffer delay can vary.
 The jitter buffer delay refers to the amount of time that audio samples stay in the jitter buffer.
 A high jitter buffer delay can cause audio delays that are noticeable to the user.
 
-## How to detect
-### SDK
-Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+## How to detect using the SDK
+You can use the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) to detect the network condition changes.
 
 For the network quality of the audio sending end, you can check events with the values of `networkSendQuality`.
 
 For the network quality of the receiving end, you can check events with the values of `networkReceiveQuality`.
 
-In addition, the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) also provides a way to monitor the network and audio quality.
+In addition, you can use the  [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) as a method to monitor and track real time the network performance from the Web client.
 
 For the quality of the audio sending end, you can check the metrics `rttInMs`.
 
