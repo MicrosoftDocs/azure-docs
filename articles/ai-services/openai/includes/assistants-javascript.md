@@ -79,200 +79,29 @@ In our code we are going to specify the following values:
 
 An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
 
-
-
-#### [TypeScript](#tab/typescript)
+#### [Recommended: TS Passwordless](#tab/typescript-passwordless)
 
 Create and run an assistant with the following TypeScript module:
 
-```typescript
-// index.ts
-import {
-  AssistantsClient,
-  AssistantCreationOptions,
-  ToolDefinition,
-  Assistant,
-  AssistantThread,
-  ThreadMessage,
-  ThreadRun,
-  ListResponseOf,
-} from "@azure/openai-assistants";
-import { DefaultAzureCredential } from "@azure/identity";
+:::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index.ts" :::
 
-import "dotenv/config";
+#### [JS Passwordless](#tab/javascript-passwordless)
 
-// Recommended for secure credential management
-// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
-// if (!azureOpenAIEndpoint) {
-//   throw new Error(
-//     "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
-//   );
-// }
-// const getClient = (): AssistantsClient => {
-//   const credential = new DefaultAzureCredential();
-//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-//   return assistantsClient;  
-// }
+Create and run an assistant with the following TypeScript module:
 
-// Not recommended - for local demo purposes only
-const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY as string;
-const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT as string;
-const credential = new AzureKeyCredential(azureOpenAIKey);
-const getClient = (): AssistantsClient => {
-  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-  return assistantsClient;
-}
+:::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
 
-const assistantsClient: AssistantsClient = getClient();
+#### [TS Password](#tab/typescript-password)
 
-const options: AssistantCreationOptions = {
-  model: "gpt-4-1106-preview", // Deployment name seen in Azure AI Studio
-  name: "Math Tutor",
-  instructions:
-    "You are a personal math tutor. Write and run JavaScript code to answer math questions.",
-  tools: [{ type: "code_interpreter" } as ToolDefinition],
-};
-const role = "user";
-const message = "I need to solve the equation `3x + 11 = 14`. Can you help me?";
-const message2 = "What is 3x + 11 = 14?";
+Create and run an assistant with the following TypeScript module:
 
-// Create an assistant
-const assistantResponse: Assistant = await assistantsClient.createAssistant(options);
-console.log(`Assistant created: ${JSON.stringify(assistantResponse)}`);
+:::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index-using-password.ts" :::
 
-// Create a thread
-const assistantThread: AssistantThread = await assistantsClient.createThread({});
-console.log(`Thread created: ${JSON.stringify(assistantThread)}`);
+#### [JS Password](#tab/javascript-password)
 
-// Add a user question to the thread
-const threadResponse: ThreadMessage = await assistantsClient.createMessage(
-  assistantThread.id,
-  role,
-  message
-);
-console.log(`Message created:  ${JSON.stringify(threadResponse)}`);
+Create and run an assistant with the following TypeScript module:
 
-// Run the thread
-let runResponse: ThreadRun = await assistantsClient.createRun(assistantThread.id, {
-  assistantId: assistantResponse.id,
-});
-console.log(`Run created:  ${JSON.stringify(runResponse)}`);
-
-// Wait for the assistant to respond
-do {
-  await new Promise((r) => setTimeout(r, 500));
-  runResponse = await assistantsClient.getRun(
-    assistantThread.id,
-    runResponse.id
-  );
-} while (
-  runResponse.status === "queued" ||
-  runResponse.status === "in_progress"
-);
-
-// Get the messages
-const runMessages: ListResponseOf<ThreadMessage> = await assistantsClient.listMessages(assistantThread.id);
-for (const runMessageDatum of runMessages.data) {
-  for (const item of runMessageDatum.content) {
-    if (item.type === "text") {
-      console.log(`Message content: ${JSON.stringify(item.text?.value)}`);
-    }
-  }
-}
-```
-
-#### [JavaScript](#tab/javascript)
-
-Create and run an assistant with the following ECMAScript module:
-
-```javascript
-// index.mjs
-import {
-  AssistantsClient
-} from "@azure/openai-assistants";
-import { DefaultAzureCredential } from "@azure/identity";
-
-import "dotenv/config";
-
-// Recommended for secure credential management
-// const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
-// if (!azureOpenAIEndpoint) {
-//   throw new Error(
-//     "Please ensure to set AZURE_OPENAI_ENDPOINT in your environment variables."
-//   );
-// }
-// const getClient = () => {
-//   const credential = new DefaultAzureCredential();
-//   const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-//   return assistantsClient;  
-// }
-
-// Not recommended - for local demo purposes only
-const azureOpenAIKey = process.env.AZURE_OPENAI_API_KEY;
-const azureOpenAIEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
-const credential = new AzureKeyCredential(azureOpenAIKey);
-const getClient = () => {
-  const assistantsClient = new AssistantsClient(azureOpenAIEndpoint, credential);
-  return assistantsClient;
-}
-
-const assistantsClient = getClient();
-
-const options = {
-  model: "gpt-4-1106-preview", // Deployment name seen in Azure AI Studio
-  name: "Math Tutor",
-  instructions:
-    "You are a personal math tutor. Write and run JavaScript code to answer math questions.",
-  tools: [{ type: "code_interpreter" }],
-};
-const role = "user";
-const message = "I need to solve the equation `3x + 11 = 14`. Can you help me?";
-const message2 = "What is 3x + 11 = 14?";
-
-// Create an assistant
-const assistantResponse = await assistantsClient.createAssistant(options);
-console.log(`Assistant created: ${JSON.stringify(assistantResponse)}`);
-
-// Create a thread
-const assistantThread = await assistantsClient.createThread({});
-console.log(`Thread created: ${JSON.stringify(assistantThread)}`);
-
-// Add a user question to the thread
-const threadResponse = await assistantsClient.createMessage(
-  assistantThread.id,
-  role,
-  message
-);
-console.log(`Message created:  ${JSON.stringify(threadResponse)}`);
-
-// Run the thread
-let runResponse = await assistantsClient.createRun(assistantThread.id, {
-  assistantId: assistantResponse.id,
-});
-console.log(`Run created:  ${JSON.stringify(runResponse)}`);
-
-// Wait for the assistant to respond
-do {
-  await new Promise((r) => setTimeout(r, 500));
-  runResponse = await assistantsClient.getRun(
-    assistantThread.id,
-    runResponse.id
-  );
-} while (
-  runResponse.status === "queued" ||
-  runResponse.status === "in_progress"
-);
-
-// Get the messages
-const runMessages = await assistantsClient.listMessages(assistantThread.id);
-for (const runMessageDatum of runMessages.data) {
-  for (const item of runMessageDatum.content) {
-    if (item.type === "text") {
-      console.log(`Message content: ${JSON.stringify(item.text?.value)}`);
-    }
-  }
-}
-```
+:::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index-using-password.mjs" :::
 
 --- 
 
@@ -297,6 +126,10 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+
+## Sample code
+
+* [Quickstart sample code](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/quickstarts/azure-openai-assistants)
 
 ## See also
 
