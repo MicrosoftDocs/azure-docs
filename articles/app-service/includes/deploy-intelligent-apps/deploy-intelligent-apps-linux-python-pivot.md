@@ -11,14 +11,14 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 ### Prerequisites
 
-- An [Azure OpenAI resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Flask web application.  Create the sample app using our [quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
+- An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- A Flask web application.  Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
 
 ### Setup Flask web app
 
 ---
 
-For this Flask web application, we’ll be building off the [quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *[app.py](http://app.py)* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
+For this Flask web application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *[app.py](http://app.py)* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
 
 First, copy and replace the *index.htm*l file with the following code:
 

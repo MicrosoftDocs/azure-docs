@@ -11,14 +11,14 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 ### Prerequisites
 
-- An [Azure OpenAI resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A .NET 8 Blazor Web App.  Create the application with a template [here](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro).
+- An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- A .NET 8 Blazor Web App.  Create the application with a template [here](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro).
 
 ### Setup Blazor web app
 
 ---
 
-For this Blazor web application, we'll be building off the Blazor [template](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro) and creating a new razor page that can send and receive requests to an Azure OpenAI OR OpenAI service using Semantic Kernel.
+For this Blazor web application, we'll be building off the Blazor [template](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro) and creating a new razor page that can send and receive requests to an Azure OpenAI OR OpenAI service using Semantic Kernel.
 
 1. Right click on the **Pages** folder found under the **Components** folder and add a new item named *OpenAI.razor*
 2. Add the following code to the *****OpenAI.razor* file and click **Save**
@@ -171,7 +171,7 @@ var kernel = builder.Build();
 
 ### Configure prompt and create Semantic function
 
-Now that our chosen OpenAI service client is created with the correct keys we can add a function to handle the prompt.  With Semantic Kernel you can handle prompts by the use of a semantic functions, which turn the prompt and the prompt configuration settings into a function the Kernel can execute.  Learn more on configuring prompts [here](https://learn.microsoft.com/en-us/semantic-kernel/prompts/configure-prompts?tabs=Csharp).
+Now that our chosen OpenAI service client is created with the correct keys we can add a function to handle the prompt.  With Semantic Kernel you can handle prompts by the use of a semantic functions, which turn the prompt and the prompt configuration settings into a function the Kernel can execute.  Learn more on configuring prompts [here](https://learn.microsoft.com/semantic-kernel/prompts/configure-prompts?tabs=Csharp).
 
 First, we�ll create a variable that will hold the users prompt. Then add a function with execution settings to handle and configure the prompt.  Add the following code to the *OpenAI.razor* file:
 

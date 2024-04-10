@@ -11,12 +11,12 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Prerequisites
 
-- An [Azure OpenAI resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Java spring boot application. Create the application using this [quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase).
+- An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- A Java spring boot application. Create the application using this [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase).
 
 ### Setup web app
 
-For this Spring Boot application, we’ll be building off the [quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an additional feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
+For this Spring Boot application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase) app and adding an additional feature to make a request to an Azure OpenAI or OpenAI service.  Add the following code to your application:
 
 ```bash
   @RequestMapping("/")
