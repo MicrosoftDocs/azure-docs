@@ -468,7 +468,7 @@ Use the following steps to deploy and test the application:
 
        ---      
 
-      Copy the value of `ADDRESS` from the output. This is the front-end public IP address of the deployed Application Gateway instance.
+      Copy the value of `ADDRESS` from the output. This value is the front-end public IP address of the deployed Application Gateway instance.
 
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command creates an environment variable whose value you can paste straight into the browser:
 
