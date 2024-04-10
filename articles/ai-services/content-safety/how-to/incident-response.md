@@ -1,37 +1,23 @@
 
 
 
-# Incident Response API Private Preview Documentation ![informational](https://shields.io/badge/-PrivatePreview-PrivatePreview)
+# Use the incident response API
 
-Incident response in content moderation scenario is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. For any new incidents, users could use the incident response features from Azure AI Content Safety to mitigate the new incidents quickly.
+Incident response in content moderation scenarios is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. 
 
-Incident response provides a set of APIs to help users mitigate incidents within short time, [Blocklist](https://learn.microsoft.com/azure/ai-services/content-safety/how-to/use-blocklist) as one solution of that but only provides with exact match, this new release we are bringing in advanced capabilities for text semantic match, and image matching capability.
+An incident may involve a set of emerging content patterns (text, image, or other modalities) that violate the Microsoft community guidelines or customers' policies and expectations, that need to be mitigated quickly and accurately to avoid potential live site issues or harm to users/communities. 
 
-For this advanced text and image incident response, you could easily define an incident with few samples which are under one specific topic, and similar content will be detected in analyze API. 
+
+For any new incidents, users could use the incident response features from Azure AI Content Safety to mitigate the new incidents quickly.
+
+Incident response provides a set of APIs to help users mitigate harmful content incidents quickly. [Custom Blocklists](https://learn.microsoft.com/azure/ai-services/content-safety/how-to/use-blocklist) are one solution, but only provide exact match. Incident response offers the advanced capabilities of text semantic match using embedding search and a lightweight classifier, and image matching, a light-weight image object tracking model and embedding search to address image incidents with low latency and high performance.
+
+For this advanced text and image incident response, you can easily define an incident with few examples in one specific topic, and the API will start detecting similar content. 
 
 Note: This new feature is only available in **East US** and **Sweden Central**. 
 
-## ⚠️ Disclaimer
-
-The sample code could have offensive content, user discretion is advised.
-
-## 📒 Overview
-
-- **How It Works** contains instructions for using the service in more general ways.
-- **Quick start** shows sample requests using the cURL, Python of how to create an incident, add samples and inference with the created incident list.
-- **Limitations** goes over the limitations of this feature.
-- **Sample code** shows sample requests using the cURL, Python of other incident management related APIs.
-
-## How it works
-An incident may involve a set of emerging content patterns (text, image, and other modalities) that violates the Microsoft community guidelines or customers policies and expectations, that need to be mitigated quickly and accurately to avoid potential live site issue or harm to users/communities. 
-
-Existing incident response have some pain points such as false positives, missed content, difficulty of management and complexity on writing patterns, also lack the ability to detect image related incidents.
-
-Azure AI Content Safety is building up a robust incident response system to mitigate incident promptly and reduce maintenance effort largely, which covers both text and image.
-
-For text, besides literal match, we are developing semantic match using embedding search and a lightweight classifier to mitigate a broader semantic space, addressing potential new harms as they arise.
-
-For image, we are developing a light-weight image object tracking model and embedding search to address image incidents with low latency and high performance.
+> [!CAUTION]
+> The sample code could have offensive content, user discretion is advised.
 
 
 ## Quick start
@@ -199,7 +185,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-### Step 3B. Image incident response
+## Image incident response
 
 #### 1. Create an incident
 
@@ -295,11 +281,11 @@ curl --location 'https://<endpoint>/contentsafety/image:analyze?api-version=2023
         "Sexual"
     ],
    "outputType": "FourSeverityLevels",
-  "incidents": {
-    "incidentNames": [
-      "image-incident-name"
-    ],
-    "haltOnIncidentHit": true
+   "incidents": {
+       "incidentNames": [
+          "image-incident-name"
+        ],
+        "haltOnIncidentHit": true
   }
 }'
 ```
@@ -338,16 +324,15 @@ print(response.text)
 
 ```
 
-## Concepts and limitations
-| Object                   | Limitation                                                  |
-| :--------------------- | :----------------------------------------------------------- |
+## Limitations
+| Object     | Limitation                                                  |
+| :------------ | :------------------ |
 | Maximum length of an incident name | 100 characters | 
 | Maximum number of samples per text/image incident | 1000 |
 |Maximum size of each sample | Text less than 500 characters, Image less than 4M  |
 | Maximum number of text or image incidents | 100 |  
 | Supported Image format | BMP, GIF, JPEG, PNG, TIF, WEBP|
 | Supported language for text incident response | All languages that supported by Azure AI Content Safety | 
-
 
 
 ## Sample Code 
@@ -420,7 +405,7 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Get the incident sample list
+#### Retrieve the incident sample list
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name/incidentSamples?api-version=2023-10-30-preview' \
@@ -442,7 +427,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Get the incident sample details
+#### Get the incident sample's details
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name/incidentSamples/00e63d3f-54a6-4495-8191-6020923ca789?api-version=2023-10-30-preview' \
@@ -464,7 +449,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Delete the incident sample
+#### Delete an incident sample
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name:removeIncidentSamples?api-version=2023-10-30-preview' \
@@ -644,12 +629,3 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-## 📒 Key Reference
-
-- [Content Safety Doc](https://aka.ms/acs-doc)
-
-## 💬 We're here to help
-
-If you get stuck, [shoot us an email](mailto:contentsafetysupport@microsoft.com) or use the feedback widget on the upper right of any page.
-
-We're excited you're here!

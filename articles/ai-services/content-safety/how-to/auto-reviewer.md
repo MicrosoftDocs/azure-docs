@@ -10,19 +10,15 @@ ms.date: 04/09/2024
 ms.author: pafarley
 ---
 
-# Adaptive Annotation API
+# Use the adaptive annotation API
 
 With the extensive capabilities of natural language understanding, it's been proven that GPT-4 reaches human parity in understanding the harmful content policy/community guideline and performing harmful content annotation task that is adaptive to each customer's use case.  
-
 
 Alongside the practice of enforcing content safety techniques in products/communities in various industries, it's been found the "definition of harmful content" varies by use cases. Thus, there's usually an additional human review process after the content gets flagged by the Azure AI Content Safety API to get the results adapted. The adaptive annotation API helps to fill this gap and streamline the content moderation process in an adaptive and automatic way.
 
 tbd limited access alert.
 
 
-> ###  📘 NOTE
->
-> Currently the private preview features are only available in two regions:  **East US, West Europe**. Please create your Content Safety resource in these regions. Feel free to let us know your future production regions so we can plan accordingly.
 
 
 > [!CAUTION]
@@ -44,7 +40,7 @@ Currently this API is only available in English. While users can try guidelines 
 
 ### Response sub-category in output
 
-In private preview, we only support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
+We only support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
 
 ## Concepts
 
@@ -54,11 +50,12 @@ Community guidelines refer to a set of rules or standards that are established b
 
 ### Category
 
-A category refers to a specific type of prohibited content or behavior that is outlined in the guidelines. Categories may include things like hate speech, harassment, threats, nudity or sexually explicit content, violence, spam, or other forms of prohibited content. These categories are typically defined in broad terms to encompass a range of different behaviors and types of content that are considered to be problematic. By outlining specific categories of prohibited content, community guidelines provide users with a clear understanding of what is and is not allowed on the platform, and help to create a safer and more positive online community.
+A category refers to a specific type of prohibited content or behavior that is outlined in the guidelines. Categories may include things like hate speech, harassment, threats, nudity or sexually explicit content, violence, spam, or other forms of prohibited content. These categories are typically defined in broad terms to encompass a range of different behaviors and types of content that are considered to be problematic. By outlining specific categories of prohibited content, community guidelines provide users with a clear understanding of what is and is not allowed on the platform and help to create a safer and more positive online community.
 
-## QuickStart - Adaptive annotation by using the API
+## QuickStart
 
 Before you can begin to test, you need to [create an Azure AI Content Safety resource]((https://aka.ms/acs-create)) and get the subscription keys to access the resource.
+
 
 ### Allowlist your subscription ID
 
@@ -73,9 +70,11 @@ Before you can begin to test, you need to [create an Azure AI Content Safety res
 
 ### Bring your own Azure OpenAI resource
 
-In private preview stage, you need to bring your own Azure OpenAI resource to perform the adaptive annotation task. Please make sure your deployment is built on GPT-4, for other model versions the annotation quality is not guaranteed.
+You need to bring your own Azure OpenAI resource to perform the adaptive annotation task. Please make sure your deployment is built on GPT-4. For other model versions, the annotation quality is not guaranteed.
 
 #### Grant your Azure Content Safety resource access to your Azure OpenAI resource
+
+tbd use an include here.
 
 1. Go to your Azure OpenAI resource and open 'Access control'. Click 'Add role assignment'.
 ![Role assignment](images/role-assignment.png)
@@ -90,27 +89,23 @@ In private preview stage, you need to bring your own Azure OpenAI resource to pe
 
 #### Get your Azure OpenAI resource endpoint
 
-Go to your Azure OpenAI resource and open 'Keys and endpoint' to copy the endpoint. 
+Go to your Azure OpenAI resource and open 'Keys and endpoint' to copy the key and endpoint. 
 
 #### Get your GPT-4 deployment name
 
-Go to your Azure OpenAI resource and open 'Model deployments'. Select 'Manage Deployments', and get the deployment name of GPT-4 that you'd like to use for annotation task. 
+Go to your Azure OpenAI resource and open **Model deployments**. Select **Manage Deployments**, and get the deployment name of GPT-4 that you'd like to use for annotation task.
 
-#### Modify content filtering setting to enable 'annotation' mode
+#### Modify the content filtering setting to enable annotation mode
 
-The Adaptive Annotation API needs to leverage the extended language understanding capability of GPT-4 for content annotation task, which may contain harmful content. To complete the task and not get the input/output filtered, the content filtering configuration in your GPT-4 deployment needs to be updated to 'annotation' mode. You may need to apply for modifying content filtering by filling [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu). After the application is approved, you can update the content filtering configuration in your GPT-4 deployment to 'annotation' mode by unchecking the boxes at each harmful category. 
+The adaptive annotation API needs to leverage the extended language understanding capability of GPT-4 for the content annotation task. To complete the task without filtering the input/output, the content filtering configuration in your GPT-4 deployment needs to be updated to 'annotation' mode. 
+
+You need to apply for modified content filtering by filling out [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu). After the application is approved, you can update the content filtering configuration in your GPT-4 deployment to 'annotation' mode by unchecking the boxes at each harmful category. 
 ![Modify content filtering](images/modify-content-filtering.png)
 
 
-[**Note**] After completing the above steps, please send the following information to contentsafetysupport@microsoft.com: 
-- Subscription ID
-- Azure AI Content Safety resource ID
-- Azure OpenAI resource endpoint
-- GPT-4 deployment name
-
 ### Test with sample request
 
-Now that you have a resource available in Azure for Content Safety and you have a subscription key for that resource, let's run some tests by using the Adaptive Annotation API!
+Now that you have a resource available in Azure for Content Safety and you have a subscription key for that resource, let's run some tests by using the Adaptive Annotation API.
 
 #### Create a customized category according to specific community guideline
 
@@ -119,14 +114,14 @@ The initial step is to convert your customized community guideline/content polic
 | Name       | Description   | Type    |
 | :------------ | :--------- | ------- |
 | **CategoryName** | (Required) Category name should start with "Customized_", valid character set is "0-9A-Za-z._~-" | String  |
-| **SubCategories** | (Required) To define the sub-categories within each category as the minimum annotation granularity. The max sub-categories count is 10, min sub-categories count is 2. Within each sub-category, you need to specify an id(integer), a name(string) and a list of statements(list) to better describe the scope of the sub-category. When annotate, if your input does not belong to any defined sub-categories, we will output a predefined sub-category with id=-1 and name="Undefined". | List  |
-| **ExampleBlobUrl**   | (Optional) The file should  be ".jsonl" format, where each line is an example in json format, the maximum file size is 1MB in priviate preview.  | String    |
+| **SubCategories** | (Required) To define the sub-categories within each category as the minimum annotation granularity. The max sub-categories count is 10, minimum sub-categories count is 2. Within each sub-category, you need to specify an ID (integer), a name (string) and a list of statements (list) to better describe the scope of the sub-category. When you annotate, if your input does not belong to any defined sub-categories, the model will output a predefined sub-category with id=-1 and name="Undefined". | List  |
+| **ExampleBlobUrl**   | (Optional) The file should  be ".jsonl" format, where each line is an example in json format, the maximum file size is 1MB. | String    |
 
 ##### Request payload reference
 
 ```json
 {
-  "categoryName": "Customized_AD0za6RSTFm5pqZzWD2aBrjYTckws",//required, Category name should start with "Customized_", valid character set is "0-9A-Za-z._~-". The maximum length is 64 Unicode characters.
+  "categoryName": "Customized_<your-category-name>",//required, Category name should start with "Customized_", valid character set is "0-9A-Za-z._~-". The maximum length is 64 Unicode characters.
   "subCategories": [//required, the max sub-category is 10, min sub-category count is 2. 
     {
 
@@ -145,7 +140,7 @@ The initial step is to convert your customized community guideline/content polic
     }
   ],
 
-  "exampleBlobUrl": "string",//optional, the file should  be ".jsonl" format, where each line is an example in json format, the maximum file size is 1MB in priviate preview.
+  "exampleBlobUrl": "string",//optional, the file should  be ".jsonl" format, where each line is an example in json format, the maximum file size is 1MB.
 }
 ```
 
@@ -168,9 +163,10 @@ The examples that are provided for each sub-category in the Blob URL need to fol
 
 ##### Sample Code
 
+create a custom category
 
 ```bash
-curl --location --request PUT '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview' \
+curl --location --request PUT '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2024-04-15tbd' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>' \
 --header 'Content-Type: application/json' \
 --data '{
