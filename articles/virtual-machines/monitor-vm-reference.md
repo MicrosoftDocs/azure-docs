@@ -39,9 +39,8 @@ The VM availability metric is currently in public preview. This metric value ind
 
 The dimension Logical Unit Number (`LUN`) is associated with some of the preceding metrics.
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+## Azure Monitor Logs tables
 
-### Supported resource logs for Microsoft.Compute/virtualMachines
 [!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-compute-virtualmachines-logs-include.md)]
 
 > [!IMPORTANT]

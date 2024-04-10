@@ -65,43 +65,12 @@ For detailed information about how the Azure Monitor agent collects VM monitorin
 
 For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-
-- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md).
-
-> [!IMPORTANT]
-> For Azure VMs, all the important data is collected by the Azure Monitor agent. The resource log categories available for Azure VMs aren't important and aren't available for collection from the Azure portal. For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 ## Data collection rules
 
 [Data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview) define data collection from the Azure Monitor Agent and are stored in your Azure subscription. For VMs, DCRs define data such as events and performance counters to collect, and specify locations such as Log Analytics workspaces to send the data. A single VM can be associated with multiple DCRs, and a single DCR can be associated with multiple VMs.
-
-### VM insights DCR
-
-VM insights creates a DCR that collects common performance counters for the client operating system and sends them to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. For a list of performance counters collected, see [How to query logs from VM insights](/azure/azure-monitor/vm/vminsights-log-query#performance-records). You can use this DCR with other VMs instead of creating a new DCR for each VM.
-
-You can also optionally enable collection of processes and dependencies, which populates the following tables and enables the VM insights Map feature.
-
-- [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport): Traffic for open server ports on the machine
-- [VMComputer](/azure/azure-monitor/reference/tables/vmcomputer): Inventory data for the machine
-- [VMConnection](/azure/azure-monitor/reference/tables/vmconnection): Traffic for inbound and outbound connections to and from the machine
-- [VMProcess](/azure/azure-monitor/reference/tables/vmprocess): Processes running on the machine
-
-### Collect performance counters
-
-VM insights collects a common set of performance counters in Logs to support its performance charts. If you aren't using VM insights, or want to collect other counters or send them to other destinations, you can create other DCRs. You can quickly create a DCR by using the most common counters.
-
-You can send performance data from the client to either Azure Monitor Metrics or Azure Monitor Logs. VM insights sends performance data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. Other DCRs send performance data to the [Perf](/azure/azure-monitor/reference/tables/perf) table. For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
-
-[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
-
-[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
-
-### Query logs from VM insights
-
-VM insights stores the data it collects in Azure Monitor Logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](/azure/azure-monitor/vm/vminsights-log-query).
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
