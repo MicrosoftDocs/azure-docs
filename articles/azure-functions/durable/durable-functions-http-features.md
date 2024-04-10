@@ -218,7 +218,7 @@ For more information on how to manage orchestrations and entities using client A
 
 As described in the [orchestrator function code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activity functions](durable-functions-types-features-overview.md#activity-functions) that do I/O operations.
 
-Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). For C# (Isolated), this feature was introduced in Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.1.0.
 
 The following example code shows an orchestrator function making an outbound HTTP request:
 
@@ -236,6 +236,26 @@ public static async Task CheckSiteAvailable(
         await context.CallHttpAsync(HttpMethod.Get, url);
 
     if (response.StatusCode >= 400)
+    {
+        // handling of error codes goes here
+    }
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("CheckSiteAvailable")]
+public static async Task CheckSiteAvailable(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // Makes an HTTP GET request to the specified endpoint
+    DurableHttpResponse response =
+        await context.CallHttpAsync(HttpMethod.Get, url);
+
+    if ((int)response.StatusCode == 400)
     {
         // handling of error codes goes here
     }
