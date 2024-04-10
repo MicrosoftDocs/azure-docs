@@ -18,45 +18,27 @@ In this article, you'll upgrade your ingestion agent and roll back an upgrade.
 
 ## Prerequisites
 
-Obtain the latest version of the ingestion agent RPM from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
+Decide which version of the ingestion agent you would like to upgrade to. If no version is specified when upgrading, the current version will be installed.
 
-Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
+See [What's new with Azure Operator Insights ingestion agent](ingestion-agent-release-notes.md) for a list of recent releases, version numbers and what's changed in each version. If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
-### Verify the authenticity of the ingestion agent RPM (optional)
-
-Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it has not been corrupted or tampered with.
-
-To do this, perform the following steps:
-
-1. Download the RPM.
-1. Download the provided public key
-    ```
-    wget https://packages.microsoft.com/keys/microsoft.asc
-    ```
-1. Import the public key to the GPG keyring
-    ```
-    gpg --import microsoft.asc
-    ```
-1. Verify the RPM signature matches the public key
-    ```
-    rpm --checksig <path-to-rpm>
-    ```
-
-The output of the final command should be `<path-to-rpm>: digests signatures OK`
+If you would like to verify the authenticity of the ingestion agent package before upgrading, see [How to use the GPG Repository Signing Key](https://learn.microsoft.com/en-us/linux/packages#how-to-use-the-gpg-repository-signing-key)
 
 ## Upgrade the agent software
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
 
-1. Ensure you have a copy of the currently running version of the RPM, in case you need to roll back the upgrade.
-1. Copy the new RPM to the VM.
-1. Connect to the VM over SSH, and change to the directory where the RPM was copied.
+1. Connect to the VM over SSH.
 1. Save a copy of the existing */etc/az-aoi-ingestion/config.yaml* configuration file.
-1. Upgrade the RPM.
+1. Upgrade the RPM using your VM's package manager. E.g. for Red Hat-based Linux Distributions:
     ```
-    sudo dnf install ./*.rpm
+    sudo dnf upgrade az-aoi-ingestion
     ```
-    Answer `y` when prompted.  
+    Answer `y` when prompted.
+    1. Alternatively, to upgrade to a specific version of the agent, specify the version number in the command. E.g. for version 2.0.0 on a RHEL8 system, use the following command:
+    ```
+    sudo dnf install az-aoi-ingestion-2.0.0
+    ```
 1. Make any changes to the configuration file described by your support contact or the documentation for the new version. Most upgrades don't require any configuration changes.
 1. Restart the agent.
     ```
@@ -72,8 +54,11 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 If an upgrade or configuration change fails:
 
+1. Downgrade back to the previous version by reinstalling the previous version of the agent. E.g. to downgrade to version 1.0.0 on a RHEL8 system, use the following command:
+    ```
+    sudo dnf downgrade az-aoi-ingestion-1.0.0
+    ```
 1. Copy the backed-up configuration file from before the change to the */etc/az-aoi-ingestion/config.yaml* file.
-1. Downgrade back to the original RPM.
 1. Restart the agent.
     ```
     sudo systemctl restart az-aoi-ingestion.service

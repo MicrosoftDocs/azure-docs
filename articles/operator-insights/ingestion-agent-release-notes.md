@@ -17,7 +17,9 @@ This page is updated for each new release of the ingestion agent, so revisit it 
 
 ## Version 2.0.0 - March 2024
 
-Download for [RHEL8](https://download.microsoft.com/download/8/2/7/82777410-04a8-4219-a8c8-2f2ea1d239c4/az-aoi-ingestion-2.0.0-1.el8.x86_64.rpm).
+Supported distributions: 
+- RHEL 8
+- RHEL 9
 
 ### Known issues
 
@@ -34,7 +36,9 @@ None
 
 ## Version 1.0.0 - February 2024
 
-Download for [RHEL8](https://download.microsoft.com/download/c/6/c/c6c49e4b-dbb8-4d00-be7f-f6916183b6ac/az-aoi-ingestion-1.0.0-1.el8.x86_64.rpm).
+Supported distributions: 
+- RHEL 8
+- RHEL 9
 
 ### Known issues
 
