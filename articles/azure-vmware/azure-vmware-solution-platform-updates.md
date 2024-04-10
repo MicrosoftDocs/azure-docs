@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/27/2024
+ms.date: 4/10/2024
 ---
 
 # What's new in Azure VMware Solution
