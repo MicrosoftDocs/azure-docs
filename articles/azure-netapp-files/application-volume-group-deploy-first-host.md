@@ -87,6 +87,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     
     Select **Next: Tags**. 
+
+    [ ![Screenshot that shows the Volume Group tag.](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png) ](./media/application-volume-group-deploy-first-host/application-volume-group-tag.png#lightbox)
     
 5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.  
 
