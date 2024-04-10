@@ -6,7 +6,7 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/09/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,10 +15,9 @@ ms.subservice: calling
 # The user's speaker has a problem
 When the user's speaker has a problem, they may not be able to hear the audio, resulting in one-way audio issue in the call.
 
-## How to detect
-### SDK
+## How to detect using the SDK
 There's no way for a web application to detect speaker issues.
-However, the application can use the [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) 
+However, the application can use the [Media Stats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) 
 to understand whether the incoming audio is silent or not.
 
 To check the audio level at the receiving end, look at `audioOutputLevel` value, which also ranges from 0 to 65536.
@@ -28,5 +27,5 @@ If the `audioOutputLevel` value isn't always low but the user can't hear audio, 
 ## How to mitigate or resolve
 Speaker issues are considered external problems from the perspective of the ACS Calling SDK.
 
-It's recommended that the application implements a remote volume indicator function with the [getVolume API](/javascript/api/azure-communication-services/@azure/communication-calling/remoteaudiostream) provided by SDK.
+It's recommended that your applicaton expose a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) in your client user interface to let your users know what the current volume level is set at.
 If the incoming audio isn't silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.

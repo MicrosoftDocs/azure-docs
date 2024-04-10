@@ -6,19 +6,18 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/09/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # There's a network issue in the call
-## How to detect
 When there's a network reconnection in the call on the audio sending end or receiving end, the participant can experience one-way audio issue temporarily.
 It can cause an audio issue because shortly before and during the network is reconnecting, audio packets don't flow.
 
-### SDK
-Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+## How to detect using the SDK
+Through [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), your application can register a listener callback to detect the network condition changes.
 
 For the network reconnection, you can check events with the values of `networkReconnect`.
 
@@ -32,6 +31,4 @@ so that the user is aware of the issue and understands that the audio loss is du
 
 However, if the network reconnection occurs at the sender's side,
 users on the receiving end are unable to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
-
-In the future, when the SDK supports `Remote UFD`, the application can handle this error gracefully.
 

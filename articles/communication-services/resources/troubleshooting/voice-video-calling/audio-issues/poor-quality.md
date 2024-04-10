@@ -6,7 +6,7 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/09/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -23,19 +23,19 @@ There're many different factors that can affect poor audio quality. For instance
 
 As a result, the user may hear distorted audio, crackling noise, and mechanical sounds.
 
-## How to detect
+## How to detect using the SDK
 Detecting poor audio quality can be challenging because the browser's reported information doesn't always reflect audio quality.
 
 However, even if poor audio quality is caused by a poor network connection, you can still detect these issues and display the information to users,
 so they're aware of the potential for poor audio quality.
 
-Through [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
+Through [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md), the application can register a listener callback to detect the network condition changes.
 
 To check the network quality of the audio sending end, look for events with the values of `networkSendQuality`.
 
 To check the network quality of the receiving end, look for events with the values of `networkReceiveQuality`.
 
-The [MediaStats Feature](../../../../concepts/voice-video-calling/media-quality-sdk.md) provides several metrics that are indirectly correlated to the network or audio quality,
+The [Media Stats API](../../../../concepts/voice-video-calling/media-quality-sdk.md) provides several metrics that are indirectly correlated to the network or audio quality,
 such as `packetsLostPerSecond` and `healedRatio`.
 The `healedRatio` is calculated from the concealment count reported by the WebRTC Stats.
 If this value is larger than 0.1, it's likely that the receiver experiences some audio quality degradation.

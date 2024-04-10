@@ -6,25 +6,25 @@ author: enricohuang
 ms.author: enricohuang
 
 services: azure-communication-services
-ms.date: 02/24/2024
+ms.date: 04/09/2024
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
 # Overview of audio issues
-Voice calling is a basic and important function in conference calls, and it's more common than video calling.
-To establish a good voice call, several factors must be considered. These factors include:
+Voice calling quality is an extremely important function in conference calls. If any participants on a call can not hear each other well enough then the participants on the call will likely leave the call
+To establish a voice call with good quaclity, several factors must be considered. These factors include:
 
-- Microphone permission on the sender side.
-- Proper functioning of the microphone device.
+- The users have given the proper permisson that a microphone can be used.
+- Proper workikng microphone.
 - Good network connection on both the sending and receiving ends.
-- Proper functioning of the audio output device on the receiving end.
+- Proper functioning audo level output.
 
 All of these factors are important from an end-to-end perspective.
 
 Device and network issues are considered external problems from the perspective of the ACS Calling SDK.
-The application should integrate the [User Facing Diagnostics Feature](../../../../concepts/voice-video-calling/user-facing-diagnostics.md)
+Your application should integrate the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md)
 to monitor device and network issues and display warning messages accordingly.
 In this way, users are aware of the issue and can troubleshoot on their own.
 
