@@ -12,6 +12,7 @@ ms.reviewer: aul
 The following table specifies the regions that are supported for Container insights on different platforms.
 
 | Platform | Regions |
+|:---|:---|
 | AKS | All regions supported by AKS as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=kubernetes-service). | 
 | Arc-enabled Kubernetes | All public regions supported by Arc-enabled Kubernetes as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc). |
 
