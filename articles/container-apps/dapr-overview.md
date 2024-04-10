@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 03/27/2024
+ms.date: 04/10/2024
 ---
 
 # Dapr integration with Azure Container Apps
@@ -49,14 +49,13 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Observability**](./observability.md)               | GA | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
-| [**Workflow**][dapr-config]                           | Preview | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 
 ### Managed versus standard components
 
 In Azure Container Apps, a subset of Dapr components is supported. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
 
-- [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
-- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower SLA guarantee.
+- [Managed components:](#managed-components) Fully managed, GA components that receive immediate investigation in critical (security or serious regression) scenarios. 
+- [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
 
 #### Managed components
 
