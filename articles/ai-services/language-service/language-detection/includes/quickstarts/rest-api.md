@@ -111,6 +111,8 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-11-15-pr
 -d "@/home/mydir/test_detection_payload.json"
 ```
 
+---
+
 ## JSON response
 
 ```json
