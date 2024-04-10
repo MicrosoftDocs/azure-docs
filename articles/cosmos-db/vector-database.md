@@ -33,7 +33,7 @@ There are two common types of vector database implementations - pure vector data
 
 A pure vector database is designed to efficiently store and manage vector embeddings, along with a small amount of metadata; it is separate from the data source from which the embeddings are derived.
 
-A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database converts the existing data in a NoSQL or relational database into embeddings and stores them alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
+A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database in a NoSQL or relational database can store, index, and query embeddings alongside the corresponding original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, keeping the vector embeddings and original data together better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## What are some vector database use cases?
 
@@ -149,11 +149,8 @@ The natively integrated vector database in our NoSQL API will become available i
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-> [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB for MongoDB lifetime free vCore cluster](mongodb/vcore/free-tier.md)
-
-## More Vector Databases
+## More Vector Stores
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
-- [Azure AI Search](../search/search-what-is-azure-search.md)
+- [Azure AI Search](../search/vector-store.md)
 - [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)

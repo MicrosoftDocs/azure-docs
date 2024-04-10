@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 04/09/2024
 ms.author: duau
 
 ---
@@ -486,9 +486,9 @@ VNet-to-VNet connectivity over ExpressRoute isn't recommended. Instead, configur
 
 ## ExpressRoute Traffic Collector
 
-### Where does ExpressRoute Traffic Collector store your data?
+### Does ExpressRoute Traffic Collector store customer data?
 
-All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector itself, doesn't store any of your data.
+All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector doesn't store any customer data.
 
 ### What is the sampling rate used by ExpressRoute Traffic Collector?
 

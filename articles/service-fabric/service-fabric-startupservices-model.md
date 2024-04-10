@@ -6,20 +6,22 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 04/09/2024
 ---
 
 # Introducing StartupServices.xml in Service Fabric Application
 This feature introduces StartupServices.xml file in a Service Fabric Application design. This file hosts DefaultServices section of ApplicationManifest.xml. With this implementation, DefaultServices and Service definition-related parameters are moved from existing ApplicationManifest.xml to this new file called StartupServices.xml. This file is used in each functionalities (Build/Rebuild/F5/Ctrl+F5/Publish) in Visual Studio.
 
-Note - StartupServices.xml is only meant for Visual Studio deployments, this arrangement is to ensure that packages deployed with Visual Studio (with StartupServices.xml) do not have conflicts with ARM deployed services. StartupServices.xml is not packaged as part of application package. It is not supported in DevOps pipeline and customer should deploy individual services in Application either via ARM or through cmdlets with desired configuration.
+StartupServices.xml is only meant for Visual Studio deployments. This arrangement is to ensure that packages deployed with Visual Studio (with StartupServices.xml) don't have conflicts with ARM deployed services.
+
+StartupServices.xml isn't packaged as part of application package. It isn't supported in DevOps pipeline and customers should deploy individual services in an application manifest either [via ARM](service-fabric-application-arm-resource.md) or [through cmdlets](service-fabric-deploy-remove-applications.md) with desired configuration.
 
 ## Existing Service Fabric Application Design
 For each service fabric application, ApplicationManifest.xml is the source of all service-related information for the application. ApplicationManifest.xml consists of all Parameters, ServiceManifestImport, and DefaultServices. Configuration parameters are mentioned in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
 
-When a new service is added in an application, for this new service Parameters, ServiceManifestImport and DefaultServices sections are added inside ApplicationManifest.xml. Configuration parameters are added in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
+When a new service is added in an application, new service Parameters, ServiceManifestImport and DefaultServices sections are added inside ApplicationManifest.xml. Configuration parameters are added in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
 
-When user clicks on Build/Rebuild function in Visual Studio, modification of ServiceManifestImport, Parameters, and DefaultServices sections happens in ApplicationManifest.xml. Configuration parameters are also edited in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
+When user selects on Build/Rebuild function in Visual Studio, modification of ServiceManifestImport, Parameters, and DefaultServices sections happens in ApplicationManifest.xml. Configuration parameters are also edited in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
 
 When user triggers F5/Ctrl+F5/Publish, application and services are deployed or published based on the information in ApplictionManifest.xml.  Configuration parameters are used from any of Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
 
@@ -66,7 +68,7 @@ Sample ApplicationManifest.xml
 ```
 
 ## New Service Fabric Application Design with StartupServices.xml
-In this design, there is a clear distinction between service level information (for example, Service definition and Service parameters) and application-level information (ServiceManifestImport and ApplicationParameters). StartupServices.xml contains all service-level information whereas ApplicationManifest.xml contains all application-level information. Another change introduced is addition of Cloud.xml/Local1Node.xml/Local5Node.xml under StartupServiceParameters, which has configuration for service parameters only. Existing Cloud.xml/Local1Node.xml/Local5Node.xml under ApplicationParameters contains only application-level parameters configuration.
+In this design, there's a clear distinction between service level information (for example, Service definition and Service parameters) and application-level information (ServiceManifestImport and ApplicationParameters). StartupServices.xml contains all service-level information whereas ApplicationManifest.xml contains all application-level information. Another change introduced is addition of Cloud.xml/Local1Node.xml/Local5Node.xml under StartupServiceParameters, which has configuration for service parameters only. Existing Cloud.xml/Local1Node.xml/Local5Node.xml under ApplicationParameters contains only application-level parameters configuration.
 
 When a new service is added in application, Application-level Parameters and ServiceManifestImport are added in ApplicationManifest.xml. Configuration for application parameters are added in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters. Service information and Service Parameters are added in StartupServices.xml and configuration for service parameters are added in Cloud.xml/Local1Node.xml/Local5Node.xml under StartupServiceParameters.
 
@@ -128,10 +130,9 @@ Sample StartupServices.xml file
 </StartupServicesManifest>
 ```
 
-The startupServices.xml feature is enabled for all new project in SF SDK version 5.0.516.9590 and above. Projects created with older version of SDK are are fully backward compatible with latest SDK. Migration of old projects into new design is not supported. If user wants to create an Service Fabric Application without StartupServices.xml in newer version of SDK, user should click on "Help me choose a project template" link as shown in picture below.
+The startupServices.xml feature is enabled for all new project in SF SDK version 5.0.516.9590 and above. Projects created with older version of SDK are fully backward compatible with latest SDK. Migration of old projects into new design isn't supported. If user wants to create a Service Fabric Application without StartupServices.xml in newer version of SDK, user should select on "Help me choose a project template" link as shown in following picture.
 
 ![Create New Application option in New Design][create-new-project]
-
 
 ## Next steps
 - Learn about [Service Fabric Application Model](service-fabric-application-model.md).
