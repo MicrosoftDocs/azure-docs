@@ -27,7 +27,7 @@ ms.custom: devx-track-python, devx-track-extended-python
 > The performance tips in this article are for Azure Cosmos DB Python SDK only. Please see the Azure Cosmos DB Python SDK [Readme](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/README.md#azure-cosmos-db-sql-api-client-library-for-python) [Release notes](sdk-python.md), [Package (PyPI)](https://pypi.org/project/azure-cosmos), [Package (Conda)](https://anaconda.org/microsoft/azure-cosmos/), and [troubleshooting guide](troubleshoot-python-sdk.md) for more information.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Java SDK v4.
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Python SDK.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -59,6 +59,10 @@ The Azure Cosmos DB SDKs are constantly being improved to provide the best perfo
 * **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client for the lifetime of the application.
+
+* **Tune timeout and retry configurations**
+
+Timeout configurations and retry policies can be customized based on the application needs. Refer to [timeout and retries configuration](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/docs/TimeoutAndRetriesConfig.md#cosmos-db-python-sdk--timeout-configurations-and-retry-configurations) document to get a complete list of configurations that can be customized.
 
 * **Use the lowest consistency level required for your application**
 
@@ -111,7 +115,7 @@ indexing_policy = {
 db.create_container(
     id=container_id,
     indexing_policy=indexing_policy,
-    partition_key="/pk")
+    partition_key=PartitionKey(path="/pk"))
 ```
 
 For more information, see [Azure Cosmos DB indexing policies](../index-policy.md).
@@ -154,7 +158,7 @@ x-ms-retry-after-ms :100
 
 The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client might not suffice; in this case, the client throws a *CosmosHttpResponseError* with status code 429 to the application. The default retry count can be changed by using `max_retry_attempt_count` on the `RetryOptions` instance. By default, the *CosmosHttpResponseError* with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
+If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client might not suffice; in this case, the client throws a *CosmosHttpResponseError* with status code 429 to the application. The default retry count can be changed by passing `retry_total` configuration to the client. By default, the *CosmosHttpResponseError* with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
 
 While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](../request-units.md).
 
