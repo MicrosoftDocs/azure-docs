@@ -79,11 +79,14 @@ In our code we are going to specify the following values:
 
 An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
 
-Create and run an assistant with the following:
+
 
 #### [TypeScript](#tab/typescript)
 
+Create and run an assistant with the following TypeScript module:
+
 ```typescript
+// index.ts
 import {
   AssistantsClient,
   AssistantCreationOptions,
@@ -180,7 +183,10 @@ for (const runMessageDatum of runMessages.data) {
 
 #### [JavaScript](#tab/javascript)
 
+Create and run an assistant with the following ECMAScript module:
+
 ```javascript
+// index.mjs
 import {
   AssistantsClient
 } from "@azure/openai-assistants";
