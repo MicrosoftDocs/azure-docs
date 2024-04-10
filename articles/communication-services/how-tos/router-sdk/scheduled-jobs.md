@@ -152,9 +152,9 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    client.updateJob(new RouterJob(eventGridEvent.Data.JobId)
+    client.updateJob(eventGridEvent.Data.JobId, BinaryData.fromObject(new RouterJob()
         .setMatchingMode(new QueueAndMatchMode())
-        .setPriority(100));
+        .setPriority(100)), null);
 }
 ```
 
