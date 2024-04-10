@@ -163,13 +163,12 @@ You can set an alert to notify you about certificates which are about to expire.
 
 1. Go to **Logs** and paste below query in query window
  
-```json
-AzureDiagnostics
-| where OperationName =~ 'CertificateNearExpiryEventGridNotification'
-| extend CertExpire = unixtime_seconds_todatetime(eventGridEventProperties_data_EXP_d)
-| extend DaysTillExpire = datetime_diff("Day", now(), CertExpire)
-| project ResourceId, CertName = eventGridEventProperties_subject_s, DaysTillExpire, CertExpire
-```
+   ```json
+   AzureDiagnostics
+   | where OperationName =~ 'CertificateNearExpiryEventGridNotification'
+   | extend CertExpire = unixtime_seconds_todatetime(eventGridEventProperties_data_EXP_d)
+   | extend DaysTillExpire = datetime_diff("Day", now(), CertExpire)
+   | project ResourceId, CertName = eventGridEventProperties_subject_s, DaysTillExpire, CertExpire
 
 1. Select **New alert rule**
 
