@@ -1,6 +1,6 @@
 ---
 title: Your MongoDB app reimagined
-description: How to transition your MongoDB apps to easily attain planet scale and high availability.
+description: Easily transition your MongoDB apps to attain planet scale and high availability while maintaining continuity.
 author: wmwxwa
 ms.author: wangwilliam
 ms.service: cosmos-db
@@ -21,7 +21,7 @@ You chose MongoDB as your app's database for its flexibility. Now, when you have
 
 You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its parent database to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. Meanwhile, you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools.
 
-## MongoDB app scability... reimaged
+## Dynamically scale your MongoDB app
 
 MongoDB users can reap the following unique benefits of Azure Cosmos DB for MongoDB:
 
