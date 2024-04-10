@@ -5,26 +5,26 @@ services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 04/10/2024
 ms.author: kesheth
 ---
 
 # Access using Postman
 
-This article shows the steps to access the FHIR service in Azure Health Data Services with [Postman](https://www.getpostman.com/).
+This article shows the steps to access the FHIR&reg; service in Azure Health Data Services with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
-* FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
-* A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
-* **FHIR Data Contributor** permissions granted to the client application and your user account,  to access the FHIR service. 
-* Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
+* FHIR service deployed in Azure. For more information, see [Deploy a FHIR service](fhir-portal-quickstart.md).
+* A registered client application to access the FHIR service. For more information, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
+* **FHIR Data Contributor** permissions granted to the client application and your user account. 
+* Postman installed locally. For more information, see [Get Started with Postman](https://www.getpostman.com/).
 
-## Using Postman: create workspace, collection, and environment
+## Create a workspace, collection, and environment
 
-If you're new to Postman, follow these steps. Otherwise, you can skip this step.
+If you're new to Postman, follow these steps to create a workspace, collection, and environment. Otherwise, you can skip this step.
  
-Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default “My workspace” or “Team workspace” or create a new workspace for you or your team.
+Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default **My workspace** or **Team workspace** or create a new workspace for you or your team.
 
 :::image type="content" source="media/postman/postman-create-new-workspace.png" alt-text="Screenshot showing workspace creation." lightbox="media/postman/postman-create-new-workspace.png":::
 
@@ -40,17 +40,17 @@ You can also import and export Postman collections. For more information, see [t
 
 Although you can use the full URL in the request, we recommend that you store the URL and other data in variables and use them.
 
-To access the FHIR service, we'll need to create or update the following variables.
+To access the FHIR service, you need to create or update these variables:
 
-* **tenantid** – Azure tenant where the FHIR service is deployed. It's located from the **Application registration overview** menu option.
-* **subid** – Azure subscription where the FHIR service is deployed in. It's located from the **FHIR service overview** menu option.
+* **tenantid** – Azure tenant where the FHIR service is deployed. Locate it on the **Application registration overview** menu.
+* **subid** – Azure subscription where the FHIR service is deployed in. locate it on the **FHIR service overview** menu.
 * **clientid** – Application client registration ID.
 * **clientsecret** – Application client registration secret.
-* **fhirurl** – The FHIR service full URL. For example, `https://xxx.azurehealthcareapis.com`. It's located from the **FHIR service overview** menu option.
+* **fhirurl** – The FHIR service full URL. For example, `https://xxx.azurehealthcareapis.com`. Locate it on the **FHIR service overview** menu.
 * **bearerToken** – The variable to store the Microsoft Entra access token in the script. Leave it blank.
 
 > [!NOTE]
-> Ensure that you've configured the redirect URL, `https://www.getpostman.com/oauth2/callback`, in the client application registration.
+> Ensure that you configured the redirect URL `https://www.getpostman.com/oauth2/callback` in the client application registration.
 
 :::image type="content" source="media/postman/postman-environments-variable.png" alt-text="Screenshot showing environments variable." lightbox="media/postman/postman-environments-variable.png":::
 
@@ -60,11 +60,11 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 :::image type="content" source="media/postman/postman-create-new-request.png" alt-text="Screenshot showing creation of new request." lightbox="media/postman/postman-create-new-request.png":::
 
-To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select **Send**. You should be able to see Status of FHIR service - HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and then choose **Send**. You should be able to see the `Status of FHIR service - HTTP Status` code response with 200 and OverallStatus as **Healthy** in response, which means your health check is successful.
 
 ## Get capability statement
 
-Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should see the capability statement of the FHIR service.
+Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You should see the capability statement of the FHIR service.
 
 :::image type="content" source="media/postman/postman-capability-statement.png" alt-text="Screenshot showing capability request parameters." lightbox="media/postman/postman-create-new-request.png":::
 
@@ -106,7 +106,7 @@ You can get the Microsoft Entra access token using your Entra account credential
 
 1. As mentioned in the prerequisites section, you must be a member of Microsoft Entra Tenant with the required access permissions.
 
-1. Ensure that you've configured the redirect URL, `https://oauth.pstmn.io/v1/callback`, for web platform in the client application registration.
+1. Ensure that you configured the redirect URL `https://oauth.pstmn.io/v1/callback` for web platform in the client application registration.
 
 :::image type="content" source="media/postman/callback-url.png" alt-text="Screenshot showing callback URL." lightbox="media/postman/callback-url.png":::
 
@@ -135,15 +135,15 @@ You can get the Microsoft Entra access token using your Entra account credential
 
 1. Choose **Get New Access Token** at the bottom of the page.
 
-1. You'll be asked for User credentials for sign-in.
+1. You're asked for User credentials for sign-in.
 
-1. You'll receive the token. Choose **Use Token.**
+1. You receive the token. Choose **Use Token.**
 
-1. Ensure Token is in the Authorization Header of the REST call.
+1. Ensure the token is in the **Authorization Header** of the REST call.
 
-You can examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the Claims tab to see detailed descriptions for each claim in the token.
+Examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the **Claims** tab to see detailed descriptions for each claim in the token.
 
-## Get FHIR resource
+## Get the FHIR resource
 
 After you obtain a Microsoft Entra access token, you can access the FHIR data. In a new `GET` request, enter `{{fhirurl}}/Patient`.
 
@@ -151,11 +151,11 @@ Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the *
 
 :::image type="content" source="media/postman/postman-select-bearer-token.png" alt-text="Screenshot showing selection of bearer token." lightbox="media/postman/postman-select-bearer-token.png":::
 
-## Create or update your FHIR resource
+## Create or update the FHIR resource
 
 After you obtain a Microsoft Entra access token, you can create or update the FHIR data. For example, you can create a new patient or update an existing patient.
  
-Create a new request, change the method to “Post”, and enter the value in the request section.
+Create a new request, change the method to **Post**, and then enter the value in the request section.
 
 `{{fhirurl}}/Patient`
 
@@ -208,6 +208,6 @@ Select **Send**. You should notice a `202 Accepted` response. Select the **Heade
 
 ## Next steps
 
-[Starter collection of Postman sample queries](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) on GitHub.  
+[Starter collection of Postman sample queries](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries)  
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
