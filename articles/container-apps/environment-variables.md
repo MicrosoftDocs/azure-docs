@@ -1,6 +1,6 @@
 ---
 title: Managing Environment Variables on Azure Container Apps
-description: Learn to manage environment variables in Azure Container Apps
+description: Learn to manage environment variables in Azure Container Apps.
 services: container-apps
 author: fredcardoso
 ms.service: container-apps
@@ -11,16 +11,16 @@ ms.author: fredcardoso
 
 # Managing Environment Variables on Azure Container Apps
 
-In Azure Container Apps, you are able to set runtime environment variables. These can be set as manually entries or as references to [secrets](manage-secrets.md).
-These environment variables will be loaded onto your Container App during runtime.
+In Azure Container Apps, you're able to set runtime environment variables. These variables can be set as manually entries or as references to [secrets](manage-secrets.md).
+These environment variables are loaded onto your Container App during runtime.
 
 ## Configuring environment variables
 
-You can configure the Environment Variables upon the creation of the Container App or after it has been created by creating a new revision.
+You can configure the Environment Variables upon the creation of the Container App or later by creating a new revision.
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
-If you are creating a new Container App through the [Azure portal](https://portal.azure.com), you can setup the environment variables on the Container section:
+If you're creating a new Container App through the [Azure portal](https://portal.azure.com), you can set up the environment variables on the Container section:
 
 :::image type="content" source="media/environment-variables/creating-a-container-app.png" alt-text="Screenshot of Container App creation page.":::
 
@@ -66,7 +66,7 @@ $containerTemplate = New-AzContainerAppTemplateObject -Name "container-app-name"
 
 Finally, you can update your Container App based on the new template object you created using the [Update-AzContainerApp](/powershell/module/az.app/update-azcontainerapp) PowerShell cmdlet.
 
-In this last cmdlet you only need to pass the template object you defined on the `$containerTemplate` variable on the previous step using the `-TemplateContainer` parameter.
+In this last cmdlet, you only need to pass the template object you defined on the `$containerTemplate` variable on the previous step using the `-TemplateContainer` parameter.
 
 ```azurepowershell
 Update-AzContainerApp -TemplateContainer $containerTemplate
@@ -76,15 +76,15 @@ Update-AzContainerApp -TemplateContainer $containerTemplate
 
 ## Adding environment variables on existing container apps
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for Container Apps and then select your app.
-:::image type="content" source="media/environment-variables/container-apps-portal.png" alt-text="Screenshot of the Azure Portal search bar with Container App as one of the results.":::
+:::image type="content" source="media/environment-variables/container-apps-portal.png" alt-text="Screenshot of the Azure portal search bar with Container App as one of the results.":::
 1. In the app's left menu, select Revisions and replicas > Create new revision
 :::image type="content" source="media/environment-variables/create-new-revision.png" alt-text="Screenshot of Container App Revision creation page.":::
 1. Then you have to edit the current existing container image:
 :::image type="content" source="media/environment-variables/edit-revision.png" alt-text="Screenshot of Container App Revision container image settings page.":::
-1. On the Environment variables section, you can Add new Environment variables by clicking on Add.
+1. In the Environment variables section, you can Add new Environment variables by clicking on Add.
 
 1. Then set the Name of your Environment variable and the Source (it can be a reference to a [secret](manage-secrets.md)).
 :::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section.":::
@@ -95,7 +95,7 @@ Update-AzContainerApp -TemplateContainer $containerTemplate
 
 You can update your Container App with the [az containerapp update](/cli/azure/containerapp#az-containerapp-update) command.
 
-This example creates a environment variable with a manual value (not referencing a secret). Replace the \<PLACEHOLDERS\> with your values.
+This example creates an environment variable with a manual value (not referencing a secret). Replace the \<PLACEHOLDERS\> with your values.
 
 ```azurecli
 az containerapp update \
@@ -106,7 +106,7 @@ az containerapp update \
 
 If you want to create multiple environment variables, you can insert space-separated values in the 'key=value' format.
 
-If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`, see below:
+If you want to reference a secret, you have to ensure that the secret you want to reference is already created, see [Manage secrets](manage-secrets.md). You can use the secret name and pass it to the value field but starting with `secretref:`, see the following image:
 
 ```azurecli
 az containerapp update \
@@ -117,9 +117,9 @@ az containerapp update \
 
 ### [PowerShell](#tab/powershell)
 
-Similarly to what you need to do upon creating a new Container App, you have to create an object called Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar, which is contained within a Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container. This Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container is then used with the [New-AzContainerApp](/powershell/module/az.app/new-azcontainerapp) PowerShell cmdlet.
+Similarly to what you need to do upon creating a new Container App you have to create an object called Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar, which is contained within a Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container. This Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container is then used with the [New-AzContainerApp](/powershell/module/az.app/new-azcontainerapp) PowerShell cmdlet.
 
-In this cmdlet you only need to pass the template object you defined previously as described on the [Configuring environment variables](#configuring-environment-variables) section.
+In this cmdlet, you only need to pass the template object you defined previously as described on the [Configuring environment variables](#configuring-environment-variables) section.
 
 ```azurepowershell
 Update-AzContainerApp -TemplateContainer $containerTemplate
