@@ -34,8 +34,8 @@ Dapr provides the following set of capabilities to help with your microservice d
 - Reliable, secure, and resilient service-to-service calls through HTTP and gRPC APIs
 - Publish and subscribe messaging made easy with support for CloudEvent filtering and “at-least-once” semantics for message delivery
 - Pluggable observability and monitoring through Open Telemetry API collector
-- Works independent of language, while also offering language specific SDKs
-- Integration with VS Code through the Dapr extension
+- Works independent of language, while also offering language specific software development kits (SDKs)
+- Integration with Visual Studio Code through the Dapr extension
 - [More APIs for solving distributed application challenges][dapr-blocks]
 
 ## Currently supported
@@ -46,7 +46,7 @@ The Dapr extension is the only Microsoft-supported option for Dapr in AKS.
 
 Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
 
-For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the OSS community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once released in Dapr OSS, fixes are then made available in the Dapr extension.
+For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once released in Dapr open source, fixes are then made available in the Dapr extension.
 
 ### Dapr versions
 
@@ -90,7 +90,7 @@ The Dapr extension offers managed generally available and preview versions of Da
 A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
 
 - [Managed components:](#managed-components) Fully managed, GA components providing the highest level of support.
-- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower SLA guarantee.
+- [Standard components:](#standard-components) Built-in components that are supported, but provide a lower service level agreement (SLA) guarantee.
 
 ##### Managed components
 
@@ -104,9 +104,9 @@ A subset of Dapr components is supported for the Dapr extension for AKS and Arc-
 
 | API | Component | Type |
 | --- | --------- | ------ |
-| State management | Azure CosmosDB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
+| State management | Azure Cosmos DB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
 | Publish & subscribe | Apache Kafka<br>Redis Streams | `pubsub.kafka`<br>`pubsub.redis` |
-| Binding | Azure Event Grid<br>Azure CosmosDB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
+| Binding | Azure Event Grid<br>Azure Cosmos DB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
 | Configuration | PostgreSQL<br>Redis | `bindings.postgresql`<br>`bindings.redis` |
 
 ### Clouds/regions
@@ -155,7 +155,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 
 ### How do Dapr and Service meshes compare?
 
-A: Where a service mesh is defined as a networking service mesh, Dapr is not a service mesh. While Dapr and service meshes do offer some overlapping capabilities, a service mesh is focused on networking concerns, whereas Dapr is focused on providing building blocks that make it easier for developers to build applications as microservices. Dapr is developer-centric, while service meshes are infrastructure-centric.  
+A: Where a service mesh is defined as a networking service mesh, Dapr isn't a service mesh. While Dapr and service meshes do offer some overlapping capabilities, a service mesh is focused on networking concerns, whereas Dapr is focused on providing building blocks that make it easier for developers to build applications as microservices. Dapr is developer-centric, while service meshes are infrastructure-centric.  
 
 Some common capabilities that Dapr shares with service meshes include:
 
@@ -164,13 +164,17 @@ Some common capabilities that Dapr shares with service meshes include:
 - Service-to-service distributed tracing
 - Resiliency through retries
 
-In addition, Dapr provides other application-level building blocks for state management, pub/sub messaging, actors, and more. However, Dapr does not provide capabilities for traffic behavior such as routing or traffic splitting. If your solution would benefit from the traffic splitting a service mesh provides, consider using [Open Service Mesh][osm-docs].  
+In addition, Dapr provides other application-level building blocks for state management, pub/sub messaging, actors, and more. However, Dapr doesn't provide capabilities for traffic behavior such as routing or traffic splitting. If your solution would benefit from the traffic splitting a service mesh provides, consider using [Open Service Mesh][osm-docs].  
 
 For more information on Dapr and service meshes, and how they can be used together, visit the [Dapr documentation][dapr-docs].
 
 ### How does the Dapr secrets API compare to the Secrets Store CSI driver?
 
-Both the Dapr secrets API and the managed Secrets Store CSI driver allow for the integration of secrets held in an external store, abstracting secret store technology from application code. The Secrets Store CSI driver mounts secrets held in Azure Key Vault as a CSI volume for consumption by an application. Dapr exposes secrets via a RESTful API that can be called by application code and can be configured with assorted secret stores. The following table lists the capabilities of each offering:
+Both the Dapr secrets API and the managed Secrets Store CSI driver allow for the integration of secrets held in an external store, abstracting secret store technology from application code. The Secrets Store CSI driver mounts secrets held in Azure Key Vault as a CSI volume for consumption by an application. Dapr exposes secrets via a RESTful API that can be:
+- Called by application code
+- Configured with assorted secret stores 
+
+The following table lists the capabilities of each offering:
 
 | | Dapr secrets API | Secrets Store CSI driver |
 | --- | --- | ---|
@@ -187,11 +191,11 @@ For more information on the Secrets Store CSI driver and Azure Key Vault provide
 
 The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you're able to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (for example, provisioning the Dapr control plane in high availability mode).
 
-When installing Dapr OSS via helm or the Dapr CLI, runtime versions and configuration options are the responsibility of developers and cluster maintainers.  
+When installing Dapr open source via helm or the Dapr CLI, runtime versions and configuration options are the responsibility of developers and cluster maintainers.  
 
 Lastly, the Dapr extension is an extension of AKS, therefore you can expect the same support policy as other AKS features.
 
-[Learn more about migrating from Dapr OSS to the Dapr extension for AKS][dapr-migration].
+[Learn more about migrating from Dapr open source to the Dapr extension for AKS][dapr-migration].
 
 <a name='how-can-i-authenticate-dapr-components-with-azure-ad-using-managed-identities'></a>
 
