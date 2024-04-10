@@ -1,7 +1,7 @@
 ---
 title: Billing service for Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn about billing services for Extended Security Updates for Windows Server 2012 enabled by Azure Arc.
-ms.date: 12/19/2023
+ms.date: 04/10/2023
 ms.topic: conceptual
 ---
 
@@ -23,6 +23,8 @@ Billing is monthly. Decrementing, deactivating, or deleting a license will resul
 Licenses that are provisioned after the End of Support (EOS) date of October 10, 2023 are charged a back bill for the time elapsed since the EOS date. For example, an ESU license provisioned in December 2023 will be back-billed for October and November upon provisioning. Enrolling late in WS2012 ESUs makes you eligible for all the critical security patches up to that point. The back-billing charge reflects the value of these critical security patches.
 
 If you deactivate and then later reactivate a license, you'll be billed for the window during which the license was deactivated. It isn't possible to evade charges by deactivating a license before a critical security patch and reactivating it shortly before.
+
+If the region of an ESU license is changed, this will be subject to back-billing charges
 
 > [!NOTE]
 > The back-billing cost appears as a separate line item in invoicing. If you acquired a discount for your core WS2012 ESUs enabled by Azure Arc, the same discount may or may not apply to back-billing. You should verify that the same discounting, if applicable, has been applied to back-billing charges as well.
