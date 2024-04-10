@@ -46,13 +46,13 @@ az containerapp create -n my-containerapp -g MyResourceGroup \
 1. In the app's left menu, select Revisions and replicas > Create new revision
 :::image type="content" source="media/environment-variables/create-new-revision.png" alt-text="Screenshot of Container App Revision creation page.":::
 1. Then you have to edit the current existing container image:
-:::image type="content" source="media/environment-variables/create-new-revision.png" alt-text="Screenshot of Container App Revision creation page.":::
+:::image type="content" source="media/environment-variables/edit-revision.png" alt-text="Screenshot of Container App Revision container image settings page.":::
 1. On the Environment variables section, you can Add new Environment variables by clicking on Add.
 
 1. Then set the Name of your Environment variable and the Source (it can be a reference to a [secret](manage-secrets.md)).
-:::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision creation page.":::
+:::image type="content" source="media/environment-variables/secret-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section.":::
     1. If you select the Source as manual, you can manually input the Environment variable value.
-    :::image type="content" source="media/environment-variables/manual-env-var.png" alt-text="Screenshot of Container App Revision creation page.":::
+    :::image type="content" source="media/environment-variables/manual-env-var.png" alt-text="Screenshot of Container App Revision container image environment settings section with one of the environments source selected as Manual.":::
 
 # [Azure CLI](#tab/cli)
 
