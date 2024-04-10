@@ -65,10 +65,11 @@ Microsoft Entra Domain Services makes it simple to manage your identities. It pr
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
 1. For example, assume that you mounted your Azure Files share in the **/data/workspace** directory. Now, create directories for each of your users in the share:
-- /data/workspace/user1
-- /data/workspace/user2
-- etc.
-Create a `notebooks` directory in the workspace of each user 
+    - /data/workspace/user1
+    - /data/workspace/user2
+    - etc.
+
+   Create a `notebooks` directory in the workspace of each user
 1. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`
 
 You now have the users in your Active Directory instance, which is hosted in Azure. With Active Directory credentials, users can sign in to any DSVM (SSH or JupyterHub) that's joined to Microsoft Entra Domain Services. Because an Azure Files share hosts the user workspace, users can access their notebooks and other work from any DSVM, when they use JupyterHub.
