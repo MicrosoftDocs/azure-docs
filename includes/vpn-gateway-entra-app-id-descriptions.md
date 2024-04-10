@@ -23,6 +23,6 @@ When using the Azure VPN client first-party App ID, consider the following:
 
 * Azure Government, Azure Germany, and Azure operated by China 21Vianet aren't currently supported for first-party App ID.
 
-* Custom Audience (first-party) is supported.
-
 * The first-party App ID (Audience) value for the Azure VPN Client is different than the value you use for a third-party App ID.
+
+* Custom Audience is supported.

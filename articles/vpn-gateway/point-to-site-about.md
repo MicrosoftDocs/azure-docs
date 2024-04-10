@@ -43,7 +43,7 @@ The validation of the client certificate is performed by the VPN gateway and hap
 
 Microsoft Entra ID authentication allows users to connect to Azure using their Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is only supported for the OpenVPN protocol. Clients must use the Azure VPN Client in order to connect. There are two different App IDs, depending on whether you want to use first-party or third party authorized applications.
 
-[!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
 At a high level, you need to perform the following steps to configure Microsoft Entra ID authentication:
 

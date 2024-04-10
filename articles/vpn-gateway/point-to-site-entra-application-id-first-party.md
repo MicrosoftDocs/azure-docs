@@ -19,7 +19,7 @@ This article helps you configure your point-to-site (P2S) VPN gateway to use Mic
 
 ## About VPN Gateway and first-party App IDs
 
-[!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
 ## Prerequisites
 
