@@ -19,7 +19,7 @@ But, timeouts become increasingly frequent, especially when traffic spikes. The 
 
 You chose MongoDB for its flexibility. Now, when you need to manage cost while satisfying demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from chosing either of the two available architectures:
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
 
 ## Dynamically scale your MongoDB app
 
@@ -46,7 +46,7 @@ You point your app to the connection string of this fully managed database, whic
 
 - **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. You no longer have to wait for MongoDB Atlas or another MongoDB service you use to take hours to scale up and up to days to scale down.
 
-- **Automatic and transparent sharding**: The infrastructure is fully managed for you. This management includes sharding and optimizing the number of shards as your applications horizontally scale. The automatic and transparent sharding saves you the time and effort your previously spent on specifying and managing MongoDB Atlas sharding, and you can better focus on developing applications for your users.
+- **Automatic and transparent sharding**: The infrastructure is fully managed for you. This management includes sharding and optimizing the number of shards as your applications horizontally scale. The automatic and transparent sharding saves you the time and effort you previously spent on specifying and managing MongoDB Atlas sharding, and you can better focus on developing applications for your users.
 
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.
 
