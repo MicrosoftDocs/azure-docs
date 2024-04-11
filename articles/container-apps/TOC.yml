@@ -111,7 +111,9 @@
           href: tutorial-ci-cd-runners-jobs.md
           displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Revision management
-      href: revisions-manage.md    
+      href: revisions-manage.md
+    - name: Environment Variables
+      href: environment-variables.md    
     - name: Use health probes
       href: health-probes.md
     - name: Storage mounts
@@ -148,6 +150,8 @@
       href: log-monitoring.md
     - name: Alerts
       href: alerts.md
+    - name: OpenTelemetry agents
+      href: opentelemetry-agents.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -156,15 +160,16 @@
       href: tutorial-scaling.md
 - name: Domains & certificates
   items:
-    - name: Custom domains & certificates
-      items:
-        - name: Set up custom domain with a free certificate
-          href: custom-domains-managed-certificates.md
-          displayName: Set up custom domain with a managed certificate
-        - name: Set up custom domain with existing certificate
-          href: custom-domains-certificates.md        
-        - name: Set up environment custom DNS suffix
-          href: environment-custom-dns-suffix.md
+  - name: Overview
+    href: certificates-overview.md
+  - name: Set up custom domain with a free certificate
+    href: custom-domains-managed-certificates.md
+    displayName: Set up custom domain with a managed certificate
+  - name: Set up custom domain with existing certificate
+    href: custom-domains-certificates.md        
+  - name: Set up environment custom DNS suffix
+    href: environment-custom-dns-suffix.md
+
 - name: Authentication
   items:
     - name: Overview
@@ -187,6 +192,8 @@
   items:
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Token store
+      href: token-store.md
     - name: Managed identities
       items:
         - name: Use managed identities

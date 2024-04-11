@@ -191,6 +191,8 @@
         href: nsg-flow-logs-policy-portal.md
     - name: Manage VNet flow logs
       items:
+      - name: Azure portal
+        href: vnet-flow-logs-portal.md
       - name: PowerShell
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI

@@ -1,16 +1,16 @@
 ---
 title: Use Elasticsearch along with Apache Flink® on HDInsight on AKS
-description: Learn how to use Elasticsearch along Apache Flink® on HDInsight on AKS
+description: Learn how to use Elasticsearch along Apache Flink® on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 04/09/2024
 ---
 
 # Using Elasticsearch with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
+Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana.
 
 Flink can be used to analyze a stream of taxi ride events and compute metrics. Metrics can include number of rides per hour, the average fare per ride, or the most popular pickup locations. You can write these metrics to an Elasticsearch index using a Flink sink and use Kibana to connect and create charts or dashboards to display metrics in real-time.
 
@@ -18,7 +18,8 @@ In this article, learn how to Use Elastic along Apache Flink® on HDInsight on A
 
 ## Elasticsearch and Kibana
 
-Elasticsearch is a distributed, free and open search and analytics engine for all types of data, including 
+Elasticsearch is a distributed, free, and open search and analytics engine for all types of data, including.
+
 * Textual
 * Numerical
 * Geospatial
@@ -27,17 +28,17 @@ Elasticsearch is a distributed, free and open search and analytics engine for al
 
 Kibana is a free and open frontend application that sits on top of the elastic stack, providing search and data visualization capabilities for data indexed in Elasticsearch.
 
-For more information, refer 
+For more information, see.
 * [Elasticsearch](https://www.elastic.co)
 * [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html)
 
 
 ## Prerequisites
 
-* [Create Flink 1.16.0 cluster](./flink-create-cluster-portal.md) 
+* [Create Flink 1.17.0 cluster](./flink-create-cluster-portal.md) 
 * Elasticsearch-7.13.2 
 * Kibana-7.13.2 
-* [HDInsight 5.0 - Kafka 2.4.1](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [HDInsight 5.0 - Kafka 3.2.0](../../hdinsight/kafka/apache-kafka-get-started.md)
 * IntelliJ IDEA for development on an Azure VM which in the same Vnet
 
 
@@ -90,7 +91,7 @@ sudo apt install elasticsearch
 
 For installing and configuring Kibana Dashboard, we don’t need to add any other repository because the packages are available through the already added ElasticSearch. 
 
-We use the following command to install Kibana
+We use the following command to install Kibana.
 
 ```
 sudo apt install kibana
@@ -111,9 +112,9 @@ sudo apt install kibana
     ```
 ### Access the Kibana Dashboard web interface
 
-In order to make Kibana accessible from output, need to set network.host to 0.0.0.0 
+In order to make Kibana accessible from output, need to set network.host to 0.0.0.0.
 
-configure /etc/kibana/kibana.yml  on Ubuntu VM
+Configure `/etc/kibana/kibana.yml`  on Ubuntu VM
 
 > [!NOTE]
 > 10.0.1.4 is a local private IP, that we have used which can be accessed in maven project develop Windows VM. You're required to make modifications according to your network security requirements. We use the same IP later to demo for performing analytics on Kibana.
@@ -129,12 +130,12 @@ elasticsearch.hosts: ["http://10.0.1.4:9200"]
 
 ## Prepare Click Events on HDInsight Kafka
 
-We use python output as input to produce the streaming data
+We use python output as input to produce the streaming data.
 
 ```
 sshuser@hn0-contsk:~$ python weblog.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --bootstrap-server wn0-contsk:9092 --topic click_events
 ```
-Now, lets check messages in this topic
+Now, lets check messages in this topic.
 
 ```
 sshuser@hn0-contsk:~$ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server wn0-contsk:9092 --topic click_events
@@ -149,7 +150,7 @@ sshuser@hn0-contsk:~$ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.s
 
 ## Creating Kafka Sink to Elastic
 
-Let us write maven source code on the Windows VM
+Let us write maven source code on the Windows VM.
 
 **Main: kafkaSinkToElastic.java**
 ``` java
@@ -224,7 +225,7 @@ public class kafkaSinkToElastic {
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <kafka.version>3.2.0</kafka.version>
     </properties>
@@ -257,7 +258,7 @@ public class kafkaSinkToElastic {
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-elasticsearch7</artifactId>
-            <version>${flink.version}</version>
+            <version>3.0.1-1.17</version>
         </dependency>
     </dependencies>
     <build>
@@ -289,13 +290,11 @@ public class kafkaSinkToElastic {
 
 **Package the jar and submit to Flink to run on WebSSH**
 
-On [Secure Shell for Flink](./flink-web-ssh-on-portal-to-flink-sql.md), you can use the following commands
+On [Secure Shell for Flink](./flink-web-ssh-on-portal-to-flink-sql.md), you can use the following commands.
 
 ```
-msdata@pod-0 [ ~ ]$ ls -l FlinkElasticSearch-1.0-SNAPSHOT.jar 
--rw-r----- 1 msdata msdata 114616575 Jul 31 06:09 FlinkElasticSearch-1.0-SNAPSHOT.jar
-msdatao@pod-0 [ ~ ]$ bin/flink run -c contoso.example.kafkaSinkToElastic -j FlinkElasticSearch-1.0-SNAPSHOT.jar
-Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
+user@sshnode-0 [ ~ ]$ bin/flink run -c contoso.example.kafkaSinkToElastic -j FlinkElasticSearch-1.0-SNAPSHOT.jar
+Job has been submitted with JobID e043a0723960fd23f9420f73d3c4f14f
 ```
 ## Start Elasticsearch and Kibana to perform analytics on Kibana
 
@@ -329,7 +328,7 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 
 ## Validation on Apache Flink Job UI
 
-You can find the job in running state on your Flink Web UI
+You can find the job in running state on your Flink Web UI.
 
 :::image type="content" source="./media/sink-kafka-to-kibana/flink-elastic-job.png" alt-text="Screenshot showing Kibana UI to start Elasticsearch and Kibana and perform analytics on Kibana." lightbox="./media/sink-kafka-to-kibana/flink-elastic-job.png":::
 

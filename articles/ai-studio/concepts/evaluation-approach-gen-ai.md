@@ -2,15 +2,15 @@
 title: Evaluation of generative AI applications with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Explore the broader domain of monitoring and evaluating large language models through the establishment of precise metrics, the development of test sets for measurement, and the implementation of iterative testing.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 3/28/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Evaluation of generative AI applications

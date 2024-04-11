@@ -298,3 +298,4 @@ The `eraser-aks-xxxxx` pod deletes within 10 minutes after work completion. You 
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [trivy]: https://github.com/aquasecurity/trivy
 [az-aks-show]: /cli/azure/aks#az_aks_show
+

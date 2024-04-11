@@ -6,6 +6,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 02/12/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes

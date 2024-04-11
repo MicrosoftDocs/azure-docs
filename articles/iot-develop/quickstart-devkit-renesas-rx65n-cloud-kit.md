@@ -175,7 +175,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 > [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 1. Start **Termite**.
 1. Select **Settings**.
@@ -293,7 +293,7 @@ Select **About** tab from the device page.
 
 ## Troubleshoot
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 ## Clean up resources
 
@@ -310,7 +310,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

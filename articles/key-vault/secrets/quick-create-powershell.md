@@ -36,11 +36,7 @@ Connect-AzAccount
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to update the Key Vault access policy and grant secret permissions to your user account.
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets get,set,delete
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac-powershell.md)]
 
 ## Adding a secret to Key Vault
 

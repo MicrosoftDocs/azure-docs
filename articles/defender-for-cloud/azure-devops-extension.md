@@ -112,7 +112,7 @@ If you don't have access to install the extension, you must request access from 
     ```
 
     > [!NOTE]
-    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud. For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
+    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud. For additional tool configuration options and environment variables, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. To commit the pipeline, select **Save and run**.
 
@@ -120,6 +120,22 @@ The pipeline will run for a few minutes and save the results.
 
 > [!NOTE]
 > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
+
+## Uploading findings from third-party security tooling into Defender for Cloud
+
+While Defender for Cloud provides the MSDO CLI for standardized functionality and poliy controls across a set of open source security analyzers, you have the flexibility to upload results from other third-party security tooling that you may have configured in CI/CD pipelines to Defender for Cloud for comprehensive code-to-cloud contextualization. All results uploaded to Defender for Cloud must be in standard SARIF format.
+
+First, ensure your Azure DevOps repositories are [onboarded to Defender for Cloud](quickstart-onboard-devops.md). After successfully onboarding, Defender for Cloud continuously monitors the 'CodeAnalysisLogs' artifact for SARIF output. 
+
+You can use the 'PublishBuildArtifacts@1' task to ensure SARIF output is published to the correct artifact. For example, if a security analyzer outputs 'results.sarif', you can configure the following task in your job to ensure results are uploaded to Defender for Cloud: 
+
+   ```yml
+   - task: PublishBuildArtifacts@1
+     inputs:
+       PathtoPublish: 'results.sarif'
+       ArtifactName: 'CodeAnalysisLogs'
+   ```
+Findings from third-party security tools will appear as 'Azure DevOps repositories should have code scanning findings resolved' assessments associated with the repository the secuirty finding was identified in.
 
 ## Learn more
 

@@ -185,6 +185,10 @@
                   href: ../burst-capacity.md
                 - name: Burst capacity FAQ
                   href: ../burst-capacity-faq.yml
+            - name: Distribute throughput across partitions (preview) - container
+              items:
+                - name: Distribute throughput across partitions
+                  href: distribute-throughput-across-partitions.md
         - name: Analytics with Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB

@@ -110,8 +110,8 @@ To access data and other resources, Spark jobs can use either a managed identity
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Serverless Spark compute|User identity and managed identity|User identity|
-|Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
+|Serverless Spark compute|User identity, user-assigned managed identity attached to the workspace|User identity|
+|Attached Synapse Spark pool|User identity, user-assigned managed identity attached to the attached Synapse Spark pool, system-assigned managed identity of the attached Synapse Spark pool|System-assigned managed identity of the attached Synapse Spark pool|
 
 If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning serverless Spark compute relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
 

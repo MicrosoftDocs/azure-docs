@@ -1946,9 +1946,9 @@
         href: ./windows/tutorial-config-management.md
 - name: Monitoring
   items:
-  - name: Monitor virtual machines
+  - name: Monitor
     href: monitor-vm.md?toc=/azure/virtual-machines/toc.json
-  - name: Monitor virtual machine reference
+  - name: Monitoring data reference
     href: monitor-vm-reference.md?toc=/azure/virtual-machines/toc.json
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
