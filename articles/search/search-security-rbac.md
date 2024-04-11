@@ -500,7 +500,10 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 ## Disable API key authentication
 
-API keys can't be deleted, but they can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+Key access, or local authentication, can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+
+> [!NOTE]
+> Admin API keys can only be disabled, not deleted. Query API keys can be deleted.
 
 Owner or Contributor permissions are required to disable features.
 
@@ -565,3 +568,10 @@ To enable a Conditional Access policy for Azure AI Search, follow the below step
 
 > [!IMPORTANT]
 > If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies can't be enforced on a specific search service. Instead make sure you select the general **Azure AI Search** cloud app.
+
+## Troubleshooting Azure RBAC issues
+
+When developing applications that use role-based access control for authentication, some common issues may occur:
+
+* If the authorization token came from a [managed identity](/entra/identity/managed-identities-azure-resources/overview) and the appropriate permissions were recently assigned, it [may take several hours](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) for these permissions assignments to actually be reflected.
+* The search service may only allow [API-key based authentication](#configure-role-based-access-for-data-plane). If the service only allows API-key based authentication, then all requests used role-based authentication will automatically be denied regardless of the underlying permissions.
