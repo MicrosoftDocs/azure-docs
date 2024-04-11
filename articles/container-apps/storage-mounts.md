@@ -227,7 +227,7 @@ Azure Files storage has the following characteristics:
 * All containers that mount the share can access files written by any other container or method.
 * More than one Azure Files volume can be mounted in a single container.
 
-Azure Files supports both SMB and NFS protocols. You can mount an Azure Files share using either protocol.
+Azure Files supports both SMB and NFS protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
 > [!NOTE]
 > Support for mounting NFS shares in Azure Container Apps is in preview.
