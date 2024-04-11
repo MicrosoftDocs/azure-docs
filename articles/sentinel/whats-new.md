@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 04/03/2024
+ms.date: 04/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,9 +20,18 @@ The listed features were released in the last three months. For information abou
 
 ## April 2024
 
+- 
 - [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
 - [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
 - [Two anomaly detections discontinued](#two-anomaly-detections-discontinued)
+
+### Incident and entity triggers in playbooks are now Generally Availaible (GA)
+
+The ability to use incident and entity triggers is playbooks is now supported as GA.
+
+:::image type="content" source="media/whats-new/sentinel-triggers-ga.png" alt-text="Screenshot of the Microsoft Sentinel incident and entity options with no preview notice.":::
+
+For more information, see [Create a playbook](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Unified security operations platform in the Microsoft Defender portal (preview)
 

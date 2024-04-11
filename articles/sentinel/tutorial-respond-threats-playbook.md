@@ -4,7 +4,7 @@ description: Use this tutorial to help you use playbooks together with automatio
 ms.topic: tutorial
 author: batamig
 ms.author: bagol
-ms.date: 03/14/2024
+ms.date: 04/11/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -210,14 +210,14 @@ Since you selected **Blank playbook**, a new browser tab will open and take you 
 
 1. In the **Triggers** tab below, you will see the three triggers offered by Microsoft Sentinel:
     - Microsoft Sentinel alert (preview)
-    - Microsoft Sentinel entity (preview)
-    - Microsoft Sentinel incident (preview)
+    - Microsoft Sentinel entity
+    - Microsoft Sentinel incident
 
    Select the trigger that matches the type of playbook you are creating.
 
     :::image type="content" source="./media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
 
-    If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+    If you chose the **Microsoft Sentinel entity** trigger, select the type of entity you want this playbook to receive as an input.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types-standard.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
