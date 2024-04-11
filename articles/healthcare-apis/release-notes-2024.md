@@ -23,6 +23,10 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 The enhanced Upsert operation provides the ability to upload a DICOM image to the server and seamlessly replace it if it already exists. Before this enhancement, users had to perform a Delete operation followed by a STOW-RS to achieve the same result. With the enhanced Upsert operation, managing DICOM images is more efficient and streamlined.
 
+#### Expanded storage for required attributes
+
+The DICOM service allows users to upload DICOM files confidently, knowing that requests are limited to 4GB. Additionally, no single DICOM file or combination of files is allowed to exceed this limit. This enhancement ensures efficient management of medical imaging data while maintaining compliance with size restrictions.
+
 ### FHIR service
 
 #### The bulk delete operation is generally available
