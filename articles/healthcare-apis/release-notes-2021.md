@@ -2,12 +2,12 @@
 title: Release notes for 2021 Azure Health Data Services monthly releases 
 description: 2021 - Explore the new capabilities and benefits of Azure Health Data Services in 2021. Learn about the features and enhancements introduced in the FHIR, DICOM, and MedTech services that help you manage and analyze health data. 
 services: healthcare-apis
-author: kgaddam10
+author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: kavitagaddam 
+ms.author: jasteppe
 ms.custom: references_regions
 ---
 
