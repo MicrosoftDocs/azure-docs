@@ -1,6 +1,6 @@
 ---
 title: DevOps Security Capabilities in Defender CSPM | Defender for Cloud in the field
-description: Learn about devOps security capabilities in Defender for Cloud
+description: Learn about DevOps security capabilities in Defender for Cloud.
 ms.topic: reference
 ms.date: 04/11/2024
 ---
@@ -13,7 +13,7 @@ ms.date: 04/11/2024
 
 - [01:47](/shows/mdc-in-the-field/devops-security#time=01m54s) - What role does DevOps Security plays in a CNAPP solution?
 - [04:40](/shows/mdc-in-the-field/devops-security#time=04m40s) - What's new in Defender for Cloud DevOps Security GA?
-- [07:08](/shows/mdc-in-the-field/devops-security#time=07m08s) - How Defender for Cloud DevOps Security capabilities help customers to identify risk across devops state?
+- [07:08](/shows/mdc-in-the-field/devops-security#time=07m08s) - How Defenders for Cloud DevOps Security capabilities help customers to identify risk across devops state?
 - [09:38](/shows/mdc-in-the-field/devops-security#time=09m38s) - Code to cloud contextualization
 - [13:44](/shows/mdc-in-the-field/devops-security#time=13m44s) - Demonstration
 

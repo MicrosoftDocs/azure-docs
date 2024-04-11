@@ -1,6 +1,6 @@
 ---
 title: Risk prioritization | Defender for Cloud in the field
-description: Learn about risk prioritization in Defender for Cloud
+description: Learn about risk prioritization in Defender for Cloud.
 ms.topic: reference
 ms.date: 04/11/2024
 ---
