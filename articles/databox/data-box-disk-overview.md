@@ -90,6 +90,8 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 ## Features and specifications
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |

@@ -62,6 +62,8 @@ Data Box is designed to move large amounts of data to Azure with little to no im
 
 The Data Box device has the following features in this release.
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | < 50 lbs.                |
