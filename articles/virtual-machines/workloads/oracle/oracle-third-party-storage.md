@@ -12,7 +12,7 @@ ms.date: 03/26/2024
 
 # Third-party storage options for Oracle on Azure VMs
 
-This article describes third-party storage options for a high performance (IOPS and throughput) Oracle workload on Azure virtual machines (VMs). While Microsoft first-party storage offering for Oracle to Azure virtual machine migration is exhaustive in meeting IOPS and throughput. There are outliers use cases that require performance beyond the art of possible by first party storage offering for Oracle on Azure VMs. Considering this unique situation, we're listing the most tested and trusted partner/3rd party storage solutions. 
+This article describes third-party storage options for high performance (IOPS and throughput) Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. Use these trusted third-party storage solutions in these high performance use cases. 
 
 ## Oracle as a DBaaS on Azure 
 
