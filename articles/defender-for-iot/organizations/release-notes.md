@@ -115,21 +115,12 @@ This version includes the following updates and enhancements:
 - [Sensor time drift detection](whats-new.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
 - The following CVEs are resolved in this version:
-<<<<<<< HEAD
   - CVE-2024-29055
   - CVE-2024-29054
   - CVE-2024-29053
   - CVE-2024-21324
   - CVE-2024-21323
   - CVE-2024-21322
-=======
-    - CVE-2024-29055
-    - CVE-2024-29054
-    - CVE-2024-29053
-    - CVE-2024-21324
-    - CVE-2024-21323
-    - CVE-2024-21322
->>>>>>> 9f57fa6d28c952a046c57c88c9fd0a801be3ff34
 
 ### Version 24.1.2
 
