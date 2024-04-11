@@ -46,7 +46,7 @@ To use the Monitoring - Affirmed MCC Data Product:
 
     Alternatively, you can provide your own ingestion agent.
    
-1. Configure the EMS server to export PMStats to the SFTP server.
+1. Configure the EMS server to export PMStats to a remote server. If you are using the Azure Operator Insights ingestion agent, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server). If you are providing your own ingestion agent, the remote server just needs to be accessible by your ingestion agent.
 2. 
     1. IP address, user, and password of the [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server) are required for this step.
     2. Follow the instructions in the section [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) to configure the transfer of EMS stats to the SFTP server.
