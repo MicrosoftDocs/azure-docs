@@ -64,32 +64,32 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components and APIs
 
-#### Managed APIs
+#### Stable Dapr APIs
 
-The Dapr extension offers managed generally available and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. 
+The Dapr extension offers stable and alpha versions of Dapr APIs (building blocks). 
 
-- General Availability (GA): Indicates that the API is fully managed and supported for use in production environments. 
-- Preview: Preview APIs are available for early testing and aren't recommended for production. Preview support is provided at best effort.
-
-:::image type="content" source="media/dapr-overview/managed-dapr-building-blocks.png" alt-text="Diagram that shows managed Dapr APIs.":::
+- Stable: Indicates that the API is fully managed and supported for use in production environments. 
+- Alpha: Alpha APIs are available for early testing and aren't recommended for production. Alpha support is provided at best effort.
 
 | Dapr API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
-| [**Service-to-service invocation**][dapr-serviceinvo] | GA | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.(#limitations)                                     |
-| [**State management**][dapr-statemgmt]                | GA | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
-| [**Pub/sub**][dapr-pubsub]                            | GA | Allows publisher and subscriber apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file.                                                          |
-| [**Bindings**][dapr-bindings]                         | GA | Trigger your applications based on events                                                                                                                       |
-| [**Actors**][dapr-actors]                             | GA | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
-| **Observability**               | GA | Send tracing information to an Application Insights backend.                                                                                                    |
-| [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
-| [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
-| [**Workflow**][dapr-config]                           | Preview | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Stable | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.(#limitations)                                     |
+| [**State management**][dapr-statemgmt]                | Stable | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
+| [**Pub/sub**][dapr-pubsub]                            | Stable | Allows publisher and subscriber apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file.                                                          |
+| [**Bindings**][dapr-bindings]                         | Stable | Trigger your applications based on events.                                                                                                                       |
+| [**Actors**][dapr-actors]                             | Stable | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
+| **Observability**               | Stable | Send tracing information to an Application Insights backend.                                                                                                    |
+| [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
+| [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
+| [**Distributed Lock**][dapr-distlock]                           | Alpha | Provide exclusive access to a database row, table, or entire database, and more. stores.                                                                   |
+| [**Workflow**][dapr-config]                           | Alpha | Orchestrate microservices using workflow activities to support long-running and fault-tolerant aplications.                                                                   |
+| [**Cryptography**][dapr-crypto]                           | Alpha | Encrypt and decrypt messages without exposing cryptographic keys to your application.                                                                   |
 
 #### Managed versus standard components
 
-A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
+A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_.  
 
-- [Managed components:](#managed-components) Fully managed, GA components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
+- [Managed components:](#managed-components) Fully managed, stable components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
 - [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
 
 ##### Managed components
@@ -98,7 +98,7 @@ A subset of Dapr components is supported for the Dapr extension for AKS and Arc-
 | --- | --------- | ------ |
 | State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
 | Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
-| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br> | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
+| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br>Cron | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs`<br>`bindings.cron` |
 
 ##### Standard components
 
