@@ -199,4 +199,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Config Server for Spring settings](spring-cloud-config-server-usage.md)
+> [Customize Config Server for Spring settings](config-server-for-spring-usage.md)

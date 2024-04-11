@@ -146,7 +146,7 @@ Now that you have an existing environment, you can create your container app and
 
     The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
-    You can also [remove a binding](spring-cloud-eureka-server-usage.md#unbind) from your application.
+    You can also [remove a binding](eureka-server-for-spring-usage.md#unbind) from your application.
 
 ## Clean up resources
 
@@ -160,4 +160,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure Eureka Server for Spring settings](spring-cloud-eureka-server-usage.md)
+> [Configure Eureka Server for Spring settings](eureka-server-for-spring-usage.md)

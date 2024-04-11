@@ -181,4 +181,4 @@ Now you have a caller and callee application that communicate with each other us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a managed Eureka Server for Spring](spring-cloud-eureka-server.md)
+> [Tutorial: Connect to a managed Eureka Server for Spring](eureka-server-for-spring.md)
