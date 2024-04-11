@@ -32,8 +32,8 @@ When hibernating a VM:
 ## Supported configurations
 Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
 
-### Supported Operating systems
-Supported operating systems, OS specific limtations, and configuration procedures are listed the OS' documentation section.
+### Supported operating systems
+Supported operating systems, OS specific limitations, and configuration procedures are listed the OS' documentation section.
 
 [Windows VM hibernation documentation](./windows/hibernate-resume-windows.md#supported-configurations)
 
@@ -87,7 +87,7 @@ To configure hibernation on a Windows VM, check out the [Windows hibernation doc
 ## Troubleshooting
 Refer to the [Hibernation troubleshooting guide](./hibernate-resume-troubleshooting.md) for general troubleshooting information.
 
-Refer to the [Windows hibernation troubleshooting guide](./windows/hibernate-resume-troubleshooting-windows.md) for for issues with Windows guest hibernation.
+Refer to the [Windows hibernation troubleshooting guide](./windows/hibernate-resume-troubleshooting-windows.md) for issues with Windows guest hibernation.
 
 Refer to the [Linux hibernation troubleshooting guide](./linux/hibernate-resume-troubleshooting-linux.md) for issues with Linux guest hibernation.
 
@@ -118,7 +118,7 @@ Refer to the [Linux hibernation troubleshooting guide](./linux/hibernate-resume-
 - When a VM is hibernated, is there a capacity assurance at the time of starting the VM?
     - No, there's no capacity assurance for starting hibernated VMs. In rare scenarios if you encounter a capacity issue, then you can try starting the VM at a later time. 
 
-## Next Steps:
+## Next steps
 - [Learn more about Azure billing](/azure/cost-management-billing/)
 - [Learn about Azure Virtual Desktop](../virtual-desktop/overview.md)
 - [Look into Azure VM Sizes](sizes.md)

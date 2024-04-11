@@ -281,6 +281,6 @@ Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooti
 ## FAQs
 Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
-## Next Steps:
+## Next steps
 - [Learn more about Azure billing](/azure/cost-management-billing/)
 - [Look into Azure VM Sizes](../sizes.md)

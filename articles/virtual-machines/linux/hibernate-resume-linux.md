@@ -189,7 +189,7 @@ Set-AzVMExtension -Publisher Microsoft.CPlat.Core -ExtensionType LinuxHibernateE
 ### Hibernation-setup-tool 
 
 > [!NOTE]
-> If you've already installed the LinuxHibernateExtension you do not need to install the ibernation-setup-tool. These are redundant methods to enable hibernation on a Linux VM.
+> If you've already installed the LinuxHibernateExtension you do not need to install the hibernation-setup-tool. These are redundant methods to enable hibernation on a Linux VM.
 
 You can install the hibernation-setup-tool package on your Linux VM from Microsoft’s Linux software repository at [packages.microsoft.com](https://packages.microsoft.com).
 
@@ -237,6 +237,6 @@ Refer to the [Hibernate troubleshooting guide](../hibernate-resume-troubleshooti
 ## FAQs
 Refer to the [Hibernate FAQs](../hibernate-resume.md#faqs) for more information.
 
-## Next Steps:
+## Next steps
 - [Learn more about Azure billing](/azure/cost-management-billing/)
 - [Look into Azure VM Sizes](../sizes.md)
