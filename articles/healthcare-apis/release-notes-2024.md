@@ -25,7 +25,7 @@ The enhanced Upsert operation enables you to upload a DICOM image to the server 
 
 #### Expanded storage for required attributes
 
-The DICOM service allows users to upload DICOM files confidently, knowing that requests are limited to 4 GB. Additionally, no single DICOM file or combination of files is allowed to exceed this limit. This enhancement ensures efficient management of medical imaging data while maintaining compliance with size restrictions.
+The DICOM service now allows users to upload DICOM files up to 4 GB in size.  No single DICOM file or combination of files in a single request is allowed to exceed this limit.  
 
 ### FHIR service
 
